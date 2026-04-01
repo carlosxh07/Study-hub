@@ -280,22 +280,22 @@ body { font-family: var(--sans); background: var(--bg); color: var(--text); min-
 
     <div class="nav-label">Microeconomics</div>
     <button class="nav-btn" data-color="micro" onclick="showPage('micro-overview', this)">
-      <span class="nav-dot" style="background:var(--micro)"></span> All Sessions
+      <span class="nav-dot" style="background:var(--micro)"></span> All Chapters
     </button>
 
     <div class="nav-label">Macroeconomics</div>
     <button class="nav-btn" data-color="macro" onclick="showPage('macro-overview', this)">
-      <span class="nav-dot" style="background:var(--macro)"></span> All Sessions
+      <span class="nav-dot" style="background:var(--macro)"></span> All Chapters
     </button>
 
     <div class="nav-label">Intl. Business Trade</div>
     <button class="nav-btn" data-color="ibt" onclick="showPage('ibt-overview', this)">
-      <span class="nav-dot" style="background:var(--ibt)"></span> All Sessions
+      <span class="nav-dot" style="background:var(--ibt)"></span> All Chapters
     </button>
 
     <div class="nav-label">Intercultural Comp.</div>
     <button class="nav-btn" data-color="ic" onclick="showPage('ic-overview', this)">
-      <span class="nav-dot" style="background:var(--ic)"></span> All Sessions
+      <span class="nav-dot" style="background:var(--ic)"></span> All Chapters
     </button>
   </nav>
 </aside>
@@ -312,7 +312,7 @@ body { font-family: var(--sans); background: var(--bg); color: var(--text); min-
 
       <div class="subject-card sc-eu" onclick="showPage('eu-overview', null)">
         <div class="sc-name">EU Law</div>
-        <div class="sc-meta">13–15 sessions · Prof. Adrian Cloer</div>
+        <div class="sc-meta">Sessions · Prof. Adrian Cloer</div>
         <div class="sc-progress"><div class="sc-progress-fill" style="width:14%;background:var(--eu)"></div></div>
         <div class="sc-stats">
           <div class="sc-stat"><strong>2</strong> sessions loaded</div>
@@ -323,37 +323,37 @@ body { font-family: var(--sans); background: var(--bg); color: var(--text); min-
 
       <div class="subject-card sc-micro" onclick="showPage('micro-overview', null)">
         <div class="sc-name">Microeconomics</div>
-        <div class="sc-meta">13–15 sessions · Coming soon</div>
+        <div class="sc-meta">Chapters · Coming soon</div>
         <div class="sc-progress"><div class="sc-progress-fill" style="width:0%;background:var(--micro)"></div></div>
         <div class="sc-stats">
-          <div class="sc-stat"><strong>0</strong> sessions loaded</div>
+          <div class="sc-stat"><strong>0</strong> chapters loaded</div>
         </div>
       </div>
 
       <div class="subject-card sc-macro" onclick="showPage('macro-overview', null)">
         <div class="sc-name">Macroeconomics</div>
-        <div class="sc-meta">13–15 sessions · Coming soon</div>
+        <div class="sc-meta">Chapters · Coming soon</div>
         <div class="sc-progress"><div class="sc-progress-fill" style="width:0%;background:var(--macro)"></div></div>
         <div class="sc-stats">
-          <div class="sc-stat"><strong>0</strong> sessions loaded</div>
+          <div class="sc-stat"><strong>0</strong> chapters loaded</div>
         </div>
       </div>
 
       <div class="subject-card sc-ibt" onclick="showPage('ibt-overview', null)">
         <div class="sc-name">International Business Trade</div>
-        <div class="sc-meta">13–15 sessions · Coming soon</div>
+        <div class="sc-meta">Chapters · Coming soon</div>
         <div class="sc-progress"><div class="sc-progress-fill" style="width:0%;background:var(--ibt)"></div></div>
         <div class="sc-stats">
-          <div class="sc-stat"><strong>0</strong> sessions loaded</div>
+          <div class="sc-stat"><strong>0</strong> chapters loaded</div>
         </div>
       </div>
 
       <div class="subject-card sc-ic" onclick="showPage('ic-overview', null)">
         <div class="sc-name">Intercultural Competence</div>
-        <div class="sc-meta">13–15 sessions · Coming soon</div>
+        <div class="sc-meta">Chapters · Coming soon</div>
         <div class="sc-progress"><div class="sc-progress-fill" style="width:0%;background:var(--ic)"></div></div>
         <div class="sc-stats">
-          <div class="sc-stat"><strong>0</strong> sessions loaded</div>
+          <div class="sc-stat"><strong>0</strong> chapters loaded</div>
         </div>
       </div>
 
@@ -364,7 +364,7 @@ body { font-family: var(--sans); background: var(--bg); color: var(--text); min-
   <div id="page-eu-overview" class="page">
     <div class="page-eyebrow" style="color:var(--eu)">EU Law</div>
     <div class="page-title">All Sessions</div>
-    <div class="page-desc">Select a session to access its summary, flashcards, and quiz.</div>
+    <div class="page-desc">Select a session to access its summary, flashcards, and quiz. EU Law is structured by session number.</div>
     <div class="lectures-list" id="eu-lectures"></div>
   </div>
 
@@ -607,45 +607,45 @@ body { font-family: var(--sans); background: var(--bg); color: var(--text); min-
   <!-- MICRO OVERVIEW -->
   <div id="page-micro-overview" class="page">
     <div class="page-eyebrow" style="color:var(--micro)">Microeconomics</div>
-    <div class="page-title">All Sessions</div>
-    <div class="page-desc">No sessions loaded yet. Share your lecture notes to get started.</div>
+    <div class="page-title">All Chapters</div>
+    <div class="page-desc">No chapters loaded yet. Share your lecture notes to get started.</div>
     <div class="lectures-list" id="micro-lectures"></div>
     <div class="empty-state" style="margin-top:20px">
       <h3>Ready to populate</h3>
-      <p>Upload your Micro lecture slides or notes and I'll build the summary, flashcards, and quiz for each session.</p>
+      <p>Upload your Micro notes and I'll build the summary, flashcards, and quiz for each chapter.</p>
     </div>
   </div>
 
   <!-- MACRO OVERVIEW -->
   <div id="page-macro-overview" class="page">
     <div class="page-eyebrow" style="color:var(--macro)">Macroeconomics</div>
-    <div class="page-title">All Sessions</div>
-    <div class="page-desc">No sessions loaded yet. Share your lecture notes to get started.</div>
+    <div class="page-title">All Chapters</div>
+    <div class="page-desc">No chapters loaded yet. Share your lecture notes to get started.</div>
     <div class="empty-state" style="margin-top:20px">
       <h3>Ready to populate</h3>
-      <p>Upload your Macro lecture slides or notes and I'll build the summary, flashcards, and quiz for each session.</p>
+      <p>Upload your Macro notes and I'll build the summary, flashcards, and quiz for each chapter.</p>
     </div>
   </div>
 
   <!-- IBT OVERVIEW -->
   <div id="page-ibt-overview" class="page">
     <div class="page-eyebrow" style="color:var(--ibt)">International Business Trade</div>
-    <div class="page-title">All Sessions</div>
-    <div class="page-desc">No sessions loaded yet. Share your lecture notes to get started.</div>
+    <div class="page-title">All Chapters</div>
+    <div class="page-desc">No chapters loaded yet. Share your lecture notes to get started.</div>
     <div class="empty-state" style="margin-top:20px">
       <h3>Ready to populate</h3>
-      <p>Upload your IBT lecture slides or notes and I'll build the summary, flashcards, and quiz for each session.</p>
+      <p>Upload your IBT notes and I'll build the summary, flashcards, and quiz for each chapter.</p>
     </div>
   </div>
 
   <!-- IC OVERVIEW -->
   <div id="page-ic-overview" class="page">
     <div class="page-eyebrow" style="color:var(--ic)">Intercultural Competence</div>
-    <div class="page-title">All Sessions</div>
-    <div class="page-desc">No sessions loaded yet. Share your lecture notes to get started.</div>
+    <div class="page-title">All Chapters</div>
+    <div class="page-desc">No chapters loaded yet. Share your lecture notes to get started.</div>
     <div class="empty-state" style="margin-top:20px">
       <h3>Ready to populate</h3>
-      <p>Upload your IC lecture slides or notes and I'll build the summary, flashcards, and quiz for each session.</p>
+      <p>Upload your IC notes and I'll build the summary, flashcards, and quiz for each chapter.</p>
     </div>
   </div>
 
@@ -656,7 +656,7 @@ body { font-family: var(--sans); background: var(--bg); color: var(--text); min-
 // ── Data ──
 const euLectures = [
   { id: 'v-vi', title: 'Sessions V & VI', sub: 'Nature of EU Law · BEPS · Landmark Cases', hasContent: true },
-  ...Array.from({length:13}, (_,i) => ({ id: 'placeholder', title: `Session ${i+3 > 14 ? 'XIV–XV' : 'VII–' + (i+3)}`, sub: 'Not yet added', hasContent: false })).slice(0,12)
+  { id: 'placeholder', title: 'More sessions coming', sub: 'Share your notes to add the next session', hasContent: false },
 ];
 
 // ── Navigation ──
