@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Study Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f7f6f2;
+  --surface: #ffffff;
+  --surface2: #f0ede6;
+  --border: #e8e4db;
+  --border2: #d4cfc4;
+  --text: #1c1b18;
+  --text2: #6b6760;
+  --text3: #a09c94;
+  --radius: 14px;
+  --radius-sm: 9px;
+  --shadow: 0 1px 2px rgba(0,0,0,.05), 0 4px 14px rgba(0,0,0,.05);
+  --shadow-md: 0 2px 6px rgba(0,0,0,.07), 0 10px 30px rgba(0,0,0,.08);
+  --serif: 'Instrument Serif', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+
+  /* Subject colors */
+  --eu:    #2d5a9e; --eu-l:    #e8eef8; --eu-m:    #b5d0f0;
+  --micro: #1a7a5e; --micro-l: #e4f4ef; --micro-m: #9fddcc;
+  --macro: #8a5c00; --macro-l: #fdf3d9; --macro-m: #f5cc6e;
+  --ibt:   #7a2d6e; --ibt-l:   #f6eaf4; --ibt-m:   #dcb0d6;
+  --ic:    #9c3520; --ic-l:    #fdeee9; --ic-m:    #f5b8a8;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--sans); background: var(--bg); color: var(--text); min-height: 100vh; font-size: 15px; line-height: 1.6; }
+
+/* ── App Shell ── */
+.shell { display: flex; min-height: 100vh; }
+
+/* ── Sidebar ── */
+.sidebar {
+  width: 240px; flex-shrink: 0;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  display: flex; flex-direction: column;
+  position: sticky; top: 0; height: 100vh; overflow-y: auto;
+}
+.logo {
+  padding: 24px 20px 20px;
+  border-bottom: 1px solid var(--border);
+}
+.logo-title { font-family: var(--serif); font-size: 20px; line-height: 1.2; }
+.logo-sub { font-size: 11px; color: var(--text3); letter-spacing: .05em; text-transform: uppercase; margin-top: 3px; }
+.nav { padding: 16px 12px; flex: 1; }
+.nav-label { font-size: 10px; font-weight: 600; letter-spacing: .09em; text-transform: uppercase; color: var(--text3); padding: 0 8px; margin: 12px 0 4px; }
+.nav-label:first-child { margin-top: 0; }
+.nav-btn {
+  display: flex; align-items: center; gap: 10px;
+  width: 100%; padding: 8px 10px; border-radius: var(--radius-sm);
+  border: none; background: none; cursor: pointer;
+  font-family: var(--sans); font-size: 13.5px; color: var(--text2);
+  text-align: left; transition: all .15s;
+}
+.nav-btn:hover { background: var(--surface2); color: var(--text); }
+.nav-btn.active { background: var(--eu-l); color: var(--eu); font-weight: 500; }
+.nav-btn.active[data-color="micro"] { background: var(--micro-l); color: var(--micro); }
+.nav-btn.active[data-color="macro"] { background: var(--macro-l); color: var(--macro); }
+.nav-btn.active[data-color="ibt"]   { background: var(--ibt-l);   color: var(--ibt);   }
+.nav-btn.active[data-color="ic"]    { background: var(--ic-l);    color: var(--ic);    }
+.nav-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.nav-sub {
+  display: flex; align-items: center; gap: 10px;
+  width: 100%; padding: 6px 10px 6px 28px;
+  border-radius: var(--radius-sm); border: none; background: none;
+  cursor: pointer; font-family: var(--sans); font-size: 12.5px;
+  color: var(--text3); text-align: left; transition: all .15s;
+}
+.nav-sub:hover { background: var(--surface2); color: var(--text2); }
+.nav-sub.active { color: var(--text); font-weight: 500; }
+
+/* ── Main ── */
+.main { flex: 1; overflow-y: auto; }
+
+/* ── Pages ── */
+.page { display: none; padding: 44px 52px; max-width: 900px; }
+.page.active { display: block; }
+
+/* ── Dashboard ── */
+.dash-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 8px; }
+.subject-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 22px 24px;
+  box-shadow: var(--shadow); cursor: pointer; transition: all .2s;
+  position: relative; overflow: hidden;
+}
+.subject-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+}
+.subject-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.sc-eu::before    { background: var(--eu); }
+.sc-micro::before { background: var(--micro); }
+.sc-macro::before { background: var(--macro); }
+.sc-ibt::before   { background: var(--ibt); }
+.sc-ic::before    { background: var(--ic); }
+.sc-name { font-family: var(--serif); font-size: 19px; margin-bottom: 4px; }
+.sc-meta { font-size: 12px; color: var(--text3); margin-bottom: 14px; }
+.sc-progress { height: 4px; background: var(--border); border-radius: 2px; margin-bottom: 8px; overflow: hidden; }
+.sc-progress-fill { height: 100%; border-radius: 2px; }
+.sc-stats { display: flex; gap: 16px; }
+.sc-stat { font-size: 12px; color: var(--text3); }
+.sc-stat strong { color: var(--text2); font-weight: 600; }
+
+/* ── Subject overview ── */
+.page-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--text3); margin-bottom: 6px; }
+.page-title { font-family: var(--serif); font-size: 36px; line-height: 1.15; margin-bottom: 8px; }
+.page-desc { font-size: 14px; color: var(--text2); margin-bottom: 32px; }
+.lectures-list { display: flex; flex-direction: column; gap: 10px; }
+.lec-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 18px 22px;
+  box-shadow: var(--shadow); display: flex; align-items: center;
+  gap: 16px; cursor: pointer; transition: all .2s;
+}
+.lec-card:hover { box-shadow: var(--shadow-md); border-color: var(--border2); }
+.lec-card.empty { opacity: .5; cursor: default; }
+.lec-card.empty:hover { box-shadow: var(--shadow); border-color: var(--border); transform: none; }
+.lec-num {
+  width: 40px; height: 40px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 600; flex-shrink: 0;
+}
+.lec-info { flex: 1; }
+.lec-title { font-size: 14px; font-weight: 500; color: var(--text); }
+.lec-sub { font-size: 12px; color: var(--text3); margin-top: 1px; }
+.lec-badges { display: flex; gap: 6px; }
+.lec-badge {
+  font-size: 11px; padding: 2px 8px; border-radius: 20px;
+  border: 1px solid var(--border);
+  color: var(--text3); background: var(--surface2);
+}
+.lec-badge.has { color: var(--text2); background: var(--surface); border-color: var(--border2); }
+
+/* ── Lecture study page ── */
+.study-tabs { display: flex; gap: 4px; margin-bottom: 28px; border-bottom: 1px solid var(--border); padding-bottom: 0; }
+.study-tab {
+  padding: 10px 18px; border: none; background: none;
+  font-family: var(--sans); font-size: 13.5px; font-weight: 400;
+  color: var(--text3); cursor: pointer; border-bottom: 2px solid transparent;
+  margin-bottom: -1px; transition: all .15s;
+}
+.study-tab:hover { color: var(--text2); }
+.study-tab.active { color: var(--text); font-weight: 500; border-bottom-color: var(--eu); }
+.study-panel { display: none; }
+.study-panel.active { display: block; }
+
+/* ── Summary cards ── */
+.sum-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 20px 24px;
+  box-shadow: var(--shadow); margin-bottom: 14px;
+}
+.sum-title { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+.sum-card p { font-size: 13.5px; color: var(--text2); line-height: 1.7; }
+.sum-card ul { font-size: 13.5px; color: var(--text2); line-height: 1.75; padding-left: 18px; margin-top: 6px; }
+.sum-card ul li { margin-bottom: 3px; }
+.badge { display: inline-flex; align-items: center; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 20px; }
+.b-eu     { background: var(--eu-l);    color: var(--eu); }
+.b-teal   { background: var(--micro-l); color: var(--micro); }
+.b-amber  { background: var(--macro-l); color: var(--macro); }
+.b-coral  { background: var(--ic-l);    color: var(--ic); }
+.b-purple { background: var(--ibt-l);   color: var(--ibt); }
+.note-box {
+  border-left: 3px solid var(--eu-m); background: var(--eu-l);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 10px 14px; font-size: 13px; color: var(--text2);
+  line-height: 1.6; margin-top: 10px;
+}
+
+/* ── Flashcards ── */
+.fc-controls { display: flex; align-items: center; gap: 10px; margin-bottom: 22px; flex-wrap: wrap; }
+.fc-counter { font-size: 13px; color: var(--text3); }
+.btn { padding: 8px 18px; border-radius: var(--radius-sm); border: 1px solid var(--border2); background: var(--surface); font-family: var(--sans); font-size: 13px; font-weight: 500; cursor: pointer; color: var(--text); transition: all .15s; }
+.btn:hover { background: var(--surface2); }
+.btn-primary { background: var(--eu); color: white; border-color: var(--eu); }
+.btn-primary:hover { opacity: .9; }
+.flashcard-wrap { perspective: 1200px; margin-bottom: 20px; }
+.flashcard { width: 100%; min-height: 240px; position: relative; transform-style: preserve-3d; transition: transform .5s cubic-bezier(.4,0,.2,1); cursor: pointer; }
+.flashcard.flipped { transform: rotateY(180deg); }
+.fc-face { position: absolute; inset: 0; backface-visibility: hidden; border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow-md); display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 32px 40px; text-align: center; }
+.fc-front { background: var(--surface); }
+.fc-back { background: var(--eu); transform: rotateY(180deg); }
+.fc-label { font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 12px; }
+.fc-front .fc-label { color: var(--text3); }
+.fc-back .fc-label { color: rgba(255,255,255,.6); }
+.fc-question { font-family: var(--serif); font-size: 21px; line-height: 1.35; color: var(--text); }
+.fc-answer { font-size: 14.5px; line-height: 1.65; color: white; }
+.fc-src { font-size: 11px; color: rgba(255,255,255,.55); margin-top: 14px; }
+.fc-hint { font-size: 12px; color: var(--text3); margin-top: 14px; }
+.fc-nav { display: flex; gap: 10px; justify-content: center; }
+
+/* ── Quiz ── */
+.quiz-prog { height: 4px; background: var(--border); border-radius: 2px; margin-bottom: 24px; overflow: hidden; }
+.quiz-prog-fill { height: 100%; border-radius: 2px; background: var(--eu); transition: width .4s ease; }
+.quiz-meta { font-size: 12.5px; color: var(--text3); margin-bottom: 18px; }
+.quiz-q { font-family: var(--serif); font-size: 22px; line-height: 1.35; color: var(--text); margin-bottom: 22px; }
+.quiz-opts { display: flex; flex-direction: column; gap: 9px; margin-bottom: 20px; }
+.quiz-opt { padding: 13px 18px; border-radius: var(--radius-sm); border: 1.5px solid var(--border); background: var(--surface); cursor: pointer; font-size: 14px; color: var(--text); text-align: left; transition: all .15s; font-family: var(--sans); }
+.quiz-opt:hover:not([disabled]) { border-color: var(--eu); background: var(--eu-l); color: var(--eu); }
+.quiz-opt.correct { border-color: var(--micro); background: var(--micro-l); color: var(--micro); }
+.quiz-opt.wrong   { border-color: var(--ic);    background: var(--ic-l);    color: var(--ic); }
+.quiz-opt[disabled] { cursor: default; }
+.quiz-fb { padding: 14px 18px; border-radius: var(--radius-sm); font-size: 13.5px; line-height: 1.6; display: none; margin-bottom: 16px; }
+.quiz-fb.show { display: block; }
+.quiz-fb.correct { background: var(--micro-l); color: var(--micro); border: 1px solid var(--micro-m); }
+.quiz-fb.wrong   { background: var(--ic-l);    color: var(--ic);    border: 1px solid var(--ic-m); }
+.quiz-score-screen { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 48px; text-align: center; box-shadow: var(--shadow-md); display: none; }
+.quiz-score-screen.show { display: block; }
+.score-big { font-family: var(--serif); font-size: 64px; color: var(--eu); }
+.score-lbl { font-size: 14px; color: var(--text2); margin-top: 4px; }
+.score-msg { font-size: 16px; color: var(--text); margin: 18px 0 24px; }
+
+/* ── Empty state ── */
+.empty-state { text-align: center; padding: 60px 40px; color: var(--text3); }
+.empty-state h3 { font-family: var(--serif); font-size: 22px; color: var(--text2); margin-bottom: 8px; }
+.empty-state p { font-size: 14px; line-height: 1.6; }
+
+/* ── Timeline (reused from EU hub) ── */
+.timeline { position: relative; padding-left: 28px; }
+.timeline::before { content: ''; position: absolute; left: 8px; top: 8px; bottom: 8px; width: 2px; background: linear-gradient(to bottom, var(--eu), var(--micro), var(--macro), var(--ic), var(--ibt)); border-radius: 2px; }
+.tl-item { position: relative; margin-bottom: 24px; }
+.tl-dot { position: absolute; left: -24px; top: 5px; width: 14px; height: 14px; border-radius: 50%; border: 2.5px solid var(--surface); box-shadow: 0 0 0 1.5px currentColor; }
+.tl-year { font-size: 11px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--text3); margin-bottom: 2px; }
+.tl-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 18px; box-shadow: var(--shadow); cursor: pointer; transition: all .2s; }
+.tl-card:hover { box-shadow: var(--shadow-md); transform: translateX(3px); }
+.tl-title { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 5px; }
+.tl-body { font-size: 13px; color: var(--text2); margin-top: 10px; line-height: 1.65; display: none; }
+.tl-body.open { display: block; }
+.tl-toggle { font-size: 12px; color: var(--eu); cursor: pointer; margin-top: 4px; }
+
+/* ── Articles grid ── */
+.art-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.art-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 18px; box-shadow: var(--shadow); cursor: pointer; transition: all .2s; }
+.art-card:hover { box-shadow: var(--shadow-md); }
+.art-num { font-family: var(--serif); font-size: 26px; color: var(--eu); font-style: italic; }
+.art-name { font-size: 13px; font-weight: 600; color: var(--text); margin: 2px 0; }
+.art-desc { font-size: 12.5px; color: var(--text2); line-height: 1.5; }
+.art-detail { display: none; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); font-size: 12.5px; color: var(--text2); line-height: 1.6; }
+.art-detail.open { display: block; }
+
+/* ── Responsive ── */
+@media (max-width: 700px) {
+  .sidebar { display: none; }
+  .page { padding: 24px 20px; }
+  .dash-grid { grid-template-columns: 1fr; }
+  .art-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="shell">
+
+<!-- ══ SIDEBAR ══ -->
+<aside class="sidebar">
+  <div class="logo">
+    <div class="logo-title">Study Hub</div>
+    <div class="logo-sub">Semester Overview</div>
+  </div>
+  <nav class="nav">
+    <div class="nav-label">Overview</div>
+    <button class="nav-btn active" data-color="dash" onclick="showPage('dashboard', this)">
+      <span class="nav-dot" style="background:var(--text3)"></span> Dashboard
+    </button>
+
+    <div class="nav-label">EU Law</div>
+    <button class="nav-btn" data-color="eu" onclick="showPage('eu-overview', this)">
+      <span class="nav-dot" style="background:var(--eu)"></span> All Sessions
+    </button>
+    <button class="nav-sub" onclick="showLecture('eu','v-vi', this)">Sessions V &amp; VI</button>
+    <button class="nav-sub" onclick="showLecture('eu','placeholder', this)">+ More coming</button>
+
+    <div class="nav-label">Microeconomics</div>
+    <button class="nav-btn" data-color="micro" onclick="showPage('micro-overview', this)">
+      <span class="nav-dot" style="background:var(--micro)"></span> All Sessions
+    </button>
+
+    <div class="nav-label">Macroeconomics</div>
+    <button class="nav-btn" data-color="macro" onclick="showPage('macro-overview', this)">
+      <span class="nav-dot" style="background:var(--macro)"></span> All Sessions
+    </button>
+
+    <div class="nav-label">Intl. Business Trade</div>
+    <button class="nav-btn" data-color="ibt" onclick="showPage('ibt-overview', this)">
+      <span class="nav-dot" style="background:var(--ibt)"></span> All Sessions
+    </button>
+
+    <div class="nav-label">Intercultural Comp.</div>
+    <button class="nav-btn" data-color="ic" onclick="showPage('ic-overview', this)">
+      <span class="nav-dot" style="background:var(--ic)"></span> All Sessions
+    </button>
+  </nav>
+</aside>
+
+<!-- ══ MAIN ══ -->
+<main class="main">
+
+  <!-- DASHBOARD -->
+  <div id="page-dashboard" class="page active">
+    <div class="page-eyebrow">Spring Semester</div>
+    <div class="page-title">Study Hub</div>
+    <div class="page-desc">5 subjects · Click a subject to explore sessions and study tools.</div>
+    <div class="dash-grid">
+
+      <div class="subject-card sc-eu" onclick="showPage('eu-overview', null)">
+        <div class="sc-name">EU Law</div>
+        <div class="sc-meta">13–15 sessions · Prof. Adrian Cloer</div>
+        <div class="sc-progress"><div class="sc-progress-fill" style="width:14%;background:var(--eu)"></div></div>
+        <div class="sc-stats">
+          <div class="sc-stat"><strong>2</strong> sessions loaded</div>
+          <div class="sc-stat"><strong>12</strong> flashcards</div>
+          <div class="sc-stat"><strong>10</strong> quiz questions</div>
+        </div>
+      </div>
+
+      <div class="subject-card sc-micro" onclick="showPage('micro-overview', null)">
+        <div class="sc-name">Microeconomics</div>
+        <div class="sc-meta">13–15 sessions · Coming soon</div>
+        <div class="sc-progress"><div class="sc-progress-fill" style="width:0%;background:var(--micro)"></div></div>
+        <div class="sc-stats">
+          <div class="sc-stat"><strong>0</strong> sessions loaded</div>
+        </div>
+      </div>
+
+      <div class="subject-card sc-macro" onclick="showPage('macro-overview', null)">
+        <div class="sc-name">Macroeconomics</div>
+        <div class="sc-meta">13–15 sessions · Coming soon</div>
+        <div class="sc-progress"><div class="sc-progress-fill" style="width:0%;background:var(--macro)"></div></div>
+        <div class="sc-stats">
+          <div class="sc-stat"><strong>0</strong> sessions loaded</div>
+        </div>
+      </div>
+
+      <div class="subject-card sc-ibt" onclick="showPage('ibt-overview', null)">
+        <div class="sc-name">International Business Trade</div>
+        <div class="sc-meta">13–15 sessions · Coming soon</div>
+        <div class="sc-progress"><div class="sc-progress-fill" style="width:0%;background:var(--ibt)"></div></div>
+        <div class="sc-stats">
+          <div class="sc-stat"><strong>0</strong> sessions loaded</div>
+        </div>
+      </div>
+
+      <div class="subject-card sc-ic" onclick="showPage('ic-overview', null)">
+        <div class="sc-name">Intercultural Competence</div>
+        <div class="sc-meta">13–15 sessions · Coming soon</div>
+        <div class="sc-progress"><div class="sc-progress-fill" style="width:0%;background:var(--ic)"></div></div>
+        <div class="sc-stats">
+          <div class="sc-stat"><strong>0</strong> sessions loaded</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- EU LAW OVERVIEW -->
+  <div id="page-eu-overview" class="page">
+    <div class="page-eyebrow" style="color:var(--eu)">EU Law</div>
+    <div class="page-title">All Sessions</div>
+    <div class="page-desc">Select a session to access its summary, flashcards, and quiz.</div>
+    <div class="lectures-list" id="eu-lectures"></div>
+  </div>
+
+  <!-- EU LAW — Sessions V & VI -->
+  <div id="page-eu-v-vi" class="page">
+    <div class="page-eyebrow" style="color:var(--eu)">EU Law · Sessions V &amp; VI</div>
+    <div class="page-title">Nature of EU Law</div>
+    <div class="page-desc">BEPS wrap-up, EU history, and the 5 landmark cases shaping EU legal order.</div>
+
+    <div class="study-tabs">
+      <button class="study-tab active" onclick="showTab('eu-vi','summary',this)">Summary</button>
+      <button class="study-tab" onclick="showTab('eu-vi','timeline',this)">Case Timeline</button>
+      <button class="study-tab" onclick="showTab('eu-vi','articles',this)">Articles</button>
+      <button class="study-tab" onclick="showTab('eu-vi','flashcards',this)">Flashcards</button>
+      <button class="study-tab" onclick="showTab('eu-vi','quiz',this)">Quiz</button>
+    </div>
+
+    <!-- SUMMARY -->
+    <div id="eu-vi-summary" class="study-panel active">
+
+      <div class="sum-card">
+        <div class="sum-title"><span class="badge b-amber">Session V — Wrap-Up</span></div>
+        <p>Session V recapped earlier material across three areas:</p>
+        <ul>
+          <li><strong>BEPS &amp; Global Tax Reform</strong> — OECD/G20 project targeting multinational tax avoidance. <em>Pillar 1</em>: reallocates taxing rights to market jurisdictions (currently stalled — USA withdrew support). <em>Pillar 2</em>: 15% global minimum corporate tax for MNEs with &gt;€750m revenue, implemented in EU via Directive 2022/2523.</li>
+          <li><strong>Legal Systems &amp; Rule of Law</strong> — Rule of law (Art. 2 TEU) has 6 aspects: legality, legal certainty, no arbitrary executive power, effective judicial protection, separation of powers, equality. Council of Europe (≠ EU!) — 46 states, home of the ECHR. German Basic Law: 5 state principles (Democracy, Rechtsstaat, Republic, Federalism, Sozialstaat).</li>
+          <li><strong>EU History</strong> — 1951 ECSC → 1957 EEC/Euratom → 1992 Maastricht → 2002 Euro → 2009 Lisbon (Charter binding) → 2016 Brexit.</li>
+        </ul>
+      </div>
+
+      <div class="sum-card">
+        <div class="sum-title"><span class="badge b-eu">Session VI — The 5 Landmark Cases</span></div>
+        <p>The prof's emphasis: it's not about memorising every fact — it's about the <em>method</em> of working through a case. Always: identify the conflict → apply the principle → draw the consequence.</p>
+        <div class="note-box"><strong>Exam structure tip:</strong> (1) Identify EU vs. national law conflict → (2) Apply primacy → (3) Check direct effect → (4) Apply Simmenthal → (5) If directive not implemented → Francovich.</div>
+      </div>
+
+      <div class="sum-card">
+        <div class="sum-title">EU Legal Order Structure</div>
+        <ul>
+          <li><strong>Primary law</strong>: TEU + TFEU + Charter of Fundamental Rights (all equal legal value since Lisbon)</li>
+          <li><strong>Regulation</strong> (Art. 288(2)): binding in entirety, directly applicable, no national implementation needed</li>
+          <li><strong>Directive</strong> (Art. 288(3)): binding as to result, MS chooses form &amp; method. Can have vertical direct effect once deadline lapses.</li>
+          <li><strong>Decision</strong> (Art. 288(4)): binding only on specific addressees</li>
+          <li><strong>Soft law</strong>: recommendations &amp; opinions — not binding</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- TIMELINE -->
+    <div id="eu-vi-timeline" class="study-panel">
+      <div class="timeline">
+
+        <div class="tl-item">
+          <div class="tl-dot" style="color:var(--eu)"></div>
+          <div class="tl-year">1963</div>
+          <div class="tl-card" onclick="toggleTl(this)">
+            <div class="tl-title">Van Gend en Loos · <span style="font-weight:400;color:var(--text3)">Case 26/62</span></div>
+            <span class="badge b-eu">⚡ Direct Effect</span>
+            <div class="tl-toggle">+ Show details</div>
+            <div class="tl-body">
+              <strong>Facts:</strong> Dutch company's import duty raised from 3% → 8%, violating EEC standstill clause.<br><br>
+              <strong>Legal question:</strong> Can individuals directly rely on EU law in national courts?<br><br>
+              <strong>Holding:</strong> Yes. EEC = "new legal order." Individuals have rights under EU law enforceable without MS action.<br><br>
+              <strong>3 Requirements:</strong> Provision must be (1) clear, (2) precise, (3) unconditional.<br><br>
+              <strong>Basis:</strong> Art. 30 TFEU (ex Art. 12 EEC).
+            </div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot" style="color:var(--micro)"></div>
+          <div class="tl-year">1964</div>
+          <div class="tl-card" onclick="toggleTl(this)">
+            <div class="tl-title">Costa v. ENEL · <span style="font-weight:400;color:var(--text3)">Case 6/64</span></div>
+            <span class="badge b-teal">⚡ Primacy of EU Law</span>
+            <div class="tl-toggle">+ Show details</div>
+            <div class="tl-body">
+              <strong>Facts:</strong> Italy nationalised electricity sector. Costa refused to pay bill, arguing it violated EEC law.<br><br>
+              <strong>Holding:</strong> EU law prevails over all national law — including later national laws. MS permanently limited their sovereign rights. Without primacy, EU law would be meaningless.<br><br>
+              <strong>Key:</strong> "Special and original nature" — EU law is integral to national legal systems.
+            </div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot" style="color:var(--ibt)"></div>
+          <div class="tl-year">1970</div>
+          <div class="tl-card" onclick="toggleTl(this)">
+            <div class="tl-title">Internationale Handelsgesellschaft</div>
+            <span class="badge b-purple">⚡ Primacy over Constitutional Law</span>
+            <div class="tl-toggle">+ Show details</div>
+            <div class="tl-body">
+              <strong>Facts:</strong> German court refused EU regulation as violating German constitutional fundamental rights (Art. 2(1), Art. 14 GG).<br><br>
+              <strong>Holding (double principle):</strong><br>
+              (1) EU law cannot be reviewed against national constitutions. Only ECJ can declare EU law invalid.<br>
+              (2) BUT fundamental rights exist as general principles of EU law — EU institutions must respect them.<br><br>
+              <strong>Legacy:</strong> Eventually led to the Charter of Fundamental Rights (binding since Lisbon 2009).
+            </div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot" style="color:var(--macro)"></div>
+          <div class="tl-year">1978</div>
+          <div class="tl-card" onclick="toggleTl(this)">
+            <div class="tl-title">Simmenthal · <span style="font-weight:400;color:var(--text3)">Case 106/77</span></div>
+            <span class="badge b-amber">⚡ Immediate Effectiveness</span>
+            <div class="tl-toggle">+ Show details</div>
+            <div class="tl-body">
+              <strong>Facts:</strong> Italy charged Simmenthal border inspection fees incompatible with EU free movement rules.<br><br>
+              <strong>Holding:</strong> National courts must immediately disapply conflicting national provisions — no waiting for constitutional court or parliamentary repeal. MS also cannot enact new laws conflicting with EU law.<br><br>
+              <strong>Exam trap:</strong> Courts act immediately. No constitutional court needed.
+            </div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot" style="color:var(--ic)"></div>
+          <div class="tl-year">1991</div>
+          <div class="tl-card" onclick="toggleTl(this)">
+            <div class="tl-title">Francovich &amp; Bonifaci · <span style="font-weight:400;color:var(--text3)">C-6/90, C-9/90</span></div>
+            <span class="badge b-coral">⚡ State Liability</span>
+            <div class="tl-toggle">+ Show details</div>
+            <div class="tl-body">
+              <strong>Facts:</strong> Italy failed to implement Directive 80/987 (employee wage protection on insolvency) by its 1983 deadline. Employees lost wages with no remedy.<br><br>
+              <strong>Holding:</strong> Member States must compensate individuals for damage caused by failure to implement EU law.<br><br>
+              <strong>3 Conditions:</strong> (1) Directive grants rights to individuals. (2) Content of rights identifiable from the directive. (3) Causal link between breach and damage. + Deadline must have elapsed.<br><br>
+              <strong>Note:</strong> Directives = vertical direct effect only. No horizontal direct effect against private parties.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ARTICLES -->
+    <div id="eu-vi-articles" class="study-panel">
+      <div class="art-grid">
+        <div class="art-card" onclick="this.querySelector('.art-detail').classList.toggle('open')">
+          <div class="art-num">Art. 1</div><div class="art-name">TEU — Foundation</div>
+          <div class="art-desc">EU founded on TEU + TFEU. Equal legal value.</div>
+          <div class="art-detail">The EU is founded on the TEU and TFEU, which have the same legal value. The EU replaces and succeeds the European Community.</div>
+        </div>
+        <div class="art-card" onclick="this.querySelector('.art-detail').classList.toggle('open')">
+          <div class="art-num">Art. 2</div><div class="art-name">TEU — Rule of Law</div>
+          <div class="art-desc">Founding values incl. rule of law &amp; human rights.</div>
+          <div class="art-detail">6 aspects of rule of law: legality, legal certainty, prohibition of arbitrary executive power, effective judicial protection, separation of powers, equality before the law.</div>
+        </div>
+        <div class="art-card" onclick="this.querySelector('.art-detail').classList.toggle('open')">
+          <div class="art-num">Art. 5</div><div class="art-name">TEU — Conferral</div>
+          <div class="art-desc">EU acts only within limits of conferred competences.</div>
+          <div class="art-detail">The EU has no inherent powers. It can only act where the Treaties explicitly grant competence. Powers not conferred remain with Member States.</div>
+        </div>
+        <div class="art-card" onclick="this.querySelector('.art-detail').classList.toggle('open')">
+          <div class="art-num">Art. 6(1)</div><div class="art-name">TEU — Charter Binding</div>
+          <div class="art-desc">Charter has same legal value as Treaties since Lisbon.</div>
+          <div class="art-detail">Since Lisbon (2009), the Charter of Fundamental Rights is legally binding primary law. Before Lisbon, fundamental rights existed only as general principles (Internationale Handelsgesellschaft).</div>
+        </div>
+        <div class="art-card" onclick="this.querySelector('.art-detail').classList.toggle('open')">
+          <div class="art-num">Art. 19</div><div class="art-name">TEU — Role of ECJ</div>
+          <div class="art-desc">Court ensures EU law observed. One judge per MS.</div>
+          <div class="art-detail">Establishes the CJEU (ECJ + General Court). One judge per Member State. Judges must be independent. Court ensures uniform interpretation and application of EU law.</div>
+        </div>
+        <div class="art-card" onclick="this.querySelector('.art-detail').classList.toggle('open')">
+          <div class="art-num">Art. 252</div><div class="art-name">TFEU — Advocate General</div>
+          <div class="art-desc">AGs deliver independent, impartial opinions to assist the Court.</div>
+          <div class="art-detail">Advocates General deliver reasoned opinions on cases — not binding but highly influential. Currently 11 AGs. Their role is to assist in achieving open, consistent application of EU law.</div>
+        </div>
+        <div class="art-card" onclick="this.querySelector('.art-detail').classList.toggle('open')">
+          <div class="art-num">Art. 267</div><div class="art-name">TFEU — Preliminary Ruling</div>
+          <div class="art-desc">National courts refer EU law questions to ECJ.</div>
+          <div class="art-detail">Primary mechanism for uniform application of EU law. Lower courts may refer; courts of last instance must refer. ECJ answers on (1) interpretation or (2) validity of EU law. Van Gend and Costa both came through this procedure.</div>
+        </div>
+        <div class="art-card" onclick="this.querySelector('.art-detail').classList.toggle('open')">
+          <div class="art-num">Art. 288</div><div class="art-name">TFEU — Secondary Law</div>
+          <div class="art-desc">Defines regulations, directives, decisions, recommendations.</div>
+          <div class="art-detail"><strong>Regulation:</strong> Binding, directly applicable — no MS implementation needed.<br><strong>Directive:</strong> Binding as to result — MS chooses form &amp; method.<br><strong>Decision:</strong> Binding on specific addressees only.<br><strong>Soft law:</strong> Recommendations &amp; opinions — not binding.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FLASHCARDS -->
+    <div id="eu-vi-flashcards" class="study-panel">
+      <div class="fc-controls">
+        <span class="fc-counter" id="fc-counter">Card 1 of 12</span>
+        <button class="btn" onclick="shuffleFC()">Shuffle</button>
+        <button class="btn" onclick="resetFC()">Reset</button>
+      </div>
+      <div class="flashcard-wrap">
+        <div class="flashcard" id="fc-card" onclick="flipFC()">
+          <div class="fc-face fc-front">
+            <div class="fc-label">Question</div>
+            <div class="fc-question" id="fc-q"></div>
+            <div class="fc-hint">Click to reveal</div>
+          </div>
+          <div class="fc-face fc-back">
+            <div class="fc-label">Answer</div>
+            <div class="fc-answer" id="fc-a"></div>
+            <div class="fc-src" id="fc-src"></div>
+          </div>
+        </div>
+      </div>
+      <div class="fc-nav">
+        <button class="btn" onclick="prevFC()">← Prev</button>
+        <button class="btn btn-primary" onclick="nextFC()">Next →</button>
+      </div>
+    </div>
+
+    <!-- QUIZ -->
+    <div id="eu-vi-quiz" class="study-panel">
+      <div id="quiz-wrap">
+        <div class="quiz-prog"><div class="quiz-prog-fill" id="qpfill" style="width:0%"></div></div>
+        <div class="quiz-meta" id="q-meta">Question 1 of 10</div>
+        <div class="quiz-q" id="q-text"></div>
+        <div class="quiz-opts" id="q-opts"></div>
+        <div class="quiz-fb" id="q-fb"></div>
+        <div id="q-next" style="display:none">
+          <button class="btn btn-primary" onclick="nextQ()">Next →</button>
+        </div>
+      </div>
+      <div class="quiz-score-screen" id="quiz-score">
+        <div class="score-big" id="score-big"></div>
+        <div class="score-lbl">correct answers</div>
+        <div class="score-msg" id="score-msg"></div>
+        <button class="btn btn-primary" onclick="restartQuiz()">Try again</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- EU placeholder -->
+  <div id="page-eu-placeholder" class="page">
+    <div class="empty-state">
+      <h3>More sessions coming</h3>
+      <p>Share your next lecture notes and I'll add them here.</p>
+    </div>
+  </div>
+
+  <!-- MICRO OVERVIEW -->
+  <div id="page-micro-overview" class="page">
+    <div class="page-eyebrow" style="color:var(--micro)">Microeconomics</div>
+    <div class="page-title">All Sessions</div>
+    <div class="page-desc">No sessions loaded yet. Share your lecture notes to get started.</div>
+    <div class="lectures-list" id="micro-lectures"></div>
+    <div class="empty-state" style="margin-top:20px">
+      <h3>Ready to populate</h3>
+      <p>Upload your Micro lecture slides or notes and I'll build the summary, flashcards, and quiz for each session.</p>
+    </div>
+  </div>
+
+  <!-- MACRO OVERVIEW -->
+  <div id="page-macro-overview" class="page">
+    <div class="page-eyebrow" style="color:var(--macro)">Macroeconomics</div>
+    <div class="page-title">All Sessions</div>
+    <div class="page-desc">No sessions loaded yet. Share your lecture notes to get started.</div>
+    <div class="empty-state" style="margin-top:20px">
+      <h3>Ready to populate</h3>
+      <p>Upload your Macro lecture slides or notes and I'll build the summary, flashcards, and quiz for each session.</p>
+    </div>
+  </div>
+
+  <!-- IBT OVERVIEW -->
+  <div id="page-ibt-overview" class="page">
+    <div class="page-eyebrow" style="color:var(--ibt)">International Business Trade</div>
+    <div class="page-title">All Sessions</div>
+    <div class="page-desc">No sessions loaded yet. Share your lecture notes to get started.</div>
+    <div class="empty-state" style="margin-top:20px">
+      <h3>Ready to populate</h3>
+      <p>Upload your IBT lecture slides or notes and I'll build the summary, flashcards, and quiz for each session.</p>
+    </div>
+  </div>
+
+  <!-- IC OVERVIEW -->
+  <div id="page-ic-overview" class="page">
+    <div class="page-eyebrow" style="color:var(--ic)">Intercultural Competence</div>
+    <div class="page-title">All Sessions</div>
+    <div class="page-desc">No sessions loaded yet. Share your lecture notes to get started.</div>
+    <div class="empty-state" style="margin-top:20px">
+      <h3>Ready to populate</h3>
+      <p>Upload your IC lecture slides or notes and I'll build the summary, flashcards, and quiz for each session.</p>
+    </div>
+  </div>
+
+</main>
+</div>
+
+<script>
+// ── Data ──
+const euLectures = [
+  { id: 'v-vi', title: 'Sessions V & VI', sub: 'Nature of EU Law · BEPS · Landmark Cases', hasContent: true },
+  ...Array.from({length:13}, (_,i) => ({ id: 'placeholder', title: `Session ${i+3 > 14 ? 'XIV–XV' : 'VII–' + (i+3)}`, sub: 'Not yet added', hasContent: false })).slice(0,12)
+];
+
+// ── Navigation ──
+function showPage(id, btn) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  if (btn) { btn.classList.add('active'); }
+  if (id === 'eu-overview') renderEuLectures();
+  if (id === 'eu-v-vi') { initFC(); initQuiz(); }
+}
+
+function showLecture(subject, id, btn) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-sub').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  const pageId = 'page-' + subject + '-' + id;
+  const el = document.getElementById(pageId);
+  if (el) {
+    el.classList.add('active');
+    if (id === 'v-vi') { initFC(); initQuiz(); }
+  }
+}
+
+function renderEuLectures() {
+  const list = document.getElementById('eu-lectures');
+  list.innerHTML = euLectures.map((l, i) => `
+    <div class="lec-card ${l.hasContent ? '' : 'empty'}" onclick="${l.hasContent ? `showLecture('eu','${l.id}', null)` : ''}">
+      <div class="lec-num" style="background:var(--eu-l);color:var(--eu)">${String(i+1).padStart(2,'0')}</div>
+      <div class="lec-info">
+        <div class="lec-title">${l.title}</div>
+        <div class="lec-sub">${l.sub}</div>
+      </div>
+      <div class="lec-badges">
+        <span class="lec-badge ${l.hasContent ? 'has' : ''}">Summary</span>
+        <span class="lec-badge ${l.hasContent ? 'has' : ''}">Cards</span>
+        <span class="lec-badge ${l.hasContent ? 'has' : ''}">Quiz</span>
+      </div>
+    </div>`).join('');
+}
+
+// ── Study tabs ──
+function showTab(prefix, tab, btn) {
+  document.querySelectorAll(`[id^="${prefix}-"]`).forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.study-tab').forEach(b => b.classList.remove('active'));
+  document.getElementById(`${prefix}-${tab}`).classList.add('active');
+  if (btn) btn.classList.add('active');
+}
+
+// ── Timeline ──
+function toggleTl(card) {
+  const body = card.querySelector('.tl-body');
+  const toggle = card.querySelector('.tl-toggle');
+  const open = body.classList.toggle('open');
+  toggle.textContent = open ? '− Hide details' : '+ Show details';
+}
+
+// ── Flashcards ──
+const fcData = [
+  { q: "What principle did Van Gend en Loos establish?", a: "Direct Effect — individuals can directly rely on EU law in national courts without MS action.", src: "Van Gend en Loos (1963)" },
+  { q: "3 requirements for direct effect?", a: "The provision must be (1) clear, (2) precise, (3) unconditional.", src: "Van Gend en Loos (1963)" },
+  { q: "What principle did Costa v. ENEL establish?", a: "Primacy — EU law takes precedence over all national law, including later legislation.", src: "Costa v. ENEL (1964)" },
+  { q: "Can a later national law override earlier EU law?", a: "No. EU law always prevails — even over laws enacted after the EU provision came into force.", src: "Costa v. ENEL (1964)" },
+  { q: "Can national constitutional law override EU law?", a: "No. Only the ECJ can declare EU law invalid. National constitutions are not the yardstick.", src: "Internationale Handelsgesellschaft (1970)" },
+  { q: "Where do fundamental rights come from in EU law (before the Charter)?", a: "As general principles of EU law, inspired by the constitutional traditions of Member States.", src: "Internationale Handelsgesellschaft (1970)" },
+  { q: "What must a national court do when it finds a conflict with EU law?", a: "Immediately disapply the conflicting national provision — no need to wait for a constitutional court or legislature.", src: "Simmenthal (1978)" },
+  { q: "3 conditions for state liability under Francovich?", a: "(1) Directive grants rights to individuals. (2) Content of rights identifiable. (3) Causal link between breach and damage.", src: "Francovich (1991)" },
+  { q: "Difference: vertical vs horizontal direct effect of directives?", a: "Vertical: individual can rely on directive against the state. Horizontal: individuals CANNOT rely on directives against private parties.", src: "Francovich reasoning" },
+  { q: "Art. 288 TFEU: difference between Regulation and Directive?", a: "Regulation: directly applicable, no implementation needed. Directive: binding as to result, MS chooses form & method.", src: "Art. 288 TFEU" },
+  { q: "Which article governs the preliminary ruling procedure?", a: "Art. 267 TFEU — national courts refer questions on EU law interpretation or validity to the ECJ.", src: "Art. 267 TFEU" },
+  { q: "What are the two BEPS pillars and their goals?", a: "Pillar 1: reallocates taxing rights to market jurisdictions. Pillar 2: 15% global minimum corporate tax for MNEs with >€750m revenue.", src: "Session V — BEPS" },
+];
+
+let deck = [...fcData], fcIdx = 0;
+function initFC() { deck = [...fcData]; fcIdx = 0; renderFC(); }
+function renderFC() {
+  const c = deck[fcIdx];
+  document.getElementById('fc-q').textContent = c.q;
+  document.getElementById('fc-a').textContent = c.a;
+  document.getElementById('fc-src').textContent = '— ' + c.src;
+  document.getElementById('fc-counter').textContent = `Card ${fcIdx+1} of ${deck.length}`;
+  document.getElementById('fc-card').classList.remove('flipped');
+}
+function flipFC() { document.getElementById('fc-card').classList.toggle('flipped'); }
+function nextFC() { fcIdx = (fcIdx+1) % deck.length; renderFC(); }
+function prevFC() { fcIdx = (fcIdx-1+deck.length) % deck.length; renderFC(); }
+function shuffleFC() { deck = [...fcData].sort(() => Math.random()-.5); fcIdx = 0; renderFC(); }
+function resetFC() { deck = [...fcData]; fcIdx = 0; renderFC(); }
+
+// ── Quiz ──
+const qData = [
+  { q: "Which case established Direct Effect?", opts: ["Costa v. ENEL","Van Gend en Loos","Simmenthal","Francovich"], ans: 1, exp: "Van Gend en Loos (1963) declared the EEC a 'new legal order' where individuals can directly rely on EU law in national courts." },
+  { q: "What must a national court do when national law conflicts with EU law?", opts: ["Wait for constitutional court","Refer to ECJ first","Immediately disapply national law","Apply national law — it is more recent"], ans: 2, exp: "Simmenthal (1978): national courts must immediately disapply conflicting national law without waiting for any court or legislature." },
+  { q: "Which article governs the preliminary ruling procedure?", opts: ["Art. 19 TEU","Art. 252 TFEU","Art. 267 TFEU","Art. 288 TFEU"], ans: 2, exp: "Art. 267 TFEU. Courts of last instance must refer; lower courts may. ECJ answers on interpretation or validity of EU law." },
+  { q: "Francovich: what did the ECJ decide about Italy's failure to implement a directive?", opts: ["No liability — directives aren't binding","Individuals sue employer, not state","Italy must compensate individuals who suffered damage","No remedy if directive lacks direct effect"], ans: 2, exp: "Francovich (1991) established state liability: MS must compensate individuals for damage caused by failure to implement EU law, where 3 conditions are met." },
+  { q: "Can national constitutional law override EU law?", opts: ["Yes — constitutions rank highest","Yes — for fundamental rights only","No — only the ECJ can invalidate EU law","No — but courts can suspend EU law temporarily"], ans: 2, exp: "Internationale Handelsgesellschaft (1970): EU law cannot be reviewed against national constitutions. The yardstick is EU law only. Only the ECJ can declare EU law invalid." },
+  { q: "Key difference: Regulation vs Directive under Art. 288 TFEU?", opts: ["Regulations need unanimous vote; directives don't","Regulations are directly applicable; directives need implementation","Directives are binding; regulations are soft law","Regulations bind only MS; directives bind individuals"], ans: 1, exp: "A Regulation is directly applicable (no national implementation needed). A Directive is binding as to result — MS chooses form and method." },
+  { q: "What is the principle of conferral (Art. 5 TEU)?", opts: ["EU law prevails over national law","EU institutions must be proportionate","EU can only act where Treaties grant competence","MS must implement directives faithfully"], ans: 2, exp: "Art. 5 TEU: the EU has no inherent powers. All EU competence flows from explicit conferral in the Treaties. Powers not conferred remain with MS." },
+  { q: "3 requirements for direct effect of a provision?", opts: ["Written, signed, ratified","Clear, precise, unconditional","Enacted, implemented, enforced","Approved by Parliament, Council, Commission"], ans: 1, exp: "Van Gend en Loos: for direct effect, the provision must be (1) clear, (2) precise, (3) unconditional — creating a right without requiring further legislative action." },
+  { q: "Can an individual rely on a directive against a private company?", opts: ["Yes, if deadline has passed","Yes, if provision is clear and precise","No — directives only have vertical direct effect","Only if the company is state-owned"], ans: 2, exp: "No horizontal direct effect for directives. An individual cannot rely on a directive against a private party. Only vertical direct effect (individual vs. state) is possible." },
+  { q: "What is Pillar 2 of the BEPS project?", opts: ["Reallocates taxing rights to market jurisdictions","15% global minimum corporate tax for MNEs >€750m revenue","A mandatory digital services tax","Country-by-country reporting rules"], ans: 1, exp: "Pillar 2 sets a 15% global minimum corporate tax for MNE groups with >€750m annual revenue. Implemented in EU via Directive 2022/2523, in force 31.12.2023." },
+];
+
+let qIdx = 0, score = 0, answered = false;
+function initQuiz() {
+  qIdx = 0; score = 0; answered = false;
+  document.getElementById('quiz-wrap').style.display = 'block';
+  document.getElementById('quiz-score').classList.remove('show');
+  renderQ();
+}
+function renderQ() {
+  answered = false;
+  const q = qData[qIdx];
+  document.getElementById('q-meta').textContent = `Question ${qIdx+1} of ${qData.length}`;
+  document.getElementById('qpfill').style.width = (qIdx/qData.length*100)+'%';
+  document.getElementById('q-text').textContent = q.q;
+  document.getElementById('q-fb').className = 'quiz-fb';
+  document.getElementById('q-next').style.display = 'none';
+  const opts = document.getElementById('q-opts');
+  opts.innerHTML = '';
+  q.opts.forEach((o, i) => {
+    const b = document.createElement('button');
+    b.className = 'quiz-opt'; b.textContent = o;
+    b.onclick = () => answerQ(i, b);
+    opts.appendChild(b);
+  });
+}
+function answerQ(i, btn) {
+  if (answered) return;
+  answered = true;
+  const q = qData[qIdx];
+  const fb = document.getElementById('q-fb');
+  document.querySelectorAll('.quiz-opt').forEach(b => b.disabled = true);
+  if (i === q.ans) {
+    btn.classList.add('correct'); score++;
+    fb.className = 'quiz-fb correct show';
+    fb.innerHTML = '<strong>Correct!</strong> ' + q.exp;
+  } else {
+    btn.classList.add('wrong');
+    document.querySelectorAll('.quiz-opt')[q.ans].classList.add('correct');
+    fb.className = 'quiz-fb wrong show';
+    fb.innerHTML = '<strong>Not quite.</strong> ' + q.exp;
+  }
+  document.getElementById('q-next').style.display = 'block';
+}
+function nextQ() {
+  qIdx++;
+  if (qIdx >= qData.length) {
+    document.getElementById('quiz-wrap').style.display = 'none';
+    const sc = document.getElementById('quiz-score');
+    sc.classList.add('show');
+    document.getElementById('score-big').textContent = `${score}/${qData.length}`;
+    const pct = score/qData.length;
+    document.getElementById('score-msg').textContent = pct >= .9 ? "Outstanding — exam ready! 🎓" : pct >= .7 ? "Solid! Review the ones you missed." : pct >= .5 ? "Good start — go through the flashcards again." : "Keep studying — the timeline and summary will help.";
+    document.getElementById('qpfill').style.width = '100%';
+  } else renderQ();
+}
+function restartQuiz() { initQuiz(); }
+
+// Init
+renderEuLectures();
+</script>
+</body>
+</html>
