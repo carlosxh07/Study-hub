@@ -17,10 +17,14 @@
   --macro:#8a5c00;--macro-l:#fdf3d9;--macro-m:#f5cc6e;
   --ibt:#7a2d6e;--ibt-l:#f6eaf4;--ibt-m:#dcb0d6;
   --ic:#9c3520;--ic-l:#fdeee9;--ic-m:#f5b8a8;
+  --green:#1a7a5e;--green-l:#e4f4ef;--red:#9c3520;--red-l:#fdeee9;
+  --amber:#8a5c00;--amber-l:#fdf3d9;
 }
 *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
 body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:100vh;font-size:15px;line-height:1.6}
 .shell{display:flex;min-height:100vh}
+
+/* ── Sidebar ── */
 .sidebar{width:240px;flex-shrink:0;background:var(--surface);border-right:1px solid var(--border);display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow-y:auto}
 .logo{padding:24px 20px 20px;border-bottom:1px solid var(--border)}
 .logo-title{font-family:var(--serif);font-size:20px;line-height:1.2}
@@ -39,9 +43,13 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
 .nav-sub{display:flex;align-items:center;gap:10px;width:100%;padding:6px 10px 6px 28px;border-radius:var(--radius-sm);border:none;background:none;cursor:pointer;font-family:var(--sans);font-size:12.5px;color:var(--text3);text-align:left;transition:all .15s}
 .nav-sub:hover{background:var(--surface2);color:var(--text2)}
 .nav-sub.active{color:var(--text);font-weight:500}
+
+/* ── Main ── */
 .main{flex:1;overflow-y:auto}
-.page{display:none;padding:44px 52px;max-width:900px}
+.page{display:none;padding:44px 52px;max-width:920px}
 .page.active{display:block}
+
+/* ── Dashboard ── */
 .dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
 .subject-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:22px 24px;box-shadow:var(--shadow);cursor:pointer;transition:all .2s;position:relative;overflow:hidden}
 .subject-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
@@ -55,24 +63,30 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
 .sc-stats{display:flex;gap:16px}
 .sc-stat{font-size:12px;color:var(--text3)}
 .sc-stat strong{color:var(--text2);font-weight:600}
+
+/* ── Page headers ── */
 .page-eyebrow{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text3);margin-bottom:6px}
 .page-title{font-family:var(--serif);font-size:36px;line-height:1.15;margin-bottom:8px}
 .page-desc{font-size:14px;color:var(--text2);margin-bottom:32px}
+
+/* ── Lecture list ── */
 .lectures-list{display:flex;flex-direction:column;gap:10px}
 .lec-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px 22px;box-shadow:var(--shadow);display:flex;align-items:center;gap:16px;cursor:pointer;transition:all .2s}
 .lec-card:hover{box-shadow:var(--shadow-md);border-color:var(--border2)}
 .lec-card.empty{opacity:.45;cursor:default}.lec-card.empty:hover{box-shadow:var(--shadow);border-color:var(--border)}
 .lec-num{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;flex-shrink:0}
-.lec-info{flex:1}
-.lec-title{font-size:14px;font-weight:500;color:var(--text)}
-.lec-sub{font-size:12px;color:var(--text3);margin-top:1px}
-.lec-badges{display:flex;gap:6px}
+.lec-info{flex:1}.lec-title{font-size:14px;font-weight:500;color:var(--text)}.lec-sub{font-size:12px;color:var(--text3);margin-top:1px}
+.lec-badges{display:flex;gap:6px;flex-wrap:wrap}
 .lec-badge{font-size:11px;padding:2px 8px;border-radius:20px;border:1px solid var(--border);color:var(--text3);background:var(--surface2)}
 .lec-badge.has{color:var(--text2);background:var(--surface);border-color:var(--border2)}
-.study-tabs{display:flex;gap:4px;margin-bottom:28px;border-bottom:1px solid var(--border)}
-.study-tab{padding:10px 18px;border:none;background:none;font-family:var(--sans);font-size:13.5px;color:var(--text3);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .15s}
+
+/* ── Study tabs ── */
+.study-tabs{display:flex;gap:4px;margin-bottom:28px;border-bottom:1px solid var(--border);overflow-x:auto}
+.study-tab{padding:10px 16px;border:none;background:none;font-family:var(--sans);font-size:13px;color:var(--text3);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .15s;white-space:nowrap}
 .study-tab:hover{color:var(--text2)}.study-tab.active{color:var(--text);font-weight:500;border-bottom-color:var(--eu)}
 .study-panel{display:none}.study-panel.active{display:block}
+
+/* ── Summary ── */
 .sum-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow);margin-bottom:14px}
 .sum-title{font-size:14px;font-weight:600;color:var(--text);margin-bottom:8px;display:flex;align-items:center;gap:8px}
 .sum-card p{font-size:13.5px;color:var(--text2);line-height:1.7}
@@ -83,6 +97,14 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
 .b-amber{background:var(--macro-l);color:var(--macro)}.b-coral{background:var(--ic-l);color:var(--ic)}
 .b-purple{background:var(--ibt-l);color:var(--ibt)}
 .note-box{border-left:3px solid var(--eu-m);background:var(--eu-l);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:10px 14px;font-size:13px;color:var(--text2);line-height:1.6;margin-top:10px}
+
+/* ── Comparison table ── */
+.comp-table{width:100%;border-collapse:collapse;margin-top:8px}
+.comp-table th{background:var(--surface2);font-size:12px;font-weight:600;text-align:left;padding:10px 14px;border:1px solid var(--border);color:var(--text2)}
+.comp-table td{font-size:13px;color:var(--text2);padding:10px 14px;border:1px solid var(--border);vertical-align:top;line-height:1.5}
+.comp-table tr:hover td{background:var(--surface2)}
+
+/* ── Timeline ── */
 .timeline{position:relative;padding-left:28px}
 .timeline::before{content:'';position:absolute;left:8px;top:8px;bottom:8px;width:2px;background:linear-gradient(to bottom,var(--eu),var(--micro),var(--macro),var(--ic),var(--ibt));border-radius:2px}
 .tl-item{position:relative;margin-bottom:24px}
@@ -94,6 +116,8 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
 .tl-body{font-size:13px;color:var(--text2);margin-top:10px;line-height:1.65;display:none}
 .tl-body.open{display:block}
 .tl-toggle{font-size:12px;color:var(--eu);cursor:pointer;margin-top:4px}
+
+/* ── Articles ── */
 .art-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .art-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);cursor:pointer;transition:all .2s}
 .art-card:hover{box-shadow:var(--shadow-md)}
@@ -102,10 +126,13 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
 .art-desc{font-size:12.5px;color:var(--text2);line-height:1.5}
 .art-detail{display:none;margin-top:10px;padding-top:10px;border-top:1px solid var(--border);font-size:12.5px;color:var(--text2);line-height:1.6}
 .art-detail.open{display:block}
-.fc-controls{display:flex;align-items:center;gap:10px;margin-bottom:22px;flex-wrap:wrap}
+
+/* ── Spaced Repetition Flashcards ── */
+.fc-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:gap}
 .fc-counter{font-size:13px;color:var(--text3)}
-.btn{padding:8px 18px;border-radius:var(--radius-sm);border:1px solid var(--border2);background:var(--surface);font-family:var(--sans);font-size:13px;font-weight:500;cursor:pointer;color:var(--text);transition:all .15s}
-.btn:hover{background:var(--surface2)}.btn-primary{background:var(--eu);color:white;border-color:var(--eu)}.btn-primary:hover{opacity:.9}
+.fc-sr-bar{display:flex;gap:8px;align-items:center;font-size:12px;color:var(--text3);margin-bottom:20px}
+.sr-pip{width:10px;height:10px;border-radius:50%;background:var(--border);transition:background .3s}
+.sr-pip.know{background:var(--green)}.sr-pip.review{background:#e8a020}
 .flashcard-wrap{perspective:1200px;margin-bottom:20px}
 .flashcard{width:100%;min-height:240px;position:relative;transform-style:preserve-3d;transition:transform .5s cubic-bezier(.4,0,.2,1);cursor:pointer}
 .flashcard.flipped{transform:rotateY(180deg)}
@@ -114,10 +141,30 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
 .fc-label{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px}
 .fc-front .fc-label{color:var(--text3)}.fc-back .fc-label{color:rgba(255,255,255,.6)}
 .fc-question{font-family:var(--serif);font-size:21px;line-height:1.35;color:var(--text)}
-.fc-answer{font-size:14.5px;line-height:1.65;color:white}
+.fc-answer{font-size:14px;line-height:1.65;color:white}
 .fc-src{font-size:11px;color:rgba(255,255,255,.55);margin-top:14px}
 .fc-hint{font-size:12px;color:var(--text3);margin-top:14px}
-.fc-nav{display:flex;gap:10px;justify-content:center}
+.sr-btns{display:flex;gap:10px;justify-content:center;margin-top:4px}
+.sr-btn{padding:9px 22px;border-radius:var(--radius-sm);border:none;font-family:var(--sans);font-size:13px;font-weight:500;cursor:pointer;transition:all .15s}
+.sr-btn-hard{background:var(--red-l);color:var(--red);border:1px solid var(--ic-m)}
+.sr-btn-hard:hover{background:#fad8d0}
+.sr-btn-ok{background:var(--amber-l);color:var(--amber);border:1px solid var(--macro-m)}
+.sr-btn-ok:hover{background:#fcebbf}
+.sr-btn-easy{background:var(--green-l);color:var(--green);border:1px solid var(--micro-m)}
+.sr-btn-easy:hover{background:#d0ede5}
+.sr-mode-note{font-size:12px;color:var(--text3);text-align:center;margin-top:10px}
+.fc-controls{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
+.fc-sr-done{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:40px;text-align:center;box-shadow:var(--shadow-md)}
+.fc-sr-done h3{font-family:var(--serif);font-size:24px;margin-bottom:8px}
+.fc-sr-done p{font-size:14px;color:var(--text2);margin-bottom:20px}
+
+/* ── Buttons ── */
+.btn{padding:8px 18px;border-radius:var(--radius-sm);border:1px solid var(--border2);background:var(--surface);font-family:var(--sans);font-size:13px;font-weight:500;cursor:pointer;color:var(--text);transition:all .15s}
+.btn:hover{background:var(--surface2)}
+.btn-primary{background:var(--eu);color:white;border-color:var(--eu)}.btn-primary:hover{opacity:.9}
+.btn-sm{padding:6px 14px;font-size:12px}
+
+/* ── Quiz ── */
 .quiz-prog{height:4px;background:var(--border);border-radius:2px;margin-bottom:24px;overflow:hidden}
 .quiz-prog-fill{height:100%;border-radius:2px;background:var(--eu);transition:width .4s ease}
 .quiz-meta{font-size:12.5px;color:var(--text3);margin-bottom:18px}
@@ -132,19 +179,74 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
 .quiz-fb.show{display:block}
 .quiz-fb.correct{background:var(--micro-l);color:var(--micro);border:1px solid var(--micro-m)}
 .quiz-fb.wrong{background:var(--ic-l);color:var(--ic);border:1px solid var(--ic-m)}
-.quiz-score-screen{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:48px;text-align:center;box-shadow:var(--shadow-md);display:none}
+
+/* ── Weak spots tracker ── */
+.quiz-score-screen{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:36px;box-shadow:var(--shadow-md);display:none}
 .quiz-score-screen.show{display:block}
-.score-big{font-family:var(--serif);font-size:64px;color:var(--eu)}
-.score-lbl{font-size:14px;color:var(--text2);margin-top:4px}
-.score-msg{font-size:16px;color:var(--text);margin:18px 0 24px}
+.score-row{display:flex;align-items:center;gap:20px;margin-bottom:24px}
+.score-big{font-family:var(--serif);font-size:64px;color:var(--eu);line-height:1}
+.score-right{flex:1}
+.score-lbl{font-size:14px;color:var(--text2);margin-bottom:4px}
+.score-msg{font-size:15px;color:var(--text);font-weight:500}
+.weak-section{margin-top:20px;padding-top:20px;border-top:1px solid var(--border)}
+.weak-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:12px}
+.weak-item{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:var(--radius-sm);background:var(--red-l);border:1px solid var(--ic-m);margin-bottom:8px}
+.weak-item-icon{font-size:16px}
+.weak-item-text{font-size:13px;color:var(--red)}
+.weak-item-tip{font-size:11px;color:var(--red);opacity:.8;margin-top:2px}
+.strong-section{margin-top:12px}
+.strong-item{display:flex;align-items:center;gap:10px;padding:8px 14px;border-radius:var(--radius-sm);background:var(--green-l);border:1px solid var(--micro-m);margin-bottom:6px}
+.strong-item-text{font-size:13px;color:var(--green)}
+
+/* ── Decision Tree ── */
+.dtree{max-width:680px;margin:0 auto}
+.dt-step{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow);margin-bottom:12px;position:relative}
+.dt-step.active-step{border-color:var(--eu);box-shadow:0 0 0 3px var(--eu-l),var(--shadow)}
+.dt-step.done-step{opacity:.6;border-color:var(--micro);background:var(--micro-l)}
+.dt-num{width:28px;height:28px;border-radius:50%;background:var(--eu-l);color:var(--eu);font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center;margin-bottom:10px}
+.dt-step.done-step .dt-num{background:var(--micro-l);color:var(--micro)}
+.dt-q{font-family:var(--serif);font-size:17px;color:var(--text);margin-bottom:14px}
+.dt-opts{display:flex;gap:10px;flex-wrap:wrap}
+.dt-opt{padding:9px 18px;border-radius:var(--radius-sm);border:1.5px solid var(--border);background:var(--surface2);font-family:var(--sans);font-size:13px;cursor:pointer;transition:all .15s;color:var(--text2)}
+.dt-opt:hover{border-color:var(--eu);background:var(--eu-l);color:var(--eu)}
+.dt-opt.selected{border-color:var(--eu);background:var(--eu);color:white}
+.dt-result{background:var(--eu);color:white;border-radius:var(--radius);padding:20px 24px;margin-top:8px}
+.dt-result h3{font-family:var(--serif);font-size:20px;margin-bottom:8px}
+.dt-result p{font-size:13.5px;line-height:1.6;opacity:.9}
+.dt-result .dt-article{display:inline-block;background:rgba(255,255,255,.2);border-radius:20px;padding:2px 10px;font-size:11px;font-weight:600;margin-top:10px;margin-right:6px}
+.dt-connector{text-align:center;color:var(--text3);font-size:20px;margin:4px 0;line-height:1}
+.dt-reset-bar{margin-top:16px;display:flex;gap:10px;align-items:center}
+.scenario-bar{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px 16px;margin-bottom:20px;font-size:13.5px;color:var(--text2);line-height:1.6}
+.scenario-bar strong{color:var(--text)}
+.scenario-pick{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.scenario-btn{padding:7px 14px;border-radius:var(--radius-sm);border:1px solid var(--border2);background:var(--surface);font-size:12.5px;cursor:pointer;color:var(--text2);font-family:var(--sans);transition:all .15s}
+.scenario-btn:hover{background:var(--eu-l);border-color:var(--eu);color:var(--eu)}
+.scenario-btn.active{background:var(--eu);color:white;border-color:var(--eu)}
+
+/* ── Empty state ── */
 .empty-state{text-align:center;padding:60px 40px;color:var(--text3)}
 .empty-state h3{font-family:var(--serif);font-size:22px;color:var(--text2);margin-bottom:8px}
 .empty-state p{font-size:14px;line-height:1.6}
-@media(max-width:700px){.sidebar{display:none}.page{padding:24px 20px}.dash-grid{grid-template-columns:1fr}.art-grid{grid-template-columns:1fr}}
+
+/* ── Calculator ── */
+.calc-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:8px}
+.calc-pick-label{font-size:12px;color:var(--text3)}
+.calc-nav{display:flex;gap:8px}
+.calc-desc-box{background:var(--micro-l);border:1px solid var(--micro-m);border-radius:var(--radius-sm);padding:12px 16px;font-size:14px;color:var(--micro);margin-bottom:20px;line-height:1.6}
+.calc-step{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:14px 18px;margin-bottom:10px;transition:all .2s}
+.calc-step-active{border-color:var(--micro);box-shadow:0 0 0 3px var(--micro-l)}
+.calc-step-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--micro);margin-bottom:6px}
+.calc-formula{font-family:monospace;font-size:14px;color:var(--text2);background:var(--surface2);padding:8px 12px;border-radius:6px;margin-bottom:8px}
+.calc-result{font-size:14px;color:var(--text);line-height:1.5}
+.calc-footer{display:flex;gap:10px;margin-top:16px;align-items:center}
+.micro-tab-active{border-bottom-color:var(--micro)!important;color:var(--text)!important;font-weight:500!important}
+
 </style>
 </head>
 <body>
 <div class="shell">
+
+<!-- SIDEBAR -->
 <aside class="sidebar">
   <div class="logo">
     <div class="logo-title">Study Hub</div>
@@ -160,6 +262,8 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
     <button class="nav-sub" style="opacity:.5;cursor:default;pointer-events:none">+ More coming</button>
     <div class="nav-label">Microeconomics</div>
     <button class="nav-btn" data-color="micro" onclick="showPage('micro-overview',this)"><span class="nav-dot" style="background:var(--micro)"></span>All Chapters</button>
+    <button class="nav-sub" onclick="showLecture('micro','ch3',this)">Chapter 3: Risky Choice</button>
+    <button class="nav-sub" style="opacity:.5;cursor:default;pointer-events:none">+ More coming</button>
     <div class="nav-label">Macroeconomics</div>
     <button class="nav-btn" data-color="macro" onclick="showPage('macro-overview',this)"><span class="nav-dot" style="background:var(--macro)"></span>All Chapters</button>
     <div class="nav-label">Intl. Business Trade</div>
@@ -168,243 +272,1178 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
     <button class="nav-btn" data-color="ic" onclick="showPage('ic-overview',this)"><span class="nav-dot" style="background:var(--ic)"></span>All Chapters</button>
   </nav>
 </aside>
+
+<!-- MAIN -->
 <main class="main">
 
-  <!-- DASHBOARD -->
-  <div id="page-dashboard" class="page active">
-    <div class="page-eyebrow">Spring Semester</div>
-    <div class="page-title">Study Hub</div>
-    <div class="page-desc">5 subjects · Click a subject to explore sessions and study tools.</div>
-    <div class="dash-grid">
-      <div class="subject-card sc-eu" onclick="showPage('eu-overview',null)">
-        <div class="sc-name">EU Law</div><div class="sc-meta">Sessions · Prof. Adrian Cloer</div>
-        <div class="sc-progress"><div class="sc-progress-fill" style="width:14%;background:var(--eu)"></div></div>
-        <div class="sc-stats"><div class="sc-stat"><strong>2</strong> sessions loaded</div><div class="sc-stat"><strong>14</strong> flashcards</div><div class="sc-stat"><strong>15</strong> quiz questions</div></div>
+<!-- DASHBOARD -->
+<div id="page-dashboard" class="page active">
+  <div class="page-eyebrow">Spring Semester</div>
+  <div class="page-title">Study Hub</div>
+  <div class="page-desc">5 subjects · Click a subject to start studying.</div>
+  <div class="dash-grid">
+    <div class="subject-card sc-eu" onclick="showPage('eu-overview',null)">
+      <div class="sc-name">EU Law</div><div class="sc-meta">Sessions · Prof. Adrian Cloer</div>
+      <div class="sc-progress"><div class="sc-progress-fill" style="width:14%;background:var(--eu)"></div></div>
+      <div class="sc-stats"><div class="sc-stat"><strong>2</strong> sessions loaded</div><div class="sc-stat"><strong>14</strong> flashcards</div><div class="sc-stat"><strong>15</strong> quiz Qs</div></div>
+    </div>
+    <div class="subject-card sc-micro" onclick="showPage('micro-overview',null)">
+      <div class="sc-name">Microeconomics</div><div class="sc-meta">Chapters · Microeconomics 1</div>
+      <div class="sc-progress"><div class="sc-progress-fill" style="width:7%;background:var(--micro)"></div></div>
+      <div class="sc-stats"><div class="sc-stat"><strong>1</strong> chapter loaded</div><div class="sc-stat"><strong>30</strong> flashcards</div><div class="sc-stat"><strong>20</strong> quiz Qs</div></div>
+    </div>
+    <div class="subject-card sc-macro" onclick="showPage('macro-overview',null)">
+      <div class="sc-name">Macroeconomics</div><div class="sc-meta">Chapters · Coming soon</div>
+      <div class="sc-progress"><div class="sc-progress-fill" style="width:0%;background:var(--macro)"></div></div>
+      <div class="sc-stats"><div class="sc-stat"><strong>0</strong> chapters loaded</div></div>
+    </div>
+    <div class="subject-card sc-ibt" onclick="showPage('ibt-overview',null)">
+      <div class="sc-name">International Business Trade</div><div class="sc-meta">Chapters · Coming soon</div>
+      <div class="sc-progress"><div class="sc-progress-fill" style="width:0%;background:var(--ibt)"></div></div>
+      <div class="sc-stats"><div class="sc-stat"><strong>0</strong> chapters loaded</div></div>
+    </div>
+    <div class="subject-card sc-ic" onclick="showPage('ic-overview',null)">
+      <div class="sc-name">Intercultural Competence</div><div class="sc-meta">Chapters · Coming soon</div>
+      <div class="sc-progress"><div class="sc-progress-fill" style="width:0%;background:var(--ic)"></div></div>
+      <div class="sc-stats"><div class="sc-stat"><strong>0</strong> chapters loaded</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- EU OVERVIEW -->
+<div id="page-eu-overview" class="page">
+  <div class="page-eyebrow" style="color:var(--eu)">EU Law</div>
+  <div class="page-title">All Sessions</div>
+  <div class="page-desc">Select a session to access its summary, flashcards, quiz, and interactive tools.</div>
+  <div class="lectures-list">
+    <div class="lec-card empty"><div class="lec-num" style="background:var(--eu-l);color:var(--eu)">01</div><div class="lec-info"><div class="lec-title">Session I</div><div class="lec-sub">Not yet added</div></div><div class="lec-badges"><span class="lec-badge">Summary</span><span class="lec-badge">Cards</span><span class="lec-badge">Quiz</span></div></div>
+    <div class="lec-card empty"><div class="lec-num" style="background:var(--eu-l);color:var(--eu)">02</div><div class="lec-info"><div class="lec-title">Session II</div><div class="lec-sub">Not yet added</div></div><div class="lec-badges"><span class="lec-badge">Summary</span><span class="lec-badge">Cards</span><span class="lec-badge">Quiz</span></div></div>
+    <div class="lec-card empty"><div class="lec-num" style="background:var(--eu-l);color:var(--eu)">03</div><div class="lec-info"><div class="lec-title">Session III</div><div class="lec-sub">Not yet added</div></div><div class="lec-badges"><span class="lec-badge">Summary</span><span class="lec-badge">Cards</span><span class="lec-badge">Quiz</span></div></div>
+    <div class="lec-card empty"><div class="lec-num" style="background:var(--eu-l);color:var(--eu)">04</div><div class="lec-info"><div class="lec-title">Session IV</div><div class="lec-sub">Not yet added</div></div><div class="lec-badges"><span class="lec-badge">Summary</span><span class="lec-badge">Cards</span><span class="lec-badge">Quiz</span></div></div>
+    <div class="lec-card" onclick="showLecture('eu','v',null)"><div class="lec-num" style="background:var(--eu-l);color:var(--eu)">05</div><div class="lec-info"><div class="lec-title">Session V</div><div class="lec-sub">Wrap-Up: BEPS · Legal Systems · EU History</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span></div></div>
+    <div class="lec-card" onclick="showLecture('eu','vi',null)"><div class="lec-num" style="background:var(--eu-l);color:var(--eu)">06</div><div class="lec-info"><div class="lec-title">Session VI</div><div class="lec-sub">Nature of EU Law · 5 Landmark Cases · Decision Tree</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span><span class="lec-badge has">Interactive</span></div></div>
+    <div class="lec-card empty"><div class="lec-num" style="background:var(--eu-l);color:var(--eu)">07+</div><div class="lec-info"><div class="lec-title">More sessions coming</div><div class="lec-sub">Share your notes to add the next session</div></div><div class="lec-badges"><span class="lec-badge">Summary</span><span class="lec-badge">Cards</span><span class="lec-badge">Quiz</span></div></div>
+  </div>
+</div>
+
+<!-- ══ SESSION V ══ -->
+<div id="page-eu-v" class="page">
+  <div class="page-eyebrow" style="color:var(--eu)">EU Law · Session V</div>
+  <div class="page-title">Wrap-Up</div>
+  <div class="page-desc">BEPS &amp; global tax reform, legal systems, rule of law, and EU history overview.</div>
+  <div class="study-tabs">
+    <button class="study-tab active" onclick="showTab('sv','summary',this)">Summary</button>
+    <button class="study-tab" onclick="showTab('sv','compare',this)">Compare</button>
+    <button class="study-tab" onclick="showTab('sv','flashcards',this)">Flashcards</button>
+    <button class="study-tab" onclick="showTab('sv','quiz',this)">Quiz</button>
+  </div>
+
+  <div id="sv-summary" class="study-panel active">
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-amber">BEPS &amp; Global Tax Reform</span></div>
+      <p>The BEPS (Base Erosion &amp; Profit Shifting) project was triggered by public outrage over legal but aggressive tax avoidance by multinationals (especially GAFAs). Led by OECD/G20, involving 148+ countries.</p>
+      <ul>
+        <li><strong>Why it matters:</strong> USD 100–240bn lost globally to aggressive tax planning annually — 4–10% of global CIT revenue. Developing countries suffer most (high reliance on CIT, low enforcement capacity).</li>
+        <li><strong>Pillar 1</strong> — Reallocates taxing rights to market jurisdictions (where consumers are, not where HQ is). Targets MNEs with &gt;€20bn revenue &amp; &gt;10% profitability. <em>Currently stalled</em> — USA withdrew support under Trump. Result: unilateral digital service taxes emerging globally (patchwork).</li>
+        <li><strong>Pillar 2</strong> — 15% global minimum corporate tax. Applies to MNE groups with &gt;€750m annual revenue (~8,000 groups worldwide). Implemented in EU via Directive 2022/2523 (in force 31.12.2023).</li>
+        <li><strong>Pillar 2 key rules:</strong> IIR (Income Inclusion Rule — top-up at parent level), UTPR (Undertaxed Payments Rule — backstop), QDMTT (domestic top-up tax — jurisdictions apply top-up to themselves first).</li>
+        <li><strong>EU implementation:</strong> BEPS measures implemented via ATAD (Anti-Tax Avoidance Directive). Peer reviews monitor implementation of BEPS minimum standards.</li>
+        <li><strong>Tax terminology distinctions:</strong> Tax saving (legal, no avoidance intent) → Tax planning (legal, structuring affairs) → Tax avoidance (legal but contrary to legislative intent) → Aggressive tax planning → Tax evasion (illegal).</li>
+      </ul>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-teal">Legal Systems &amp; Rule of Law</span></div>
+      <ul>
+        <li><strong>Forms of legal systems:</strong> common law (case-based, UK/USA), code law (civil law, continental Europe), religious law, customary law.</li>
+        <li><strong>Rule of law (Art. 2 TEU)</strong> — 6 aspects: (1) legality, (2) legal certainty, (3) prohibition of arbitrary executive power, (4) effective judicial protection, (5) separation of powers, (6) equality before the law.</li>
+        <li><strong>Council of Europe</strong> (≠ EU!) — 46 member states, promotes rule of law, human rights, democracy. Home of European Court of Human Rights (ECHR). Russia excluded 2022. Not to be confused with: European Council, Council of the EU, or International Criminal Court (independent UN body).</li>
+        <li><strong>German Basic Law (GG)</strong> — 5 state principles: Democracy (Art. 20(2) GG), Rechtsstaat, Republic, Federalism (Bund + 16 Länder), Sozialstaat. Safeguarded by Federal Constitutional Court (FCC) in Karlsruhe.</li>
+        <li><strong>Separation of powers:</strong> Horizontal (legislative/executive/judicial — Montesquieu 1748, earlier: Locke 1689, Aristotle 4th c. BC) and Vertical (federal/Länder).</li>
+        <li><strong>Democracy distinction:</strong> Popular sovereignty = source of power (people). Democracy = manner of exercising power. Direct vs indirect (referenda in Germany generally not possible — Art. 20 GG).</li>
+      </ul>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-purple">EU History — Key Timeline</span></div>
+      <ul>
+        <li><strong>1945:</strong> WWII ends. UN founded (June 26). Churchill calls for "United States of Europe" (Sept 19, 1946) — but without UK.</li>
+        <li><strong>1949:</strong> Council of Europe founded (May 5).</li>
+        <li><strong>1950:</strong> Schuman Plan (May 9 — now Europe Day).</li>
+        <li><strong>1951:</strong> Treaty of Paris → ECSC (European Coal &amp; Steel Community). 1957: Treaties of Rome → EEC + Euratom. 1965: Merger Treaty (institutions unified).</li>
+        <li><strong>1979:</strong> First direct EP elections. 1985: Schengen Agreement. 1987: Single European Act (extended competences, strengthened EP).</li>
+        <li><strong>1992:</strong> Maastricht Treaty (monetary union). 1993: Copenhagen Criteria (political, economic, acquis conditions for accession).</li>
+        <li><strong>2002:</strong> Euro introduced. 2004: Big eastward enlargement (10 CEE + Malta + Cyprus).</li>
+        <li><strong>2009:</strong> Lisbon Treaty → Charter of Fundamental Rights becomes legally binding.</li>
+        <li><strong>2016:</strong> Brexit vote. 2022: Russian aggression on Ukraine.</li>
+        <li><strong>Charlemagne (747–814)</strong> — "Father of Europe": coronation 800 AD by Pope Leo III, Christianisation, administrative/educational reforms. Charlemagne Prize of Aachen awarded in his memory.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="sv-compare" class="study-panel">
+    <div class="sum-card">
+      <div class="sum-title">BEPS Pillar 1 vs Pillar 2</div>
+      <table class="comp-table">
+        <tr><th>Feature</th><th>Pillar 1</th><th>Pillar 2</th></tr>
+        <tr><td><strong>Goal</strong></td><td>Reallocate taxing rights to market jurisdictions</td><td>Ensure minimum 15% effective tax rate globally</td></tr>
+        <tr><td><strong>Who it targets</strong></td><td>MNEs with &gt;€20bn revenue &amp; &gt;10% profitability</td><td>MNE groups with &gt;€750m annual revenue (~8,000 groups)</td></tr>
+        <tr><td><strong>Mechanism</strong></td><td>Amount A (new taxing right) + Amount B (simplify arm's length)</td><td>IIR + UTPR + QDMTT (top-up tax rules)</td></tr>
+        <tr><td><strong>Status</strong></td><td>Stalled — USA withdrew support</td><td>In force (EU: Directive 2022/2523, Dec 31, 2023)</td></tr>
+        <tr><td><strong>Result without it</strong></td><td>Unilateral digital service taxes (patchwork)</td><td>Tax haven competition continues below 15%</td></tr>
+      </table>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">Council of Europe vs EU Institutions</div>
+      <table class="comp-table">
+        <tr><th></th><th>Council of Europe</th><th>European Council</th><th>Council of the EU</th></tr>
+        <tr><td><strong>Members</strong></td><td>46 states (non-EU too)</td><td>EU heads of state</td><td>EU ministers by topic</td></tr>
+        <tr><td><strong>Role</strong></td><td>Human rights, democracy, rule of law</td><td>Sets EU strategic direction</td><td>Legislates with EP, represents MS</td></tr>
+        <tr><td><strong>Key body</strong></td><td>European Court of Human Rights</td><td>President (currently elected)</td><td>Rotating presidency</td></tr>
+        <tr><td><strong>Part of EU?</strong></td><td>No — separate organisation</td><td>Yes</td><td>Yes</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div id="sv-flashcards" class="study-panel">
+    <div class="fc-controls">
+      <button class="btn btn-sm" onclick="shuffleFC('sv')">Shuffle</button>
+      <button class="btn btn-sm" onclick="resetFC('sv')">Reset all</button>
+      <span style="font-size:12px;color:var(--text3);margin-left:4px">Rate each card to focus on what you don't know yet</span>
+    </div>
+    <div class="fc-sr-bar" id="sv-sr-bar"></div>
+    <div id="sv-fc-wrap">
+      <div class="flashcard-wrap"><div class="flashcard" id="sv-fc-card" onclick="flipFC('sv')">
+        <div class="fc-face fc-front"><div class="fc-label">Question</div><div class="fc-question" id="sv-fc-q"></div><div class="fc-hint">Click to reveal answer</div></div>
+        <div class="fc-face fc-back"><div class="fc-label">Answer</div><div class="fc-answer" id="sv-fc-a"></div><div class="fc-src" id="sv-fc-src"></div></div>
+      </div></div>
+      <div class="sr-btns">
+        <button class="sr-btn sr-btn-hard" onclick="rateFC('sv',0)">😬 Still learning</button>
+        <button class="sr-btn sr-btn-ok" onclick="rateFC('sv',1)">🤔 Almost</button>
+        <button class="sr-btn sr-btn-easy" onclick="rateFC('sv',2)">✓ Got it</button>
       </div>
-      <div class="subject-card sc-micro" onclick="showPage('micro-overview',null)">
-        <div class="sc-name">Microeconomics</div><div class="sc-meta">Chapters · Coming soon</div>
-        <div class="sc-progress"><div class="sc-progress-fill" style="width:0%;background:var(--micro)"></div></div>
-        <div class="sc-stats"><div class="sc-stat"><strong>0</strong> chapters loaded</div></div>
-      </div>
-      <div class="subject-card sc-macro" onclick="showPage('macro-overview',null)">
-        <div class="sc-name">Macroeconomics</div><div class="sc-meta">Chapters · Coming soon</div>
-        <div class="sc-progress"><div class="sc-progress-fill" style="width:0%;background:var(--macro)"></div></div>
-        <div class="sc-stats"><div class="sc-stat"><strong>0</strong> chapters loaded</div></div>
-      </div>
-      <div class="subject-card sc-ibt" onclick="showPage('ibt-overview',null)">
-        <div class="sc-name">International Business Trade</div><div class="sc-meta">Chapters · Coming soon</div>
-        <div class="sc-progress"><div class="sc-progress-fill" style="width:0%;background:var(--ibt)"></div></div>
-        <div class="sc-stats"><div class="sc-stat"><strong>0</strong> chapters loaded</div></div>
-      </div>
-      <div class="subject-card sc-ic" onclick="showPage('ic-overview',null)">
-        <div class="sc-name">Intercultural Competence</div><div class="sc-meta">Chapters · Coming soon</div>
-        <div class="sc-progress"><div class="sc-progress-fill" style="width:0%;background:var(--ic)"></div></div>
-        <div class="sc-stats"><div class="sc-stat"><strong>0</strong> chapters loaded</div></div>
+      <div class="sr-mode-note" id="sv-sr-note">Card <span id="sv-fc-counter">1</span> of <span id="sv-fc-total">1</span></div>
+    </div>
+    <div class="fc-sr-done" id="sv-fc-done" style="display:none">
+      <h3>Session complete! 🎉</h3>
+      <p id="sv-done-msg"></p>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:16px">
+        <button class="btn btn-primary" onclick="reviewWeak('sv')">Review weak cards</button>
+        <button class="btn" onclick="resetFC('sv')">Start over</button>
       </div>
     </div>
   </div>
 
-  <!-- EU OVERVIEW -->
-  <div id="page-eu-overview" class="page">
-    <div class="page-eyebrow" style="color:var(--eu)">EU Law</div>
-    <div class="page-title">All Sessions</div>
-    <div class="page-desc">Select a session to access its summary, flashcards, and quiz.</div>
-    <div class="lectures-list">
-      <div class="lec-card empty"><div class="lec-num" style="background:var(--eu-l);color:var(--eu)">01</div><div class="lec-info"><div class="lec-title">Session I</div><div class="lec-sub">Not yet added</div></div><div class="lec-badges"><span class="lec-badge">Summary</span><span class="lec-badge">Cards</span><span class="lec-badge">Quiz</span></div></div>
-      <div class="lec-card empty"><div class="lec-num" style="background:var(--eu-l);color:var(--eu)">02</div><div class="lec-info"><div class="lec-title">Session II</div><div class="lec-sub">Not yet added</div></div><div class="lec-badges"><span class="lec-badge">Summary</span><span class="lec-badge">Cards</span><span class="lec-badge">Quiz</span></div></div>
-      <div class="lec-card empty"><div class="lec-num" style="background:var(--eu-l);color:var(--eu)">03</div><div class="lec-info"><div class="lec-title">Session III</div><div class="lec-sub">Not yet added</div></div><div class="lec-badges"><span class="lec-badge">Summary</span><span class="lec-badge">Cards</span><span class="lec-badge">Quiz</span></div></div>
-      <div class="lec-card empty"><div class="lec-num" style="background:var(--eu-l);color:var(--eu)">04</div><div class="lec-info"><div class="lec-title">Session IV</div><div class="lec-sub">Not yet added</div></div><div class="lec-badges"><span class="lec-badge">Summary</span><span class="lec-badge">Cards</span><span class="lec-badge">Quiz</span></div></div>
-      <div class="lec-card" onclick="showLecture('eu','v',null)"><div class="lec-num" style="background:var(--eu-l);color:var(--eu)">05</div><div class="lec-info"><div class="lec-title">Session V</div><div class="lec-sub">Wrap-Up: BEPS · Legal Systems · EU History</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span></div></div>
-      <div class="lec-card" onclick="showLecture('eu','vi',null)"><div class="lec-num" style="background:var(--eu-l);color:var(--eu)">06</div><div class="lec-info"><div class="lec-title">Session VI</div><div class="lec-sub">Nature of EU Law · 5 Landmark Cases</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span></div></div>
-      <div class="lec-card empty"><div class="lec-num" style="background:var(--eu-l);color:var(--eu)">07+</div><div class="lec-info"><div class="lec-title">More sessions coming</div><div class="lec-sub">Share your notes to add the next session</div></div><div class="lec-badges"><span class="lec-badge">Summary</span><span class="lec-badge">Cards</span><span class="lec-badge">Quiz</span></div></div>
+  <div id="sv-quiz" class="study-panel">
+    <div id="sv-quiz-wrap">
+      <div class="quiz-prog"><div class="quiz-prog-fill" id="sv-qpfill" style="width:0%"></div></div>
+      <div class="quiz-meta" id="sv-q-meta"></div>
+      <div class="quiz-q" id="sv-q-text"></div>
+      <div class="quiz-opts" id="sv-q-opts"></div>
+      <div class="quiz-fb" id="sv-q-fb"></div>
+      <div id="sv-q-next" style="display:none"><button class="btn btn-primary" onclick="nextQ('sv')">Next →</button></div>
+    </div>
+    <div class="quiz-score-screen" id="sv-quiz-score">
+      <div class="score-row">
+        <div class="score-big" id="sv-score-big"></div>
+        <div class="score-right"><div class="score-lbl">correct answers</div><div class="score-msg" id="sv-score-msg"></div></div>
+      </div>
+      <div class="weak-section" id="sv-weak-section"></div>
+      <div style="margin-top:20px;display:flex;gap:10px">
+        <button class="btn btn-primary" onclick="restartQuiz('sv')">Try again</button>
+        <button class="btn" onclick="showTab('sv','flashcards', document.querySelector('#page-eu-v .study-tab:nth-child(3))'))">Review flashcards</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SESSION VI ══ -->
+<div id="page-eu-vi" class="page">
+  <div class="page-eyebrow" style="color:var(--eu)">EU Law · Session VI</div>
+  <div class="page-title">Nature of EU Law</div>
+  <div class="page-desc">The 5 landmark cases + interactive case analysis tool. Focus on the method.</div>
+  <div class="study-tabs">
+    <button class="study-tab active" onclick="showTab('svi','summary',this)">Summary</button>
+    <button class="study-tab" onclick="showTab('svi','timeline',this)">Case Timeline</button>
+    <button class="study-tab" onclick="showTab('svi','compare',this)">Compare</button>
+    <button class="study-tab" onclick="showTab('svi','dtree',this)">Case Analyser</button>
+    <button class="study-tab" onclick="showTab('svi','articles',this)">Articles</button>
+    <button class="study-tab" onclick="showTab('svi','flashcards',this)">Flashcards</button>
+    <button class="study-tab" onclick="showTab('svi','quiz',this)">Quiz</button>
+  </div>
+
+  <div id="svi-summary" class="study-panel active">
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-eu">The 5 Landmark Cases — Overview</span></div>
+      <p>These cases define how EU law relates to national law. The professor's focus: not memorising facts, but mastering the <em>method</em> — how to identify a legal issue and apply the right principle.</p>
+      <div class="note-box"><strong>Exam method:</strong> (1) Identify conflict (EU vs. national law) → (2) Apply primacy (Costa) → (3) Check direct effect (Van Gend) → (4) National court duty (Simmenthal) → (5) Directive not implemented? → State liability (Francovich).</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">EU Legal Order — Full Structure</div>
+      <ul>
+        <li><strong>Primary law (Art. 1(3) TEU):</strong> TEU + TFEU + Charter of Fundamental Rights — all have equal legal value since Lisbon 2009. Art. 6(1) TEU makes Charter binding.</li>
+        <li><strong>Regulation (Art. 288(2) TFEU):</strong> Binding in entirety, directly applicable in all MS — no national implementation needed. Example: passenger rights regulation.</li>
+        <li><strong>Directive (Art. 288(3) TFEU):</strong> Binding as to the result to be achieved. MS chooses form and method. Can have vertical direct effect once implementation deadline lapses + provision is clear, precise, unconditional. No horizontal direct effect (individual vs. individual).</li>
+        <li><strong>Decision (Art. 288(4) TFEU):</strong> Binding in entirety, but only on specific addressees (MS or individuals).</li>
+        <li><strong>Recommendations &amp; Opinions:</strong> Not binding — soft law. Used for guidance.</li>
+      </ul>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">The 5 Cases — Quick Reference</div>
+      <ul>
+        <li><strong>Van Gend en Loos (1963)</strong> — Direct Effect. Individuals can rely on EU law directly. Requirements: clear, precise, unconditional. Art. 30 TFEU (ex Art. 12 EEC).</li>
+        <li><strong>Costa v. ENEL (1964)</strong> — Primacy. EU law prevails over all national law including later legislation. MS permanently limited sovereignty. Without primacy, EU law would be meaningless.</li>
+        <li><strong>Internationale Handelsgesellschaft (1970)</strong> — Primacy extends to constitutional law. National constitutions cannot override EU law. But: fundamental rights exist as general principles of EU law (pre-Charter).</li>
+        <li><strong>Simmenthal (1978)</strong> — Immediate effectiveness. National courts must immediately disapply conflicting national law — no waiting for constitutional court or legislature. MS cannot enact new conflicting laws.</li>
+        <li><strong>Francovich (1991)</strong> — State liability. MS must compensate individuals for damage from failure to implement EU law. 3 conditions: directive grants rights, content identifiable, causal link. + Deadline elapsed.</li>
+      </ul>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">Direct Effect — Types &amp; Limits</div>
+      <ul>
+        <li><strong>Vertical direct effect:</strong> individual relies on EU law against the state → allowed for both Treaty provisions and directives (once deadline lapses).</li>
+        <li><strong>Horizontal direct effect:</strong> individual relies on EU law against another private party → allowed for Treaty provisions, but NOT for directives.</li>
+        <li><strong>Why no horizontal DE for directives?</strong> Directives are addressed to MS — they only bind MS. Imposing obligations on individuals would bypass national implementation.</li>
+        <li><strong>Remedy when no DE:</strong> Francovich state liability. Individual sues the MS for failing to implement, not the private party.</li>
+        <li><strong>Indirect effect (consistent interpretation):</strong> National courts must interpret national law in light of the directive's purpose — even if direct effect not available.</li>
+      </ul>
     </div>
   </div>
 
-  <!-- SESSION V -->
-  <div id="page-eu-v" class="page">
-    <div class="page-eyebrow" style="color:var(--eu)">EU Law · Session V</div>
-    <div class="page-title">Wrap-Up</div>
-    <div class="page-desc">BEPS &amp; global tax reform, legal systems, rule of law, and EU history overview.</div>
-    <div class="study-tabs">
-      <button class="study-tab active" onclick="showTab('sv','summary',this)">Summary</button>
-      <button class="study-tab" onclick="showTab('sv','flashcards',this)">Flashcards</button>
-      <button class="study-tab" onclick="showTab('sv','quiz',this)">Quiz</button>
-    </div>
-    <div id="sv-summary" class="study-panel active">
-      <div class="sum-card">
-        <div class="sum-title"><span class="badge b-amber">BEPS &amp; Global Tax Reform</span></div>
-        <p>Triggered by public debate on legal tax avoidance by multinationals (GAFAs). OECD/G20 project with 148+ countries.</p>
-        <ul>
-          <li><strong>Pillar 1</strong> — Reallocates taxing rights to market jurisdictions. Targets MNEs with &gt;€20bn revenue &amp; &gt;10% profitability. Currently stalled — USA withdrew support under Trump.</li>
-          <li><strong>Pillar 2</strong> — 15% global minimum corporate tax for MNEs with &gt;€750m revenue. Implemented in EU via Directive 2022/2523 (in force 31.12.2023). Key rules: IIR, UTPR, QDMTT.</li>
-          <li><strong>Revenue lost</strong> to aggressive tax planning: USD 100–240bn globally (4–10% of global CIT). Developing countries suffer most.</li>
-          <li>EU implemented BEPS measures via <strong>ATAD</strong> (Anti-Tax Avoidance Directive).</li>
-        </ul>
-      </div>
-      <div class="sum-card">
-        <div class="sum-title"><span class="badge b-teal">Legal Systems &amp; Rule of Law</span></div>
-        <ul>
-          <li>Forms of legal systems: common law, code law, religious law, customary law.</li>
-          <li><strong>Rule of law (Art. 2 TEU)</strong> — 6 aspects: legality, legal certainty, no arbitrary executive power, effective judicial protection, separation of powers, equality.</li>
-          <li><strong>Council of Europe</strong> (≠ EU!) — 46 states, home of ECHR. Not to be confused with European Council or Council of the EU.</li>
-          <li><strong>German Basic Law (GG)</strong> — 5 state principles: Democracy, Rechtsstaat, Republic, Federalism, Sozialstaat.</li>
-        </ul>
-      </div>
-      <div class="sum-card">
-        <div class="sum-title"><span class="badge b-purple">EU History — Key Timeline</span></div>
-        <ul>
-          <li>1951 Treaty of Paris → ECSC; 1957 Treaties of Rome → EEC + Euratom; 1965 Merger Treaty</li>
-          <li>1979: First direct EP elections. 1985: Schengen. 1987: Single European Act.</li>
-          <li>1992: Maastricht (monetary union). 1993: Copenhagen Criteria.</li>
-          <li>2002: Euro. 2004: Big eastward enlargement. 2009: Lisbon (Charter binding). 2016: Brexit.</li>
-          <li>Charlemagne (747–814) — "Father of Europe": coronation 800 AD, Christianisation, administrative reforms.</li>
-        </ul>
-      </div>
-    </div>
-    <div id="sv-flashcards" class="study-panel">
-      <div class="fc-controls"><span class="fc-counter" id="sv-fc-counter">Card 1 of 6</span><button class="btn" onclick="shuffleFC('sv')">Shuffle</button><button class="btn" onclick="resetFC('sv')">Reset</button></div>
-      <div class="flashcard-wrap"><div class="flashcard" id="sv-fc-card" onclick="flipFC('sv')"><div class="fc-face fc-front"><div class="fc-label">Question</div><div class="fc-question" id="sv-fc-q"></div><div class="fc-hint">Click to reveal</div></div><div class="fc-face fc-back"><div class="fc-label">Answer</div><div class="fc-answer" id="sv-fc-a"></div><div class="fc-src" id="sv-fc-src"></div></div></div></div>
-      <div class="fc-nav"><button class="btn" onclick="prevFC('sv')">← Prev</button><button class="btn btn-primary" onclick="nextFC('sv')">Next →</button></div>
-    </div>
-    <div id="sv-quiz" class="study-panel">
-      <div id="sv-quiz-wrap"><div class="quiz-prog"><div class="quiz-prog-fill" id="sv-qpfill" style="width:0%"></div></div><div class="quiz-meta" id="sv-q-meta"></div><div class="quiz-q" id="sv-q-text"></div><div class="quiz-opts" id="sv-q-opts"></div><div class="quiz-fb" id="sv-q-fb"></div><div id="sv-q-next" style="display:none"><button class="btn btn-primary" onclick="nextQ('sv')">Next →</button></div></div>
-      <div class="quiz-score-screen" id="sv-quiz-score"><div class="score-big" id="sv-score-big"></div><div class="score-lbl">correct answers</div><div class="score-msg" id="sv-score-msg"></div><button class="btn btn-primary" onclick="restartQuiz('sv')">Try again</button></div>
+  <div id="svi-timeline" class="study-panel">
+    <div class="timeline">
+      <div class="tl-item"><div class="tl-dot" style="color:var(--eu)"></div><div class="tl-year">1963</div><div class="tl-card" onclick="toggleTl(this)"><div class="tl-title">Van Gend en Loos · <span style="font-weight:400;color:var(--text3)">Case 26/62</span></div><span class="badge b-eu">⚡ Direct Effect</span><div class="tl-toggle">+ Show details</div><div class="tl-body"><strong>Facts:</strong> Dutch company (Van Gend &amp; Loos) imported urea-formaldehyde from Germany. Dutch customs reclassified it under a higher-duty category, raising the duty from 3% to 8% — violating the EEC standstill clause on customs duties.<br><br><strong>Legal question:</strong> Can individuals directly invoke EU law in national courts?<br><br><strong>ECJ holding:</strong> Yes. The EEC constitutes a "new legal order of international law" — unlike ordinary international law, it creates rights for individuals which national courts must protect. The standstill provision (now Art. 30 TFEU) had direct effect.<br><br><strong>3 Requirements for direct effect:</strong> Provision must be (1) clear, (2) precise, (3) unconditional — creating a right without further legislative action.<br><br><strong>Significance:</strong> First time EU law was declared to create enforceable individual rights. Foundation of the entire EU legal order as we know it.</div></div></div>
+      <div class="tl-item"><div class="tl-dot" style="color:var(--micro)"></div><div class="tl-year">1964</div><div class="tl-card" onclick="toggleTl(this)"><div class="tl-title">Costa v. ENEL · <span style="font-weight:400;color:var(--text3)">Case 6/64</span></div><span class="badge b-teal">⚡ Primacy of EU Law</span><div class="tl-toggle">+ Show details</div><div class="tl-body"><strong>Facts:</strong> Italy nationalised its electricity sector, creating Enel. Costa (advised by Prof. Stendardi) refused to pay his Enel bill, arguing the nationalisation law violated EEC law. The Italian Constitutional Court had already ruled that the later Italian law should prevail over earlier EEC law.<br><br><strong>ECJ holding:</strong> EU law is an integral part of national legal systems and takes precedence. MS permanently limited their sovereign rights by joining. A later national law cannot override earlier EU law.<br><br><strong>Reasoning:</strong> If MS could override EU law by passing national legislation, the EU's functioning would be put in jeopardy. The EEC has a "special and original nature" that distinguishes it from general international law.<br><br><strong>Consequence:</strong> National courts must apply EU law over conflicting national law — regardless of when the national law was passed.</div></div></div>
+      <div class="tl-item"><div class="tl-dot" style="color:var(--ibt)"></div><div class="tl-year">1970</div><div class="tl-card" onclick="toggleTl(this)"><div class="tl-title">Internationale Handelsgesellschaft</div><span class="badge b-purple">⚡ Primacy over Constitutional Law</span><div class="tl-toggle">+ Show details</div><div class="tl-body"><strong>Facts:</strong> German private company faced forfeiture of its export licence deposit under an EU regulation. German court argued this violated German constitutional fundamental rights (Art. 2(1) — general freedom of action, Art. 14 GG — property rights).<br><br><strong>ECJ holding (double principle):</strong><br>(1) EU law cannot be reviewed against national constitutional law. The yardstick for EU law's validity is EU law only. Only the ECJ can declare EU law invalid — national courts cannot.<br>(2) BUT: fundamental rights form an integral part of the general principles of EU law, drawn from the constitutional traditions of MS and international instruments (esp. ECHR).<br><br><strong>Historical context:</strong> At the time (1970), there was no written EU catalogue of fundamental rights. This case created the foundation for EU fundamental rights protection.<br><br><strong>Legacy:</strong> Led eventually to the Charter of Fundamental Rights (2000, binding since Lisbon 2009).<br><br><strong>Tension:</strong> German Federal Constitutional Court ("Solange" judgments) initially resisted this — still an ongoing constitutional dialogue.</div></div></div>
+      <div class="tl-item"><div class="tl-dot" style="color:var(--macro)"></div><div class="tl-year">1978</div><div class="tl-card" onclick="toggleTl(this)"><div class="tl-title">Simmenthal · <span style="font-weight:400;color:var(--text3)">Case 106/77</span></div><span class="badge b-amber">⚡ Immediate Effectiveness</span><div class="tl-toggle">+ Show details</div><div class="tl-body"><strong>Facts:</strong> Italian authorities required Simmenthal to pay fees for veterinary/public health inspections at the Italian border — incompatible with EU free movement of goods rules. Italy argued its national law (enacted under EC Treaty) would take precedence.<br><br><strong>ECJ holding:</strong><br>(1) Every national court must apply EU law in its entirety and protect rights conferred on individuals.<br>(2) Any conflicting national provision — even those enacted AFTER the EU rule — must be rendered inapplicable immediately.<br>(3) No need to wait for a constitutional court ruling or parliamentary repeal. National courts act immediately.<br>(4) MS also cannot enact new laws that conflict with EU law.<br><br><strong>Why it matters:</strong> Operationalises primacy. Costa said EU law prevails in theory; Simmenthal tells courts exactly what to do about it in practice.<br><br><strong>Exam trap:</strong> Courts do NOT need to refer to a constitutional court, legislative body, or the ECJ before disapplying national law.</div></div></div>
+      <div class="tl-item"><div class="tl-dot" style="color:var(--ic)"></div><div class="tl-year">1991</div><div class="tl-card" onclick="toggleTl(this)"><div class="tl-title">Francovich &amp; Bonifaci · <span style="font-weight:400;color:var(--text3)">C-6/90, C-9/90</span></div><span class="badge b-coral">⚡ State Liability</span><div class="tl-toggle">+ Show details</div><div class="tl-body"><strong>Facts:</strong> Directive 80/987 required MS to create a guarantee fund protecting employees' wages if their employer went insolvent. Italy failed to implement this directive by the 1983 deadline. Francovich and Bonifaci were owed wages by insolvent employers and had no remedy because the fund didn't exist.<br><br><strong>ECJ holding:</strong> MS are liable to compensate individuals for damage caused by their failure to implement EU law. This flows from the full effectiveness of EU law — if directives could be ignored without consequence, they would lose their binding force.<br><br><strong>3 Conditions:</strong><br>(1) The directive must grant rights to individuals.<br>(2) The content of those rights must be identifiable from the directive's text.<br>(3) There must be a causal link between the MS's breach and the individual's damage.<br>+ The implementation deadline must have elapsed.<br><br><strong>Vertical DE vs Francovich:</strong> If a directive has direct effect → individual can rely on it against the state directly. If no direct effect (content not sufficiently clear, or horizontal situation) → Francovich state liability applies instead.<br><br><strong>Why it matters:</strong> Without liability, MS would have no incentive to implement directives promptly. Completes the EU enforcement picture.</div></div></div>
     </div>
   </div>
 
-  <!-- SESSION VI -->
-  <div id="page-eu-vi" class="page">
-    <div class="page-eyebrow" style="color:var(--eu)">EU Law · Session VI</div>
-    <div class="page-title">Nature of EU Law</div>
-    <div class="page-desc">The 5 landmark cases shaping the EU legal order. Focus on the method, not just the facts.</div>
-    <div class="study-tabs">
-      <button class="study-tab active" onclick="showTab('svi','summary',this)">Summary</button>
-      <button class="study-tab" onclick="showTab('svi','timeline',this)">Case Timeline</button>
-      <button class="study-tab" onclick="showTab('svi','articles',this)">Articles</button>
-      <button class="study-tab" onclick="showTab('svi','flashcards',this)">Flashcards</button>
-      <button class="study-tab" onclick="showTab('svi','quiz',this)">Quiz</button>
+  <div id="svi-compare" class="study-panel">
+    <div class="sum-card">
+      <div class="sum-title">Types of EU Secondary Law — Art. 288 TFEU</div>
+      <table class="comp-table">
+        <tr><th>Type</th><th>Binding?</th><th>Who?</th><th>Implementation?</th><th>Direct Effect?</th></tr>
+        <tr><td><strong>Regulation</strong></td><td>Yes — in entirety</td><td>All MS + individuals</td><td>None needed</td><td>Yes — always</td></tr>
+        <tr><td><strong>Directive</strong></td><td>Yes — as to result</td><td>MS (not individuals directly)</td><td>MS chooses form &amp; method</td><td>Vertical only (if deadline lapsed + clear/precise/unconditional)</td></tr>
+        <tr><td><strong>Decision</strong></td><td>Yes — in entirety</td><td>Specific addressees only</td><td>None needed</td><td>Yes (for addressee)</td></tr>
+        <tr><td><strong>Recommendation</strong></td><td>No</td><td>—</td><td>—</td><td>No</td></tr>
+        <tr><td><strong>Opinion</strong></td><td>No</td><td>—</td><td>—</td><td>No</td></tr>
+      </table>
     </div>
-    <div id="svi-summary" class="study-panel active">
-      <div class="sum-card">
-        <div class="sum-title"><span class="badge b-eu">The 5 Landmark Cases</span></div>
-        <p>The prof's emphasis: it's not about memorising every fact — it's about the <em>method</em> of working through a case.</p>
-        <div class="note-box"><strong>Exam structure:</strong> (1) Identify EU vs. national law conflict → (2) Apply primacy → (3) Check direct effect → (4) Apply Simmenthal → (5) If directive not implemented → Francovich.</div>
-      </div>
-      <div class="sum-card">
-        <div class="sum-title">EU Legal Order Structure</div>
-        <ul>
-          <li><strong>Primary law</strong>: TEU + TFEU + Charter (equal legal value since Lisbon 2009)</li>
-          <li><strong>Regulation</strong> (Art. 288(2)): binding in entirety, directly applicable — no MS implementation needed</li>
-          <li><strong>Directive</strong> (Art. 288(3)): binding as to result — MS chooses form &amp; method. Vertical direct effect possible once deadline lapses.</li>
-          <li><strong>Decision</strong> (Art. 288(4)): binding on specific addressees only</li>
-          <li><strong>Soft law</strong>: recommendations &amp; opinions — not binding</li>
-        </ul>
-      </div>
-    </div>
-    <div id="svi-timeline" class="study-panel">
-      <div class="timeline">
-        <div class="tl-item"><div class="tl-dot" style="color:var(--eu)"></div><div class="tl-year">1963</div><div class="tl-card" onclick="toggleTl(this)"><div class="tl-title">Van Gend en Loos · <span style="font-weight:400;color:var(--text3)">Case 26/62</span></div><span class="badge b-eu">⚡ Direct Effect</span><div class="tl-toggle">+ Show details</div><div class="tl-body"><strong>Facts:</strong> Dutch company's import duty raised 3%→8%, violating EEC standstill clause.<br><br><strong>Holding:</strong> EEC = "new legal order." Individuals can directly rely on EU law without MS action.<br><br><strong>3 Requirements:</strong> Provision must be (1) clear, (2) precise, (3) unconditional.<br><br><strong>Basis:</strong> Art. 30 TFEU (ex Art. 12 EEC).</div></div></div>
-        <div class="tl-item"><div class="tl-dot" style="color:var(--micro)"></div><div class="tl-year">1964</div><div class="tl-card" onclick="toggleTl(this)"><div class="tl-title">Costa v. ENEL · <span style="font-weight:400;color:var(--text3)">Case 6/64</span></div><span class="badge b-teal">⚡ Primacy of EU Law</span><div class="tl-toggle">+ Show details</div><div class="tl-body"><strong>Facts:</strong> Italy nationalised electricity sector. Costa refused to pay Enel bill.<br><br><strong>Holding:</strong> EU law prevails over all national law — including later national laws. MS permanently limited their sovereign rights. Without primacy, EU law would be meaningless.</div></div></div>
-        <div class="tl-item"><div class="tl-dot" style="color:var(--ibt)"></div><div class="tl-year">1970</div><div class="tl-card" onclick="toggleTl(this)"><div class="tl-title">Internationale Handelsgesellschaft</div><span class="badge b-purple">⚡ Primacy over Constitutional Law</span><div class="tl-toggle">+ Show details</div><div class="tl-body"><strong>Facts:</strong> German court refused EU regulation as violating German constitutional fundamental rights.<br><br><strong>Holding (double principle):</strong><br>(1) EU law cannot be reviewed against national constitutions — only ECJ can declare EU law invalid.<br>(2) BUT fundamental rights exist as general principles of EU law.<br><br><strong>Legacy:</strong> Led to the Charter of Fundamental Rights (binding since Lisbon 2009).</div></div></div>
-        <div class="tl-item"><div class="tl-dot" style="color:var(--macro)"></div><div class="tl-year">1978</div><div class="tl-card" onclick="toggleTl(this)"><div class="tl-title">Simmenthal · <span style="font-weight:400;color:var(--text3)">Case 106/77</span></div><span class="badge b-amber">⚡ Immediate Effectiveness</span><div class="tl-toggle">+ Show details</div><div class="tl-body"><strong>Facts:</strong> Italy charged Simmenthal border inspection fees incompatible with EU free movement rules.<br><br><strong>Holding:</strong> National courts must immediately disapply conflicting national provisions — no waiting for constitutional court or parliamentary repeal.<br><br><strong>Exam trap:</strong> Courts act immediately. No constitutional court needed.</div></div></div>
-        <div class="tl-item"><div class="tl-dot" style="color:var(--ic)"></div><div class="tl-year">1991</div><div class="tl-card" onclick="toggleTl(this)"><div class="tl-title">Francovich &amp; Bonifaci · <span style="font-weight:400;color:var(--text3)">C-6/90, C-9/90</span></div><span class="badge b-coral">⚡ State Liability</span><div class="tl-toggle">+ Show details</div><div class="tl-body"><strong>Facts:</strong> Italy failed to implement Directive 80/987 by 1983 deadline. Employees lost wages with no remedy.<br><br><strong>Holding:</strong> MS must compensate individuals for damage caused by failure to implement EU law.<br><br><strong>3 Conditions:</strong> (1) Directive grants rights. (2) Content identifiable. (3) Causal link. + Deadline elapsed.<br><br><strong>Note:</strong> Vertical direct effect only — no horizontal direct effect against private parties.</div></div></div>
-      </div>
-    </div>
-    <div id="svi-articles" class="study-panel">
-      <div class="art-grid">
-        <div class="art-card" onclick="this.querySelector('.art-detail').classList.toggle('open')"><div class="art-num">Art. 1</div><div class="art-name">TEU — Foundation</div><div class="art-desc">EU founded on TEU + TFEU. Equal legal value.</div><div class="art-detail">The EU is founded on the TEU and TFEU, which have the same legal value. The EU replaces and succeeds the European Community.</div></div>
-        <div class="art-card" onclick="this.querySelector('.art-detail').classList.toggle('open')"><div class="art-num">Art. 2</div><div class="art-name">TEU — Rule of Law</div><div class="art-desc">Founding values incl. rule of law &amp; human rights.</div><div class="art-detail">6 aspects: legality, legal certainty, no arbitrary executive power, effective judicial protection, separation of powers, equality before the law.</div></div>
-        <div class="art-card" onclick="this.querySelector('.art-detail').classList.toggle('open')"><div class="art-num">Art. 5</div><div class="art-name">TEU — Conferral</div><div class="art-desc">EU acts only within limits of conferred competences.</div><div class="art-detail">The EU has no inherent powers. It can only act where the Treaties explicitly grant competence. Powers not conferred remain with Member States.</div></div>
-        <div class="art-card" onclick="this.querySelector('.art-detail').classList.toggle('open')"><div class="art-num">Art. 6(1)</div><div class="art-name">TEU — Charter Binding</div><div class="art-desc">Charter has same legal value as Treaties since Lisbon.</div><div class="art-detail">Since Lisbon (2009), the Charter of Fundamental Rights is legally binding primary law. Before Lisbon, fundamental rights existed only as general principles (Internationale Handelsgesellschaft).</div></div>
-        <div class="art-card" onclick="this.querySelector('.art-detail').classList.toggle('open')"><div class="art-num">Art. 19</div><div class="art-name">TEU — Role of ECJ</div><div class="art-desc">Court ensures EU law observed. One judge per MS.</div><div class="art-detail">Establishes the CJEU. One judge per Member State. Judges must be independent. Court ensures uniform interpretation and application of EU law.</div></div>
-        <div class="art-card" onclick="this.querySelector('.art-detail').classList.toggle('open')"><div class="art-num">Art. 252</div><div class="art-name">TFEU — Advocate General</div><div class="art-desc">AGs deliver independent, impartial opinions.</div><div class="art-detail">Advocates General deliver reasoned opinions — not binding but highly influential. Currently 11 AGs. Assist in achieving open, consistent application of EU law.</div></div>
-        <div class="art-card" onclick="this.querySelector('.art-detail').classList.toggle('open')"><div class="art-num">Art. 267</div><div class="art-name">TFEU — Preliminary Ruling</div><div class="art-desc">National courts refer EU law questions to ECJ.</div><div class="art-detail">Primary mechanism for uniform application of EU law. Lower courts may refer; courts of last instance must refer. ECJ answers on (1) interpretation or (2) validity of EU law.</div></div>
-        <div class="art-card" onclick="this.querySelector('.art-detail').classList.toggle('open')"><div class="art-num">Art. 288</div><div class="art-name">TFEU — Secondary Law</div><div class="art-desc">Defines regulations, directives, decisions, recommendations.</div><div class="art-detail"><strong>Regulation:</strong> Directly applicable — no MS implementation needed.<br><strong>Directive:</strong> Binding as to result — MS chooses form &amp; method.<br><strong>Decision:</strong> Binding on specific addressees only.<br><strong>Soft law:</strong> Not binding.</div></div>
-      </div>
-    </div>
-    <div id="svi-flashcards" class="study-panel">
-      <div class="fc-controls"><span class="fc-counter" id="svi-fc-counter">Card 1 of 8</span><button class="btn" onclick="shuffleFC('svi')">Shuffle</button><button class="btn" onclick="resetFC('svi')">Reset</button></div>
-      <div class="flashcard-wrap"><div class="flashcard" id="svi-fc-card" onclick="flipFC('svi')"><div class="fc-face fc-front"><div class="fc-label">Question</div><div class="fc-question" id="svi-fc-q"></div><div class="fc-hint">Click to reveal</div></div><div class="fc-face fc-back"><div class="fc-label">Answer</div><div class="fc-answer" id="svi-fc-a"></div><div class="fc-src" id="svi-fc-src"></div></div></div></div>
-      <div class="fc-nav"><button class="btn" onclick="prevFC('svi')">← Prev</button><button class="btn btn-primary" onclick="nextFC('svi')">Next →</button></div>
-    </div>
-    <div id="svi-quiz" class="study-panel">
-      <div id="svi-quiz-wrap"><div class="quiz-prog"><div class="quiz-prog-fill" id="svi-qpfill" style="width:0%"></div></div><div class="quiz-meta" id="svi-q-meta"></div><div class="quiz-q" id="svi-q-text"></div><div class="quiz-opts" id="svi-q-opts"></div><div class="quiz-fb" id="svi-q-fb"></div><div id="svi-q-next" style="display:none"><button class="btn btn-primary" onclick="nextQ('svi')">Next →</button></div></div>
-      <div class="quiz-score-screen" id="svi-quiz-score"><div class="score-big" id="svi-score-big"></div><div class="score-lbl">correct answers</div><div class="score-msg" id="svi-score-msg"></div><button class="btn btn-primary" onclick="restartQuiz('svi')">Try again</button></div>
+    <div class="sum-card">
+      <div class="sum-title">The 5 Cases — Principles at a Glance</div>
+      <table class="comp-table">
+        <tr><th>Case</th><th>Year</th><th>Principle</th><th>Key rule</th></tr>
+        <tr><td><strong>Van Gend en Loos</strong></td><td>1963</td><td>Direct Effect</td><td>Individuals can rely on EU law directly — if clear, precise, unconditional</td></tr>
+        <tr><td><strong>Costa v. ENEL</strong></td><td>1964</td><td>Primacy</td><td>EU law prevails over all national law, including later legislation</td></tr>
+        <tr><td><strong>Int'l Handelsgesellschaft</strong></td><td>1970</td><td>Primacy over constitutions</td><td>Even national constitutions cannot override EU law. Only ECJ can invalidate EU law</td></tr>
+        <tr><td><strong>Simmenthal</strong></td><td>1978</td><td>Immediate effectiveness</td><td>National courts must immediately disapply conflicting national law — no waiting</td></tr>
+        <tr><td><strong>Francovich</strong></td><td>1991</td><td>State liability</td><td>MS must compensate individuals for damage from failure to implement EU law</td></tr>
+      </table>
     </div>
   </div>
 
-  <!-- OTHER SUBJECTS -->
-  <div id="page-micro-overview" class="page"><div class="page-eyebrow" style="color:var(--micro)">Microeconomics</div><div class="page-title">All Chapters</div><div class="page-desc">No chapters loaded yet.</div><div class="empty-state"><h3>Ready to populate</h3><p>Share your Micro notes and I'll build the summary, flashcards, and quiz for each chapter.</p></div></div>
-  <div id="page-macro-overview" class="page"><div class="page-eyebrow" style="color:var(--macro)">Macroeconomics</div><div class="page-title">All Chapters</div><div class="page-desc">No chapters loaded yet.</div><div class="empty-state"><h3>Ready to populate</h3><p>Share your Macro notes and I'll build the summary, flashcards, and quiz for each chapter.</p></div></div>
-  <div id="page-ibt-overview" class="page"><div class="page-eyebrow" style="color:var(--ibt)">International Business Trade</div><div class="page-title">All Chapters</div><div class="page-desc">No chapters loaded yet.</div><div class="empty-state"><h3>Ready to populate</h3><p>Share your IBT notes and I'll build the summary, flashcards, and quiz for each chapter.</p></div></div>
-  <div id="page-ic-overview" class="page"><div class="page-eyebrow" style="color:var(--ic)">Intercultural Competence</div><div class="page-title">All Chapters</div><div class="page-desc">No chapters loaded yet.</div><div class="empty-state"><h3>Ready to populate</h3><p>Share your IC notes and I'll build the summary, flashcards, and quiz for each chapter.</p></div></div>
+  <!-- DECISION TREE / CASE ANALYSER -->
+  <div id="svi-dtree" class="study-panel">
+    <div class="sum-card" style="margin-bottom:20px">
+      <div class="sum-title">🔍 EU Law Case Analyser</div>
+      <p>Work through a real scenario step by step — the same method you'll use in the exam. Pick a scenario or type your own, then answer each question to reach the correct legal conclusion.</p>
+    </div>
+    <div class="scenario-pick" id="scenario-pick">
+      <button class="scenario-btn active" onclick="loadScenario(0,this)">Import duty raised</button>
+      <button class="scenario-btn" onclick="loadScenario(1,this)">Conflicting national law</button>
+      <button class="scenario-btn" onclick="loadScenario(2,this)">Directive not implemented</button>
+      <button class="scenario-btn" onclick="loadScenario(3,this)">Constitutional conflict</button>
+    </div>
+    <div class="scenario-bar" id="scenario-desc"></div>
+    <div class="dtree" id="dtree-container"></div>
+  </div>
+
+  <div id="svi-articles" class="study-panel">
+    <div class="art-grid">
+      <div class="art-card" onclick="this.querySelector('.art-detail').classList.toggle('open')"><div class="art-num">Art. 1</div><div class="art-name">TEU — Foundation</div><div class="art-desc">EU founded on TEU + TFEU. Equal legal value.</div><div class="art-detail">The EU is founded on the TEU and TFEU, which have the same legal value. The EU replaces and succeeds the European Community. Key: the two treaties together are the constitutional basis of the EU.</div></div>
+      <div class="art-card" onclick="this.querySelector('.art-detail').classList.toggle('open')"><div class="art-num">Art. 2</div><div class="art-name">TEU — Values &amp; Rule of Law</div><div class="art-desc">Founding values incl. rule of law, human dignity, democracy.</div><div class="art-detail">6 aspects of rule of law: (1) legality, (2) legal certainty, (3) prohibition of arbitrary executive power, (4) effective judicial protection, (5) separation of powers, (6) equality before the law. Violation → Art. 7 TEU procedure (infringement).</div></div>
+      <div class="art-card" onclick="this.querySelector('.art-detail').classList.toggle('open')"><div class="art-num">Art. 5</div><div class="art-name">TEU — Conferral</div><div class="art-desc">EU acts only within limits of conferred competences.</div><div class="art-detail">The EU has no inherent powers — all competence flows from explicit conferral in the Treaties. Powers not conferred remain with Member States (cf. subsidiarity and proportionality also in Art. 5 TEU). This is the fundamental limit on EU authority.</div></div>
+      <div class="art-card" onclick="this.querySelector('.art-detail').classList.toggle('open')"><div class="art-num">Art. 6(1)</div><div class="art-name">TEU — Charter Binding</div><div class="art-desc">Charter has same legal value as Treaties since Lisbon 2009.</div><div class="art-detail">Since the Lisbon Treaty (2009), the Charter of Fundamental Rights is legally binding primary law with the same status as TEU and TFEU. Before Lisbon: fundamental rights existed only as general principles of EU law (Internationale Handelsgesellschaft, 1970).</div></div>
+      <div class="art-card" onclick="this.querySelector('.art-detail').classList.toggle('open')"><div class="art-num">Art. 19</div><div class="art-name">TEU — Role of ECJ</div><div class="art-desc">Court ensures EU law observed. One judge per MS.</div><div class="art-detail">Establishes the CJEU (ECJ + General Court + specialised courts). One judge per Member State. Judges must be independent — politically, financially, mentally. Court ensures uniform interpretation and application of EU law across all MS.</div></div>
+      <div class="art-card" onclick="this.querySelector('.art-detail').classList.toggle('open')"><div class="art-num">Art. 252</div><div class="art-name">TFEU — Advocate General</div><div class="art-desc">AGs deliver independent, impartial opinions to assist the Court.</div><div class="art-detail">Advocates General deliver reasoned, impartial opinions — not binding but highly influential. Currently 11 AGs. Role: assist in achieving open, consistent application of EU law. Their opinions often shape future case law even if not followed immediately.</div></div>
+      <div class="art-card" onclick="this.querySelector('.art-detail').classList.toggle('open')"><div class="art-num">Art. 267</div><div class="art-name">TFEU — Preliminary Ruling</div><div class="art-desc">National courts refer EU law questions to ECJ for uniform interpretation.</div><div class="art-detail">Primary mechanism for uniform application of EU law. Lower courts may refer; courts of last instance must refer (obligation). ECJ answers on: (1) interpretation of EU law, or (2) validity of EU acts (only ECJ can declare EU law invalid — Internationale Handelsgesellschaft). Van Gend and Costa both came through this procedure.</div></div>
+      <div class="art-card" onclick="this.querySelector('.art-detail').classList.toggle('open')"><div class="art-num">Art. 288</div><div class="art-name">TFEU — Secondary Law</div><div class="art-desc">Defines all types of EU legal acts and their binding nature.</div><div class="art-detail"><strong>Regulation:</strong> Directly applicable — no MS implementation needed. Binding in entirety.<br><strong>Directive:</strong> Binding as to result — MS chooses form &amp; method. Vertical DE possible once deadline lapses.<br><strong>Decision:</strong> Binding on specific addressees only.<br><strong>Soft law:</strong> Recommendations &amp; opinions — not binding but can have legal relevance.</div></div>
+      <div class="art-card" onclick="this.querySelector('.art-detail').classList.toggle('open')"><div class="art-num">Art. 30</div><div class="art-name">TFEU — No Customs Duties</div><div class="art-desc">Prohibits customs duties and charges of equivalent effect between MS.</div><div class="art-detail">This was Art. 12 EEC Treaty — the provision at stake in Van Gend en Loos. The ECJ held it had direct effect: it was clear, precise, and unconditional. No MS action needed — Van Gend could rely on it directly. Now codified as Art. 30 TFEU.</div></div>
+    </div>
+  </div>
+
+  <div id="svi-flashcards" class="study-panel">
+    <div class="fc-controls">
+      <button class="btn btn-sm" onclick="shuffleFC('svi')">Shuffle</button>
+      <button class="btn btn-sm" onclick="resetFC('svi')">Reset all</button>
+      <span style="font-size:12px;color:var(--text3);margin-left:4px">Rate each card — hard ones come back sooner</span>
+    </div>
+    <div class="fc-sr-bar" id="svi-sr-bar"></div>
+    <div id="svi-fc-wrap">
+      <div class="flashcard-wrap"><div class="flashcard" id="svi-fc-card" onclick="flipFC('svi')">
+        <div class="fc-face fc-front"><div class="fc-label">Question</div><div class="fc-question" id="svi-fc-q"></div><div class="fc-hint">Click to reveal answer</div></div>
+        <div class="fc-face fc-back"><div class="fc-label">Answer</div><div class="fc-answer" id="svi-fc-a"></div><div class="fc-src" id="svi-fc-src"></div></div>
+      </div></div>
+      <div class="sr-btns">
+        <button class="sr-btn sr-btn-hard" onclick="rateFC('svi',0)">😬 Still learning</button>
+        <button class="sr-btn sr-btn-ok" onclick="rateFC('svi',1)">🤔 Almost</button>
+        <button class="sr-btn sr-btn-easy" onclick="rateFC('svi',2)">✓ Got it</button>
+      </div>
+      <div class="sr-mode-note" id="svi-sr-note">Card <span id="svi-fc-counter">1</span> of <span id="svi-fc-total">1</span></div>
+    </div>
+    <div class="fc-sr-done" id="svi-fc-done" style="display:none">
+      <h3>Session complete! 🎉</h3>
+      <p id="svi-done-msg"></p>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:16px">
+        <button class="btn btn-primary" onclick="reviewWeak('svi')">Review weak cards</button>
+        <button class="btn" onclick="resetFC('svi')">Start over</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="svi-quiz" class="study-panel">
+    <div id="svi-quiz-wrap">
+      <div class="quiz-prog"><div class="quiz-prog-fill" id="svi-qpfill" style="width:0%"></div></div>
+      <div class="quiz-meta" id="svi-q-meta"></div>
+      <div class="quiz-q" id="svi-q-text"></div>
+      <div class="quiz-opts" id="svi-q-opts"></div>
+      <div class="quiz-fb" id="svi-q-fb"></div>
+      <div id="svi-q-next" style="display:none"><button class="btn btn-primary" onclick="nextQ('svi')">Next →</button></div>
+    </div>
+    <div class="quiz-score-screen" id="svi-quiz-score">
+      <div class="score-row">
+        <div class="score-big" id="svi-score-big"></div>
+        <div class="score-right"><div class="score-lbl">correct answers</div><div class="score-msg" id="svi-score-msg"></div></div>
+      </div>
+      <div class="weak-section" id="svi-weak-section"></div>
+      <div style="margin-top:20px;display:flex;gap:10px">
+        <button class="btn btn-primary" onclick="restartQuiz('svi')">Try again</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- OTHER SUBJECTS -->
+<div id="page-micro-overview" class="page"><div class="page-eyebrow" style="color:var(--micro)">Microeconomics</div><div class="page-title">All Chapters</div><div class="page-desc">Select a chapter to access its summary, calculator, flashcards, and quiz.</div>
+<div class="lectures-list">
+  <div class="lec-card empty"><div class="lec-num" style="background:var(--micro-l);color:var(--micro)">01</div><div class="lec-info"><div class="lec-title">Chapter 1</div><div class="lec-sub">Not yet added</div></div><div class="lec-badges"><span class="lec-badge">Summary</span><span class="lec-badge">Cards</span><span class="lec-badge">Quiz</span></div></div>
+  <div class="lec-card empty"><div class="lec-num" style="background:var(--micro-l);color:var(--micro)">02</div><div class="lec-info"><div class="lec-title">Chapter 2</div><div class="lec-sub">Not yet added</div></div><div class="lec-badges"><span class="lec-badge">Summary</span><span class="lec-badge">Cards</span><span class="lec-badge">Quiz</span></div></div>
+  <div class="lec-card" onclick="showLecture('micro','ch3',null)"><div class="lec-num" style="background:var(--micro-l);color:var(--micro)">03</div><div class="lec-info"><div class="lec-title">Chapter 3: Risky Choice</div><div class="lec-sub">Lotteries · Expected Utility · Risk Attitudes · Insurance</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Compare</span><span class="lec-badge has">Calculator</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span></div></div>
+  <div class="lec-card empty"><div class="lec-num" style="background:var(--micro-l);color:var(--micro)">04+</div><div class="lec-info"><div class="lec-title">More chapters coming</div><div class="lec-sub">Share your notes to add the next chapter</div></div><div class="lec-badges"><span class="lec-badge">Summary</span><span class="lec-badge">Cards</span><span class="lec-badge">Quiz</span></div></div>
+</div>
+</div>
+<!-- MICRO CH3 PAGE -->
+<div id="page-micro-ch3" class="page">
+  <div class="page-eyebrow" style="color:var(--micro)">Microeconomics · Chapter 3</div>
+  <div class="page-title">Risky Choice</div>
+  <div class="page-desc">Lotteries · Expected Utility · Risk Attitudes · Certainty Equivalent · Insurance demand.</div>
+  <div class="study-tabs">
+    <button class="study-tab active" onclick="showMicroTab('summary',this)">Summary</button>
+    <button class="study-tab" onclick="showMicroTab('compare',this)">Compare</button>
+    <button class="study-tab" onclick="showMicroTab('calc',this)">Calculator</button>
+    <button class="study-tab" onclick="showMicroTab('flashcards',this)">Flashcards</button>
+    <button class="study-tab" onclick="showMicroTab('quiz',this)">Quiz</button>
+  </div>
+
+  <!-- SUMMARY -->
+  <div id="mch3-summary" class="study-panel active">
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-teal">Why Risk Matters</span></div>
+      <p>Standard consumer theory assumes certainty. In reality — investing, insurance, employment — outcomes depend on circumstances outside your control. The key insight: <em>the same tools from Ch2 (utility functions, budget lines, MRS = MRT) can handle uncertainty with just a reinterpretation.</em></p>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">Modelling Risk: States, Probabilities, Lotteries</div>
+      <ul>
+        <li><strong>States of the world:</strong> Each state s is a complete description of one scenario (e.g. "river dries up" vs "river flows"). With n states: s₁, s₂, …, sₙ.</li>
+        <li><strong>Probabilities:</strong> State i occurs with probability pᵢ, where <strong>Σpᵢ = 1</strong>. These are objective probabilities.</li>
+        <li><strong>Lottery:</strong> L = {p₁,x₁ ; p₂,x₂ ; … ; pₙ,xₙ} — the complete description of any risky situation. Every risky decision is a choice between lotteries.</li>
+        <li><strong>Worked example (lecture):</strong> Win €90 (p=0.5) or €0 (p=0.5). u(0)=2, u(90)=12. EV = €45. EU = 0.5×12 + 0.5×2 = 7. Compare to u(45) to determine risk attitude.</li>
+      </ul>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">Expected Utility Theory</div>
+      <ul>
+        <li><strong>Decision rule:</strong> EU(L) = Σᵢ pᵢ · u(xᵢ). The consumer chooses the lottery with highest EU.</li>
+        <li><strong>Critical distinction — EV vs EU:</strong> EV = Σpᵢxᵢ (average money). EU = Σpᵢu(xᵢ) (average utility after applying u). They are equal <em>only if u is linear</em>.</li>
+        <li><strong>Why u(·) matters:</strong> It captures how a person values money — specifically whether marginal utility is decreasing, constant, or increasing. This determines risk attitude entirely.</li>
+      </ul>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">Risk Attitudes — The Key Chain of Implications</div>
+      <ul>
+        <li><strong>Risk-averse:</strong> Concave u(·) → decreasing MU → EU(L) &lt; u(EV) → CE &lt; EV → positive risk premium → buys insurance. <em>Intuition:</em> losing €50 hurts more than gaining €50 helps.</li>
+        <li><strong>Risk-neutral:</strong> Linear u(·) → constant MU → EU(L) = u(EV) → CE = EV → zero risk premium → indifferent to insurance.</li>
+        <li><strong>Risk-loving:</strong> Convex u(·) → increasing MU → EU(L) &gt; u(EV) → CE &gt; EV → negative risk premium → prefers more risk.</li>
+      </ul>
+      <div class="note-box"><strong>Practical significance:</strong> Risk aversion is the norm. It is why insurance markets exist — risk-averse people pay a premium to transfer risk to insurers who can pool it.</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">Certainty Equivalent &amp; Risk Premium</div>
+      <ul>
+        <li><strong>Certainty Equivalent (CE):</strong> The guaranteed amount making the consumer indifferent to the lottery. Defined by <strong>u(CE) = EU(L)</strong>. Find by: compute EU → invert u.</li>
+        <li><strong>Risk Premium:</strong> <strong>RP = EV − CE</strong>. Maximum the person would pay to swap the lottery for its expected value with certainty. Quantifies how much risk matters.</li>
+        <li><strong>Why it matters practically:</strong> RP = maximum insurance premium a person would willingly pay. Any premium below RP is individually rational to accept.</li>
+      </ul>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">Insurance as State-Contingent Consumption</div>
+      <ul>
+        <li><strong>Reframing:</strong> Insurance moves consumption between states. The two "goods" are cg (good state consumption) and cb (bad state consumption).</li>
+        <li><strong>Endowment (no insurance):</strong> cg = A, cb = A − D. Point (A−D, A) in the (cb, cg) diagram.</li>
+        <li><strong>Coverage K at premium rate γ:</strong> cg(K) = A − γK; cb(K) = A − D + (1−γ)K.</li>
+        <li><strong>Budget line slope:</strong> −γ/(1−γ) = MRT. To gain €1 in bad state, give up γ/(1−γ) in good state.</li>
+      </ul>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">Optimal Insurance — MRS = MRT</div>
+      <ul>
+        <li><strong>MRS of EU ICs:</strong> MRS = [p · u′(cb)] / [(1−p) · u′(cg)]. Don't forget probability weights!</li>
+        <li><strong>Optimality condition:</strong> p·u′(cb) / [(1−p)·u′(cg)] = γ/(1−γ)</li>
+        <li><strong>Fair insurance (γ = p):</strong> Condition simplifies to u′(cb) = u′(cg) → cb = cg. Risk-averse consumer buys <strong>full insurance</strong>.</li>
+        <li><strong>Unfair insurance (γ &gt; p):</strong> u′(cb) &gt; u′(cg) → cb &lt; cg. Consumer buys <strong>partial insurance</strong> only. Full insurance line: 45° line where cb = cg.</li>
+        <li><strong>Risk-neutral/loving under unfair insurance:</strong> Zero insurance (ICs too flat / concave to benefit).</li>
+      </ul>
+      <div class="note-box"><strong>Exam method:</strong> cg(x) and cb(x) → budget line → EU → MRS → MRS=MRT → solve for cb* → recover x* = [cb*−(A−D)]/(1−γ).</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">⚠️ Most Common Mistakes</div>
+      <ul>
+        <li>Confusing EV and EU — always apply u(·) <em>before</em> weighting by probability</li>
+        <li>Forgetting probabilities in the MRS — MRS = p·u′(cb)/[(1−p)·u′(cg)], not just u′(cb)/u′(cg)</li>
+        <li>Using p instead of γ for the budget line slope — slope uses γ, not p</li>
+        <li>Assuming full insurance is always optimal — only true when γ = p (fair)</li>
+        <li>Swapping the endowment: bad state = A−D (not A), good state = A (not A−D)</li>
+        <li>Recovering x* from the cg formula — always use cb* = (A−D) + (1−γ)x to find x*</li>
+        <li>Concluding risk-aversion alone is enough — for gamble acceptance, you still need u(·) to compare EU vs u(outside option)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- COMPARE -->
+  <div id="mch3-compare" class="study-panel">
+    <div class="sum-card">
+      <div class="sum-title">Risk Attitude — Full Comparison</div>
+      <table class="comp-table">
+        <tr><th>Feature</th><th>Risk-Averse</th><th>Risk-Neutral</th><th>Risk-Loving</th></tr>
+        <tr><td><strong>u(·) shape</strong></td><td>Concave</td><td>Linear</td><td>Convex</td></tr>
+        <tr><td><strong>Marginal utility</strong></td><td>Decreasing</td><td>Constant</td><td>Increasing</td></tr>
+        <tr><td><strong>Condition</strong></td><td>EU &lt; u(EV)</td><td>EU = u(EV)</td><td>EU &gt; u(EV)</td></tr>
+        <tr><td><strong>CE vs EV</strong></td><td>CE &lt; EV</td><td>CE = EV</td><td>CE &gt; EV</td></tr>
+        <tr><td><strong>Risk premium</strong></td><td>Positive</td><td>Zero</td><td>Negative</td></tr>
+        <tr><td><strong>IC shape (cb,cg)</strong></td><td>Strictly convex</td><td>Straight line</td><td>Strictly concave</td></tr>
+        <tr><td><strong>Fair insurance (γ=p)</strong></td><td>Full insurance</td><td>Indifferent</td><td>No insurance</td></tr>
+        <tr><td><strong>Unfair insurance (γ&gt;p)</strong></td><td>Partial insurance</td><td>Zero insurance</td><td>Zero insurance</td></tr>
+        <tr><td><strong>Example u(c)</strong></td><td>√c, ln(c), c^(1/3)</td><td>2c, 5c+10</td><td>c², eᶜ</td></tr>
+      </table>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">Fair vs Unfair Insurance</div>
+      <table class="comp-table">
+        <tr><th></th><th>Fair Insurance (γ = p)</th><th>Unfair Insurance (γ &gt; p)</th></tr>
+        <tr><td><strong>What it means</strong></td><td>Premium rate = loss probability; insurer breaks even</td><td>Premium rate &gt; loss probability; insurer profits</td></tr>
+        <tr><td><strong>Budget line slope</strong></td><td>−p/(1−p)</td><td>−γ/(1−γ), steeper than −p/(1−p)</td></tr>
+        <tr><td><strong>Optimality condition</strong></td><td>u′(cb) = u′(cg)</td><td>u′(cb) &gt; u′(cg)</td></tr>
+        <tr><td><strong>Optimal for risk-averse</strong></td><td>cb* = cg* (full insurance, on 45° line)</td><td>cb* &lt; cg* (partial, below 45° line)</td></tr>
+        <tr><td><strong>Real world?</strong></td><td>Theoretical benchmark</td><td>Yes — insurers must cover admin costs &amp; profit</td></tr>
+        <tr><td><strong>Martina example</strong></td><td>γ = p = 0.4 → x* = D = 550k</td><td>γ = 0.5 &gt; 0.4 = p → x* = 300k &lt; 550k</td></tr>
+      </table>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">Identifying Risk Attitude from u(c)</div>
+      <table class="comp-table">
+        <tr><th>u(c)</th><th>u″(c)</th><th>Sign of u″</th><th>Risk attitude</th></tr>
+        <tr><td>√c = c^(1/2)</td><td>−(1/4)c^(−3/2)</td><td>Negative</td><td>Risk-averse</td></tr>
+        <tr><td>ln(c)</td><td>−1/c²</td><td>Negative</td><td>Risk-averse</td></tr>
+        <tr><td>c^(1/3)</td><td>(−2/9)c^(−5/3)</td><td>Negative</td><td>Risk-averse</td></tr>
+        <tr><td>5c + 10</td><td>0</td><td>Zero</td><td>Risk-neutral</td></tr>
+        <tr><td>c²</td><td>2</td><td>Positive</td><td>Risk-loving</td></tr>
+        <tr><td>e^(0.1c)</td><td>0.01e^(0.1c)</td><td>Positive</td><td>Risk-loving</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- CALCULATOR -->
+  <div id="mch3-calc" class="study-panel">
+    <div class="sum-card" style="margin-bottom:16px">
+      <div class="sum-title" style="color:var(--micro)">🧮 Step-by-Step Calculator</div>
+      <p style="font-size:13.5px;color:var(--text2)">Work through each problem step by step. Try to predict the next step before revealing it — that's how you learn to solve these in exams.</p>
+    </div>
+    <div class="calc-header">
+      <div>
+        <div id="calc-title" style="font-family:var(--serif);font-size:20px;color:var(--text)"></div>
+        <div class="calc-pick-label" id="calc-pick-label"></div>
+      </div>
+      <div class="calc-nav">
+        <button class="btn btn-sm" onclick="calcPrev()">← Prev</button>
+        <button class="btn btn-sm" onclick="calcNext()">Next →</button>
+      </div>
+    </div>
+    <div class="calc-desc-box" id="calc-desc"></div>
+    <div id="calc-steps"></div>
+    <div class="calc-footer">
+      <button class="btn btn-primary btn-sm" id="calc-next" onclick="calcNextStep()">Next step →</button>
+      <button class="btn btn-sm" id="calc-reveal"></button>
+    </div>
+  </div>
+
+  <!-- FLASHCARDS -->
+  <div id="mch3-flashcards" class="study-panel">
+    <div class="fc-controls">
+      <button class="btn btn-sm" onclick="shuffleMicroFC('ch3')">Shuffle</button>
+      <button class="btn btn-sm" onclick="resetMicroFC('ch3')">Reset all</button>
+      <span style="font-size:12px;color:var(--text3);margin-left:4px">Rate each card — hard ones come back sooner</span>
+    </div>
+    <div class="fc-sr-bar" id="mch3-sr-bar"></div>
+    <div id="mch3-fc-wrap">
+      <div class="flashcard-wrap"><div class="flashcard" id="mch3-fc-card" onclick="flipMicroFC('ch3')">
+        <div class="fc-face fc-front" style="background:var(--surface)"><div class="fc-label">Question</div><div class="fc-question" id="mch3-fc-q"></div><div class="fc-hint">Click to reveal</div></div>
+        <div class="fc-face fc-back" style="background:var(--micro);transform:rotateY(180deg)"><div class="fc-label">Answer</div><div class="fc-answer" id="mch3-fc-a"></div><div class="fc-src" id="mch3-fc-src"></div></div>
+      </div></div>
+      <div class="sr-btns">
+        <button class="sr-btn sr-btn-hard" onclick="rateMicroFC('ch3',0)">😬 Still learning</button>
+        <button class="sr-btn sr-btn-ok" onclick="rateMicroFC('ch3',1)">🤔 Almost</button>
+        <button class="sr-btn sr-btn-easy" onclick="rateMicroFC('ch3',2)">✓ Got it</button>
+      </div>
+      <div class="sr-mode-note">Card <span id="mch3-fc-counter">1</span> of <span id="mch3-fc-total">30</span></div>
+    </div>
+    <div class="fc-sr-done" id="mch3-fc-done" style="display:none">
+      <h3>Session complete! 🎉</h3>
+      <p id="mch3-done-msg"></p>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:16px">
+        <button class="btn btn-primary" onclick="reviewMicroWeak('ch3')">Review weak cards</button>
+        <button class="btn" onclick="resetMicroFC('ch3')">Start over</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUIZ -->
+  <div id="mch3-quiz" class="study-panel">
+    <div id="mqch3-wrap">
+      <div class="quiz-prog"><div class="quiz-prog-fill" id="mqch3-pfill" style="width:0%"></div></div>
+      <div class="quiz-meta" id="mqch3-meta"></div>
+      <div class="quiz-q" id="mqch3-text"></div>
+      <div class="quiz-opts" id="mqch3-opts"></div>
+      <div class="quiz-fb" id="mqch3-fb"></div>
+      <div id="mqch3-next" style="display:none"><button class="btn btn-primary" onclick="nextMicroQ('ch3')">Next →</button></div>
+    </div>
+    <div class="quiz-score-screen" id="mqch3-score">
+      <div class="score-row">
+        <div class="score-big" id="mqch3-big" style="color:var(--micro)"></div>
+        <div class="score-right"><div class="score-lbl">correct answers</div><div class="score-msg" id="mqch3-msg"></div></div>
+      </div>
+      <div class="weak-section" id="mqch3-weak"></div>
+      <div style="margin-top:20px;display:flex;gap:10px">
+        <button class="btn btn-primary" onclick="restartMicroQuiz('ch3')">Try again</button>
+        <button class="btn" onclick="showMicroTab('calc',null)">Practice calculator</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="page-macro-overview" class="page"><div class="page-eyebrow" style="color:var(--macro)">Macroeconomics</div><div class="page-title">All Chapters</div><div class="page-desc">No chapters loaded yet.</div><div class="empty-state"><h3>Ready to populate</h3><p>Share your Macro notes and I'll build the summary, flashcards, quiz, and formula calculator for each chapter.</p></div></div>
+<div id="page-ibt-overview" class="page"><div class="page-eyebrow" style="color:var(--ibt)">International Business Trade</div><div class="page-title">All Chapters</div><div class="page-desc">No chapters loaded yet.</div><div class="empty-state"><h3>Ready to populate</h3><p>Share your IBT notes and I'll build the summary, flashcards, and quiz for each chapter.</p></div></div>
+<div id="page-ic-overview" class="page"><div class="page-eyebrow" style="color:var(--ic)">Intercultural Competence</div><div class="page-title">All Chapters</div><div class="page-desc">No chapters loaded yet.</div><div class="empty-state"><h3>Ready to populate</h3><p>Share your IC notes and I'll build the summary, flashcards, and quiz for each chapter.</p></div></div>
 
 </main>
 </div>
 <script>
+// ── Navigation ──
 function showPage(id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));document.getElementById('page-'+id).classList.add('active');if(btn)btn.classList.add('active')}
-function showLecture(subject,id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-sub').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');const el=document.getElementById('page-'+subject+'-'+id);if(el){el.classList.add('active');if(subject==='eu'&&id==='v'){initFC('sv');initQuiz('sv')}if(subject==='eu'&&id==='vi'){initFC('svi');initQuiz('svi')}}}
-function showTab(prefix,tab,btn){document.querySelectorAll('[id^="'+prefix+'-"]').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.study-tab').forEach(b=>b.classList.remove('active'));document.getElementById(prefix+'-'+tab).classList.add('active');if(btn)btn.classList.add('active')}
+function showLecture(subject,id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-sub').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');const el=document.getElementById('page-'+subject+'-'+id);if(el){el.classList.add('active');if(subject==='eu'&&id==='v'){initFC('sv');initQuiz('sv')}if(subject==='eu'&&id==='vi'){initFC('svi');initQuiz('svi');loadScenario(0,document.querySelector('.scenario-btn'))}if(subject==='micro'&&id==='ch3'){initMicroFC('ch3');initMicroQuiz('ch3');initCalc()}}}
+function showMicroTab(tab,btn){
+  const page=document.getElementById('page-micro-ch3');
+  page.querySelectorAll('.study-panel').forEach(p=>p.classList.remove('active'));
+  page.querySelectorAll('.study-tab').forEach(b=>b.classList.remove('active'));
+  document.getElementById('mch3-'+tab).classList.add('active');
+  if(btn)btn.classList.add('active');
+  if(tab==='calc')initCalc();
+}
 function toggleTl(card){const body=card.querySelector('.tl-body');const toggle=card.querySelector('.tl-toggle');body.classList.toggle('open');toggle.textContent=body.classList.contains('open')?'− Hide details':'+ Show details'}
 
+// ── Flashcard data ──
 const fcDataMap={
   sv:[
-    {q:"What are the two BEPS pillars?",a:"Pillar 1: reallocates taxing rights to market jurisdictions. Pillar 2: 15% global minimum corporate tax for MNEs with >€750m revenue.",src:"Session V — BEPS"},
-    {q:"Why is Pillar 1 currently stalled?",a:"The USA withdrew support under the Trump administration, blocking global implementation.",src:"Session V — BEPS"},
-    {q:"Which EU directive implemented Pillar 2?",a:"Directive 2022/2523, in force 31 December 2023.",src:"Session V — BEPS"},
-    {q:"What are the 6 aspects of the rule of law (Art. 2 TEU)?",a:"Legality, legal certainty, prohibition of arbitrary executive power, effective judicial protection, separation of powers, equality before the law.",src:"Session V — Legal Systems"},
-    {q:"What is the Council of Europe and how does it differ from the EU?",a:"A separate organisation with 46 member states promoting rule of law, human rights and democracy. Home of the ECHR. Not part of the EU.",src:"Session V — Legal Systems"},
-    {q:"What are the 5 state principles of the German Basic Law?",a:"Democracy, Rechtsstaat (rule of law), Republic, Federalism, Sozialstaat (social state).",src:"Session V — Legal Systems"},
+    {q:"What are the two BEPS pillars and their goals?",a:"Pillar 1: reallocates taxing rights to market jurisdictions (where consumers are). Pillar 2: ensures 15% global minimum corporate tax for MNEs with >€750m revenue.",src:"Session V — BEPS",topic:"BEPS"},
+    {q:"Why is BEPS Pillar 1 currently stalled?",a:"The USA withdrew support under the Trump administration, preventing global implementation. Result: countries are imposing unilateral digital service taxes (a 'patchwork').",src:"Session V — BEPS",topic:"BEPS"},
+    {q:"Which EU directive implemented Pillar 2, and when did it enter into force?",a:"Directive 2022/2523, in force 31 December 2023.",src:"Session V — BEPS",topic:"BEPS"},
+    {q:"What is the revenue threshold for MNEs under BEPS Pillar 2?",a:"Annual consolidated group revenue of at least €750 million (~8,000 corporate groups globally affected).",src:"Session V — BEPS",topic:"BEPS"},
+    {q:"What are the three key Pillar 2 mechanisms?",a:"IIR (Income Inclusion Rule — top-up tax at parent level), UTPR (Undertaxed Payments Rule — backstop), QDMTT (Qualified Domestic Minimum Top-up Tax — domestic first application).",src:"Session V — BEPS",topic:"BEPS"},
+    {q:"What is the difference between tax avoidance and tax evasion?",a:"Tax avoidance is legal (though may be contrary to legislative intent). Tax evasion is illegal (deliberate non-payment/misrepresentation). Between them: aggressive tax planning.",src:"Session V — Tax",topic:"Tax"},
+    {q:"What are the 6 aspects of the rule of law under Art. 2 TEU?",a:"(1) Legality, (2) legal certainty, (3) prohibition of arbitrary executive power, (4) effective judicial protection, (5) separation of powers, (6) equality before the law.",src:"Session V — Legal Systems",topic:"Legal Systems"},
+    {q:"What is the Council of Europe and how does it differ from the EU?",a:"A separate intergovernmental organisation with 46 member states (not limited to EU). Promotes rule of law, human rights, democracy. Home of the ECHR. Not part of the EU.",src:"Session V — Legal Systems",topic:"Legal Systems"},
+    {q:"Name three things often confused with the Council of Europe.",a:"(1) European Council (EU heads of state), (2) Council of the EU (ministers), (3) International Criminal Court (independent UN body).",src:"Session V — Legal Systems",topic:"Legal Systems"},
+    {q:"What are the 5 state principles of the German Basic Law?",a:"Democracy (Art. 20(2) GG), Rechtsstaat (rule of law), Republic (no monarchy), Federalism (Bund + 16 Länder), Sozialstaat (social welfare state).",src:"Session V — Legal Systems",topic:"Legal Systems"},
+    {q:"What is the Copenhagen Criteria (1993)?",a:"Conditions for EU accession: (1) political — stable institutions, rule of law, minority protection; (2) economic — functioning market economy; (3) acquis — ability to assume all EU obligations.",src:"Session V — EU History",topic:"EU History"},
+    {q:"When was the Charter of Fundamental Rights created, and when did it become binding?",a:"Created in 2000. Became legally binding with the Lisbon Treaty in 2009 (Art. 6(1) TEU).",src:"Session V — EU History",topic:"EU History"},
   ],
   svi:[
-    {q:"What principle did Van Gend en Loos establish?",a:"Direct Effect — individuals can directly rely on EU law in national courts without MS action.",src:"Van Gend en Loos (1963)"},
-    {q:"3 requirements for direct effect?",a:"The provision must be (1) clear, (2) precise, (3) unconditional.",src:"Van Gend en Loos (1963)"},
-    {q:"What principle did Costa v. ENEL establish?",a:"Primacy — EU law takes precedence over all national law, including later legislation.",src:"Costa v. ENEL (1964)"},
-    {q:"Can national constitutional law override EU law?",a:"No. Only the ECJ can declare EU law invalid. National constitutions are not the yardstick.",src:"Internationale Handelsgesellschaft (1970)"},
-    {q:"What must a national court do when it finds a conflict with EU law?",a:"Immediately disapply the conflicting national provision — no waiting for a constitutional court or legislature.",src:"Simmenthal (1978)"},
-    {q:"3 conditions for state liability under Francovich?",a:"(1) Directive grants rights to individuals. (2) Content of rights identifiable. (3) Causal link between breach and damage.",src:"Francovich (1991)"},
-    {q:"Difference: vertical vs horizontal direct effect of directives?",a:"Vertical: individual vs. state — allowed. Horizontal: individual vs. private party — NOT possible for directives.",src:"Francovich reasoning"},
-    {q:"Art. 288 TFEU: difference between Regulation and Directive?",a:"Regulation: directly applicable, no implementation needed. Directive: binding as to result, MS chooses form & method.",src:"Art. 288 TFEU"},
+    {q:"What principle did Van Gend en Loos establish?",a:"Direct Effect — individuals can directly rely on clear, precise, unconditional provisions of EU law in national courts, without MS action.",src:"Van Gend en Loos (1963)",topic:"Direct Effect"},
+    {q:"What are the 3 requirements for direct effect?",a:"The provision must be (1) clear, (2) precise, (3) unconditional — meaning it creates a right that requires no further legislative action.",src:"Van Gend en Loos (1963)",topic:"Direct Effect"},
+    {q:"What made the EEC a 'new legal order' in Van Gend?",a:"Unlike ordinary international law (which only creates obligations between states), the EEC created rights for individuals which national courts must protect directly.",src:"Van Gend en Loos (1963)",topic:"Direct Effect"},
+    {q:"What principle did Costa v. ENEL establish?",a:"Primacy (Supremacy) — EU law takes precedence over all conflicting national law, including legislation enacted after the EU provision.",src:"Costa v. ENEL (1964)",topic:"Primacy"},
+    {q:"Why can't a later national law override earlier EU law?",a:"MS permanently limited their sovereign rights when joining. If national law could override EU law, the EU's functioning would be jeopardised. EU law has a 'special and original nature'.",src:"Costa v. ENEL (1964)",topic:"Primacy"},
+    {q:"Can national constitutional law override EU law?",a:"No. Per Internationale Handelsgesellschaft, the yardstick for reviewing EU law is EU law only — not national constitutions. Only the ECJ can declare EU law invalid.",src:"Internationale Handelsgesellschaft (1970)",topic:"Primacy"},
+    {q:"What double principle did Internationale Handelsgesellschaft establish?",a:"(1) EU law cannot be reviewed against national constitutions — only ECJ can invalidate EU law. (2) BUT fundamental rights are general principles of EU law drawn from MS constitutional traditions.",src:"Internationale Handelsgesellschaft (1970)",topic:"Fundamental Rights"},
+    {q:"Why was fundamental rights protection important in Internationale Handelsgesellschaft (1970)?",a:"At the time, there was no written EU catalogue of fundamental rights. The ECJ had to create protection through general principles — eventually leading to the Charter (2000/2009).",src:"Internationale Handelsgesellschaft (1970)",topic:"Fundamental Rights"},
+    {q:"What must a national court do when it finds a conflict between national and EU law?",a:"Immediately disapply the conflicting national provision — without waiting for a constitutional court, legislative repeal, or referral to the ECJ. (Simmenthal)",src:"Simmenthal (1978)",topic:"National Courts"},
+    {q:"What does Simmenthal say about new national laws conflicting with EU law?",a:"MS cannot enact new laws that conflict with existing EU law. Any such law is inapplicable from the moment it conflicts with EU law.",src:"Simmenthal (1978)",topic:"National Courts"},
+    {q:"What are the 3 conditions for state liability under Francovich?",a:"(1) The directive grants rights to individuals. (2) The content of those rights is identifiable from the directive. (3) There is a causal link between the MS's breach and the individual's damage. + Deadline must have elapsed.",src:"Francovich (1991)",topic:"State Liability"},
+    {q:"What is the difference between vertical and horizontal direct effect of directives?",a:"Vertical: individual relies on directive against the state — allowed once deadline lapses + provision is clear/precise/unconditional. Horizontal: individual vs. private party — NOT possible for directives.",src:"Francovich reasoning",topic:"Direct Effect"},
+    {q:"When does Francovich apply instead of direct effect?",a:"When the directive cannot produce direct effect (content unclear, or situation is horizontal/private-private) but the MS failed to implement it. Individual then sues the MS for compensation.",src:"Francovich (1991)",topic:"State Liability"},
+    {q:"What is indirect effect (consistent interpretation)?",a:"National courts must interpret national law in light of the directive's purpose and wording, as far as possible — even when direct effect is unavailable. Fills gap between DE and Francovich.",src:"EU Law general principle",topic:"Direct Effect"},
+    {q:"Art. 288 TFEU: what is the key difference between a Regulation and a Directive?",a:"Regulation: directly applicable — binding in entirety, no MS implementation needed. Directive: binding only as to result — MS chooses form and method of implementation.",src:"Art. 288 TFEU",topic:"Secondary Law"},
+    {q:"Which article governs the preliminary ruling procedure?",a:"Art. 267 TFEU. National courts refer questions on EU law interpretation or validity to the ECJ. Lower courts may refer; courts of last instance must refer.",src:"Art. 267 TFEU",topic:"Procedure"},
+    {q:"What is the principle of conferral (Art. 5 TEU)?",a:"The EU has no inherent powers. It can only act where the Treaties explicitly grant competence. Powers not conferred remain with Member States.",src:"Art. 5 TEU",topic:"EU Structure"},
+    {q:"Since Lisbon, what is the legal status of the Charter of Fundamental Rights?",a:"Same legal value as the TEU and TFEU — binding primary law (Art. 6(1) TEU). Before Lisbon: only general principles (Internationale Handelsgesellschaft).",src:"Art. 6(1) TEU",topic:"Fundamental Rights"},
   ]
 };
 
+// ── Spaced Repetition Engine ──
 const fcState={};
-function initFC(prefix){fcState[prefix]={deck:[...fcDataMap[prefix]],idx:0};renderFC(prefix)}
-function renderFC(prefix){const s=fcState[prefix];if(!s)return;const c=s.deck[s.idx];document.getElementById(prefix+'-fc-q').textContent=c.q;document.getElementById(prefix+'-fc-a').textContent=c.a;document.getElementById(prefix+'-fc-src').textContent='— '+c.src;document.getElementById(prefix+'-fc-counter').textContent='Card '+(s.idx+1)+' of '+s.deck.length;document.getElementById(prefix+'-fc-card').classList.remove('flipped')}
+function initFC(prefix){
+  const data=fcDataMap[prefix];
+  fcState[prefix]={
+    all:[...data].map((c,i)=>({...c,idx:i,confidence:1,due:0})),
+    queue:[],
+    current:0,
+    pass:0
+  };
+  buildQueue(prefix);
+  renderFC(prefix);
+  renderSRBar(prefix);
+}
+function buildQueue(prefix){
+  const s=fcState[prefix];
+  s.queue=[...s.all].sort(()=>Math.random()-.5);
+  s.current=0;
+}
+function renderFC(prefix){
+  const s=fcState[prefix];
+  if(!s||s.queue.length===0)return;
+  const c=s.queue[s.current];
+  document.getElementById(prefix+'-fc-q').textContent=c.q;
+  document.getElementById(prefix+'-fc-a').textContent=c.a;
+  document.getElementById(prefix+'-fc-src').textContent='— '+c.src;
+  document.getElementById(prefix+'-fc-counter').textContent=s.current+1;
+  document.getElementById(prefix+'-fc-total').textContent=s.queue.length;
+  document.getElementById(prefix+'-fc-card').classList.remove('flipped');
+  document.getElementById(prefix+'-fc-done').style.display='none';
+  document.getElementById(prefix+'-fc-wrap').style.display='block';
+}
+function renderSRBar(prefix){
+  const s=fcState[prefix];if(!s)return;
+  const bar=document.getElementById(prefix+'-sr-bar');
+  if(!bar)return;
+  bar.innerHTML='<span style="font-size:12px;color:var(--text3);margin-right:6px">Progress:</span>';
+  s.all.forEach(c=>{
+    const pip=document.createElement('span');
+    pip.className='sr-pip'+(c.confidence>=2?' know':c.confidence===1?' review':'');
+    bar.appendChild(pip);
+  });
+  const known=s.all.filter(c=>c.confidence>=2).length;
+  const total=s.all.length;
+  const span=document.createElement('span');
+  span.style.cssText='font-size:12px;color:var(--text3);margin-left:8px';
+  span.textContent=known+'/'+total+' confident';
+  bar.appendChild(span);
+}
 function flipFC(prefix){document.getElementById(prefix+'-fc-card').classList.toggle('flipped')}
-function nextFC(prefix){const s=fcState[prefix];s.idx=(s.idx+1)%s.deck.length;renderFC(prefix)}
-function prevFC(prefix){const s=fcState[prefix];s.idx=(s.idx-1+s.deck.length)%s.deck.length;renderFC(prefix)}
-function shuffleFC(prefix){fcState[prefix].deck=[...fcDataMap[prefix]].sort(()=>Math.random()-.5);fcState[prefix].idx=0;renderFC(prefix)}
-function resetFC(prefix){fcState[prefix].deck=[...fcDataMap[prefix]];fcState[prefix].idx=0;renderFC(prefix)}
+function rateFC(prefix,rating){
+  const s=fcState[prefix];if(!s)return;
+  const card=s.queue[s.current];
+  card.confidence=rating;
+  s.current++;
+  if(s.current>=s.queue.length){
+    const weak=s.all.filter(c=>c.confidence<2);
+    const known=s.all.filter(c=>c.confidence>=2).length;
+    document.getElementById(prefix+'-fc-wrap').style.display='none';
+    document.getElementById(prefix+'-fc-done').style.display='block';
+    if(weak.length===0){document.getElementById(prefix+'-done-msg').textContent='You know all '+s.all.length+' cards — excellent work! 🎓'}
+    else{document.getElementById(prefix+'-done-msg').textContent=known+' cards solid, '+weak.length+' still need work. Click "Review weak cards" to focus on those.'}
+  }else{renderFC(prefix)}
+  renderSRBar(prefix);
+}
+function reviewWeak(prefix){
+  const s=fcState[prefix];
+  const weak=s.all.filter(c=>c.confidence<2);
+  if(weak.length===0){resetFC(prefix);return}
+  s.queue=[...weak].sort(()=>Math.random()-.5);
+  s.current=0;
+  document.getElementById(prefix+'-fc-done').style.display='none';
+  document.getElementById(prefix+'-fc-wrap').style.display='block';
+  renderFC(prefix);
+}
+function shuffleFC(prefix){
+  const s=fcState[prefix];if(!s)return;
+  s.queue=[...s.all].sort(()=>Math.random()-.5);
+  s.current=0;
+  document.getElementById(prefix+'-fc-done').style.display='none';
+  document.getElementById(prefix+'-fc-wrap').style.display='block';
+  renderFC(prefix);
+}
+function resetFC(prefix){
+  const s=fcState[prefix];if(!s)return;
+  s.all.forEach(c=>c.confidence=1);
+  buildQueue(prefix);
+  document.getElementById(prefix+'-fc-done').style.display='none';
+  document.getElementById(prefix+'-fc-wrap').style.display='block';
+  renderFC(prefix);
+  renderSRBar(prefix);
+}
 
+// ── Quiz data ──
 const qDataMap={
   sv:[
-    {q:"What is the revenue threshold for MNEs under BEPS Pillar 2?",opts:["€20 billion","€500 million","€750 million","€1 billion"],ans:2,exp:"Pillar 2 applies to MNE groups with annual consolidated revenues of at least €750 million."},
-    {q:"Why is BEPS Pillar 1 currently blocked?",opts:["EU Parliament rejected it","The OECD withdrew the proposal","USA withdrew support under Trump","Developing countries blocked it"],ans:2,exp:"The USA withdrew support under the Trump administration, preventing global implementation of Pillar 1."},
-    {q:"Which EU directive implemented the global minimum tax?",opts:["ATAD","Directive 2022/2523","Directive 80/987","Single European Act"],ans:1,exp:"Directive 2022/2523 implemented Pillar 2 in the EU, in force from 31 December 2023."},
-    {q:"How many aspects does the rule of law have under Art. 2 TEU?",opts:["4","5","6","7"],ans:2,exp:"Art. 2 TEU rule of law has 6 aspects: legality, legal certainty, no arbitrary executive power, effective judicial protection, separation of powers, equality."},
-    {q:"Which of these is NOT one of the 5 state principles in the German Basic Law?",opts:["Democracy","Federalism","Secularism","Sozialstaat"],ans:2,exp:"The 5 principles are: Democracy, Rechtsstaat, Republic, Federalism, Sozialstaat. Secularism is not one of them."},
+    {q:"What is the revenue threshold for MNEs under BEPS Pillar 2?",opts:["€20 billion","€500 million","€750 million","€1 billion"],ans:2,exp:"Pillar 2 applies to MNE groups with annual consolidated revenues of at least €750 million — approximately 8,000 corporate groups globally.",topic:"BEPS"},
+    {q:"Why is BEPS Pillar 1 currently blocked?",opts:["EU Parliament rejected it","The OECD withdrew the proposal","USA withdrew support under Trump","Developing countries voted against it"],ans:2,exp:"The USA withdrew its support under the Trump administration. Without the world's largest economy, global consensus on Pillar 1 collapsed. Many countries responded with unilateral digital service taxes.",topic:"BEPS"},
+    {q:"Which EU directive implemented the global minimum tax (Pillar 2)?",opts:["ATAD","Directive 2022/2523","Directive 80/987","Single European Act"],ans:1,exp:"Directive 2022/2523 implemented Pillar 2 in the EU, entering into force on 31 December 2023. ATAD is a separate directive implementing other BEPS measures.",topic:"BEPS"},
+    {q:"What does the QDMTT stand for and what is its role?",opts:["Qualified Domestic Minimum Tax Treaty — treaty provision","Qualified Domestic Minimum Top-up Tax — allows domestic top-up first","Quantified Direct Minimum Tax Threshold — sets the rate","Qualified Directive Minimum Transfer Tax — cross-border rule"],ans:1,exp:"QDMTT (Qualified Domestic Minimum Top-up Tax) allows a jurisdiction to apply the top-up tax to its own low-taxed entities first, before other countries can do so under IIR or UTPR.",topic:"BEPS"},
+    {q:"How many aspects does the rule of law have under Art. 2 TEU?",opts:["4","5","6","7"],ans:2,exp:"Art. 2 TEU rule of law has 6 aspects: legality, legal certainty, prohibition of arbitrary executive power, effective judicial protection, separation of powers, equality before the law.",topic:"Legal Systems"},
+    {q:"Which of these is NOT one of the 5 state principles of the German Basic Law?",opts:["Democracy","Federalism","Secularism","Sozialstaat"],ans:2,exp:"The 5 Grundgesetz principles are: Democracy, Rechtsstaat (rule of law), Republic, Federalism, Sozialstaat. Secularism (separation of church and state) is not one of the five core state principles.",topic:"Legal Systems"},
+    {q:"The Council of Europe is…",opts:["The same as the European Council","An EU institution with 27 MS","A separate organisation with 46 MS including non-EU countries","The EU's legislative upper chamber"],ans:2,exp:"The Council of Europe is a completely separate intergovernmental organisation from the EU — it has 46 member states including many non-EU countries, and is home to the European Court of Human Rights.",topic:"Legal Systems"},
+    {q:"When did the Treaty of Rome (EEC) enter into force?",opts:["1951","1957","1958","1965"],ans:2,exp:"The Treaties of Rome were signed on 25 March 1957 and entered into force on 1 January 1958. They established the EEC and Euratom.",topic:"EU History"},
+    {q:"What were the Copenhagen Criteria (1993)?",opts:["Rules for eurozone membership","Rules for EU budget contributions","Conditions for EU accession: political, economic, and acquis criteria","Standards for Council of Europe membership"],ans:2,exp:"The Copenhagen Criteria (1993) set three conditions for EU accession: (1) political — stable institutions, rule of law, minority protection; (2) economic — functioning market economy; (3) acquis — ability to adopt all EU obligations.",topic:"EU History"},
+    {q:"What is the difference between tax avoidance and tax evasion?",opts:["There is no legal difference","Avoidance is illegal, evasion is aggressive but legal","Avoidance is legal (may contradict legislative intent); evasion is illegal","Both are legal forms of tax planning"],ans:2,exp:"Tax avoidance is technically legal (though may be contrary to the spirit of the law). Tax evasion is illegal — deliberate misrepresentation or concealment. Between them lies 'aggressive tax planning'.",topic:"Tax"},
   ],
   svi:[
-    {q:"Which case established Direct Effect?",opts:["Costa v. ENEL","Van Gend en Loos","Simmenthal","Francovich"],ans:1,exp:"Van Gend en Loos (1963) declared the EEC a 'new legal order' where individuals can directly rely on EU law."},
-    {q:"What must a national court do when national law conflicts with EU law?",opts:["Wait for constitutional court","Refer to ECJ first","Immediately disapply national law","Apply national law — it is more recent"],ans:2,exp:"Simmenthal (1978): national courts must immediately disapply conflicting national law without waiting."},
-    {q:"Which article governs the preliminary ruling procedure?",opts:["Art. 19 TEU","Art. 252 TFEU","Art. 267 TFEU","Art. 288 TFEU"],ans:2,exp:"Art. 267 TFEU. Courts of last instance must refer; lower courts may. ECJ answers on interpretation or validity."},
-    {q:"Francovich: what did the ECJ decide?",opts:["No liability — directives aren't binding","Individuals sue employer, not state","Italy must compensate individuals who suffered damage","No remedy if directive lacks direct effect"],ans:2,exp:"Francovich (1991): MS must compensate individuals for damage caused by failure to implement EU law."},
-    {q:"Can national constitutional law override EU law?",opts:["Yes — constitutions rank highest","Yes — for fundamental rights only","No — only the ECJ can invalidate EU law","No — but courts can suspend EU law temporarily"],ans:2,exp:"Internationale Handelsgesellschaft (1970): EU law cannot be reviewed against national constitutions. Only the ECJ can declare EU law invalid."},
-    {q:"Key difference: Regulation vs Directive under Art. 288 TFEU?",opts:["Regulations need unanimous vote","Regulations are directly applicable; directives need implementation","Directives are binding; regulations are soft law","Regulations bind only MS"],ans:1,exp:"A Regulation is directly applicable. A Directive is binding as to result — MS chooses form and method."},
-    {q:"What is the principle of conferral (Art. 5 TEU)?",opts:["EU law prevails over national law","EU must be proportionate","EU can only act where Treaties grant competence","MS must implement directives faithfully"],ans:2,exp:"Art. 5 TEU: the EU has no inherent powers. All EU competence flows from explicit conferral in the Treaties."},
-    {q:"3 requirements for direct effect?",opts:["Written, signed, ratified","Clear, precise, unconditional","Enacted, implemented, enforced","Approved by Parliament, Council, Commission"],ans:1,exp:"Van Gend en Loos: provision must be (1) clear, (2) precise, (3) unconditional."},
-    {q:"Can an individual rely on a directive against a private company?",opts:["Yes, if deadline has passed","Yes, if provision is clear","No — directives only have vertical direct effect","Only if the company is state-owned"],ans:2,exp:"No horizontal direct effect for directives. Only vertical direct effect (individual vs. state) is possible."},
-    {q:"Since Lisbon, what is the legal status of the Charter of Fundamental Rights?",opts:["Non-binding soft law","Same legal value as the Treaties","Secondary law, below the Treaties","Applies only to EU institutions"],ans:1,exp:"Art. 6(1) TEU: since Lisbon (2009), the Charter has the same legal value as the TEU and TFEU."},
+    {q:"Which case established the doctrine of Direct Effect?",opts:["Costa v. ENEL","Van Gend en Loos","Simmenthal","Francovich"],ans:1,exp:"Van Gend en Loos (1963) established that EU law can create rights for individuals which national courts must protect directly. The EEC was declared a 'new legal order of international law.'",topic:"Direct Effect"},
+    {q:"What must a national court do when national law conflicts with EU law?",opts:["Wait for the constitutional court to rule","Refer the question to the ECJ first","Immediately disapply the conflicting national law","Apply national law if it was enacted later"],ans:2,exp:"Simmenthal (1978): national courts must immediately disapply conflicting national law. They do not need to wait for a constitutional court ruling, legislative repeal, or ECJ referral.",topic:"National Courts"},
+    {q:"Which article governs the preliminary ruling procedure?",opts:["Art. 19 TEU","Art. 252 TFEU","Art. 267 TFEU","Art. 288 TFEU"],ans:2,exp:"Art. 267 TFEU. Courts of last instance must refer questions on EU law interpretation or validity to the ECJ. Lower courts may choose to refer. Only the ECJ can declare EU law invalid.",topic:"Procedure"},
+    {q:"Francovich: Italy failed to implement a directive. What did the ECJ decide?",opts:["No liability — directives aren't directly binding","Individuals must sue their employer, not the state","Italy must compensate individuals who suffered damage from its failure","No remedy exists if the directive lacks direct effect"],ans:2,exp:"Francovich (1991): MS are liable to compensate individuals for damage caused by failure to implement EU law. This ensures directives remain effective even when not directly effective.",topic:"State Liability"},
+    {q:"Can national constitutional law override EU law?",opts:["Yes — constitutions have the highest legal rank","Yes — but only for fundamental rights provisions","No — only the ECJ can declare EU law invalid","No — but national courts can suspend EU law temporarily"],ans:2,exp:"Internationale Handelsgesellschaft (1970): EU law cannot be reviewed against national constitutional law. The validity of EU law is judged only by EU law. Only the ECJ can declare EU law invalid.",topic:"Primacy"},
+    {q:"Key difference between a Regulation and Directive under Art. 288 TFEU?",opts:["Regulations require unanimous Council vote; directives do not","Regulations are directly applicable; directives require MS implementation","Directives are binding; regulations are merely soft law","Regulations bind only MS governments; directives also bind individuals"],ans:1,exp:"A Regulation is directly applicable — binding in entirety, no national implementation needed. A Directive is binding only as to the result — MS chooses the form and method. This is the fundamental distinction.",topic:"Secondary Law"},
+    {q:"What is the principle of conferral (Art. 5 TEU)?",opts:["EU law prevails over national law","EU institutions must act proportionately","The EU can only act where the Treaties explicitly grant competence","MS must implement directives faithfully"],ans:2,exp:"Art. 5 TEU: the EU has no inherent powers. All EU competence flows from explicit conferral in the Treaties. Powers not conferred on the EU remain with Member States.",topic:"EU Structure"},
+    {q:"What are the 3 requirements for a provision to have direct effect?",opts:["Written, signed by all MS, and ratified","Clear, precise, and unconditional","Enacted by Council, approved by Parliament, published in OJ","Adopted unanimously, transposed correctly, applied uniformly"],ans:1,exp:"Van Gend en Loos: for direct effect, the provision must be (1) clear, (2) precise, (3) unconditional — meaning it creates a right that requires no further legislative action by MS.",topic:"Direct Effect"},
+    {q:"Can an individual rely on a directive against a private company?",opts:["Yes, if the implementation deadline has passed","Yes, if the provision is clear, precise and unconditional","No — directives only have vertical direct effect (against the state)","Only if the company provides a public service"],ans:2,exp:"Directives have NO horizontal direct effect — an individual cannot rely on a directive against a private party. Only vertical direct effect (individual vs. state) is possible. For private-party situations: use indirect effect or Francovich.",topic:"Direct Effect"},
+    {q:"Since Lisbon, what is the legal status of the Charter of Fundamental Rights?",opts:["Non-binding — it is soft law","Same legal value as the Treaties (primary law)","It is secondary law, below the Treaties","It applies only to EU institutions, not Member States"],ans:1,exp:"Art. 6(1) TEU: since the Lisbon Treaty (2009), the Charter has the same legal value as the TEU and TFEU — it is binding primary law. Before Lisbon: fundamental rights existed only as general principles (Internationale Handelsgesellschaft).",topic:"Fundamental Rights"},
+    {q:"What double principle did Internationale Handelsgesellschaft establish?",opts:["Direct effect + primacy","Primacy over ordinary law + primacy over constitutional law","EU law cannot override constitutions + but must respect fundamental rights","Fundamental rights as general principles + state liability"],ans:2,exp:"IHG established two things: (1) primacy extends to national constitutional law — EU law cannot be reviewed against constitutions; AND (2) fundamental rights are general principles of EU law, drawn from MS constitutional traditions.",topic:"Fundamental Rights"},
+    {q:"When does Francovich state liability apply instead of direct effect?",opts:["Always — they are interchangeable","When the directive is clear and unconditional","When direct effect is unavailable (content unclear or horizontal situation) but MS failed to implement","Only for regulations, not directives"],ans:2,exp:"Francovich applies as a fallback when direct effect is not available — e.g. the directive's content is not sufficiently identifiable, or the situation is horizontal (private vs. private). The individual then sues the MS instead.",topic:"State Liability"},
+    {q:"What is 'indirect effect' (consistent interpretation)?",opts:["EU law indirectly applying through national courts","National courts must interpret national law in light of the directive's purpose","A directive with weaker binding force than a regulation","The ECJ indirectly reviewing national law via preliminary ruling"],ans:1,exp:"Indirect effect (Von Colson principle): national courts must interpret national law as far as possible in conformity with the directive's purpose — even when direct effect is unavailable. It bridges the gap between direct effect and Francovich.",topic:"Direct Effect"},
+    {q:"Which case operationalised primacy by telling courts exactly what to do?",opts:["Van Gend en Loos","Costa v. ENEL","Simmenthal","Internationale Handelsgesellschaft"],ans:2,exp:"Simmenthal (1978). Costa said EU law prevails in theory. Simmenthal told national courts exactly what to do: immediately disapply conflicting national law, no waiting required.",topic:"National Courts"},
+    {q:"What was the significance of the preliminary ruling procedure used in Van Gend and Costa?",opts:["It allowed national courts to override EU law","It gave the ECJ power to strike down national legislation","It allowed national courts to get uniform answers on EU law interpretation from the ECJ","It gave individuals direct access to the ECJ"],ans:2,exp:"Art. 267 TFEU (then Art. 177 EEC): the preliminary ruling procedure allowed Dutch and Italian courts to ask the ECJ how EU law should be interpreted — creating landmark principles that now apply across all MS.",topic:"Procedure"},
   ]
 };
 
+// ── Quiz engine with weak spots ──
 const qState={};
-function initQuiz(prefix){qState[prefix]={idx:0,score:0,answered:false};document.getElementById(prefix+'-quiz-wrap').style.display='block';document.getElementById(prefix+'-quiz-score').classList.remove('show');renderQ(prefix)}
-function renderQ(prefix){const s=qState[prefix];s.answered=false;const q=qDataMap[prefix][s.idx];const total=qDataMap[prefix].length;document.getElementById(prefix+'-q-meta').textContent='Question '+(s.idx+1)+' of '+total;document.getElementById(prefix+'-qpfill').style.width=(s.idx/total*100)+'%';document.getElementById(prefix+'-q-text').textContent=q.q;document.getElementById(prefix+'-q-fb').className='quiz-fb';document.getElementById(prefix+'-q-next').style.display='none';const opts=document.getElementById(prefix+'-q-opts');opts.innerHTML='';q.opts.forEach((o,i)=>{const b=document.createElement('button');b.className='quiz-opt';b.textContent=o;b.onclick=()=>answerQ(prefix,i,b);opts.appendChild(b)})}
-function answerQ(prefix,i,btn){const s=qState[prefix];if(s.answered)return;s.answered=true;const q=qDataMap[prefix][s.idx];const fb=document.getElementById(prefix+'-q-fb');document.querySelectorAll('#'+prefix+'-q-opts .quiz-opt').forEach(b=>b.disabled=true);if(i===q.ans){btn.classList.add('correct');s.score++;fb.className='quiz-fb correct show';fb.innerHTML='<strong>Correct!</strong> '+q.exp}else{btn.classList.add('wrong');document.querySelectorAll('#'+prefix+'-q-opts .quiz-opt')[q.ans].classList.add('correct');fb.className='quiz-fb wrong show';fb.innerHTML='<strong>Not quite.</strong> '+q.exp}document.getElementById(prefix+'-q-next').style.display='block'}
-function nextQ(prefix){const s=qState[prefix];s.idx++;const total=qDataMap[prefix].length;if(s.idx>=total){document.getElementById(prefix+'-quiz-wrap').style.display='none';const sc=document.getElementById(prefix+'-quiz-score');sc.classList.add('show');document.getElementById(prefix+'-score-big').textContent=s.score+'/'+total;const pct=s.score/total;document.getElementById(prefix+'-score-msg').textContent=pct>=.9?'Outstanding — exam ready! 🎓':pct>=.7?'Solid! Review the ones you missed.':pct>=.5?'Good start — go through the flashcards again.':'Keep studying — the timeline and summary will help.';document.getElementById(prefix+'-qpfill').style.width='100%'}else renderQ(prefix)}
+function initQuiz(prefix){
+  qState[prefix]={idx:0,score:0,answered:false,wrongs:[]};
+  document.getElementById(prefix+'-quiz-wrap').style.display='block';
+  document.getElementById(prefix+'-quiz-score').classList.remove('show');
+  renderQ(prefix);
+}
+function renderQ(prefix){
+  const s=qState[prefix];s.answered=false;
+  const q=qDataMap[prefix][s.idx];const total=qDataMap[prefix].length;
+  document.getElementById(prefix+'-q-meta').textContent='Question '+(s.idx+1)+' of '+total;
+  document.getElementById(prefix+'-qpfill').style.width=(s.idx/total*100)+'%';
+  document.getElementById(prefix+'-q-text').textContent=q.q;
+  document.getElementById(prefix+'-q-fb').className='quiz-fb';
+  document.getElementById(prefix+'-q-next').style.display='none';
+  const opts=document.getElementById(prefix+'-q-opts');opts.innerHTML='';
+  q.opts.forEach((o,i)=>{const b=document.createElement('button');b.className='quiz-opt';b.textContent=o;b.onclick=()=>answerQ(prefix,i,b);opts.appendChild(b)});
+}
+function answerQ(prefix,i,btn){
+  const s=qState[prefix];if(s.answered)return;s.answered=true;
+  const q=qDataMap[prefix][s.idx];
+  const fb=document.getElementById(prefix+'-q-fb');
+  document.querySelectorAll('#'+prefix+'-q-opts .quiz-opt').forEach(b=>b.disabled=true);
+  if(i===q.ans){btn.classList.add('correct');s.score++;}
+  else{btn.classList.add('wrong');document.querySelectorAll('#'+prefix+'-q-opts .quiz-opt')[q.ans].classList.add('correct');s.wrongs.push(q);}
+  fb.className='quiz-fb '+(i===q.ans?'correct':'wrong')+' show';
+  fb.innerHTML='<strong>'+(i===q.ans?'Correct!':'Not quite.')+'</strong> '+q.exp;
+  document.getElementById(prefix+'-q-next').style.display='block';
+}
+function nextQ(prefix){
+  const s=qState[prefix];s.idx++;
+  const total=qDataMap[prefix].length;
+  if(s.idx>=total){
+    document.getElementById(prefix+'-quiz-wrap').style.display='none';
+    const sc=document.getElementById(prefix+'-quiz-score');sc.classList.add('show');
+    document.getElementById(prefix+'-score-big').textContent=s.score+'/'+total;
+    const pct=s.score/total;
+    document.getElementById(prefix+'-score-msg').textContent=pct>=.9?'Outstanding — exam ready! 🎓':pct>=.7?'Solid! A few gaps to close.':pct>=.5?'Good start — review the weak spots below.':'Keep studying — focus on the highlighted topics.';
+    document.getElementById(prefix+'-qpfill').style.width='100%';
+    renderWeakSpots(prefix);
+  }else renderQ(prefix);
+}
+function renderWeakSpots(prefix){
+  const s=qState[prefix];
+  const weakSection=document.getElementById(prefix+'-weak-section');
+  if(!weakSection)return;
+  if(s.wrongs.length===0){weakSection.innerHTML='<div class="weak-title">💪 Perfect score — no weak spots!</div>';return;}
+  const topics=[...new Set(s.wrongs.map(q=>q.topic))];
+  const correctTopics=[...new Set(qDataMap[prefix].filter(q=>!s.wrongs.includes(q)).map(q=>q.topic))].filter(t=>!topics.includes(t));
+  let html='<div class="weak-title">Focus on these topics:</div>';
+  topics.forEach(t=>{
+    const tips={
+      'BEPS':'Review the Pillar 1 vs Pillar 2 comparison table',
+      'Direct Effect':'Go back to Van Gend requirements + vertical vs horizontal distinction',
+      'Primacy':'Review Costa + Internationale Handelsgesellschaft in the timeline',
+      'State Liability':'Focus on the 3 Francovich conditions',
+      'National Courts':'Review Simmenthal — when courts must act immediately',
+      'Fundamental Rights':'Review Internationale Handelsgesellschaft double principle',
+      'Secondary Law':'Use the Art. 288 comparison table',
+      'Legal Systems':'Review the rule of law 6 aspects',
+      'EU History':'Go through the timeline in the summary',
+      'Tax':'Review tax avoidance vs evasion distinction',
+    };
+    html+='<div class="weak-item"><span class="weak-item-icon">⚠️</span><div><div class="weak-item-text">'+t+'</div><div class="weak-item-tip">'+(tips[t]||'Review this topic in the summary and flashcards')+'</div></div></div>';
+  });
+  if(correctTopics.length>0){
+    html+='<div class="strong-section"><div class="weak-title" style="margin-top:12px">Strong areas ✓</div>';
+    correctTopics.slice(0,3).forEach(t=>{html+='<div class="strong-item"><span>✓</span><span class="strong-item-text">'+t+'</span></div>'});
+    html+='</div>';
+  }
+  weakSection.innerHTML=html;
+}
 function restartQuiz(prefix){initQuiz(prefix)}
+
+// ── Decision Tree / Case Analyser ──
+const scenarios=[
+  {
+    desc:'<strong>Scenario A:</strong> A Dutch company imports goods from Germany. The Dutch government raised the customs duty on their product from 3% to 8% after the EEC Treaty came into force. The company believes this violates EU law and wants to challenge it in a Dutch court.',
+    steps:[
+      {q:'Does the EU Treaty provision at issue (Art. 30 TFEU — no customs duties) directly apply to this situation?',opts:['Yes — it is clear, precise and unconditional','No — it needs national implementation first'],next:[1,999],chose:[]},
+      {q:'Can the company rely on this provision directly in the Dutch national court?',opts:['Yes — it has direct effect (Van Gend en Loos)','No — only MS can invoke Treaty provisions'],next:[2,998],chose:[]},
+      {q:'The Dutch court must apply the EU provision. Is there conflicting Dutch national law?',opts:['Yes — the raised duty law conflicts with Art. 30 TFEU','No — the laws are compatible'],next:[3,997],chose:[]},
+      {q:'What must the Dutch court do (Simmenthal)?',opts:['Immediately disapply the conflicting Dutch law','Wait for the Dutch Constitutional Court to rule','Refer to ECJ and await answer before acting','Apply Dutch law — it is more recent'],next:['result-a',998,998,998],chose:[]},
+    ],
+    results:{
+      'result-a':{title:'Correct outcome: Direct Effect + Simmenthal',body:'The company wins. Art. 30 TFEU has direct effect (Van Gend en Loos, 1963) — it is clear, precise, and unconditional. The Dutch court must immediately disapply the conflicting national duty law (Simmenthal, 1978). No waiting for constitutional court or legislature.',articles:['Art. 30 TFEU','Van Gend en Loos (1963)','Simmenthal (1978)']},
+      '999':{title:'Incorrect — try again',body:'If the provision requires further implementation, it cannot have direct effect. But Art. 30 TFEU is clear and unconditional — no action by MS is needed. This provision does have direct effect.'},
+    }
+  },
+  {
+    desc:'<strong>Scenario B:</strong> Italy passes a new national law that directly contradicts an existing EU Regulation. An Italian court is hearing a case where this conflict is decisive. The Italian government argues the national law, being more recent, should prevail.',
+    steps:[
+      {q:'Under EU law, can a later national law override an earlier EU Regulation?',opts:['Yes — national laws are supreme in their own legal system','No — EU law has primacy over all national law (Costa v. ENEL)'],next:[999,1],chose:[]},
+      {q:'What is the legal basis for EU law\'s primacy over national law?',opts:['It is written into the Italian Constitution','MS permanently limited their sovereign rights when joining the EU (Costa)','The EU Parliament voted for primacy','National courts decided this on their own'],next:[998,2,998,998],chose:[]},
+      {q:'Does primacy apply even to the Italian Constitution, or only to ordinary legislation?',opts:['Only to ordinary legislation — constitutions are protected','To ALL national law including constitutional law (Internationale Handelsgesellschaft)'],next:[998,3],chose:[]},
+      {q:'What must the Italian court do with the conflicting Italian law?',opts:['Disapply it immediately — no waiting required (Simmenthal)','Refer to the Italian Constitutional Court first','Pass the case to the ECJ and suspend proceedings','Apply Italian law — constitutional courts have final say'],next:['result-b',998,998,998],chose:[]},
+    ],
+    results:{
+      'result-b':{title:'Correct outcome: Primacy + Simmenthal',body:'EU law prevails. The Regulation takes precedence over the later Italian law (Costa v. ENEL, 1964). Primacy extends even to constitutional law (Internationale Handelsgesellschaft, 1970). The Italian court must immediately disapply the conflicting Italian law without waiting for any other institution (Simmenthal, 1978).',articles:['Costa v. ENEL (1964)','Int\'l Handelsgesellschaft (1970)','Simmenthal (1978)']},
+      '999':{title:'Incorrect',body:'Under EU law, primacy means EU law prevails over ALL conflicting national law — including more recent legislation. Costa v. ENEL (1964) established this principle definitively.'},
+    }
+  },
+  {
+    desc:'<strong>Scenario C:</strong> The EU issued Directive 80/987 requiring MS to create a guarantee fund protecting employees\' wages if their employer goes insolvent. Italy failed to implement this directive by the 1983 deadline. In 1990, Andrea Francovich\'s employer went bankrupt. He is owed unpaid wages but there is no guarantee fund. He wants a legal remedy.',
+    steps:[
+      {q:'Can Francovich rely on the directive directly against the Italian state (vertical direct effect)?',opts:['Yes — if the directive\'s content is sufficiently clear','No — the content of the fund was not sufficiently identifiable for direct effect'],next:[998,1],chose:[]},
+      {q:'Even without direct effect, does Francovich have any remedy?',opts:['No — if no direct effect, no remedy exists','Yes — Francovich can claim compensation from the Italian state (state liability)'],next:[999,2],chose:[]},
+      {q:'What are the 3 conditions for state liability (Francovich)?',opts:['Directive grants rights + content identifiable + causal link between breach and damage','Clear provision + deadline lapsed + individual suffered loss','MS failed to implement + individual sued + court agrees','Regulation directly applicable + MS at fault + ECJ confirms'],next:[3,998,998,998],chose:[]},
+      {q:'Italy\'s failure to create the fund caused Francovich\'s loss. The 3 conditions are met. What is the outcome?',opts:['Italy must compensate Francovich for his lost wages','Italy escapes liability — it can choose when to implement directives','Francovich must wait until Italy eventually implements the directive','The ECJ pays compensation directly'],next:['result-c',999,999,999],chose:[]},
+    ],
+    results:{
+      'result-c':{title:'Correct outcome: State Liability (Francovich)',body:'Italy must compensate Francovich. The 3 Francovich conditions are met: (1) the directive grants rights to employees, (2) the content of those rights is identifiable, (3) there is a direct causal link between Italy\'s failure and Francovich\'s loss. Without this remedy, directives would lose their binding force.',articles:['Francovich (1991)','Art. 288(3) TFEU']},
+      '999':{title:'Incorrect',body:'Without direct effect, Francovich is not without a remedy. Francovich (1991) established that MS must compensate individuals for damage caused by failure to implement EU law — this is state liability.'},
+    }
+  },
+  {
+    desc:'<strong>Scenario D:</strong> A German company faces forfeiture of its export licence deposit under an EU Regulation. The German Administrative Court believes the regulation violates the right to property under the German Basic Law (Art. 14 GG). It wants to declare the EU regulation invalid.',
+    steps:[
+      {q:'Can the German court review EU law against the German Constitution?',opts:['Yes — the Basic Law is the supreme law in Germany','No — EU law can only be reviewed against EU law itself (Internationale Handelsgesellschaft)'],next:[999,1],chose:[]},
+      {q:'Who has the power to declare EU law invalid?',opts:['Any national court, including the German Administrative Court','Only the ECJ — via the preliminary ruling procedure (Art. 267 TFEU)','The German Federal Constitutional Court','The EU Commission'],next:[998,2,998,998],chose:[]},
+      {q:'BUT — does EU law protect fundamental rights at all?',opts:['No — fundamental rights only exist at national level','Yes — fundamental rights are general principles of EU law (Internationale Handelsgesellschaft)'],next:[999,3],chose:[]},
+      {q:'So what should the German court do?',opts:['Apply German constitutional law and invalidate the regulation','Disapply the regulation and compensate the company','Refer to the ECJ via preliminary ruling (Art. 267 TFEU) asking whether the regulation violates fundamental rights as general principles of EU law','Refer to the German Federal Constitutional Court'],next:['result-d',998,'result-d',998],chose:[]},
+    ],
+    results:{
+      'result-d':{title:'Correct outcome: Referral to ECJ + Fundamental Rights as General Principles',body:'The German court cannot itself invalidate EU law. Only the ECJ can do that (monopoly on EU law invalidity). The court should refer to the ECJ via Art. 267 TFEU. The ECJ will assess whether the regulation violates fundamental rights as general principles of EU law — a protection it recognises since Internationale Handelsgesellschaft (1970), now codified in the Charter.',articles:['Internationale Handelsgesellschaft (1970)','Art. 267 TFEU','Art. 6(1) TEU — Charter']},
+    }
+  }
+];
+
+let currentScenario=0,dtreeState=[];
+function loadScenario(idx,btn){
+  currentScenario=idx;
+  document.querySelectorAll('.scenario-btn').forEach(b=>b.classList.remove('active'));
+  if(btn)btn.classList.add('active');
+  const sc=scenarios[idx];
+  document.getElementById('scenario-desc').innerHTML=sc.desc;
+  dtreeState=sc.steps.map(()=>({answered:false,choice:-1}));
+  renderDTree();
+}
+function renderDTree(){
+  const sc=scenarios[currentScenario];
+  const container=document.getElementById('dtree-container');
+  let html='';
+  let activeFound=false;
+  sc.steps.forEach((step,i)=>{
+    const state=dtreeState[i];
+    const prevDone=i===0||dtreeState[i-1].answered;
+    if(!prevDone)return;
+    const isActive=!state.answered&&!activeFound;
+    if(isActive)activeFound=true;
+    const cls=state.answered?'done-step':isActive?'active-step':'';
+    html+='<div class="dt-step '+cls+'">';
+    html+='<div class="dt-num">'+(i+1)+'</div>';
+    html+='<div class="dt-q">'+step.q+'</div>';
+    if(!state.answered){
+      html+='<div class="dt-opts">';
+      step.opts.forEach((o,j)=>{html+='<button class="dt-opt" onclick="chooseDT('+i+','+j+')">'+o+'</button>'});
+      html+='</div>';
+    }else{
+      html+='<div class="dt-opts"><button class="dt-opt selected">'+step.opts[state.choice]+'</button></div>';
+      const next=step.next[state.choice];
+      if(typeof next==='string'&&sc.results[next]){
+        const res=sc.results[next];
+        html+='<div class="dt-result"><h3>'+res.title+'</h3><p>'+res.body+'</p>';
+        if(res.articles)res.articles.forEach(a=>{html+='<span class="dt-article">'+a+'</span>'});
+        html+='</div>';
+      }
+    }
+    html+='</div>';
+    if(i<sc.steps.length-1&&prevDone)html+='<div class="dt-connector">↓</div>';
+  });
+  html+='<div class="dt-reset-bar"><button class="btn btn-sm" onclick="loadScenario(currentScenario,null)">↺ Restart scenario</button></div>';
+  container.innerHTML=html;
+}
+function chooseDT(stepIdx,optIdx){
+  const sc=scenarios[currentScenario];
+  dtreeState[stepIdx]={answered:true,choice:optIdx};
+  const next=sc.steps[stepIdx].next[optIdx];
+  if(typeof next==='number'&&next<sc.steps.length&&next>=0){
+    // proceed to next step — already handled by renderDTree checking previous
+  }
+  renderDTree();
+}
+
+// ── Init ──
+loadScenario(0,null);
+
+// ── Micro Ch3 Flashcard & Quiz Data ──
+const microFcData={
+  ch3:[
+    {q:"What is a lottery as formally defined in microeconomics?",a:"L = {p₁,x₁; p₂,x₂; …; pₙ,xₙ} — a complete description of a risky situation listing each state's probability pᵢ and payoff xᵢ, where Σpᵢ = 1.",src:"Ch3 — Modelling Risk",topic:"Lotteries"},
+    {q:"What is the Expected Utility formula?",a:"EU(L) = Σᵢ pᵢ · u(xᵢ) — the probability-weighted average of the utility of each possible outcome. Apply u(·) first, then weight by probability.",src:"Ch3 — Expected Utility",topic:"EU Formula"},
+    {q:"What is the difference between Expected Value (EV) and Expected Utility (EU)?",a:"EV = Σpᵢxᵢ averages raw money amounts. EU = Σpᵢu(xᵢ) averages utilities after applying u(·). They are equal only if u is linear. EU captures risk attitude; EV does not.",src:"Ch3 — Expected Utility",topic:"EU Formula"},
+    {q:"What does a concave utility function imply about risk attitude?",a:"Concave u(·) → decreasing marginal utility → risk-averse. EU(L) < u(EV), so the consumer prefers a certain payment equal to EV over the risky lottery.",src:"Ch3 — Risk Attitude",topic:"Risk Attitudes"},
+    {q:"What does a convex utility function imply about risk attitude?",a:"Convex u(·) → increasing marginal utility → risk-loving. EU(L) > u(EV), so the consumer prefers the lottery over a certain payment of EV.",src:"Ch3 — Risk Attitude",topic:"Risk Attitudes"},
+    {q:"What does a linear utility function imply about risk attitude?",a:"Linear u(·) → constant marginal utility → risk-neutral. EU(L) = u(EV). The consumer is indifferent between the lottery and its expected value.",src:"Ch3 — Risk Attitude",topic:"Risk Attitudes"},
+    {q:"What is the Certainty Equivalent (CE)?",a:"The guaranteed payment making the consumer exactly indifferent to the lottery. Defined by u(CE) = EU(L). To find: compute EU(L), then invert u. For risk-averse: CE < EV.",src:"Ch3 — Certainty Equivalent",topic:"CE & Risk Premium"},
+    {q:"What is the Risk Premium and how is it calculated?",a:"Risk Premium = EV − CE. The maximum amount a person would pay to swap the lottery for its expected value with certainty. Positive for risk-averse, zero for risk-neutral, negative for risk-loving.",src:"Ch3 — Certainty Equivalent",topic:"CE & Risk Premium"},
+    {q:"What is the endowment point in the state-contingent insurance diagram?",a:"(cb, cg) = (A−D, A): assets minus loss in the bad state, full assets in the good state. This is the starting point with zero insurance.",src:"Ch3 — Insurance",topic:"Insurance Budget Line"},
+    {q:"What is the slope of the insurance budget line and what does it represent?",a:"Slope = −γ/(1−γ), where γ is the premium rate. This is the MRT: to gain €1 in the bad state (more coverage), you give up γ/(1−γ) euros in the good state (higher premium).",src:"Ch3 — Insurance",topic:"Insurance Budget Line"},
+    {q:"How do you derive the insurance budget line equation?",a:"(1) Slope = −γ/(1−γ). (2) Use endowment (A−D, A) as a point: A = [−γ/(1−γ)]·(A−D) + n. (3) Solve for intercept n. Then: cg = [−γ/(1−γ)]·cb + n.",src:"Ch3 — Insurance",topic:"Insurance Budget Line"},
+    {q:"What are the state-contingent incomes with coverage x and premium rate γ?",a:"cg(x) = A − γx (pay premium in good state). cb(x) = (A−D) + (1−γ)x (receive coverage net of premium in bad state).",src:"Ch3 — Insurance",topic:"Insurance Budget Line"},
+    {q:"What is the MRS formula for EU preferences?",a:"MRS = [p · u′(cb)] / [(1−p) · u′(cg)]. Both the probabilities AND the marginal utilities appear. Don't forget the probability weights.",src:"Ch3 — Optimal Insurance",topic:"Optimality Condition"},
+    {q:"State the full optimality condition for insurance demand.",a:"MRS = MRT: p·u′(cb) / [(1−p)·u′(cg)] = γ/(1−γ), or equivalently u′(cb) = [(1−p)/p]·[γ/(1−γ)]·u′(cg).",src:"Ch3 — Optimal Insurance",topic:"Optimality Condition"},
+    {q:"What is fair insurance? What does a risk-averse consumer do?",a:"Fair insurance: γ = p (premium rate equals loss probability). The optimality condition becomes u′(cb) = u′(cg) → cb = cg. Risk-averse consumer buys full insurance, eliminating all risk.",src:"Ch3 — Fair vs Unfair",topic:"Fair vs Unfair Insurance"},
+    {q:"What is unfair insurance? What does a risk-averse consumer do?",a:"Unfair insurance: γ > p (premium exceeds loss probability — realistic case). Optimality gives u′(cb) > u′(cg) → cb < cg. Consumer buys only partial insurance — some risk remains.",src:"Ch3 — Fair vs Unfair",topic:"Fair vs Unfair Insurance"},
+    {q:"What is the full insurance line and why does it matter?",a:"The 45° line where cb = cg — zero risk. With fair insurance, the optimal bundle always lies on this line. With unfair insurance, the optimal lies below (cb < cg, partial coverage only).",src:"Ch3 — Fair vs Unfair",topic:"Fair vs Unfair Insurance"},
+    {q:"How do you recover optimal coverage x* once you have cb*?",a:"Use cb* = (A−D) + (1−γ)x → solve for x* = [cb* − (A−D)] / (1−γ). Always use the cb equation, not the cg equation.",src:"Ch3 — Martina",topic:"Calculation Steps"},
+    {q:"In Martina's example (γ=0.5, p=0.4), why does she buy less than full insurance?",a:"Because insurance is unfair: γ=0.5 > p=0.4. The premium rate exceeds the loss probability, so full coverage (x=D=550k) costs more than it's worth. Optimal: x*=300k (partial).",src:"Ch3 — Martina",topic:"Calculation Steps"},
+    {q:"What does a risk-neutral consumer do under unfair insurance (γ > p)?",a:"Buys zero insurance. Linear u → ICs are straight lines with slope −p/(1−p). Since γ > p, the budget line is steeper, so the optimal point is the endowment (no coverage).",src:"Ch3 — Risk Attitudes",topic:"Risk Attitudes"},
+    {q:"What are the three steps to find the Certainty Equivalent?",a:"(1) Compute EU(L) = Σpᵢu(xᵢ). (2) Set u(CE) = EU(L). (3) Invert the utility function to solve for CE. E.g. if u=√c and EU=9: √CE=9 → CE=81.",src:"Ch3 — Certainty Equivalent",topic:"CE & Risk Premium"},
+    {q:"Why does the risk premium determine the maximum insurance premium someone would pay?",a:"The risk premium = EV − CE = maximum the person would pay to swap a lottery for its EV with certainty. Any insurance premium below RP is individually rational — the consumer is better off insured than uninsured.",src:"Ch3 — Certainty Equivalent",topic:"CE & Risk Premium"},
+    {q:"Why are risk-averse consumers' ICs in (cb,cg) space strictly convex?",a:"Because u is concave: as cb rises, its MU falls; as cg falls, its MU rises. So MRS = p·u′(cb)/[(1−p)·u′(cg)] decreases as cb increases → convex ICs (diminishing willingness to trade cg for cb).",src:"Ch3 — Optimal Insurance",topic:"Optimality Condition"},
+    {q:"What is the connection between Ch3 (Risky Choice) and Ch2 (Consumer Choice)?",a:"Identical framework. The two 'goods' are cb and cg (state-contingent consumption). Budget line = insurance budget line. Preferences = EU. Optimality condition = MRS = MRT. No new tools — only new interpretation.",src:"Ch3 — Summary",topic:"Connections"},
+    {q:"Lottery: u(c)=√c. Win €144 (p=0.5) or €36 (p=0.5). What is EU?",a:"EU = 0.5×√144 + 0.5×√36 = 0.5×12 + 0.5×6 = 9.",src:"Ch3 — Practice",topic:"EU Formula"},
+    {q:"Same lottery as above (EU=9). What is EV and what is the CE?",a:"EV = 0.5×144 + 0.5×36 = 90. CE: √CE = 9 → CE = 81. Risk premium = EV − CE = 90 − 81 = 9. CE < EV confirms risk aversion.",src:"Ch3 — Practice",topic:"CE & Risk Premium"},
+    {q:"Portia: u=√x. Receives €16 (prob 1/4) or €0 (prob 3/4). What is her EU and minimum sale price?",a:"EU = (1/4)√16 + (3/4)√0 = 1. u(CE) = 1 → √CE = 1 → CE = €1. Minimum sale price = €1.",src:"PS2 Q2.3",topic:"EU Formula"},
+    {q:"Wilma is not risk-averse. Lottery: €100 (p=0.06), €50 (p=0.1), €0 (p=0.84). Ticket costs €10. Does she buy?",a:"EV = 0.06×100 + 0.1×50 = 11. Since she is not risk-averse, CE ≥ EV = 11 > 10. Yes, she buys the ticket.",src:"PS2 Q2.1",topic:"Risk Attitudes"},
+    {q:"Carl (risk-averse): gamble −€1000 (p=1/4) or +€500 (p=3/4). EV=€125. Does he accept?",a:"Cannot determine without his utility function. We know CE < EV = 125 (risk-averse), but not whether CE ≥ 0 (the outside option). Need u(·) to compare EU vs u(0).",src:"PS2 Q2.2",topic:"Risk Attitudes"},
+    {q:"u(c)=ln(c). Lottery: €200 (p=0.5) or €50 (p=0.5). What is the risk premium?",a:"EV=125. EU=0.5·ln(200)+0.5·ln(50)=0.5·ln(10,000)≈4.605. CE=e^4.605=√10,000=100. Risk premium=125−100=€25.",src:"Ch3 — Practice",topic:"CE & Risk Premium"},
+  ]
+};
+const microQData={
+  ch3:[
+    {q:"A lottery is formally defined as:",opts:["The expected value of a risky situation","A probability distribution over states, each with a probability and a payoff","A game where outcomes depend on skill","A list of monetary outcomes without probabilities"],ans:1,exp:"A lottery L = {p₁,x₁;…;pₙ,xₙ} pairs each state with both its probability and payoff. EV (A) is just one summary statistic, not the full description. Skill (C) and outcomes-only (D) are both incomplete.",topic:"Lotteries"},
+    {q:"EU = 9, EV = €100, u(c) = √c. What is the certainty equivalent?",opts:["€100","€81","€90","€9"],ans:1,exp:"u(CE) = EU = 9 → √CE = 9 → CE = 81. A risk-averse consumer accepts €81 certain over a lottery worth €100 in expectation. €100 (A) would be CE for a risk-neutral person. €9 (D) confuses the utility value with the monetary CE.",topic:"CE & Risk Premium"},
+    {q:"A concave utility function implies the consumer is:",opts:["Risk-loving (EU > u(EV))","Risk-neutral (EU = u(EV))","Risk-averse (EU < u(EV))","Indifferent to risk"],ans:2,exp:"Concave u → decreasing MU → by Jensen's inequality, EU = E[u(x)] < u(E[x]) = u(EV). The consumer prefers a sure thing over a risky lottery with the same expected value. Convex (A) is risk-loving; linear (B) is risk-neutral.",topic:"Risk Attitudes"},
+    {q:"The risk premium equals:",opts:["The insurance premium paid","EV − CE","EU(L) − u(EV)","The probability of the bad state"],ans:1,exp:"RP = EV − CE. It measures how much a person sacrifices in expected value to avoid risk. The insurance premium (A) is a price. EU−u(EV) (C) is negative for risk-averse consumers. The loss probability (D) is p, not RP.",topic:"CE & Risk Premium"},
+    {q:"Under fair insurance (γ = p), a risk-averse consumer:",opts:["Buys zero insurance","Buys partial insurance","Buys full insurance (cb = cg)","Cannot determine without utility function"],ans:2,exp:"With γ=p, MRS=MRT simplifies to u′(cb)=u′(cg), which for strictly concave u implies cb=cg — full insurance. Partial insurance (B) is the unfair-insurance result. Zero (A) is risk-neutral/risk-loving behaviour.",topic:"Fair vs Unfair Insurance"},
+    {q:"The slope of the insurance budget line is:",opts:["−p/(1−p)","−γ/(1−γ)","−(1−γ)/γ","−D/A"],ans:1,exp:"Slope = −γ/(1−γ): to gain €1 in the bad state requires paying γ/(1−γ) in the good state (MRT). The odds ratio −p/(1−p) (A) is the slope of EU indifference curves when cb=cg, not the budget line generally.",topic:"Insurance Budget Line"},
+    {q:"Martina: p=0.4, γ=0.5. What is the MRT she faces?",opts:["0.4","0.5","1.0","0.8"],ans:2,exp:"MRT = γ/(1−γ) = 0.5/0.5 = 1. For every €1 gained in the bad state she gives up exactly €1 in the good state. 0.4 (A) is p. 0.5 (B) is γ alone, not the ratio.",topic:"Insurance Budget Line"},
+    {q:"Under unfair insurance (γ > p), a risk-averse consumer's optimal bundle satisfies:",opts:["cb = cg (full insurance)","cb > cg (over-insurance)","cb < cg (partial insurance)","cb = 0 (no insurance)"],ans:2,exp:"With γ>p, the optimality condition gives u′(cb)>u′(cg). Concave u means u′ is decreasing, so cb<cg. The consumer under-insures relative to full coverage. Full insurance (A) requires γ=p.",topic:"Fair vs Unfair Insurance"},
+    {q:"A risk-neutral consumer faces unfair insurance (γ > p). What does she do?",opts:["Buys full insurance","Buys partial insurance","Is indifferent between all levels","Buys zero insurance"],ans:3,exp:"Risk-neutral ICs have slope −p/(1−p). With γ>p, the budget line is steeper — the endowment point maximises utility. Zero insurance. Indifference (C) only occurs with fair insurance (γ=p).",topic:"Risk Attitudes"},
+    {q:"EU = 6, u(c) = √c. What is CE?",opts:["€50","€36","€44","€6"],ans:1,exp:"u(CE) = EU → √CE = 6 → CE = 36. €6 (D) confuses the utility value with the monetary CE. €44 (C) has no derivation. If EV were €50 this also shows risk aversion (CE=36 < EV=50).",topic:"CE & Risk Premium"},
+    {q:"Portia: u=√x, receives €16 (prob 1/4) or €0 (prob 3/4). What is her EU?",opts:["4","2","1","0.25"],ans:2,exp:"EU = (1/4)·√16 + (3/4)·√0 = (1/4)·4 + 0 = 1. 4 (A) is u(16) without probability weighting. 2 (B) is a common algebra error. 0.25 (D) is just the probability alone.",topic:"EU Formula"},
+    {q:"The endowment point in the state-contingent diagram is:",opts:["(A, A) — equal consumption both states","(A−D, A−D) — equal minus loss","(A, A−D) — full assets good; assets minus loss bad","(0, 0) — no consumption without insurance"],ans:2,exp:"Without insurance: good state → keep A; bad state → keep A−D (lost D). So (cg,cb) = (A, A−D). A is the full-insurance line (45°), not the endowment. D makes no sense.",topic:"Insurance Budget Line"},
+    {q:"Martina's optimality gives cg = (9/4)cb and budget line cg = 650,000 − cb. What is cb*?",opts:["162,500","200,000","250,000","325,000"],ans:1,exp:"Substitute: (9/4)cb + cb = 650,000 → (13/4)cb = 650,000 → cb = 200,000. 325k (D) is the full-insurance point on the 45° line. 162.5k (A) mishandles the algebra.",topic:"Calculation Steps"},
+    {q:"Martina: cb* = 200,000, insurance gives cb = 50,000 + 0.5x. What is x*?",opts:["150,000","250,000","300,000","550,000"],ans:2,exp:"200,000 = 50,000 + 0.5x → 0.5x = 150,000 → x = 300,000. 150k (A) is 0.5x, not x itself. 550k (D) would be full insurance (x = D).",topic:"Calculation Steps"},
+    {q:"Which utility function describes a risk-averse consumer?",opts:["u(c) = 2c","u(c) = c²","u(c) = √c","u(c) = eᶜ"],ans:2,exp:"u=√c is concave (u″=−(1/4)c^(−3/2)<0) → risk-averse. u=2c (A) is linear → risk-neutral. u=c² (B) is convex → risk-loving. u=eᶜ (D) has u″=eᶜ>0 → risk-loving.",topic:"Risk Attitudes"},
+    {q:"The MRS formula for EU = p·u(cb) + (1−p)·u(cg) is:",opts:["u′(cb)/u′(cg)","p·u′(cb)/[(1−p)·u′(cg)]","(1−p)·u′(cb)/[p·u′(cg)]","p·cb/[(1−p)·cg]"],ans:1,exp:"MRS = MUcb/MUcg = [p·u′(cb)] / [(1−p)·u′(cg)]. Forgetting the probability weights (A) is the most common error. The probabilities weight each state's marginal utility.",topic:"Optimality Condition"},
+    {q:"Why are risk-averse consumers' ICs in (cb,cg) space convex?",opts:["Because the budget line is also convex","Because as cb rises relative to cg, MRS falls — diminishing willingness to trade cg for cb","Because utility is linear in both states","Because p > 0.5"],ans:1,exp:"Convex ICs arise from concave u: as cb rises, MU(cb) falls; as cg falls, MU(cg) rises. So MRS = p·u′(cb)/[(1−p)·u′(cg)] falls, tracing a convex curve. Linear u (C) gives straight ICs.",topic:"Optimality Condition"},
+    {q:"Carl (risk-averse): gamble −€1000 (p=1/4), +€500 (p=3/4), EV=€125. Does he accept?",opts:["Yes — EV > 0 so he accepts","Yes — gains are more likely than losses","No — we need his exact u(·) to compare EU vs u(0)","No — risk-averse people always reject gambles with possible losses"],ans:2,exp:"We know CE < EV = 125 (risk-averse), but not if CE ≥ 0. Without u(·) we cannot evaluate EU vs u(0). Risk aversion alone doesn't mean rejection — it depends on the specific tradeoff.",topic:"Risk Attitudes"},
+    {q:"CE = €30, EV = €50. Risk premium and risk attitude?",opts:["RP=€80; risk-loving","RP=€20; risk-averse — would pay up to €20 to avoid the lottery","RP=€20; risk-neutral","RP=€30; pays €30 for the lottery"],ans:1,exp:"RP = EV − CE = 50−30 = €20. CE < EV → risk-averse. The consumer sacrifices €20 of expected value to receive a certain payment. RP=0 (C) indicates risk-neutrality.",topic:"CE & Risk Premium"},
+    {q:"u(c)=ln(c). Lottery: €200 (p=0.5) or €50 (p=0.5). What is the risk premium?",opts:["€25","€50","€75","€125"],ans:0,exp:"EU=0.5·ln(200)+0.5·ln(50)=0.5·ln(10,000)≈4.605. CE=e^4.605=√10,000=100. EV=125. RP=125−100=€25. Note: CE=√(200×50)=100 by geometric mean property of log utility.",topic:"CE & Risk Premium"},
+  ]
+};
+const microFcState={};
+function initMicroFC(prefix){
+  const data=microFcData[prefix];
+  microFcState[prefix]={all:[...data].map((c,i)=>({...c,idx:i,confidence:1})),queue:[],current:0};
+  microFcState[prefix].queue=[...microFcState[prefix].all].sort(()=>Math.random()-.5);
+  renderMicroFC(prefix);renderMicroSRBar(prefix);
+}
+function renderMicroFC(prefix){
+  const s=microFcState[prefix];if(!s||!s.queue.length)return;
+  const c=s.queue[s.current];
+  document.getElementById('m'+prefix+'-fc-q').textContent=c.q;
+  document.getElementById('m'+prefix+'-fc-a').textContent=c.a;
+  document.getElementById('m'+prefix+'-fc-src').textContent='— '+c.src;
+  document.getElementById('m'+prefix+'-fc-counter').textContent=s.current+1;
+  document.getElementById('m'+prefix+'-fc-total').textContent=s.queue.length;
+  document.getElementById('m'+prefix+'-fc-card').classList.remove('flipped');
+  document.getElementById('m'+prefix+'-fc-done').style.display='none';
+  document.getElementById('m'+prefix+'-fc-wrap').style.display='block';
+}
+function renderMicroSRBar(prefix){
+  const s=microFcState[prefix];if(!s)return;
+  const bar=document.getElementById('m'+prefix+'-sr-bar');if(!bar)return;
+  bar.innerHTML='<span style="font-size:12px;color:var(--text3);margin-right:6px">Progress:</span>';
+  s.all.forEach(c=>{const pip=document.createElement('span');pip.className='sr-pip'+(c.confidence>=2?' know':' review');bar.appendChild(pip)});
+  const known=s.all.filter(c=>c.confidence>=2).length;
+  const span=document.createElement('span');span.style.cssText='font-size:12px;color:var(--text3);margin-left:8px';span.textContent=known+'/'+s.all.length+' confident';bar.appendChild(span);
+}
+function flipMicroFC(prefix){document.getElementById('m'+prefix+'-fc-card').classList.toggle('flipped')}
+function rateMicroFC(prefix,rating){
+  const s=microFcState[prefix];if(!s)return;
+  s.queue[s.current].confidence=rating;s.current++;
+  if(s.current>=s.queue.length){
+    const weak=s.all.filter(c=>c.confidence<2);const known=s.all.filter(c=>c.confidence>=2).length;
+    document.getElementById('m'+prefix+'-fc-wrap').style.display='none';document.getElementById('m'+prefix+'-fc-done').style.display='block';
+    document.getElementById('m'+prefix+'-done-msg').textContent=weak.length===0?'You know all '+s.all.length+' cards! 🎓':known+' solid, '+weak.length+' need more work. Click "Review weak cards".';
+  }else renderMicroFC(prefix);
+  renderMicroSRBar(prefix);
+}
+function reviewMicroWeak(prefix){
+  const s=microFcState[prefix];const weak=s.all.filter(c=>c.confidence<2);if(!weak.length){resetMicroFC(prefix);return;}
+  s.queue=[...weak].sort(()=>Math.random()-.5);s.current=0;
+  document.getElementById('m'+prefix+'-fc-done').style.display='none';document.getElementById('m'+prefix+'-fc-wrap').style.display='block';renderMicroFC(prefix);
+}
+function shuffleMicroFC(prefix){const s=microFcState[prefix];s.queue=[...s.all].sort(()=>Math.random()-.5);s.current=0;document.getElementById('m'+prefix+'-fc-done').style.display='none';document.getElementById('m'+prefix+'-fc-wrap').style.display='block';renderMicroFC(prefix);}
+function resetMicroFC(prefix){const s=microFcState[prefix];s.all.forEach(c=>c.confidence=1);s.queue=[...s.all].sort(()=>Math.random()-.5);s.current=0;document.getElementById('m'+prefix+'-fc-done').style.display='none';document.getElementById('m'+prefix+'-fc-wrap').style.display='block';renderMicroFC(prefix);renderMicroSRBar(prefix);}
+
+const microQState={};
+function initMicroQuiz(prefix){
+  microQState[prefix]={idx:0,score:0,answered:false,wrongs:[]};
+  document.getElementById('mq'+prefix+'-wrap').style.display='block';document.getElementById('mq'+prefix+'-score').classList.remove('show');renderMicroQ(prefix);
+}
+function renderMicroQ(prefix){
+  const s=microQState[prefix];s.answered=false;
+  const q=microQData[prefix][s.idx];const total=microQData[prefix].length;
+  document.getElementById('mq'+prefix+'-meta').textContent='Question '+(s.idx+1)+' of '+total;
+  document.getElementById('mq'+prefix+'-pfill').style.width=(s.idx/total*100)+'%';
+  document.getElementById('mq'+prefix+'-text').textContent=q.q;
+  document.getElementById('mq'+prefix+'-fb').className='quiz-fb';document.getElementById('mq'+prefix+'-next').style.display='none';
+  const opts=document.getElementById('mq'+prefix+'-opts');opts.innerHTML='';
+  q.opts.forEach((o,i)=>{const b=document.createElement('button');b.className='quiz-opt';b.textContent=o;b.onclick=()=>answerMicroQ(prefix,i,b);opts.appendChild(b)});
+}
+function answerMicroQ(prefix,i,btn){
+  const s=microQState[prefix];if(s.answered)return;s.answered=true;
+  const q=microQData[prefix][s.idx];const fb=document.getElementById('mq'+prefix+'-fb');
+  document.querySelectorAll('#mq'+prefix+'-opts .quiz-opt').forEach(b=>b.disabled=true);
+  if(i===q.ans){btn.classList.add('correct');s.score++;}else{btn.classList.add('wrong');document.querySelectorAll('#mq'+prefix+'-opts .quiz-opt')[q.ans].classList.add('correct');s.wrongs.push(q);}
+  fb.className='quiz-fb '+(i===q.ans?'correct':'wrong')+' show';
+  fb.innerHTML='<strong>'+(i===q.ans?'Correct!':'Not quite.')+'</strong> '+q.exp;
+  document.getElementById('mq'+prefix+'-next').style.display='block';
+}
+function nextMicroQ(prefix){
+  const s=microQState[prefix];s.idx++;const total=microQData[prefix].length;
+  if(s.idx>=total){
+    document.getElementById('mq'+prefix+'-wrap').style.display='none';const sc=document.getElementById('mq'+prefix+'-score');sc.classList.add('show');
+    document.getElementById('mq'+prefix+'-big').textContent=s.score+'/'+total;
+    const pct=s.score/total;
+    document.getElementById('mq'+prefix+'-msg').textContent=pct>=.9?'Outstanding — exam ready! 🎓':pct>=.7?'Solid! A few gaps to close.':pct>=.5?'Good start — use the calculator to practice.':'Review the summary and try again.';
+    document.getElementById('mq'+prefix+'-pfill').style.width='100%';
+    renderMicroWeakSpots(prefix);
+  }else renderMicroQ(prefix);
+}
+function renderMicroWeakSpots(prefix){
+  const s=microQState[prefix];const ws=document.getElementById('mq'+prefix+'-weak');if(!ws)return;
+  if(!s.wrongs.length){ws.innerHTML='<div class="weak-title">💪 Perfect score!</div>';return;}
+  const topics=[...new Set(s.wrongs.map(q=>q.topic))];
+  const tips={'EU Formula':'Review the EU = Σpᵢu(xᵢ) formula — apply u() before weighting','Risk Attitudes':'Use the Compare tab to see concave/convex/linear side by side','CE & Risk Premium':'Practice the 3-step CE calculation in the Calculator tab','Insurance Budget Line':'Re-derive the slope and endowment point for Martina','Fair vs Unfair Insurance':'Check MRS=MRT implications: γ=p → full, γ>p → partial','Optimality Condition':'Remember: MRS includes probability weights, MRT uses γ not p','Calculation Steps':'Use the Calculator tab — step through Problems 3 and 6','Lotteries':'Review the formal definition: L = {p₁,x₁; p₂,x₂; …}','Connections':'Review Section 2.1 — same framework as Ch2, just reinterpreted'};
+  let html='<div class="weak-title">Focus on these topics:</div>';
+  topics.forEach(t=>{html+='<div class="weak-item"><span class="weak-item-icon">⚠️</span><div><div class="weak-item-text">'+t+'</div><div class="weak-item-tip">'+(tips[t]||'Review this topic in the summary')+'</div></div></div>'});
+  ws.innerHTML=html;
+}
+function restartMicroQuiz(prefix){initMicroQuiz(prefix)}
+
+// ── Calculator engine for Micro Ch3 ──
+const calcProblems=[
+  {
+    title:"EU, CE & Risk Premium",
+    desc:"u(c) = √c. Lottery: win <b>€144</b> (prob <b>0.5</b>) or <b>€36</b> (prob <b>0.5</b>).",
+    steps:[
+      {label:"Step 1: Expected Value",formula:"EV = 0.5 × 144 + 0.5 × 36",result:"EV = <b>€90</b>"},
+      {label:"Step 2: Expected Utility",formula:"EU = 0.5 × √144 + 0.5 × √36 = 0.5×12 + 0.5×6",result:"EU = <b>9</b>"},
+      {label:"Step 3: Certainty Equivalent",formula:"u(CE) = EU → √CE = 9 → CE = 9²",result:"CE = <b>€81</b>"},
+      {label:"Step 4: Risk Premium",formula:"RP = EV − CE = 90 − 81",result:"RP = <b>€9</b> → Risk-averse (CE < EV) ✓"},
+    ]
+  },
+  {
+    title:"Insurance Budget Line",
+    desc:"Assets A = <b>€800,000</b>, Loss D = <b>€700,000</b>, Premium rate γ = <b>0.4</b>.",
+    steps:[
+      {label:"Step 1: Endowment point",formula:"(cb, cg) = (A−D, A) = (800k−700k, 800k)",result:"Endowment: <b>(100,000 ; 800,000)</b>"},
+      {label:"Step 2: Slope of budget line",formula:"Slope = −γ/(1−γ) = −0.4/0.6",result:"Slope = <b>−2/3</b>"},
+      {label:"Step 3: Find intercept",formula:"cg = slope×cb + n → 800,000 = (−2/3)×100,000 + n",result:"n = 800,000 + 66,667 = <b>866,667</b>"},
+      {label:"Step 4: Budget line equation",formula:"cg = 866,667 − (2/3)·cb",result:"<b>cg = 866,667 − (2/3)cb</b>"},
+    ]
+  },
+  {
+    title:"Optimal Insurance (Martina)",
+    desc:"A=€600k, D=€550k, p=0.4, γ=0.5, u(c)=√c — the full worked example from lecture.",
+    steps:[
+      {label:"Step 1: State-contingent incomes",formula:"cg(x) = 600,000 − 0.5x ; cb(x) = 50,000 + 0.5x",result:"Endowment: <b>(50,000 ; 600,000)</b>"},
+      {label:"Step 2: Budget line",formula:"Slope = −0.5/0.5 = −1. Use endowment: 600k = −1×50k + n → n = 650k",result:"<b>cg = 650,000 − cb</b>"},
+      {label:"Step 3: MRS",formula:"MRS = [0.4·(1/2√cb)] / [0.6·(1/2√cg)] = (2/3)·√cg/√cb",result:"MRS = <b>(2/3)·√cg/√cb</b>"},
+      {label:"Step 4: MRS = MRT = 1",formula:"(2/3)·√cg/√cb = 1 → √cg = (3/2)√cb → cg = (9/4)cb",result:"<b>cg = (9/4)cb</b>"},
+      {label:"Step 5: Solve for cb*",formula:"(9/4)cb + cb = 650,000 → (13/4)cb = 650,000",result:"cb* = <b>200,000</b>"},
+      {label:"Step 6: Solve for cg*",formula:"cg* = 650,000 − 200,000",result:"cg* = <b>450,000</b>"},
+      {label:"Step 7: Recover coverage x*",formula:"200,000 = 50,000 + 0.5x → 0.5x = 150,000",result:"x* = <b>300,000</b> (partial insurance: γ=0.5 > p=0.4)"},
+    ]
+  },
+  {
+    title:"Willy's Chocolate Factory (PS2)",
+    desc:"A=€875k, D=€825k (bad state: 50k), p=0.2, γ=1/3, u(c)=√c.",
+    steps:[
+      {label:"Step 1: State-contingent incomes",formula:"cb = 50,000 + (2/3)x ; cg = 875,000 − (1/3)x",result:"Endowment: <b>(50,000 ; 875,000)</b>"},
+      {label:"Step 2: Budget line",formula:"Slope = −(1/3)/(2/3) = −1/2. Use endowment: 875k = −(1/2)×50k + n → n=900k",result:"<b>cg = 900,000 − (1/2)cb</b>"},
+      {label:"Step 3: MRS",formula:"MRS = [0.2/(2√cb)] / [0.8/(2√cg)] = (1/4)·(√cg/√cb)",result:"MRS = <b>(1/4)·(√cg/√cb)</b>"},
+      {label:"Step 4: MRS = MRT = 1/2",formula:"(1/4)(√cg/√cb) = 1/2 → √cg = 2√cb → cg = 4cb",result:"<b>cg = 4cb</b>"},
+      {label:"Step 5: Solve for cb* and cg*",formula:"4cb + cb = 900,000 → 5cb = 900,000",result:"cb* = <b>180,000</b> ; cg* = <b>720,000</b>"},
+      {label:"Step 6: Recover x*",formula:"180,000 = 50,000 + (2/3)x → (2/3)x = 130,000",result:"x* = <b>195,000</b> (partial: γ=1/3 > p=0.2)"},
+    ]
+  },
+  {
+    title:"Risk Premium with ln utility",
+    desc:"u(c) = ln(c). Lottery: €200 (prob 0.5) or €50 (prob 0.5).",
+    steps:[
+      {label:"Step 1: Expected Value",formula:"EV = 0.5×200 + 0.5×50",result:"EV = <b>€125</b>"},
+      {label:"Step 2: Expected Utility",formula:"EU = 0.5·ln(200) + 0.5·ln(50) = 0.5·ln(200×50) = 0.5·ln(10,000)",result:"EU ≈ <b>4.605</b>"},
+      {label:"Step 3: Certainty Equivalent",formula:"ln(CE) = 4.605 → CE = e^4.605 = √(200×50)",result:"CE = <b>€100</b> (geometric mean)"},
+      {label:"Step 4: Risk Premium",formula:"RP = EV − CE = 125 − 100",result:"RP = <b>€25</b> → Risk-averse confirmed"},
+    ]
+  },
+];
+let calcIdx=0,calcStep=0,calcRevealed=false;
+function initCalc(){calcIdx=0;calcStep=0;calcRevealed=false;renderCalc();}
+function renderCalc(){
+  const p=calcProblems[calcIdx];
+  document.getElementById('calc-title').textContent=p.title;
+  document.getElementById('calc-desc').innerHTML=p.desc;
+  document.getElementById('calc-pick-label').textContent='Problem '+(calcIdx+1)+' of '+calcProblems.length;
+  const steps=document.getElementById('calc-steps');steps.innerHTML='';
+  p.steps.forEach((s,i)=>{
+    if(i>calcStep&&!calcRevealed)return;
+    const div=document.createElement('div');div.className='calc-step'+(i===calcStep&&!calcRevealed?' calc-step-active':'');
+    div.innerHTML='<div class="calc-step-label">'+s.label+'</div><div class="calc-formula">'+s.formula+'</div><div class="calc-result">→ '+s.result+'</div>';
+    steps.appendChild(div);
+  });
+  const nextBtn=document.getElementById('calc-next');const revBtn=document.getElementById('calc-reveal');
+  if(calcRevealed){nextBtn.style.display='none';revBtn.textContent='↺ Restart';revBtn.onclick=()=>{calcStep=0;calcRevealed=false;renderCalc()};}
+  else if(calcStep<p.steps.length-1){nextBtn.style.display='inline-flex';nextBtn.textContent='Next step →';revBtn.textContent='Show all steps';revBtn.onclick=()=>{calcRevealed=true;renderCalc()};}
+  else{nextBtn.style.display='none';revBtn.textContent='↺ Restart';revBtn.onclick=()=>{calcStep=0;calcRevealed=false;renderCalc()};}
+}
+function calcNextStep(){const p=calcProblems[calcIdx];if(calcStep<p.steps.length-1){calcStep++;renderCalc();}}
+function calcPrev(){if(calcIdx>0){calcIdx--;calcStep=0;calcRevealed=false;renderCalc();}}
+function calcNext(){if(calcIdx<calcProblems.length-1){calcIdx++;calcStep=0;calcRevealed=false;renderCalc();}}
 </script>
 </body>
 </html>
