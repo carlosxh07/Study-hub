@@ -1578,64 +1578,251 @@ microQData['ps2']=[
   {q:"γ=1/3, p=0.2. Fair or unfair?",opts:["Fair — 1/3≈0.2","Unfair — γ>p, insurer profits","Unfair — γ<p","Cannot determine"],ans:1,exp:"γ=1/3≈0.33>p=0.2 → unfair insurance → partial insurance optimal.",topic:"Insurance"},
 ];
 const calcProblemsPS1=[
-  {title:"Cobb-Douglas — Basic Optimum",desc:"u = x · y, p₁=4, p₂=2, m=200. Find x* and y*.",steps:[
-    {label:"Step 1: MRS",formula:"MU₁=y, MU₂=x → MRS = y/x",result:"MRS = <b>y/x</b>"},
-    {label:"Step 2: MRS = p₁/p₂",formula:"y/x = 4/2 = 2 → y = 2x",result:"Relationship: <b>y = 2x</b>"},
-    {label:"Step 3: Budget line",formula:"4x + 2(2x) = 200 → 8x = 200",result:"x* = <b>25</b>, y* = <b>50</b>"},
-  ]},
-  {title:"Cobb-Douglas — High Exponents",desc:"u = x₁³ · x₂, p₁=3, p₂=1, m=120. Find x₁* and x₂*.",steps:[
-    {label:"Step 1: MRS shortcut",formula:"MRS = (3/1)·(x₂/x₁) = 3x₂/x₁",result:"MRS = <b>3x₂/x₁</b>"},
-    {label:"Step 2: MRS = p₁/p₂",formula:"3x₂/x₁ = 3 → x₂ = x₁",result:"Relationship: <b>x₂ = x₁</b>"},
-    {label:"Step 3: Budget line",formula:"3x₁ + x₁ = 120 → 4x₁ = 120",result:"x₁* = <b>30</b>, x₂* = <b>30</b>"},
-    {label:"Shortcut check",formula:"Share = 3/(3+1) = 3/4. x₁* = (3/4)·120/3 = 30",result:"✓ Matches!"},
-  ]},
-  {title:"Leontief (Perfect Complements)",desc:"u = min{2x₁, x₂}, p₁=2, p₂=3, m=140.",steps:[
-    {label:"Step 1: Kink condition (no MRS!)",formula:"2x₁ = x₂",result:"Relationship: <b>x₂ = 2x₁</b>"},
-    {label:"Step 2: Budget line",formula:"2x₁ + 3(2x₁) = 140 → 8x₁ = 140",result:"x₁* = <b>17.5</b>, x₂* = <b>35</b>"},
-  ]},
-  {title:"Perfect Substitutes",desc:"u = 3x₁ + x₂, p₁=2, p₂=1, m=60.",steps:[
-    {label:"Step 1: Constant MRS",formula:"MRS = 3/1 = 3",result:"MRS = <b>3</b> (constant everywhere)"},
-    {label:"Step 2: Compare MRS with p₁/p₂",formula:"p₁/p₂ = 2. MRS = 3 > 2",result:"MRS > p₁/p₂ → <b>buy only x₁</b> (corner solution)"},
-    {label:"Step 3: Corner solution",formula:"x₁* = m/p₁ = 60/2",result:"x₁* = <b>30</b>, x₂* = <b>0</b>"},
-  ]},
-  {title:"Two-Plan Comparison",desc:"Plan A: fee €20, price €2/unit. Plan B: fee €40, price €1/unit. m=€100, u=xy.",steps:[
-    {label:"Step 1: Effective budgets",formula:"Plan A: m_eff=100−20=80, price=2. Plan B: m_eff=100−40=60, price=1",result:"A: budget=<b>80 at p=2</b>; B: budget=<b>60 at p=1</b>"},
-    {label:"Step 2: Plan A optimum",formula:"MRS=y/x=p₁/p₂=2→y=2x; x+2(2x)=80→5x=80? No: p₂=1 → x+2y=80→y=2x→x+4x=80→x=16,y=32",result:"Plan A: (16,32), u = <b>512</b>"},
-    {label:"Step 3: Plan B optimum",formula:"MRS=y/x=1→y=x; x+x=60→x=30,y=30",result:"Plan B: (30,30), u = <b>900</b>"},
-    {label:"Step 4: Compare",formula:"u_A=512 vs u_B=900",result:"<b>Plan B wins</b> (u=900 > u=512)"},
-  ]},
+  {
+    title:"Task 1.1 — Indifference Curves & MRS (Charlie)",
+    desc:"u(xA, xB) = xA · xB. IC through (20,5): xB=100/xA. IC through (10,15): xB=150/xA.<br><b>c)</b> What is Charlie's MRS at (5,20)?<br><b>d)</b> What is Charlie's MRS at (30,5)?",
+    steps:[
+      {label:"c) Identify which IC applies to (5,20)",formula:"(5,20) lies on IC xB=100/xA (check: 100/5=20 ✓). Slope formula: xB'(xA) = −100/xA²",result:"At xA=5: slope = −100/25 = <b>−4</b>"},
+      {label:"c) MRS at (5,20)",formula:"MRS = |slope| = |−4|",result:"MRS = <b>4</b>. Charlie gives up 4 bananas for 1 more apple at this bundle."},
+      {label:"d) Identify which IC applies to (30,5)",formula:"Check: 100/30 ≠ 5. Check: 150/30 = 5 ✓ → (30,5) lies on xB=150/xA. Slope = −150/xA²",result:"At xA=30: slope = −150/900 = −1/6"},
+      {label:"d) MRS at (30,5)",formula:"MRS = |slope| = 1/6",result:"MRS = <b>1/6</b>. Much lower — Charlie has lots of apples, so he values them less relative to bananas."},
+      {label:"Key trap",formula:"(30,5) is NOT on the 100/xA curve — check which IC each point belongs to before computing the slope.",result:"<b>Always verify which IC the point lies on first.</b>"},
+    ]
+  },
+  {
+    title:"Task 1.2 — Budget Line & Tax Effect (Mila)",
+    desc:"Income m=100€. p₁=5, p₂=10.<br><b>a)</b> Max x₁? <b>b)</b> Max x₂? <b>c)</b> Budget line + slope interpretation.<br><b>d)</b> Tax t=5 on good 1: new budget line.",
+    steps:[
+      {label:"a) Maximum x₁",formula:"Set x₂=0: 5·x₁ = 100",result:"x₁_max = <b>20</b>"},
+      {label:"b) Maximum x₂",formula:"Set x₁=0: 10·x₂ = 100",result:"x₂_max = <b>10</b>"},
+      {label:"c) Budget line equation",formula:"5x₁ + 10x₂ = 100 → x₂ = 10 − (1/2)x₁. Slope = −p₁/p₂ = −5/10",result:"x₂ = 10 − (1/2)x₁. Slope = <b>−1/2</b>. To consume 1 more x₁, give up 1/2 unit of x₂."},
+      {label:"d) After tax: new p₁' = 5+5 = 10",formula:"New x₁-intercept: 100/10 = 10. x₂-intercept unchanged: 10. New slope: −10/10 = −1",result:"New line: <b>x₂ = 10 − x₁</b>. Budget line rotates inward around x₂-intercept (0,10)."},
+      {label:"Key trap",formula:"A price change on x₁ ROTATES (not shifts) the budget line — only the x₁-intercept moves.",result:"<b>x₂-intercept stays fixed at 10 because p₂ and m are unchanged.</b>"},
+    ]
+  },
+  {
+    title:"Task 1.3 — Two-Tariff Comparison",
+    desc:"Income=100€, u(x,y)=xy. <b>Plan A:</b> fee 20€, price 2€/unit of y. <b>Plan B:</b> fee 40€, price 1€/unit.<br>Which plan is preferred?",
+    steps:[
+      {label:"Step 1: Effective budgets",formula:"Plan A: m_eff=100−20=80, budget: x+2y=80. Plan B: m_eff=100−40=60, budget: x+y=60.",result:"A: 80€ at p_y=2. B: 60€ at p_y=1."},
+      {label:"Step 2: Plan A optimum (u=xy)",formula:"MRS=y/x=p_x/p_y=1/2 → x=2y. Insert: 2y+2y=80 → 4y=80 → y*=20, x*=40",result:"Plan A: (x*,y*)=<b>(40,20)</b>"},
+      {label:"Step 3: Utility — Plan A",formula:"u_A = 40×20",result:"u_A = <b>800</b>"},
+      {label:"Step 4: Plan B optimum",formula:"MRS=y/x=p_x/p_y=1/1=1 → x=y. Insert: y+y=60 → y*=30, x*=30",result:"Plan B: (x*,y*)=<b>(30,30)</b>"},
+      {label:"Step 5: Utility — Plan B",formula:"u_B = 30×30",result:"u_B = <b>900</b>"},
+      {label:"Step 6: Decision",formula:"u_B=900 > u_A=800",result:"<b>Plan B is preferred.</b> Lower per-unit price wins despite higher entry fee."},
+    ]
+  },
+  {
+    title:"Task 1.4 — Cobb-Douglas Optimisation",
+    desc:"Maximise u(x₁,x₂) = x₁⁴ · x₂² subject to 10x₁ + 5x₂ ≤ 200.",
+    steps:[
+      {label:"Step 1: MRS",formula:"Shortcut: MRS = (a/b)·(x₂/x₁) = (4/2)·(x₂/x₁) = 2x₂/x₁",result:"MRS = <b>2x₂/x₁</b>"},
+      {label:"Step 2: MRS = p₁/p₂",formula:"2x₂/x₁ = 10/5 = 2 → 2x₂ = 2x₁",result:"Relationship: <b>x₂ = x₁</b>"},
+      {label:"Step 3: Budget line (binding)",formula:"10x₁ + 5x₁ = 200 → 15x₁ = 200",result:"x₁* = <b>40/3 ≈ 13.33</b>; x₂* = <b>40/3 ≈ 13.33</b>"},
+      {label:"Shortcut check (budget share rule)",formula:"Share on x₁ = 4/(4+2) = 2/3. x₁* = (2/3)·200/10 = 40/3 ✓. x₂* = (1/3)·200/5 = 40/3 ✓",result:"<b>Both methods agree.</b> Budget share rule is the fastest verification."},
+    ]
+  },
 ];
 const calcProblemsPS2=[
-  {title:"EU, CE & Minimum Selling Price",desc:"u(x)=√x. Ship worth €16 (p=1/4) or €0 (p=3/4). Find EU, CE, p_min.",steps:[
-    {label:"Step 1: EU",formula:"EU = (1/4)·√16 + (3/4)·√0 = (1/4)·4",result:"EU = <b>1</b>"},
-    {label:"Step 2: EV",formula:"EV = (1/4)·16 + (3/4)·0",result:"EV = <b>€4</b> (for comparison)"},
-    {label:"Step 3: CE = p_min",formula:"u(p_min)=EU → √p_min=1",result:"p_min = CE = <b>€1</b>. Risk premium = €4−€1 = <b>€3</b>"},
-  ]},
-  {title:"Insurance Budget Line",desc:"p=0.4, γ=0.5, Endowment=(50, 150). Derive budget line.",steps:[
-    {label:"Step 1: Slope",formula:"−γ/(1−γ) = −0.5/0.5",result:"Slope = <b>−1</b>"},
-    {label:"Step 2: Use endowment point",formula:"150 = −1·50 + n → n = 200",result:"Intercept = <b>200</b>"},
-    {label:"Step 3: Budget line",formula:"c_good = 200 − c_bad",result:"<b>c_good = 200 − c_bad</b>"},
-  ]},
-  {title:"Optimal Insurance — Willy (PS2.4)",desc:"p=0.2, γ=1/3, Endow=(50k, 875k), u(c)=√c. Full solution.",steps:[
-    {label:"Step 1: State-contingent incomes",formula:"c_bad=50k+(2/3)x ; c_good=875k−(1/3)x",result:"Endowment: <b>(50k, 875k)</b>"},
-    {label:"Step 2: Budget line",formula:"Slope=−(1/3)/(2/3)=−1/2. 875k=−(1/2)·50k+n→n=900k",result:"<b>c_good=900k−(1/2)c_bad</b>"},
-    {label:"Step 3: MRS",formula:"[0.2·(1/2√c_bad)] / [0.8·(1/2√c_good)] = (1/4)·√c_good/√c_bad",result:"MRS = <b>(1/4)·(√c_good/√c_bad)</b>"},
-    {label:"Step 4: MRS=MRT=1/2",formula:"(1/4)·√(c_good/c_bad)=1/2 → √(c_good/c_bad)=2 → c_good=4·c_bad",result:"<b>c_good = 4·c_bad</b>"},
-    {label:"Step 5: Solve",formula:"4c_bad+c_bad=900k → 5c_bad=900k",result:"c_bad*=<b>180k</b>, c_good*=<b>720k</b> ✓ (4×180=720)"},
-    {label:"Step 6: Recover x*",formula:"180k=50k+(2/3)x → (2/3)x=130k",result:"x*=<b>195k</b> (partial: γ=1/3>p=0.2)"},
-  ]},
-  {title:"Fair Insurance — Full Coverage",desc:"p=0.5, γ=0.5, Endow=(0,100), u(c)=√c.",steps:[
-    {label:"Step 1: Fair insurance check",formula:"γ=p=0.5 → fair insurance",result:"Full insurance optimal → <b>c_bad*=c_good*</b>"},
-    {label:"Step 2: Budget line",formula:"Slope=−1. Through (0,100): c_good=100−c_bad",result:"<b>c_good=100−c_bad</b>"},
-    {label:"Step 3: Solve",formula:"c=100−c → 2c=100",result:"c_bad*=c_good*=<b>50</b>"},
-    {label:"Step 4: x*",formula:"50=0+(1−0.5)x → 50=0.5x",result:"x*=<b>100</b> (full coverage)"},
-  ]},
-  {title:"Risk Premium with ln utility",desc:"u(c)=ln(c). Lottery: €200 (p=0.5), €50 (p=0.5).",steps:[
-    {label:"Step 1: EV",formula:"0.5×200+0.5×50",result:"EV = <b>€125</b>"},
-    {label:"Step 2: EU",formula:"0.5·ln(200)+0.5·ln(50)=0.5·ln(10,000)",result:"EU ≈ <b>4.605</b>"},
-    {label:"Step 3: CE",formula:"ln(CE)=4.605 → CE=e^4.605=√10,000",result:"CE = <b>€100</b>"},
-    {label:"Step 4: Risk premium",formula:"RP=EV−CE=125−100",result:"RP = <b>€25</b>"},
-  ]},
+  {
+    title:"Task 2.1 — Wilma's Lottery",
+    desc:"Wilma is <b>not risk-averse</b>. Lottery ticket costs 10€. Pays: 100€ (p=0.06), 50€ (p=0.10), 0€ (p=0.84). Does she buy?",
+    steps:[
+      {label:"Step 1: Calculate EV",formula:"EV = 0.06·100 + 0.10·50 + 0.84·0 = 6+5+0",result:"EV = <b>11€</b>"},
+      {label:"Step 2: Apply risk attitude",formula:"Not risk-averse → CE ≥ EV = 11€",result:"CE ≥ 11€ > 10€ (ticket price)"},
+      {label:"Step 3: Decision",formula:"CE ≥ 11 > 10",result:"<b>Yes, Wilma buys the ticket.</b>"},
+      {label:"Key trap",formula:"Do NOT subtract ticket price from EV before comparing. Compare CE to price directly.",result:"<b>Also: 'not risk-averse' means CE≥EV, not necessarily CE=EV.</b>"},
+    ]
+  },
+  {
+    title:"Task 2.2 — Carl's Gamble",
+    desc:"Carl is <b>risk-averse</b>. Gamble: −1,000€ (p=1/4) or +500€ (p=3/4).<br><b>a)</b> EV? <b>b)</b> Can we determine whether Carl takes the gamble?",
+    steps:[
+      {label:"a) Expected Value",formula:"EV = (1/4)·(−1000) + (3/4)·500 = −250 + 375",result:"EV = <b>125€</b>"},
+      {label:"b) Apply risk aversion",formula:"Risk-averse → CE < EV = 125€. CE could be +80€ (accept) or −200€ (reject).",result:"We don't know the sign of CE."},
+      {label:"b) What would we need?",formula:"We need: EU = (1/4)·u(−1000) + (3/4)·u(500) ≥ u(0)?",result:"Cannot evaluate without the explicit utility function u(x)."},
+      {label:"b) Conclusion",formula:"",result:"<b>No, we cannot determine Carl's choice.</b> Risk aversion alone is not sufficient."},
+      {label:"Key trap",formula:"'He is risk-averse therefore he rejects' is WRONG.",result:"<b>Risk aversion only tells us CE < EV. It says nothing about CE vs 0 (the outside option).</b>"},
+    ]
+  },
+  {
+    title:"Task 2.3 — Portia's Minimum Selling Price",
+    desc:"u(x)=√x. Ship arrives (prob 1/4, worth 16€) or sinks (prob 3/4, worth 0€).<br>What is the minimum price Portia would sell the ship for?",
+    steps:[
+      {label:"Step 1: EV (for reference)",formula:"EV = (1/4)·16 + (3/4)·0",result:"EV = <b>4€</b>"},
+      {label:"Step 2: Risk attitude check",formula:"u(x)=√x → u″(x)=−(1/4)x^(−3/2) < 0 → concave",result:"Portia is <b>risk-averse</b> → CE < EV expected."},
+      {label:"Step 3: Calculate EU",formula:"EU = (1/4)·√16 + (3/4)·√0 = (1/4)·4 + 0",result:"EU = <b>1</b>"},
+      {label:"Step 4: Find CE = p_min",formula:"u(p_min) = EU → √p_min = 1 → p_min = 1²",result:"p_min = CE = <b>1€</b>"},
+      {label:"Step 5: Risk premium",formula:"RP = EV − CE = 4 − 1",result:"RP = <b>3€</b>. She sells for just 1€ despite EV=4€."},
+      {label:"Key trap",formula:"Do NOT use EV=4€ as p_min — that's only correct for risk-neutral agents.",result:"<b>Always compute EU first, then invert u(·) to get CE.</b>"},
+    ]
+  },
+  {
+    title:"Task 2.4a — State-Contingent Incomes (Willy Setup)",
+    desc:"Factory worth 875,000€ (no flood) or 50,000€ (flood). p=0.2, γ=1/3 per € of coverage x.<br>Derive cF (flood state) and cNF (no-flood state).",
+    steps:[
+      {label:"Flood state (cF)",formula:"Residual value: 50,000. Plus payout: +x. Minus premium: −(1/3)x.",result:"cF = 50,000 + x − (1/3)x = <b>50,000 + (2/3)x</b>"},
+      {label:"No-flood state (cNF)",formula:"Full factory value: 875,000. No payout. Minus premium (always paid!): −(1/3)x.",result:"cNF = <b>875,000 − (1/3)x</b>"},
+      {label:"Endowment (x=0)",formula:"(cF, cNF) = (50,000; 875,000)",result:"This is the starting point — no insurance purchased."},
+      {label:"Key trap",formula:"Premium is ALWAYS paid regardless of which state occurs.",result:"<b>Forgetting −(1/3)x in cNF is the single most common error in PS2.</b>"},
+    ]
+  },
+  {
+    title:"Task 2.4b — Insurance Budget Line (Willy)",
+    desc:"Derive the budget line in (cF, cNF) space.",
+    steps:[
+      {label:"Step 1: Slope",formula:"Slope = −γ/(1−γ) = −(1/3)/(2/3)",result:"Slope = <b>−1/2</b>"},
+      {label:"Step 2: Use endowment point (50k, 875k)",formula:"875,000 = (−1/2)·50,000 + n → n = 875,000 + 25,000",result:"Intercept n = <b>900,000</b>"},
+      {label:"Step 3: Budget line",formula:"cNF = 900,000 − (1/2)·cF",result:"<b>cNF = 900,000 − (1/2)·cF</b>"},
+      {label:"Interpretation",formula:"Slope = −1/2: to gain 1€ in the flood state, Willy gives up 1/2€ in the no-flood state.",result:"Shortcut: slope formula + endowment point is faster than eliminating x algebraically."},
+    ]
+  },
+  {
+    title:"Task 2.4c+d — EU & Optimal Insurance x* (Willy)",
+    desc:"u(c)=√c, p=0.2, γ=1/3. Write EU and find optimal coverage x*.",
+    steps:[
+      {label:"c) EU formula",formula:"EU = 0.2·√cF + 0.8·√cNF = 0.2·√(50k+(2/3)x) + 0.8·√(875k−(1/3)x)",result:"EU = <b>0.2·√cF + 0.8·√cNF</b> (leave as formula for part c)"},
+      {label:"d) MRS calculation",formula:"MU(cF)=0.2·(1/2√cF)=0.1/√cF. MU(cNF)=0.8·(1/2√cNF)=0.4/√cNF. MRS=MU(cF)/MU(cNF)",result:"MRS = (0.1/√cF)/(0.4/√cNF) = <b>(1/4)·√(cNF/cF)</b>"},
+      {label:"d) MRT",formula:"MRT = γ/(1−γ) = (1/3)/(2/3)",result:"MRT = <b>1/2</b>"},
+      {label:"d) Set MRS = MRT",formula:"(1/4)·√(cNF/cF) = 1/2 → √(cNF/cF) = 2 → cNF/cF = 4",result:"Relationship: <b>cNF = 4·cF</b>"},
+      {label:"d) Solve with budget line",formula:"4·cF = 900,000 − (1/2)·cF → (9/2)·cF = 900,000",result:"cF* = <b>200,000</b>; cNF* = <b>800,000</b> (check: 4×200k=800k ✓)"},
+      {label:"d) Recover x*",formula:"cF* = 50,000 + (2/3)·x* → 200,000−50,000 = (2/3)·x* → 150,000·(3/2)",result:"x* = <b>225,000€</b>. Partial insurance confirmed (γ=1/3 > p=0.2)."},
+    ]
+  },
+  {
+    title:"Task 2.4e — State-Contingent Incomes at x* = 225,000",
+    desc:"Given x*=225,000, calculate cF(x*) and cNF(x*).",
+    steps:[
+      {label:"cF at x*=225,000",formula:"cF = 50,000 + (2/3)·225,000 = 50,000 + 150,000",result:"cF* = <b>200,000€</b>"},
+      {label:"cNF at x*=225,000",formula:"cNF = 875,000 − (1/3)·225,000 = 875,000 − 75,000",result:"cNF* = <b>800,000€</b>"},
+      {label:"Sanity check",formula:"cNF*/cF* = 800,000/200,000",result:"= 4 ✓ — matches MRS=MRT result from part (d) where cNF=4·cF."},
+      {label:"Key trap",formula:"(1/3)·225,000 = 75,000 — not 25,000. Easy arithmetic error.",result:"<b>Always do the sanity check: ratio should match step (d).</b>"},
+    ]
+  },
+];
+    desc:"<b>u(x_A, x_B) = x_A · x_B</b><br>a) Find the IC for u=100 and sketch it.<br>b) Find the slope of the IC at bundle (5, 20).<br>c) What is the MRS at (5, 20)? Interpret.<br>d) Describe the weak preference set for the bundle (10, 10).",
+    steps:[
+      {label:"a) IC equation for u=100",formula:"x_A · x_B = 100 → x_B = 100/x_A",result:"IC is a <b>hyperbola</b>. Key points: (5,20), (10,10), (20,5), (25,4), (50,2)."},
+      {label:"b) Slope of IC at (5, 20)",formula:"x_B = 100/x_A → dx_B/dx_A = −100/x_A². At x_A=5: slope = −100/25",result:"Slope = <b>−4</b>"},
+      {label:"c) MRS at (5, 20)",formula:"MRS = |slope| = 4. Or: MU_A = x_B = 20; MU_B = x_A = 5. MRS = 20/5",result:"MRS = <b>4</b>. Consumer is willing to give up <b>4 units of x_B</b> for 1 more unit of x_A at this bundle."},
+      {label:"d) Weak preference set for (10, 10)",formula:"u(10,10) = 100. Weak preference set = all bundles with u ≥ 100.",result:"All bundles (x_A, x_B) with x_A·x_B ≥ 100 — the area <b>on and above</b> the IC through (10,10)."},
+    ]
+  },
+  {
+    title:"PS1 Task 1.2 — Budget Line & Tax",
+    desc:"Income m=400€. Price of good A: p_A=4. Price of good B: p_B=2.<br>a) Draw the budget line. State intercepts and slope.<br>b) A consumption tax of t=1€/unit is imposed on good A. What happens to the budget line?<br>c) Find the new budget line equation after the tax.",
+    steps:[
+      {label:"a) Original budget line",formula:"4x_A + 2x_B = 400. x_A-intercept: 400/4=100. x_B-intercept: 400/2=200. Slope: −p_A/p_B = −4/2",result:"Slope = <b>−2</b>. Intercepts: <b>(100, 0)</b> and <b>(0, 200)</b>."},
+      {label:"b) Effect of tax on good A",formula:"Tax t=1 → new price p_A' = 4+1 = 5. x_A-intercept falls to 400/5=80. x_B-intercept unchanged: 400/2=200.",result:"Budget line <b>rotates inward</b> around x_B-intercept (0,200). x_A-intercept shrinks from 100 to 80."},
+      {label:"c) New budget line equation",formula:"5x_A + 2x_B = 400 → x_B = 200 − (5/2)x_A",result:"New line: <b>x_B = 200 − 2.5·x_A</b>. Slope is now −2.5 (steeper than before)."},
+    ]
+  },
+  {
+    title:"PS1 Task 1.3 — Two Payment Plans",
+    desc:"A consumer with income m=100€ and u=xy can buy good x under two plans:<br><b>Plan A:</b> Fixed entry fee 20€, then price 2€/unit.<br><b>Plan B:</b> Fixed entry fee 40€, then price 1€/unit.<br>Which plan does the consumer prefer?",
+    steps:[
+      {label:"Step 1: Effective budgets",formula:"Plan A: m_eff = 100−20 = 80, p_x=2, p_y=1. Plan B: m_eff = 100−40 = 60, p_x=1, p_y=1.",result:"Plan A: spend 80 at p_x=2. Plan B: spend 60 at p_x=1."},
+      {label:"Step 2: Optimal bundle — Plan A",formula:"MRS = y/x = p_x/p_y = 2 → y=2x. Budget: 2x+1·(2x)=80 → 4x=80 → x=20, y=40.",result:"Plan A: (x*,y*) = <b>(20, 40)</b>"},
+      {label:"Step 3: Utility — Plan A",formula:"u_A = 20 × 40",result:"u_A = <b>800</b>"},
+      {label:"Step 4: Optimal bundle — Plan B",formula:"MRS = y/x = p_x/p_y = 1 → y=x. Budget: x+x=60 → x=30, y=30.",result:"Plan B: (x*,y*) = <b>(30, 30)</b>"},
+      {label:"Step 5: Utility — Plan B",formula:"u_B = 30 × 30",result:"u_B = <b>900</b>"},
+      {label:"Step 6: Compare and decide",formula:"u_B = 900 > u_A = 800",result:"<b>Plan B is preferred</b>, despite the higher entry fee, because the lower per-unit price allows a better consumption mix."},
+    ]
+  },
+  {
+    title:"PS1 Task 1.4 — Cobb-Douglas Optimum",
+    desc:"u(x₁, x₂) = x₁⁴ · x₂². Prices: p₁=2, p₂=1. Income: m=120€.<br>Find the optimal bundle (x₁*, x₂*).",
+    steps:[
+      {label:"Step 1: MRS",formula:"MU₁ = 4x₁³x₂², MU₂ = 2x₁⁴x₂. MRS = MU₁/MU₂ = (4x₁³x₂²)/(2x₁⁴x₂)",result:"MRS = <b>2x₂/x₁</b> (or shortcut: (4/2)·(x₂/x₁) = 2x₂/x₁)"},
+      {label:"Step 2: MRS = p₁/p₂",formula:"2x₂/x₁ = 2/1 = 2 → x₂ = x₁",result:"Relationship: <b>x₂ = x₁</b>"},
+      {label:"Step 3: Budget line",formula:"2x₁ + 1·x₁ = 120 → 3x₁ = 120",result:"x₁* = <b>40</b>, x₂* = <b>40</b>"},
+      {label:"Shortcut check",formula:"Share on x₁ = a/(a+b) = 4/(4+2) = 2/3. x₁* = (2/3)·120/2 = 40 ✓",result:"Budget share rule confirms: <b>x₁*=40, x₂*=40</b>"},
+    ]
+  },
+  {
+    title:"PS1 Task 1.5 — Leontief Preferences",
+    desc:"u(x₁, x₂) = min{x₁, 2x₂}. Prices: p₁=3, p₂=2. Income: m=70€.<br>Find the optimal bundle.",
+    steps:[
+      {label:"Step 1: Identify preference type",formula:"min{} function → Leontief (perfect complements). Do NOT use MRS=MRT.",result:"Use <b>kink condition</b> instead."},
+      {label:"Step 2: Kink condition",formula:"At optimum: x₁ = 2x₂ (the two arguments of min{} are equal)",result:"Relationship: <b>x₁ = 2x₂</b>"},
+      {label:"Step 3: Budget line",formula:"3(2x₂) + 2x₂ = 70 → 6x₂ + 2x₂ = 70 → 8x₂ = 70",result:"x₂* = <b>8.75</b>, x₁* = <b>17.5</b>"},
+      {label:"Verify",formula:"u = min{17.5, 2×8.75} = min{17.5, 17.5}",result:"u* = <b>17.5</b> ✓"},
+    ]
+  },
+  {
+    title:"PS1 Task 1.6 — Perfect Substitutes",
+    desc:"u(x₁, x₂) = 3x₁ + 2x₂. Prices: p₁=4, p₂=2. Income: m=80€.<br>Find the optimal bundle.",
+    steps:[
+      {label:"Step 1: MRS (constant)",formula:"MU₁=3, MU₂=2. MRS = 3/2 = 1.5",result:"MRS = <b>1.5</b> (constant — perfect substitutes)"},
+      {label:"Step 2: Compare MRS with p₁/p₂",formula:"p₁/p₂ = 4/2 = 2. MRS = 1.5 < 2 = p₁/p₂",result:"MRS < p₁/p₂ → <b>corner solution: buy only x₂</b>"},
+      {label:"Step 3: Corner solution",formula:"x₁* = 0. x₂* = m/p₂ = 80/2",result:"x₁* = <b>0</b>, x₂* = <b>40</b>. u = 3×0 + 2×40 = 80"},
+      {label:"Intuition",formula:"x₂ gives 2/2=1 utility per euro. x₁ gives 3/4=0.75 utility per euro.",result:"x₂ is more efficient per euro → spend everything on x₂."},
+    ]
+  },
+];
+const calcProblemsPS2=[
+  {
+    title:"PS2 Task 2.1 — Wilma & the Lottery",
+    desc:"<b>Wilma is not risk-averse.</b> She can buy a lottery ticket for <b>10€</b>.<br>The lottery pays: 100€ with prob 0.06, 50€ with prob 0.10, 0€ with prob 0.84.<br>Does Wilma buy the ticket?",
+    steps:[
+      {label:"Step 1: Calculate EV",formula:"EV = 0.06×100 + 0.10×50 + 0.84×0 = 6 + 5 + 0",result:"EV = <b>11€</b>"},
+      {label:"Step 2: Apply risk attitude",formula:"Wilma is not risk-averse → CE ≥ EV (for risk-neutral CE=EV; for risk-loving CE>EV)",result:"CE ≥ EV = 11€"},
+      {label:"Step 3: Compare CE with ticket price",formula:"CE ≥ 11€ > 10€ (ticket price)",result:"<b>Wilma buys the ticket.</b> She values the lottery at least as much as its EV, which exceeds the price."},
+      {label:"Key insight",formula:"We don't need the exact utility function. Not risk-averse → CE ≥ EV = 11 > 10.",result:"<b>Trap:</b> If she were risk-averse, we'd need u(x) to determine whether CE > 10."},
+    ]
+  },
+  {
+    title:"PS2 Task 2.2 — Carl & the Gamble",
+    desc:"<b>Carl is risk-averse.</b> A gamble offers: −1,000€ with prob 1/4, +500€ with prob 3/4.<br>EV = (−1000)(1/4) + (500)(3/4) = −250 + 375 = <b>125€</b>.<br>Will Carl accept the gamble?",
+    steps:[
+      {label:"Step 1: Apply risk aversion",formula:"Carl is risk-averse → CE < EV = 125€",result:"CE < 125€ — but we don't know by how much."},
+      {label:"Step 2: What would Carl compare?",formula:"Carl accepts if EU(gamble) ≥ u(0) — i.e. if the lottery's EU exceeds the utility of not gambling.",result:"This requires knowing CE vs 0 (the status quo)."},
+      {label:"Step 3: Can we determine this?",formula:"We only know CE < 125. CE could be 50 (accept) or −200 (reject).",result:"<b>We cannot determine whether Carl accepts without his exact utility function.</b>"},
+      {label:"Key insight",formula:"Risk aversion → CE < EV. But EV=125 >> 0, so we still don't know the sign of (CE−0).",result:"<b>Exam trap:</b> Never say 'risk-averse → rejects positive-EV gamble' without checking u(x)."},
+    ]
+  },
+  {
+    title:"PS2 Task 2.3 — Portia's Ship",
+    desc:"<b>u(x) = √x.</b> Portia's ship arrives with prob 1/4 (worth 16€) or sinks with prob 3/4 (0€).<br>a) What is Portia's EU?<br>b) What is the minimum price at which she would sell the ship?",
+    steps:[
+      {label:"a) Calculate EU",formula:"EU = (1/4)·√16 + (3/4)·√0 = (1/4)·4 + (3/4)·0",result:"EU = <b>1</b>"},
+      {label:"a) Calculate EV for comparison",formula:"EV = (1/4)·16 + (3/4)·0",result:"EV = <b>4€</b>"},
+      {label:"b) Find CE = minimum selling price",formula:"u(p_min) = EU → √p_min = 1",result:"p_min = CE = <b>1€</b>"},
+      {label:"b) Risk premium",formula:"RP = EV − CE = 4 − 1",result:"RP = <b>3€</b>. She would sell for as little as 1€ despite EV=4€ — very risk-averse."},
+      {label:"Key insight",formula:"CE (1€) << EV (4€) because √x is concave → risk-averse.",result:"<b>Trap:</b> Don't use EV as the minimum price. Always compute EU first, then invert u."},
+    ]
+  },
+  {
+    title:"PS2 Task 2.4a — Willy's Chocolate Factory: Setup",
+    desc:"Willy owns a factory worth 875,000€. A flood destroys 825,000€ with prob p=0.2.<br>Insurance: coverage x, premium rate γ=1/3.<br><b>a)</b> Write c_bad and c_good as functions of x.<br><b>b)</b> Derive the insurance budget line.",
+    steps:[
+      {label:"a) State-contingent incomes",formula:"Good state (no flood): c_good = 875,000 − (1/3)x. Bad state (flood): c_bad = 50,000 + (1−1/3)x = 50,000 + (2/3)x",result:"c_good = <b>875,000 − (1/3)x</b>. c_bad = <b>50,000 + (2/3)x</b>"},
+      {label:"b) Budget line slope",formula:"Slope = −γ/(1−γ) = −(1/3)/(2/3)",result:"Slope = <b>−1/2</b>"},
+      {label:"b) Use endowment point",formula:"Endowment (x=0): (c_bad, c_good) = (50,000; 875,000). Insert: 875,000 = (−1/2)·50,000 + n → n = 875,000 + 25,000",result:"Intercept n = <b>900,000</b>"},
+      {label:"b) Budget line equation",formula:"c_good = 900,000 − (1/2)·c_bad",result:"<b>c_good = 900,000 − (1/2)c_bad</b>"},
+    ]
+  },
+  {
+    title:"PS2 Task 2.4b — Willy's Chocolate Factory: EU & MRS",
+    desc:"Continuing from 2.4a. u(c) = √c, p=0.2.<br><b>c)</b> Write Willy's EU.<br><b>d)</b> Calculate MRS and find optimal coverage x*.",
+    steps:[
+      {label:"c) EU function",formula:"EU = p·u(c_bad) + (1−p)·u(c_good) = 0.2·√c_bad + 0.8·√c_good",result:"EU = <b>0.2·√c_bad + 0.8·√c_good</b>"},
+      {label:"d) MRS",formula:"MU(c_bad) = 0.2·(1/2√c_bad). MU(c_good) = 0.8·(1/2√c_good). MRS = [0.2/(2√c_bad)] / [0.8/(2√c_good)]",result:"MRS = <b>(1/4)·(√c_good / √c_bad)</b>"},
+      {label:"d) MRS = MRT = 1/2",formula:"(1/4)·√(c_good/c_bad) = 1/2 → √(c_good/c_bad) = 2 → c_good/c_bad = 4",result:"Relationship: <b>c_good = 4·c_bad</b>"},
+      {label:"d) Solve with budget line",formula:"Substitute into c_good = 900,000 − (1/2)c_bad: 4c_bad = 900,000 − (1/2)c_bad → (9/2)c_bad = 900,000",result:"c_bad* = <b>200,000</b> → c_good* = <b>800,000</b>. Check: 4×200k=800k ✓"},
+      {label:"d) Recover x*",formula:"c_bad* = 50,000 + (2/3)x → 200,000 = 50,000 + (2/3)x → (2/3)x = 150,000",result:"x* = <b>225,000€</b>. Partial insurance (γ=1/3 > p=0.2 → unfair → expected)."},
+      {label:"Sanity check",formula:"Full insurance would give c_bad=c_good=(900k)·(2/3)... Actually full coverage x=825,000 → c_bad=50k+(2/3)·825k=600k; c_good=875k−(1/3)·825k=600k ✓",result:"x*=225k < 825k (full coverage) confirms partial insurance."},
+    ]
+  },
+  {
+    title:"PS2 Task 2.4e — Willy: Fair vs Unfair Check",
+    desc:"<b>e)</b> Is the insurance fair or unfair? What would Willy buy under fair insurance?",
+    steps:[
+      {label:"Step 1: Check fair insurance condition",formula:"γ = 1/3 ≈ 0.333. p = 0.2. γ > p?",result:"Yes: γ = 0.333 > p = 0.2 → <b>Unfair insurance</b>"},
+      {label:"Step 2: Confirm with our result",formula:"c_bad* = 200,000 < c_good* = 800,000",result:"c_bad < c_good confirms <b>partial insurance</b> — as expected with unfair insurance."},
+      {label:"Step 3: What if fair insurance (γ=p=0.2)?",formula:"Fair → MRS=MRT gives u′(c_bad)=u′(c_good) → c_bad*=c_good*. Budget line with γ=0.2: slope=−0.2/0.8=−1/4, through (50k,875k): n=875k+12.5k=887.5k. c*=c*: c+(1/4)c=887.5k → (5/4)c=887.5k",result:"Fair: c_bad*=c_good*=<b>710,000</b>. Full insurance, all risk eliminated."},
+    ]
+  },
 ];
 const calcProblemsByPrefix={ch3:calcProblems,ps1:calcProblemsPS1,ps2:calcProblemsPS2};
 let calcCurrentPrefix='ch3';
