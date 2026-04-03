@@ -262,6 +262,8 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
     <button class="nav-sub" style="opacity:.5;cursor:default;pointer-events:none">+ More coming</button>
     <div class="nav-label">Microeconomics</div>
     <button class="nav-btn" data-color="micro" onclick="showPage('micro-overview',this)"><span class="nav-dot" style="background:var(--micro)"></span>All Chapters</button>
+    <button class="nav-sub" onclick="showLecture('micro','ps1',this)">PS1: Individual Choice</button>
+    <button class="nav-sub" onclick="showLecture('micro','ps2',this)">PS2: Risky Choice</button>
     <button class="nav-sub" onclick="showLecture('micro','ch3',this)">Chapter 3: Risky Choice</button>
     <button class="nav-sub" style="opacity:.5;cursor:default;pointer-events:none">+ More coming</button>
     <div class="nav-label">Macroeconomics</div>
@@ -289,8 +291,8 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
     </div>
     <div class="subject-card sc-micro" onclick="showPage('micro-overview',null)">
       <div class="sc-name">Microeconomics</div><div class="sc-meta">Chapters · Microeconomics 1</div>
-      <div class="sc-progress"><div class="sc-progress-fill" style="width:7%;background:var(--micro)"></div></div>
-      <div class="sc-stats"><div class="sc-stat"><strong>1</strong> chapter loaded</div><div class="sc-stat"><strong>30</strong> flashcards</div><div class="sc-stat"><strong>20</strong> quiz Qs</div></div>
+      <div class="sc-progress"><div class="sc-progress-fill" style="width:21%;background:var(--micro)"></div></div>
+      <div class="sc-stats"><div class="sc-stat"><strong>3</strong> sessions loaded</div><div class="sc-stat"><strong>75</strong> flashcards</div><div class="sc-stat"><strong>55</strong> quiz Qs</div></div>
     </div>
     <div class="subject-card sc-macro" onclick="showPage('macro-overview',null)">
       <div class="sc-name">Macroeconomics</div><div class="sc-meta">Chapters · Coming soon</div>
@@ -625,14 +627,229 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
 </div>
 
 <!-- OTHER SUBJECTS -->
-<div id="page-micro-overview" class="page"><div class="page-eyebrow" style="color:var(--micro)">Microeconomics</div><div class="page-title">All Chapters</div><div class="page-desc">Select a chapter to access its summary, calculator, flashcards, and quiz.</div>
+<div id="page-micro-overview" class="page"><div class="page-eyebrow" style="color:var(--micro)">Microeconomics</div><div class="page-title">All Chapters</div><div class="page-desc">Select a session to access its summary, calculator, flashcards, and quiz.</div>
 <div class="lectures-list">
-  <div class="lec-card empty"><div class="lec-num" style="background:var(--micro-l);color:var(--micro)">01</div><div class="lec-info"><div class="lec-title">Chapter 1</div><div class="lec-sub">Not yet added</div></div><div class="lec-badges"><span class="lec-badge">Summary</span><span class="lec-badge">Cards</span><span class="lec-badge">Quiz</span></div></div>
-  <div class="lec-card empty"><div class="lec-num" style="background:var(--micro-l);color:var(--micro)">02</div><div class="lec-info"><div class="lec-title">Chapter 2</div><div class="lec-sub">Not yet added</div></div><div class="lec-badges"><span class="lec-badge">Summary</span><span class="lec-badge">Cards</span><span class="lec-badge">Quiz</span></div></div>
-  <div class="lec-card" onclick="showLecture('micro','ch3',null)"><div class="lec-num" style="background:var(--micro-l);color:var(--micro)">03</div><div class="lec-info"><div class="lec-title">Chapter 3: Risky Choice</div><div class="lec-sub">Lotteries · Expected Utility · Risk Attitudes · Insurance</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Compare</span><span class="lec-badge has">Calculator</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span></div></div>
-  <div class="lec-card empty"><div class="lec-num" style="background:var(--micro-l);color:var(--micro)">04+</div><div class="lec-info"><div class="lec-title">More chapters coming</div><div class="lec-sub">Share your notes to add the next chapter</div></div><div class="lec-badges"><span class="lec-badge">Summary</span><span class="lec-badge">Cards</span><span class="lec-badge">Quiz</span></div></div>
+  <div class="lec-card" onclick="showLecture('micro','ps1',null)"><div class="lec-num" style="background:var(--micro-l);color:var(--micro)">PS1</div><div class="lec-info"><div class="lec-title">Problem Set 1: Individual Choice</div><div class="lec-sub">Indifference Curves · MRS · Budget Line · Optimisation · Special Preferences</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Compare</span><span class="lec-badge has">Calculator</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span></div></div>
+  <div class="lec-card" onclick="showLecture('micro','ps2',null)"><div class="lec-num" style="background:var(--micro-l);color:var(--micro)">PS2</div><div class="lec-info"><div class="lec-title">Problem Set 2: Risky Choice</div><div class="lec-sub">EV · EU · CE · Risk Premium · Insurance · MRS = MRT</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Compare</span><span class="lec-badge has">Calculator</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span></div></div>
+  <div class="lec-card" onclick="showLecture('micro','ch3',null)"><div class="lec-num" style="background:var(--micro-l);color:var(--micro)">Ch3</div><div class="lec-info"><div class="lec-title">Chapter 3: Risky Choice</div><div class="lec-sub">Theory deep-dive · Lotteries · Expected Utility · Insurance demand</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Compare</span><span class="lec-badge has">Calculator</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span></div></div>
+  <div class="lec-card empty"><div class="lec-num" style="background:var(--micro-l);color:var(--micro)">Next</div><div class="lec-info"><div class="lec-title">More chapters coming</div><div class="lec-sub">Share your notes to add the next chapter</div></div><div class="lec-badges"><span class="lec-badge">Summary</span><span class="lec-badge">Cards</span><span class="lec-badge">Quiz</span></div></div>
 </div>
 </div>
+<!-- MICRO PS1 PAGE -->
+<div id="page-micro-ps1" class="page">
+  <div class="page-eyebrow" style="color:var(--micro)">Microeconomics · Problem Set 1</div>
+  <div class="page-title">Individual Choice</div>
+  <div class="page-desc">Indifference Curves · MRS · Budget Line · Optimisation · Cobb-Douglas · Leontief · Perfect Substitutes</div>
+  <div class="study-tabs">
+    <button class="study-tab active" onclick="showMicroTab('summary',this,'ps1')">Summary</button>
+    <button class="study-tab" onclick="showMicroTab('compare',this,'ps1')">Compare</button>
+    <button class="study-tab" onclick="showMicroTab('calc',this,'ps1')">Calculator</button>
+    <button class="study-tab" onclick="showMicroTab('flashcards',this,'ps1')">Flashcards</button>
+    <button class="study-tab" onclick="showMicroTab('quiz',this,'ps1')">Quiz</button>
+  </div>
+  <div id="mps1-summary" class="study-panel active">
+    <div class="sum-card"><div class="sum-title"><span class="badge b-teal">The Core Problem</span></div><p>Every consumer faces two questions: <em>What can I afford?</em> (budget constraint) and <em>What is best for me?</em> (preferences / utility). The optimal choice is the bundle that maximises utility subject to the budget constraint — graphically, the highest IC that still touches the budget line.</p></div>
+    <div class="sum-card"><div class="sum-title">Indifference Curves</div><ul>
+      <li><strong>Definition:</strong> All bundles (x₁, x₂) yielding the same utility level k. Set u(x₁,x₂)=k and solve for x₂ as a function of x₁.</li>
+      <li><strong>Key properties:</strong> Higher curves = higher utility. Normally convex (prefer averages). Never cross.</li>
+      <li><strong>Example:</strong> u = x_A·x_B = 100 → x_B = 100/x_A (hyperbola). At (5,20): slope = −100/25 = −4, so MRS = 4.</li>
+      <li><strong>Weak preference set:</strong> All bundles weakly preferred to a given bundle — graphically, the area on and above the IC through that bundle.</li>
+    </ul></div>
+    <div class="sum-card"><div class="sum-title">Marginal Rate of Substitution (MRS)</div><ul>
+      <li><strong>Definition:</strong> Maximum amount of x₂ willingly given up for one more unit of x₁, keeping utility constant. = Absolute value of IC slope.</li>
+      <li><strong>Formula:</strong> MRS = MU₁/MU₂ = (∂u/∂x₁)/(∂u/∂x₂)</li>
+      <li><strong>Cobb-Douglas shortcut:</strong> For u = x₁ᵃ·x₂ᵇ: MRS = (a/b)·(x₂/x₁)</li>
+      <li><strong>Why MRS changes:</strong> As you get more x₁ and less x₂, x₁ becomes relatively less valuable → MRS falls (diminishing MRS → convex ICs).</li>
+    </ul></div>
+    <div class="sum-card"><div class="sum-title">The Budget Constraint</div><ul>
+      <li><strong>Formula:</strong> p₁x₁ + p₂x₂ = m</li>
+      <li><strong>Slope:</strong> −p₁/p₂ = MRT (market exchange rate)</li>
+      <li><strong>Intercepts:</strong> x₁-axis: m/p₁. x₂-axis: m/p₂.</li>
+      <li><strong>Tax on good 1:</strong> p₁ increases → x₁-intercept (m/p₁) falls → budget line rotates inward around the x₂-intercept (unchanged).</li>
+    </ul></div>
+    <div class="sum-card"><div class="sum-title">3-Step Solution Method (Standard / Cobb-Douglas)</div><ul>
+      <li><strong>Step 1:</strong> Calculate MRS = MU₁/MU₂</li>
+      <li><strong>Step 2:</strong> Set MRS = p₁/p₂ → relationship between x₁ and x₂</li>
+      <li><strong>Step 3:</strong> Insert into budget line → solve for x₁* and x₂*</li>
+      <li><strong>Why it works:</strong> At the optimum, the consumer's subjective willingness to trade (MRS) equals the market's objective rate (p₁/p₂). If MRS > p₁/p₂, buy more x₁.</li>
+    </ul><div class="note-box"><strong>Budget share rule (Cobb-Douglas):</strong> x₁* = [a/(a+b)]·(m/p₁) and x₂* = [b/(a+b)]·(m/p₂). Budget shares are constant regardless of prices.</div></div>
+    <div class="sum-card"><div class="sum-title">Special Preference Types</div><ul>
+      <li><strong>Perfect Substitutes u=ax₁+bx₂:</strong> MRS=a/b (constant). Compare with p₁/p₂: MRS>p₁/p₂ → buy only x₁; MRS<p₁/p₂ → buy only x₂; MRS=p₁/p₂ → any point on budget line.</li>
+      <li><strong>Leontief u=min{ax₁,bx₂}:</strong> L-shaped ICs. Do NOT use MRS=MRT. Set ax₁=bx₂ (kink condition), insert into budget line. Why: no derivative at kink.</li>
+    </ul></div>
+    <div class="sum-card"><div class="sum-title">Two-Tariff Problems</div><ul>
+      <li>Subtract fixed fee from income to get effective budget</li>
+      <li>Find optimal bundle under each plan using MRS=MRT</li>
+      <li>Compare utility levels → choose higher one</li>
+    </ul></div>
+    <div class="sum-card"><div class="sum-title">⚠️ Most Common Mistakes</div><ul>
+      <li>Using MRS=MRT for Leontief preferences — impossible (no derivative at kink)</li>
+      <li>Forgetting to take absolute value of IC slope for MRS</li>
+      <li>Setting up wrong ratio: MRS = MU₁/MU₂, not MU₂/MU₁</li>
+      <li>For perfect substitutes with MRS=p₁/p₂: the entire budget line is optimal, not just one point</li>
+      <li>Confusing budget shifts (income changes) with rotations (price changes)</li>
+    </ul></div>
+  </div>
+  <div id="mps1-compare" class="study-panel">
+    <div class="sum-card"><div class="sum-title">Three Utility Types — Full Comparison</div>
+    <table class="comp-table">
+      <tr><th>Feature</th><th>Cobb-Douglas</th><th>Perfect Substitutes</th><th>Leontief</th></tr>
+      <tr><td><strong>Example</strong></td><td>x₁·x₂</td><td>2x₁+x₂</td><td>min{x₁,x₂}</td></tr>
+      <tr><td><strong>IC shape</strong></td><td>Convex hyperbola</td><td>Straight line</td><td>L-shaped</td></tr>
+      <tr><td><strong>Solution type</strong></td><td>Interior</td><td>Corner (usually)</td><td>Kink</td></tr>
+      <tr><td><strong>Method</strong></td><td>MRS = p₁/p₂</td><td>Compare MRS vs p₁/p₂</td><td>ax₁ = bx₂</td></tr>
+      <tr><td><strong>MRS</strong></td><td>Varies (diminishing)</td><td>Constant (a/b)</td><td>Undefined at kink</td></tr>
+      <tr><td><strong>Budget shares</strong></td><td>Constant a/(a+b)</td><td>All on one good</td><td>Fixed proportion</td></tr>
+      <tr><td><strong>Prefer averages?</strong></td><td>Yes — convex ICs</td><td>No — indifferent</td><td>No — needs both</td></tr>
+    </table></div>
+    <div class="sum-card"><div class="sum-title">Budget Line: Shifts vs Rotations</div>
+    <table class="comp-table">
+      <tr><th>Change</th><th>Effect on budget line</th><th>Why</th></tr>
+      <tr><td>Income m increases</td><td>Parallel shift outward</td><td>Both intercepts increase proportionally</td></tr>
+      <tr><td>p₁ increases (tax on good 1)</td><td>Rotates inward around x₂-intercept</td><td>x₁-intercept falls; x₂-intercept unchanged</td></tr>
+      <tr><td>p₂ increases</td><td>Rotates inward around x₁-intercept</td><td>x₂-intercept falls; x₁-intercept unchanged</td></tr>
+      <tr><td>Both prices double</td><td>Same as halving income — parallel shift in</td><td>Real purchasing power halved</td></tr>
+    </table></div>
+  </div>
+  <div id="mps1-calc" class="study-panel">
+    <div class="sum-card" style="margin-bottom:16px"><div class="sum-title" style="color:var(--micro)">🧮 Step-by-Step Calculator</div><p style="font-size:13.5px;color:var(--text2)">Work through each problem step by step. Try to predict the next step before revealing it.</p></div>
+    <div class="calc-header"><div><div id="ps1-calc-title" style="font-family:var(--serif);font-size:20px;color:var(--text)"></div><div class="calc-pick-label" id="ps1-calc-pick-label"></div></div><div class="calc-nav"><button class="btn btn-sm" onclick="calcPrevFor('ps1')">← Prev</button><button class="btn btn-sm" onclick="calcNextFor('ps1')">Next →</button></div></div>
+    <div class="calc-desc-box" id="ps1-calc-desc"></div>
+    <div id="ps1-calc-steps"></div>
+    <div class="calc-footer"><button class="btn btn-primary btn-sm" id="ps1-calc-next" onclick="calcNextStepFor('ps1')">Next step →</button><button class="btn btn-sm" id="ps1-calc-reveal"></button></div>
+  </div>
+  <div id="mps1-flashcards" class="study-panel">
+    <div class="fc-controls"><button class="btn btn-sm" onclick="shuffleMicroFC('ps1')">Shuffle</button><button class="btn btn-sm" onclick="resetMicroFC('ps1')">Reset all</button><span style="font-size:12px;color:var(--text3);margin-left:4px">Rate each card — hard ones come back sooner</span></div>
+    <div class="fc-sr-bar" id="mps1-sr-bar"></div>
+    <div id="mps1-fc-wrap">
+      <div class="flashcard-wrap"><div class="flashcard" id="mps1-fc-card" onclick="flipMicroFC('ps1')">
+        <div class="fc-face fc-front" style="background:var(--surface)"><div class="fc-label">Question</div><div class="fc-question" id="mps1-fc-q"></div><div class="fc-hint">Click to reveal</div></div>
+        <div class="fc-face fc-back" style="background:var(--micro);transform:rotateY(180deg)"><div class="fc-label">Answer</div><div class="fc-answer" id="mps1-fc-a"></div><div class="fc-src" id="mps1-fc-src"></div></div>
+      </div></div>
+      <div class="sr-btns"><button class="sr-btn sr-btn-hard" onclick="rateMicroFC('ps1',0)">😬 Still learning</button><button class="sr-btn sr-btn-ok" onclick="rateMicroFC('ps1',1)">🤔 Almost</button><button class="sr-btn sr-btn-easy" onclick="rateMicroFC('ps1',2)">✓ Got it</button></div>
+      <div class="sr-mode-note">Card <span id="mps1-fc-counter">1</span> of <span id="mps1-fc-total">23</span></div>
+    </div>
+    <div class="fc-sr-done" id="mps1-fc-done" style="display:none"><h3>Session complete! 🎉</h3><p id="mps1-done-msg"></p><div style="display:flex;gap:10px;justify-content:center;margin-top:16px"><button class="btn btn-primary" onclick="reviewMicroWeak('ps1')">Review weak cards</button><button class="btn" onclick="resetMicroFC('ps1')">Start over</button></div></div>
+  </div>
+  <div id="mps1-quiz" class="study-panel">
+    <div id="mqps1-wrap"><div class="quiz-prog"><div class="quiz-prog-fill" id="mqps1-pfill" style="width:0%"></div></div><div class="quiz-meta" id="mqps1-meta"></div><div class="quiz-q" id="mqps1-text"></div><div class="quiz-opts" id="mqps1-opts"></div><div class="quiz-fb" id="mqps1-fb"></div><div id="mqps1-next" style="display:none"><button class="btn btn-primary" onclick="nextMicroQ('ps1')">Next →</button></div></div>
+    <div class="quiz-score-screen" id="mqps1-score"><div class="score-row"><div class="score-big" id="mqps1-big" style="color:var(--micro)"></div><div class="score-right"><div class="score-lbl">correct answers</div><div class="score-msg" id="mqps1-msg"></div></div></div><div class="weak-section" id="mqps1-weak"></div><div style="margin-top:20px;display:flex;gap:10px"><button class="btn btn-primary" onclick="restartMicroQuiz('ps1')">Try again</button><button class="btn" onclick="showMicroTab('calc',null,'ps1')">Practice calculator</button></div></div>
+  </div>
+</div>
+
+<!-- MICRO PS2 PAGE -->
+<div id="page-micro-ps2" class="page">
+  <div class="page-eyebrow" style="color:var(--micro)">Microeconomics · Problem Set 2</div>
+  <div class="page-title">Risky Choice</div>
+  <div class="page-desc">EV · EU · CE · Risk Premium · Insurance as Consumer Choice · MRS = MRT</div>
+  <div class="study-tabs">
+    <button class="study-tab active" onclick="showMicroTab('summary',this,'ps2')">Summary</button>
+    <button class="study-tab" onclick="showMicroTab('compare',this,'ps2')">Compare</button>
+    <button class="study-tab" onclick="showMicroTab('calc',this,'ps2')">Calculator</button>
+    <button class="study-tab" onclick="showMicroTab('flashcards',this,'ps2')">Flashcards</button>
+    <button class="study-tab" onclick="showMicroTab('quiz',this,'ps2')">Quiz</button>
+  </div>
+  <div id="mps2-summary" class="study-panel active">
+    <div class="sum-card"><div class="sum-title"><span class="badge b-teal">Risk and Lotteries</span></div><ul>
+      <li><strong>Lottery:</strong> A set of outcomes each with a probability. Σpᵢ=1.</li>
+      <li><strong>EV = Σpᵢ·xᵢ</strong> — probability-weighted average of monetary outcomes. No utility involved.</li>
+      <li><strong>EU = Σpᵢ·u(xᵢ)</strong> — probability-weighted average of utilities. What rational agents maximise. Apply u(·) first, then weight.</li>
+      <li><strong>Critical distinction:</strong> EV and EU are different concepts. A risk-averse person values a lottery at less than its EV (CE < EV).</li>
+    </ul></div>
+    <div class="sum-card"><div class="sum-title">Risk Attitudes</div><ul>
+      <li><strong>Risk-averse:</strong> Concave u(·), u″<0, CE<EV. Example: u=√x.</li>
+      <li><strong>Risk-neutral:</strong> Linear u(·), u″=0, CE=EV. Example: u=x.</li>
+      <li><strong>Risk-loving:</strong> Convex u(·), u″>0, CE>EV. Example: u=x².</li>
+      <li><strong>Why shape matters:</strong> Concave u → each extra euro gives less utility → losing €100 hurts more than gaining €100 helps → consumer dislikes risk.</li>
+    </ul></div>
+    <div class="sum-card"><div class="sum-title">CE, Risk Premium & Minimum Selling Price</div><ul>
+      <li><strong>CE:</strong> u(CE)=EU → solve for CE. Find: compute EU → invert u.</li>
+      <li><strong>Risk Premium:</strong> RP=EV−CE. Positive for risk-averse. Maximum premium someone would pay to avoid risk.</li>
+      <li><strong>Minimum selling price:</strong> p_min=CE. Set u(p)≥EU → solve. The seller only accepts a certain price ≥ CE.</li>
+      <li><strong>Portia example:</strong> EU=1, CE=€1, EV=€4. She would sell for just €1 despite EV being €4.</li>
+    </ul><div class="note-box"><strong>Key exam trap:</strong> "He is risk-averse therefore he rejects the gamble" — WRONG without more information. Risk aversion tells us CE<EV, but not whether CE>0 (accept) or CE<0 (reject). Need exact u(x).</div></div>
+    <div class="sum-card"><div class="sum-title">Insurance as a Consumer Choice Problem</div><ul>
+      <li><strong>Reframing:</strong> The two "goods" are consumption in the bad state (c_bad) and good state (c_good). Identical to PS1 — just different goods.</li>
+      <li><strong>State-contingent incomes:</strong> c_bad = Endow_bad + (1−γ)·x ; c_good = Endow_good − γ·x (premium always paid).</li>
+      <li><strong>Budget line slope:</strong> −γ/(1−γ) = MRT. To gain €1 in bad state, give up γ/(1−γ) in good state.</li>
+      <li><strong>MRS:</strong> [p·u′(c_bad)] / [(1−p)·u′(c_good)]</li>
+      <li><strong>Fair insurance (γ=p):</strong> MRS=MRT → c_bad*=c_good* → full insurance.</li>
+      <li><strong>Unfair insurance (γ>p):</strong> Partial insurance only — c_bad*<c_good*.</li>
+    </ul></div>
+    <div class="sum-card"><div class="sum-title">6-Step Insurance Solution Method</div><ul>
+      <li><strong>1)</strong> Write c_bad and c_good as functions of x</li>
+      <li><strong>2)</strong> Budget line: slope=−γ/(1−γ), use endowment point → intercept</li>
+      <li><strong>3)</strong> Write EU and compute MRS = [p·u′(c_bad)] / [(1−p)·u′(c_good)]</li>
+      <li><strong>4)</strong> Set MRS=MRT → relationship between c_bad* and c_good*</li>
+      <li><strong>5)</strong> Insert into budget line → solve for c_bad* and c_good*</li>
+      <li><strong>6)</strong> Recover x*: use c_bad*=Endow_bad+(1−γ)·x → x*=(c_bad*−Endow_bad)/(1−γ)</li>
+    </ul><div class="note-box"><strong>Sanity check:</strong> Verify MRS=MRT holds for your final c* values. Also: if γ=p, expect c_bad*=c_good*; if γ>p, expect c_bad*<c_good*.</div></div>
+    <div class="sum-card"><div class="sum-title">⚠️ Most Common Mistakes</div><ul>
+      <li>Saying "he won't take the gamble because he's risk averse" — need the utility function (PS2.2 trap)</li>
+      <li>Forgetting to subtract premium from c_good — premium is always paid</li>
+      <li>Confusing EV and EU — using EV=4 instead of EU=1 for Portia's minimum price</li>
+      <li>Flipping MRS ratio: bad state always in numerator</li>
+      <li>Forgetting the (1−γ) factor when backing out x* from c_bad*</li>
+    </ul></div>
+  </div>
+  <div id="mps2-compare" class="study-panel">
+    <div class="sum-card"><div class="sum-title">EV vs EU vs CE vs RP — All Four Concepts</div>
+    <table class="comp-table">
+      <tr><th>Concept</th><th>Formula</th><th>Depends on u(x)?</th><th>What it tells you</th></tr>
+      <tr><td><strong>EV</strong></td><td>Σpᵢxᵢ</td><td>No</td><td>Average money outcome</td></tr>
+      <tr><td><strong>EU</strong></td><td>Σpᵢu(xᵢ)</td><td>Yes</td><td>Actual value to the agent</td></tr>
+      <tr><td><strong>CE</strong></td><td>u(CE)=EU</td><td>Yes</td><td>Equivalent certain amount</td></tr>
+      <tr><td><strong>RP</strong></td><td>EV−CE</td><td>Yes</td><td>Cost of bearing risk</td></tr>
+    </table></div>
+    <div class="sum-card"><div class="sum-title">Risk Attitudes — Full Comparison</div>
+    <table class="comp-table">
+      <tr><th>Feature</th><th>Risk-Averse</th><th>Risk-Neutral</th><th>Risk-Loving</th></tr>
+      <tr><td><strong>u(·) shape</strong></td><td>Concave</td><td>Linear</td><td>Convex</td></tr>
+      <tr><td><strong>u″(x)</strong></td><td>&lt;0</td><td>=0</td><td>&gt;0</td></tr>
+      <tr><td><strong>EU vs u(EV)</strong></td><td>EU &lt; u(EV)</td><td>EU = u(EV)</td><td>EU &gt; u(EV)</td></tr>
+      <tr><td><strong>CE vs EV</strong></td><td>CE &lt; EV</td><td>CE = EV</td><td>CE &gt; EV</td></tr>
+      <tr><td><strong>Risk premium</strong></td><td>Positive</td><td>Zero</td><td>Negative</td></tr>
+      <tr><td><strong>Fair insurance (γ=p)</strong></td><td>Full insurance</td><td>Indifferent</td><td>No insurance</td></tr>
+      <tr><td><strong>Unfair (γ>p)</strong></td><td>Partial insurance</td><td>No insurance</td><td>No insurance</td></tr>
+      <tr><td><strong>Example u(c)</strong></td><td>√c, ln(c)</td><td>2c, 5c+10</td><td>c², eᶜ</td></tr>
+    </table></div>
+    <div class="sum-card"><div class="sum-title">PS1 vs PS2 — Method Comparison</div>
+    <table class="comp-table">
+      <tr><th></th><th>PS1 (Individual Choice)</th><th>PS2 (Risky Choice)</th></tr>
+      <tr><td><strong>"Goods"</strong></td><td>x₁ and x₂ (physical goods)</td><td>c_bad and c_good (state-contingent)</td></tr>
+      <tr><td><strong>Budget line</strong></td><td>p₁x₁+p₂x₂=m, slope=−p₁/p₂</td><td>c_good=n−γ/(1−γ)·c_bad, slope=−γ/(1−γ)</td></tr>
+      <tr><td><strong>Preferences</strong></td><td>Utility function u(x₁,x₂)</td><td>EU = p·u(c_bad)+(1−p)·u(c_good)</td></tr>
+      <tr><td><strong>MRS</strong></td><td>MU₁/MU₂ = (∂u/∂x₁)/(∂u/∂x₂)</td><td>[p·u′(c_bad)] / [(1−p)·u′(c_good)]</td></tr>
+      <tr><td><strong>Optimality</strong></td><td>MRS = p₁/p₂</td><td>MRS = γ/(1−γ)</td></tr>
+      <tr><td><strong>Method</strong></td><td>Identical 3-step method</td><td>Identical 3-step method</td></tr>
+    </table></div>
+  </div>
+  <div id="mps2-calc" class="study-panel">
+    <div class="sum-card" style="margin-bottom:16px"><div class="sum-title" style="color:var(--micro)">🧮 Step-by-Step Calculator</div><p style="font-size:13.5px;color:var(--text2)">Work through each problem step by step. Try to predict the next step before revealing it.</p></div>
+    <div class="calc-header"><div><div id="ps2-calc-title" style="font-family:var(--serif);font-size:20px;color:var(--text)"></div><div class="calc-pick-label" id="ps2-calc-pick-label"></div></div><div class="calc-nav"><button class="btn btn-sm" onclick="calcPrevFor('ps2')">← Prev</button><button class="btn btn-sm" onclick="calcNextFor('ps2')">Next →</button></div></div>
+    <div class="calc-desc-box" id="ps2-calc-desc"></div>
+    <div id="ps2-calc-steps"></div>
+    <div class="calc-footer"><button class="btn btn-primary btn-sm" id="ps2-calc-next" onclick="calcNextStepFor('ps2')">Next step →</button><button class="btn btn-sm" id="ps2-calc-reveal"></button></div>
+  </div>
+  <div id="mps2-flashcards" class="study-panel">
+    <div class="fc-controls"><button class="btn btn-sm" onclick="shuffleMicroFC('ps2')">Shuffle</button><button class="btn btn-sm" onclick="resetMicroFC('ps2')">Reset all</button><span style="font-size:12px;color:var(--text3);margin-left:4px">Rate each card — hard ones come back sooner</span></div>
+    <div class="fc-sr-bar" id="mps2-sr-bar"></div>
+    <div id="mps2-fc-wrap">
+      <div class="flashcard-wrap"><div class="flashcard" id="mps2-fc-card" onclick="flipMicroFC('ps2')">
+        <div class="fc-face fc-front" style="background:var(--surface)"><div class="fc-label">Question</div><div class="fc-question" id="mps2-fc-q"></div><div class="fc-hint">Click to reveal</div></div>
+        <div class="fc-face fc-back" style="background:var(--micro);transform:rotateY(180deg)"><div class="fc-label">Answer</div><div class="fc-answer" id="mps2-fc-a"></div><div class="fc-src" id="mps2-fc-src"></div></div>
+      </div></div>
+      <div class="sr-btns"><button class="sr-btn sr-btn-hard" onclick="rateMicroFC('ps2',0)">😬 Still learning</button><button class="sr-btn sr-btn-ok" onclick="rateMicroFC('ps2',1)">🤔 Almost</button><button class="sr-btn sr-btn-easy" onclick="rateMicroFC('ps2',2)">✓ Got it</button></div>
+      <div class="sr-mode-note">Card <span id="mps2-fc-counter">1</span> of <span id="mps2-fc-total">23</span></div>
+    </div>
+    <div class="fc-sr-done" id="mps2-fc-done" style="display:none"><h3>Session complete! 🎉</h3><p id="mps2-done-msg"></p><div style="display:flex;gap:10px;justify-content:center;margin-top:16px"><button class="btn btn-primary" onclick="reviewMicroWeak('ps2')">Review weak cards</button><button class="btn" onclick="resetMicroFC('ps2')">Start over</button></div></div>
+  </div>
+  <div id="mps2-quiz" class="study-panel">
+    <div id="mqps2-wrap"><div class="quiz-prog"><div class="quiz-prog-fill" id="mqps2-pfill" style="width:0%"></div></div><div class="quiz-meta" id="mqps2-meta"></div><div class="quiz-q" id="mqps2-text"></div><div class="quiz-opts" id="mqps2-opts"></div><div class="quiz-fb" id="mqps2-fb"></div><div id="mqps2-next" style="display:none"><button class="btn btn-primary" onclick="nextMicroQ('ps2')">Next →</button></div></div>
+    <div class="quiz-score-screen" id="mqps2-score"><div class="score-row"><div class="score-big" id="mqps2-big" style="color:var(--micro)"></div><div class="score-right"><div class="score-lbl">correct answers</div><div class="score-msg" id="mqps2-msg"></div></div></div><div class="weak-section" id="mqps2-weak"></div><div style="margin-top:20px;display:flex;gap:10px"><button class="btn btn-primary" onclick="restartMicroQuiz('ps2')">Try again</button><button class="btn" onclick="showMicroTab('calc',null,'ps2')">Practice calculator</button></div></div>
+  </div>
+</div>
+
 <!-- MICRO CH3 PAGE -->
 <div id="page-micro-ch3" class="page">
   <div class="page-eyebrow" style="color:var(--micro)">Microeconomics · Chapter 3</div>
@@ -850,14 +1067,17 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
 <script>
 // ── Navigation ──
 function showPage(id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));document.getElementById('page-'+id).classList.add('active');if(btn)btn.classList.add('active')}
-function showLecture(subject,id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-sub').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');const el=document.getElementById('page-'+subject+'-'+id);if(el){el.classList.add('active');if(subject==='eu'&&id==='v'){initFC('sv');initQuiz('sv')}if(subject==='eu'&&id==='vi'){initFC('svi');initQuiz('svi');loadScenario(0,document.querySelector('.scenario-btn'))}if(subject==='micro'&&id==='ch3'){initMicroFC('ch3');initMicroQuiz('ch3');initCalc()}}}
-function showMicroTab(tab,btn){
-  const page=document.getElementById('page-micro-ch3');
+function showLecture(subject,id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-sub').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');const el=document.getElementById('page-'+subject+'-'+id);if(el){el.classList.add('active');if(subject==='eu'&&id==='v'){initFC('sv');initQuiz('sv')}if(subject==='eu'&&id==='vi'){initFC('svi');initQuiz('svi');loadScenario(0,document.querySelector('.scenario-btn'))}if(subject==='micro'&&id==='ch3'){initMicroFC('ch3');initMicroQuiz('ch3');initCalc()}if(subject==='micro'&&id==='ps1'){initMicroFC('ps1');initMicroQuiz('ps1');initCalcFor('ps1')}if(subject==='micro'&&id==='ps2'){initMicroFC('ps2');initMicroQuiz('ps2');initCalcFor('ps2')}}}
+function showMicroTab(tab,btn,prefix){
+  prefix=prefix||'ch3';
+  const page=document.getElementById('page-micro-'+prefix);
+  if(!page)return;
   page.querySelectorAll('.study-panel').forEach(p=>p.classList.remove('active'));
   page.querySelectorAll('.study-tab').forEach(b=>b.classList.remove('active'));
-  document.getElementById('mch3-'+tab).classList.add('active');
+  const panel=document.getElementById('m'+prefix+'-'+tab);
+  if(panel)panel.classList.add('active');
   if(btn)btn.classList.add('active');
-  if(tab==='calc')initCalc();
+  if(tab==='calc'){if(prefix==='ch3')initCalc();else initCalcFor(prefix);}
 }
 function toggleTl(card){const body=card.querySelector('.tl-body');const toggle=card.querySelector('.tl-toggle');body.classList.toggle('open');toggle.textContent=body.classList.contains('open')?'− Hide details':'+ Show details'}
 
@@ -1213,7 +1433,7 @@ function chooseDT(stepIdx,optIdx){
 // ── Init ──
 loadScenario(0,null);
 
-// ── Micro Ch3 Flashcard & Quiz Data ──
+// ── PS1 & PS2 Flashcard & Quiz Data ──
 const microFcData={
   ch3:[
     {q:"What is a lottery as formally defined in microeconomics?",a:"L = {p₁,x₁; p₂,x₂; …; pₙ,xₙ} — a complete description of a risky situation listing each state's probability pᵢ and payoff xᵢ, where Σpᵢ = 1.",src:"Ch3 — Modelling Risk",topic:"Lotteries"},
@@ -1272,6 +1492,176 @@ const microQData={
     {q:"u(c)=ln(c). Lottery: €200 (p=0.5) or €50 (p=0.5). What is the risk premium?",opts:["€25","€50","€75","€125"],ans:0,exp:"EU=0.5·ln(200)+0.5·ln(50)=0.5·ln(10,000)≈4.605. CE=e^4.605=√10,000=100. EV=125. RP=125−100=€25. Note: CE=√(200×50)=100 by geometric mean property of log utility.",topic:"CE & Risk Premium"},
   ]
 };
+// PS1 & PS2 data
+microFcData['ps1']=[
+  {q:"What is an indifference curve?",a:"A set of all consumption bundles (x₁, x₂) that yield the same utility level. Higher curves = higher utility. Normally convex (consumer prefers averages over extremes). Curves never cross.",src:"Ch2 Individual Choice",topic:"Indifference Curves"},
+  {q:"How do you derive MRS from a utility function?",a:"MRS = MU₁/MU₂ = (∂u/∂x₁)/(∂u/∂x₂). Take partial derivatives of u with respect to each good, then divide. Always take the absolute value.",src:"Ch2 Individual Choice",topic:"MRS"},
+  {q:"Shortcut MRS formula for u = x₁ᵃ · x₂ᵇ?",a:"MRS = (a/b)·(x₂/x₁). Ratio of exponents × ratio of quantities. Memorise this — it saves significant time in every problem.",src:"Ch2 Cobb-Douglas",topic:"MRS"},
+  {q:"What does the slope of the budget line represent?",a:"−p₁/p₂. The MRT — the market exchange rate. To get one more unit of x₁, you give up p₁/p₂ units of x₂.",src:"Ch2 Budget Constraint",topic:"Budget Line"},
+  {q:"The tangency condition for interior optimum?",a:"MRS = p₁/p₂ (MRT). Consumer's subjective willingness to trade = market's objective rate. If MRS > p₁/p₂, buy more x₁ — not yet optimal.",src:"Ch2 Individual Choice",topic:"Optimality"},
+  {q:"3 steps to find optimal bundle (Cobb-Douglas)?",a:"1) Calculate MRS = MU₁/MU₂. 2) Set MRS = p₁/p₂ → get relationship between x₁ and x₂. 3) Insert into budget line p₁x₁+p₂x₂=m → solve.",src:"PS1 Solution Method",topic:"Optimality"},
+  {q:"Budget share rule for u = x₁ᵃ · x₂ᵇ?",a:"Share a/(a+b) of income always spent on good 1; b/(a+b) on good 2 — regardless of prices. So x₁* = [a/(a+b)]·(m/p₁).",src:"Ch2 Cobb-Douglas",topic:"Cobb-Douglas"},
+  {q:"How to solve Leontief preferences u = min{ax₁, bx₂}?",a:"Do NOT use MRS = MRT (no derivative at kink). Set ax₁ = bx₂ (kink condition), then insert into budget line.",src:"PS1 Leontief",topic:"Leontief"},
+  {q:"Why can't you use MRS = MRT for Leontief preferences?",a:"The IC has a kink at the optimum — utility is not differentiable there, so MRS is undefined. The kink condition ax₁=bx₂ replaces it.",src:"Ch2 Leontief",topic:"Leontief"},
+  {q:"How to solve perfect substitutes u = ax₁ + bx₂?",a:"MRS = a/b (constant). Compare: MRS > p₁/p₂ → buy only x₁ (corner). MRS < p₁/p₂ → buy only x₂. MRS = p₁/p₂ → any point on budget line optimal.",src:"Ch2 Perfect Substitutes",topic:"Perfect Substitutes"},
+  {q:"What happens to the budget line when a tax increases p₁?",a:"x₁-intercept (m/p₁) shrinks. Budget line rotates inward around the x₂-intercept (m/p₂, which is unchanged).",src:"PS1 1.2",topic:"Budget Line"},
+  {q:"What is MRT and how does it differ from MRS?",a:"MRT = p₁/p₂ — market's objective exchange rate. MRS is consumer's subjective willingness to trade. At optimum: MRS = MRT.",src:"Ch2 Individual Choice",topic:"Optimality"},
+  {q:"What does MRS > p₁/p₂ tell you?",a:"Consumer values x₁ more than market price ratio implies. She should buy more x₁ and less x₂ — she can increase utility by reallocating and is not yet at the optimum.",src:"Ch2 Individual Choice",topic:"Optimality"},
+  {q:"How to compare two plans with fixed fees + per-unit prices?",a:"1) Subtract fixed fee from income → effective budget. 2) Find optimal bundle under each plan. 3) Calculate utility for each. Choose higher utility.",src:"PS1 1.3",topic:"Applications"},
+  {q:"For u = x₁⁴ · x₂², what is MRS?",a:"MRS = (4/2)·(x₂/x₁) = 2x₂/x₁. Shortcut: ratio of exponents × ratio of quantities.",src:"PS1 1.4",topic:"MRS"},
+  {q:"Shape of ICs for perfect substitutes, and why?",a:"Straight lines. Consumer always trades at fixed rate (a/b) regardless of quantities. No diminishing MRS.",src:"Ch2 Perfect Substitutes",topic:"Perfect Substitutes"},
+  {q:"Shape of ICs for Leontief, and why?",a:"L-shaped (right angles). Extra units of one good alone add zero utility — only increasing both in fixed proportion a:b helps.",src:"Ch2 Leontief",topic:"Leontief"},
+  {q:"What is the x₂-intercept of the budget line?",a:"m/p₂ — maximum x₂ if all income spent on good 2 (x₁=0).",src:"Ch2 Budget Constraint",topic:"Budget Line"},
+  {q:"For u = x_A · x_B = 100, MRS at bundle (5, 20)?",a:"x_B = 100/x_A → slope = −100/x_A². At x_A=5: slope = −4, so MRS = 4. Consumer gives up 4 units of x_B per extra unit of x_A.",src:"PS1 1.1",topic:"MRS"},
+  {q:"Why do convex ICs mean 'prefer averages over extremes'?",a:"Diminishing MRS — as you get more x₁ and less x₂, x₁ becomes relatively less valuable. Mixed bundles lie on higher ICs than extreme bundles. Reflects decreasing marginal utility.",src:"Ch2 Individual Choice",topic:"Indifference Curves"},
+  {q:"For u = min{2x, y}, m=100, px=p, py=5. What is x*?",a:"Kink: 2x=y. Budget: px+5(2x)=100 → (p+10)x=100 → x* = 100/(p+10). As p rises, x* falls.",src:"PS1 exam example",topic:"Leontief"},
+  {q:"Definition of MRS in words?",a:"The maximum amount of good 2 the consumer is willing to give up in exchange for one additional unit of good 1, keeping utility constant.",src:"Ch2 Individual Choice",topic:"MRS"},
+  {q:"For u = x₁² · x₂, fraction of income spent on x₁?",a:"a=2, b=1, share = 2/(2+1) = 2/3. Two-thirds of income always goes to x₁, regardless of prices.",src:"Ch2 Cobb-Douglas",topic:"Cobb-Douglas"},
+];
+microFcData['ps2']=[
+  {q:"What is Expected Value (EV)?",a:"EV = Σpᵢ·xᵢ — probability-weighted average of monetary outcomes. A purely mathematical concept — no utility function involved.",src:"Ch3 Risky Choice",topic:"EV & EU"},
+  {q:"What is Expected Utility (EU)?",a:"EU = Σpᵢ·u(xᵢ) — probability-weighted average of utilities. Apply u(·) first, then weight. This is what rational agents maximise.",src:"Ch3 Risky Choice",topic:"EV & EU"},
+  {q:"Key difference: EV vs EU?",a:"EV averages money amounts. EU averages utilities after applying u(·). For risk-averse agents: EU < u(EV). They value a lottery at less than its expected monetary value.",src:"Ch3 Risky Choice",topic:"EV & EU"},
+  {q:"How to determine risk attitude from u(x)?",a:"Check u″(x): negative → risk-averse (concave); zero → risk-neutral (linear); positive → risk-loving (convex). √x is risk-averse; x is neutral; x² is risk-loving.",src:"Ch3 Risky Choice",topic:"Risk Attitudes"},
+  {q:"What is the Certainty Equivalent (CE)?",a:"The certain amount giving same utility as the lottery: u(CE)=EU. Solve: compute EU → invert u to get CE. For risk-averse: CE < EV.",src:"Ch3 Risky Choice",topic:"CE & Risk Premium"},
+  {q:"What is the Risk Premium?",a:"RP = EV − CE. Amount a risk-averse person pays to swap lottery for its EV with certainty. Positive for risk-averse, zero for neutral, negative for risk-loving.",src:"Ch3 Risky Choice",topic:"CE & Risk Premium"},
+  {q:"How to find minimum selling price for a risky asset?",a:"Calculate EU of keeping the asset. Set u(p)≥EU → solve for p. Minimum price p_min = CE. The seller only accepts certain payments ≥ CE.",src:"PS2 2.3 Portia",topic:"Applications"},
+  {q:"PS2.3 Portia: u=√x, ship worth €16 with p=1/4. What is p_min?",a:"EU=(1/4)·√16+(3/4)·0=1. Set √p=1 → p_min=€1. EV=€4. Shows strong risk aversion: CE=€1 << EV=€4.",src:"PS2 2.3",topic:"Applications"},
+  {q:"Can we always tell if a risk-averse person accepts a positive-EV gamble?",a:"No. Risk aversion gives CE < EV, but not whether CE > 0 (accept) or CE < 0 (reject). Need exact u(x) to compute EU and compare with u(outside option).",src:"PS2 2.2",topic:"Risk Attitudes"},
+  {q:"State-contingent incomes in the insurance problem?",a:"c_bad = Endow_bad + (1−γ)·x (payout minus premium). c_good = Endow_good − γ·x (premium always paid regardless of state). x = coverage, γ = premium rate.",src:"PS2 2.4",topic:"Insurance"},
+  {q:"Why is the premium always subtracted from c_good?",a:"The premium γx is a certain cost — paid regardless of which state occurs. Even if no disaster happens, you still paid for insurance.",src:"PS2 2.4 key insight",topic:"Insurance"},
+  {q:"Slope of the insurance budget line?",a:"−γ/(1−γ) = MRT. To gain €1 in bad state (more coverage), give up γ/(1−γ) euros in good state (higher premium).",src:"Ch3 Insurance",topic:"Insurance"},
+  {q:"How to find insurance budget line quickly?",a:"1) Slope = −γ/(1−γ). 2) Endowment (c_bad⁰, c_good⁰) always lies on the line. 3) Insert endowment → solve for intercept.",src:"Ch3 Insurance",topic:"Insurance"},
+  {q:"MRS for insurance with u(c)=√c?",a:"MRS = [p·(1/2√c_bad)] / [(1−p)·(1/2√c_good)] = (p/(1−p))·√(c_good/c_bad). Note: √c_good appears in numerator after algebra — this is just algebra.",src:"PS2 2.4",topic:"Insurance"},
+  {q:"Optimality condition for insurance demand?",a:"MRS = MRT: [p·u′(c_bad)] / [(1−p)·u′(c_good)] = γ/(1−γ). Identical structure to MRS=p₁/p₂ in PS1.",src:"Ch3 Insurance",topic:"Insurance"},
+  {q:"Fair insurance (γ=p): what is optimal?",a:"Full insurance: MRS=MRT simplifies to u′(c_bad)=u′(c_good) → c_bad*=c_good*. Consumer eliminates all risk — same consumption in both states.",src:"Ch3 Insurance",topic:"Insurance"},
+  {q:"Unfair insurance (γ>p): what is optimal?",a:"Partial insurance: c_bad* < c_good*. Premium exceeds true risk, so full coverage is too expensive. The more unfair (larger γ−p), the less coverage.",src:"Ch3 Insurance",topic:"Insurance"},
+  {q:"How to recover x* from c_bad*?",a:"Use c_bad* = Endow_bad + (1−γ)·x → solve: x* = (c_bad* − Endow_bad)/(1−γ). Always use the c_bad formula, not c_good.",src:"PS2 2.4",topic:"Insurance"},
+  {q:"PS2.4 Willy: c_bad*=200k, c_bad=50k+(2/3)x. What is x*?",a:"200k = 50k + (2/3)x → (2/3)x = 150k → x* = 225k. Partial insurance confirmed (γ=1/3 > p=0.2).",src:"PS2 2.4",topic:"Insurance"},
+  {q:"In MRS for insurance, which state in numerator?",a:"Bad state (c_bad) goes in numerator of MRS. Matches MRT convention γ/(1−γ) where γ is the cost per unit gained in bad state.",src:"Ch3 Insurance",topic:"Insurance"},
+  {q:"PS2.1 Wilma: EV=11€, ticket=10€, not risk-averse. Does she buy?",a:"Yes. Not risk-averse → CE ≥ EV = 11 > 10. She buys. (EV = 0.06×100 + 0.1×50 = 11€.)",src:"PS2 2.1",topic:"Applications"},
+  {q:"Sanity check after solving insurance problem?",a:"Plug c_bad* and c_good* back into MRS formula and verify MRS = MRT. e.g. if MRS=MRT gave c_good=4·c_bad, confirm 4×180k=720k=c_good* ✓.",src:"PS2 2.4",topic:"Insurance"},
+  {q:"Key connection between PS1 and PS2?",a:"Identical method: MRS = MRT. Only difference: in PS2 the 'goods' are c_bad and c_good (state-contingent) instead of x₁ and x₂.",src:"PS2 Summary",topic:"Connections"},
+];
+microQData['ps1']=[
+  {q:"Tangency condition for interior optimum?",opts:["MRS=MU₁/MU₂","MRS=p₁/p₂","MU₁=MU₂","p₁x₁=p₂x₂"],ans:1,exp:"MRS=p₁/p₂ (MRT). Consumer's subjective trade-off = market rate. A is the definition of MRS, not the optimality condition.",topic:"Optimality"},
+  {q:"u=3x₁+2x₂, p₁=3, p₂=2. Optimal choice?",opts:["Interior solution","Only x₁","Only x₂","Any point on budget line"],ans:3,exp:"MRS=3/2=p₁/p₂=3/2. When MRS exactly equals the price ratio for perfect substitutes, every budget line point gives the same utility.",topic:"Perfect Substitutes"},
+  {q:"For u=min{x₁,2x₂}, which condition gives optimum?",opts:["MRS=p₁/p₂","x₁=2x₂","x₁=x₂","MU₁=MU₂"],ans:1,exp:"B — kink condition x₁=2x₂. MRS undefined at kink for Leontief, so cannot use MRS=MRT.",topic:"Leontief"},
+  {q:"m=100, p₁=5, p₂=10. Maximum x₂?",opts:["20","10","50","100"],ans:1,exp:"x₂-intercept = m/p₂ = 100/10 = 10.",topic:"Budget Line"},
+  {q:"MRS at bundle (10,5) for u=x₁·x₂?",opts:["2","0.5","1","10"],ans:1,exp:"MRS=x₂/x₁=5/10=0.5.",topic:"MRS"},
+  {q:"Tax increases p₁. What happens to budget line?",opts:["Shifts parallel inward","Rotates inward around x₂-intercept","Rotates inward around x₁-intercept","Shifts parallel outward"],ans:1,exp:"x₂-intercept (m/p₂) unchanged. Only x₁-intercept (m/p₁) falls → rotates around x₂-intercept.",topic:"Budget Line"},
+  {q:"For u=x₁²·x₂, fraction of income spent on x₁?",opts:["1/2","1/3","2/3","1/4"],ans:2,exp:"Share = a/(a+b) = 2/(2+1) = 2/3. Cobb-Douglas budget shares are constant — always 2/3 on x₁.",topic:"Cobb-Douglas"},
+  {q:"Three bundles with u=min{x,2y}=4?",opts:["(4,2),(4,4),(8,2)","(4,2),(8,2),(4,8)","(4,2),(4,4),(4,8)","(2,4),(4,2),(8,2)"],ans:1,exp:"Kink at x=4,y=2. Moving right: x grows, u stays 4. Moving up: y grows, u stays 4. So (4,2),(8,2),(4,8).",topic:"Leontief"},
+  {q:"When is a corner solution optimal?",opts:["Always for Cobb-Douglas","Always for Leontief","For perfect substitutes when MRS≠p₁/p₂","Never"],ans:2,exp:"Perfect substitutes give linear ICs — unless MRS=p₁/p₂ exactly, the optimum is at a corner. Cobb-Douglas always gives interior solutions.",topic:"Perfect Substitutes"},
+  {q:"Why do convex preferences mean 'prefer averages'?",opts:["MRS is constant","MRS decreases as x₁ increases — more x₁ means less relative value","Budget line is linear","Prices are fixed"],ans:1,exp:"Diminishing MRS — IC is bowed inward. Mixed bundles lie on higher ICs than extreme bundles.",topic:"Indifference Curves"},
+  {q:"Plan A: fee 20€, price 2€. Plan B: fee 40€, price 1€. m=100, u=xy. Which plan?",opts:["Plan A (lower fee)","Plan B (lower price)","Plan A: u=800","Plan B: u=900>800"],ans:3,exp:"Plan A: budget=80, opt=(16,32), u=512. Wait — let me recalculate: p_A=2, m_eff=80: MRS=y/x=2→y=2x→x+4x=80→x=16,y=32,u=512. Plan B: p=1, m_eff=60: y=x→2x=60→x=30,y=30,u=900. Plan B wins.",topic:"Applications"},
+  {q:"MRS=4 at a bundle means:",opts:["Consumer needs 4 units x₂ to get x₁","Consumer gives up 4 units x₂ for 1 more x₁","Price of x₁ is 4× x₂","MU of x₁ is 4"],ans:1,exp:"MRS is maximum x₂ willingly sacrificed for 1 more x₁ while staying on same IC.",topic:"MRS"},
+  {q:"Budget line slope=−2. What does this mean?",opts:["Good 1 costs twice as much as good 2","Good 2 costs twice as much","Income=2×price","Give up 2 units x₁ per unit x₂"],ans:0,exp:"Slope=−p₁/p₂=−2 → p₁=2p₂. Good 1 is twice as expensive.",topic:"Budget Line"},
+  {q:"Which utility function is Leontief?",opts:["u=x₁·x₂","u=2x₁+3x₂","u=min{x₁,2x₂}","u=x₁⁰·⁵·x₂⁰·⁵"],ans:2,exp:"min function gives L-shaped ICs. A and D are Cobb-Douglas. B is perfect substitutes.",topic:"Leontief"},
+  {q:"For Cobb-Douglas u=x₁ᵃ·x₂ᵇ, what is always true at optimum?",opts:["Equal spending","Share on good 1=a/(a+b), independent of prices","More on cheaper good","Shares depend on price ratio"],ans:1,exp:"Key Cobb-Douglas property: budget shares are constant, determined only by exponents.",topic:"Cobb-Douglas"},
+];
+microQData['ps2']=[
+  {q:"Wilma (not risk-averse), EV=11€, ticket=10€. What does she do?",opts:["Doesn't buy","Buys — EV>price and CE≥EV>10","Cannot determine","Indifferent"],ans:1,exp:"Not risk-averse → CE≥EV=11>10. She buys.",topic:"Risk Attitudes"},
+  {q:"Carl (risk-averse), EV=€125. Does he accept?",opts:["Yes — EV>0","No — always rejects","No — need u(x) to compare EU vs u(0)","Yes — more likely to gain"],ans:2,exp:"Risk aversion gives CE<125 but CE could be positive or negative. Without u(x) we cannot determine.",topic:"Risk Attitudes"},
+  {q:"u(x)=x². Risk attitude?",opts:["Risk-averse","Risk-neutral","Risk-loving","Cannot determine"],ans:2,exp:"u″(x)=2>0 → convex → risk-loving. CE>EV.",topic:"Risk Attitudes"},
+  {q:"Portia EU=1, u=√x. What is p_min?",opts:["€4 (EV)","€16 (ship value)","€1 (CE)","€0.25"],ans:2,exp:"p_min=CE: √p=1→p=€1. Much less than EV=€4 — risk aversion.",topic:"Applications"},
+  {q:"State-contingent income in good state?",opts:["Endow_good+(1−γ)x","Endow_good−γx","Endow_good+x","Endow_good−x"],ans:1,exp:"Good state: no payout but premium γx still paid → c_good=Endow_good−γx.",topic:"Insurance"},
+  {q:"Insurance budget line slope=−1/2. What is γ?",opts:["0.5","0.33 (1/3)","0.25","0.4"],ans:1,exp:"Slope=−γ/(1−γ)=−1/2 → γ=1/3.",topic:"Insurance"},
+  {q:"γ=0.2, p=0.2. Type of insurance?",opts:["Unfair — insurer profits","Fair — insurer breaks even","Over-insurance","Cannot determine"],ans:1,exp:"γ=p=0.2 → fair insurance → full insurance optimal for risk-averse consumer.",topic:"Insurance"},
+  {q:"Fair insurance (γ=p). Optimal choice for risk-averse?",opts:["No insurance","Partial insurance","Full insurance (c_bad=c_good)","Over-insurance"],ans:2,exp:"γ=p → MRS=MRT gives u′(c_bad)=u′(c_good) → c_bad*=c_good*. All risk eliminated.",topic:"Insurance"},
+  {q:"u(c)=√c, p=0.2. What is MU(c_bad)?",opts:["0.2·c_bad","0.2·(1/2√c_bad)","1/(2√c_bad)","0.2·√c_bad"],ans:1,exp:"EU=0.2·√c_bad+0.8·√c_good. ∂EU/∂c_bad=0.2·(1/2√c_bad).",topic:"Insurance"},
+  {q:"Willy: c_bad*=200k, c_bad=50k+(2/3)x. What is x*?",opts:["150k","200k","225k","250k"],ans:2,exp:"200k=50k+(2/3)x → (2/3)x=150k → x*=225k.",topic:"Insurance"},
+  {q:"Best sanity check for insurance problem?",opts:["Check x*>0","Check c_bad*=c_good*","Verify MRS=MRT for final c*","Check EU=CE"],ans:2,exp:"Plug c* values into MRS formula and verify it equals MRT. Confirms algebra.",topic:"Insurance"},
+  {q:"Key difference between PS1 and PS2?",opts:["PS2 doesn't use MRS=MRT","'Goods' in PS2 are consumption in different states","PS2 requires more calculus","No connection"],ans:1,exp:"Identical method — MRS=MRT — but goods are c_bad and c_good instead of x₁ and x₂.",topic:"Connections"},
+  {q:"Why is risk-averse p_min below EV?",opts:["They misunderstand probabilities","CE<EV — certainty valued higher per euro than risk","Asset overpriced","Irrational"],ans:1,exp:"Risk aversion means CE<EV. Certain equivalent below monetary average → willing to sell for less than EV.",topic:"Applications"},
+  {q:"Why does √c_good appear in MRS numerator?",opts:["Good state has higher probability","c_good is bad state","Pure algebra — dividing fractions moves √c_good to numerator","Utility is convex"],ans:2,exp:"Dividing p/√c_bad by (1−p)/√c_good is pure algebra that moves √c_good to the top. Bad state is still conceptually in numerator.",topic:"Insurance"},
+  {q:"γ=1/3, p=0.2. Fair or unfair?",opts:["Fair — 1/3≈0.2","Unfair — γ>p, insurer profits","Unfair — γ<p","Cannot determine"],ans:1,exp:"γ=1/3≈0.33>p=0.2 → unfair insurance → partial insurance optimal.",topic:"Insurance"},
+];
+const calcProblemsPS1=[
+  {title:"Cobb-Douglas — Basic Optimum",desc:"u = x · y, p₁=4, p₂=2, m=200. Find x* and y*.",steps:[
+    {label:"Step 1: MRS",formula:"MU₁=y, MU₂=x → MRS = y/x",result:"MRS = <b>y/x</b>"},
+    {label:"Step 2: MRS = p₁/p₂",formula:"y/x = 4/2 = 2 → y = 2x",result:"Relationship: <b>y = 2x</b>"},
+    {label:"Step 3: Budget line",formula:"4x + 2(2x) = 200 → 8x = 200",result:"x* = <b>25</b>, y* = <b>50</b>"},
+  ]},
+  {title:"Cobb-Douglas — High Exponents",desc:"u = x₁³ · x₂, p₁=3, p₂=1, m=120. Find x₁* and x₂*.",steps:[
+    {label:"Step 1: MRS shortcut",formula:"MRS = (3/1)·(x₂/x₁) = 3x₂/x₁",result:"MRS = <b>3x₂/x₁</b>"},
+    {label:"Step 2: MRS = p₁/p₂",formula:"3x₂/x₁ = 3 → x₂ = x₁",result:"Relationship: <b>x₂ = x₁</b>"},
+    {label:"Step 3: Budget line",formula:"3x₁ + x₁ = 120 → 4x₁ = 120",result:"x₁* = <b>30</b>, x₂* = <b>30</b>"},
+    {label:"Shortcut check",formula:"Share = 3/(3+1) = 3/4. x₁* = (3/4)·120/3 = 30",result:"✓ Matches!"},
+  ]},
+  {title:"Leontief (Perfect Complements)",desc:"u = min{2x₁, x₂}, p₁=2, p₂=3, m=140.",steps:[
+    {label:"Step 1: Kink condition (no MRS!)",formula:"2x₁ = x₂",result:"Relationship: <b>x₂ = 2x₁</b>"},
+    {label:"Step 2: Budget line",formula:"2x₁ + 3(2x₁) = 140 → 8x₁ = 140",result:"x₁* = <b>17.5</b>, x₂* = <b>35</b>"},
+  ]},
+  {title:"Perfect Substitutes",desc:"u = 3x₁ + x₂, p₁=2, p₂=1, m=60.",steps:[
+    {label:"Step 1: Constant MRS",formula:"MRS = 3/1 = 3",result:"MRS = <b>3</b> (constant everywhere)"},
+    {label:"Step 2: Compare MRS with p₁/p₂",formula:"p₁/p₂ = 2. MRS = 3 > 2",result:"MRS > p₁/p₂ → <b>buy only x₁</b> (corner solution)"},
+    {label:"Step 3: Corner solution",formula:"x₁* = m/p₁ = 60/2",result:"x₁* = <b>30</b>, x₂* = <b>0</b>"},
+  ]},
+  {title:"Two-Plan Comparison",desc:"Plan A: fee €20, price €2/unit. Plan B: fee €40, price €1/unit. m=€100, u=xy.",steps:[
+    {label:"Step 1: Effective budgets",formula:"Plan A: m_eff=100−20=80, price=2. Plan B: m_eff=100−40=60, price=1",result:"A: budget=<b>80 at p=2</b>; B: budget=<b>60 at p=1</b>"},
+    {label:"Step 2: Plan A optimum",formula:"MRS=y/x=p₁/p₂=2→y=2x; x+2(2x)=80→5x=80? No: p₂=1 → x+2y=80→y=2x→x+4x=80→x=16,y=32",result:"Plan A: (16,32), u = <b>512</b>"},
+    {label:"Step 3: Plan B optimum",formula:"MRS=y/x=1→y=x; x+x=60→x=30,y=30",result:"Plan B: (30,30), u = <b>900</b>"},
+    {label:"Step 4: Compare",formula:"u_A=512 vs u_B=900",result:"<b>Plan B wins</b> (u=900 > u=512)"},
+  ]},
+];
+const calcProblemsPS2=[
+  {title:"EU, CE & Minimum Selling Price",desc:"u(x)=√x. Ship worth €16 (p=1/4) or €0 (p=3/4). Find EU, CE, p_min.",steps:[
+    {label:"Step 1: EU",formula:"EU = (1/4)·√16 + (3/4)·√0 = (1/4)·4",result:"EU = <b>1</b>"},
+    {label:"Step 2: EV",formula:"EV = (1/4)·16 + (3/4)·0",result:"EV = <b>€4</b> (for comparison)"},
+    {label:"Step 3: CE = p_min",formula:"u(p_min)=EU → √p_min=1",result:"p_min = CE = <b>€1</b>. Risk premium = €4−€1 = <b>€3</b>"},
+  ]},
+  {title:"Insurance Budget Line",desc:"p=0.4, γ=0.5, Endowment=(50, 150). Derive budget line.",steps:[
+    {label:"Step 1: Slope",formula:"−γ/(1−γ) = −0.5/0.5",result:"Slope = <b>−1</b>"},
+    {label:"Step 2: Use endowment point",formula:"150 = −1·50 + n → n = 200",result:"Intercept = <b>200</b>"},
+    {label:"Step 3: Budget line",formula:"c_good = 200 − c_bad",result:"<b>c_good = 200 − c_bad</b>"},
+  ]},
+  {title:"Optimal Insurance — Willy (PS2.4)",desc:"p=0.2, γ=1/3, Endow=(50k, 875k), u(c)=√c. Full solution.",steps:[
+    {label:"Step 1: State-contingent incomes",formula:"c_bad=50k+(2/3)x ; c_good=875k−(1/3)x",result:"Endowment: <b>(50k, 875k)</b>"},
+    {label:"Step 2: Budget line",formula:"Slope=−(1/3)/(2/3)=−1/2. 875k=−(1/2)·50k+n→n=900k",result:"<b>c_good=900k−(1/2)c_bad</b>"},
+    {label:"Step 3: MRS",formula:"[0.2·(1/2√c_bad)] / [0.8·(1/2√c_good)] = (1/4)·√c_good/√c_bad",result:"MRS = <b>(1/4)·(√c_good/√c_bad)</b>"},
+    {label:"Step 4: MRS=MRT=1/2",formula:"(1/4)·√(c_good/c_bad)=1/2 → √(c_good/c_bad)=2 → c_good=4·c_bad",result:"<b>c_good = 4·c_bad</b>"},
+    {label:"Step 5: Solve",formula:"4c_bad+c_bad=900k → 5c_bad=900k",result:"c_bad*=<b>180k</b>, c_good*=<b>720k</b> ✓ (4×180=720)"},
+    {label:"Step 6: Recover x*",formula:"180k=50k+(2/3)x → (2/3)x=130k",result:"x*=<b>195k</b> (partial: γ=1/3>p=0.2)"},
+  ]},
+  {title:"Fair Insurance — Full Coverage",desc:"p=0.5, γ=0.5, Endow=(0,100), u(c)=√c.",steps:[
+    {label:"Step 1: Fair insurance check",formula:"γ=p=0.5 → fair insurance",result:"Full insurance optimal → <b>c_bad*=c_good*</b>"},
+    {label:"Step 2: Budget line",formula:"Slope=−1. Through (0,100): c_good=100−c_bad",result:"<b>c_good=100−c_bad</b>"},
+    {label:"Step 3: Solve",formula:"c=100−c → 2c=100",result:"c_bad*=c_good*=<b>50</b>"},
+    {label:"Step 4: x*",formula:"50=0+(1−0.5)x → 50=0.5x",result:"x*=<b>100</b> (full coverage)"},
+  ]},
+  {title:"Risk Premium with ln utility",desc:"u(c)=ln(c). Lottery: €200 (p=0.5), €50 (p=0.5).",steps:[
+    {label:"Step 1: EV",formula:"0.5×200+0.5×50",result:"EV = <b>€125</b>"},
+    {label:"Step 2: EU",formula:"0.5·ln(200)+0.5·ln(50)=0.5·ln(10,000)",result:"EU ≈ <b>4.605</b>"},
+    {label:"Step 3: CE",formula:"ln(CE)=4.605 → CE=e^4.605=√10,000",result:"CE = <b>€100</b>"},
+    {label:"Step 4: Risk premium",formula:"RP=EV−CE=125−100",result:"RP = <b>€25</b>"},
+  ]},
+];
+const calcProblemsByPrefix={ch3:calcProblems,ps1:calcProblemsPS1,ps2:calcProblemsPS2};
+let calcCurrentPrefix='ch3';
+function initCalcFor(prefix){calcCurrentPrefix=prefix;calcIdx=0;calcStep=0;calcRevealed=false;renderCalcFor(prefix);}
+function renderCalcFor(prefix){
+  const problems=calcProblemsByPrefix[prefix]||calcProblems;
+  const p=problems[calcIdx];
+  if(!document.getElementById(prefix+'-calc-title'))return;
+  document.getElementById(prefix+'-calc-title').textContent=p.title;
+  document.getElementById(prefix+'-calc-desc').innerHTML=p.desc;
+  document.getElementById(prefix+'-calc-pick-label').textContent='Problem '+(calcIdx+1)+' of '+problems.length;
+  const steps=document.getElementById(prefix+'-calc-steps');steps.innerHTML='';
+  p.steps.forEach((s,i)=>{
+    if(i>calcStep&&!calcRevealed)return;
+    const div=document.createElement('div');div.className='calc-step'+(i===calcStep&&!calcRevealed?' calc-step-active':'');
+    div.innerHTML='<div class="calc-step-label">'+s.label+'</div><div class="calc-formula">'+s.formula+'</div><div class="calc-result">→ '+s.result+'</div>';
+    steps.appendChild(div);
+  });
+  const nextBtn=document.getElementById(prefix+'-calc-next');const revBtn=document.getElementById(prefix+'-calc-reveal');
+  if(calcRevealed){nextBtn.style.display='none';revBtn.textContent='↺ Restart';revBtn.onclick=()=>{calcStep=0;calcRevealed=false;renderCalcFor(prefix)};}
+  else if(calcStep<p.steps.length-1){nextBtn.style.display='inline-flex';nextBtn.textContent='Next step →';revBtn.textContent='Show all steps';revBtn.onclick=()=>{calcRevealed=true;renderCalcFor(prefix)};}
+  else{nextBtn.style.display='none';revBtn.textContent='↺ Restart';revBtn.onclick=()=>{calcStep=0;calcRevealed=false;renderCalcFor(prefix)};}
+}
+function calcNextStepFor(prefix){const p=(calcProblemsByPrefix[prefix]||calcProblems)[calcIdx];if(calcStep<p.steps.length-1){calcStep++;renderCalcFor(prefix);}}
+function calcPrevFor(prefix){if(calcIdx>0){calcIdx--;calcStep=0;calcRevealed=false;renderCalcFor(prefix);}}
+function calcNextFor(prefix){const problems=calcProblemsByPrefix[prefix]||calcProblems;if(calcIdx<problems.length-1){calcIdx++;calcStep=0;calcRevealed=false;renderCalcFor(prefix);}}
 const microFcState={};
 function initMicroFC(prefix){
   const data=microFcData[prefix];
