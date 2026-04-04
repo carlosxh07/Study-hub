@@ -1078,6 +1078,8 @@ function showMicroTab(tab,btn,prefix){
   if(panel)panel.classList.add('active');
   if(btn)btn.classList.add('active');
   if(tab==='calc'){if(prefix==='ch3')initCalc();else initCalcFor(prefix);}
+  if(tab==='flashcards'&&!microFcState[prefix])initMicroFC(prefix);
+  if(tab==='quiz'&&!microQState[prefix])initMicroQuiz(prefix);
 }
 function toggleTl(card){const body=card.querySelector('.tl-body');const toggle=card.querySelector('.tl-toggle');body.classList.toggle('open');toggle.textContent=body.classList.contains('open')?'− Hide details':'+ Show details'}
 function showTab(prefix,tab,btn){
