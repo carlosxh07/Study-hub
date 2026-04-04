@@ -1080,6 +1080,18 @@ function showMicroTab(tab,btn,prefix){
   if(tab==='calc'){if(prefix==='ch3')initCalc();else initCalcFor(prefix);}
 }
 function toggleTl(card){const body=card.querySelector('.tl-body');const toggle=card.querySelector('.tl-toggle');body.classList.toggle('open');toggle.textContent=body.classList.contains('open')?'− Hide details':'+ Show details'}
+function showTab(prefix,tab,btn){
+  const pageMap={sv:'page-eu-v',svi:'page-eu-vi'};
+  const page=document.getElementById(pageMap[prefix]);
+  if(!page)return;
+  page.querySelectorAll('.study-panel').forEach(p=>p.classList.remove('active'));
+  page.querySelectorAll('.study-tab').forEach(b=>b.classList.remove('active'));
+  const panel=document.getElementById(prefix+'-'+tab);
+  if(panel)panel.classList.add('active');
+  if(btn)btn.classList.add('active');
+  if(tab==='flashcards'&&!fcState[prefix])initFC(prefix);
+  if(tab==='quiz'&&!qState[prefix])initQuiz(prefix);
+}
 
 // ── Flashcard data ──
 const fcDataMap={
