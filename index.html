@@ -1700,11 +1700,12 @@ const calcProblemsPS2=[
     ]
   },
 ];
-const calcProblemsByPrefix={ch3:calcProblems,ps1:calcProblemsPS1,ps2:calcProblemsPS2};
+const calcProblemsByPrefix_placeholder=null; // moved below
 let calcCurrentPrefix='ch3';
+function getCalcProblems(prefix){return({ch3:calcProblems,ps1:calcProblemsPS1,ps2:calcProblemsPS2})[prefix]||calcProblems;}
 function initCalcFor(prefix){calcCurrentPrefix=prefix;calcIdx=0;calcStep=0;calcRevealed=false;renderCalcFor(prefix);}
 function renderCalcFor(prefix){
-  const problems=calcProblemsByPrefix[prefix]||calcProblems;
+  const problems=getCalcProblems(prefix);
   const p=problems[calcIdx];
   if(!document.getElementById(prefix+'-calc-title'))return;
   document.getElementById(prefix+'-calc-title').textContent=p.title;
@@ -1722,9 +1723,9 @@ function renderCalcFor(prefix){
   else if(calcStep<p.steps.length-1){nextBtn.style.display='inline-flex';nextBtn.textContent='Next step →';revBtn.textContent='Show all steps';revBtn.onclick=()=>{calcRevealed=true;renderCalcFor(prefix)};}
   else{nextBtn.style.display='none';revBtn.textContent='↺ Restart';revBtn.onclick=()=>{calcStep=0;calcRevealed=false;renderCalcFor(prefix)};}
 }
-function calcNextStepFor(prefix){const p=(calcProblemsByPrefix[prefix]||calcProblems)[calcIdx];if(calcStep<p.steps.length-1){calcStep++;renderCalcFor(prefix);}}
+function calcNextStepFor(prefix){const p=getCalcProblems(prefix)[calcIdx];if(calcStep<p.steps.length-1){calcStep++;renderCalcFor(prefix);}}
 function calcPrevFor(prefix){if(calcIdx>0){calcIdx--;calcStep=0;calcRevealed=false;renderCalcFor(prefix);}}
-function calcNextFor(prefix){const problems=calcProblemsByPrefix[prefix]||calcProblems;if(calcIdx<problems.length-1){calcIdx++;calcStep=0;calcRevealed=false;renderCalcFor(prefix);}}
+function calcNextFor(prefix){const problems=getCalcProblems(prefix);if(calcIdx<problems.length-1){calcIdx++;calcStep=0;calcRevealed=false;renderCalcFor(prefix);}}
 const microFcState={};
 function initMicroFC(prefix){
   const data=microFcData[prefix];
@@ -1876,6 +1877,7 @@ const calcProblems=[
   },
 ];
 let calcIdx=0,calcStep=0,calcRevealed=false;
+const calcProblemsByPrefix={ch3:calcProblems,ps1:calcProblemsPS1,ps2:calcProblemsPS2};
 function initCalc(){calcIdx=0;calcStep=0;calcRevealed=false;renderCalc();}
 function renderCalc(){
   const p=calcProblems[calcIdx];
