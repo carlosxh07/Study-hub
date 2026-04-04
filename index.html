@@ -268,6 +268,8 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
     <button class="nav-sub" style="opacity:.5;cursor:default;pointer-events:none">+ More coming</button>
     <div class="nav-label">Macroeconomics</div>
     <button class="nav-btn" data-color="macro" onclick="showPage('macro-overview',this)"><span class="nav-dot" style="background:var(--macro)"></span>All Chapters</button>
+    <button class="nav-sub" onclick="showLecture('macro','lec1',this)">Lec 1: Economic Growth</button>
+    <button class="nav-sub" style="opacity:.5;cursor:default;pointer-events:none">+ More coming</button>
     <div class="nav-label">Intl. Business Trade</div>
     <button class="nav-btn" data-color="ibt" onclick="showPage('ibt-overview',this)"><span class="nav-dot" style="background:var(--ibt)"></span>All Chapters</button>
     <div class="nav-label">Intercultural Comp.</div>
@@ -295,9 +297,9 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
       <div class="sc-stats"><div class="sc-stat"><strong>3</strong> sessions loaded</div><div class="sc-stat"><strong>75</strong> flashcards</div><div class="sc-stat"><strong>55</strong> quiz Qs</div></div>
     </div>
     <div class="subject-card sc-macro" onclick="showPage('macro-overview',null)">
-      <div class="sc-name">Macroeconomics</div><div class="sc-meta">Chapters · Coming soon</div>
-      <div class="sc-progress"><div class="sc-progress-fill" style="width:0%;background:var(--macro)"></div></div>
-      <div class="sc-stats"><div class="sc-stat"><strong>0</strong> chapters loaded</div></div>
+      <div class="sc-name">Macroeconomics</div><div class="sc-meta">Lectures · Macroeconomics 1 · Dr. Rülke</div>
+      <div class="sc-progress"><div class="sc-progress-fill" style="width:8%;background:var(--macro)"></div></div>
+      <div class="sc-stats"><div class="sc-stat"><strong>1</strong> lecture loaded</div><div class="sc-stat"><strong>30</strong> flashcards</div><div class="sc-stat"><strong>20</strong> quiz Qs</div></div>
     </div>
     <div class="subject-card sc-ibt" onclick="showPage('ibt-overview',null)">
       <div class="sc-name">International Business Trade</div><div class="sc-meta">Chapters · Coming soon</div>
@@ -1058,7 +1060,224 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
   </div>
 </div>
 
-<div id="page-macro-overview" class="page"><div class="page-eyebrow" style="color:var(--macro)">Macroeconomics</div><div class="page-title">All Chapters</div><div class="page-desc">No chapters loaded yet.</div><div class="empty-state"><h3>Ready to populate</h3><p>Share your Macro notes and I'll build the summary, flashcards, quiz, and formula calculator for each chapter.</p></div></div>
+<div id="page-macro-overview" class="page">
+  <div class="page-eyebrow" style="color:var(--macro)">Macroeconomics</div>
+  <div class="page-title">All Lectures</div>
+  <div class="page-desc">Select a lecture to access its summary, flashcards, quiz, and interactive tools. · Dr. Jan-Christoph Rülke · Spring 2026</div>
+  <div class="lectures-list">
+    <div class="lec-card" onclick="showLecture('macro','lec1',null)"><div class="lec-num" style="background:var(--macro-l);color:var(--macro)">01</div><div class="lec-info"><div class="lec-title">Lecture 1 — Macroeconomics &amp; Economic Growth</div><div class="lec-sub">GDP · Production Function · GDP per Capita · Circular Flow · COVID-19</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span><span class="lec-badge has">Calculator</span></div></div>
+    <div class="lec-card empty"><div class="lec-num" style="background:var(--macro-l);color:var(--macro)">02+</div><div class="lec-info"><div class="lec-title">More lectures coming</div><div class="lec-sub">Share your notes to add the next lecture</div></div><div class="lec-badges"><span class="lec-badge">Summary</span><span class="lec-badge">Cards</span><span class="lec-badge">Quiz</span></div></div>
+  </div>
+</div>
+<!-- MACRO LEC1 PAGE -->
+<div id="page-macro-lec1" class="page">
+  <div class="page-eyebrow" style="color:var(--macro)">Macroeconomics · Lecture 1</div>
+  <div class="page-title">Macroeconomics &amp; Economic Growth</div>
+  <div class="page-desc">GDP · Production Function · Solow Decomposition · GDP per Capita · Circular Flow · COVID-19 · Dr. Rülke</div>
+  <div class="study-tabs">
+    <button class="study-tab active" onclick="showMacroTab('summary',this,'lec1')">Summary</button>
+    <button class="study-tab" onclick="showMacroTab('compare',this,'lec1')">Compare</button>
+    <button class="study-tab" onclick="showMacroTab('calc',this,'lec1')">Calculator</button>
+    <button class="study-tab" onclick="showMacroTab('flashcards',this,'lec1')">Flashcards</button>
+    <button class="study-tab" onclick="showMacroTab('quiz',this,'lec1')">Quiz</button>
+  </div>
+
+  <!-- SUMMARY -->
+  <div id="mlec1-summary" class="study-panel active">
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-amber">What is Macroeconomics?</span></div>
+      <ul>
+        <li><strong>Micro vs Macro:</strong> Microeconomics studies individual decisions (consumers, firms, prices). Macroeconomics is micro-founded but analyses the <em>aggregate</em> economy.</li>
+        <li><strong>Key macro questions:</strong> What drives growth? What causes inflation and unemployment? How should policy respond to shocks? What determines exchange rates?</li>
+        <li><strong>Policy tools:</strong> Fiscal policy (G and T) and monetary policy (interest rates via central bank).</li>
+      </ul>
+      <div class="note-box" style="border-left-color:var(--macro-m);background:var(--macro-l);color:var(--macro)"><strong>Economic models</strong> abstract from irrelevant details (ceteris paribus), show causal relationships, and are tested empirically. Endogenous variables are determined inside the model; exogenous ones come from outside.</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-amber">GDP — Three Methods</span></div>
+      <p><strong>Definition:</strong> Total market value of all final goods and services produced within a country's borders in a given period.</p>
+      <ul>
+        <li><strong>Expenditure:</strong> GDP = C + I + G + (EX − IM). <em>C</em> = private consumption, <em>I</em> = real investment only (machines, buildings — NOT stocks/bonds), <em>G</em> = government spending, EX−IM = net exports.</li>
+        <li><strong>Income:</strong> GDP = Σ(wages + profits + rents). Every euro produced is someone's income.</li>
+        <li><strong>Value-Added:</strong> GDP = Σ(output − intermediate inputs). Counts only value added at each stage → equals the price of the final good.</li>
+      </ul>
+      <div class="note-box" style="border-left-color:var(--macro-m);background:var(--macro-l);color:var(--macro)"><strong>Exam trap:</strong> Buying stocks or bonds does NOT count as Investment (I). Only physical/real investment creates productive capacity and counts in GDP.</div>
+      <ul style="margin-top:8px">
+        <li><strong>Fundamental identity:</strong> GDP = Production = Income = Expenditure (holds in closed economy / long run).</li>
+        <li><strong>Potential GDP</strong> = max output with all inputs fully employed. <strong>Output gap</strong> = Actual − Potential. Negative output gap = crisis/underperformance.</li>
+        <li><strong>Long run:</strong> Determined by technology, labor, capital. Short-run crises do not determine long-run growth.</li>
+      </ul>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-amber">Cobb-Douglas Production Function</span></div>
+      <p><strong>Formula:</strong> Y = T · L<sup>α</sup> · K<sup>(1−α)</sup> where Y = output, T = technology (TFP), L = labor, K = capital, α = labor elasticity (0 &lt; α &lt; 1).</p>
+      <ul>
+        <li><strong>Growth decomposition (Solow):</strong> ΔY/Y = ΔT/T + α·(ΔL/L) + (1−α)·(ΔK/K)</li>
+        <li><strong>Constant returns to scale:</strong> Doubling ALL inputs (L and K) exactly doubles output.</li>
+        <li><strong>Diminishing returns:</strong> Adding more of ONE input (holding others fixed) gives progressively smaller gains.</li>
+        <li><strong>Wage share insight:</strong> If labor market is efficient, wages/GDP ≈ α. Capital share ≈ 1−α.</li>
+      </ul>
+      <div class="note-box" style="border-left-color:var(--macro-m);background:var(--macro-l);color:var(--macro)"><strong>Solow residual (USA 1850–1950):</strong> Technology = 52%, Labor = 38%, Capital = 10%. Technology is the dominant driver of long-run growth.</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-amber">The Three Determinants of Long-Run GDP</span></div>
+      <ul>
+        <li><strong>Technology (T):</strong> Any increase in output WITHOUT adding more L or K. The "residual". Benefits rich (capital-intensive) economies more due to the concave production function — same tech shock yields larger absolute gains at higher K levels. "Technology drives a wedge between rich and poor countries."</li>
+        <li><strong>Labor (L):</strong> More people → more total GDP, but GDP per capita typically <em>falls</em> (diminishing returns — each extra worker is less productive, output is divided among more people). Countries with high population growth tend to have lower GDP per capita.</li>
+        <li><strong>Capital (K):</strong> Machines, buildings, infrastructure — anything that increases productive capacity. Capital is accumulated through investment (= savings in closed economy). Subject to diminishing returns.</li>
+      </ul>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-amber">Catch-Up Effect (Convergence Theory)</span></div>
+      <ul>
+        <li><strong>Theory:</strong> Poor countries have less capital → higher marginal product of capital → higher investment returns → FDI flows in → incomes converge toward rich countries.</li>
+        <li><strong>Example:</strong> First road in a country = huge impact. 10th motorway in Germany = tiny marginal effect.</li>
+        <li><strong>Reality — why it fails:</strong> Corruption, weak institutions, lack of legal security/property rights, political instability. Investors weigh risk: high nominal returns mean nothing if you can't recover your investment.</li>
+        <li><strong>Result:</strong> No empirical evidence of convergence in most developing country samples.</li>
+      </ul>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-amber">GDP Per Capita — Four Determinants</span></div>
+      <p><strong>Identity:</strong> GDP/Pop = (GDP/Hours) × (Hours/Employed) × (Employed/Labor Force) × (Labor Force/Pop)</p>
+      <ul>
+        <li><strong>Productivity</strong> (GDP/Hours) — output per hour = effective wage rate. Driven by education, tech, capital.</li>
+        <li><strong>Hours worked</strong> (Hours/Employed) — avg hours per worker. USA works more hours than France → higher GDP/capita despite similar productivity.</li>
+        <li><strong>Employment rate</strong> (Employed/Labor Force) — share of labor force with a job. Spain: high unemployment → low employment rate → lower GDP/capita.</li>
+        <li><strong>Participation rate</strong> (Labor Force/Pop) — share of population in the labor force. Germany/Japan: aging population → falling participation rate → lower GDP/capita.</li>
+      </ul>
+      <div class="note-box" style="border-left-color:var(--macro-m);background:var(--macro-l);color:var(--macro)"><strong>Participation rate ≠ Employment rate.</strong> Participation = who CAN work (labor force/population). Employment = who IS working (employed/labor force). Germany's main demographic challenge is a declining participation rate, not employment rate.</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-amber">Circular Flow &amp; Open Economy Identity</span></div>
+      <ul>
+        <li><strong>Basic circular flow:</strong> Firms pay wages/rents/profits to households. Households buy goods. Government collects taxes (T), spends (G). Households save (S) → Financial market → Investment (I).</li>
+        <li><strong>Functions of money:</strong> (1) Medium of exchange, (2) Unit of account, (3) Store of value.</li>
+        <li><strong>Open economy — Leakages (money OUT):</strong> Savings (S), Taxes (T), Imports (IM)</li>
+        <li><strong>Injections (money IN):</strong> Investment (I), Government Spending (G), Exports (EX)</li>
+        <li><strong>Equilibrium:</strong> S + T + IM = I + G + EX</li>
+        <li><strong>Key identity:</strong> (S − I) + (T − G) = (EX − IM) → Private net savings + Budget balance = Current account balance</li>
+        <li><strong>Twin deficit (Greece):</strong> Simultaneous current account deficit AND budget deficit → external debt/GDP &gt;150% + public debt/GDP &gt;150%. Caused by tax evasion, excessive spending, weak competitiveness.</li>
+        <li><strong>Sustainable debt:</strong> GDP grows faster than debt → debt/GDP ratio shrinks over time → debt burden falls to zero.</li>
+      </ul>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">⚠️ Common Exam Traps</div>
+      <ul>
+        <li><strong>Financial investment ≠ GDP investment.</strong> Buying stocks/bonds does NOT count as I. Only physical investment does.</li>
+        <li><strong>Population growth ≠ GDP per capita growth.</strong> More people → more total GDP but LOWER GDP per capita (diminishing returns).</li>
+        <li><strong>Participation rate ≠ employment rate</strong> — don't mix these up in the GDP/capita decomposition.</li>
+        <li><strong>Tech shock benefits poor countries LESS</strong> — the concave production function means rich economies with more capital capture larger absolute gains from the same technology.</li>
+        <li><strong>Catch-up theory sounds good but empirically fails</strong> — must explain WHY (bad governance, institutions, risk).</li>
+        <li><strong>Imports = leakage, Exports = injection</strong> — not the other way around.</li>
+        <li><strong>Sustainable debt = GDP growth rate &gt; debt growth rate</strong> — about the differential, not the absolute level.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- COMPARE -->
+  <div id="mlec1-compare" class="study-panel">
+    <div class="sum-card">
+      <div class="sum-title">Three GDP Calculation Methods</div>
+      <table class="comp-table">
+        <tr><th>Method</th><th>Formula</th><th>What you measure</th><th>Exam example (Farmer→Baker)</th></tr>
+        <tr><td><strong>Expenditure</strong></td><td>C + I + G + (EX−IM)</td><td>All spending on final goods</td><td>Bread purchases = €2,000</td></tr>
+        <tr><td><strong>Income</strong></td><td>Σ(wages + profits + rents)</td><td>All incomes earned in production</td><td>All wages + all profits + all rents = €2,000</td></tr>
+        <tr><td><strong>Value-Added</strong></td><td>Σ(output − intermediate inputs)</td><td>Value added at each stage</td><td>€100 + €500 + €500 = €1,100 net → counts to €2,000 final</td></tr>
+      </table>
+      <div class="note-box" style="border-left-color:var(--macro-m);background:var(--macro-l);color:var(--macro)">All three methods yield <strong>identical GDP</strong>. Double-counting is avoided by counting only final goods (expenditure), only incomes (income), or subtracting intermediates (value-added).</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">Four Determinants of GDP per Capita</div>
+      <table class="comp-table">
+        <tr><th>Factor</th><th>Formula</th><th>What drives it up?</th><th>Country example</th></tr>
+        <tr><td><strong>Productivity</strong></td><td>GDP / Hours Worked</td><td>Education, technology, capital</td><td>Sweden (high education)</td></tr>
+        <tr><td><strong>Hours Worked</strong></td><td>Hours / Employed</td><td>Work culture, legal max hours</td><td>USA vs France</td></tr>
+        <tr><td><strong>Employment Rate</strong></td><td>Employed / Labor Force</td><td>Job creation, low unemployment</td><td>Spain problem: low rate</td></tr>
+        <tr><td><strong>Participation Rate</strong></td><td>Labor Force / Population</td><td>Demographics, family policy</td><td>Germany/Japan: aging problem</td></tr>
+      </table>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">Leakages vs Injections</div>
+      <table class="comp-table">
+        <tr><th>Leakages (money OUT of circular flow)</th><th>Injections (money IN to circular flow)</th></tr>
+        <tr><td>Savings (S) — households don't spend all income</td><td>Investment (I) — firms borrow to build capacity</td></tr>
+        <tr><td>Taxes (T) — government takes from income</td><td>Government Spending (G) — government buys goods/services</td></tr>
+        <tr><td>Imports (IM) — spending goes to foreign producers</td><td>Exports (EX) — foreign spending enters domestic economy</td></tr>
+      </table>
+      <div class="note-box" style="border-left-color:var(--macro-m);background:var(--macro-l);color:var(--macro)"><strong>Equilibrium:</strong> S + T + IM = I + G + EX → Rearranged: <strong>(S − I) + (T − G) = (EX − IM)</strong><br>Private net savings + Budget balance = Current account balance</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">Empirical Evidence on Growth Drivers (Solow Decomposition)</div>
+      <table class="comp-table">
+        <tr><th>Study</th><th>Technology</th><th>Labor</th><th>Capital</th></tr>
+        <tr><td>Solow (1957) — USA 1850–1950</td><td><strong>52%</strong></td><td>38%</td><td>10%</td></tr>
+        <tr><td>Romer (2012) — USA 1850–2010</td><td>29%</td><td>58% (human capital)</td><td>13%</td></tr>
+        <tr><td>ECB (2020) — Euro Area 1980–2020</td><td><strong>44%</strong></td><td>39%</td><td>17%</td></tr>
+      </table>
+      <div class="note-box" style="border-left-color:var(--macro-m);background:var(--macro-l);color:var(--macro)">Technology consistently explains the largest or second-largest share of growth. This established the "Solow residual" as the primary long-run growth engine.</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">Nominal vs Real · Flows vs Stocks · Short-Run vs Long-Run</div>
+      <table class="comp-table">
+        <tr><th>Concept</th><th>Definition</th><th>Example</th></tr>
+        <tr><td><strong>Nominal value</strong></td><td>Measured in current prices (includes inflation)</td><td>Nominal GDP in 2024 euros</td></tr>
+        <tr><td><strong>Real value</strong></td><td>Adjusted for inflation (reflects actual quantities)</td><td>Real GDP growth = volume change only</td></tr>
+        <tr><td><strong>Flow</strong></td><td>Measured over a period of time</td><td>GDP per year, Investment per year</td></tr>
+        <tr><td><strong>Stock</strong></td><td>Measured at a point in time</td><td>Capital stock, national debt level</td></tr>
+        <tr><td><strong>Short-run GDP</strong></td><td>Affected by crises, cycles → output gaps</td><td>COVID-19, financial crisis 2008</td></tr>
+        <tr><td><strong>Long-run GDP</strong></td><td>Determined by T, L, K fundamentals</td><td>Technology-driven convergence/divergence</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- CALCULATOR -->
+  <div id="mlec1-calc" class="study-panel">
+    <div class="sum-card" style="margin-bottom:16px"><div class="sum-title" style="color:var(--macro)">Step-by-Step Calculator</div><p style="font-size:13.5px;color:var(--text2)">Work through GDP, circular flow, and growth problems step by step. Try to predict each step before revealing it.</p></div>
+    <div class="calc-header"><div><div id="lec1-calc-title" style="font-family:var(--serif);font-size:20px;color:var(--text)"></div><div class="calc-pick-label" id="lec1-calc-pick-label"></div></div><div class="calc-nav"><button class="btn btn-sm" onclick="calcPrevFor('lec1')">← Prev</button><button class="btn btn-sm" onclick="calcNextFor('lec1')">Next →</button></div></div>
+    <div class="calc-desc-box" id="lec1-calc-desc" style="background:var(--macro-l);border-color:var(--macro-m);color:var(--macro)"></div>
+    <div id="lec1-calc-steps"></div>
+    <div class="calc-footer"><button class="btn btn-primary btn-sm" id="lec1-calc-next" onclick="calcNextStepFor('lec1')" style="background:var(--macro);border-color:var(--macro)">Next step →</button><button class="btn btn-sm" id="lec1-calc-reveal"></button></div>
+  </div>
+
+  <!-- FLASHCARDS -->
+  <div id="mlec1-flashcards" class="study-panel">
+    <div class="fc-controls"><button class="btn btn-sm" onclick="shuffleMacroFC('lec1')">Shuffle</button><button class="btn btn-sm" onclick="resetMacroFC('lec1')">Reset all</button><span style="font-size:12px;color:var(--text3);margin-left:4px">Rate each card — hard ones come back sooner</span></div>
+    <div class="fc-sr-bar" id="mlec1-sr-bar"></div>
+    <div id="mlec1-fc-wrap">
+      <div class="flashcard-wrap"><div class="flashcard" id="mlec1-fc-card" onclick="flipMacroFC('lec1')">
+        <div class="fc-face fc-front" style="background:var(--surface)"><div class="fc-label">Question</div><div class="fc-question" id="mlec1-fc-q"></div><div class="fc-hint">Click to reveal</div></div>
+        <div class="fc-face fc-back" style="background:var(--macro);transform:rotateY(180deg)"><div class="fc-label">Answer</div><div class="fc-answer" id="mlec1-fc-a"></div><div class="fc-src" id="mlec1-fc-src"></div></div>
+      </div></div>
+      <div class="sr-btns"><button class="sr-btn sr-btn-hard" onclick="rateMacroFC('lec1',0)">😬 Still learning</button><button class="sr-btn sr-btn-ok" onclick="rateMacroFC('lec1',1)">🤔 Almost</button><button class="sr-btn sr-btn-easy" onclick="rateMacroFC('lec1',2)">✓ Got it</button></div>
+      <div class="sr-mode-note">Card <span id="mlec1-fc-counter">1</span> of <span id="mlec1-fc-total">30</span></div>
+    </div>
+    <div class="fc-sr-done" id="mlec1-fc-done" style="display:none"><h3>Session complete!</h3><p id="mlec1-done-msg"></p><div style="display:flex;gap:10px;justify-content:center;margin-top:16px"><button class="btn btn-primary" onclick="reviewMacroWeak('lec1')" style="background:var(--macro);border-color:var(--macro)">Review weak cards</button><button class="btn" onclick="resetMacroFC('lec1')">Start over</button></div></div>
+  </div>
+
+  <!-- QUIZ -->
+  <div id="mlec1-quiz" class="study-panel">
+    <div id="mqlec1-wrap">
+      <div class="quiz-prog"><div class="quiz-prog-fill" id="mqlec1-pfill" style="width:0%;background:var(--macro)"></div></div>
+      <div class="quiz-meta" id="mqlec1-meta"></div>
+      <div class="quiz-q" id="mqlec1-text"></div>
+      <div class="quiz-opts" id="mqlec1-opts"></div>
+      <div class="quiz-fb" id="mqlec1-fb"></div>
+      <div id="mqlec1-next" style="display:none"><button class="btn btn-primary" onclick="nextMacroQ('lec1')" style="background:var(--macro);border-color:var(--macro)">Next →</button></div>
+    </div>
+    <div class="quiz-score-screen" id="mqlec1-score">
+      <div class="score-row">
+        <div class="score-big" id="mqlec1-big" style="color:var(--macro)"></div>
+        <div class="score-right"><div class="score-lbl">correct answers</div><div class="score-msg" id="mqlec1-msg"></div></div>
+      </div>
+      <div class="weak-section" id="mqlec1-weak"></div>
+      <div style="margin-top:20px;display:flex;gap:10px">
+        <button class="btn btn-primary" onclick="restartMacroQuiz('lec1')" style="background:var(--macro);border-color:var(--macro)">Try again</button>
+        <button class="btn" onclick="showMacroTab('calc',null,'lec1')">Practice calculator</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div id="page-ibt-overview" class="page"><div class="page-eyebrow" style="color:var(--ibt)">International Business Trade</div><div class="page-title">All Chapters</div><div class="page-desc">No chapters loaded yet.</div><div class="empty-state"><h3>Ready to populate</h3><p>Share your IBT notes and I'll build the summary, flashcards, and quiz for each chapter.</p></div></div>
 <div id="page-ic-overview" class="page"><div class="page-eyebrow" style="color:var(--ic)">Intercultural Competence</div><div class="page-title">All Chapters</div><div class="page-desc">No chapters loaded yet.</div><div class="empty-state"><h3>Ready to populate</h3><p>Share your IC notes and I'll build the summary, flashcards, and quiz for each chapter.</p></div></div>
 
@@ -1067,7 +1286,17 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
 <script>
 // ── Navigation ──
 function showPage(id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));document.getElementById('page-'+id).classList.add('active');if(btn)btn.classList.add('active')}
-function showLecture(subject,id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-sub').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');const el=document.getElementById('page-'+subject+'-'+id);if(el){el.classList.add('active');if(subject==='eu'&&id==='v'){initFC('sv');initQuiz('sv')}if(subject==='eu'&&id==='vi'){initFC('svi');initQuiz('svi');loadScenario(0,document.querySelector('.scenario-btn'))}if(subject==='micro'&&id==='ch3'){initMicroFC('ch3');initMicroQuiz('ch3');initCalc()}if(subject==='micro'&&id==='ps1'){initMicroFC('ps1');initMicroQuiz('ps1');initCalcFor('ps1')}if(subject==='micro'&&id==='ps2'){initMicroFC('ps2');initMicroQuiz('ps2');initCalcFor('ps2')}}}
+function showLecture(subject,id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-sub').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');const el=document.getElementById('page-'+subject+'-'+id);if(el){el.classList.add('active');if(subject==='eu'&&id==='v'){initFC('sv');initQuiz('sv')}if(subject==='eu'&&id==='vi'){initFC('svi');initQuiz('svi');loadScenario(0,document.querySelector('.scenario-btn'))}if(subject==='micro'&&id==='ch3'){initMicroFC('ch3');initMicroQuiz('ch3');initCalc()}if(subject==='micro'&&id==='ps1'){initMicroFC('ps1');initMicroQuiz('ps1');initCalcFor('ps1')}if(subject==='micro'&&id==='ps2'){initMicroFC('ps2');initMicroQuiz('ps2');initCalcFor('ps2')}if(subject==='macro'&&id==='lec1'){initMacroFC('lec1');initMacroQuiz('lec1');initCalcFor('lec1')}}}
+function showMacroTab(tab,btn,prefix){
+  const page=document.getElementById('page-macro-'+prefix);if(!page)return;
+  page.querySelectorAll('.study-panel').forEach(p=>p.classList.remove('active'));
+  page.querySelectorAll('.study-tab').forEach(b=>b.classList.remove('active'));
+  const panel=document.getElementById('m'+prefix+'-'+tab);if(panel)panel.classList.add('active');
+  if(btn)btn.classList.add('active');
+  if(tab==='calc')initCalcFor(prefix);
+  if(tab==='flashcards'&&!macroFcState[prefix])initMacroFC(prefix);
+  if(tab==='quiz'&&!macroQState[prefix])initMacroQuiz(prefix);
+}
 function showMicroTab(tab,btn,prefix){
   prefix=prefix||'ch3';
   const page=document.getElementById('page-micro-'+prefix);
@@ -1591,6 +1820,66 @@ microQData['ps2']=[
   {q:"Why does √c_good appear in MRS numerator?",opts:["Good state has higher probability","c_good is bad state","Pure algebra — dividing fractions moves √c_good to numerator","Utility is convex"],ans:2,exp:"Dividing p/√c_bad by (1−p)/√c_good is pure algebra that moves √c_good to the top. Bad state is still conceptually in numerator.",topic:"Insurance"},
   {q:"γ=1/3, p=0.2. Fair or unfair?",opts:["Fair — 1/3≈0.2","Unfair — γ>p, insurer profits","Unfair — γ<p","Cannot determine"],ans:1,exp:"γ=1/3≈0.33>p=0.2 → unfair insurance → partial insurance optimal.",topic:"Insurance"},
 ];
+// ── Macro Flashcard & Quiz Data ──
+const macroFcData={
+  lec1:[
+    {q:"What is the fundamental GDP identity?",a:"GDP = Production = Income = Consumption Expenditures. What an economy produces equals what it earns equals what it spends. Holds in closed economy or long run.",src:"GDP Calculation",topic:"GDP"},
+    {q:"What is the expenditure approach formula for GDP?",a:"GDP = C + I + G + (EX − IM). C = Consumption, I = Investment (real only — machines, buildings), G = Government spending, EX = Exports, IM = Imports.",src:"GDP — Expenditure",topic:"GDP"},
+    {q:"Do financial investments (buying stocks/bonds) count as 'I' in GDP?",a:"NO. Only real investments — machines, buildings, infrastructure — count as I. Buying stocks/bonds is a financial transaction that does not create productive capacity.",src:"GDP — Exam Trap",topic:"GDP"},
+    {q:"What are the three approaches to calculating GDP?",a:"(1) Expenditure: C+I+G+(EX−IM). (2) Income: sum of wages+profits+rents. (3) Value-added: total output − intermediate goods. All yield identical GDP.",src:"GDP Methods",topic:"GDP"},
+    {q:"What is potential GDP and what is the output gap?",a:"Potential GDP = max output with all inputs fully employed. Output Gap = Actual GDP − Potential GDP. Negative output gap = economy underperforming (crisis).",src:"Production Function",topic:"GDP"},
+    {q:"What is the Cobb-Douglas production function?",a:"Y = T · L^α · K^(1−α). Y = output, T = technology (TFP), L = labor, K = capital, α = labor elasticity (0 < α < 1). α + (1−α) = 1 → constant returns to scale.",src:"Production Function",topic:"Production Function"},
+    {q:"What does 'constant returns to scale' mean in the production function?",a:"Doubling ALL input factors (L and K) exactly doubles output. This is a property of Cobb-Douglas where exponents sum to 1 (α + (1−α) = 1).",src:"Production Function",topic:"Production Function"},
+    {q:"What does diminishing returns mean for labor?",a:"As you add more labor (holding capital fixed), each additional worker produces less additional output than the previous one. The marginal product of labor falls.",src:"Production Function",topic:"Production Function"},
+    {q:"What are the three determinants of long-run GDP?",a:"(1) Technology (T), (2) Labor/Population (L), (3) Capital (K). Long-run GDP depends on all three structural fundamentals — not on short-run fiscal or monetary policy.",src:"Determinants of GDP",topic:"Growth"},
+    {q:"How is technology defined in the production function?",a:"Technology = any increase in output WITHOUT adding more L or K. It is the 'residual' — everything not explained by L or K growth. Also called Total Factor Productivity (TFP).",src:"Technology Shock",topic:"Growth"},
+    {q:"Why does technology benefit rich countries more than poor countries?",a:"The production function is concave. At higher levels of K and L, a technology shift generates a larger absolute increase in output (Y₂ > Y₁). Poor countries have less capital to leverage the technology shock.",src:"Technology Effects",topic:"Growth"},
+    {q:"What is the effect of high population growth on GDP per capita?",a:"Negative. More people increase total output (Y↑) but output is divided among more people. Due to diminishing returns, each new worker is less productive. GDP per capita falls.",src:"Population Growth",topic:"Growth"},
+    {q:"What is the catch-up effect (convergence theory)?",a:"Poor countries should grow faster because capital is scarcer → higher marginal product of capital → higher FDI returns → investment flows in → incomes converge toward rich countries.",src:"Catching-Up",topic:"Growth"},
+    {q:"Why does catch-up often fail in practice?",a:"Corruption, weak institutions, lack of legal security/property rights, political instability. These make investors unwilling to commit capital despite high theoretical returns.",src:"Catch-Up — Reality",topic:"Growth"},
+    {q:"What are the four determinants of GDP per capita?",a:"(1) Productivity = GDP/Hours; (2) Hours Worked = Hours/Employed; (3) Employment Rate = Employed/Labor Force; (4) Participation Rate = Labor Force/Population.",src:"GDP Per Capita",topic:"GDP per Capita"},
+    {q:"What is the participation rate?",a:"Labor Force / Population. The share of the total population that is in the labor force (working or seeking work). Low participation = fewer people economically active.",src:"GDP Per Capita",topic:"GDP per Capita"},
+    {q:"What is the employment rate?",a:"Employed / Labor Force. Share of the labor force that actually has a job. High unemployment → low employment rate → lower GDP per capita. Different from participation rate.",src:"GDP Per Capita",topic:"GDP per Capita"},
+    {q:"What is Germany's main demographic challenge for GDP per capita?",a:"An aging population → falling participation rate. Fewer working-age people relative to total population. Baby boomers retiring → fewer contributors, more retirees → lower GDP/capita and pension pressure.",src:"Demographic Change",topic:"GDP per Capita"},
+    {q:"What is autonomous consumption in the US consumption function?",a:"In C = 152.7 + 0.93·Yd, the constant 152.7 is autonomous consumption — baseline spending even when disposable income is zero (financed by savings, borrowing, or transfers).",src:"Consumption Function",topic:"Models"},
+    {q:"What is the marginal propensity to consume (MPC)?",a:"The fraction of each additional unit of disposable income spent on consumption. In the US: MPC = 0.93 → 93 cents of every extra dollar consumed. MPS = 1 − MPC = 0.07.",src:"Consumption Function",topic:"Models"},
+    {q:"What is the difference between nominal and real values?",a:"Nominal = measured in current prices (includes inflation effects). Real = adjusted for inflation (reflects actual quantities/purchasing power). Macro uses real values for meaningful comparisons.",src:"Macro Concepts",topic:"Concepts"},
+    {q:"What are the three functions of money?",a:"(1) Medium of exchange — removes need for barter. (2) Unit of account — common measure of value. (3) Store of value — preserve purchasing power over time.",src:"Circular Flow",topic:"Circular Flow"},
+    {q:"What are the three kinds of money?",a:"(1) Fiat money (paper/digital — value by government decree). (2) Commodity money (gold coins — intrinsic value). (3) Financial money (stocks).",src:"Circular Flow",topic:"Circular Flow"},
+    {q:"What are leakages in the circular flow of income?",a:"Money leaving the domestic circular flow: (1) Savings (S), (2) Taxes (T), (3) Imports (IM). These reduce domestic spending.",src:"Open Economy",topic:"Circular Flow"},
+    {q:"What are injections in the circular flow of income?",a:"Money entering the domestic circular flow: (1) Investment (I), (2) Government Spending (G), (3) Exports (EX). These add to domestic spending.",src:"Open Economy",topic:"Circular Flow"},
+    {q:"What is the open-economy circular flow identity?",a:"(S − I) + (T − G) = (EX − IM). Private net savings + Budget balance = Current account balance. Leakages must equal injections at equilibrium.",src:"Circular Flow Identity",topic:"Circular Flow"},
+    {q:"What is a twin deficit?",a:"Simultaneous current account deficit AND budget deficit. Both external debt/GDP and public debt/GDP are excessive. Dangerous because budget deficit is externally financed → unsustainable debt. Example: Greece.",src:"Twin Deficit",topic:"Circular Flow"},
+    {q:"According to Solow (1957), what share of US growth was explained by technology?",a:"52% — the largest single contributor. Labor = 38%, Capital = 10%. This 'Solow residual' established technology as the primary driver of long-run growth (Nobel Prize 1987).",src:"Empirical Evidence",topic:"Growth"},
+    {q:"What is the Solow growth decomposition formula?",a:"ΔY/Y = ΔT/T + α·(ΔL/L) + (1−α)·(ΔK/K). GDP growth = Technology growth + (labor elasticity × labor growth) + (capital elasticity × capital growth).",src:"Production Function",topic:"Production Function"},
+    {q:"What is sustainable debt?",a:"Debt is sustainable when GDP grows faster than debt → the debt/GDP ratio shrinks over time → debt burden eventually falls to zero. It is about the growth rate differential, not the absolute level.",src:"Sustainable Debt",topic:"Circular Flow"},
+  ]
+};
+const macroQData={
+  lec1:[
+    {q:"Which of the following is included as Investment (I) in the GDP expenditure formula?",opts:["Buying shares in Apple Inc.","A firm purchasing a new factory","A household buying government bonds","A bank lending money to a small business"],ans:1,exp:"Only real/physical investment counts as I — purchasing productive assets like factories, machines, buildings. Buying shares, bonds, or lending money are financial transactions that do not create new productive capacity and are excluded from GDP.",topic:"GDP"},
+    {q:"The fundamental GDP identity states that GDP equals:",opts:["Only government and private spending","Production = Income = Consumption Expenditures","Production, which always exceeds income due to profits","Consumption + Savings only"],ans:1,exp:"The fundamental identity is Production = Income = Consumption Expenditures. Every euro produced generates a euro of income, which is spent as a euro of expenditure. Holds in a closed economy or in the long run.",topic:"GDP"},
+    {q:"In the Cobb-Douglas function Y = T·L^α·K^(1−α), 'constant returns to scale' means:",opts:["Doubling only labor doubles output","Doubling only capital doubles output","Doubling both labor AND capital doubles output","Technology must double for output to double"],ans:2,exp:"Constant returns to scale = scaling ALL inputs by the same factor scales output by that same factor. Doubling L AND K doubles output. Doubling only one input (diminishing returns) does not.",topic:"Production Function"},
+    {q:"Which factor explains the largest share of long-run economic growth, per Solow (1957)?",opts:["Labor","Capital","Government spending","Technology"],ans:3,exp:"Technology accounted for 52% of US growth (1850–1950), vs 38% labor and 10% capital. The 'Solow residual' established technology as the dominant driver of long-run growth (Nobel Prize 1987).",topic:"Growth"},
+    {q:"What is the effect of high population growth on GDP per capita?",opts:["Always increases GDP per capita because total output rises","Has no effect on GDP per capita","Typically decreases GDP per capita due to diminishing returns","Increases GDP per capita only in developing countries"],ans:2,exp:"While more people increase total GDP, GDP per capita (GDP/population) typically falls. Diminishing returns mean each extra worker adds less output. The denominator grows faster than output per person.",topic:"Growth"},
+    {q:"Why does the catch-up effect often fail in developing countries?",opts:["Developing countries already have too much capital","Rich countries prevent investment flows","Technology shocks always benefit rich countries more","Corruption, weak institutions, and political instability deter investors"],ans:3,exp:"In theory capital flows where returns are highest. In practice, investors weigh risk. Corruption, poor legal systems, property rights violations, and political instability make investments unsafe — capital stays in stable rich countries.",topic:"Growth"},
+    {q:"Which of the following is a LEAKAGE in the circular flow of income?",opts:["Government spending (G)","Investment (I)","Exports (EX)","Savings (S)"],ans:3,exp:"Leakages remove money from the domestic circular flow: Savings (S), Taxes (T), and Imports (IM). Government spending, investment, and exports are INJECTIONS — they add money to the circular flow.",topic:"Circular Flow"},
+    {q:"The open-economy identity (S − I) + (T − G) = (EX − IM) means:",opts:["The government budget must always balance","Private savings must always exceed investment","Private net savings + budget balance = current account balance","Exports must always exceed imports"],ans:2,exp:"The identity links three sectors: private (S−I = net savings), government (T−G = budget balance), and foreign (EX−IM = current account). All three must balance together. None individually needs to be zero.",topic:"Circular Flow"},
+    {q:"What is the participation rate?",opts:["Share of employed workers in total population","Share of labor force that is employed","Share of total population in the labor force","Share of GDP generated by active workers"],ans:2,exp:"Participation rate = Labor Force / Population. Measures how many people of the total population are economically active. The employment rate (employed/labor force) is different. Confusing these is a common exam mistake.",topic:"GDP per Capita"},
+    {q:"What does autonomous consumption represent?",opts:["Consumption that depends entirely on income","Consumption financed by government transfers","Consumption that occurs even when disposable income is zero","Consumption by the wealthiest households only"],ans:2,exp:"In C = 152.7 + 0.93·Yd, the constant (152.7) is autonomous consumption — baseline spending regardless of income. People borrow, use savings, or receive transfers to maintain basic consumption even with no income.",topic:"Models"},
+    {q:"In the long run, what primarily determines an economy's GDP?",opts:["Government spending and fiscal stimulus","Short-term crises and business cycle fluctuations","Technology, labor, and capital","Interest rates set by the central bank"],ans:2,exp:"Long-run GDP is determined by the structural fundamentals of the production function: Technology (T), Labor (L), Capital (K). Short-run tools affect output gaps but not long-run potential. 'In the long run, crises do not determine growth.'",topic:"Growth"},
+    {q:"What is a 'twin deficit'?",opts:["When both inflation and unemployment are high simultaneously","When a country has both a current account deficit AND a budget deficit","When both exports and imports fall at the same time","When both private savings and investment are negative"],ans:1,exp:"A twin deficit = simultaneous current account deficit (external debt/GDP >150%) and government budget deficit (public debt/GDP >150%). The danger: budget deficit is externally financed → unsustainable debt. Example: Greece.",topic:"Circular Flow"},
+    {q:"Using the value-added approach, GDP in the Farmer→Miller→Baker example equals:",opts:["Total of all transactions: €100+€1,000+€1,500+€2,000 = €4,600","The price of the final good: bread = €2,000","Sum of wages only: €400+€200+€300 = €900","Farmer's output only: €100"],ans:1,exp:"GDP counts only FINAL goods. Bread (€2,000) is the final good. This equals the sum of value added at each stage: Farmer €100 + Miller €500 + Baker €500 = €1,100 net of land cost, but final good price = €2,000. Summing all transactions double-counts intermediates.",topic:"GDP"},
+    {q:"Which of the following is NOT a function of money?",opts:["Medium of exchange","Store of value","Source of production","Unit of account"],ans:2,exp:"The three functions of money are: medium of exchange, unit of account, and store of value. Money is NOT a source of production — it facilitates exchange but does not directly create output.",topic:"Circular Flow"},
+    {q:"S=15, I=10, T=5, G=5. What is the current account balance (EX−IM)?",opts:["−5","0","5","10"],ans:2,exp:"Using (S−I) + (T−G) = (EX−IM): (15−10) + (5−5) = 5 + 0 = 5. Current account surplus = 5. The country exports more than it imports by 5 units.",topic:"Circular Flow"},
+    {q:"Why does technology benefit advanced economies more than developing ones?",opts:["Rich countries have better governments that implement technology faster","Developing countries refuse foreign technology","The production function is concave — at higher K and L levels, the same technology shift yields larger absolute output gains","Technology only applies to industries that don't exist in poor countries"],ans:2,exp:"The production function is concave (diminishing returns). Advanced economies operate higher on the curve — a parallel upward shift (technology shock) generates a LARGER absolute gain in output. Poor countries gain less from the same shock because they have less capital.",topic:"Growth"},
+    {q:"Germany's COVID-19 fiscal response of €757bn represented approximately what share of GDP?",opts:["5%","12%","24%","45%"],ans:2,exp:"The lecture explicitly states Germany's fiscal response was €757bn ≈ 24% of GDP — the largest amount ever. This included Kurzarbeitergeld, grants, guarantees, VAT cuts, and direct support.",topic:"COVID-19"},
+    {q:"What is 'sustainable debt' according to the lecture?",opts:["Debt fully repaid within 10 years","Debt that never exceeds 60% of GDP","Debt that grows slower than GDP, so the debt/GDP ratio eventually falls to zero","Debt held only by domestic creditors"],ans:2,exp:"Sustainable debt = GDP grows faster than debt → debt/GDP ratio shrinks over time → debt burden eventually approaches zero. It is about the growth rate differential, not the absolute level.",topic:"Circular Flow"},
+    {q:"In the circular flow model, what dual role do households play?",opts:["They only consume goods and services","They demand goods AND supply labor/capital to maximize utility","They set prices in the goods market","They act as financial intermediaries between firms and government"],ans:1,exp:"Households have a dual role: (1) demand goods and services in the goods market (spending income); AND (2) supply labor, land, and capital in factor markets (earning wages, rents, profits). They maximize utility; firms maximize profits.",topic:"Circular Flow"},
+    {q:"What does the Marginal Propensity to Consume (MPC) of 0.93 mean?",opts:["93% of total income is consumed","For every additional €1 of disposable income, €0.93 is consumed","Consumption is 93% of GDP","93% of people consume at the same rate"],ans:1,exp:"The MPC (0.93) is the SLOPE of the consumption function — how much consumption changes per additional unit of disposable income. If income rises by €100, consumption rises by €93 and €7 is saved (MPS = 1 − MPC = 0.07).",topic:"Models"},
+  ]
+};
+
 const calcProblemsPS1=[
   {
     title:"Task 1.1 — Indifference Curves & MRS (Charlie)",
@@ -1714,9 +2003,62 @@ const calcProblemsPS2=[
     ]
   },
 ];
+const calcProblemsLec1=[
+  {
+    title:"GDP — Expenditure Approach",
+    desc:"An economy has: <b>C = €800bn, I = €150bn, G = €200bn, EX = €120bn, IM = €100bn</b>.<br>Calculate GDP. Then: GDP = €2,000bn, G = €400bn, I = €300bn, EX−IM = −€50bn. Find C.",
+    steps:[
+      {label:"Step 1: Write the formula",formula:"GDP = C + I + G + (EX − IM)",result:"Expenditure approach — remember: I = real investment only, NOT financial"},
+      {label:"Step 2: Calculate net exports",formula:"EX − IM = 120 − 100",result:"Net exports = <b>€20bn</b>"},
+      {label:"Step 3: Sum all components",formula:"GDP = 800 + 150 + 200 + 20",result:"GDP = <b>€1,170bn</b>"},
+      {label:"Step 4: Reverse problem — find C",formula:"C = GDP − I − G − (EX−IM) = 2,000 − 300 − 400 − (−50)",result:"C = 2,000 − 650 = <b>€1,350bn</b>"},
+    ]
+  },
+  {
+    title:"Circular Flow — Open Economy Identity",
+    desc:"Given: <b>S = 20, I = 12, T = 8, G = 10</b>. Find the current account balance (EX − IM).<br>Then: EX−IM = −10, T−G = −4. What must private net savings (S−I) equal?",
+    steps:[
+      {label:"Step 1: Write the identity",formula:"(S − I) + (T − G) = (EX − IM)",result:"Private net savings + Budget balance = Current account balance"},
+      {label:"Step 2: Calculate each term",formula:"(S−I) = 20−12 = 8 ; (T−G) = 8−10 = −2",result:"Private sector saves net 8; Government runs deficit of 2"},
+      {label:"Step 3: Add to find current account",formula:"(EX−IM) = 8 + (−2) = 6",result:"Current account <b>surplus of 6</b> ✓"},
+      {label:"Step 4: Reverse — find S−I given twin deficit",formula:"(S−I) = (EX−IM) − (T−G) = −10 − (−4) = −10 + 4",result:"S−I = <b>−6</b> → Private sector is a net borrower. Twin deficit confirmed."},
+    ]
+  },
+  {
+    title:"GDP per Capita — Four Determinants",
+    desc:"Country A: <b>GDP = €3,000bn, Total hours = 60bn, Employed = 40m, Labor force = 45m, Population = 80m</b>.<br>Calculate all four determinants and check GDP per capita.",
+    steps:[
+      {label:"Step 1: Productivity",formula:"GDP / Hours Worked = 3,000bn / 60bn",result:"Productivity = <b>€50 per hour</b>"},
+      {label:"Step 2: Hours per worker",formula:"Total hours / Employed = 60bn / 40m",result:"Hours per worker = <b>1,500 hours/year</b>"},
+      {label:"Step 3: Employment rate",formula:"Employed / Labor force = 40m / 45m",result:"Employment rate = <b>88.9%</b>"},
+      {label:"Step 4: Participation rate",formula:"Labor force / Population = 45m / 80m",result:"Participation rate = <b>56.25%</b>"},
+      {label:"Step 5: Check GDP per capita",formula:"50 × 1,500 × 0.889 × 0.5625",result:"GDP/capita ≈ <b>€37,500/person</b> ✓"},
+    ]
+  },
+  {
+    title:"Solow Growth Decomposition",
+    desc:"Using <b>ΔY/Y = ΔT/T + α·(ΔL/L) + (1−α)·(ΔK/K)</b> with α = 0.7:<br>Labor grows 2%, Capital grows 3%, Technology grows 1.5%. Then: Country B grows 4%; Labor contributes 1.5%, Capital 0.8%. Find technology residual.",
+    steps:[
+      {label:"Step 1: Write the formula",formula:"ΔY/Y = ΔT/T + α·(ΔL/L) + (1−α)·(ΔK/K)",result:"Solow decomposition — technology is the 'residual' unexplained by L and K"},
+      {label:"Step 2: Calculate each contribution",formula:"Labor: 0.7 × 2% = 1.4% ; Capital: 0.3 × 3% = 0.9%",result:"Labor contributes 1.4pp, Capital contributes 0.9pp"},
+      {label:"Step 3: Add technology",formula:"ΔY/Y = 1.5 + 1.4 + 0.9",result:"GDP growth = <b>3.8%</b>"},
+      {label:"Step 4: Solow residual for Country B",formula:"ΔT/T = ΔY/Y − Labor − Capital = 4 − 1.5 − 0.8",result:"Technology residual = <b>1.7%</b> (the Solow residual)"},
+    ]
+  },
+  {
+    title:"Consumption Function — MPC Application",
+    desc:"US Consumption Function: <b>C = 152.7 + 0.93·Y<sup>d</sup></b>.<br>a) What is autonomous consumption? b) What is the MPC? c) If disposable income rises by €100bn, how much does consumption change? d) What is the marginal propensity to save?",
+    steps:[
+      {label:"Step 1: Identify autonomous consumption",formula:"Intercept term in C = 152.7 + 0.93·Yd",result:"Autonomous consumption = <b>€152.7bn</b> (consumption when income = 0)"},
+      {label:"Step 2: Identify MPC",formula:"Slope of the consumption function = 0.93",result:"MPC = <b>0.93</b> — for every €1 of disposable income, 93 cents are consumed"},
+      {label:"Step 3: Change in consumption",formula:"ΔC = MPC × ΔY = 0.93 × 100",result:"ΔC = <b>€93bn</b> (€7bn is saved)"},
+      {label:"Step 4: Marginal propensity to save",formula:"MPS = 1 − MPC = 1 − 0.93",result:"MPS = <b>0.07</b> — 7 cents of every extra euro are saved"},
+    ]
+  },
+];
 const calcProblemsByPrefix_placeholder=null; // moved below
 let calcCurrentPrefix='ch3';
-function getCalcProblems(prefix){return({ch3:calcProblems,ps1:calcProblemsPS1,ps2:calcProblemsPS2})[prefix]||calcProblems;}
+function getCalcProblems(prefix){return({ch3:calcProblems,ps1:calcProblemsPS1,ps2:calcProblemsPS2,lec1:calcProblemsLec1})[prefix]||calcProblems;}
 function initCalcFor(prefix){calcCurrentPrefix=prefix;calcIdx=0;calcStep=0;calcRevealed=false;renderCalcFor(prefix);}
 function renderCalcFor(prefix){
   const problems=getCalcProblems(prefix);
@@ -1913,6 +2255,122 @@ function renderCalc(){
 function calcNextStep(){const p=calcProblems[calcIdx];if(calcStep<p.steps.length-1){calcStep++;renderCalc();}}
 function calcPrev(){if(calcIdx>0){calcIdx--;calcStep=0;calcRevealed=false;renderCalc();}}
 function calcNext(){if(calcIdx<calcProblems.length-1){calcIdx++;calcStep=0;calcRevealed=false;renderCalc();}}
+
+// ── Macro Flashcard Engine ──
+const macroFcState={};
+function initMacroFC(prefix){
+  const data=macroFcData[prefix];if(!data)return;
+  macroFcState[prefix]={all:[...data].map((c,i)=>({...c,idx:i,confidence:1})),queue:[],current:0};
+  macroFcState[prefix].queue=[...macroFcState[prefix].all].sort(()=>Math.random()-.5);
+  renderMacroFC(prefix);renderMacroSRBar(prefix);
+}
+function renderMacroFC(prefix){
+  const s=macroFcState[prefix];if(!s||!s.queue.length)return;
+  const c=s.queue[s.current];
+  document.getElementById('m'+prefix+'-fc-q').textContent=c.q;
+  document.getElementById('m'+prefix+'-fc-a').textContent=c.a;
+  document.getElementById('m'+prefix+'-fc-src').textContent='— '+c.src;
+  document.getElementById('m'+prefix+'-fc-counter').textContent=s.current+1;
+  document.getElementById('m'+prefix+'-fc-total').textContent=s.queue.length;
+  document.getElementById('m'+prefix+'-fc-card').classList.remove('flipped');
+  document.getElementById('m'+prefix+'-fc-done').style.display='none';
+  document.getElementById('m'+prefix+'-fc-wrap').style.display='block';
+}
+function renderMacroSRBar(prefix){
+  const s=macroFcState[prefix];if(!s)return;
+  const bar=document.getElementById('m'+prefix+'-sr-bar');if(!bar)return;
+  let html='<span>Progress: </span>';
+  s.all.forEach(c=>{html+='<span class="sr-pip '+(c.confidence>=2?'know':c.confidence===1?'':'review')+'"></span>';});
+  bar.innerHTML=html;
+}
+function flipMacroFC(prefix){document.getElementById('m'+prefix+'-fc-card').classList.toggle('flipped');}
+function rateMacroFC(prefix,score){
+  const s=macroFcState[prefix];if(!s)return;
+  const c=s.queue[s.current];
+  macroFcState[prefix].all[c.idx].confidence=score;
+  if(score===0)s.queue.push({...c});
+  s.current++;
+  renderMacroSRBar(prefix);
+  if(s.current>=s.queue.length){
+    document.getElementById('m'+prefix+'-fc-wrap').style.display='none';
+    const done=document.getElementById('m'+prefix+'-fc-done');
+    const know=s.all.filter(c=>c.confidence>=2).length;
+    document.getElementById('m'+prefix+'-done-msg').textContent=know+' of '+s.all.length+' cards mastered.';
+    done.style.display='block';
+  }else renderMacroFC(prefix);
+}
+function shuffleMacroFC(prefix){const s=macroFcState[prefix];if(!s)return;s.queue=[...s.all].sort(()=>Math.random()-.5);s.current=0;renderMacroFC(prefix);}
+function resetMacroFC(prefix){initMacroFC(prefix);}
+function reviewMacroWeak(prefix){
+  const s=macroFcState[prefix];if(!s)return;
+  const weak=s.all.filter(c=>c.confidence<2);
+  if(!weak.length){resetMacroFC(prefix);return;}
+  s.queue=[...weak].sort(()=>Math.random()-.5);s.current=0;
+  document.getElementById('m'+prefix+'-fc-done').style.display='none';
+  document.getElementById('m'+prefix+'-fc-wrap').style.display='block';
+  renderMacroFC(prefix);
+}
+
+// ── Macro Quiz Engine ──
+const macroQState={};
+function initMacroQuiz(prefix){
+  const data=macroQData[prefix];if(!data)return;
+  macroQState[prefix]={qs:[...data].sort(()=>Math.random()-.5),current:0,score:0,wrongs:[],answered:false};
+  document.getElementById('mq'+prefix+'-score').classList.remove('show');
+  document.getElementById('mq'+prefix+'-wrap').style.display='block';
+  renderMacroQ(prefix);
+}
+function renderMacroQ(prefix){
+  const s=macroQState[prefix];if(!s)return;
+  const q=s.qs[s.current];
+  const total=s.qs.length;
+  document.getElementById('mq'+prefix+'-pfill').style.width=((s.current/total)*100)+'%';
+  document.getElementById('mq'+prefix+'-meta').textContent='Question '+(s.current+1)+' of '+total+' · '+q.topic;
+  document.getElementById('mq'+prefix+'-text').textContent=q.q;
+  const fb=document.getElementById('mq'+prefix+'-fb');fb.className='quiz-fb';fb.textContent='';
+  document.getElementById('mq'+prefix+'-next').style.display='none';
+  s.answered=false;
+  const opts=document.getElementById('mq'+prefix+'-opts');opts.innerHTML='';
+  q.opts.forEach((o,i)=>{
+    const btn=document.createElement('button');btn.className='quiz-opt';btn.textContent=o;
+    btn.onclick=()=>answerMacroQ(prefix,i);opts.appendChild(btn);
+  });
+}
+function answerMacroQ(prefix,chosen){
+  const s=macroQState[prefix];if(!s||s.answered)return;
+  s.answered=true;
+  const q=s.qs[s.current];
+  const opts=document.getElementById('mq'+prefix+'-opts').querySelectorAll('.quiz-opt');
+  opts.forEach(b=>b.disabled=true);
+  opts[q.ans].classList.add('correct');
+  const fb=document.getElementById('mq'+prefix+'-fb');
+  if(chosen===q.ans){s.score++;fb.className='quiz-fb correct show';fb.textContent='Correct! '+q.exp;}
+  else{opts[chosen].classList.add('wrong');fb.className='quiz-fb wrong show';fb.textContent='Incorrect. '+q.exp;s.wrongs.push(q);}
+  document.getElementById('mq'+prefix+'-next').style.display='block';
+}
+function nextMacroQ(prefix){
+  const s=macroQState[prefix];if(!s)return;
+  s.current++;
+  if(s.current>=s.qs.length){
+    document.getElementById('mq'+prefix+'-pfill').style.width='100%';
+    renderMacroWeakSpots(prefix);
+    document.getElementById('mq'+prefix+'-wrap').style.display='none';
+    const sc=document.getElementById('mq'+prefix+'-score');sc.classList.add('show');
+    document.getElementById('mq'+prefix+'-big').textContent=s.score+'/'+s.qs.length;
+    const pct=Math.round(s.score/s.qs.length*100);
+    document.getElementById('mq'+prefix+'-msg').textContent=pct>=80?'Excellent work!':pct>=60?'Good progress — review the topics below.':'Keep studying — focus on the weak areas below.';
+  }else renderMacroQ(prefix);
+}
+function renderMacroWeakSpots(prefix){
+  const s=macroQState[prefix];const ws=document.getElementById('mq'+prefix+'-weak');if(!ws)return;
+  if(!s.wrongs.length){ws.innerHTML='<div class="weak-title">Perfect score!</div>';return;}
+  const topics=[...new Set(s.wrongs.map(q=>q.topic))];
+  const tips={GDP:'Review the three GDP methods and the expenditure formula trap (no financial investment)','Production Function':'Re-derive the Cobb-Douglas formula and the Solow decomposition','Growth':'Review the three determinants and the catch-up effect — theory AND why it fails','GDP per Capita':'Practice the four-way decomposition identity','Circular Flow':'Re-draw the leakages/injections table and practice the identity (S−I)+(T−G)=(EX−IM)','Models':'Review the consumption function and the definition of MPC/autonomous consumption','Concepts':'Check the nominal/real and flow/stock distinctions','COVID-19':'Review Germany fiscal response stats and ECB PEPP figures'};
+  let html='<div class="weak-title">Focus on these topics:</div>';
+  topics.forEach(t=>{html+='<div class="weak-item"><span class="weak-item-icon">⚠️</span><div><div class="weak-item-text">'+t+'</div><div class="weak-item-tip">'+(tips[t]||'Review this topic in the Summary tab')+'</div></div></div>';});
+  ws.innerHTML=html;
+}
+function restartMacroQuiz(prefix){initMacroQuiz(prefix);}
 </script>
 </body>
 </html>
