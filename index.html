@@ -262,6 +262,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
     <button class="nav-sub" style="opacity:.5;cursor:default;pointer-events:none">+ More coming</button>
     <div class="nav-label">Microeconomics</div>
     <button class="nav-btn" data-color="micro" onclick="showPage('micro-overview',this)"><span class="nav-dot" style="background:var(--micro)"></span>All Chapters</button>
+    <button class="nav-sub" onclick="showLecture('micro','ch2',this)">Chapter 2: Consumer Theory</button>
     <button class="nav-sub" onclick="showLecture('micro','ps1',this)">PS1: Individual Choice</button>
     <button class="nav-sub" onclick="showLecture('micro','ps2',this)">PS2: Risky Choice</button>
     <button class="nav-sub" onclick="showLecture('micro','ch3',this)">Chapter 3: Risky Choice</button>
@@ -294,7 +295,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
     <div class="subject-card sc-micro" onclick="showPage('micro-overview',null)">
       <div class="sc-name">Microeconomics</div><div class="sc-meta">Chapters · Microeconomics 1</div>
       <div class="sc-progress"><div class="sc-progress-fill" style="width:21%;background:var(--micro)"></div></div>
-      <div class="sc-stats"><div class="sc-stat"><strong>3</strong> sessions loaded</div><div class="sc-stat"><strong>75</strong> flashcards</div><div class="sc-stat"><strong>55</strong> quiz Qs</div></div>
+      <div class="sc-stats"><div class="sc-stat"><strong>4</strong> sessions loaded</div><div class="sc-stat"><strong>106</strong> flashcards</div><div class="sc-stat"><strong>71</strong> quiz Qs</div></div>
     </div>
     <div class="subject-card sc-macro" onclick="showPage('macro-overview',null)">
       <div class="sc-name">Macroeconomics</div><div class="sc-meta">Lectures · Macroeconomics 1 · Dr. Rülke</div>
@@ -631,12 +632,156 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
 <!-- OTHER SUBJECTS -->
 <div id="page-micro-overview" class="page"><div class="page-eyebrow" style="color:var(--micro)">Microeconomics</div><div class="page-title">All Chapters</div><div class="page-desc">Select a session to access its summary, calculator, flashcards, and quiz.</div>
 <div class="lectures-list">
+  <div class="lec-card" onclick="showLecture('micro','ch2',null)"><div class="lec-num" style="background:var(--micro-l);color:var(--micro)">Ch2</div><div class="lec-info"><div class="lec-title">Chapter 2: Individual Choice — Consumer Theory</div><div class="lec-sub">Preferences · Indifference Curves · MRS · Budget Constraint · MRS = MRT · Optimal Choice</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Compare</span><span class="lec-badge has">Calculator</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span></div></div>
   <div class="lec-card" onclick="showLecture('micro','ps1',null)"><div class="lec-num" style="background:var(--micro-l);color:var(--micro)">PS1</div><div class="lec-info"><div class="lec-title">Problem Set 1: Individual Choice</div><div class="lec-sub">Indifference Curves · MRS · Budget Line · Optimisation · Special Preferences</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Compare</span><span class="lec-badge has">Calculator</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span></div></div>
   <div class="lec-card" onclick="showLecture('micro','ps2',null)"><div class="lec-num" style="background:var(--micro-l);color:var(--micro)">PS2</div><div class="lec-info"><div class="lec-title">Problem Set 2: Risky Choice</div><div class="lec-sub">EV · EU · CE · Risk Premium · Insurance · MRS = MRT</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Compare</span><span class="lec-badge has">Calculator</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span></div></div>
   <div class="lec-card" onclick="showLecture('micro','ch3',null)"><div class="lec-num" style="background:var(--micro-l);color:var(--micro)">Ch3</div><div class="lec-info"><div class="lec-title">Chapter 3: Risky Choice</div><div class="lec-sub">Theory deep-dive · Lotteries · Expected Utility · Insurance demand</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Compare</span><span class="lec-badge has">Calculator</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span></div></div>
   <div class="lec-card empty"><div class="lec-num" style="background:var(--micro-l);color:var(--micro)">Next</div><div class="lec-info"><div class="lec-title">More chapters coming</div><div class="lec-sub">Share your notes to add the next chapter</div></div><div class="lec-badges"><span class="lec-badge">Summary</span><span class="lec-badge">Cards</span><span class="lec-badge">Quiz</span></div></div>
 </div>
 </div>
+<!-- MICRO CH2 PAGE -->
+<div id="page-micro-ch2" class="page">
+  <div class="page-eyebrow" style="color:var(--micro)">Microeconomics · Chapter 2</div>
+  <div class="page-title">Individual Choice: Consumer Theory</div>
+  <div class="page-desc">Preferences · Indifference Curves · MRS · Budget Constraint · MRS = MRT · Optimal Choice · Karim Model</div>
+  <div class="study-tabs">
+    <button class="study-tab active" onclick="showMicroTab('summary',this,'ch2')">Summary</button>
+    <button class="study-tab" onclick="showMicroTab('compare',this,'ch2')">Compare</button>
+    <button class="study-tab" onclick="showMicroTab('calc',this,'ch2')">Calculator</button>
+    <button class="study-tab" onclick="showMicroTab('flashcards',this,'ch2')">Flashcards</button>
+    <button class="study-tab" onclick="showMicroTab('quiz',this,'ch2')">Quiz</button>
+  </div>
+  <div id="mch2-summary" class="study-panel active">
+    <div class="sum-card"><div class="sum-title"><span class="badge b-teal">Why Consumer Choice Matters</span></div>
+      <p>People choose the <em>best</em> option from what they can <em>afford</em>. Two ingredients: <strong>preferences</strong> (what is best?) and a <strong>budget constraint</strong> (what can you afford?). Neither matters without scarcity — a good is scarce if getting more of it requires giving something up. Business applications: optimal pricing, wage design, predicting consumer reactions to taxes.</p>
+    </div>
+    <div class="sum-card"><div class="sum-title">Preferences &amp; Bundles</div><ul>
+      <li><strong>Bundle:</strong> A combination (x₁, x₂) specifying amounts of two goods. Every point in a diagram is a bundle.</li>
+      <li><strong>Notation:</strong> x ≻ y (strictly prefers x), x ~ y (indifferent), x ≽ y (weakly prefers x).</li>
+      <li><strong>Three assumptions:</strong> (1) <em>Monotonicity</em> — more is better → ICs slope downward. (2) <em>Transitivity</em> — no cycles → ICs never cross. (3) <em>Convexity</em> — balanced bundles preferred → ICs bow inward.</li>
+      <li><strong>Key insight:</strong> These assumptions are true <em>often enough</em> to be useful — they describe the vast majority of everyday economic decisions well.</li>
+    </ul></div>
+    <div class="sum-card"><div class="sum-title">Indifference Curves (ICs)</div><ul>
+      <li><strong>Definition:</strong> All bundles giving the same level of satisfaction. The consumer is indifferent between any two points on the same IC. Higher ICs = higher utility.</li>
+      <li><strong>Contour map analogy:</strong> ICs are like altitude lines on a hiking map — moving to a higher IC means being better off.</li>
+      <li><strong>Key properties:</strong> Downward sloping (monotonicity) · Never cross (transitivity) · Convex to origin (convexity).</li>
+      <li><strong>IC formula (Karim):</strong> u(t,c) = (t−6)²(c−45) = ū → c = ū/(t−6)² + 45. Higher ū = higher, more preferred curve.</li>
+    </ul></div>
+    <div class="sum-card"><div class="sum-title">The MRS — Marginal Rate of Substitution</div><ul>
+      <li><strong>Definition:</strong> Units of good 2 willingly given up for one more unit of good 1, staying on the same IC. = Absolute value of IC slope at that point.</li>
+      <li><strong>Formula:</strong> MRS = MU₁/MU₂. <em>MU₁ (the good you get more of) always goes in the numerator.</em></li>
+      <li><strong>Derivation:</strong> Along an IC, dU = 0 → MU₁·dx₁ + MU₂·dx₂ = 0 → dx₂/dx₁ = −MU₁/MU₂ → MRS = MU₁/MU₂.</li>
+      <li><strong>Diminishing MRS:</strong> Moving right along an IC (more good 1), MRS falls. Scarce → precious (high MRS, steep IC). Abundant → less valuable (low MRS, flat IC).</li>
+    </ul>
+    <div class="note-box"><strong>Karim's MRS:</strong> u(t,c)=(t−6)²(c−45). MUₜ=2(t−6)(c−45), MU꜀=(t−6)². MRS=2(c−45)/(t−6). At A (t=15, c=540): MRS=110 (steep). At H (t=19, c=282): MRS≈36 (flatter). Diminishing MRS confirmed.</div>
+    </div>
+    <div class="sum-card"><div class="sum-title">Utility Functions</div><ul>
+      <li><strong>Definition:</strong> u(x₁, x₂) assigns numbers such that preferred bundles get higher numbers: u(x) &gt; u(y) ⟺ x ≻ y.</li>
+      <li><strong>Ordinal, NOT cardinal:</strong> u=500 is better than u=200, but NOT "2.5 times better." Only the ranking matters, never the magnitude.</li>
+      <li><strong>Existence:</strong> Guaranteed by the three preference assumptions together.</li>
+      <li><strong>Marginal Utility:</strong> MU₁ = ∂u/∂x₁ and MU₂ = ∂u/∂x₂ — extra utility from one additional small unit, holding everything else constant.</li>
+    </ul></div>
+    <div class="sum-card"><div class="sum-title">The Budget Constraint &amp; MRT</div><ul>
+      <li><strong>Budget constraint:</strong> p₁x₁ + p₂x₂ ≤ m. Budget set = all affordable bundles.</li>
+      <li><strong>Budget line (BL):</strong> p₁x₁ + p₂x₂ = m → x₂ = m/p₂ − (p₁/p₂)x₁. Vertical intercept = m/p₂, horizontal = m/p₁, slope = −p₁/p₂.</li>
+      <li><strong>MRT = p₁/p₂:</strong> Absolute slope of the BL — the rate at which the <em>market</em> requires you to exchange good 2 for good 1. Objective, market-determined.</li>
+      <li><strong>Karim's BL:</strong> c = w(24−t) = 30(24−t). MRT = w = 30. Every extra hour of leisure costs €30 in forgone wages.</li>
+    </ul>
+    <div class="note-box"><strong>BL shifts:</strong> Income rises → parallel outward shift (slope unchanged). p₁ rises → BL pivots inward around x₂-intercept (vertical intercept fixed). p₂ rises → BL pivots inward around x₁-intercept (horizontal intercept fixed).</div>
+    </div>
+    <div class="sum-card"><div class="sum-title">Optimal Choice: MRS = MRT</div><ul>
+      <li><strong>Goal:</strong> Maximise utility subject to the budget constraint. Monotonicity implies spending all income, so the problem is: which point on the BL gives the highest utility?</li>
+      <li><strong>Graphically:</strong> The highest IC that still touches the BL — at the tangency point, the IC and BL have the same slope.</li>
+      <li><strong>Condition:</strong> MRS = MRT. Consumer's personal willingness-to-trade = market's required rate.</li>
+      <li><strong>If MRS &gt; MRT:</strong> consumer values good 1 more than its market cost → buy more good 1 (work less for Karim).</li>
+      <li><strong>If MRS &lt; MRT:</strong> consumer values good 1 less than its cost → buy less good 1 (work more).</li>
+      <li><strong>If MRS = MRT:</strong> no reallocation improves utility → optimal.</li>
+    </ul></div>
+    <div class="sum-card"><div class="sum-title">Two Solution Methods (always give the same answer)</div><ul>
+      <li><strong>Method 1 — MRS = MRT:</strong> (1) Write BL. (2) Compute MRS = MU₁/MU₂. (3) Set MRS = MRT. (4) Substitute BL into the condition. (5) Solve for x₁*. (6) Recover x₂* from BL.</li>
+      <li><strong>Method 2 — Constrained Maximisation:</strong> (1) Solve BL for x₂(x₁). (2) Substitute into u(x₁,x₂). (3) Take the single-variable derivative w.r.t. x₁ (NOT a partial). (4) Set = 0. (5) Solve for x₁*, recover x₂*.</li>
+    </ul>
+    <div class="note-box"><strong>Karim (w=30):</strong> Method 1: MRS=MRT → 2(c−45)/(t−6)=30 → c−45=15(t−6). Sub BL: 30(24−t)−45=15(t−6) → t*=17, c*=€210. Works 7 hrs/day. Method 2 gives same: max (t−6)²(675−30t) → FOC → t*=17 ✓</div>
+    </div>
+    <div class="sum-card"><div class="sum-title">⚠️ Most Common Mistakes</div><ul>
+      <li><strong>Flipping the MRS fraction</strong> — MU₁ (good on x-axis, the one you get more of) must go in the numerator. Flipping gives wrong optimal bundle.</li>
+      <li><strong>Using partial derivatives in Method 2</strong> — once the BL is substituted, take a regular single-variable derivative, not ∂u/∂x₁.</li>
+      <li><strong>Treating utility as cardinal</strong> — u=1000 is NOT twice as good as u=500. Only ranking matters.</li>
+      <li><strong>BL shift vs pivot confusion</strong> — p₁ rise = inward pivot (not parallel shift). m rise = parallel shift (not pivot).</li>
+      <li><strong>MRT = w in labour-leisure model</strong> — the price of leisure is the forgone wage. Do not use abstract p₁/p₂.</li>
+    </ul></div>
+  </div>
+
+  <!-- COMPARE -->
+  <div id="mch2-compare" class="study-panel">
+    <div class="sum-card"><div class="sum-title">MRS vs MRT — Full Comparison</div>
+    <table class="comp-table">
+      <tr><th>Feature</th><th>MRS</th><th>MRT</th></tr>
+      <tr><td><strong>Full name</strong></td><td>Marginal Rate of Substitution</td><td>Marginal Rate of Transformation</td></tr>
+      <tr><td><strong>What it measures</strong></td><td>Rate consumer is <em>willing</em> to trade good 2 for good 1</td><td>Rate consumer is <em>able</em> to trade good 2 for good 1</td></tr>
+      <tr><td><strong>Nature</strong></td><td>Personal, subjective</td><td>Market-determined, objective</td></tr>
+      <tr><td><strong>Equals</strong></td><td>MU₁/MU₂</td><td>p₁/p₂ (or wage w in labour-leisure)</td></tr>
+      <tr><td><strong>Graphical form</strong></td><td>Absolute slope of the IC</td><td>Absolute slope of the BL</td></tr>
+      <tr><td><strong>Changes along…?</strong></td><td>Changes along the IC (diminishing MRS)</td><td>Constant for given prices</td></tr>
+      <tr><td><strong>At optimum</strong></td><td colspan="2" style="text-align:center">MRS = MRT</td></tr>
+      <tr><td><strong>In Karim's model</strong></td><td>2(c−45)/(t−6)</td><td>30 (the wage)</td></tr>
+    </table></div>
+    <div class="sum-card"><div class="sum-title">Three Preference Properties &amp; Their Implications</div>
+    <table class="comp-table">
+      <tr><th>Property</th><th>Statement</th><th>Implication for ICs</th></tr>
+      <tr><td><strong>Monotonicity</strong></td><td>More is better — if x has ≥ of every good and more of at least one, then x ≽ y</td><td>ICs slope downward</td></tr>
+      <tr><td><strong>Transitivity</strong></td><td>If x ≽ y and y ≽ z, then x ≽ z — no preference cycles</td><td>ICs never cross</td></tr>
+      <tr><td><strong>Convexity</strong></td><td>If x ~ y, then tx+(1−t)y ≽ x for t∈(0,1) — balanced bundles preferred</td><td>ICs bow inward (convex to origin)</td></tr>
+    </table></div>
+    <div class="sum-card"><div class="sum-title">Budget Line: Shifts vs Pivots</div>
+    <table class="comp-table">
+      <tr><th>Change</th><th>Effect on BL</th><th>Fixed point</th><th>Slope change?</th></tr>
+      <tr><td>Income m ↑</td><td>Parallel shift outward</td><td>None — both intercepts move</td><td>No — slope unchanged</td></tr>
+      <tr><td>p₁ ↑</td><td>Pivots inward</td><td>x₂-intercept (m/p₂) fixed</td><td>Yes — steeper</td></tr>
+      <tr><td>p₂ ↑</td><td>Pivots inward</td><td>x₁-intercept (m/p₁) fixed</td><td>Yes — flatter</td></tr>
+      <tr><td>Both prices double</td><td>Equivalent to halving m — parallel shift in</td><td>None</td><td>No</td></tr>
+    </table></div>
+    <div class="sum-card"><div class="sum-title">Method 1 vs Method 2</div>
+    <table class="comp-table">
+      <tr><th></th><th>Method 1: MRS = MRT</th><th>Method 2: Constrained Max</th></tr>
+      <tr><td><strong>Key step</strong></td><td>Set MRS = MRT → rearrange → sub BL</td><td>Sub BL into u → differentiate w.r.t. x₁ → set = 0</td></tr>
+      <tr><td><strong>Derivative type</strong></td><td>Partial (for MU)</td><td>Single-variable (after substitution)</td></tr>
+      <tr><td><strong>Best when</strong></td><td>MRS = MRT gives clean algebra</td><td>Substitution makes u a simple 1-variable function</td></tr>
+      <tr><td><strong>Result</strong></td><td colspan="2" style="text-align:center">Always identical (x₁*, x₂*)</td></tr>
+    </table></div>
+  </div>
+
+  <!-- CALCULATOR -->
+  <div id="mch2-calc" class="study-panel">
+    <div class="sum-card" style="margin-bottom:16px"><div class="sum-title" style="color:var(--micro)">🧮 Step-by-Step Calculator</div><p style="font-size:13.5px;color:var(--text2)">Work through each problem step by step. Try to predict each step before revealing it.</p></div>
+    <div class="calc-header"><div><div id="ch2-calc-title" style="font-family:var(--serif);font-size:20px;color:var(--text)"></div><div class="calc-pick-label" id="ch2-calc-pick-label"></div></div><div class="calc-nav"><button class="btn btn-sm" onclick="calcPrevFor('ch2')">← Prev</button><button class="btn btn-sm" onclick="calcNextFor('ch2')">Next →</button></div></div>
+    <div class="calc-desc-box" id="ch2-calc-desc"></div>
+    <div id="ch2-calc-steps"></div>
+    <div class="calc-footer"><button class="btn btn-primary btn-sm" id="ch2-calc-next" onclick="calcNextStepFor('ch2')">Next step →</button><button class="btn btn-sm" id="ch2-calc-reveal"></button></div>
+  </div>
+
+  <!-- FLASHCARDS -->
+  <div id="mch2-flashcards" class="study-panel">
+    <div class="fc-controls"><button class="btn btn-sm" onclick="shuffleMicroFC('ch2')">Shuffle</button><button class="btn btn-sm" onclick="resetMicroFC('ch2')">Reset all</button><span style="font-size:12px;color:var(--text3);margin-left:4px">Rate each card — hard ones come back sooner</span></div>
+    <div class="fc-sr-bar" id="mch2-sr-bar"></div>
+    <div id="mch2-fc-wrap">
+      <div class="flashcard-wrap"><div class="flashcard" id="mch2-fc-card" onclick="flipMicroFC('ch2')">
+        <div class="fc-face fc-front" style="background:var(--surface)"><div class="fc-label">Question</div><div class="fc-question" id="mch2-fc-q"></div><div class="fc-hint">Click to reveal</div></div>
+        <div class="fc-face fc-back" style="background:var(--micro);transform:rotateY(180deg)"><div class="fc-label">Answer</div><div class="fc-answer" id="mch2-fc-a"></div><div class="fc-src" id="mch2-fc-src"></div></div>
+      </div></div>
+      <div class="sr-btns"><button class="sr-btn sr-btn-hard" onclick="rateMicroFC('ch2',0)">😬 Still learning</button><button class="sr-btn sr-btn-ok" onclick="rateMicroFC('ch2',1)">🤔 Almost</button><button class="sr-btn sr-btn-easy" onclick="rateMicroFC('ch2',2)">✓ Got it</button></div>
+      <div class="sr-mode-note">Card <span id="mch2-fc-counter">1</span> of <span id="mch2-fc-total">31</span></div>
+    </div>
+    <div class="fc-sr-done" id="mch2-fc-done" style="display:none"><h3>Session complete! 🎉</h3><p id="mch2-done-msg"></p><div style="display:flex;gap:10px;justify-content:center;margin-top:16px"><button class="btn btn-primary" onclick="reviewMicroWeak('ch2')">Review weak cards</button><button class="btn" onclick="resetMicroFC('ch2')">Start over</button></div></div>
+  </div>
+
+  <!-- QUIZ -->
+  <div id="mch2-quiz" class="study-panel">
+    <div id="mqch2-wrap"><div class="quiz-prog"><div class="quiz-prog-fill" id="mqch2-pfill" style="width:0%"></div></div><div class="quiz-meta" id="mqch2-meta"></div><div class="quiz-q" id="mqch2-text"></div><div class="quiz-opts" id="mqch2-opts"></div><div class="quiz-fb" id="mqch2-fb"></div><div id="mqch2-next" style="display:none"><button class="btn btn-primary" onclick="nextMicroQ('ch2')">Next →</button></div></div>
+    <div class="quiz-score-screen" id="mqch2-score"><div class="score-row"><div class="score-big" id="mqch2-big" style="color:var(--micro)"></div><div class="score-right"><div class="score-lbl">correct answers</div><div class="score-msg" id="mqch2-msg"></div></div></div><div class="weak-section" id="mqch2-weak"></div><div style="margin-top:20px;display:flex;gap:10px"><button class="btn btn-primary" onclick="restartMicroQuiz('ch2')">Try again</button><button class="btn" onclick="showMicroTab('calc',null,'ch2')">Practice calculator</button></div></div>
+  </div>
+</div>
+
 <!-- MICRO PS1 PAGE -->
 <div id="page-micro-ps1" class="page">
   <div class="page-eyebrow" style="color:var(--micro)">Microeconomics · Problem Set 1</div>
@@ -1286,7 +1431,8 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
 <script>
 // ── Navigation ──
 function showPage(id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));document.getElementById('page-'+id).classList.add('active');if(btn)btn.classList.add('active')}
-function showLecture(subject,id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-sub').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');const el=document.getElementById('page-'+subject+'-'+id);if(el){el.classList.add('active');if(subject==='eu'&&id==='v'){initFC('sv');initQuiz('sv')}if(subject==='eu'&&id==='vi'){initFC('svi');initQuiz('svi');loadScenario(0,document.querySelector('.scenario-btn'))}if(subject==='micro'&&id==='ch3'){initMicroFC('ch3');initMicroQuiz('ch3');initCalc()}if(subject==='micro'&&id==='ps1'){initMicroFC('ps1');initMicroQuiz('ps1');initCalcFor('ps1')}if(subject==='micro'&&id==='ps2'){initMicroFC('ps2');initMicroQuiz('ps2');initCalcFor('ps2')}if(subject==='macro'&&id==='lec1'){initMacroFC('lec1');initMacroQuiz('lec1');initCalcFor('lec1')}}}
+function showLecture(subject,id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-sub').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');const el=document.getElementById('page-'+subject+'-'+id);if(el){el.classList.add('active');if(subject==='eu'&&id==='v'){initFC('sv');initQuiz('sv')}if(subject==='eu'&&id==='vi'){initFC('svi');initQuiz('svi');loadScenario(0,document.querySelector('.scenario-btn'))}if(subject==='micro'&&id==='ch2'){initMicroFC('ch2');initMicroQuiz('ch2');initCalcFor('ch2')}
+if(subject==='micro'&&id==='ch3'){initMicroFC('ch3');initMicroQuiz('ch3');initCalc()}if(subject==='micro'&&id==='ps1'){initMicroFC('ps1');initMicroQuiz('ps1');initCalcFor('ps1')}if(subject==='micro'&&id==='ps2'){initMicroFC('ps2');initMicroQuiz('ps2');initCalcFor('ps2')}if(subject==='macro'&&id==='lec1'){initMacroFC('lec1');initMacroQuiz('lec1');initCalcFor('lec1')}}}
 function showMacroTab(tab,btn,prefix){
   const page=document.getElementById('page-macro-'+prefix);if(!page)return;
   page.querySelectorAll('.study-panel').forEach(p=>p.classList.remove('active'));
@@ -1678,6 +1824,39 @@ loadScenario(0,null);
 
 // ── PS1 & PS2 Flashcard & Quiz Data ──
 const microFcData={
+  ch2:[
+    {q:"What is a bundle in consumer theory?",a:"A combination (x₁, x₂) specifying amounts of two goods. Every point in a two-good diagram represents one specific bundle.",src:"Ch2 — Preferences",topic:"Bundles"},
+    {q:"What is the difference between x ≻ y, x ~ y, and x ≽ y?",a:"x ≻ y = strictly prefers x (definitely better). x ~ y = indifferent (equally good). x ≽ y = weakly prefers x (at least as good). Weak preference combines the other two.",src:"Ch2 — Preference Notation",topic:"Preferences"},
+    {q:"What are the three properties of preferences and what does each mean?",a:"(1) Monotonicity: more is better. (2) Transitivity: if x ≽ y and y ≽ z then x ≽ z — no cycles. (3) Convexity: if x ~ y then any mixture tx+(1−t)y ≽ x — balanced bundles preferred.",src:"Ch2 — Three Properties",topic:"Preferences"},
+    {q:"What does each preference property imply about indifference curves?",a:"Monotonicity → ICs slope downward. Transitivity → ICs never cross. Convexity → ICs bow inward (convex to origin).",src:"Ch2 — Three Properties",topic:"Indifference Curves"},
+    {q:"What is an indifference curve (IC)?",a:"A curve connecting all bundles giving the consumer the same level of satisfaction. The consumer is indifferent between any two points on the same IC. Higher ICs = higher utility.",src:"Ch2 — Indifference Curves",topic:"Indifference Curves"},
+    {q:"Why can two indifference curves never cross?",a:"If they crossed at z, every bundle on IC₁ and IC₂ would be indifferent to z — implying all those bundles give equal utility, contradicting the fact that different ICs represent different utility levels. This violates transitivity.",src:"Ch2 — IC Properties",topic:"Indifference Curves"},
+    {q:"Why are ICs convex to the origin?",a:"Because of convexity of preferences: balanced bundles are preferred over extremes. As you consume more of good 1 (moving right along the IC), each unit of good 1 is worth less → IC flattens → bows toward origin.",src:"Ch2 — Convexity",topic:"Indifference Curves"},
+    {q:"What is a utility function?",a:"A function u(x₁, x₂) assigning a number to every bundle such that preferred bundles get higher numbers: u(x)>u(y) ⟺ x≻y. Existence guaranteed by the three preference assumptions.",src:"Ch2 — Utility Function",topic:"Utility"},
+    {q:"Is utility cardinal or ordinal? What does this mean?",a:"Ordinal only — numbers rank bundles but their magnitude is meaningless. u=500 is preferred to u=200, but the consumer is NOT '2.5 times happier.' Only the ordering matters, never the scale.",src:"Ch2 — Ordinal Utility",topic:"Utility"},
+    {q:"What is marginal utility (MU)?",a:"MU₁ = ∂u/∂x₁ and MU₂ = ∂u/∂x₂ — the extra utility from one additional small unit of that good, holding everything else constant.",src:"Ch2 — Marginal Utility",topic:"Utility"},
+    {q:"How do you derive MRS from a utility function?",a:"Compute MU₁ = ∂u/∂x₁ and MU₂ = ∂u/∂x₂. Then MRS = MU₁/MU₂. The numerator is always the good you are getting more of (good 1 on the horizontal axis).",src:"Ch2 — MRS via MU",topic:"MRS"},
+    {q:"Derive MRS = MU₁/MU₂ from first principles.",a:"Along an IC utility is constant: dU=0. Total differential: MU₁·dx₁ + MU₂·dx₂ = 0. Rearrange: dx₂/dx₁ = −MU₁/MU₂. MRS = absolute value = MU₁/MU₂.",src:"Ch2 — MRS Derivation",topic:"MRS"},
+    {q:"What is diminishing MRS and why does it occur?",a:"As you move right along an IC (more good 1), the MRS falls — each additional unit of good 1 is worth less of good 2. Occurs because of convex preferences: when good 1 is scarce it's precious; when abundant, it's less valuable.",src:"Ch2 — Diminishing MRS",topic:"MRS"},
+    {q:"What are MUₜ and MU꜀ for Karim's utility function u(t,c) = (t−6)²(c−45)?",a:"MUₜ = ∂u/∂t = 2(t−6)(c−45). MU꜀ = ∂u/∂c = (t−6)². MRS = MUₜ/MU꜀ = 2(c−45)/(t−6).",src:"Ch2 — Karim MRS",topic:"MRS"},
+    {q:"What do the constants −6 and −45 mean in Karim's utility u(t,c)=(t−6)²(c−45)?",a:"Karim needs at least 6 hours of free time AND at least €45 of consumption before he derives any satisfaction. Below these thresholds, utility is zero or negative.",src:"Ch2 — Karim Example",topic:"Utility"},
+    {q:"What is Karim's MRS at bundle A (t=15, c=540)?",a:"MRS = 2(c−45)/(t−6) = 2(495)/9 = 110. At this bundle, Karim values one extra hour of leisure at €110 — very steep IC (leisure is relatively scarce).",src:"Ch2 — Karim MRS",topic:"MRS"},
+    {q:"What is the budget constraint and the budget set?",a:"Budget constraint: p₁x₁ + p₂x₂ ≤ m — cannot spend more than income m. Budget set = all bundles satisfying this inequality — everything the consumer can afford.",src:"Ch2 — Budget Constraint",topic:"Budget"},
+    {q:"What is the budget line (BL) and what are its intercepts and slope?",a:"BL = boundary of budget set: p₁x₁ + p₂x₂ = m → x₂ = m/p₂ − (p₁/p₂)x₁. Vertical intercept = m/p₂, horizontal = m/p₁, slope = −p₁/p₂.",src:"Ch2 — Budget Line",topic:"Budget"},
+    {q:"What is the MRT and how does it relate to the budget line?",a:"MRT = p₁/p₂ = absolute value of BL slope. It is the rate at which the market requires you to exchange good 2 for good 1 — the opportunity cost of good 1 in terms of good 2. Objective, market-determined.",src:"Ch2 — MRT",topic:"Budget"},
+    {q:"What is the critical distinction between MRS and MRT?",a:"MRS = rate at which the consumer is willing to trade (subjective, personal, depends on preferences). MRT = rate at which the consumer is able to trade (objective, market-determined = p₁/p₂). Optimum: MRS = MRT.",src:"Ch2 — MRS vs MRT",topic:"Optimality"},
+    {q:"What is Karim's MRT and why?",a:"MRT = w = 30. Every extra hour of leisure costs Karim €30 in forgone wages. In the labour-leisure model, the price of leisure is the wage: MRT = w.",src:"Ch2 — Karim Budget",topic:"Budget"},
+    {q:"How does the budget line shift when income increases?",a:"Parallel outward shift — both intercepts increase proportionally, slope −p₁/p₂ unchanged. The consumer can afford more of both goods.",src:"Ch2 — BL Shifts",topic:"Budget"},
+    {q:"How does the budget line change when p₁ rises?",a:"BL pivots inward around the x₂-intercept (which stays fixed at m/p₂). The horizontal intercept shrinks from m/p₁ to m/p₁'. Slope becomes steeper in absolute value.",src:"Ch2 — BL Shifts",topic:"Budget"},
+    {q:"What is the optimality condition and its graphical interpretation?",a:"MRS = MRT. Graphically: the IC is tangent to the BL — touching at exactly one point with the same slope. This is the highest IC that still touches the budget line.",src:"Ch2 — Optimal Choice",topic:"Optimality"},
+    {q:"Why does MRS = MRT characterise the optimum? What if MRS ≠ MRT?",a:"If MRS>MRT: consumer values good 1 more than its cost → buy more. If MRS<MRT: consumer values good 1 less → buy less. Only at MRS=MRT is no reallocation possible that improves utility.",src:"Ch2 — Optimality",topic:"Optimality"},
+    {q:"What are the steps of Method 1 (MRS = MRT)?",a:"(1) Write BL as equality. (2) Compute MRS=MU₁/MU₂. (3) Set MRS=MRT. (4) Substitute BL into this condition → one equation in one unknown. (5) Solve for x₁*. (6) Recover x₂* from BL.",src:"Ch2 — Method 1",topic:"Methods"},
+    {q:"What are the steps of Method 2 (Constrained Maximisation)?",a:"(1) Solve BL for x₂ as a function of x₁. (2) Substitute into u(x₁,x₂) → single-variable utility. (3) Take ordinary derivative w.r.t. x₁ and set=0 (FOC). (4) Solve for x₁*. (5) Recover x₂* from BL.",src:"Ch2 — Method 2",topic:"Methods"},
+    {q:"What is Karim's optimal free time and consumption (w=30)?",a:"t*=17 hours of free time, c*=€210. Since there are 24 hours, he works 24−17=7 hours per day.",src:"Ch2 — Karim Solution",topic:"Methods"},
+    {q:"What is comparative statics?",a:"Studying how the optimal bundle changes when prices or income change, while the model structure stays the same. The demand function xᵢ* = xᵢ(p₁,p₂,m) captures this relationship.",src:"Ch2 — Comparative Statics",topic:"Comparative Statics"},
+    {q:"What is a composite good and why is the two-good model not restrictive?",a:"Good 2 can represent 'everything else the consumer buys' — total spending on all other goods. This lets us analyse any one specific good against the rest of the budget, making the two-good framework general.",src:"Ch2 — Budget Constraint",topic:"Budget"},
+    {q:"What is the IC formula for Karim and how do you derive it?",a:"Set u(t,c)=ū and solve for c: c = ū/(t−6)² + 45. Each ū gives a different IC — higher ū = higher, more preferred curve. Slope ∂c/∂t = −2ū/(t−6)³ = −2(c−45)/(t−6), absolute value = MRS. Both methods agree.",src:"Ch2 — IC Formula",topic:"Indifference Curves"},
+  ],
   ch3:[
     {q:"What is a lottery as formally defined in microeconomics?",a:"L = {p₁,x₁; p₂,x₂; …; pₙ,xₙ} — a complete description of a risky situation listing each state's probability pᵢ and payoff xᵢ, where Σpᵢ = 1.",src:"Ch3 — Modelling Risk",topic:"Lotteries"},
     {q:"What is the Expected Utility formula?",a:"EU(L) = Σᵢ pᵢ · u(xᵢ) — the probability-weighted average of the utility of each possible outcome. Apply u(·) first, then weight by probability.",src:"Ch3 — Expected Utility",topic:"EU Formula"},
@@ -1712,6 +1891,24 @@ const microFcData={
   ]
 };
 const microQData={
+  ch2:[
+    {q:"What does a utility function assign to each bundle?",opts:["The bundle's exact market value","A number reflecting how much the consumer likes it — higher means preferred","The number of units of a reference good they'd exchange for it","A probability weight for choosing that bundle"],ans:1,exp:"A utility function assigns a ranking number to each bundle — preferred bundles get higher numbers (B). It is not a market value (A), not an external exchange quantity (C), and has nothing to do with probabilities (D).",topic:"Utility"},
+    {q:"For u(x₁, x₂) = x₁x₂, what is the MRS at bundle (3, 6)?",opts:["1/2","2","3","18"],ans:1,exp:"MU₁ = x₂ = 6, MU₂ = x₁ = 3. MRS = MU₁/MU₂ = 6/3 = 2. Option A flips the fraction. Option C is just x₁. Option D is the utility level.",topic:"MRS"},
+    {q:"Which correctly states what MRT represents?",opts:["The rate at which the consumer is willing to trade good 2 for good 1","The consumer's personal valuation of good 1","The rate at which the market requires the consumer to trade, equal to p₁/p₂","The slope of the indifference curve at the optimum"],ans:2,exp:"MRT = p₁/p₂ = market's required exchange rate (C). The IC slope is MRS (personal rate), not MRT. At the optimum the IC slope equals the BL slope, but the IC slope is MRS, not MRT.",topic:"Budget"},
+    {q:"At some bundle on the BL, Karim's MRS = 50 and wage = €30. What should he do?",opts:["Work more (take less free time)","Work less (take more free time)","Nothing — he is at the optimum","Change his utility function"],ans:1,exp:"MRS=50 > MRT=30. Karim values one extra hour of leisure at €50 but it costs only €30 in forgone wages. He should buy more leisure (work less) until MRS falls to 30. Working more (A) would push MRS even lower.",topic:"Optimality"},
+    {q:"What happens to Karim's optimal free time t* when his wage increases from €30 to €60?",opts:["t* increases — richer so takes more leisure","t* decreases — leisure is more expensive","t* stays at 17 — independent of the wage for this utility function","t* becomes indeterminate"],ans:2,exp:"Solving MRS=MRT for general w: t* = 17 regardless of w for this utility function (C). Consumption c* rises with w, but hours worked do not change — a special property of Karim's utility.",topic:"Comparative Statics"},
+    {q:"Which causes the budget line to pivot inward around the vertical (x₂) intercept?",opts:["An increase in income m","A decrease in p₂","An increase in p₁","An equal proportional increase in both p₁ and m"],ans:2,exp:"If p₁ rises: x₂-intercept m/p₂ unchanged (only p₁ changed), x₁-intercept m/p₁ shrinks → BL rotates inward around the x₂-intercept (C). Income increase shifts BL parallel outward (A). Decrease in p₂ pivots around x₁-intercept (B).",topic:"Budget"},
+    {q:"Why are indifference curves convex to the origin?",opts:["Because more is always better","Because preferences are transitive","Because balanced bundles are preferred over extremes","Because the budget line has a negative slope"],ans:2,exp:"Convex ICs follow from convexity of preferences: if x~y, mixtures are at least as good — you prefer balance (C). Monotonicity gives downward slope (A). Transitivity prevents crossing (B). BL slope is irrelevant to IC shape (D).",topic:"Indifference Curves"},
+    {q:"Which statement about utility is FALSE?",opts:["Preferred bundles receive higher utility numbers","Equally preferred bundles receive the same utility number","A bundle with u=600 gives exactly twice the satisfaction of u=300","The utility function's existence requires monotonicity, transitivity, and convexity"],ans:2,exp:"Utility is ordinal — numbers only rank bundles. u=600 is better than u=300, but NOT twice as good (C is false). A, B, and D are all true statements about utility functions.",topic:"Utility"},
+    {q:"In Method 2 (constrained maximisation), after substituting the budget line into utility, what derivative do you take?",opts:["A partial derivative with respect to both x₁ and x₂ simultaneously","A single-variable derivative with respect to x₁ only","A second-order partial to check the SOC","No derivative — compare utility values directly"],ans:1,exp:"After substituting the BL, x₂ is expressed as a function of x₁, so u becomes a function of x₁ alone. Take the ordinary single-variable derivative and set=0 (B). It is NOT a partial (A) — x₂ is no longer independent.",topic:"Methods"},
+    {q:"u(x₁,x₂) = x₁²x₂, p₁=2, p₂=1, m=30. What is the MRS in terms of x₁ and x₂?",opts:["MRS = x₂/(2x₁)","MRS = 2x₂/x₁","MRS = x₁²/x₂","MRS = x₁/x₂"],ans:1,exp:"MU₁ = 2x₁x₂, MU₂ = x₁². MRS = MU₁/MU₂ = 2x₁x₂/x₁² = 2x₂/x₁ (B). Option A flips numerator and denominator. Option C uses MU₂/MU₁. Option D drops the factor of 2.",topic:"MRS"},
+    {q:"What is the graphical condition for the optimal choice?",opts:["The BL passes through the highest IC that intersects it","The IC is tangent to the BL — touching at exactly one point with equal slopes","The consumer is at the midpoint of the BL","The IC is perpendicular to the BL"],ans:1,exp:"The optimum is where the IC is tangent to the BL — one touching point with equal slopes (B), meaning MRS=MRT. Option A is imprecise — it includes crossings. Midpoint (C) and perpendicularity (D) have no economic basis.",topic:"Optimality"},
+    {q:"If MRS = MU₁/MU₂, which good belongs in the numerator?",opts:["Always good 2","Whichever good has the higher price","The good you get MORE of — good 1 (on the horizontal axis)","The good with the higher marginal utility"],ans:2,exp:"By derivation: MU₁·dx₁ + MU₂·dx₂ = 0 gives |dx₂/dx₁| = MU₁/MU₂ where good 1 is on the x-axis (C). Price has nothing to do with the MRS formula (B). Higher MU in numerator is not the rule (D).",topic:"MRS"},
+    {q:"What does comparative statics study?",opts:["How utility functions change over time as preferences evolve","How the optimal bundle changes in response to price or income changes, holding model structure constant","Statistical comparison of utility across consumers","How firms set prices based on consumer behaviour"],ans:1,exp:"Comparative statics compares two static equilibria (optimal bundles) before and after a change in an exogenous parameter like price or income (B). It does not study evolving preferences (A), cross-consumer utility comparisons (C), or firm pricing (D).",topic:"Comparative Statics"},
+    {q:"In Karim's model, what does MRT equal and why?",opts:["MRT=1, because time is its own price","MRT=24, because there are 24 hours in a day","MRT=30, because the wage is €30 — one hour of leisure costs €30 in forgone wages","MRT=210, because that is the optimal consumption"],ans:2,exp:"In a labour-leisure model, the opportunity cost of one hour of leisure is the forgone wage. With w=€30, MRT=30 (C). The abstract formula MRT=p₁/p₂ maps here to MRT=w.",topic:"Budget"},
+    {q:"What happens graphically when a loyalty program effectively reduces the price of coffee?",opts:["The BL shifts parallel outward","The BL pivots outward around the lunch-axis intercept — the coffee intercept increases","The BL pivots inward — consumers can afford less lunch","The BL rotates around the midpoint"],ans:1,exp:"Lower p_coffee reduces the slope magnitude. The vertical intercept (all-lunch) is unaffected. The horizontal intercept m/p_coffee increases → BL pivots outward around the vertical intercept (B), shifting the optimum rightward toward more coffee.",topic:"Comparative Statics"},
+    {q:"What is the IC formula for Karim's utility u(t,c)=(t−6)²(c−45) at utility level ū?",opts:["c = ū·(t−6)² + 45","c = ū/(t−6)² + 45","c = ū/(t−6) + 45","c = (t−6)²/ū + 45"],ans:1,exp:"Set (t−6)²(c−45)=ū → c−45=ū/(t−6)² → c = ū/(t−6)² + 45 (B). Option A has the formula inverted. Option C loses the square. Option D inverts ū and (t−6)².",topic:"Indifference Curves"},
+  ],
   ch3:[
     {q:"A lottery is formally defined as:",opts:["The expected value of a risky situation","A probability distribution over states, each with a probability and a payoff","A game where outcomes depend on skill","A list of monetary outcomes without probabilities"],ans:1,exp:"A lottery L = {p₁,x₁;…;pₙ,xₙ} pairs each state with both its probability and payoff. EV (A) is just one summary statistic, not the full description. Skill (C) and outcomes-only (D) are both incomplete.",topic:"Lotteries"},
     {q:"EU = 9, EV = €100, u(c) = √c. What is the certainty equivalent?",opts:["€100","€81","€90","€9"],ans:1,exp:"u(CE) = EU = 9 → √CE = 9 → CE = 81. A risk-averse consumer accepts €81 certain over a lottery worth €100 in expectation. €100 (A) would be CE for a risk-neutral person. €9 (D) confuses the utility value with the monetary CE.",topic:"CE & Risk Premium"},
@@ -2056,9 +2253,95 @@ const calcProblemsLec1=[
     ]
   },
 ];
+const calcProblemsCh2=[
+  {
+    title:"Problem 1 — Basic MRS (u = x₁x₂)",
+    desc:"u(x₁, x₂) = x₁x₂. Find the MRS at bundle (4, 8). Interpret the result.",
+    steps:[
+      {label:"Step 1: Find MU₁",formula:"MU₁ = ∂u/∂x₁ = x₂",result:"At (4,8): MU₁ = <b>8</b>"},
+      {label:"Step 2: Find MU₂",formula:"MU₂ = ∂u/∂x₂ = x₁",result:"At (4,8): MU₂ = <b>4</b>"},
+      {label:"Step 3: Compute MRS",formula:"MRS = MU₁/MU₂ = 8/4",result:"MRS = <b>2</b>"},
+      {label:"Interpretation",formula:"MRS = 2 means at this bundle the consumer gives up 2 units of x₂ for 1 more unit of x₁, staying equally happy.",result:"<b>MU₁ always in numerator — the good you get more of (x₁ on horizontal axis).</b>"},
+    ]
+  },
+  {
+    title:"Problem 2 — MRS from Complex Function",
+    desc:"u(x₁, x₂) = 4x₁³ + 2x₂². Find the MRS at bundle (2, 3).",
+    steps:[
+      {label:"Step 1: Find MU₁",formula:"MU₁ = ∂u/∂x₁ = 12x₁² = 12·(4)",result:"MU₁ = <b>48</b>"},
+      {label:"Step 2: Find MU₂",formula:"MU₂ = ∂u/∂x₂ = 4x₂ = 4·3",result:"MU₂ = <b>12</b>"},
+      {label:"Step 3: Compute MRS",formula:"MRS = MU₁/MU₂ = 48/12",result:"MRS = <b>4</b>. At (2,3), consumer gives up 4 units of x₂ per additional unit of x₁."},
+    ]
+  },
+  {
+    title:"Problem 3 — Budget Line Setup",
+    desc:"p₁ = 5, p₂ = 10, m = 100. Write the budget line in slope-intercept form. Identify intercepts, slope, and MRT.",
+    steps:[
+      {label:"Step 1: Write equality form",formula:"5x₁ + 10x₂ = 100",result:"Budget line (all income spent)"},
+      {label:"Step 2: Solve for x₂",formula:"x₂ = 100/10 − (5/10)x₁",result:"x₂ = <b>10 − (1/2)x₁</b>"},
+      {label:"Step 3: Identify intercepts",formula:"Vertical: x₂ = m/p₂ = 100/10. Horizontal: x₁ = m/p₁ = 100/5",result:"x₂-intercept = <b>10</b>, x₁-intercept = <b>20</b>"},
+      {label:"Step 4: Slope and MRT",formula:"Slope = −p₁/p₂ = −5/10 = −1/2. MRT = |slope| = 1/2",result:"MRT = <b>1/2</b>. Giving up 1 unit of x₂ buys 2 units of x₁."},
+    ]
+  },
+  {
+    title:"Problem 4 — Full Optimisation (Method 1: MRS = MRT)",
+    desc:"u(x₁, x₂) = x₁x₂, p₁ = 4, p₂ = 2, m = 40. Find the optimal bundle using MRS = MRT.",
+    steps:[
+      {label:"Step 1: Budget line",formula:"4x₁ + 2x₂ = 40 → x₂ = 20 − 2x₁",result:"Budget line equation"},
+      {label:"Step 2: MRS",formula:"MU₁ = x₂, MU₂ = x₁. MRS = x₂/x₁",result:"MRS = x₂/x₁"},
+      {label:"Step 3: MRT",formula:"MRT = p₁/p₂ = 4/2",result:"MRT = <b>2</b>"},
+      {label:"Step 4: Set MRS = MRT",formula:"x₂/x₁ = 2 → x₂ = 2x₁",result:"Relationship between x₁ and x₂"},
+      {label:"Step 5: Substitute into BL",formula:"4x₁ + 2(2x₁) = 40 → 8x₁ = 40",result:"x₁* = <b>5</b>"},
+      {label:"Step 6: Recover x₂*",formula:"x₂* = 20 − 2(5)",result:"x₂* = <b>10</b>. Optimal bundle: <b>(5, 10)</b>."},
+    ]
+  },
+  {
+    title:"Problem 5 — Full Optimisation (Method 2: Constrained Max)",
+    desc:"Same problem: u = x₁x₂, p₁=4, p₂=2, m=40. Solve using constrained maximisation.",
+    steps:[
+      {label:"Step 1: Substitute BL into u",formula:"x₂ = 20−2x₁. u = x₁·(20−2x₁) = 20x₁ − 2x₁²",result:"u as single-variable function of x₁"},
+      {label:"Step 2: Differentiate",formula:"du/dx₁ = 20 − 4x₁",result:"Single-variable derivative (NOT partial)"},
+      {label:"Step 3: Set = 0 (FOC)",formula:"20 − 4x₁ = 0 → x₁* = 5",result:"x₁* = <b>5</b>"},
+      {label:"Step 4: Recover x₂*",formula:"x₂* = 20 − 2(5) = 10",result:"x₂* = <b>10</b>. Same answer as Method 1 ✓"},
+      {label:"Key trap",formula:"After substituting the BL, u depends on x₁ ONLY. Take du/dx₁, NOT ∂u/∂x₁.",result:"<b>Single-variable derivative, not partial — x₂ is no longer independent.</b>"},
+    ]
+  },
+  {
+    title:"Problem 6 — Karim (w = 40)",
+    desc:"u(t,c) = (t−6)²(c−45), w = 40. Find t* and c*.",
+    steps:[
+      {label:"Step 1: Budget line",formula:"c = w(24−t) = 40(24−t) = 960 − 40t",result:"BL: c = 960 − 40t"},
+      {label:"Step 2: MRS",formula:"MUₜ = 2(t−6)(c−45), MU꜀ = (t−6)². MRS = 2(c−45)/(t−6)",result:"MRS formula"},
+      {label:"Step 3: Set MRS = MRT = 40",formula:"2(c−45)/(t−6) = 40 → c−45 = 20(t−6)",result:"c = 20(t−6) + 45 = 20t − 75"},
+      {label:"Step 4: Substitute into BL",formula:"960−40t = 20t−75 → 1035 = 60t",result:"t* = <b>1035/60 = 17.25 hours</b>"},
+      {label:"Step 5: Recover c*",formula:"c* = 40(24−17.25) = 40(6.75)",result:"c* = <b>€270</b>. Works 6.75 hrs/day."},
+      {label:"Note on wage independence",formula:"For Karim's specific utility function, t* ≈ 17 regardless of w. Consumption c* rises with w.",result:"<b>This is a special property of this utility form — always verify with the algebra.</b>"},
+    ]
+  },
+  {
+    title:"Problem 7 — BL Shift Analysis",
+    desc:"Original: p₁=3, p₂=6, m=60. Then p₁ rises to 6. Describe the change graphically.",
+    steps:[
+      {label:"Step 1: Original BL",formula:"x₂ = 60/6 − (3/6)x₁ = 10 − (1/2)x₁. Horizontal intercept: 60/3=20",result:"Slope = −1/2, x₂-intercept = 10, x₁-intercept = 20"},
+      {label:"Step 2: New BL (p₁=6)",formula:"x₂ = 60/6 − (6/6)x₁ = 10 − x₁. Horizontal intercept: 60/6=10",result:"Slope = −1, x₂-intercept = <b>10 (unchanged)</b>, x₁-intercept = <b>10</b>"},
+      {label:"Step 3: Describe the change",formula:"x₂-intercept fixed. x₁-intercept shrank from 20 to 10. Slope doubled in magnitude.",result:"<b>BL pivots inward around the x₂-intercept.</b> Good 1 is now relatively more expensive."},
+      {label:"Key insight",formula:"The vertical intercept is m/p₂ — unchanged because p₂ and m didn't change.",result:"<b>A p₁ change NEVER moves the x₂-intercept.</b>"},
+    ]
+  },
+  {
+    title:"Problem 8 — MRS vs MRT Check",
+    desc:"u(x₁,x₂)=x₁²x₂, p₁=2, p₂=4, m=60. At bundle (6,9): is the consumer at the optimum? If not, what should they do?",
+    steps:[
+      {label:"Step 1: Compute MRS",formula:"MU₁=2x₁x₂=2(6)(9)=108. MU₂=x₁²=36. MRS=108/36",result:"MRS = <b>3</b>"},
+      {label:"Step 2: Compute MRT",formula:"MRT = p₁/p₂ = 2/4",result:"MRT = <b>0.5</b>"},
+      {label:"Step 3: Compare",formula:"MRS = 3 > MRT = 0.5",result:"NOT at optimum — consumer values good 1 far more than its market cost."},
+      {label:"Step 4: Action",formula:"MRS > MRT → buy more of good 1 (and give up good 2) until MRS falls to 0.5",result:"<b>Move right along BL by increasing x₁ and reducing x₂.</b>"},
+    ]
+  },
+];
 const calcProblemsByPrefix_placeholder=null; // moved below
 let calcCurrentPrefix='ch3';
-function getCalcProblems(prefix){return({ch3:calcProblems,ps1:calcProblemsPS1,ps2:calcProblemsPS2,lec1:calcProblemsLec1})[prefix]||calcProblems;}
+function getCalcProblems(prefix){return({ch2:calcProblemsCh2,ch3:calcProblems,ps1:calcProblemsPS1,ps2:calcProblemsPS2,lec1:calcProblemsLec1})[prefix]||calcProblems;}
 function initCalcFor(prefix){calcCurrentPrefix=prefix;calcIdx=0;calcStep=0;calcRevealed=false;renderCalcFor(prefix);}
 function renderCalcFor(prefix){
   const problems=getCalcProblems(prefix);
@@ -2167,7 +2450,26 @@ function renderMicroWeakSpots(prefix){
   const s=microQState[prefix];const ws=document.getElementById('mq'+prefix+'-weak');if(!ws)return;
   if(!s.wrongs.length){ws.innerHTML='<div class="weak-title">💪 Perfect score!</div>';return;}
   const topics=[...new Set(s.wrongs.map(q=>q.topic))];
-  const tips={'EU Formula':'Review the EU = Σpᵢu(xᵢ) formula — apply u() before weighting','Risk Attitudes':'Use the Compare tab to see concave/convex/linear side by side','CE & Risk Premium':'Practice the 3-step CE calculation in the Calculator tab','Insurance Budget Line':'Re-derive the slope and endowment point for Martina','Fair vs Unfair Insurance':'Check MRS=MRT implications: γ=p → full, γ>p → partial','Optimality Condition':'Remember: MRS includes probability weights, MRT uses γ not p','Calculation Steps':'Use the Calculator tab — step through Problems 3 and 6','Lotteries':'Review the formal definition: L = {p₁,x₁; p₂,x₂; …}','Connections':'Review Section 2.1 — same framework as Ch2, just reinterpreted'};
+  const tips={
+    'EU Formula':'Review the EU = Σpᵢu(xᵢ) formula — apply u() before weighting',
+    'Risk Attitudes':'Use the Compare tab to see concave/convex/linear side by side',
+    'CE & Risk Premium':'Practice the 3-step CE calculation in the Calculator tab',
+    'Insurance Budget Line':'Re-derive the slope and endowment point for Martina',
+    'Fair vs Unfair Insurance':'Check MRS=MRT implications: γ=p → full, γ>p → partial',
+    'Optimality Condition':'Remember: MRS includes probability weights, MRT uses γ not p',
+    'Calculation Steps':'Use the Calculator tab — step through Problems 3 and 6',
+    'Lotteries':'Review the formal definition: L = {p₁,x₁; p₂,x₂; …}',
+    'Connections':'Review Section 2.1 — same framework as Ch2, just reinterpreted',
+    'Utility':'Utility is ordinal — only ranking matters, not magnitude. Review the Summary tab.',
+    'MRS':'MRS = MU₁/MU₂ — MU₁ (horizontal axis good) always in the numerator. Practice Problems 1–3.',
+    'Budget':'Memorise: slope = −p₁/p₂ = MRT; vertical intercept = m/p₂; horizontal = m/p₁.',
+    'Indifference Curves':'Review the three properties and what each implies about IC shape.',
+    'Preferences':'Monotonicity → slope down; Transitivity → never cross; Convexity → bow in.',
+    'Optimality':'At optimum: MRS=MRT. If MRS>MRT buy more x₁; if MRS<MRT buy less.',
+    'Methods':'Practice both methods in the Calculator — they must give the same answer.',
+    'Comparative Statics':'Review BL shift rules: p₁ rise = pivot around x₂-intercept; m rise = parallel shift.',
+    'Bundles':'A bundle = (x₁,x₂) — a point in the diagram. Each point is one possible consumption choice.'
+  };
   let html='<div class="weak-title">Focus on these topics:</div>';
   topics.forEach(t=>{html+='<div class="weak-item"><span class="weak-item-icon">⚠️</span><div><div class="weak-item-text">'+t+'</div><div class="weak-item-tip">'+(tips[t]||'Review this topic in the summary')+'</div></div></div>'});
   ws.innerHTML=html;
