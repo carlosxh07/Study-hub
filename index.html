@@ -257,6 +257,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
     <button class="nav-btn active" data-color="dash" onclick="showPage('dashboard',this)"><span class="nav-dot" style="background:var(--text3)"></span>Dashboard</button>
     <div class="nav-label">EU Law</div>
     <button class="nav-btn" data-color="eu" onclick="showPage('eu-overview',this)"><span class="nav-dot" style="background:var(--eu)"></span>All Sessions</button>
+    <button class="nav-sub" onclick="showLecture('eu','i',this)">Session I</button>
     <button class="nav-sub" onclick="showLecture('eu','iii',this)">Session III</button>
     <button class="nav-sub" onclick="showLecture('eu','v',this)">Session V</button>
     <button class="nav-sub" onclick="showLecture('eu','vi',this)">Session VI</button>
@@ -292,7 +293,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
     <div class="subject-card sc-eu" onclick="showPage('eu-overview',null)">
       <div class="sc-name">EU Law</div><div class="sc-meta">Sessions · Prof. Adrian Cloer</div>
       <div class="sc-progress"><div class="sc-progress-fill" style="width:14%;background:var(--eu)"></div></div>
-      <div class="sc-stats"><div class="sc-stat"><strong>3</strong> sessions loaded</div><div class="sc-stat"><strong>44</strong> flashcards</div><div class="sc-stat"><strong>35</strong> quiz Qs</div></div>
+      <div class="sc-stats"><div class="sc-stat"><strong>4</strong> sessions loaded</div><div class="sc-stat"><strong>79</strong> flashcards</div><div class="sc-stat"><strong>57</strong> quiz Qs</div></div>
     </div>
     <div class="subject-card sc-micro" onclick="showPage('micro-overview',null)">
       <div class="sc-name">Microeconomics</div><div class="sc-meta">Chapters · Microeconomics 1</div>
@@ -323,13 +324,222 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
   <div class="page-title">All Sessions</div>
   <div class="page-desc">Select a session to access its summary, flashcards, quiz, and interactive tools.</div>
   <div class="lectures-list">
-    <div class="lec-card empty"><div class="lec-num" style="background:var(--eu-l);color:var(--eu)">01</div><div class="lec-info"><div class="lec-title">Session I</div><div class="lec-sub">Not yet added</div></div><div class="lec-badges"><span class="lec-badge">Summary</span><span class="lec-badge">Cards</span><span class="lec-badge">Quiz</span></div></div>
+    <div class="lec-card" onclick="showLecture('eu','i',null)"><div class="lec-num" style="background:var(--eu-l);color:var(--eu)">01</div><div class="lec-info"><div class="lec-title">Session I</div><div class="lec-sub">German Tax System, Double Taxation Conventions &amp; Digital Taxation</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Compare</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span></div></div>
     <div class="lec-card empty"><div class="lec-num" style="background:var(--eu-l);color:var(--eu)">02</div><div class="lec-info"><div class="lec-title">Session II</div><div class="lec-sub">Not yet added</div></div><div class="lec-badges"><span class="lec-badge">Summary</span><span class="lec-badge">Cards</span><span class="lec-badge">Quiz</span></div></div>
     <div class="lec-card" onclick="showLecture('eu','iii',null)"><div class="lec-num" style="background:var(--eu-l);color:var(--eu)">03</div><div class="lec-info"><div class="lec-title">Session III</div><div class="lec-sub">Roman Law, Byzantine Empire &amp; Legal Foundations of Europe</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Timeline</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span></div></div>
     <div class="lec-card empty"><div class="lec-num" style="background:var(--eu-l);color:var(--eu)">04</div><div class="lec-info"><div class="lec-title">Session IV</div><div class="lec-sub">Not yet added</div></div><div class="lec-badges"><span class="lec-badge">Summary</span><span class="lec-badge">Cards</span><span class="lec-badge">Quiz</span></div></div>
     <div class="lec-card" onclick="showLecture('eu','v',null)"><div class="lec-num" style="background:var(--eu-l);color:var(--eu)">05</div><div class="lec-info"><div class="lec-title">Session V</div><div class="lec-sub">Wrap-Up: BEPS · Legal Systems · EU History</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span></div></div>
     <div class="lec-card" onclick="showLecture('eu','vi',null)"><div class="lec-num" style="background:var(--eu-l);color:var(--eu)">06</div><div class="lec-info"><div class="lec-title">Session VI</div><div class="lec-sub">Nature of EU Law · 5 Landmark Cases · Decision Tree</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span><span class="lec-badge has">Interactive</span></div></div>
     <div class="lec-card empty"><div class="lec-num" style="background:var(--eu-l);color:var(--eu)">07+</div><div class="lec-info"><div class="lec-title">More sessions coming</div><div class="lec-sub">Share your notes to add the next session</div></div><div class="lec-badges"><span class="lec-badge">Summary</span><span class="lec-badge">Cards</span><span class="lec-badge">Quiz</span></div></div>
+  </div>
+</div>
+
+<!-- ══ SESSION I ══ -->
+<div id="page-eu-i" class="page">
+  <div class="page-eyebrow" style="color:var(--eu)">EU Law · Session I</div>
+  <div class="page-title">German Tax System, DTCs &amp; Digital Taxation</div>
+  <div class="page-desc">From §3 GFC tax definition through Germany–Luxembourg DTC analysis to BEPS, Pillar 2, and the digital tax gap.</div>
+  <div class="study-tabs">
+    <button class="study-tab active" onclick="showTab('si','summary',this)">Summary</button>
+    <button class="study-tab" onclick="showTab('si','compare',this)">Compare</button>
+    <button class="study-tab" onclick="showTab('si','flashcards',this)">Flashcards</button>
+    <button class="study-tab" onclick="showTab('si','quiz',this)">Quiz</button>
+  </div>
+
+  <!-- SUMMARY -->
+  <div id="si-summary" class="study-panel active">
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-eu">A. What Is a Tax? — §3 German Fiscal Code (GFC)</span></div>
+      <p>A payment qualifies as a tax only if <strong>all five elements</strong> are present simultaneously:</p>
+      <ul>
+        <li><strong>Financial contribution</strong> — a payment in money</li>
+        <li><strong>Imposed by law as a matter of public authority</strong> — not contractual</li>
+        <li><strong>By a public-law body</strong> — state, Länder, or municipality</li>
+        <li><strong>Without consideration</strong> — no direct benefit flows back to the payer</li>
+        <li><strong>For the purpose of generating revenue</strong> — even as a secondary purpose</li>
+      </ul>
+      <p style="margin-top:8px">The <strong>"without consideration"</strong> element is the crucial legal distinction separating taxes from fees, contributions, and special levies.</p>
+      <div class="note-box">⚠️ <strong>Exam trap:</strong> Fees are NOT taxes. A fee (Gebühr) follows the equivalence principle — you receive a specific public service in return (e.g. passport fee, court fee). This distinction determines constitutional basis and jurisdiction.</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-teal">B. Germany's Tax System — Key Rates</span></div>
+      <p>Effective combined rate on corporate income from a German PE: <strong>CIT 15% + Trade Tax ~14% + Solidarity Surcharge ~1% ≈ 30%</strong></p>
+      <ul>
+        <li><strong>Personal Income Tax (PIT):</strong> 0–45% progressive — individuals and partnerships (transparent entities)</li>
+        <li><strong>Corporate Income Tax (CIT):</strong> flat 15% — capital companies (GmbH, AG)</li>
+        <li><strong>Trade Tax (Gewerbesteuer):</strong> ~14%, levied by municipalities on trading profits</li>
+        <li><strong>Solidarity Surcharge:</strong> ~5.5% on CIT/PIT liability — effectively ~1% of gross income</li>
+        <li><strong>VAT:</strong> 0% / 7% (reduced: food, books) / 19% (standard)</li>
+        <li><strong>Real Estate Transfer Tax:</strong> 3.5–6.5% depending on Bundesland</li>
+      </ul>
+      <div class="note-box">Entity type is decisive: <strong>rectangle = capital company → CIT</strong> | <strong>triangle = partnership → transparent/PIT</strong> | <strong>circle = sole trader → PIT</strong> | <strong>oval = permanent establishment</strong></div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-amber">C. Residency &amp; Tax Liability — GFC §§8–11</span></div>
+      <table class="comp-table">
+        <tr><th>Status</th><th>Tax Obligation</th><th>Legal Basis</th></tr>
+        <tr><td><strong>Tax resident</strong> (unlimited liability)</td><td>Taxed on <em>worldwide</em> income</td><td>GFC §§8–11</td></tr>
+        <tr><td><strong>Non-resident</strong> (limited liability)</td><td>Taxed on <em>domestic/German-source</em> income only</td><td>GFC §§8–11</td></tr>
+      </table>
+      <p style="margin-top:10px">Residency criteria for capital companies: <strong>§10</strong> — effective place of management (where key decisions are made) and <strong>§11</strong> — seat/registered office (formal registration).</p>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-coral">D. The DTC Analytical Method — "Solution Key" <span class="badge b-eu" style="margin-left:6px">Exam Critical</span></span></div>
+      <p>Always follow this exact sequence for every DTC question:</p>
+      <ul>
+        <li><strong>Step 1 — State of Source (Germany):</strong> Establish Germany's domestic tax claim (~30% on PE profits)</li>
+        <li><strong>Step 2 — Personal Scope:</strong> Art. 1 + Art. 3 (is the entity a "person"?) + Art. 4 (is it "resident" in the other state?)</li>
+        <li><strong>Step 3 — Material Scope:</strong> Art. 2 — does the DTC cover this type of tax?</li>
+        <li><strong>Step 4 — Income Type &amp; General Rule:</strong> Art. 7 para. 1 — business profits taxed in state of residence <em>only</em></li>
+        <li><strong>Step 5 — PE Exception:</strong> Art. 7 para. 1 S1 HS2 — if a PE exists in Germany, Germany MAY tax</li>
+        <li><strong>Step 6 — Auxiliary Activity Check:</strong> Art. 5 para. 4 — storage/delivery = auxiliary → NOT a PE → Germany cannot tax</li>
+      </ul>
+      <div class="note-box">⚠️ <strong>The ACo result:</strong> LuxCo's German warehouse is "auxiliary" under Art. 5 para. 4 → no treaty PE → Germany gets nothing. This is the Amazon/Google loophole in one rule.</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-purple">E. The OECD, BEPS &amp; Digital Tax Gap</span></div>
+      <ul>
+        <li><strong>OECD:</strong> 38 member states, Paris-based, advisory only — NOT binding, NOT an EU body. Produces the Model Tax Convention (MTC), which is the template for all bilateral DTCs.</li>
+        <li><strong>Digital tax gap:</strong> No physical presence = no PE = no German taxing right. Spotify, Netflix, Google deliver services without ever being physically present → zero German income tax.</li>
+        <li><strong>BEPS:</strong> Base Erosion &amp; Profit Shifting — 15 OECD action points to ensure profits are taxed where economic activity occurs.</li>
+        <li><strong>EU response:</strong> (1) Digital Services Tax — 3% on gross digital revenues, Art. 113 TFEU legal basis. (2) Deemed/digital PE — significant digital presence counts as a PE.</li>
+      </ul>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-eu">F. Pillar 2 — Global Minimum Tax</span></div>
+      <p>Applies to: <strong>MNE groups with global turnover ≥ €750 million AND effective tax rate (ETR) &lt; 15%</strong></p>
+      <p style="margin-top:8px"><strong>ETR ≠ nominal rate.</strong> A company can have a 25% headline rate but a 5% ETR after deductions and structures. Pillar 2 targets the ETR.</p>
+      <ul>
+        <li><strong>IIR (Income Inclusion Rule):</strong> Top-down — the Ultimate Parent Entity (UPE) levies additional top-up tax on low-taxed subsidiaries. E.g. Hungarian sub pays 9% → German UPE charges extra 6%.</li>
+        <li><strong>UTPR (Undertaxed Payment Rule):</strong> Bottom-up backstop — if IIR doesn't catch it, other group countries step in.</li>
+        <li><strong>QDMTT:</strong> The low-tax country itself tops up to 15% first, before IIR applies.</li>
+      </ul>
+      <div class="note-box">Political fragility: Trump's election (Nov 2024) put the global deal "in peril" (FT). By Jan 2026, the US won exemptions. International tax cooperation depends entirely on political will.</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-teal">G. Germany's Social Security — Five Pillars</span></div>
+      <p>Social security contributions are <strong>NOT taxes</strong> — they are Beiträge (contributions). Payers receive a benefit in return (insurance/pension). Shared equally employer/employee except accident insurance (employer only).</p>
+      <table class="comp-table" style="margin-top:8px">
+        <tr><th>Pillar</th><th>Total Rate</th><th>Ceiling</th></tr>
+        <tr><td>Health insurance</td><td>14.6%</td><td>€69,750</td></tr>
+        <tr><td>Nursing care insurance</td><td>3.6% + surcharge</td><td>€69,750</td></tr>
+        <tr><td>Pension insurance</td><td>18.6%</td><td>€101,400</td></tr>
+        <tr><td>Unemployment insurance</td><td>2.6%</td><td>€101,400</td></tr>
+        <tr><td>Accident insurance</td><td>Employer only</td><td>No ceiling</td></tr>
+      </table>
+      <p style="margin-top:8px"><strong>Tax wedge:</strong> 41.3% (European Commission, 2021) — total employer cost minus employee net pay as a percentage.</p>
+    </div>
+  </div>
+
+  <!-- COMPARE -->
+  <div id="si-compare" class="study-panel">
+    <div class="sum-card">
+      <div class="sum-title">Tax vs. Fee vs. Contribution vs. Special Levy</div>
+      <table class="comp-table">
+        <tr><th>Feature</th><th>Tax</th><th>Fee (Gebühr)</th><th>Contribution (Beitrag)</th><th>Special Levy</th></tr>
+        <tr><td><strong>Legal basis</strong></td><td>§3 GFC</td><td>Set by law</td><td>Set by law</td><td>Set by law</td></tr>
+        <tr><td><strong>Who pays</strong></td><td>General public</td><td>Specific user</td><td>Specific group</td><td>Specific group</td></tr>
+        <tr><td><strong>Benefit in return</strong></td><td>None</td><td>Direct specific service</td><td>Potential future use</td><td>None (like tax)</td></tr>
+        <tr><td><strong>Key principle</strong></td><td>No consideration</td><td>Equivalence principle</td><td>Benefit potential</td><td>Group-specific financing</td></tr>
+        <tr><td><strong>Example</strong></td><td>CIT, PIT, VAT</td><td>Passport fee, court fee</td><td>Social insurance</td><td>Industry training levy</td></tr>
+      </table>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">Pillar 2 — IIR vs UTPR vs QDMTT</div>
+      <table class="comp-table">
+        <tr><th>Feature</th><th>IIR</th><th>UTPR</th><th>QDMTT</th></tr>
+        <tr><td><strong>Direction</strong></td><td>Top-down</td><td>Bottom-up</td><td>Within source country</td></tr>
+        <tr><td><strong>Who acts</strong></td><td>UPE (parent entity country)</td><td>Other group countries</td><td>The low-tax country itself</td></tr>
+        <tr><td><strong>When triggered</strong></td><td>Subsidiary ETR &lt; 15%</td><td>IIR doesn't fully collect</td><td>ETR &lt; 15% in that country</td></tr>
+        <tr><td><strong>Priority</strong></td><td>First mechanism</td><td>Backstop</td><td>Applied before IIR</td></tr>
+        <tr><td><strong>Example</strong></td><td>German parent tops up Hungarian sub</td><td>Another group country steps in</td><td>Hungary taxes itself to 15% first</td></tr>
+      </table>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">DTC Analysis — The Full Decision Chain</div>
+      <table class="comp-table">
+        <tr><th>Step</th><th>Question</th><th>Article</th><th>ACo Result</th></tr>
+        <tr><td><strong>1</strong></td><td>Does Germany have a domestic tax claim?</td><td>§2 CIT / §49 PIT</td><td>✓ Yes — ~30%</td></tr>
+        <tr><td><strong>2a</strong></td><td>Is the entity a "person"?</td><td>Art. 3 DTC</td><td>✓ Capital company qualifies</td></tr>
+        <tr><td><strong>2b</strong></td><td>Is the entity "resident" in the other state?</td><td>Art. 4 DTC</td><td>✓ LuxCo registered + managed in Luxembourg</td></tr>
+        <tr><td><strong>3</strong></td><td>Does the DTC cover this type of tax?</td><td>Art. 2 DTC</td><td>✓ CIT + Trade Tax covered</td></tr>
+        <tr><td><strong>4</strong></td><td>General rule for business profits?</td><td>Art. 7 para. 1</td><td>→ Taxed in Luxembourg only</td></tr>
+        <tr><td><strong>5</strong></td><td>Is there a PE exception?</td><td>Art. 7 para. 1 S1 HS2</td><td>If PE exists → Germany may tax</td></tr>
+        <tr><td><strong>6</strong></td><td>Is the warehouse activity auxiliary?</td><td>Art. 5 para. 4</td><td>✓ Storage = auxiliary → No PE → Germany cannot tax</td></tr>
+      </table>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">Methods to Avoid Double Taxation</div>
+      <table class="comp-table">
+        <tr><th>Method</th><th>How it works</th><th>Effect</th></tr>
+        <tr><td><strong>Exemption method</strong></td><td>The residence state does not tax income already taxable at source</td><td>Income exempt from residence-state tax entirely</td></tr>
+        <tr><td><strong>Credit method</strong></td><td>The residence state taxes but grants a deduction for taxes paid at source</td><td>Income taxed once; credit offsets double liability</td></tr>
+      </table>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">Common Exam Traps — Session I</div>
+      <table class="comp-table">
+        <tr><th>Trap</th><th>Wrong assumption</th><th>Correct answer</th></tr>
+        <tr><td>Fees = taxes</td><td>All compulsory payments are taxes</td><td>Fees give a specific service in return — equivalence principle applies</td></tr>
+        <tr><td>Warehouse = PE</td><td>Any physical presence creates a PE</td><td>Art. 5 para. 4 specifically excludes auxiliary activities (storage, delivery)</td></tr>
+        <tr><td>OECD = EU body</td><td>OECD has binding power over EU MS</td><td>OECD is advisory only; 38 global members; not part of EU</td></tr>
+        <tr><td>Pillar 2 = all companies</td><td>Any company paying &lt;15% tax is caught</td><td>Only MNE groups with global turnover ≥ €750m are in scope</td></tr>
+        <tr><td>ETR = nominal rate</td><td>Statutory 25% rate means 25% ETR</td><td>ETR is actual tax paid after deductions — can be far lower than nominal rate</td></tr>
+        <tr><td>Digital MNEs pay no tax anywhere</td><td>They evade all taxes globally</td><td>They pay tax where resident (Luxembourg, Ireland) — problem is WHERE, not whether</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- FLASHCARDS -->
+  <div id="si-flashcards" class="study-panel">
+    <div class="fc-controls">
+      <button class="btn btn-sm" onclick="shuffleFC('si')">Shuffle</button>
+      <button class="btn btn-sm" onclick="resetFC('si')">Reset all</button>
+      <span style="font-size:12px;color:var(--text3);margin-left:4px">Rate each card to focus on what you don't know yet</span>
+    </div>
+    <div class="fc-sr-bar" id="si-sr-bar"></div>
+    <div id="si-fc-wrap">
+      <div class="flashcard-wrap"><div class="flashcard" id="si-fc-card" onclick="flipFC('si')">
+        <div class="fc-face fc-front"><div class="fc-label">Question</div><div class="fc-question" id="si-fc-q"></div><div class="fc-hint">Click to reveal answer</div></div>
+        <div class="fc-face fc-back"><div class="fc-label">Answer</div><div class="fc-answer" id="si-fc-a"></div><div class="fc-src" id="si-fc-src"></div></div>
+      </div></div>
+      <div class="sr-btns">
+        <button class="sr-btn sr-btn-hard" onclick="rateFC('si',0)">😬 Still learning</button>
+        <button class="sr-btn sr-btn-ok" onclick="rateFC('si',1)">🤔 Almost</button>
+        <button class="sr-btn sr-btn-easy" onclick="rateFC('si',2)">✓ Got it</button>
+      </div>
+      <div class="sr-mode-note" id="si-sr-note">Card <span id="si-fc-counter">1</span> of <span id="si-fc-total">1</span></div>
+    </div>
+    <div class="fc-sr-done" id="si-fc-done" style="display:none">
+      <h3>Session complete! 🎉</h3>
+      <p id="si-done-msg"></p>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:16px">
+        <button class="btn btn-primary" onclick="reviewWeak('si')">Review weak cards</button>
+        <button class="btn" onclick="resetFC('si')">Start over</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUIZ -->
+  <div id="si-quiz" class="study-panel">
+    <div id="si-quiz-wrap">
+      <div class="quiz-prog"><div class="quiz-prog-fill" id="si-qpfill" style="width:0%"></div></div>
+      <div class="quiz-meta" id="si-q-meta"></div>
+      <div class="quiz-q" id="si-q-text"></div>
+      <div class="quiz-opts" id="si-q-opts"></div>
+      <div class="quiz-fb" id="si-q-fb"></div>
+      <div id="si-q-next" style="display:none"><button class="btn btn-primary" onclick="nextQ('si')">Next →</button></div>
+    </div>
+    <div class="quiz-score-screen" id="si-quiz-score">
+      <div class="score-row">
+        <div class="score-big" id="si-score-big"></div>
+        <div class="score-right"><div class="score-lbl">correct answers</div><div class="score-msg" id="si-score-msg"></div></div>
+      </div>
+      <div class="weak-section" id="si-weak-section"></div>
+      <div style="margin-top:20px;display:flex;gap:10px">
+        <button class="btn btn-primary" onclick="restartQuiz('si')">Try again</button>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -1856,7 +2066,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
 <script>
 // ── Navigation ──
 function showPage(id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));document.getElementById('page-'+id).classList.add('active');if(btn)btn.classList.add('active')}
-function showLecture(subject,id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-sub').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');const el=document.getElementById('page-'+subject+'-'+id);if(el){el.classList.add('active');if(subject==='eu'&&id==='iii'){initFC('siii');initQuiz('siii');initSiiiTimeline()}if(subject==='eu'&&id==='v'){initFC('sv');initQuiz('sv')}if(subject==='eu'&&id==='vi'){initFC('svi');initQuiz('svi');loadScenario(0,document.querySelector('.scenario-btn'))}if(subject==='micro'&&id==='ch2'){initMicroFC('ch2');initMicroQuiz('ch2');initCalcFor('ch2')}
+function showLecture(subject,id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-sub').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');const el=document.getElementById('page-'+subject+'-'+id);if(el){el.classList.add('active');if(subject==='eu'&&id==='i'){initFC('si');initQuiz('si')}if(subject==='eu'&&id==='iii'){initFC('siii');initQuiz('siii');initSiiiTimeline()}if(subject==='eu'&&id==='v'){initFC('sv');initQuiz('sv')}if(subject==='eu'&&id==='vi'){initFC('svi');initQuiz('svi');loadScenario(0,document.querySelector('.scenario-btn'))}if(subject==='micro'&&id==='ch2'){initMicroFC('ch2');initMicroQuiz('ch2');initCalcFor('ch2')}
 if(subject==='micro'&&id==='ch3'){initMicroFC('ch3');initMicroQuiz('ch3');initCalc()}if(subject==='micro'&&id==='ps1'){initMicroFC('ps1');initMicroQuiz('ps1');initCalcFor('ps1')}if(subject==='micro'&&id==='ps2'){initMicroFC('ps2');initMicroQuiz('ps2');initCalcFor('ps2')}if(subject==='macro'&&id==='lec1'){initMacroFC('lec1');initMacroQuiz('lec1');initCalcFor('lec1')}if(subject==='macro'&&id==='lec2'){initMacroFC('lec2');initMacroQuiz('lec2');initCalcFor('lec2')}}}
 function showMacroTab(tab,btn,prefix){
   const page=document.getElementById('page-macro-'+prefix);if(!page)return;
@@ -1883,7 +2093,7 @@ function showMicroTab(tab,btn,prefix){
 }
 function toggleTl(card){const body=card.querySelector('.tl-body');const toggle=card.querySelector('.tl-toggle');body.classList.toggle('open');toggle.textContent=body.classList.contains('open')?'− Hide details':'+ Show details'}
 function showTab(prefix,tab,btn){
-  const pageMap={siii:'page-eu-iii',sv:'page-eu-v',svi:'page-eu-vi'};
+  const pageMap={si:'page-eu-i',siii:'page-eu-iii',sv:'page-eu-v',svi:'page-eu-vi'};
   const page=document.getElementById(pageMap[prefix]);
   if(!page)return;
   page.querySelectorAll('.study-panel').forEach(p=>p.classList.remove('active'));
@@ -1958,6 +2168,43 @@ function toggleSiiiTl(idx,filter){
 
 
 const fcDataMap={
+  si:[
+    {q:"What are the five elements required for a payment to qualify as a 'tax' under §3 GFC?",a:"(1) Financial contribution, (2) imposed by law as a matter of public authority, (3) by a public-law body, (4) without consideration (no direct benefit to payer), (5) for the purpose of generating revenue (even as a secondary purpose). ALL five must be present.",src:"§3 German Fiscal Code",topic:"Tax Definition"},
+    {q:"What is the crucial legal distinction between a tax and a fee?",a:"A fee (Gebühr) follows the equivalence principle — the payer receives a specific individual public service in return. A tax gives no direct benefit. This determines constitutional basis, jurisdiction, and the rules governing the obligation.",src:"§3 GFC / Session I",topic:"Tax Definition"},
+    {q:"What is a special levy (Sonderabgabe) and how does it differ from a tax?",a:"A compulsory payment imposed by law on a specific group (not the general public) for a group-specific financing purpose. Unlike a tax, it targets a defined group and the revenue must be used for that group's specific needs.",src:"§3 GFC / Session I",topic:"Tax Definition"},
+    {q:"What is the effective combined corporate tax rate on profits of a German PE?",a:"Approximately 30% — CIT (15%) + Trade Tax (~14%) + Solidarity Surcharge (~1%).",src:"German CIT-Code / TT-Code",topic:"German Taxes"},
+    {q:"What are the three VAT rates in Germany?",a:"0% (certain exempt supplies), 7% (reduced: food, books, cultural goods), 19% (standard rate for most goods and services).",src:"Session I / German Tax System",topic:"German Taxes"},
+    {q:"What is the difference between a tax resident and a non-resident taxpayer in Germany?",a:"A tax resident (unlimited liability) is taxed on their worldwide income. A non-resident (limited liability) is taxed only on German-source/domestic income. Determined by GFC §§8–11.",src:"GFC §§8–11",topic:"Residency"},
+    {q:"What four criteria determine tax residency under the German Fiscal Code?",a:"§8 — Residence (physical dwelling); §9 — Habitual abode (>6 months); §10 — Effective place of management (where key decisions are made); §11 — Seat/registered office (formal registration).",src:"GFC §§8–11",topic:"Residency"},
+    {q:"What is the three-step DTC analysis sequence (the 'solution key')?",a:"Step 1: Establish Germany's domestic tax claim. Step 2: Check personal scope (Art. 1/3/4) and material scope (Art. 2). Step 3: Identify income type (Art. 7), apply general rule, then check whether PE exception (Art. 5) applies.",src:"Session I Solution Key",topic:"DTC Analysis"},
+    {q:"Under Art. 7 para. 1 of the OECD MTC, where are business profits of a Luxembourg-resident company taxed as a general rule?",a:"Luxembourg only — the state of residence. Germany cannot tax them under the general rule. The exception applies only if there is a PE in Germany.",src:"Art. 7 para. 1 OECD MTC",topic:"DTC Analysis"},
+    {q:"Why does the ACo warehouse NOT constitute a PE under the Germany–Luxembourg DTC?",a:"Art. 5 para. 4 OECD MTC excludes auxiliary and preparatory activities from the PE definition. Storage and delivery functions are classified as auxiliary — therefore no PE exists under the treaty, even if domestic law would recognise one.",src:"Art. 5 para. 4 OECD MTC",topic:"DTC Analysis"},
+    {q:"What is the personal scope check in a DTC analysis?",a:"Art. 1 + Art. 3 para. 1: is the entity a 'person'? (capital companies qualify). Art. 4: is the entity 'resident' in the other state? (registered office or effective management there). Both must be satisfied for the DTC to apply.",src:"Art. 1/3/4 OECD MTC",topic:"DTC Analysis"},
+    {q:"What is the material scope check in a DTC analysis?",a:"Art. 2 para. 1 and 3 confirm whether the DTC covers the type of tax in question (e.g. German CIT and trade tax). This must be confirmed before applying the substantive allocation rules.",src:"Art. 2 OECD MTC",topic:"DTC Analysis"},
+    {q:"What is the OECD and what is its legal status relative to the EU?",a:"The OECD (Organisation for Economic Co-operation and Development) is an international advisory body of 38 industrialised countries, headquartered in Paris. It is NOT an EU body. Its recommendations are not binding — countries implement them voluntarily.",src:"Session I / OECD overview",topic:"OECD & MTC"},
+    {q:"What is the OECD Model Tax Convention (MTC) and why does it matter?",a:"The MTC is the OECD's template for bilateral double taxation conventions. All bilateral DTCs are modelled on it. The MTC Commentary provides interpretive guidance. Not binding, but universally influential.",src:"OECD MTC / Session I",topic:"OECD & MTC"},
+    {q:"What was the predecessor to the OECD and what was its original purpose?",a:"The OECC (Organisation for European Economic Co-operation), established to distribute Marshall Plan funds to European countries after WWII. The OECD succeeded it with a broader mandate.",src:"Session I / OECD history",topic:"OECD & MTC"},
+    {q:"What is the 'Amazon model' loophole in international tax law?",a:"A PE may exist under domestic law (warehouse) but NOT under the treaty (because the DTC classifies it as auxiliary under Art. 5 para. 4). The treaty rule prevails, eliminating Germany's taxing right. Storage and delivery = auxiliary = no PE.",src:"Session I / 'Amazon model'",topic:"Digital Tax Gap"},
+    {q:"Why can't Germany tax the profits of digital MNEs like Spotify or Netflix?",a:"Traditional rules require a permanent establishment (physical presence) before a source state can tax. Digital companies deliver services without any physical presence in Germany. No PE = no taxing right under the DTC.",src:"Session I / Digital tax gap",topic:"Digital Tax Gap"},
+    {q:"What does BEPS stand for and what was its purpose?",a:"Base Erosion and Profit Shifting. OECD project with 15 action points, designed to counter aggressive tax structuring by MNEs that shift profits to low-tax jurisdictions and erode the tax base of higher-tax countries.",src:"OECD BEPS / Session I",topic:"BEPS & Pillar 2"},
+    {q:"What are the two methods for avoiding double taxation under a DTC?",a:"(1) Exemption method: the residence state does not tax income already taxable at source. (2) Credit method: the residence state taxes but grants a credit for taxes paid at source.",src:"Art. 22 OECD MTC / Session I",topic:"DTC Analysis"},
+    {q:"What is the EU's two-step solution to the digital tax gap?",a:"Step 1: Digital Services Tax (DST) — 3% on gross revenues from digital services, Art. 113 TFEU legal basis, interim measure. Step 2: Deemed/digital PE — significant digital presence counts as a PE, giving source states the right to tax digital profits.",src:"EU Commission proposal 2018 / Session I",topic:"Digital Tax Gap"},
+    {q:"What is Pillar 2 and who does it apply to?",a:"OECD's global minimum tax initiative. Applies only to MNE groups with global turnover ≥ €750 million AND an effective tax rate (ETR) below 15%. Ensures these groups pay at least 15% tax worldwide.",src:"OECD Pillar 2 / Session I",topic:"BEPS & Pillar 2"},
+    {q:"What is the difference between ETR and nominal tax rate in the context of Pillar 2?",a:"The nominal rate is the statutory percentage set by law. The ETR (Effective Tax Rate) is the actual percentage paid after all deductions, credits, and structures. A company can have a 25% nominal rate but a 5% ETR. Pillar 2 targets ETR < 15%.",src:"Pillar 2 / Session I",topic:"BEPS & Pillar 2"},
+    {q:"What is the IIR (Income Inclusion Rule) in Pillar 2?",a:"The first, top-down component of Pillar 2 — the Ultimate Parent Entity (UPE) levies additional top-up tax on low-taxed subsidiaries to reach 15% ETR. Example: Hungarian subsidiary pays 9% → German UPE charges an additional 6%.",src:"Pillar 2 / Session I",topic:"BEPS & Pillar 2"},
+    {q:"What is the UTPR (Undertaxed Payment Rule) in Pillar 2?",a:"The second, bottom-up backstop component of Pillar 2. If the IIR does not fully collect the top-up tax, other countries in the MNE group can step in and impose it — a safety net mechanism.",src:"Pillar 2 / Session I",topic:"BEPS & Pillar 2"},
+    {q:"What is a QDMTT (Qualified Domestic Minimum Top-Up Tax)?",a:"A mechanism allowing a low-tax country to top itself up to 15% before another country (via IIR) does so. Example: instead of Germany collecting the top-up on a Hungarian subsidiary, Hungary levies the extra 6% itself through its QDMTT.",src:"Pillar 2 / Session I",topic:"BEPS & Pillar 2"},
+    {q:"What is Germany's social security 'tax wedge' and what does it represent?",a:"41.3% (European Commission, 2021). Represents total employer cost minus employee net pay, expressed as a percentage — showing how much of total labour cost is taken by taxes and social contributions before the worker receives it.",src:"European Commission 2021 / Session I",topic:"Social Security"},
+    {q:"Why are social security contributions in Germany NOT classified as taxes under §3 GFC?",a:"They are Beiträge (contributions) — payers receive a benefit in return: health coverage, pension entitlement, unemployment protection. Taxes by definition give no direct benefit in return. This is the fundamental §3 GFC distinction.",src:"Session I / German Social Security",topic:"Social Security"},
+    {q:"What are the five pillars of Germany's social security system?",a:"(1) Health insurance (14.6%), (2) Nursing care insurance (3.6%+), (3) Pension insurance (18.6%), (4) Unemployment insurance (2.6%), (5) Accident insurance (employer only). First four are split equally employer/employee.",src:"Session I / German Social Security",topic:"Social Security"},
+    {q:"What is the contribution assessment ceiling for health and nursing care insurance in Germany?",a:"€69,750. Above this income level, no additional social security contributions are due for health or nursing care insurance. Pension and unemployment insurance have a higher ceiling of €101,400.",src:"Session I / German Social Security",topic:"Social Security"},
+    {q:"What is Art. 113 TFEU and why is it relevant to digital services taxation?",a:"Art. 113 TFEU authorises EU harmonisation of indirect taxation. It is the legal basis for the EU's proposed Digital Services Tax (DST). It requires unanimity among member states — a major political obstacle to the proposal.",src:"EU Commission DST proposal 2018",topic:"Digital Tax Gap"},
+    {q:"What is 'aggressive tax structuring'?",a:"Legal strategies used by MNEs to minimise tax through careful structuring of entities, transactions, and residency — legally permissible but considered contrary to the intent of tax rules. Sits between tax planning (legal) and tax evasion (illegal).",src:"Session I / OECD BEPS",topic:"BEPS & Pillar 2"},
+    {q:"What is the German trade tax (Gewerbesteuer) and how does it differ from CIT?",a:"Trade tax is a local business tax levied by municipalities on trading profits (~14%). Unlike CIT (federal, flat 15%), TT varies by municipality. A PE is required for trade tax — which is why digital MNEs with no PE also pay no trade tax in Germany.",src:"Sec. 2 para. 1 TT-Code / Session I",topic:"German Taxes"},
+    {q:"What are the entity types in the lecture legend and what tax applies to each?",a:"Rectangle = capital company (GmbH/AG) → CIT at entity level. Triangle = partnership → transparent, income taxed at partner level (PIT). Circle = sole trader → PIT. Oval = permanent establishment → no separate legal personality.",src:"Session I lecture",topic:"German Taxes"},
+    {q:"What was the political development regarding Pillar 2 in 2024–2026?",a:"Following Trump's election (Nov 2024), the global minimum corporate tax deal was put 'in peril' (FT). By January 2026, the US won exemptions from global minimum tax rules — showing international tax cooperation depends entirely on political will.",src:"FT Nov 2024 / FT Jan 2026",topic:"BEPS & Pillar 2"},
+    {q:"What is the UPE in the context of Pillar 2?",a:"Ultimate Parent Entity — the entity at the very top of an MNE group structure. Under the IIR, the UPE is the primary entity responsible for levying the top-up tax on low-taxed subsidiaries within its group.",src:"Pillar 2 / Session I",topic:"BEPS & Pillar 2"},
+  ],
   siii:[
     {q:"When was Rome traditionally founded, and by whom?",a:"21 April 753 BC by Romulus, who killed his twin brother Remus according to mythology.",src:"Session III — Roman Phases",topic:"Roman Phases"},
     {q:"What are the four phases of Roman history and their dates?",a:"Kingdom (753–510 BC), Republic (510–31 BC), Imperial Period (31 BC–476 AD), Late Antiquity (from ~284 AD / Diocletian Reform).",src:"Session III — Roman Phases",topic:"Roman Phases"},
@@ -2121,6 +2368,31 @@ function resetFC(prefix){
 
 // ── Quiz data ──
 const qDataMap={
+  si:[
+    {q:"Which of the following is NOT a required element for a payment to qualify as a 'tax' under §3 GFC?",opts:["The payer must consent to the payment","The payment must be imposed by law","The payment must be made without consideration","The payment must be for revenue generation"],ans:0,exp:"Taxes are imposed by public authority regardless of consent — this is fundamental to their nature. All other options (imposed by law, without consideration, for revenue) are genuine elements of §3 GFC.",topic:"Tax Definition"},
+    {q:"Germany wants to tax LuxCo's warehouse profits at ~30%. What is the correct breakdown?",opts:["CIT 20% + Trade Tax 10%","CIT 15% + Trade Tax ~14% + Solidarity Surcharge ~1%","CIT 15% + VAT 15%","PIT 30% flat"],ans:1,exp:"The ~30% effective rate on a German PE consists of CIT (15%), Trade Tax (~14%), and Solidarity Surcharge (~1%). VAT is a consumption tax — it does not apply to corporate profits.",topic:"German Taxes"},
+    {q:"Under Art. 7 para. 1 of the OECD MTC, where are business profits of a Luxembourg-resident company taxed as a general rule?",opts:["Germany, as the state of source","The United States, as the ultimate parent's home state","Luxembourg, as the state of residence","Split equally between Luxembourg and Germany"],ans:2,exp:"Art. 7 para. 1 general rule: profits shall be taxed in the state of residence only. The exception — allowing Germany to tax — only applies if there is a PE in Germany. The US has no role; the DTC is between Germany and Luxembourg.",topic:"DTC Analysis"},
+    {q:"Why does the ACo warehouse NOT constitute a PE under the Germany–Luxembourg DTC?",opts:["A warehouse is never a PE under any circumstances","Art. 5 para. 4 excludes auxiliary and preparatory activities from the PE definition","Art. 7 specifically exempts logistics companies","The warehouse is owned by a US company, so EU treaties don't apply"],ans:1,exp:"Art. 5 para. 4 OECD MTC lists auxiliary/preparatory activities (including storage, delivery) specifically excluded from the PE definition. This is the entire legal basis for the 'Amazon model' loophole.",topic:"DTC Analysis"},
+    {q:"What is the OECD's Model Tax Convention (MTC)?",opts:["A binding EU regulation on cross-border taxation","A template for bilateral double taxation conventions, produced by an advisory body","The German fiscal code's international chapter","A UN treaty ratified by all countries"],ans:1,exp:"The MTC is an OECD template — advisory, not binding. Countries use it as a starting point when negotiating bilateral DTCs, but can and do deviate. The OECD is not an EU body and has no enforcement mechanism.",topic:"OECD & MTC"},
+    {q:"Which of the following correctly states the Pillar 2 threshold?",opts:["All companies with any foreign subsidiary","MNE groups with turnover ≥ €750m AND nominal tax rate <15%","MNE groups with turnover ≥ €750m AND effective tax rate <15%","All companies paying less than 15% CIT in their home country"],ans:2,exp:"Pillar 2 applies to MNE groups with global turnover ≥ €750m AND an ETR (Effective Tax Rate) <15%. The distinction between ETR and nominal rate is exam-critical — a company can have a 25% nominal rate but a 5% ETR.",topic:"BEPS & Pillar 2"},
+    {q:"A German employee earns €80,000. Which social security contribution ceiling applies to their pension insurance?",opts:["€69,750","€101,400","No ceiling — pension insurance has no cap","The full salary is always the base"],ans:1,exp:"Pension insurance (and unemployment insurance) has a contribution ceiling of €101,400. Health and nursing care insurance have a lower ceiling of €69,750. Contributions are only due on income up to the relevant ceiling.",topic:"Social Security"},
+    {q:"What is the German 'tax wedge' according to the European Commission (2021)?",opts:["19% (the standard VAT rate)","30% (the effective corporate rate)","41.3%","15% (the CIT rate)"],ans:2,exp:"Germany's tax wedge is 41.3% — measuring total employer cost minus employee net pay as a percentage, capturing both taxes and social contributions. It is one of the highest in Europe.",topic:"Social Security"},
+    {q:"What is the correct step sequence for a DTC analysis?",opts:["Income type → Personal scope → Material scope → General rule → Exception","Personal scope → Material scope → Income type/general rule → Exception","Exception → General rule → Personal scope → Material scope","Material scope → Exception → Personal scope → Income type"],ans:1,exp:"The correct sequence: (1) Personal scope — does the DTC apply to these persons? (2) Material scope — does it cover this tax? (3) Income source + general allocation rule. (4) Exception check (PE). This mirrors the DTC's own structure.",topic:"DTC Analysis"},
+    {q:"A streaming company has no physical office in Germany but earns €500m from German subscribers. Can Germany tax its profits?",opts:["Yes — revenue from German residents is always taxable in Germany","No — without a physical PE, Germany has no taxing right under DTC rules","Yes — streaming counts as a deemed PE automatically","No — VAT captures all digital revenue so income tax doesn't apply"],ans:1,exp:"Under traditional rules, a source state can only tax a foreign company's profits if it has a PE there. No physical presence = no PE = no taxing right. This is the core of the digital tax gap — a deemed digital PE is exactly what the EU is trying to introduce.",topic:"Digital Tax Gap"},
+    {q:"What does BEPS stand for?",opts:["Bilateral European Profit System","Base Erosion and Profit Shifting","Business Entity Protection Standards","Brussels Economic Policy Standardisation"],ans:1,exp:"BEPS = Base Erosion and Profit Shifting — the erosion of the tax base in high-tax countries caused by MNEs shifting profits to low-tax jurisdictions. The OECD's BEPS project has 15 action points.",topic:"BEPS & Pillar 2"},
+    {q:"Under the IIR in Pillar 2, if a Hungarian subsidiary pays 9% effective tax, what happens?",opts:["Hungary pays nothing extra — 9% is accepted","The EU Commission imposes a penalty on Hungary","The UPE (e.g. in Germany) levies an additional 6% top-up to reach 15%","The subsidiary must relocate to a higher-tax country"],ans:2,exp:"Under the IIR, the Ultimate Parent Entity tops up the group's tax to 15%. If the subsidiary pays 9%, the UPE levies the remaining 6%. Alternatively, Hungary could impose a QDMTT itself. No EU penalty mechanism applies directly.",topic:"BEPS & Pillar 2"},
+    {q:"What is the legal basis for the EU's proposed Digital Services Tax?",opts:["Art. 107 TFEU (state aid rules)","Art. 113 TFEU (indirect taxation harmonisation)","Art. 288 TFEU (types of EU legal acts)","Art. 26 TFEU (internal market)"],ans:1,exp:"Art. 113 TFEU authorises EU harmonisation of indirect taxation — the DST is structured as an indirect tax on revenues, making Art. 113 the correct basis. It requires unanimity among member states, a major political challenge.",topic:"Digital Tax Gap"},
+    {q:"What is the difference between the exemption and credit methods for avoiding double taxation?",opts:["Exemption: source state doesn't tax; Credit: source state gives money back","Exemption: residence state doesn't tax income already taxable at source; Credit: residence state taxes but deducts taxes paid at source","They are identical in effect","Exemption applies to individuals; Credit applies to companies"],ans:1,exp:"Exemption = the residence state simply excludes the foreign income from its tax base. Credit = the residence state includes the income but grants a deduction for taxes already paid at source. Both prevent the same income being taxed twice.",topic:"DTC Analysis"},
+    {q:"Why are social security contributions in Germany NOT classified as taxes under §3 GFC?",opts:["Because they are paid by employers, not employees","Because they are optional","Because payers receive a benefit in return (insurance coverage/pension entitlement)","Because they are collected by private companies"],ans:2,exp:"Social security contributions are Beiträge — contributors receive a benefit in return: health coverage, pension entitlement, unemployment protection. Taxes give no direct benefit. Both are mandatory; both are administered by public bodies.",topic:"Social Security"},
+    {q:"In the DTC personal scope analysis, why does LuxCo satisfy Art. 4 (residency) of the DTC?",opts:["Because it is ultimately owned by a US company","Because its warehouses are in Germany","Because its registered office and/or effective place of management is in Luxembourg","Because it has been operating for more than 5 years"],ans:2,exp:"Art. 4 DTC defines residency by domicile, residence, place of management, or registered office. LuxCo is incorporated and managed in Luxembourg — it satisfies Art. 4 as a Luxembourg resident. US ownership and warehouse location are irrelevant.",topic:"DTC Analysis"},
+    {q:"What does Art. 5 para. 4 'auxiliary activities' mean for an MNE operating a warehouse in Germany?",opts:["The warehouse is automatically a PE and Germany can tax all profits","The warehouse is excluded from PE status if it only performs storage/delivery functions","The warehouse must pay German VAT but not income tax","The warehouse owner must register for CIT at a reduced rate"],ans:1,exp:"Art. 5 para. 4 OECD MTC explicitly excludes auxiliary and preparatory activities — including storage, display, delivery, and purchasing — from the PE definition. If a warehouse only performs these functions, it is not a PE and Germany cannot tax.",topic:"DTC Analysis"},
+    {q:"The OECD has 38 member states. Which best describes its legislative authority?",opts:["It can issue binding directives like the EU","It is a UN agency with mandatory enforcement powers","It is an advisory body — its recommendations must be voluntarily adopted through domestic law","It has legislative power only over EU member states"],ans:2,exp:"The OECD is advisory only — no binding legislative power. It produces recommendations, model conventions, and best-practice guidance. Countries implement these voluntarily through domestic legislation and bilateral treaty negotiations.",topic:"OECD & MTC"},
+    {q:"Why do digital MNEs like Spotify pay no trade tax in Germany?",opts:["Trade tax only applies to German companies","Streaming services are specifically exempted by statute","Trade tax requires a PE — and digital companies have no PE in Germany under treaty rules","Trade tax was abolished for all digital services in 2022"],ans:2,exp:"Just like income tax, trade tax (Gewerbesteuer) requires a PE in Germany. Since digital MNEs have no physical PE and the DTC confirms no treaty PE, Germany cannot impose trade tax either.",topic:"Digital Tax Gap"},
+    {q:"What is the UPE's role in the Pillar 2 IIR mechanism?",opts:["The UPE first registers with the OECD to claim a minimum tax credit","The UPE is the Ultimate Parent Entity that levies top-up tax on low-taxed subsidiaries","The UPE collects Pillar 2 taxes on behalf of the European Commission","The UPE must relocate to a minimum-tax country to comply"],ans:1,exp:"Under the IIR, the UPE (Ultimate Parent Entity — the top of the group structure) is responsible for levying additional tax on subsidiaries whose ETR falls below 15%. This is a top-down mechanism imposed by the parent country.",topic:"BEPS & Pillar 2"},
+    {q:"ACo/LuxCo case: what is the overall result of the full DTC analysis?",opts:["Germany can tax at the full ~30% rate because a warehouse is always a PE","Germany can tax only the profits attributable to the sales office, not the warehouse","Germany cannot tax at all — the DTC eliminates Germany's taxing right over the warehouse","LuxCo must pay 15% to both Germany and Luxembourg"],ans:1,exp:"Wait — this question tests the nuanced result. If the question refers to the warehouse only: Germany cannot tax (Art. 5 para. 4 = auxiliary). But if there is also a sales office (contract negotiation), that IS a PE. The core Amazon warehouse loophole: no PE, no German tax.",topic:"DTC Analysis"},
+    {q:"What is 'aggressive tax planning' in the spectrum between tax saving and tax evasion?",opts:["It is simply the same as tax avoidance — both legal","It is legal structuring that goes beyond normal planning but exploits technical rules contrary to legislative intent","It is always illegal and prosecutable","It refers only to structures used by private individuals, not companies"],ans:1,exp:"The spectrum runs: tax saving (legal, no avoidance intent) → tax planning (legal, structuring affairs) → tax avoidance (legal but contrary to intent) → aggressive tax planning → tax evasion (illegal). Aggressive tax planning is legal but ethically contested.",topic:"BEPS & Pillar 2"},
+    {q:"What two conditions must BOTH be present for a payment to be subject to the equivalence principle (i.e. treated as a fee)?",opts:["It must be paid annually AND collected by a federal authority","It must be set by law AND payable in exchange for a specific individual public service","It must be paid by a business AND be CIT-deductible","It must exceed €100 AND relate to property"],ans:1,exp:"A fee (Gebühr) is a payment set by law as consideration for the use of specific public administration services in a specific individual case. The equivalence principle requires the fee to correspond to the service. Annual frequency and federal level are irrelevant.",topic:"Tax Definition"},
+  ],
   siii:[
     {q:"In which year did the Western Roman Empire officially fall?",opts:["410 AD","395 AD","476 AD","1453 AD"],ans:2,exp:"476 AD — Odoacer deposed Romulus Augustulus. 395 AD was the split of the empire. 1453 AD was the fall of the Eastern (Byzantine) Empire. 410 AD was the Visigoth sack of Rome, significant but not the final fall.",topic:"Byzantine"},
     {q:"What was the primary purpose of the Law of the Twelve Tables?",opts:["To expand Rome's military power","To make law publicly accessible and protect plebeians from arbitrary patrician judgments","To codify religious obligations under the Roman state","To establish the Senate's authority over the Emperor"],ans:1,exp:"The Twelve Tables were created because plebeians were disadvantaged by patricians who controlled secret unwritten law. The goal was transparency and standardisation — not military, religious, or senatorial matters.",topic:"Twelve Tables"},
@@ -2227,6 +2499,14 @@ function renderWeakSpots(prefix){
   let html='<div class="weak-title">Focus on these topics:</div>';
   topics.forEach(t=>{
     const tips={
+      'Tax Definition':'Review §3 GFC — all 5 elements, and fee vs tax (equivalence principle). This is a classic exam trap.',
+      'German Taxes':'Check the ~30% PE rate breakdown (CIT+TT+SolSu) and entity type legend (rectangle/triangle/circle).',
+      'Residency':'Review GFC §§8–11 and the unlimited vs limited tax liability distinction.',
+      'DTC Analysis':'Practise the full 6-step solution key — personal scope → material scope → Art. 7 general rule → Art. 5 PE exception → Art. 5 para. 4 auxiliary check.',
+      'OECD & MTC':'OECD = advisory, not binding, not EU. MTC = template for bilateral DTCs. Countries can deviate.',
+      'Digital Tax Gap':'No physical PE = no taxing right. Art. 5 para. 4 auxiliary exclusion is the loophole. DST + digital PE are the EU solutions.',
+      'BEPS & Pillar 2':'Know the €750m threshold, ETR vs nominal rate distinction, IIR/UTPR/QDMTT mechanisms, and UPE role.',
+      'Social Security':'Contributions ≠ taxes (benefit in return). Know 5 pillars, rates, ceilings (€69,750 / €101,400), and 41.3% tax wedge.',
       'Twelve Tables':'Review the core principle — written, public law vs patrician monopoly. Be able to explain in one paragraph.',
       'Byzantine':'Focus on the 395/476/1453 dates and why citizens called themselves Romans — classic exam traps.',
       'Christianity':'Use the Compare tab: Edict of Milan (313) ≠ Cunctos Populos (380). Armenia was first (301), not Rome.',
