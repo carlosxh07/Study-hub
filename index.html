@@ -270,6 +270,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
     <div class="nav-label">Macroeconomics</div>
     <button class="nav-btn" data-color="macro" onclick="showPage('macro-overview',this)"><span class="nav-dot" style="background:var(--macro)"></span>All Chapters</button>
     <button class="nav-sub" onclick="showLecture('macro','lec1',this)">Lec 1: Economic Growth</button>
+    <button class="nav-sub" onclick="showLecture('macro','lec2',this)">Lec 2: Goods Market &amp; Business Cycle</button>
     <button class="nav-sub" style="opacity:.5;cursor:default;pointer-events:none">+ More coming</button>
     <div class="nav-label">Intl. Business Trade</div>
     <button class="nav-btn" data-color="ibt" onclick="showPage('ibt-overview',this)"><span class="nav-dot" style="background:var(--ibt)"></span>All Chapters</button>
@@ -300,7 +301,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
     <div class="subject-card sc-macro" onclick="showPage('macro-overview',null)">
       <div class="sc-name">Macroeconomics</div><div class="sc-meta">Lectures · Macroeconomics 1 · Dr. Rülke</div>
       <div class="sc-progress"><div class="sc-progress-fill" style="width:8%;background:var(--macro)"></div></div>
-      <div class="sc-stats"><div class="sc-stat"><strong>1</strong> lecture loaded</div><div class="sc-stat"><strong>30</strong> flashcards</div><div class="sc-stat"><strong>20</strong> quiz Qs</div></div>
+      <div class="sc-stats"><div class="sc-stat"><strong>2</strong> lectures loaded</div><div class="sc-stat"><strong>62</strong> flashcards</div><div class="sc-stat"><strong>39</strong> quiz Qs</div></div>
     </div>
     <div class="subject-card sc-ibt" onclick="showPage('ibt-overview',null)">
       <div class="sc-name">International Business Trade</div><div class="sc-meta">Chapters · Coming soon</div>
@@ -1211,7 +1212,8 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
   <div class="page-desc">Select a lecture to access its summary, flashcards, quiz, and interactive tools. · Dr. Jan-Christoph Rülke · Spring 2026</div>
   <div class="lectures-list">
     <div class="lec-card" onclick="showLecture('macro','lec1',null)"><div class="lec-num" style="background:var(--macro-l);color:var(--macro)">01</div><div class="lec-info"><div class="lec-title">Lecture 1 — Macroeconomics &amp; Economic Growth</div><div class="lec-sub">GDP · Production Function · GDP per Capita · Circular Flow · COVID-19</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span><span class="lec-badge has">Calculator</span></div></div>
-    <div class="lec-card empty"><div class="lec-num" style="background:var(--macro-l);color:var(--macro)">02+</div><div class="lec-info"><div class="lec-title">More lectures coming</div><div class="lec-sub">Share your notes to add the next lecture</div></div><div class="lec-badges"><span class="lec-badge">Summary</span><span class="lec-badge">Cards</span><span class="lec-badge">Quiz</span></div></div>
+    <div class="lec-card" onclick="showLecture('macro','lec2',null)"><div class="lec-num" style="background:var(--macro-l);color:var(--macro)">02</div><div class="lec-info"><div class="lec-title">Lecture 2 — Goods Market, Business Cycle &amp; Fiscal Policy</div><div class="lec-sub">45° Diagram · Multiplier · Haavelmo · Anti-Cyclical Policy · IS Curve</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Compare</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span><span class="lec-badge has">Calculator</span></div></div>
+    <div class="lec-card empty"><div class="lec-num" style="background:var(--macro-l);color:var(--macro)">03+</div><div class="lec-info"><div class="lec-title">More lectures coming</div><div class="lec-sub">Share your notes to add the next lecture</div></div><div class="lec-badges"><span class="lec-badge">Summary</span><span class="lec-badge">Cards</span><span class="lec-badge">Quiz</span></div></div>
   </div>
 </div>
 <!-- MACRO LEC1 PAGE -->
@@ -1423,6 +1425,218 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
   </div>
 </div>
 
+<!-- MACRO LEC2 PAGE -->
+<div id="page-macro-lec2" class="page">
+  <div class="page-eyebrow" style="color:var(--macro)">Macroeconomics · Lecture 2</div>
+  <div class="page-title">Goods Market, Business Cycle &amp; Fiscal Policy</div>
+  <div class="page-desc">45° Diagram · Multiplier · Haavelmo Theorem · Anti-Cyclical Policy · IS Curve · Dr. Rülke</div>
+  <div class="study-tabs">
+    <button class="study-tab active" onclick="showMacroTab('summary',this,'lec2')">Summary</button>
+    <button class="study-tab" onclick="showMacroTab('compare',this,'lec2')">Compare</button>
+    <button class="study-tab" onclick="showMacroTab('calc',this,'lec2')">Calculator</button>
+    <button class="study-tab" onclick="showMacroTab('flashcards',this,'lec2')">Flashcards</button>
+    <button class="study-tab" onclick="showMacroTab('quiz',this,'lec2')">Quiz</button>
+  </div>
+
+  <!-- SUMMARY -->
+  <div id="mlec2-summary" class="study-panel active">
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-amber">Business Cycle &amp; Price Elasticity of Supply</span></div>
+      <p>The <strong>business cycle</strong> is a short-to-medium-term fluctuation (~5 years) of actual income around potential income. Sequence: Boom → Downswing → Recession → Trough → Upswing → Boom. <strong>Output gap = Actual income − Potential income.</strong> Positive = boom; negative = recession.</p>
+      <ul style="margin-top:8px">
+        <li><strong>Price elasticity of supply:</strong> ηₛ = (dx/x)/(dp/p) = growth rate / inflation rate.</li>
+        <li><strong>Elastic supply (ηₛ &gt; 1):</strong> quantities respond more than prices → horizontal supply → demand shocks become real growth (recession scenario, spare capacity).</li>
+        <li><strong>Inelastic supply (ηₛ &lt; 1):</strong> prices respond more than quantities → vertical supply → demand shocks cause inflation, not growth (boom, full capacity).</li>
+        <li><strong>Germany examples (1-month ηₛ):</strong> Gasoline 2.8, Milk 0.5, Electricity 0.2, Real Estate 0.1 — elasticity rises over time as firms can invest and expand.</li>
+      </ul>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">Three Schools of Thought</div>
+      <div class="note-box" style="border-left-color:var(--macro-m);background:var(--macro-l);color:var(--macro);margin-bottom:10px"><strong>Exam alert:</strong> The professor explicitly flags that exam questions frequently compare these three schools — especially their supply curve assumptions and policy stances.</div>
+      <ul>
+        <li><strong>Classical / Neoclassical (Smith, Ricardo, 1800–1933):</strong> Markets self-regulate ("invisible hand"). Long-run = always full employment. Vertical supply curve. No role for fiscal or monetary policy — complete crowding out.</li>
+        <li><strong>Keynesian (Keynes, 1933):</strong> Sticky prices/wages → markets don't clear automatically. Unemployment can persist. Horizontal supply curve (spare capacity). Anti-cyclical fiscal policy is effective. Monetary policy ineffective (liquidity trap, investment trap).</li>
+        <li><strong>Monetarism (Friedman, 1956):</strong> Government discretion causes cycles, not cures them. Private sector is stable. Rule-based monetary policy only. Natural unemployment rate exists.</li>
+      </ul>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">Short-Run Goods Market Assumptions &amp; Consumption Function</div>
+      <ul>
+        <li><strong>Short-run assumptions:</strong> Prices constant (P̄ = 1) · marginal costs fixed · unplanned inventories extremely costly · Y depends only on aggregate demand, not L, K, or T · closed economy (EX − IM = 0).</li>
+        <li><strong>Consumption function:</strong> C = a + c·Y. a = autonomous consumption (minimum at Y=0; Germany: a = €50.2bn). c = MPC (0 &lt; c &lt; 1; Germany: c = 0.71 → €0.71 spent, €0.29 saved per extra euro).</li>
+        <li><strong>Savings function:</strong> S = Y − C = −a + (1−c)·Y = −a + s·Y. MPS = s = 1−c. At Y=0: savings = −a (dissaving). Germany: S = −50.2 + 0.29·Y.</li>
+        <li><strong>Disposable income:</strong> Y^v = Y − T + U. Consumption depends on Y^v, not gross Y.</li>
+      </ul>
+      <div class="note-box" style="border-left-color:var(--macro-m);background:var(--macro-l);color:var(--macro)"><strong>Determinants of a (shift autonomous consumption):</strong> Expected income ↑ → C↑ · Wealth ↑ → C↑ · More equal distribution → C↑ · Expected inflation ↑ → C↑ · Interest rate ↑ → C↓ (saving more attractive).</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">Goods Market Equilibrium — 45° Diagram</div>
+      <ul>
+        <li><strong>Equilibrium condition:</strong> Ŷ = Y^S = Y^D. Requires stability condition 0 &lt; c &lt; 1.</li>
+        <li><strong>45° line:</strong> All points where Y^D = Y^S. C+I+G line has slope c &lt; 1 → intersects 45° line at equilibrium point A = Ŷ.</li>
+        <li><strong>Inflationary gap (Y left of Ŷ):</strong> Demand &gt; Supply → unplanned inventories fall → firms produce more → Y rises toward Ŷ. Prices do NOT adjust.</li>
+        <li><strong>Deflationary gap (Y right of Ŷ):</strong> Supply &gt; Demand → inventories pile up → firms cut output → Y falls toward Ŷ. Prices do NOT adjust.</li>
+        <li><strong>Alternative equilibrium:</strong> I = S (injections = leakages).</li>
+      </ul>
+      <div class="note-box" style="border-left-color:var(--macro-m);background:var(--macro-l);color:var(--macro)"><strong>Worked example:</strong> C = 300 + 0.8Y, I^aut = 200 → Ŷ = 500/0.2 = <strong>2,500</strong> · Ĉ = 2,300 · Ŝ = 200 = I ✓</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">The Multiplier Effect</div>
+      <ul>
+        <li><strong>Multiplier:</strong> μ = 1/(1−c). With c = 0.8: μ = 5 → €100 of new investment raises GDP by €500.</li>
+        <li><strong>Chain:</strong> ΔI = 100 → ΔY = 100 → ΔC = 80 → ΔY = 80 → ΔC = 64 → … Each round, (1−c) leaks into savings until convergence.</li>
+        <li><strong>With proportional tax t:</strong> Effective multiplier = 1/(1−c+c·t) — smaller because taxes drain each round.</li>
+        <li><strong>Multiplier types:</strong> G or I: 1/(1−c+c·t) · Transfer U: c/(1−c+c·t) · Tax T^aut: −c/(1−c+c·t) · Haavelmo: always = 1.</li>
+      </ul>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">Fiscal Policy &amp; Haavelmo Theorem</div>
+      <ul>
+        <li><strong>Budget balance:</strong> B = T − U − G. B &gt; 0 = surplus. B &lt; 0 = deficit.</li>
+        <li><strong>Tax function:</strong> T = T^aut + t·Y. Proportional income tax t is a built-in stabiliser — automatically drains purchasing power in booms, reduces leakage in recessions.</li>
+        <li><strong>Haavelmo Theorem:</strong> ΔG = ΔT → ΔY = ΔG. Balanced-budget multiplier = 1 always, regardless of c.</li>
+        <li><strong>Why Haavelmo works:</strong> Government spends 100% (c^gov = 1). Households only consume fraction c of income loss. Net injection = (1−c)·ΔG. Through multiplier 1/(1−c) → total effect = ΔG.</li>
+      </ul>
+      <div class="note-box" style="border-left-color:var(--macro-m);background:var(--macro-l);color:var(--macro)"><strong>Haavelmo algebra (c=0.8):</strong> ΔG=100 → ΔY_G = 100×5 = 500. ΔT=100 → ΔC = −80 → ΔY_T = −80×5 = −400. Net: 500−400 = <strong>100 = ΔG ✓</strong></div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">Anti-Cyclical Fiscal Policy &amp; Its Limits</div>
+      <ul>
+        <li><strong>Logic:</strong> Boom → restrictive (T↑, G↓, U↓ → surplus). Recession → expansionary (T↓, G↑, U↑ → deficit). Over a full cycle: budget balanced on average.</li>
+        <li><strong>Six critiques (exam: state minimum 2):</strong></li>
+        <li>① <strong>Crowding out:</strong> G↑ → loanable funds demand↑ → i↑ → private I↓ → partially offsets stimulus.</li>
+        <li>② <strong>Wage inflation:</strong> Expansionary spending triggers wage claims → higher costs → inflation.</li>
+        <li>③ <strong>Asymmetric behaviour:</strong> Politicians expand in recessions but fail to cut in booms → rising structural debt.</li>
+        <li>④ <strong>Budget rigidity:</strong> Not all spending lines can be changed quickly.</li>
+        <li>⑤ <strong>Political incentives:</strong> Governments offer electoral spending for popularity, not economic need.</li>
+        <li>⑥ <strong>Time lags:</strong> Inside lag (information + decision) + Outside lag (action + policy + effectiveness).</li>
+      </ul>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">IS Curve &amp; Investment Function</div>
+      <ul>
+        <li><strong>Investment function:</strong> I = I^aut + b·Y − g·i. Simplified (b=0): I = I^aut − g·i.</li>
+        <li><strong>IS curve:</strong> All (Y, i) pairs where goods market is in equilibrium (I = S). Slopes downward: lower i → I↑ → Y↑.</li>
+        <li><strong>Shifts right:</strong> G↑, T↓, U↑, a↑, I^aut↑ (any expansionary shock).</li>
+        <li><strong>Shifts left:</strong> G↓, T↑, a↓ (saving paradox), I^aut↓.</li>
+        <li><strong>Vertical IS (g = 0):</strong> Investment completely insensitive to interest rate → monetary policy has no effect on goods market (investment trap).</li>
+        <li><strong>Saving paradox:</strong> If all households save more (a↓): C↓ → Y↓ → s·Y↓ → total savings actually fall. Individually rational, collectively self-defeating.</li>
+      </ul>
+      <div class="note-box" style="border-left-color:var(--macro-m);background:var(--macro-l);color:var(--macro)"><strong>IS derivation (2025 exam):</strong> C=250+0.5Y^v, I=265−7i, G=200, T=100+0.1Y → Y^v=0.9Y−100 → C=200+0.45Y → 0.55Y=665−7i → <strong>IS: Y = 1,209.09 − 12.73i</strong></div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">⚠️ Most Common Mistakes</div>
+      <ul>
+        <li><strong>Wrong multiplier with taxes:</strong> Use 1/(1−c+c·t), NOT 1/(1−c) when there is a proportional income tax.</li>
+        <li><strong>Haavelmo vs. normal multiplier:</strong> Haavelmo = 1 always. Never apply 1/(1−c) to a balanced-budget change.</li>
+        <li><strong>Transfer vs. spending multiplier:</strong> Transfer (ΔU) is smaller by factor c — must pass through household consumption first.</li>
+        <li><strong>Gap direction:</strong> Inflationary gap = LEFT of Ŷ (demand &gt; supply, inventories shrink). Deflationary = RIGHT (supply &gt; demand, inventories pile up).</li>
+        <li><strong>Savings function intercept sign:</strong> S = −a + s·Y. Intercept is NEGATIVE (−a). At Y=0: dissaving.</li>
+        <li><strong>What adjusts in short run:</strong> Only quantities (output, inventories). Prices do NOT adjust. Never say "prices fall in a deflationary gap."</li>
+        <li><strong>Tax multiplier sign:</strong> ΔT^aut raises taxes → multiplier is NEGATIVE. A tax CUT stimulates (ΔT negative → ΔY positive).</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- COMPARE -->
+  <div id="mlec2-compare" class="study-panel">
+    <div class="sum-card">
+      <div class="sum-title">Three Schools of Thought — Full Comparison</div>
+      <table class="comp-table">
+        <tr><th>Dimension</th><th>Classical / Neoclassical</th><th>Keynesian</th><th>Monetarism</th></tr>
+        <tr><td><strong>Founded</strong></td><td>Smith, Ricardo 1800–1933</td><td>Keynes, 1933</td><td>Friedman, 1956</td></tr>
+        <tr><td><strong>Supply curve</strong></td><td>Vertical (fully inelastic)</td><td>Horizontal (spare capacity)</td><td>Vertical (long run)</td></tr>
+        <tr><td><strong>Market view</strong></td><td>Self-regulating (invisible hand)</td><td>Imperfect, sticky prices/wages</td><td>Relatively stable</td></tr>
+        <tr><td><strong>Unemployment</strong></td><td>Always full employment</td><td>Structural, persistent possible</td><td>Natural rate exists</td></tr>
+        <tr><td><strong>Fiscal policy</strong></td><td>No real effect (crowding out)</td><td>Highly effective</td><td>Destabilising; avoid</td></tr>
+        <tr><td><strong>Monetary policy</strong></td><td>No real effect</td><td>Relatively ineffective (traps)</td><td>Rule-based only</td></tr>
+        <tr><td><strong>Equilibrium</strong></td><td>Long-run full employment</td><td>Can be below full employment</td><td>Markets restore balance</td></tr>
+      </table>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">Multiplier Types — Full Comparison</div>
+      <table class="comp-table">
+        <tr><th>Multiplier</th><th>Formula (no tax)</th><th>Formula (with tax t)</th><th>Notes</th></tr>
+        <tr><td><strong>Standard (ΔG or ΔI)</strong></td><td>1/(1−c)</td><td>1/(1−c+c·t)</td><td>Largest; direct injection</td></tr>
+        <tr><td><strong>Transfer (ΔU)</strong></td><td>c/(1−c)</td><td>c/(1−c+c·t)</td><td>Smaller by factor c; passes through households</td></tr>
+        <tr><td><strong>Tax cut (ΔT^aut negative)</strong></td><td>−c/(1−c)</td><td>−c/(1−c+c·t)</td><td>Negative; tax cut = stimulus</td></tr>
+        <tr><td><strong>Haavelmo (ΔG=ΔT)</strong></td><td>1</td><td>1</td><td>Always = 1, independent of c</td></tr>
+      </table>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">Inflationary vs Deflationary Gap</div>
+      <table class="comp-table">
+        <tr><th></th><th>Inflationary Gap</th><th>Deflationary Gap</th></tr>
+        <tr><td><strong>Position</strong></td><td>Y is LEFT of Ŷ</td><td>Y is RIGHT of Ŷ</td></tr>
+        <tr><td><strong>Condition</strong></td><td>Y^D &gt; Y^S (demand exceeds supply)</td><td>Y^S &gt; Y^D (supply exceeds demand)</td></tr>
+        <tr><td><strong>Inventory change</strong></td><td>Unplanned inventories fall</td><td>Unplanned inventories rise</td></tr>
+        <tr><td><strong>Firm response</strong></td><td>Increase production</td><td>Cut output</td></tr>
+        <tr><td><strong>Y movement</strong></td><td>Y rises toward Ŷ</td><td>Y falls toward Ŷ</td></tr>
+        <tr><td><strong>Price adjustment?</strong></td><td>No (short-run model)</td><td>No (short-run model)</td></tr>
+      </table>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">IS Curve — Shifts and Slope Determinants</div>
+      <table class="comp-table">
+        <tr><th>Change</th><th>Effect on IS</th><th>Reason</th></tr>
+        <tr><td>G↑, U↑, I^aut↑, a↑</td><td>Shifts RIGHT (more Y at every i)</td><td>Higher autonomous demand</td></tr>
+        <tr><td>T↑, T^aut↑</td><td>Shifts LEFT (less Y at every i)</td><td>Lower disposable income → less C</td></tr>
+        <tr><td>Saving paradox (a↓)</td><td>Shifts LEFT</td><td>Less autonomous consumption → lower Y</td></tr>
+        <tr><td>g↑ (investment more sensitive to i)</td><td>Flatter IS</td><td>Small i drop → big I and Y increase</td></tr>
+        <tr><td>g = 0 (investment insensitive)</td><td>Vertical IS</td><td>Monetary policy has no effect (investment trap)</td></tr>
+        <tr><td>c↑ (higher MPC)</td><td>Flatter IS (larger multiplier)</td><td>Each demand shock has bigger Y effect</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- CALCULATOR -->
+  <div id="mlec2-calc" class="study-panel">
+    <div class="sum-card" style="margin-bottom:16px"><div class="sum-title" style="color:var(--macro)">Step-by-Step Calculator</div><p style="font-size:13.5px;color:var(--text2)">Work through goods market equilibrium and multiplier problems step by step. Try to predict each step before revealing it.</p></div>
+    <div class="calc-header"><div><div id="lec2-calc-title" style="font-family:var(--serif);font-size:20px;color:var(--text)"></div><div class="calc-pick-label" id="lec2-calc-pick-label"></div></div><div class="calc-nav"><button class="btn btn-sm" onclick="calcPrevFor('lec2')">← Prev</button><button class="btn btn-sm" onclick="calcNextFor('lec2')">Next →</button></div></div>
+    <div class="calc-desc-box" id="lec2-calc-desc" style="background:var(--macro-l);border-color:var(--macro-m);color:var(--macro)"></div>
+    <div id="lec2-calc-steps"></div>
+    <div class="calc-footer"><button class="btn btn-primary btn-sm" id="lec2-calc-next" onclick="calcNextStepFor('lec2')" style="background:var(--macro);border-color:var(--macro)">Next step →</button><button class="btn btn-sm" id="lec2-calc-reveal"></button></div>
+  </div>
+
+  <!-- FLASHCARDS -->
+  <div id="mlec2-flashcards" class="study-panel">
+    <div class="fc-controls"><button class="btn btn-sm" onclick="shuffleMacroFC('lec2')">Shuffle</button><button class="btn btn-sm" onclick="resetMacroFC('lec2')">Reset all</button><span style="font-size:12px;color:var(--text3);margin-left:4px">Rate each card — hard ones come back sooner</span></div>
+    <div class="fc-sr-bar" id="mlec2-sr-bar"></div>
+    <div id="mlec2-fc-wrap">
+      <div class="flashcard-wrap"><div class="flashcard" id="mlec2-fc-card" onclick="flipMacroFC('lec2')">
+        <div class="fc-face fc-front" style="background:var(--surface)"><div class="fc-label">Question</div><div class="fc-question" id="mlec2-fc-q"></div><div class="fc-hint">Click to reveal</div></div>
+        <div class="fc-face fc-back" style="background:var(--macro);transform:rotateY(180deg)"><div class="fc-label">Answer</div><div class="fc-answer" id="mlec2-fc-a"></div><div class="fc-src" id="mlec2-fc-src"></div></div>
+      </div></div>
+      <div class="sr-btns"><button class="sr-btn sr-btn-hard" onclick="rateMacroFC('lec2',0)">😬 Still learning</button><button class="sr-btn sr-btn-ok" onclick="rateMacroFC('lec2',1)">🤔 Almost</button><button class="sr-btn sr-btn-easy" onclick="rateMacroFC('lec2',2)">✓ Got it</button></div>
+      <div class="sr-mode-note">Card <span id="mlec2-fc-counter">1</span> of <span id="mlec2-fc-total">32</span></div>
+    </div>
+    <div class="fc-sr-done" id="mlec2-fc-done" style="display:none"><h3>Session complete!</h3><p id="mlec2-done-msg"></p><div style="display:flex;gap:10px;justify-content:center;margin-top:16px"><button class="btn btn-primary" onclick="reviewMacroWeak('lec2')" style="background:var(--macro);border-color:var(--macro)">Review weak cards</button><button class="btn" onclick="resetMacroFC('lec2')">Start over</button></div></div>
+  </div>
+
+  <!-- QUIZ -->
+  <div id="mlec2-quiz" class="study-panel">
+    <div id="mqlec2-wrap">
+      <div class="quiz-prog"><div class="quiz-prog-fill" id="mqlec2-pfill" style="width:0%;background:var(--macro)"></div></div>
+      <div class="quiz-meta" id="mqlec2-meta"></div>
+      <div class="quiz-q" id="mqlec2-text"></div>
+      <div class="quiz-opts" id="mqlec2-opts"></div>
+      <div class="quiz-fb" id="mqlec2-fb"></div>
+      <div id="mqlec2-next" style="display:none"><button class="btn btn-primary" onclick="nextMacroQ('lec2')" style="background:var(--macro);border-color:var(--macro)">Next →</button></div>
+    </div>
+    <div class="quiz-score-screen" id="mqlec2-score">
+      <div class="score-row">
+        <div class="score-big" id="mqlec2-big" style="color:var(--macro)"></div>
+        <div class="score-right"><div class="score-lbl">correct answers</div><div class="score-msg" id="mqlec2-msg"></div></div>
+      </div>
+      <div class="weak-section" id="mqlec2-weak"></div>
+      <div style="margin-top:20px;display:flex;gap:10px">
+        <button class="btn btn-primary" onclick="restartMacroQuiz('lec2')" style="background:var(--macro);border-color:var(--macro)">Try again</button>
+        <button class="btn" onclick="showMacroTab('calc',null,'lec2')">Practice calculator</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div id="page-ibt-overview" class="page"><div class="page-eyebrow" style="color:var(--ibt)">International Business Trade</div><div class="page-title">All Chapters</div><div class="page-desc">No chapters loaded yet.</div><div class="empty-state"><h3>Ready to populate</h3><p>Share your IBT notes and I'll build the summary, flashcards, and quiz for each chapter.</p></div></div>
 <div id="page-ic-overview" class="page"><div class="page-eyebrow" style="color:var(--ic)">Intercultural Competence</div><div class="page-title">All Chapters</div><div class="page-desc">No chapters loaded yet.</div><div class="empty-state"><h3>Ready to populate</h3><p>Share your IC notes and I'll build the summary, flashcards, and quiz for each chapter.</p></div></div>
 
@@ -1432,7 +1646,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
 // ── Navigation ──
 function showPage(id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));document.getElementById('page-'+id).classList.add('active');if(btn)btn.classList.add('active')}
 function showLecture(subject,id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-sub').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');const el=document.getElementById('page-'+subject+'-'+id);if(el){el.classList.add('active');if(subject==='eu'&&id==='v'){initFC('sv');initQuiz('sv')}if(subject==='eu'&&id==='vi'){initFC('svi');initQuiz('svi');loadScenario(0,document.querySelector('.scenario-btn'))}if(subject==='micro'&&id==='ch2'){initMicroFC('ch2');initMicroQuiz('ch2');initCalcFor('ch2')}
-if(subject==='micro'&&id==='ch3'){initMicroFC('ch3');initMicroQuiz('ch3');initCalc()}if(subject==='micro'&&id==='ps1'){initMicroFC('ps1');initMicroQuiz('ps1');initCalcFor('ps1')}if(subject==='micro'&&id==='ps2'){initMicroFC('ps2');initMicroQuiz('ps2');initCalcFor('ps2')}if(subject==='macro'&&id==='lec1'){initMacroFC('lec1');initMacroQuiz('lec1');initCalcFor('lec1')}}}
+if(subject==='micro'&&id==='ch3'){initMicroFC('ch3');initMicroQuiz('ch3');initCalc()}if(subject==='micro'&&id==='ps1'){initMicroFC('ps1');initMicroQuiz('ps1');initCalcFor('ps1')}if(subject==='micro'&&id==='ps2'){initMicroFC('ps2');initMicroQuiz('ps2');initCalcFor('ps2')}if(subject==='macro'&&id==='lec1'){initMacroFC('lec1');initMacroQuiz('lec1');initCalcFor('lec1')}if(subject==='macro'&&id==='lec2'){initMacroFC('lec2');initMacroQuiz('lec2');initCalcFor('lec2')}}}
 function showMacroTab(tab,btn,prefix){
   const page=document.getElementById('page-macro-'+prefix);if(!page)return;
   page.querySelectorAll('.study-panel').forEach(p=>p.classList.remove('active'));
@@ -2019,6 +2233,40 @@ microQData['ps2']=[
 ];
 // ── Macro Flashcard & Quiz Data ──
 const macroFcData={
+  lec2:[
+    {q:"What is the output gap and what does it indicate?",a:"Output gap = Actual income − Potential income. Positive = boom (above potential). Negative = recession (below potential). Measures where the economy sits in the business cycle.",src:"Business-Cycle Basics",topic:"Business Cycle"},
+    {q:"What is the formula for price elasticity of supply?",a:"ηₛ = (dx/x)/(dp/p) = (dx/dp)×(p/x). Equivalently: ηₛ = growth rate / inflation rate.",src:"Price Elasticity of Supply",topic:"Supply Elasticity"},
+    {q:"What does ηₛ = 0.2 mean for a money supply increase?",a:"Supply is very inelastic — prices respond far more than quantities. A demand stimulus mostly generates inflation, not real output growth. This is the boom/vertical supply scenario.",src:"Price Elasticity of Supply",topic:"Supply Elasticity"},
+    {q:"What supply curve do Keynesian economists assume and why?",a:"Horizontal supply curve. In a recession there is spare capacity — firms produce more at current prices without raising them. This makes fiscal policy highly effective.",src:"Three Schools of Thought",topic:"Schools of Thought"},
+    {q:"What supply curve do Classical economists assume?",a:"Vertical supply curve. All factors are fully employed; supply is determined by factor endowments. Any demand stimulus only raises prices, not output — complete crowding out.",src:"Three Schools of Thought",topic:"Schools of Thought"},
+    {q:"What is Monetarism's view on fiscal and monetary policy?",a:"Friedman (1956): discretionary intervention causes cycles. Private sector is stable. Rule-based monetary policy only (consistent money growth). Market forces create natural employment.",src:"Three Schools of Thought",topic:"Schools of Thought"},
+    {q:"What are the four short-run goods market assumptions?",a:"(1) Prices constant (P̄=1). (2) Marginal costs fixed. (3) Unplanned inventory changes extremely costly. (4) Production Y depends only on aggregate demand, not L, K, or T.",src:"Short-Run Assumptions",topic:"Short Run"},
+    {q:"What does autonomous consumption (a) represent?",a:"The level of consumption at Y=0 — minimum subsistence spending. Germany: a = €50.2bn. Financed by borrowing or dissaving at zero income.",src:"Consumption Function",topic:"Consumption"},
+    {q:"What is the MPC (c) and what are its required bounds?",a:"c = fraction of each extra euro of income spent on consumption. Must satisfy 0 < c < 1. Germany: c=0.71 → €0.71 consumed, €0.29 saved per extra euro.",src:"Consumption Function",topic:"Consumption"},
+    {q:"How do you derive the savings function from the consumption function?",a:"S = Y − C = Y − (a+cY) = −a + (1−c)Y = −a + s·Y. MPS = s = 1−c. At Y=0: savings = −a (dissaving).",src:"Savings Function",topic:"Consumption"},
+    {q:"What is the stability condition and why is it needed?",a:"0 < c < 1. If c ≥ 1, each round of spending generates at least as much new spending → no convergence → explosive equilibrium. Only with c < 1 does the multiplier chain converge.",src:"Goods Market Equilibrium",topic:"Equilibrium"},
+    {q:"What happens when demand exceeds supply (inflationary gap)?",a:"Firms face unplanned inventory reduction → they increase production → Y rises toward Ŷ. Prices do NOT adjust in the short run.",src:"45-Degree Diagram",topic:"Equilibrium"},
+    {q:"What happens when supply exceeds demand (deflationary gap)?",a:"Inventories accumulate unplanned → firms cut output → Y falls toward Ŷ. Again, prices don't adjust.",src:"45-Degree Diagram",topic:"Equilibrium"},
+    {q:"Given C = 300 + 0.8Y and I^aut = 200, calculate Ŷ, Ĉ, and Ŝ.",a:"Ŷ = (300+200)/(1−0.8) = 2,500. Ĉ = 300+0.8(2500) = 2,300. Ŝ = 2500−2300 = 200 = I ✓ (I=S confirmed).",src:"Algebra of Equilibrium",topic:"Equilibrium"},
+    {q:"What is the multiplier formula and what does it mean?",a:"μ = 1/(1−c). Shows how much total income rises per unit of autonomous spending. c=0.8 → μ=5 → €100 of new investment raises GDP by €500.",src:"Multiplier Effect",topic:"Multiplier"},
+    {q:"Trace the multiplier chain: ΔI^aut = 100, c = 0.8.",a:"ΔI=100 → ΔY=100 → ΔC=80 → ΔY=80 → ΔC=64 → ... Total ΔY=100/(1−0.8)=500. Each round, 20% leaks into savings until convergence.",src:"Multiplier Effect",topic:"Multiplier"},
+    {q:"What factors make the multiplier stronger?",a:"(1) Higher c (MPC). (2) Lower income tax rate t. (3) Higher autonomous spending: a↑, I^aut↑, G↑, U↑. (4) Lower T^aut. All reduce leakage per round or raise the initial injection.",src:"General Equilibrium Income",topic:"Multiplier"},
+    {q:"What is the budget balance formula?",a:"B = T − U − G. B > 0 = surplus. B < 0 = deficit.",src:"Fiscal Policy",topic:"Fiscal Policy"},
+    {q:"What is the full tax function and what does t represent?",a:"T = T^aut + t·Y. T^aut = autonomous taxes (fixed). t = proportional income tax rate (built-in stabiliser). As Y rises, tax revenue rises automatically.",src:"Goods Market with Government",topic:"Fiscal Policy"},
+    {q:"State the Haavelmo Theorem precisely.",a:"A balanced-budget increase in government spending (ΔG = ΔT) raises equilibrium income by exactly ΔG. Haavelmo multiplier = 1, regardless of c.",src:"Haavelmo Theorem",topic:"Haavelmo"},
+    {q:"Why is the Haavelmo multiplier exactly 1?",a:"Government spends 100% of its tax revenue (c^gov=1), but households only consume fraction c of their income loss. Net injection = (1−c)·ΔG. Through multiplier 1/(1−c): total = (1−c)·ΔG × 1/(1−c) = ΔG.",src:"Haavelmo Theorem",topic:"Haavelmo"},
+    {q:"What is anti-cyclical fiscal policy?",a:"Policy that moves opposite to the cycle: expansionary in recessions (T↓, G↑, U↑ → deficit) and restrictive in booms (T↑, G↓, U↓ → surplus). Budget balanced on average over a full cycle.",src:"Anti-Cyclical Policy",topic:"Fiscal Policy"},
+    {q:"What is crowding out?",a:"G↑ raises demand for loanable funds → i↑ → private I↓ → partially offsets the fiscal expansion. Net effect on Y is less than the full multiplier predicts.",src:"Anti-Cyclical Policy Critique",topic:"Fiscal Policy"},
+    {q:"Name the five time lags in fiscal policy.",a:"(1) Information lag — recognise the shock. (2) Decision lag — agree on response. (3) Action lag — implement. (4) Policy lag — policy takes effect. (5) Effectiveness lag — full effect complete. Inside = 1+2; Outside = 3+4+5.",src:"Critique of Anti-Cyclical Policy",topic:"Fiscal Policy"},
+    {q:"What is the saving paradox?",a:"If all households decide to save more (a↓): C↓ → Y↓ → s·Y↓ → total savings actually fall. Individually rational saving is collectively self-defeating.",src:"Investment and IS Curve",topic:"IS Curve"},
+    {q:"What is the IS curve?",a:"All (Y, i) combinations where the goods market is in equilibrium (I=S). Slopes downward: lower i → I↑ → Y↑. Expansionary fiscal policy shifts it right.",src:"IS Curve",topic:"IS Curve"},
+    {q:"What happens when investments are completely inelastic (g = 0)?",a:"IS curve becomes vertical. Interest rate changes cannot affect investment → monetary policy cannot influence the goods market through investment. This is the 'investment trap'.",src:"IS Curve",topic:"IS Curve"},
+    {q:"What is the difference between the spending multiplier and the transfer multiplier?",a:"Spending multiplier: 1/(1−c+c·t). Transfer multiplier: c/(1−c+c·t). Transfers are smaller by factor c — they pass through households first, who save fraction (1−c).",src:"Fiscal Policy Effects",topic:"Multiplier"},
+    {q:"What does disposable income (Y^v) consist of?",a:"Y^v = Y − T + U. Gross income minus taxes plus transfer payments. Consumption depends on Y^v, not gross Y: C = a + c·Y^v.",src:"Goods Market with Government",topic:"Fiscal Policy"},
+    {q:"What is the effective multiplier with a proportional income tax?",a:"1/(1−c+c·t). The tax rate t creates additional leakage per round: each ΔY generates taxes t·ΔY draining purchasing power. Higher t → smaller multiplier — the built-in stabiliser effect.",src:"General Equilibrium Income",topic:"Multiplier"},
+    {q:"What is ηₛ in a boom vs. a recession?",a:"Recession: ηₛ → ∞ (horizontal supply) — quantities respond freely, prices stable. Boom: ηₛ → 0 (vertical supply) — capacity maxed, prices rise but output doesn't.",src:"Price Elasticity and Business Cycle",topic:"Supply Elasticity"},
+    {q:"What are the four objectives of fiscal policy (§1 Stability & Growth Pact)?",a:"(1) Constant economic growth. (2) High employment. (3) Price stability. (4) Balance of payments equilibrium.",src:"Fiscal Policy Objectives",topic:"Fiscal Policy"},
+  ],
   lec1:[
     {q:"What is the fundamental GDP identity?",a:"GDP = Production = Income = Consumption Expenditures. What an economy produces equals what it earns equals what it spends. Holds in closed economy or long run.",src:"GDP Calculation",topic:"GDP"},
     {q:"What is the expenditure approach formula for GDP?",a:"GDP = C + I + G + (EX − IM). C = Consumption, I = Investment (real only — machines, buildings), G = Government spending, EX = Exports, IM = Imports.",src:"GDP — Expenditure",topic:"GDP"},
@@ -2053,6 +2301,28 @@ const macroFcData={
   ]
 };
 const macroQData={
+  lec2:[
+    {q:"What does price elasticity of supply (ηₛ) measure?",opts:["Percentage change in prices relative to quantity","Percentage change in quantity relative to a percentage change in price","The slope of the demand curve","The ratio of inflation to unemployment"],ans:1,exp:"ηₛ = (dx/x)/(dp/p). It measures how responsively quantity supplied reacts to a price change. A reverses the ratio. C and D are unrelated.",topic:"Supply Elasticity"},
+    {q:"A market has ηₛ = 0.2. An increase in money supply occurs. What is the primary effect?",opts:["Large increase in output, small increase in prices","Equal increase in output and prices","Large increase in prices, small increase in output","No effect on either"],ans:2,exp:"ηₛ = 0.2 means supply is very inelastic — prices respond much more than quantities. Demand stimulus mostly generates inflation. This is the boom/vertical supply scenario.",topic:"Supply Elasticity"},
+    {q:"Which school of thought assumes a horizontal aggregate supply curve?",opts:["Classical","Monetarism","Keynesian","Supply-side economics"],ans:2,exp:"Keynesians assume spare capacity in recession → firms produce more at fixed prices → horizontal supply. Classical = vertical. Monetarism is closer to neoclassical (vertical long run).",topic:"Schools of Thought"},
+    {q:"Given C = 300 + 0.8Y and I^aut = 200, what is the equilibrium income?",opts:["2,000","2,300","2,500","3,000"],ans:2,exp:"Y = 300 + 0.8Y + 200 → 0.2Y = 500 → Y = 2,500. 2,300 is equilibrium consumption, not income. 3,000 would be the post-multiplier income after ΔI=100.",topic:"Equilibrium"},
+    {q:"If ΔI^aut = 100 and MPC = 0.8, what is the total change in equilibrium income?",opts:["100","200","400","500"],ans:3,exp:"Multiplier = 1/(1−0.8) = 5. ΔY = 5×100 = 500. 100 would be the case only if multiplier = 1 (Haavelmo scenario). 400 corresponds to a multiplier of 4 (wrong c).",topic:"Multiplier"},
+    {q:"What is the stability condition for the goods market?",opts:["c > 1","0 < c < 1","c = 0","c = 1"],ans:1,exp:"0 < c < 1 is required. If c = 0 there is no consumption spending and no multiplier. If c ≥ 1, each round generates at least as much new spending → no convergence → explosive equilibrium.",topic:"Equilibrium"},
+    {q:"In the 45-degree diagram, if the economy is LEFT of equilibrium (inflationary gap), what happens?",opts:["Firms cut production; prices fall","Prices rise; output stays constant","Unplanned inventories fall; firms increase production; Y rises toward Y*","Unplanned inventories rise; firms cut production; Y falls"],ans:2,exp:"Left of Y* means demand > supply → inventories fall unexpectedly → firms produce more → Y rises. Prices do not adjust in the short run. D describes the deflationary gap (right of Y*).",topic:"Equilibrium"},
+    {q:"What is the Haavelmo multiplier?",opts:["1/(1−c)","c/(1−c)","1","0"],ans:2,exp:"When ΔG = ΔT (balanced budget), the multiplier is always exactly 1, regardless of c. 1/(1−c) is the standard unconstrained multiplier. c/(1−c) is the transfer multiplier.",topic:"Haavelmo"},
+    {q:"Why does the Haavelmo effect produce ΔY = ΔG even with taxes raised by the same amount?",opts:["Because taxes have no effect on consumption","Because government spends 100% of tax revenue while households only consume fraction c of their income loss","Because the multiplier is infinite under balanced budgets","Because investment fully compensates for lower consumption"],ans:1,exp:"Government MPC = 1 (it spends all revenue), while households MPC = c < 1. Net positive injection = (1−c)·ΔG, which the multiplier 1/(1−c) amplifies back to exactly ΔG.",topic:"Haavelmo"},
+    {q:"Anti-cyclical fiscal policy in a BOOM involves:",opts:["T↓, G↑, U↑ → budget deficit","T↑, G↓, U↓ → budget surplus","T↑, G↑, U↑ → balanced budget","T↓, G↓, U↓ → balanced budget"],ans:1,exp:"In a boom, government restricts demand to fight inflation: raise taxes, cut spending and transfers → budget surplus. A describes the recession response (expansionary).",topic:"Fiscal Policy"},
+    {q:"Which of the following is NOT a genuine critique of anti-cyclical fiscal policy?",opts:["Time lags mean policy arrives too late","Crowding out reduces private investment","The multiplier is always greater than 1, making policy too powerful","Asymmetric behaviour between expansions and contractions raises government debt"],ans:2,exp:"C is false — the multiplier is typically less than 1/(1−c) in practice due to crowding out, taxes, and other leakages. A, B, and D are all standard critiques covered in the lecture.",topic:"Fiscal Policy"},
+    {q:"What does the IS curve represent?",opts:["All combinations of money supply and output where money demand equals supply","All (Y, i) combinations where the goods market is in equilibrium (I = S)","The relationship between inflation and unemployment","All (G, T) combinations that balance the budget"],ans:1,exp:"IS stands for Investment = Savings. Shows all (income, interest rate) pairs where the goods market clears. LM covers money market equilibrium. Phillips Curve covers inflation-unemployment.",topic:"IS Curve"},
+    {q:"What happens to the IS curve if government spending (G) increases?",opts:["IS shifts left; income falls","IS shifts right; income rises at any given interest rate","IS becomes steeper but doesn't shift","IS becomes flatter but doesn't shift"],ans:1,exp:"G↑ is expansionary → aggregate demand↑ → higher Y at every interest rate → IS shifts right. Slope (determined by g, the investment sensitivity) doesn't change.",topic:"IS Curve"},
+    {q:"The transfer multiplier (dY/dU) compared to the spending multiplier (dY/dG) is:",opts:["Equal to the spending multiplier","Larger by factor 1/(1−c)","Smaller by factor c","Zero because transfers don't affect income"],ans:2,exp:"Transfer multiplier = c/(1−c+c·t) vs. spending multiplier = 1/(1−c+c·t). Transfers are smaller by factor c — they pass through households first, who save fraction (1−c) before spending.",topic:"Multiplier"},
+    {q:"The savings function for Germany (C = 50.2 + 0.71·Y) is:",opts:["S = 50.2 + 0.29·Y","S = −50.2 + 0.71·Y","S = −50.2 + 0.29·Y","S = 50.2 − 0.71·Y"],ans:2,exp:"S = Y − C = Y − 50.2 − 0.71Y = −50.2 + 0.29Y. Intercept = −a = −50.2 (dissaving at Y=0). Slope = 1−c = 0.29.",topic:"Consumption"},
+    {q:"Which situation causes the IS curve to become vertical?",opts:["c = 0 (no consumption)","g = 0 (investment insensitive to interest rate)","t = 1 (100% income tax)","a = 0 (no autonomous consumption)"],ans:1,exp:"If g=0, investment cannot respond to interest rate changes → changing i cannot affect I → cannot shift Y → IS is vertical. This is the investment trap — monetary policy has no goods market effect.",topic:"IS Curve"},
+    {q:"What is the 'saving paradox'?",opts:["Higher savings always lead to higher investment","An increase in autonomous saving reduces consumption → reduces income → total savings actually fall","Savings and investment are always equal regardless of income","Government saving always crowds out private saving"],ans:1,exp:"−a↑ → a↓ → C↓ → Y↓ → s·Y↓. The fall in income-induced saving outweighs the rise in autonomous saving. Individually rational behaviour is collectively self-defeating.",topic:"IS Curve"},
+    {q:"In the full model with taxes, the term (c·t) in the denominator 1−c+c·t represents:",opts:["Extra consumption induced by higher income","The tax leakage: income rises ΔY, taxes take t·ΔY, leaving only (1−t)·ΔY disposable","The crowding out effect on investment","Government's marginal propensity to consume"],ans:1,exp:"Each multiplier round: income rises ΔY but taxes take t·ΔY, so disposable income rises only (1−t)·ΔY. Of that, c·(1−t)·ΔY is spent. The denominator 1−c+c·t captures savings leakage (1−c) AND tax leakage (c·t).",topic:"Multiplier"},
+    {q:"At goods market equilibrium, which alternative condition must always hold?",opts:["C = I","G = T","I = S","Y^v = Y"],ans:2,exp:"At equilibrium, injections (I) must equal leakages (S). This is the I=S condition. C=I is not generally true. G=T means balanced budget, not required for equilibrium. Y^v=Y only if T=U.",topic:"Equilibrium"},
+    {q:"What is the effect of a tax cut (ΔT^aut = −100) on income, with c=0.8 and t=0?",opts:["ΔY = +500","ΔY = +400","ΔY = −400","ΔY = +100"],ans:1,exp:"Tax multiplier = −c/(1−c) = −0.8/0.2 = −4. ΔY = −4 × (−100) = +400. A tax CUT (negative ΔT) produces positive ΔY. 500 would be the spending multiplier result (not the tax multiplier).",topic:"Multiplier"},
+  ],
   lec1:[
     {q:"Which of the following is included as Investment (I) in the GDP expenditure formula?",opts:["Buying shares in Apple Inc.","A firm purchasing a new factory","A household buying government bonds","A bank lending money to a small business"],ans:1,exp:"Only real/physical investment counts as I — purchasing productive assets like factories, machines, buildings. Buying shares, bonds, or lending money are financial transactions that do not create new productive capacity and are excluded from GDP.",topic:"GDP"},
     {q:"The fundamental GDP identity states that GDP equals:",opts:["Only government and private spending","Production = Income = Consumption Expenditures","Production, which always exceeds income due to profits","Consumption + Savings only"],ans:1,exp:"The fundamental identity is Production = Income = Consumption Expenditures. Every euro produced generates a euro of income, which is spent as a euro of expenditure. Holds in a closed economy or in the long run.",topic:"GDP"},
@@ -2200,6 +2470,82 @@ const calcProblemsPS2=[
     ]
   },
 ];
+const calcProblemsLec2=[
+  {
+    title:"Problem 1 — Basic Goods Market Equilibrium",
+    desc:"Given: <b>C = 400 + 0.75·Y</b>, <b>I^aut = 300</b>.<br>Find: Ŷ, Ĉ, Ŝ. Verify I = S.",
+    steps:[
+      {label:"Step 1: Write equilibrium condition",formula:"Y = C + I = 400 + 0.75Y + 300",result:"Y − 0.75Y = 700 → 0.25Y = 700"},
+      {label:"Step 2: Solve for Ŷ",formula:"Ŷ = 700 / 0.25",result:"Ŷ = <b>2,800</b>"},
+      {label:"Step 3: Find Ĉ",formula:"Ĉ = 400 + 0.75(2,800) = 400 + 2,100",result:"Ĉ = <b>2,500</b>"},
+      {label:"Step 4: Find Ŝ and verify",formula:"Ŝ = 2,800 − 2,500 = 300",result:"Ŝ = <b>300</b> = I^aut ✓ (I = S confirmed)"},
+    ]
+  },
+  {
+    title:"Problem 2 — Multiplier Effect",
+    desc:"Same as Problem 1 (C = 400 + 0.75Y, I^aut = 300). Now <b>ΔI^aut = +100</b>.<br>Find: new Ŷ, ΔY. Verify with direct calculation.",
+    steps:[
+      {label:"Step 1: Calculate multiplier",formula:"μ = 1/(1−c) = 1/(1−0.75) = 1/0.25",result:"μ = <b>4</b>"},
+      {label:"Step 2: Apply multiplier",formula:"ΔY = μ × ΔI = 4 × 100",result:"ΔY = <b>400</b>"},
+      {label:"Step 3: New equilibrium income",formula:"New Ŷ = 2,800 + 400",result:"New Ŷ = <b>3,200</b>"},
+      {label:"Step 4: Verify directly",formula:"Y = 400 + 0.75(3,200) + 400 = 400 + 2,400 + 400",result:"Y = <b>3,200 ✓</b>"},
+    ]
+  },
+  {
+    title:"Problem 3 — Model with Government (IS Derivation)",
+    desc:"<b>C = 250 + 0.5·Y^v</b>, <b>I = 265 − 7i</b>, <b>G = 200</b>, <b>T = 100 + 0.1·Y</b>, U = 0.<br>Derive the IS equation.",
+    steps:[
+      {label:"Step 1: Find disposable income Y^v",formula:"Y^v = Y − T = Y − (100 + 0.1Y) = 0.9Y − 100",result:"Y^v = <b>0.9Y − 100</b>"},
+      {label:"Step 2: Substitute into consumption function",formula:"C = 250 + 0.5(0.9Y − 100) = 250 + 0.45Y − 50",result:"C = <b>200 + 0.45Y</b>"},
+      {label:"Step 3: Write aggregate demand",formula:"Y = C + I + G = (200 + 0.45Y) + (265 − 7i) + 200",result:"Y = 665 + 0.45Y − 7i"},
+      {label:"Step 4: Collect Y terms",formula:"Y − 0.45Y = 665 − 7i → 0.55Y = 665 − 7i",result:"0.55Y = 665 − 7i"},
+      {label:"Step 5: IS equation",formula:"Y = 665/0.55 − (7/0.55)·i",result:"IS: <b>Y = 1,209.09 − 12.73·i</b>"},
+    ]
+  },
+  {
+    title:"Problem 4 — Haavelmo Theorem",
+    desc:"Government increases <b>G by 100</b> AND <b>T^aut by 100</b>. MPC c = 0.8.<br>Find ΔY (a) using the theorem, (b) algebraically.",
+    steps:[
+      {label:"(a) Haavelmo Theorem",formula:"ΔG = ΔT → Haavelmo multiplier = 1",result:"ΔY = 1 × 100 = <b>100</b>"},
+      {label:"(b) Effect of ΔG = 100",formula:"ΔY_G = ΔG × 1/(1−c) = 100 × 1/0.2 = 100 × 5",result:"ΔY_G = <b>+500</b>"},
+      {label:"(b) Effect of ΔT^aut = 100",formula:"ΔC = −c·ΔT = −0.8×100 = −80. ΔY_T = −80 × 5",result:"ΔY_T = <b>−400</b>"},
+      {label:"(b) Net effect",formula:"ΔY = ΔY_G + ΔY_T = 500 − 400",result:"ΔY = <b>100 = ΔG ✓</b>"},
+      {label:"Key insight",formula:"Government MPC = 1 (spends 100%), households MPC = c = 0.8 (save 20%). Net injection = (1−c)·100 = 20. Multiplied: 20 × 5 = 100.",result:"<b>Haavelmo multiplier is always 1, regardless of c.</b>"},
+    ]
+  },
+  {
+    title:"Problem 5 — Transfer vs. Spending Multiplier",
+    desc:"c = 0.5, t = 0.1. Compare: ΔG = −100 vs ΔU = −100.<br>Find effective multiplier and ΔY for each.",
+    steps:[
+      {label:"Step 1: Effective multiplier denominator",formula:"1 − c + c·t = 1 − 0.5 + 0.5×0.1 = 0.5 + 0.05",result:"Denominator = <b>0.55</b>"},
+      {label:"Step 2: Spending multiplier",formula:"dY/dG = 1/0.55",result:"Spending multiplier = <b>1.818</b>. ΔY = −100 × 1.818 = <b>−181.8</b>"},
+      {label:"Step 3: Transfer multiplier",formula:"dY/dU = c/0.55 = 0.5/0.55",result:"Transfer multiplier = <b>0.909</b>. ΔY = −100 × 0.909 = <b>−90.9</b>"},
+      {label:"Comparison",formula:"Spending cut: ΔY = −181.8. Transfer cut: ΔY = −90.9. Ratio = 2:1",result:"<b>Spending cut reduces income roughly TWICE as much as a same-size transfer cut.</b>"},
+    ]
+  },
+  {
+    title:"Problem 6 — Full IS-LM (Exam-Style)",
+    desc:"C=1,000+0.8·Y^v, I=400−4i, G=200, T=100+0.25·Y, U=0. L^D=0.2Y−10i, MS=640.<br>Find Y* and i*.",
+    steps:[
+      {label:"Step 1: Disposable income",formula:"Y^v = Y − T = Y − (100+0.25Y) = 0.75Y − 100",result:"Y^v = 0.75Y − 100"},
+      {label:"Step 2: Consumption",formula:"C = 1,000 + 0.8(0.75Y−100) = 1,000 + 0.6Y − 80",result:"C = 920 + 0.6Y"},
+      {label:"Step 3: IS equation",formula:"Y = 920+0.6Y + 400−4i + 200 → 0.4Y = 1,520−4i",result:"IS: <b>Y = 3,800 − 10i</b>"},
+      {label:"Step 4: LM equation",formula:"MS = L^D: 640 = 0.2Y − 10i → 10i = 0.2Y − 640",result:"LM: <b>i = 0.02Y − 64</b>"},
+      {label:"Step 5: Solve system",formula:"Y = 3,800 − 10(0.02Y−64) = 3,800 − 0.2Y + 640 → 1.2Y = 4,440",result:"Y* = <b>3,700</b>"},
+      {label:"Step 6: Find i*",formula:"i* = 0.02(3,700) − 64 = 74 − 64",result:"i* = <b>10%</b>"},
+    ]
+  },
+  {
+    title:"Problem 7 — Savings Function Derivation",
+    desc:"Given <b>C = 1,000 + 0.8·Y^v</b>, <b>T = 100 + 0.25·Y</b>, U = 0.<br>Find S as a function of Y.",
+    steps:[
+      {label:"Step 1: Disposable income",formula:"Y^v = Y − T = Y − 100 − 0.25Y = 0.75Y − 100",result:"Y^v = 0.75Y − 100"},
+      {label:"Step 2: Consumption",formula:"C = 1,000 + 0.8(0.75Y−100) = 1,000 + 0.6Y − 80",result:"C = 920 + 0.6Y"},
+      {label:"Step 3: Savings (S = Y^v − C)",formula:"S = (0.75Y−100) − (920+0.6Y) = 0.75Y − 100 − 920 − 0.6Y",result:"S = <b>−1,020 + 0.15Y</b>"},
+      {label:"Interpretation",formula:"Autonomous saving = −1,020 (dissaving at Y=0). MPS on gross Y = 0.15.",result:"<b>Intercept is negative (dissaving). Slope is MPS after taxes.</b>"},
+    ]
+  },
+];
 const calcProblemsLec1=[
   {
     title:"GDP — Expenditure Approach",
@@ -2341,7 +2687,7 @@ const calcProblemsCh2=[
 ];
 const calcProblemsByPrefix_placeholder=null; // moved below
 let calcCurrentPrefix='ch3';
-function getCalcProblems(prefix){return({ch2:calcProblemsCh2,ch3:calcProblems,ps1:calcProblemsPS1,ps2:calcProblemsPS2,lec1:calcProblemsLec1})[prefix]||calcProblems;}
+function getCalcProblems(prefix){return({ch2:calcProblemsCh2,ch3:calcProblems,ps1:calcProblemsPS1,ps2:calcProblemsPS2,lec1:calcProblemsLec1,lec2:calcProblemsLec2})[prefix]||calcProblems;}
 function initCalcFor(prefix){calcCurrentPrefix=prefix;calcIdx=0;calcStep=0;calcRevealed=false;renderCalcFor(prefix);}
 function renderCalcFor(prefix){
   const problems=getCalcProblems(prefix);
@@ -2667,7 +3013,26 @@ function renderMacroWeakSpots(prefix){
   const s=macroQState[prefix];const ws=document.getElementById('mq'+prefix+'-weak');if(!ws)return;
   if(!s.wrongs.length){ws.innerHTML='<div class="weak-title">Perfect score!</div>';return;}
   const topics=[...new Set(s.wrongs.map(q=>q.topic))];
-  const tips={GDP:'Review the three GDP methods and the expenditure formula trap (no financial investment)','Production Function':'Re-derive the Cobb-Douglas formula and the Solow decomposition','Growth':'Review the three determinants and the catch-up effect — theory AND why it fails','GDP per Capita':'Practice the four-way decomposition identity','Circular Flow':'Re-draw the leakages/injections table and practice the identity (S−I)+(T−G)=(EX−IM)','Models':'Review the consumption function and the definition of MPC/autonomous consumption','Concepts':'Check the nominal/real and flow/stock distinctions','COVID-19':'Review Germany fiscal response stats and ECB PEPP figures'};
+  const tips={
+    'GDP':'Review the three GDP methods and the expenditure formula trap (no financial investment)',
+    'Production Function':'Re-derive the Cobb-Douglas formula and the Solow decomposition',
+    'Growth':'Review the three determinants and the catch-up effect — theory AND why it fails',
+    'GDP per Capita':'Practice the four-way decomposition identity',
+    'Circular Flow':'Re-draw the leakages/injections table and practice the identity (S−I)+(T−G)=(EX−IM)',
+    'Models':'Review the consumption function and the definition of MPC/autonomous consumption',
+    'Concepts':'Check the nominal/real and flow/stock distinctions',
+    'COVID-19':'Review Germany fiscal response stats and ECB PEPP figures',
+    'Business Cycle':'Review output gap formula and the boom/recession sequence',
+    'Supply Elasticity':'Practice ηₛ = growth rate / inflation rate — and what elastic vs inelastic supply means for policy',
+    'Schools of Thought':'Compare all three schools using the Compare tab — focus on supply curve and fiscal/monetary policy stance',
+    'Short Run':'List the four short-run assumptions — especially prices constant and Y = Y^D',
+    'Consumption':'Know both a (autonomous) and c (MPC) with Germany values; derive S = −a + (1−c)Y',
+    'Equilibrium':'Practice the full derivation: write Y^D = C+I+G, substitute, collect terms, solve; know both gap directions',
+    'Multiplier':'Learn all four multiplier types; key trap: with tax use 1/(1−c+c·t) not 1/(1−c)',
+    'Fiscal Policy':'Know B = T−U−G; anti-cyclical logic; state at least 2 of the 6 critiques',
+    'Haavelmo':'ΔY = ΔG always; know the WHY — c^gov=1 vs c<1; practice the algebra',
+    'IS Curve':'Derive IS step by step; know what shifts it and what makes it vertical (g=0)'
+  };
   let html='<div class="weak-title">Focus on these topics:</div>';
   topics.forEach(t=>{html+='<div class="weak-item"><span class="weak-item-icon">⚠️</span><div><div class="weak-item-text">'+t+'</div><div class="weak-item-tip">'+(tips[t]||'Review this topic in the Summary tab')+'</div></div></div>';});
   ws.innerHTML=html;
