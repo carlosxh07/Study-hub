@@ -257,6 +257,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
     <button class="nav-btn active" data-color="dash" onclick="showPage('dashboard',this)"><span class="nav-dot" style="background:var(--text3)"></span>Dashboard</button>
     <div class="nav-label">EU Law</div>
     <button class="nav-btn" data-color="eu" onclick="showPage('eu-overview',this)"><span class="nav-dot" style="background:var(--eu)"></span>All Sessions</button>
+    <button class="nav-sub" onclick="showLecture('eu','iii',this)">Session III</button>
     <button class="nav-sub" onclick="showLecture('eu','v',this)">Session V</button>
     <button class="nav-sub" onclick="showLecture('eu','vi',this)">Session VI</button>
     <button class="nav-sub" style="opacity:.5;cursor:default;pointer-events:none">+ More coming</button>
@@ -291,7 +292,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
     <div class="subject-card sc-eu" onclick="showPage('eu-overview',null)">
       <div class="sc-name">EU Law</div><div class="sc-meta">Sessions · Prof. Adrian Cloer</div>
       <div class="sc-progress"><div class="sc-progress-fill" style="width:14%;background:var(--eu)"></div></div>
-      <div class="sc-stats"><div class="sc-stat"><strong>2</strong> sessions loaded</div><div class="sc-stat"><strong>14</strong> flashcards</div><div class="sc-stat"><strong>15</strong> quiz Qs</div></div>
+      <div class="sc-stats"><div class="sc-stat"><strong>3</strong> sessions loaded</div><div class="sc-stat"><strong>44</strong> flashcards</div><div class="sc-stat"><strong>35</strong> quiz Qs</div></div>
     </div>
     <div class="subject-card sc-micro" onclick="showPage('micro-overview',null)">
       <div class="sc-name">Microeconomics</div><div class="sc-meta">Chapters · Microeconomics 1</div>
@@ -324,11 +325,221 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
   <div class="lectures-list">
     <div class="lec-card empty"><div class="lec-num" style="background:var(--eu-l);color:var(--eu)">01</div><div class="lec-info"><div class="lec-title">Session I</div><div class="lec-sub">Not yet added</div></div><div class="lec-badges"><span class="lec-badge">Summary</span><span class="lec-badge">Cards</span><span class="lec-badge">Quiz</span></div></div>
     <div class="lec-card empty"><div class="lec-num" style="background:var(--eu-l);color:var(--eu)">02</div><div class="lec-info"><div class="lec-title">Session II</div><div class="lec-sub">Not yet added</div></div><div class="lec-badges"><span class="lec-badge">Summary</span><span class="lec-badge">Cards</span><span class="lec-badge">Quiz</span></div></div>
-    <div class="lec-card empty"><div class="lec-num" style="background:var(--eu-l);color:var(--eu)">03</div><div class="lec-info"><div class="lec-title">Session III</div><div class="lec-sub">Not yet added</div></div><div class="lec-badges"><span class="lec-badge">Summary</span><span class="lec-badge">Cards</span><span class="lec-badge">Quiz</span></div></div>
+    <div class="lec-card" onclick="showLecture('eu','iii',null)"><div class="lec-num" style="background:var(--eu-l);color:var(--eu)">03</div><div class="lec-info"><div class="lec-title">Session III</div><div class="lec-sub">Roman Law, Byzantine Empire &amp; Legal Foundations of Europe</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Timeline</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span></div></div>
     <div class="lec-card empty"><div class="lec-num" style="background:var(--eu-l);color:var(--eu)">04</div><div class="lec-info"><div class="lec-title">Session IV</div><div class="lec-sub">Not yet added</div></div><div class="lec-badges"><span class="lec-badge">Summary</span><span class="lec-badge">Cards</span><span class="lec-badge">Quiz</span></div></div>
     <div class="lec-card" onclick="showLecture('eu','v',null)"><div class="lec-num" style="background:var(--eu-l);color:var(--eu)">05</div><div class="lec-info"><div class="lec-title">Session V</div><div class="lec-sub">Wrap-Up: BEPS · Legal Systems · EU History</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span></div></div>
     <div class="lec-card" onclick="showLecture('eu','vi',null)"><div class="lec-num" style="background:var(--eu-l);color:var(--eu)">06</div><div class="lec-info"><div class="lec-title">Session VI</div><div class="lec-sub">Nature of EU Law · 5 Landmark Cases · Decision Tree</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span><span class="lec-badge has">Interactive</span></div></div>
     <div class="lec-card empty"><div class="lec-num" style="background:var(--eu-l);color:var(--eu)">07+</div><div class="lec-info"><div class="lec-title">More sessions coming</div><div class="lec-sub">Share your notes to add the next session</div></div><div class="lec-badges"><span class="lec-badge">Summary</span><span class="lec-badge">Cards</span><span class="lec-badge">Quiz</span></div></div>
+  </div>
+</div>
+
+<!-- ══ SESSION III ══ -->
+<div id="page-eu-iii" class="page">
+  <div class="page-eyebrow" style="color:var(--eu)">EU Law · Session III</div>
+  <div class="page-title">Roman Law &amp; the Foundations of Europe</div>
+  <div class="page-desc">From Rome 753 BC to Justinian's Corpus Juris Civilis — the deep historical roots of every continental legal system.</div>
+  <div class="study-tabs">
+    <button class="study-tab active" onclick="showTab('siii','summary',this)">Summary</button>
+    <button class="study-tab" onclick="showTab('siii','timeline',this)">Timeline</button>
+    <button class="study-tab" onclick="showTab('siii','compare',this)">Compare</button>
+    <button class="study-tab" onclick="showTab('siii','flashcards',this)">Flashcards</button>
+    <button class="study-tab" onclick="showTab('siii','quiz',this)">Quiz</button>
+  </div>
+
+  <!-- SUMMARY -->
+  <div id="siii-summary" class="study-panel active">
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-eu">A. The Four Phases of Roman History</span></div>
+      <p>Rome's legal development tracks its political evolution across four distinct phases:</p>
+      <ul>
+        <li><strong>Kingdom (753–510 BC):</strong> Founded 21 April 753 BC by Romulus (killed twin brother Remus). Law is unwritten, customary, and monopolised by the patrician elite — a tool of power, not justice.</li>
+        <li><strong>Republic (510–31 BC):</strong> Senate and magistrates govern. 450 BC: the Law of the Twelve Tables breaks patrician monopoly. Law becomes a public, standardised system.</li>
+        <li><strong>Imperial Period (31 BC–476 AD):</strong> Begins with Augustus. Julius Caesar (100–44 BC) preceded this era — his name is the etymological root of <em>Kaiser</em> (German) and <em>Tsar</em> (Russian).</li>
+        <li><strong>Late Antiquity (~284–534 AD):</strong> Begins with the Diocletian Reform (284 AD). Culminates in Justinian's Corpus Juris Civilis (529–534 AD) — the legal capstone of Roman civilisation.</li>
+      </ul>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-teal">B. Law of the Twelve Tables (450 BC)</span></div>
+      <p>Plebeians demanded codification because patricians monopolised unwritten customary law to dominate court outcomes. Ten commissioners (<em>decemviri</em>) were appointed to write the law down and post it publicly in the Roman Forum — likely on bronze tablets.</p>
+      <ul>
+        <li>Covered: civil procedure, property, family law, debt, and crime.</li>
+        <li><strong>Core principle:</strong> Law must be based on written, public rules — not the private interpretation of the powerful. This is the conceptual root of the rule of law.</li>
+        <li>This is the moment law stops being a weapon of the elite and starts being a shared framework.</li>
+      </ul>
+      <div class="note-box"><strong>Exam relevance:</strong> Be able to explain in one paragraph why the Twelve Tables matter — written, public, standardised law as the birth of the rule of law.</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-amber">C. The Byzantine Empire</span></div>
+      <p>When Theodosius I died in 395 AD, he divided the empire between his two sons: <strong>Arcadius</strong> (East → Byzantine Empire) and <strong>Honorius</strong> (West). The split was a practical response to the impossibility of governing the vast empire from one centre.</p>
+      <ul>
+        <li>Western Empire fell <strong>476 AD</strong> — Germanic leader Odoacer deposed Romulus Augustulus.</li>
+        <li>Eastern Empire (Byzantium) survived until <strong>1453 AD</strong> — fall of Constantinople to the Ottomans.</li>
+        <li>Citizens called themselves <strong>Romans</strong> — "Byzantine" was coined by Western historians after the fall.</li>
+        <li><strong>Key role:</strong> Byzantium is the transmission belt — it preserved Roman law, Greek philosophy, and Christian theology for ~1,000 years after Rome's collapse.</li>
+      </ul>
+      <div class="note-box">⚠️ <strong>Common trap:</strong> Do not confuse 395 AD (empire splits) with 476 AD (Western Empire falls) — these are two separate events 80 years apart.</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-coral">D. Christianity &amp; European Governance</span></div>
+      <p>Christianity's journey from persecuted sect to state religion is a case study in religion becoming a political tool. Key milestones:</p>
+      <ul>
+        <li><strong>301 AD — Armenia:</strong> First Christian state in the world (not Rome!).</li>
+        <li><strong>311 AD — Edict of Toleration (Galerius):</strong> Ended empire-wide persecution of Christians.</li>
+        <li><strong>312 AD — Battle of Milvian Bridge:</strong> Constantine's Chi-Rho vision; beginning of Christian patronage.</li>
+        <li><strong>313 AD — Edict of Milan (Constantine &amp; Licinius):</strong> Guaranteed full freedom to practise Christianity. Did <em>not</em> make it the state religion.</li>
+        <li><strong>321 AD — Sunday rest (Constantine):</strong> Historical origin of the work-free Sunday in the Western world.</li>
+        <li><strong>325 AD — Council of Nicaea:</strong> First ecumenical council; affirmed divinity of Christ; produced the Nicene Creed.</li>
+        <li><strong>337 AD — Georgia:</strong> Second Christian state (after Armenia, before Rome).</li>
+        <li><strong>380 AD — Cunctos Populos (Theodosius I):</strong> Christianity becomes official, binding state religion of Rome.</li>
+      </ul>
+      <div class="note-box">⚠️ <strong>Two traps:</strong> (1) Rome was NOT first — Armenia was (301 AD). (2) The Edict of Milan (313) ≠ Cunctos Populos (380). One guarantees freedom of worship; the other makes Christianity mandatory.</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-purple">E. Corpus Juris Civilis (529–534 AD)</span></div>
+      <p>Commissioned by <strong>Emperor Justinian I</strong> of the Eastern Roman (Byzantine) Empire. Purpose: to organise, streamline, and preserve centuries of accumulated Roman legal material. Contains four parts:</p>
+      <ul>
+        <li><strong>Codex (Code):</strong> Compilation of imperial enactments and statutes up to Justinian's reign.</li>
+        <li><strong>Digesta / Pandects:</strong> Encyclopedia of extracts from Roman jurists' scholarly writings — most academically rich part.</li>
+        <li><strong>Institutiones (Institutes):</strong> Student textbook introducing the Code — educational entry point.</li>
+        <li><strong>Novellae (Novels):</strong> New laws enacted by Justinian himself after the Code.</li>
+      </ul>
+      <p style="margin-top:10px">Medieval reception: called <em>ratio scripta</em> ("written reason") — treated as the logical default standard to fill legal gaps. Rediscovered at <strong>Bologna</strong> (first European law school), spreading across Western Europe.</p>
+      <p style="margin-top:8px"><strong>Modern legacy:</strong> Germany's BGB, France's Code Civil, Italy's Civil Code — all direct descendants. This is why continental Europe is a "civil law" jurisdiction.</p>
+      <div class="note-box">⚠️ <strong>Major trap:</strong> The Corpus Juris Civilis was NOT a product of classical Rome. Compiled 529–534 AD by a Byzantine emperor — roughly 100 years after the Western Empire fell in 476 AD.</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">F. Rudolf von Jhering's "Three Times" Formulation <span class="badge b-eu" style="margin-left:8px">Exam Quote</span></div>
+      <p>"Rome unified the world three times — through political power (the State), through religion (the Church), and through law (the reception of Roman law in the Middle Ages). The first was by force; the latter two by reason."</p>
+      <p style="margin-top:8px">This explains why Roman law matters for EU law: the EU operates within civil law systems that all trace back to the Corpus Juris Civilis.</p>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">G. Roman Symbols of Power</div>
+      <table class="comp-table">
+        <tr><th>Symbol</th><th>Meaning</th></tr>
+        <tr><td><strong>SPQR</strong></td><td>Senatus Populusque Romanus — "The Senate and People of Rome"; emblem of shared republican authority</td></tr>
+        <tr><td><strong>Aquila (Eagle)</strong></td><td>Symbol of Jupiter; represented Roman imperial expansion; appears on legion standards</td></tr>
+        <tr><td><strong>Fasces</strong></td><td>Rod bundle with axe; magistrate authority; unity through collective power — root of the word "fascism"</td></tr>
+        <tr><td><strong>Double-headed Eagle</strong></td><td>Represented both Eastern and Western Rome; secular power (orb) + Church (cross)</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- TIMELINE -->
+  <div id="siii-timeline" class="study-panel">
+    <div class="sum-card" style="margin-bottom:20px">
+      <div class="sum-title">Interactive Timeline — Roman Law to EU Law</div>
+      <p style="font-size:13px;color:var(--text2)">Click any event to expand its significance. Filter by category using the buttons below.</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px" id="siii-tl-filters">
+        <button class="scenario-btn active" onclick="filterSiiiTimeline('all',this)">All</button>
+        <button class="scenario-btn" onclick="filterSiiiTimeline('foundation',this)">Roman Phases</button>
+        <button class="scenario-btn" onclick="filterSiiiTimeline('law',this)">Roman Law</button>
+        <button class="scenario-btn" onclick="filterSiiiTimeline('christianity',this)">Christianity</button>
+        <button class="scenario-btn" onclick="filterSiiiTimeline('byzantine',this)">Byzantine</button>
+        <button class="scenario-btn" onclick="filterSiiiTimeline('decline',this)">Rome's Decline</button>
+      </div>
+    </div>
+    <div class="timeline" id="siii-tl">
+      <!-- JS renders timeline items here -->
+    </div>
+  </div>
+
+  <!-- COMPARE -->
+  <div id="siii-compare" class="study-panel">
+    <div class="sum-card">
+      <div class="sum-title">The Four Roman Phases — Legal Development</div>
+      <table class="comp-table">
+        <tr><th>Phase</th><th>Dates</th><th>Governance</th><th>Legal Development</th></tr>
+        <tr><td><strong>Kingdom</strong></td><td>753–510 BC</td><td>Rule by kings</td><td>Unwritten customary law; patrician monopoly</td></tr>
+        <tr><td><strong>Republic</strong></td><td>510–31 BC</td><td>Senate + magistrates</td><td>Twelve Tables (450 BC); first public written law</td></tr>
+        <tr><td><strong>Imperial</strong></td><td>31 BC–476 AD</td><td>Emperors (Augustus onward)</td><td>Law codified; Christianity integrated into state</td></tr>
+        <tr><td><strong>Late Antiquity</strong></td><td>~284–534 AD</td><td>Fragmented / Byzantine</td><td>Corpus Juris Civilis compiled (529–534 AD)</td></tr>
+      </table>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">The Four Parts of the Corpus Juris Civilis</div>
+      <table class="comp-table">
+        <tr><th>Part</th><th>Latin Name</th><th>Content</th><th>Audience</th></tr>
+        <tr><td><strong>Code</strong></td><td>Codex</td><td>Compilation of imperial statutes and enactments up to Justinian's reign</td><td>Practitioners / officials</td></tr>
+        <tr><td><strong>Digest</strong></td><td>Digesta / Pandects</td><td>Encyclopedia of extracts from Roman jurists' scholarly writings</td><td>Legal scholars</td></tr>
+        <tr><td><strong>Institutes</strong></td><td>Institutiones</td><td>Student textbook introducing and summarising the Code</td><td>Law students</td></tr>
+        <tr><td><strong>Novels</strong></td><td>Novellae</td><td>New laws enacted by Justinian himself after the Code</td><td>Current governance</td></tr>
+      </table>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">Christianity — Key Milestones Compared</div>
+      <table class="comp-table">
+        <tr><th>Date</th><th>Event</th><th>Legal / Political Significance</th></tr>
+        <tr><td>301 AD</td><td>Armenia — first Christian state</td><td>Rome was NOT first; often exam trap</td></tr>
+        <tr><td>311 AD</td><td>Edict of Toleration (Galerius)</td><td>Ended systematic empire-wide persecution</td></tr>
+        <tr><td>313 AD</td><td>Edict of Milan (Constantine)</td><td>Guaranteed freedom to practise Christianity — did NOT make it state religion</td></tr>
+        <tr><td>321 AD</td><td>Ban on Sunday work</td><td>Historical origin of work-free Sunday in Western world</td></tr>
+        <tr><td>325 AD</td><td>Council of Nicaea</td><td>First ecumenical council; Nicene Creed affirming divinity of Christ</td></tr>
+        <tr><td>337 AD</td><td>Georgia becomes Christian</td><td>Second state after Armenia; before Rome</td></tr>
+        <tr><td>380 AD</td><td>Cunctos Populos (Theodosius I)</td><td>Christianity becomes mandatory state religion — this is the big one</td></tr>
+      </table>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">Western vs Eastern Roman Empire — After the Split</div>
+      <table class="comp-table">
+        <tr><th></th><th>Western Empire</th><th>Eastern Empire (Byzantine)</th></tr>
+        <tr><td><strong>Ruler (395 AD)</strong></td><td>Honorius (son of Theodosius)</td><td>Arcadius (son of Theodosius)</td></tr>
+        <tr><td><strong>Fell</strong></td><td>476 AD (Odoacer deposes Romulus Augustulus)</td><td>1453 AD (Ottomans take Constantinople)</td></tr>
+        <tr><td><strong>Duration after split</strong></td><td>~80 years</td><td>~1,058 years</td></tr>
+        <tr><td><strong>Legacy</strong></td><td>Germanic kingdoms; fragmented law</td><td>Preserved Roman law; produced Corpus Juris Civilis</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- FLASHCARDS -->
+  <div id="siii-flashcards" class="study-panel">
+    <div class="fc-controls">
+      <button class="btn btn-sm" onclick="shuffleFC('siii')">Shuffle</button>
+      <button class="btn btn-sm" onclick="resetFC('siii')">Reset all</button>
+      <span style="font-size:12px;color:var(--text3);margin-left:4px">Rate each card to focus on what you don't know yet</span>
+    </div>
+    <div class="fc-sr-bar" id="siii-sr-bar"></div>
+    <div id="siii-fc-wrap">
+      <div class="flashcard-wrap"><div class="flashcard" id="siii-fc-card" onclick="flipFC('siii')">
+        <div class="fc-face fc-front"><div class="fc-label">Question</div><div class="fc-question" id="siii-fc-q"></div><div class="fc-hint">Click to reveal answer</div></div>
+        <div class="fc-face fc-back"><div class="fc-label">Answer</div><div class="fc-answer" id="siii-fc-a"></div><div class="fc-src" id="siii-fc-src"></div></div>
+      </div></div>
+      <div class="sr-btns">
+        <button class="sr-btn sr-btn-hard" onclick="rateFC('siii',0)">😬 Still learning</button>
+        <button class="sr-btn sr-btn-ok" onclick="rateFC('siii',1)">🤔 Almost</button>
+        <button class="sr-btn sr-btn-easy" onclick="rateFC('siii',2)">✓ Got it</button>
+      </div>
+      <div class="sr-mode-note" id="siii-sr-note">Card <span id="siii-fc-counter">1</span> of <span id="siii-fc-total">1</span></div>
+    </div>
+    <div class="fc-sr-done" id="siii-fc-done" style="display:none">
+      <h3>Session complete! 🎉</h3>
+      <p id="siii-done-msg"></p>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:16px">
+        <button class="btn btn-primary" onclick="reviewWeak('siii')">Review weak cards</button>
+        <button class="btn" onclick="resetFC('siii')">Start over</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUIZ -->
+  <div id="siii-quiz" class="study-panel">
+    <div id="siii-quiz-wrap">
+      <div class="quiz-prog"><div class="quiz-prog-fill" id="siii-qpfill" style="width:0%"></div></div>
+      <div class="quiz-meta" id="siii-q-meta"></div>
+      <div class="quiz-q" id="siii-q-text"></div>
+      <div class="quiz-opts" id="siii-q-opts"></div>
+      <div class="quiz-fb" id="siii-q-fb"></div>
+      <div id="siii-q-next" style="display:none"><button class="btn btn-primary" onclick="nextQ('siii')">Next →</button></div>
+    </div>
+    <div class="quiz-score-screen" id="siii-quiz-score">
+      <div class="score-row">
+        <div class="score-big" id="siii-score-big"></div>
+        <div class="score-right"><div class="score-lbl">correct answers</div><div class="score-msg" id="siii-score-msg"></div></div>
+      </div>
+      <div class="weak-section" id="siii-weak-section"></div>
+      <div style="margin-top:20px;display:flex;gap:10px">
+        <button class="btn btn-primary" onclick="restartQuiz('siii')">Try again</button>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -1645,7 +1856,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
 <script>
 // ── Navigation ──
 function showPage(id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));document.getElementById('page-'+id).classList.add('active');if(btn)btn.classList.add('active')}
-function showLecture(subject,id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-sub').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');const el=document.getElementById('page-'+subject+'-'+id);if(el){el.classList.add('active');if(subject==='eu'&&id==='v'){initFC('sv');initQuiz('sv')}if(subject==='eu'&&id==='vi'){initFC('svi');initQuiz('svi');loadScenario(0,document.querySelector('.scenario-btn'))}if(subject==='micro'&&id==='ch2'){initMicroFC('ch2');initMicroQuiz('ch2');initCalcFor('ch2')}
+function showLecture(subject,id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-sub').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');const el=document.getElementById('page-'+subject+'-'+id);if(el){el.classList.add('active');if(subject==='eu'&&id==='iii'){initFC('siii');initQuiz('siii');initSiiiTimeline()}if(subject==='eu'&&id==='v'){initFC('sv');initQuiz('sv')}if(subject==='eu'&&id==='vi'){initFC('svi');initQuiz('svi');loadScenario(0,document.querySelector('.scenario-btn'))}if(subject==='micro'&&id==='ch2'){initMicroFC('ch2');initMicroQuiz('ch2');initCalcFor('ch2')}
 if(subject==='micro'&&id==='ch3'){initMicroFC('ch3');initMicroQuiz('ch3');initCalc()}if(subject==='micro'&&id==='ps1'){initMicroFC('ps1');initMicroQuiz('ps1');initCalcFor('ps1')}if(subject==='micro'&&id==='ps2'){initMicroFC('ps2');initMicroQuiz('ps2');initCalcFor('ps2')}if(subject==='macro'&&id==='lec1'){initMacroFC('lec1');initMacroQuiz('lec1');initCalcFor('lec1')}if(subject==='macro'&&id==='lec2'){initMacroFC('lec2');initMacroQuiz('lec2');initCalcFor('lec2')}}}
 function showMacroTab(tab,btn,prefix){
   const page=document.getElementById('page-macro-'+prefix);if(!page)return;
@@ -1672,7 +1883,7 @@ function showMicroTab(tab,btn,prefix){
 }
 function toggleTl(card){const body=card.querySelector('.tl-body');const toggle=card.querySelector('.tl-toggle');body.classList.toggle('open');toggle.textContent=body.classList.contains('open')?'− Hide details':'+ Show details'}
 function showTab(prefix,tab,btn){
-  const pageMap={sv:'page-eu-v',svi:'page-eu-vi'};
+  const pageMap={siii:'page-eu-iii',sv:'page-eu-v',svi:'page-eu-vi'};
   const page=document.getElementById(pageMap[prefix]);
   if(!page)return;
   page.querySelectorAll('.study-panel').forEach(p=>p.classList.remove('active'));
@@ -1682,10 +1893,103 @@ function showTab(prefix,tab,btn){
   if(btn)btn.classList.add('active');
   if(tab==='flashcards'&&!fcState[prefix])initFC(prefix);
   if(tab==='quiz'&&!qState[prefix])initQuiz(prefix);
+  if(tab==='timeline'&&prefix==='siii')initSiiiTimeline();
 }
 
-// ── Flashcard data ──
+// ── Session III Timeline ──
+const siiiEvents=[
+  {year:'753 BC',label:'Rome founded by Romulus',detail:'21 April 753 BC. Romulus kills twin brother Remus and founds Rome. Law is unwritten, customary, held by the patrician elite.',cat:'foundation',color:'var(--eu)'},
+  {year:'510 BC',label:'Republic begins',detail:'Patricians overthrow the last king. Senate and magistrates now govern. Lays groundwork for standardised law.',cat:'foundation',color:'var(--eu)'},
+  {year:'450 BC',label:'Law of the Twelve Tables',detail:'First publicly written Roman law. Created at the demand of plebeians to break patrician monopoly over unwritten customary law. Posted on bronze tablets in the Forum.',cat:'law',color:'var(--micro)'},
+  {year:'100–44 BC',label:'Julius Caesar',detail:'His name etymologically became Kaiser (German) and Tsar (Russian) — evidence of Rome\'s lasting dominance of European political imagination.',cat:'foundation',color:'var(--eu)'},
+  {year:'31 BC',label:'Imperial Period begins (Augustus)',detail:'Augustus becomes first emperor. Rome expands; law increasingly codified. Christianity not yet a factor.',cat:'foundation',color:'var(--eu)'},
+  {year:'64 AD',label:'Nero persecutes Christians',detail:'Christians seen as enemies of the state for refusing emperor cult. First systematic persecution.',cat:'christianity',color:'var(--ibt)'},
+  {year:'~284 AD',label:'Diocletian Reform — Late Antiquity begins',detail:'Emperor Diocletian reorganises the empire administratively and militarily. Marks the beginning of Late Antiquity as a distinct fourth phase.',cat:'foundation',color:'var(--eu)'},
+  {year:'301 AD',label:'Armenia — first Christian state',detail:'Armenia adopts Christianity as its official state religion — 79 years before Rome. This is the most common exam trap in Session III.',cat:'christianity',color:'var(--ibt)'},
+  {year:'311 AD',label:'Edict of Toleration (Galerius)',detail:'Emperor Galerius ends the severe empire-wide persecutions of Christians. First official step toward toleration.',cat:'christianity',color:'var(--ibt)'},
+  {year:'312 AD',label:'Battle of Milvian Bridge / Chi-Rho',detail:'Constantine receives a vision to paint Chi-Rho (Χ Ρ — first letters of Christos) on shields. His victory begins Christian patronage of the empire.',cat:'christianity',color:'var(--ibt)'},
+  {year:'313 AD',label:'Edict of Milan — Christian freedom',detail:'Constantine and Licinius guarantee full, unrestricted freedom to practise Christianity. Does NOT make it the state religion — that comes in 380 AD.',cat:'christianity',color:'var(--ibt)'},
+  {year:'321 AD',label:'Sunday rest established (Constantine)',detail:'Constantine bans work on Sunday — the historical origin of the work-free Sunday in the Western world.',cat:'christianity',color:'var(--ibt)'},
+  {year:'325 AD',label:'Council of Nicaea',detail:'First ecumenical (empire-wide) Christian council, convened by Constantine. Affirmed the divinity of Christ and produced the Nicene Creed.',cat:'christianity',color:'var(--ibt)'},
+  {year:'337 AD',label:'Georgia becomes Christian state',detail:'Second state (after Armenia) to adopt Christianity before Rome formalised it.',cat:'christianity',color:'var(--ibt)'},
+  {year:'~370 AD',label:'Huns advance into Eastern Europe',detail:'Warlike Central Asian horsemen push westward, forcing Germanic tribes into Roman territory. Sets off the chain reaction leading to Rome\'s fall.',cat:'decline',color:'var(--ic)'},
+  {year:'380 AD',label:'Cunctos Populos — Christianity mandatory',detail:'Theodosius I issues Cunctos Populos, making Christianity the official and binding state religion of Rome — replacing paganism. This is the culmination of Christianity\'s integration into governance.',cat:'christianity',color:'var(--ibt)'},
+  {year:'395 AD',label:'Empire splits — Arcadius & Honorius',detail:'Theodosius I dies and divides the empire between sons: Arcadius (East → Byzantine) and Honorius (West). A practical administrative response, not a formal constitutional act.',cat:'byzantine',color:'var(--macro)'},
+  {year:'434–453 AD',label:'Attila rules the Huns',detail:'Under Attila, the Hunnic Empire extends from the Volga to the Rhine. Their pressure accelerates Germanic migrations into Roman territory.',cat:'decline',color:'var(--ic)'},
+  {year:'476 AD',label:'Western Empire falls',detail:'Germanic leader Odoacer deposes the last Western Roman Emperor, Romulus Augustulus. The Huns did not do this — they were the pressure that forced Germanic tribes in.',cat:'byzantine',color:'var(--macro)'},
+  {year:'529–534 AD',label:'Corpus Juris Civilis (Justinian)',detail:'Emperor Justinian I of the Eastern Empire compiles all Roman law into four parts: Code, Digest, Institutes, and Novels. This becomes the foundation of all continental European civil law systems.',cat:'law',color:'var(--micro)'},
+  {year:'1453 AD',label:'Byzantine Empire falls',detail:'Constantinople falls to the Ottoman Empire. The Eastern Roman Empire — which had preserved Roman law for ~1,000 years after the West collapsed — finally ends.',cat:'byzantine',color:'var(--macro)'},
+];
+let siiiActiveFilter='all';
+function initSiiiTimeline(){
+  renderSiiiTimeline();
+}
+function filterSiiiTimeline(cat,btn){
+  siiiActiveFilter=cat;
+  document.querySelectorAll('#siii-tl-filters .scenario-btn').forEach(b=>b.classList.remove('active'));
+  if(btn)btn.classList.add('active');
+  renderSiiiTimeline();
+}
+function renderSiiiTimeline(){
+  const container=document.getElementById('siii-tl');if(!container)return;
+  const events=siiiActiveFilter==='all'?siiiEvents:siiiEvents.filter(e=>e.cat===siiiActiveFilter);
+  container.innerHTML='';
+  events.forEach((e,i)=>{
+    const div=document.createElement('div');div.className='tl-item';
+    div.innerHTML=`<div class="tl-dot" style="color:${e.color}"></div>
+      <div class="tl-year">${e.year}</div>
+      <div class="tl-card" onclick="toggleSiiiTl(${i},'${siiiActiveFilter}')">
+        <div class="tl-title">${e.label}</div>
+        <div class="tl-body" id="siii-tl-body-${e.cat}-${i}">${e.detail}</div>
+        <div class="tl-toggle">▼ Show detail</div>
+      </div>`;
+    container.appendChild(div);
+  });
+}
+function toggleSiiiTl(idx,filter){
+  const events=filter==='all'?siiiEvents:siiiEvents.filter(e=>e.cat===filter);
+  const e=events[idx];
+  const body=document.getElementById('siii-tl-body-'+e.cat+'-'+idx);
+  if(!body)return;
+  const toggle=body.nextElementSibling;
+  if(body.classList.contains('open')){body.classList.remove('open');toggle.textContent='▼ Show detail';}
+  else{body.classList.add('open');toggle.textContent='▲ Hide';}
+}
+
+
 const fcDataMap={
+  siii:[
+    {q:"When was Rome traditionally founded, and by whom?",a:"21 April 753 BC by Romulus, who killed his twin brother Remus according to mythology.",src:"Session III — Roman Phases",topic:"Roman Phases"},
+    {q:"What are the four phases of Roman history and their dates?",a:"Kingdom (753–510 BC), Republic (510–31 BC), Imperial Period (31 BC–476 AD), Late Antiquity (from ~284 AD / Diocletian Reform).",src:"Session III — Roman Phases",topic:"Roman Phases"},
+    {q:"What is the etymological connection between Julius Caesar and modern European titles?",a:"The German word Kaiser and Russian Tsar both derive from 'Caesar' — reflecting Rome's lasting dominance of European political language.",src:"Session III — Symbols",topic:"Symbols"},
+    {q:"What was the Law of the Twelve Tables and why was it created?",a:"The earliest publicly written Roman law, ~450 BC, by 10 commissioners (decemviri) at the demand of plebeians disadvantaged by patricians monopolising secret customary law. Posted on bronze tablets in the Roman Forum.",src:"Session III — Twelve Tables",topic:"Twelve Tables"},
+    {q:"What is the core principle established by the Law of the Twelve Tables?",a:"Law must be based on written, public rules rather than private interpretation — the conceptual root of the rule of law.",src:"Session III — Twelve Tables",topic:"Twelve Tables"},
+    {q:"Why did the Roman Empire split in 395 AD, and into what?",a:"Emperor Theodosius I died and divided the empire between his two sons: Arcadius (East) and Honorius (West), due to the impossibility of administering such a vast territory from a single centre.",src:"Session III — Byzantine",topic:"Byzantine"},
+    {q:"When did the Western Roman Empire fall, and who caused it?",a:"476 AD — Germanic military leader Odoacer deposed the last Western Roman Emperor, Romulus Augustulus.",src:"Session III — Byzantine",topic:"Byzantine"},
+    {q:"When did the Eastern Roman (Byzantine) Empire fall, and to whom?",a:"1453 AD — Constantinople fell to the Ottoman Empire.",src:"Session III — Byzantine",topic:"Byzantine"},
+    {q:"What did citizens of the Byzantine Empire call themselves?",a:"Romans. The term 'Byzantine Empire' was coined only after its fall — its citizens used 'Roman Empire' and identified as Romans.",src:"Session III — Byzantine",topic:"Byzantine"},
+    {q:"What was the Edict of Milan (313 AD) and who issued it?",a:"Issued by Emperor Constantine and Licinius; it guaranteed full, unrestricted freedom to practise the Christian faith. It did NOT make Christianity the state religion.",src:"Session III — Christianity",topic:"Christianity"},
+    {q:"What was the significance of 321 AD in European legal history?",a:"Constantine banned Sunday work on 3 March 321 — the historical origin of the work-free Sunday in the Western world.",src:"Session III — Christianity",topic:"Christianity"},
+    {q:"What was the Council of Nicaea (325 AD)?",a:"The first ecumenical (empire-wide) assembly of the Christian Church, convened by Constantine. It affirmed the divinity of Jesus Christ and produced the Nicene Creed.",src:"Session III — Christianity",topic:"Christianity"},
+    {q:"What did Cunctos Populos (380 AD) achieve?",a:"Issued by Theodosius I, it made Christianity the official and binding state religion of Rome — replacing paganism and mandating it for all citizens.",src:"Session III — Christianity",topic:"Christianity"},
+    {q:"Was Rome the first state to adopt Christianity as its state religion?",a:"No. Armenia was first (301 AD), then Georgia (337 AD). Rome formalised it in 380 AD.",src:"Session III — Christianity",topic:"Christianity"},
+    {q:"What was the Edict of Toleration (311 AD) and who issued it?",a:"Issued by Emperor Galerius; it ended the severe empire-wide persecutions of Christians.",src:"Session III — Christianity",topic:"Christianity"},
+    {q:"What is the Corpus Juris Civilis?",a:"A systematic compilation of Roman law ordered by Emperor Justinian I, enacted 529–534 AD. It comprises the Code, Digest, Institutes, and Novels. It is the foundation of continental European civil law systems.",src:"Session III — Corpus Juris",topic:"Corpus Juris Civilis"},
+    {q:"What are the four parts of the Corpus Juris Civilis?",a:"(1) Codex — compilation of imperial statutes; (2) Digesta/Pandects — extracts from Roman jurists; (3) Institutiones — student textbook; (4) Novellae — new laws passed after the Code.",src:"Session III — Corpus Juris",topic:"Corpus Juris Civilis"},
+    {q:"What does ratio scripta mean and why does it matter?",a:"'Written reason' — the term medieval scholars used for Roman law. Treated as the logical default standard to fill legal gaps, explaining why Roman law spread across medieval Europe after Rome's fall.",src:"Session III — Corpus Juris",topic:"Corpus Juris Civilis"},
+    {q:"What does Rudolf von Jhering's 'three times' formulation mean?",a:"Rome bound nations together three times: (1) political unity through force of arms (the State); (2) religious unity through the Church; (3) legal unity through the medieval reception of Roman law. The first by force, the latter two by reason.",src:"Session III — Jhering",topic:"Roman Law Legacy"},
+    {q:"Name three modern legal systems that directly descend from the Corpus Juris Civilis.",a:"Germany's BGB (Bürgerliches Gesetzbuch), France's Code Civil, and Italy's Civil Code — all continental European 'civil law' jurisdictions.",src:"Session III — Corpus Juris",topic:"Roman Law Legacy"},
+    {q:"What is SPQR and what does it represent?",a:"Senatus Populusque Romanus — 'The Senate and the People of Rome.' Appeared on buildings, coins, and military standards; symbolised shared republican governance.",src:"Session III — Symbols",topic:"Symbols"},
+    {q:"What were the Fasces and what modern word do they give us?",a:"Bundles of rods with an axe, symbolising authority of senior Roman magistrates. Unity through collective strength. The word 'fascism' derives from this symbol.",src:"Session III — Symbols",topic:"Symbols"},
+    {q:"What was the Diocletian Reform (284 AD) and why does it matter?",a:"Emperor Diocletian reorganised the empire administratively and militarily. It marks the beginning of Late Antiquity as a distinct fourth phase of Roman history.",src:"Session III — Roman Phases",topic:"Roman Phases"},
+    {q:"Why is the University of Bologna relevant to Roman law?",a:"Bologna is traditionally the first European law school, where the Corpus Juris Civilis was rediscovered and taught in the medieval period, catalysing the spread of Roman legal thinking across Western Europe.",src:"Session III — Roman Law Legacy",topic:"Roman Law Legacy"},
+    {q:"What role did the Huns play in Rome's decline?",a:"Huns from Central Asia pushed westward (~370 AD). Under Attila (434–453 AD), their pressure forced Germanic tribes into Roman territory, destabilising the empire. It was Germanic leader Odoacer — not the Huns — who deposed the last Western emperor.",src:"Session III — Decline",topic:"Roman Phases"},
+    {q:"What was the Battle of the Milvian Bridge (312 AD)?",a:"Constantine received a vision commanding him to paint the Chi-Rho symbol on his soldiers' shields. His victory is considered the beginning of his conversion and Christian patronage of the empire.",src:"Session III — Christianity",topic:"Christianity"},
+    {q:"What is the Chi-Rho symbol?",a:"A Christian symbol formed by superimposing the Greek letters Chi (Χ) and Rho (Ρ) — the first two letters of 'Christos'. Adopted by Constantine as a military and religious emblem after the Milvian Bridge.",src:"Session III — Christianity",topic:"Christianity"},
+    {q:"What does the double-headed eagle symbolise in the Byzantine Empire?",a:"The dual claim over both Eastern and Western Rome; the orb represents secular power and the cross represents supremacy over the Church — a fusion of political and religious authority.",src:"Session III — Symbols",topic:"Symbols"},
+    {q:"Why is Byzantium called the 'transmission belt' of Roman law?",a:"After the Western Empire collapsed in 476 AD, Byzantium preserved Roman law, Greek philosophy, and Christian theology for ~1,000 years. Without it, Justinian's codification — and the entire civil law tradition — would not have been possible.",src:"Session III — Byzantine",topic:"Byzantine"},
+    {q:"What was Constantine's primary motivation for supporting Christianity, according to the lecture?",a:"Political — he recognised Christianity as a potential unifying force for an empire under severe strain. Religion as political glue is a recurring pattern in European governance history.",src:"Session III — Christianity",topic:"Christianity"},
+  ],
   sv:[
     {q:"What are the two BEPS pillars and their goals?",a:"Pillar 1: reallocates taxing rights to market jurisdictions (where consumers are). Pillar 2: ensures 15% global minimum corporate tax for MNEs with >€750m revenue.",src:"Session V — BEPS",topic:"BEPS"},
     {q:"Why is BEPS Pillar 1 currently stalled?",a:"The USA withdrew support under the Trump administration, preventing global implementation. Result: countries are imposing unilateral digital service taxes (a 'patchwork').",src:"Session V — BEPS",topic:"BEPS"},
@@ -1817,6 +2121,28 @@ function resetFC(prefix){
 
 // ── Quiz data ──
 const qDataMap={
+  siii:[
+    {q:"In which year did the Western Roman Empire officially fall?",opts:["410 AD","395 AD","476 AD","1453 AD"],ans:2,exp:"476 AD — Odoacer deposed Romulus Augustulus. 395 AD was the split of the empire. 1453 AD was the fall of the Eastern (Byzantine) Empire. 410 AD was the Visigoth sack of Rome, significant but not the final fall.",topic:"Byzantine"},
+    {q:"What was the primary purpose of the Law of the Twelve Tables?",opts:["To expand Rome's military power","To make law publicly accessible and protect plebeians from arbitrary patrician judgments","To codify religious obligations under the Roman state","To establish the Senate's authority over the Emperor"],ans:1,exp:"The Twelve Tables were created because plebeians were disadvantaged by patricians who controlled secret unwritten law. The goal was transparency and standardisation — not military, religious, or senatorial matters.",topic:"Twelve Tables"},
+    {q:"Which emperor formally made Christianity the state religion of Rome in 380 AD?",opts:["Constantine","Augustus","Galerius","Theodosius I"],ans:3,exp:"Theodosius I issued Cunctos Populos in 380 AD, making Christianity the official binding state religion. Constantine (313 AD) guaranteed freedom of Christian worship but did not make it the exclusive state religion. Galerius ended persecution in 311 AD.",topic:"Christianity"},
+    {q:"What is the Corpus Juris Civilis?",opts:["The first written law of the Roman Republic, posted in the Forum in 450 BC","A collection of Roman law compiled by Emperor Justinian I between 529 and 534 AD","The edict that made Christianity the state religion of Rome","The founding treaty of the Holy Roman Empire"],ans:1,exp:"The Corpus Juris Civilis was Justinian's 6th-century compilation of Roman law — compiled by a Byzantine emperor ~100 years after the Western Empire fell. Option A describes the Twelve Tables. Option C describes Cunctos Populos.",topic:"Corpus Juris Civilis"},
+    {q:"Which of the following is NOT one of the four parts of the Corpus Juris Civilis?",opts:["The Codex","The Institutiones","The Novellae","The Edictum Perpetuum"],ans:3,exp:"The four parts are the Codex, Digesta (Pandects), Institutiones, and Novellae. The Edictum Perpetuum is a different Roman legal instrument (a compilation of praetorian edicts) and is NOT part of Justinian's corpus.",topic:"Corpus Juris Civilis"},
+    {q:"The term 'Byzantine Empire' was used by that empire's own citizens.",opts:["True — it was their official self-designation","False — they called themselves the Roman Empire and considered themselves Romans","True — introduced by Emperor Justinian I","False — they called themselves the Greek Empire"],ans:1,exp:"Citizens of the Eastern Roman Empire called themselves Romans and used the term 'Roman Empire.' 'Byzantine' was coined by Western historians only after the empire's fall in 1453. This is a classic exam trap.",topic:"Byzantine"},
+    {q:"What did the Edict of Milan (313 AD) achieve?",opts:["It made Christianity the official state religion of the Roman Empire","It ended all persecution of Christians and banned all other religions","It guaranteed unrestricted freedom to practise the Christian faith","It established Sunday as a mandatory day of rest"],ans:2,exp:"The Edict of Milan guaranteed freedom of Christian worship — it did not ban other religions or make Christianity the exclusive state religion. That came in 380 AD with Cunctos Populos. The Sunday rest was established in 321 AD.",topic:"Christianity"},
+    {q:"Which was the FIRST state in the world to adopt Christianity as its official state religion?",opts:["Rome (380 AD)","Georgia (337 AD)","Armenia (301 AD)","Byzantium (313 AD)"],ans:2,exp:"Armenia adopted Christianity as its state religion in 301 AD — before Rome, before Georgia, before everyone else. This is a deliberate exam trap since students tend to assume Rome was first.",topic:"Christianity"},
+    {q:"What does ratio scripta mean and in what context was it used?",opts:["A Roman military doctrine meaning 'calculated force'","The Latin phrase for constitutional supremacy in the EU Treaties","The term medieval scholars used for Roman law, meaning 'written reason' — treated as a default standard to fill legal gaps","A formula for calculating proportionality under EU law"],ans:2,exp:"Ratio scripta means 'written reason' and was how medieval jurists referred to Roman law — implying it was so logically sound it served as a universal gap-filler when local law had gaps. Nothing to do with military doctrine or EU law.",topic:"Roman Law Legacy"},
+    {q:"Which part of the Corpus Juris Civilis was designed specifically as a student textbook?",opts:["The Codex","The Digesta","The Novellae","The Institutiones"],ans:3,exp:"The Institutiones (Institutes) was written as a student textbook introducing the Code. The Codex contains imperial statutes; the Digesta contains jurists' writings; the Novellae are laws passed after the original compilation.",topic:"Corpus Juris Civilis"},
+    {q:"Why did the Roman Empire split in 395 AD?",opts:["A military coup divided the empire between two rival generals","Emperor Theodosius I died and divided the empire between his two sons, due to administrative difficulty","The Western half declared independence from Constantinople","The Council of Nicaea decreed a formal separation"],ans:1,exp:"Theodosius I divided the empire between Arcadius (East) and Honorius (West) upon his death in 395 AD — a practical response to the impossibility of governing such a vast territory. The Council of Nicaea (325 AD) predates this event by 70 years.",topic:"Byzantine"},
+    {q:"What is the significance of Rudolf von Jhering's 'three times' formulation?",opts:["It describes the three wars Rome fought to establish its empire","It describes how Rome unified nations three times — through the State, the Church, and the Law","It refers to the three phases of the Roman Republic","It describes the three levels of the EU's legislative hierarchy"],ans:1,exp:"Von Jhering argued Rome bound nations together three times: (1) political unity through the State (by force); (2) unity through the Church; (3) legal unity through the medieval reception of Roman law (by reason). This explains why Roman law is foundational for EU law.",topic:"Roman Law Legacy"},
+    {q:"What was the Council of Nicaea (325 AD)?",opts:["The first formal meeting of the Roman Senate under the Christian emperors","The assembly at which the Corpus Juris Civilis was approved","The first ecumenical Christian council, convened by Constantine, which affirmed the divinity of Christ and produced the Nicene Creed","A meeting of Germanic kings accepting Roman legal authority"],ans:2,exp:"The Council of Nicaea was the first empire-wide Christian council. It resolved doctrinal disputes (particularly against Arianism) and produced the Nicene Creed. The Corpus Juris Civilis came over 200 years later.",topic:"Christianity"},
+    {q:"Which of the following best describes what the Twelve Tables established as a legal principle?",opts:["The supremacy of Roman law over foreign legal systems","The right of the Senate to override the Emperor","That law must be written and public rather than held privately by the privileged","The legal separation of Church and State"],ans:2,exp:"The Twelve Tables established the principle that law should be written, public, and accessible — protecting ordinary citizens from the arbitrary power of patricians who had monopolised unwritten customary law. This is the philosophical root of the rule of law.",topic:"Twelve Tables"},
+    {q:"Which modern legal systems are direct descendants of the Corpus Juris Civilis?",opts:["English common law and US constitutional law","Germany's BGB, France's Code Civil, and Italy's Civil Code","The EU Charter of Fundamental Rights and the ECHR","Napoleonic Code only — all others developed independently"],ans:1,exp:"Continental European 'civil law' systems — Germany's BGB, France's Code Civil, Italy's Civil Code — trace directly to Justinian's compilation. English common law developed independently. The EU Charter and ECHR are distinct modern instruments.",topic:"Roman Law Legacy"},
+    {q:"What role did the Huns play in the decline of Rome?",opts:["They directly sacked Rome and deposed Romulus Augustulus","They converted to Christianity and undermined Roman religion","Their westward pressure forced Germanic tribes into Roman territory, destabilising the empire","They allied with Justinian to reconquer the Western Empire"],ans:2,exp:"The Huns pushed Germanic tribes westward into Roman territory. It was the Germanic leader Odoacer who deposed Romulus Augustulus in 476 AD — not the Huns directly. The Huns were the pressure that set off the chain reaction.",topic:"Roman Phases"},
+    {q:"What does SPQR stand for and what did it represent?",opts:["Statum Plebis Quaeque Romanum — rights of Roman citizens","Senatus Populusque Romanus — 'The Senate and the People of Rome,' representing shared republican authority","Suprema Potestas Quaeque Romae — supreme power belonging to Rome","Salus Publica Quaeque Roma — public welfare under Roman law"],ans:1,exp:"SPQR stands for Senatus Populusque Romanus — 'The Senate and the People of Rome.' It appeared on buildings, coins, and military standards, symbolising the republican ideal of shared governance between senate and citizenry.",topic:"Symbols"},
+    {q:"In which city was Roman law rediscovered during the medieval period?",opts:["Paris","Rome","Constantinople","Bologna"],ans:3,exp:"Bologna is traditionally credited with being the first European law school, where the Corpus Juris Civilis was rediscovered and studied systematically in the medieval period. This catalysed the spread of Roman legal thinking across Western Europe.",topic:"Roman Law Legacy"},
+    {q:"The Corpus Juris Civilis was compiled during the height of the classical Roman Empire.",opts:["True — it was compiled during the Imperial Period","False — compiled by Justinian in the 6th century AD, ~100 years after the Western Empire fell","True — Augustus commissioned it as part of his legal reforms","False — compiled by the medieval Holy Roman Emperor Charlemagne"],ans:1,exp:"Major exam trap. The Corpus Juris Civilis was compiled 529–534 AD by Justinian I — roughly 100 years after the Western Empire fell in 476 AD. It is a product of the Byzantine (Eastern) Empire, not classical Rome itself.",topic:"Corpus Juris Civilis"},
+    {q:"What was Constantine's primary motivation for supporting Christianity?",opts:["A genuine personal religious conversion following the Milvian Bridge vision","He was forced to by the plebeians who had converted en masse","He recognised Christianity as a potential unifying force for an empire under severe strain","He was legally required to do so under the Edict of Galerius"],ans:2,exp:"The lecture explicitly frames Constantine's support as politically motivated — he saw Christianity as a potential unifying force for a fragile empire. Religion as political glue is a recurring pattern in European governance history.",topic:"Christianity"},
+  ],
   sv:[
     {q:"What is the revenue threshold for MNEs under BEPS Pillar 2?",opts:["€20 billion","€500 million","€750 million","€1 billion"],ans:2,exp:"Pillar 2 applies to MNE groups with annual consolidated revenues of at least €750 million — approximately 8,000 corporate groups globally.",topic:"BEPS"},
     {q:"Why is BEPS Pillar 1 currently blocked?",opts:["EU Parliament rejected it","The OECD withdrew the proposal","USA withdrew support under Trump","Developing countries voted against it"],ans:2,exp:"The USA withdrew its support under the Trump administration. Without the world's largest economy, global consensus on Pillar 1 collapsed. Many countries responded with unilateral digital service taxes.",topic:"BEPS"},
@@ -1901,6 +2227,13 @@ function renderWeakSpots(prefix){
   let html='<div class="weak-title">Focus on these topics:</div>';
   topics.forEach(t=>{
     const tips={
+      'Twelve Tables':'Review the core principle — written, public law vs patrician monopoly. Be able to explain in one paragraph.',
+      'Byzantine':'Focus on the 395/476/1453 dates and why citizens called themselves Romans — classic exam traps.',
+      'Christianity':'Use the Compare tab: Edict of Milan (313) ≠ Cunctos Populos (380). Armenia was first (301), not Rome.',
+      'Corpus Juris Civilis':'Know all four parts (Code, Digest, Institutes, Novels) and that Justinian compiled it 529–534 AD — after the Western Empire fell.',
+      'Roman Law Legacy':'Review von Jhering\'s three unifications and the ratio scripta concept. Know which modern codes descend from the Corpus.',
+      'Roman Phases':'Review the four phases timeline — Kingdom, Republic, Imperial, Late Antiquity — and their legal significance.',
+      'Symbols':'SPQR, Fasces, Chi-Rho — review the Compare tab and the Symbols card in the Summary.',
       'BEPS':'Review the Pillar 1 vs Pillar 2 comparison table',
       'Direct Effect':'Go back to Van Gend requirements + vertical vs horizontal distinction',
       'Primacy':'Review Costa + Internationale Handelsgesellschaft in the timeline',
