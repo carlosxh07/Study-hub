@@ -260,6 +260,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
     <button class="nav-sub" onclick="showLecture('eu','i',this)">Session I</button>
     <button class="nav-sub" onclick="showLecture('eu','ii',this)">Session II</button>
     <button class="nav-sub" onclick="showLecture('eu','iii',this)">Session III</button>
+    <button class="nav-sub" onclick="showLecture('eu','iv',this)">Session IV</button>
     <button class="nav-sub" onclick="showLecture('eu','v',this)">Session V</button>
     <button class="nav-sub" onclick="showLecture('eu','vi',this)">Session VI</button>
     <button class="nav-sub" style="opacity:.5;cursor:default;pointer-events:none">+ More coming</button>
@@ -294,7 +295,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
     <div class="subject-card sc-eu" onclick="showPage('eu-overview',null)">
       <div class="sc-name">EU Law</div><div class="sc-meta">Sessions · Prof. Adrian Cloer</div>
       <div class="sc-progress"><div class="sc-progress-fill" style="width:14%;background:var(--eu)"></div></div>
-      <div class="sc-stats"><div class="sc-stat"><strong>5</strong> sessions loaded</div><div class="sc-stat"><strong>102</strong> flashcards</div><div class="sc-stat"><strong>74</strong> quiz Qs</div></div>
+      <div class="sc-stats"><div class="sc-stat"><strong>6</strong> sessions loaded</div><div class="sc-stat"><strong>119</strong> flashcards</div><div class="sc-stat"><strong>89</strong> quiz Qs</div></div>
     </div>
     <div class="subject-card sc-micro" onclick="showPage('micro-overview',null)">
       <div class="sc-name">Microeconomics</div><div class="sc-meta">Chapters · Microeconomics 1</div>
@@ -328,7 +329,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
     <div class="lec-card" onclick="showLecture('eu','i',null)"><div class="lec-num" style="background:var(--eu-l);color:var(--eu)">01</div><div class="lec-info"><div class="lec-title">Session I</div><div class="lec-sub">German Tax System, Double Taxation Conventions &amp; Digital Taxation</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Compare</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span></div></div>
     <div class="lec-card" onclick="showLecture('eu','ii',null)"><div class="lec-num" style="background:var(--eu-l);color:var(--eu)">02</div><div class="lec-info"><div class="lec-title">Session II</div><div class="lec-sub">Legal Systems, Separation of Powers &amp; the German Basic Law</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Timeline</span><span class="lec-badge has">Compare</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span></div></div>
     <div class="lec-card" onclick="showLecture('eu','iii',null)"><div class="lec-num" style="background:var(--eu-l);color:var(--eu)">03</div><div class="lec-info"><div class="lec-title">Session III</div><div class="lec-sub">Roman Law, Byzantine Empire &amp; Legal Foundations of Europe</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Timeline</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span></div></div>
-    <div class="lec-card empty"><div class="lec-num" style="background:var(--eu-l);color:var(--eu)">04</div><div class="lec-info"><div class="lec-title">Session IV</div><div class="lec-sub">Not yet added</div></div><div class="lec-badges"><span class="lec-badge">Summary</span><span class="lec-badge">Cards</span><span class="lec-badge">Quiz</span></div></div>
+    <div class="lec-card" onclick="showLecture('eu','iv',null)"><div class="lec-num" style="background:var(--eu-l);color:var(--eu)">04</div><div class="lec-info"><div class="lec-title">Session IV</div><div class="lec-sub">European History: Post-Rome to German Reunification</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Timeline</span><span class="lec-badge has">Compare</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span></div></div>
     <div class="lec-card" onclick="showLecture('eu','v',null)"><div class="lec-num" style="background:var(--eu-l);color:var(--eu)">05</div><div class="lec-info"><div class="lec-title">Session V</div><div class="lec-sub">Wrap-Up: BEPS · Legal Systems · EU History</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span></div></div>
     <div class="lec-card" onclick="showLecture('eu','vi',null)"><div class="lec-num" style="background:var(--eu-l);color:var(--eu)">06</div><div class="lec-info"><div class="lec-title">Session VI</div><div class="lec-sub">Nature of EU Law · 5 Landmark Cases · Decision Tree</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span><span class="lec-badge has">Interactive</span></div></div>
     <div class="lec-card empty"><div class="lec-num" style="background:var(--eu-l);color:var(--eu)">07+</div><div class="lec-info"><div class="lec-title">More sessions coming</div><div class="lec-sub">Share your notes to add the next session</div></div><div class="lec-badges"><span class="lec-badge">Summary</span><span class="lec-badge">Cards</span><span class="lec-badge">Quiz</span></div></div>
@@ -1037,6 +1038,217 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
       <div class="weak-section" id="siii-weak-section"></div>
       <div style="margin-top:20px;display:flex;gap:10px">
         <button class="btn btn-primary" onclick="restartQuiz('siii')">Try again</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SESSION IV ══ -->
+<div id="page-eu-iv" class="page">
+  <div class="page-eyebrow" style="color:var(--eu)">EU Law · Session IV</div>
+  <div class="page-title">European History: Post-Rome to German Reunification</div>
+  <div class="page-desc">From the fall of the Western Roman Empire (476 AD) through Charlemagne, the Holy Roman Empire, Weimar, the Third Reich, Austria, and German reunification (1990). Focus: how each shift reshaped tax and legal systems.</div>
+  <div class="study-tabs">
+    <button class="study-tab active" onclick="showTab('siv','summary',this)">Summary</button>
+    <button class="study-tab" onclick="showTab('siv','timeline',this)">Timeline</button>
+    <button class="study-tab" onclick="showTab('siv','compare',this)">Compare</button>
+    <button class="study-tab" onclick="showTab('siv','flashcards',this)">Flashcards</button>
+    <button class="study-tab" onclick="showTab('siv','quiz',this)">Quiz</button>
+  </div>
+
+  <!-- SUMMARY -->
+  <div id="siv-summary" class="study-panel active">
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-eu">A. After 476 AD — Germanic Successor Kingdoms</span></div>
+      <p>Odoacer deposes Romulus Augustulus in 476 AD → Western Roman Empire ends. Germanic successor kingdoms emerge: Franks (Gaul), Visigoths (Spain), Lombards (Italy). Roman law and Latin survived through the Christian Church. Byzantium (Eastern Empire) survived until 1453.</p>
+      <div class="note-box">⚠️ <strong>Professor flagged:</strong> Until 25 November 2025, Latin was the only official language of the Roman Catholic Church — a direct thread of post-Roman continuity.</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-teal">B. The Frankish Kingdom &amp; Charlemagne</span></div>
+      <ul>
+        <li><strong>Clovis I</strong> founds the Frankish Kingdom in 481/482 AD (spanning modern France, Belgium, Germany)</li>
+        <li><strong>Charlemagne</strong> crowned Emperor in Rome, 800 AD — revived the Roman imperial idea</li>
+        <li>"Father of Europe" — the EU's <strong>Charlemagne Prize (Karlspreis)</strong> is awarded annually in Aachen (his capital)</li>
+        <li><strong>Treaty of Verdun (843 AD)</strong> divides the empire → eventually gives rise to France and the Holy Roman Empire</li>
+      </ul>
+      <div class="note-box">⚠️ <strong>Exam trap:</strong> Charlemagne was neither French nor German — those nations did not yet exist. He ruled a Frankish kingdom.</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-amber">C. Holy Roman Empire (962–1806)</span></div>
+      <ul>
+        <li>Founded <strong>962 AD</strong> (coronation of Otto I); ended <strong>6 August 1806</strong> (Emperor abdicates under Napoleonic pressure)</li>
+        <li>"German Nation" added to the name from <strong>1486</strong></li>
+        <li>NOT a nation-state — loose confederation, no single capital → directly explains Germany's <strong>federal structure</strong> today</li>
+        <li>Main tax: <strong>excise duties</strong> (too fragmented for direct taxation)</li>
+        <li>Two dominant powers: <strong>Brandenburg-Prussia</strong> and <strong>Austria</strong></li>
+      </ul>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-coral">D. Prussia's Key Reforms</span></div>
+      <ul>
+        <li>Peasant emancipation, army reform, bureaucratic modernisation (1807–1812)</li>
+        <li><strong>Income tax</strong> introduced in East Prussia (1808–1811) — temporary, to repay war debts</li>
+        <li><strong>Three-class franchise (1820):</strong> weight of a vote depended on the amount of tax paid</li>
+        <li><strong>Trade tax reform (1891):</strong> revenue to municipalities, who set their own rates — still a structural problem in German tax law today</li>
+        <li><strong>Failed Revolution (1848):</strong> National Assembly at Frankfurt's Paulskirche; Frederick William IV declined the imperial crown → democracy reference point</li>
+      </ul>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-purple">E. Weimar Republic &amp; Erzberger Reform (1918–1933)</span></div>
+      <p>Republic proclaimed <strong>9 November 1918</strong> — Germany's first parliamentary democracy.</p>
+      <p style="margin-top:8px"><strong>Erzberger Reform</strong> (Finance Minister Matthias Erzberger, assassinated 26 August 1921):</p>
+      <ul>
+        <li>Full centralisation of tax at Reich level (<strong>unitarism</strong>)</li>
+        <li>PIT: <strong>10–60%</strong> | CIT: <strong>10%</strong> retained profits, <strong>20%</strong> distributed profits</li>
+        <li><strong>Financial Equalisation Act (30 March 1920):</strong> Länder compensated with revenue sovereignty over <em>property tax</em> and <em>trade tax</em></li>
+        <li><strong>Church tax</strong> constitutionally guaranteed — still in force today (Art. 140 GG)</li>
+      </ul>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-eu">F. Hyperinflation &amp; Its Legacy</span></div>
+      <p>Gold standard suspended 1914; WWI financed through war bonds → inflation built up. Hyperinflation peaked <strong>autumn 1923</strong>; stabilised by Rentenmark (15 November 1923). Savings wiped out → deep distrust of monetary instability in the German psyche.</p>
+      <div class="note-box">⚠️ <strong>Direct legacy today:</strong> the constitutional <strong>debt brake (Schuldenbremse)</strong> since 2009. Professor stressed this is not just economic — it explains Germany's entire fiscal identity.</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-coral">G. Third Reich — Enabling Act &amp; Trade Tax</span></div>
+      <ul>
+        <li>Hitler appointed Chancellor <strong>30 January 1933</strong></li>
+        <li><strong>Enabling Act (23 March 1933):</strong> Reichstag stripped itself of all legislative powers → separation of powers destroyed</li>
+        <li>Major tax laws (<strong>EStG, GewStG</strong>) passed by government decree, not parliament</li>
+        <li><strong>Trade Tax (GewStG)</strong> unified nationally from <strong>1936</strong>; classified as a <em>property tax</em> (targets objective profit, not personal ability to pay); revenue to municipalities</li>
+      </ul>
+      <div class="note-box">⚠️ <strong>Exam trap:</strong> Trade Tax is a <em>property (Sach-) tax</em> — not a personal tax. It taxes the objective profit of the enterprise regardless of the taxpayer's circumstances. This is one of the core structural problems of German tax law.</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-teal">H. Austria's Separate Path</span></div>
+      <table class="comp-table">
+        <tr><th>Date</th><th>Event</th><th>Significance</th></tr>
+        <tr><td>1866</td><td>Austria leaves German Confederation</td><td>Defeated by Prussia at Königgrätz</td></tr>
+        <tr><td>1867</td><td>Austro-Hungarian Dual Monarchy</td><td>Hungary gains autonomy; Czech equivalent failed</td></tr>
+        <tr><td>1918/19</td><td>Dual Monarchy dissolved</td><td>Treaty of Saint-Germain-en-Laye</td></tr>
+        <tr><td>12–13 Mar 1938</td><td>Anschluss</td><td>Germany annexes Austria; German law (incl. tax law) immediately imposed</td></tr>
+        <tr><td>1945</td><td>Austria proclaims independence</td><td>Developed its tax law independently from Germany since</td></tr>
+        <tr><td>26 Oct 1955</td><td>Austria declares permanent neutrality</td><td>NOT in NATO despite EU membership</td></tr>
+        <tr><td>1 Jan 1995</td><td>Austria joins the EU</td><td>EU membership does not require military participation</td></tr>
+      </table>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-amber">I. German Reunification</span></div>
+      <ul>
+        <li><strong>3 October 1990:</strong> German reunification</li>
+        <li><strong>2+4 Treaty:</strong> FRG + GDR + USA/UK/France/USSR — restored full sovereignty; Germany renounced claims to former eastern territories</li>
+        <li>Reunification alone did <strong>NOT</strong> restore full sovereignty — the 2+4 Treaty was the required legal step</li>
+        <li><strong>Weimar Triangle:</strong> Germany–France–Poland policy coordination forum (post-reunification) — named after the city, NOT the Republic</li>
+        <li><strong>Reichstag:</strong> completed 1894; damaged 1933 and WWII; rebuilt by Sir Norman Foster; glass dome = transparency of German democracy</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- TIMELINE -->
+  <div id="siv-timeline" class="study-panel">
+    <div class="sum-card" style="margin-bottom:20px">
+      <div class="sum-title">Interactive Timeline — Post-Rome to Reunification</div>
+      <p style="font-size:13px;color:var(--text2)">Click any event to expand its significance for tax and legal history.</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px" id="siv-tl-filters">
+        <button class="scenario-btn active" onclick="filterSivTimeline('all',this)">All</button>
+        <button class="scenario-btn" onclick="filterSivTimeline('frankish',this)">Frankish / HRE</button>
+        <button class="scenario-btn" onclick="filterSivTimeline('prussia',this)">Prussia</button>
+        <button class="scenario-btn" onclick="filterSivTimeline('weimar',this)">Weimar</button>
+        <button class="scenario-btn" onclick="filterSivTimeline('third',this)">Third Reich</button>
+        <button class="scenario-btn" onclick="filterSivTimeline('austria',this)">Austria</button>
+        <button class="scenario-btn" onclick="filterSivTimeline('modern',this)">Modern Germany</button>
+      </div>
+    </div>
+    <div class="timeline" id="siv-tl"></div>
+  </div>
+
+  <!-- COMPARE -->
+  <div id="siv-compare" class="study-panel">
+    <div class="sum-card">
+      <div class="sum-title">Austria vs. Germany — Key Differences</div>
+      <table class="comp-table">
+        <tr><th>Feature</th><th>Germany</th><th>Austria</th></tr>
+        <tr><td>Left German Confederation</td><td>Never</td><td>1866 (defeated by Prussia)</td></tr>
+        <tr><td>WWI peace treaty</td><td>Versailles (1919)</td><td>Saint-Germain-en-Laye (1919)</td></tr>
+        <tr><td>1938</td><td>Annexed Austria</td><td>Annexed by Germany</td></tr>
+        <tr><td>Tax law origin post-1938</td><td>Own development</td><td>German law imposed; developed independently since 1945</td></tr>
+        <tr><td>NATO member</td><td>Yes</td><td>No — permanent neutrality since 26 Oct 1955</td></tr>
+        <tr><td>EU member</td><td>Yes (founding community)</td><td>Since 1 January 1995</td></tr>
+      </table>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">Second Empire vs. Weimar Tax Systems</div>
+      <table class="comp-table">
+        <tr><th>Feature</th><th>Second Empire (1871–1918)</th><th>Weimar Republic (1919–1933)</th></tr>
+        <tr><td>Reich tax authority</td><td>None over direct taxes</td><td>Full (unitarism)</td></tr>
+        <tr><td>How Reich was financed</td><td>Matricular contributions from states</td><td>Centrally collected PIT/CIT</td></tr>
+        <tr><td>Länder fiscal status</td><td>Had own direct tax powers</td><td>Stripped of legislative + revenue sovereignty</td></tr>
+        <tr><td>Länder compensation</td><td>None needed</td><td>Property tax + trade tax (Financial Equalisation Act 1920)</td></tr>
+        <tr><td>Key reformer</td><td>None</td><td>Matthias Erzberger (assassinated 1921)</td></tr>
+      </table>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">Top 5 Exam Traps — Session IV</div>
+      <table class="comp-table">
+        <tr><th>Trap</th><th>Wrong answer</th><th>Correct answer</th></tr>
+        <tr><td>Charlemagne's nationality</td><td>French or German</td><td>Neither — those nations didn't yet exist</td></tr>
+        <tr><td>HRE as nation-state</td><td>Centralised state with a capital</td><td>Loose confederation, no single capital</td></tr>
+        <tr><td>Austria in NATO</td><td>Yes — EU member so also NATO</td><td>No — permanent neutrality declared 26 Oct 1955</td></tr>
+        <tr><td>Reunification = full sovereignty</td><td>3 Oct 1990 restored all sovereignty</td><td>Wrong — the 2+4 Treaty was legally required</td></tr>
+        <tr><td>Weimar Triangle origin</td><td>Connected to Weimar Republic</td><td>Post-1990 Germany–France–Poland forum; unrelated to Weimar Republic</td></tr>
+        <tr><td>Trade Tax classification</td><td>Personal income-based tax</td><td>Property (Sach-) tax — objective enterprise profit, not ability to pay</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- FLASHCARDS -->
+  <div id="siv-flashcards" class="study-panel">
+    <div class="fc-controls">
+      <button class="btn btn-sm" onclick="shuffleFC('siv')">Shuffle</button>
+      <button class="btn btn-sm" onclick="resetFC('siv')">Reset all</button>
+      <span style="font-size:12px;color:var(--text3);margin-left:4px">Rate each card to focus on what you don't know yet</span>
+    </div>
+    <div class="fc-sr-bar" id="siv-sr-bar"></div>
+    <div id="siv-fc-wrap">
+      <div class="flashcard-wrap"><div class="flashcard" id="siv-fc-card" onclick="flipFC('siv')">
+        <div class="fc-face fc-front"><div class="fc-label">Question</div><div class="fc-question" id="siv-fc-q"></div><div class="fc-hint">Click to reveal answer</div></div>
+        <div class="fc-face fc-back"><div class="fc-label">Answer</div><div class="fc-answer" id="siv-fc-a"></div><div class="fc-src" id="siv-fc-src"></div></div>
+      </div></div>
+      <div class="sr-btns">
+        <button class="sr-btn sr-btn-hard" onclick="rateFC('siv',0)">😬 Still learning</button>
+        <button class="sr-btn sr-btn-ok" onclick="rateFC('siv',1)">🤔 Almost</button>
+        <button class="sr-btn sr-btn-easy" onclick="rateFC('siv',2)">✓ Got it</button>
+      </div>
+      <div class="sr-mode-note" id="siv-sr-note">Card <span id="siv-fc-counter">1</span> of <span id="siv-fc-total">1</span></div>
+    </div>
+    <div class="fc-sr-done" id="siv-fc-done" style="display:none">
+      <h3>Session complete! 🎉</h3>
+      <p id="siv-done-msg"></p>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:16px">
+        <button class="btn btn-primary" onclick="reviewWeak('siv')">Review weak cards</button>
+        <button class="btn" onclick="resetFC('siv')">Start over</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUIZ -->
+  <div id="siv-quiz" class="study-panel">
+    <div id="siv-quiz-wrap">
+      <div class="quiz-prog"><div class="quiz-prog-fill" id="siv-qpfill" style="width:0%"></div></div>
+      <div class="quiz-meta" id="siv-q-meta"></div>
+      <div class="quiz-q" id="siv-q-text"></div>
+      <div class="quiz-opts" id="siv-q-opts"></div>
+      <div class="quiz-fb" id="siv-q-fb"></div>
+      <div id="siv-q-next" style="display:none"><button class="btn btn-primary" onclick="nextQ('siv')">Next →</button></div>
+    </div>
+    <div class="quiz-score-screen" id="siv-quiz-score">
+      <div class="score-row">
+        <div class="score-big" id="siv-score-big"></div>
+        <div class="score-right"><div class="score-lbl">correct answers</div><div class="score-msg" id="siv-score-msg"></div></div>
+      </div>
+      <div class="weak-section" id="siv-weak-section"></div>
+      <div style="margin-top:20px;display:flex;gap:10px">
+        <button class="btn btn-primary" onclick="restartQuiz('siv')">Try again</button>
       </div>
     </div>
   </div>
@@ -2355,7 +2567,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
 <script>
 // ── Navigation ──
 function showPage(id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));document.getElementById('page-'+id).classList.add('active');if(btn)btn.classList.add('active')}
-function showLecture(subject,id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-sub').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');const el=document.getElementById('page-'+subject+'-'+id);if(el){el.classList.add('active');if(subject==='eu'&&id==='i'){initFC('si');initQuiz('si')}if(subject==='eu'&&id==='ii'){initFC('sii');initQuiz('sii')}if(subject==='eu'&&id==='iii'){initFC('siii');initQuiz('siii');initSiiiTimeline()}if(subject==='eu'&&id==='v'){initFC('sv');initQuiz('sv')}if(subject==='eu'&&id==='vi'){initFC('svi');initQuiz('svi');loadScenario(0,document.querySelector('.scenario-btn'))}if(subject==='micro'&&id==='ch2'){initMicroFC('ch2');initMicroQuiz('ch2');initCalcFor('ch2')}
+function showLecture(subject,id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-sub').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');const el=document.getElementById('page-'+subject+'-'+id);if(el){el.classList.add('active');if(subject==='eu'&&id==='i'){initFC('si');initQuiz('si')}if(subject==='eu'&&id==='ii'){initFC('sii');initQuiz('sii')}if(subject==='eu'&&id==='iii'){initFC('siii');initQuiz('siii');initSiiiTimeline()}if(subject==='eu'&&id==='iv'){initFC('siv');initQuiz('siv');initSivTimeline()}if(subject==='eu'&&id==='v'){initFC('sv');initQuiz('sv')}if(subject==='eu'&&id==='vi'){initFC('svi');initQuiz('svi');loadScenario(0,document.querySelector('.scenario-btn'))}if(subject==='micro'&&id==='ch2'){initMicroFC('ch2');initMicroQuiz('ch2');initCalcFor('ch2')}
 if(subject==='micro'&&id==='ch3'){initMicroFC('ch3');initMicroQuiz('ch3');initCalc()}if(subject==='micro'&&id==='ps1'){initMicroFC('ps1');initMicroQuiz('ps1');initCalcFor('ps1')}if(subject==='micro'&&id==='ps2'){initMicroFC('ps2');initMicroQuiz('ps2');initCalcFor('ps2')}if(subject==='macro'&&id==='lec1'){initMacroFC('lec1');initMacroQuiz('lec1');initCalcFor('lec1')}if(subject==='macro'&&id==='lec2'){initMacroFC('lec2');initMacroQuiz('lec2');initCalcFor('lec2')}}}
 function showMacroTab(tab,btn,prefix){
   const page=document.getElementById('page-macro-'+prefix);if(!page)return;
@@ -2393,6 +2605,7 @@ function showTab(prefix,tab,btn){
   if(tab==='flashcards'&&!fcState[prefix])initFC(prefix);
   if(tab==='quiz'&&!qState[prefix])initQuiz(prefix);
   if(tab==='timeline'&&prefix==='siii')initSiiiTimeline();
+  if(tab==='timeline'&&prefix==='siv')initSivTimeline();
 }
 
 // ── Session III Timeline ──
@@ -2449,6 +2662,70 @@ function toggleSiiiTl(idx,filter){
   const events=filter==='all'?siiiEvents:siiiEvents.filter(e=>e.cat===filter);
   const e=events[idx];
   const body=document.getElementById('siii-tl-body-'+e.cat+'-'+idx);
+  if(!body)return;
+  const toggle=body.nextElementSibling;
+  if(body.classList.contains('open')){body.classList.remove('open');toggle.textContent='▼ Show detail';}
+  else{body.classList.add('open');toggle.textContent='▲ Hide';}
+}
+
+// ── Session IV Timeline ──
+const sivEvents=[
+  {year:'476 AD',label:'Fall of Western Rome — Odoacer deposes Romulus Augustulus',detail:'Germanic leader Odoacer ends the Western Empire. Roman law and Latin survive through the Church. Byzantine Empire continues until 1453. Latin remained the only official language of the Catholic Church until 25 November 2025.',cat:'frankish',color:'var(--eu)'},
+  {year:'481/482 AD',label:'Clovis I founds the Frankish Kingdom',detail:'The Frankish Kingdom spans modern France, Belgium, and Germany. This is the direct predecessor of both France and Germany — not yet either. Important: Charlemagne was neither French nor German.',cat:'frankish',color:'var(--eu)'},
+  {year:'800 AD',label:'Charlemagne crowned Emperor — "Father of Europe"',detail:'Pope Leo III crowns Charlemagne as Emperor in Rome, reviving the Roman imperial idea. His capital was Aachen (Aix-la-Chapelle), not Rome or Paris. The EU\'s Charlemagne Prize is still awarded in Aachen today.',cat:'frankish',color:'var(--eu)'},
+  {year:'843 AD',label:'Treaty of Verdun — Empire divided',detail:'After Charlemagne\'s death, his grandsons divide the empire at Verdun. This split eventually gives rise to France in the west and the Holy Roman Empire in the east — the foundational political division of western Europe.',cat:'frankish',color:'var(--eu)'},
+  {year:'962 AD',label:'Holy Roman Empire founded — Otto I crowned',detail:'Otto I is crowned by the Pope, founding the Holy Roman Empire. It is NOT a nation-state — a loose confederation with no single capital. Multiple regional centres. The main tax instrument was excise duties; direct taxation was too fragmented.',cat:'frankish',color:'var(--eu)'},
+  {year:'1486',label:'"German Nation" added to the HRE name',detail:'The full name becomes "Holy Roman Empire of the German Nation." Still no centralised state or capital — just a loose political umbrella.',cat:'frankish',color:'var(--eu)'},
+  {year:'1807–1812',label:'Prussian Reforms — emancipation, army, bureaucracy',detail:'Major modernisation: peasant emancipation, army reform, bureaucratic reorganisation. Income tax introduced in East Prussia (1808–1811) — temporary, to repay Napoleonic war debts.',cat:'prussia',color:'var(--micro)'},
+  {year:'1806 (6 Aug)',label:'Holy Roman Empire dissolved',detail:'Emperor Francis II abdicates under Napoleonic pressure, formally ending the HRE. Its 844-year legacy: fragmented tax systems and the deep roots of German federalism.',cat:'frankish',color:'var(--eu)'},
+  {year:'1820',label:'Three-class franchise (Prussia)',detail:'Vote weight is tied directly to the amount of tax paid. Wealthier (higher-taxing) citizens have proportionally more political influence. A direct constitutional link between fiscal and political status.',cat:'prussia',color:'var(--micro)'},
+  {year:'1848–1849',label:'Failed Revolution — Paulskirche, Frankfurt',detail:'National Assembly convenes at the Paulskirche in Frankfurt. Frederick William IV declines the imperial crown offered by the people. Democracy deferred — but this becomes a key reference point for the democratic tradition in Germany.',cat:'prussia',color:'var(--micro)'},
+  {year:'1 Jan 1871',label:'German Empire (Second Empire) founded',detail:'First German nation-state. But: the Reich had no direct tax powers — it was financed by matricular contributions from the constituent states. No Reich income tax.',cat:'prussia',color:'var(--micro)'},
+  {year:'1891',label:'Prussian trade tax reform — revenue to municipalities',detail:'Revenue from trade tax goes to municipalities, which set their own rates. This creates a structural problem that persists in German tax law to this day.',cat:'prussia',color:'var(--micro)'},
+  {year:'9 Nov 1918',label:'Weimar Republic proclaimed',detail:'Germany\'s first parliamentary democracy is proclaimed. The Kaiser abdicates. A democratic system is built from scratch — but without strong democratic traditions.',cat:'weimar',color:'var(--amber)'},
+  {year:'30 Mar 1920',label:'Financial Equalisation Act',detail:'Compensates the Länder for losing their tax legislative sovereignty under Erzberger\'s reform. They receive revenue sovereignty over property tax and trade tax. The resulting Länder diversity in trade taxes ends only with the 1936 Nazi unification.',cat:'weimar',color:'var(--amber)'},
+  {year:'26 Aug 1921',label:'Erzberger assassinated',detail:'Finance Minister Matthias Erzberger, architect of tax centralisation (unitarism), is assassinated. His reform introduced PIT (10–60%) and CIT (10% retained / 20% distributed profits), fundamentally reshaping the German tax system.',cat:'weimar',color:'var(--amber)'},
+  {year:'Autumn 1923',label:'Hyperinflation peaks',detail:'War bonds + Versailles reparations + Ruhr occupation → government prints money. Hyperinflation peaks autumn 1923. Savings wiped out. Stabilised by the Rentenmark on 15 November 1923. Deep trauma in the German psyche.',cat:'weimar',color:'var(--amber)'},
+  {year:'30 Jan 1933',label:'Hitler appointed Chancellor',detail:'Paul von Hindenburg appoints Hitler as Chancellor. End of the Weimar Republic begins.',cat:'third',color:'var(--ic)'},
+  {year:'23 Mar 1933',label:'Enabling Act — separation of powers destroyed',detail:'The Reichstag (444 votes to 94; only the SPD voted against) strips itself of all legislative powers, transferring them to the Reich Government. As a result, EStG (Income Tax Act) and GewStG (Trade Tax Act) are passed by decree, not parliament.',cat:'third',color:'var(--ic)'},
+  {year:'1936',label:'Trade Tax (GewStG) unified nationally',detail:'The GewStG is standardised across Germany by executive decree. Classified as a property (Sach-) tax — targeting objective enterprise profit, not the taxpayer\'s personal ability to pay. Revenue goes to municipalities.',cat:'third',color:'var(--ic)'},
+  {year:'12–13 Mar 1938',label:'Anschluss — Austria annexed',detail:'Germany annexes Austria. German law — including all tax law — is immediately imposed. This is why Austria\'s tax system structurally resembles Germany\'s today, even though both have developed independently since 1945.',cat:'austria',color:'var(--ibt)'},
+  {year:'1945',label:'WWII ends — Austria proclaims independence',detail:'Austria rebuilds its legal system independently from Germany, though the structural legacy of German tax law (imposed in 1938) shapes its development.',cat:'austria',color:'var(--ibt)'},
+  {year:'26 Oct 1955',label:'Austria declares permanent neutrality',detail:'Austria declares permanent neutrality the day after Allied occupation ends. This is the reason Austria is NOT in NATO. It is now Austria\'s national holiday. EU membership (1995) does not require military participation.',cat:'austria',color:'var(--ibt)'},
+  {year:'23 May 1949',label:'FRG founded / Basic Law',detail:'The Federal Republic of Germany is founded with the Basic Law (Grundgesetz). Fiscal federalism is restored. The 5 state principles are enshrined: Democracy, Rechtsstaat, Republic, Federalism, Sozialstaat.',cat:'modern',color:'var(--macro)'},
+  {year:'1 Jan 1995',label:'Austria joins the EU',detail:'Austria becomes an EU member state. It remains outside NATO due to its 1955 permanent neutrality declaration — a classic exam trap.',cat:'austria',color:'var(--ibt)'},
+  {year:'3 Oct 1990',label:'German Reunification',detail:'The FRG and GDR formally reunite. The Bundestag relocates from Bonn to Berlin. But reunification alone did NOT restore full sovereignty.',cat:'modern',color:'var(--macro)'},
+  {year:'2+4 Treaty (1990)',label:'Full sovereignty restored via treaty',detail:'The 2+4 Treaty (FRG + GDR + USA, UK, France, USSR) formally restores Germany\'s full sovereignty and requires Germany to renounce claims to former eastern territories (East Prussia, Pomerania, Silesia).',cat:'modern',color:'var(--macro)'},
+  {year:'2009',label:'Debt brake (Schuldenbremse) constitutionalised',detail:'The Schuldenbremse is written into the Basic Law. A direct institutional legacy of the 1923 hyperinflation trauma — requiring a structurally balanced federal budget without borrowing.',cat:'modern',color:'var(--macro)'},
+];
+let sivActiveFilter='all';
+function initSivTimeline(){renderSivTimeline();}
+function filterSivTimeline(cat,btn){
+  sivActiveFilter=cat;
+  document.querySelectorAll('#siv-tl-filters .scenario-btn').forEach(b=>b.classList.remove('active'));
+  if(btn)btn.classList.add('active');
+  renderSivTimeline();
+}
+function renderSivTimeline(){
+  const container=document.getElementById('siv-tl');if(!container)return;
+  const events=sivActiveFilter==='all'?sivEvents:sivEvents.filter(e=>e.cat===sivActiveFilter);
+  container.innerHTML='';
+  events.forEach((e,i)=>{
+    const div=document.createElement('div');div.className='tl-item';
+    div.innerHTML=`<div class="tl-dot" style="color:${e.color}"></div>
+      <div class="tl-year">${e.year}</div>
+      <div class="tl-card" onclick="toggleSivTl(${i},'${sivActiveFilter}')">
+        <div class="tl-title">${e.label}</div>
+        <div class="tl-body" id="siv-tl-body-${e.cat}-${i}">${e.detail}</div>
+        <div class="tl-toggle">▼ Show detail</div>
+      </div>`;
+    container.appendChild(div);
+  });
+}
+function toggleSivTl(idx,filter){
+  const events=filter==='all'?sivEvents:sivEvents.filter(e=>e.cat===filter);
+  const e=events[idx];
+  const body=document.getElementById('siv-tl-body-'+e.cat+'-'+idx);
   if(!body)return;
   const toggle=body.nextElementSibling;
   if(body.classList.contains('open')){body.classList.remove('open');toggle.textContent='▼ Show detail';}
@@ -2564,6 +2841,25 @@ const fcDataMap={
     {q:"What are the 5 state principles of the German Basic Law?",a:"Democracy (Art. 20(2) GG), Rechtsstaat (rule of law), Republic (no monarchy), Federalism (Bund + 16 Länder), Sozialstaat (social welfare state).",src:"Session V — Legal Systems",topic:"Legal Systems"},
     {q:"What is the Copenhagen Criteria (1993)?",a:"Conditions for EU accession: (1) political — stable institutions, rule of law, minority protection; (2) economic — functioning market economy; (3) acquis — ability to assume all EU obligations.",src:"Session V — EU History",topic:"EU History"},
     {q:"When was the Charter of Fundamental Rights created, and when did it become binding?",a:"Created in 2000. Became legally binding with the Lisbon Treaty in 2009 (Art. 6(1) TEU).",src:"Session V — EU History",topic:"EU History"},
+  ],
+  siv:[
+    {q:"Who ended the Western Roman Empire and how?",a:"Germanic military leader Odoacer deposed the last emperor, Romulus Augustulus, in 476 AD and ruled as King of Italy.",src:"Post-476 AD",topic:"Fall of Rome"},
+    {q:"Exam trap — was Charlemagne French or German?",a:"Neither. France and Germany did not yet exist. He ruled a Frankish kingdom spanning modern France, Belgium, and Germany.",src:"Frankish Kingdom",topic:"Charlemagne"},
+    {q:"Why is Charlemagne called the 'Father of Europe' and what EU honour is named after him?",a:"He was crowned Emperor in Rome in 800 AD, uniting much of western and central Europe. The EU's Charlemagne Prize (Karlspreis) is awarded annually in Aachen, his capital.",src:"Frankish Kingdom",topic:"Charlemagne"},
+    {q:"What was the Treaty of Verdun (843 AD) and why does it matter?",a:"It divided Charlemagne's empire after his death, eventually giving rise to France on one side and the Holy Roman Empire on the other — the foundational political split of western Europe.",src:"Frankish Kingdom / HRE",topic:"Charlemagne"},
+    {q:"When was the Holy Roman Empire founded, when did it end, and why?",a:"Founded 962 AD (coronation of Otto I). Ended 6 August 1806 — Emperor abdicated under Napoleonic pressure after internal weakening by the Reformation, Thirty Years' War, secularisation, and withdrawal of German states.",src:"Holy Roman Empire",topic:"Holy Roman Empire"},
+    {q:"Why was the HRE NOT a nation-state, and what does this explain about Germany today?",a:"The HRE was a loose confederation with no single capital and many autonomous territories. This directly explains Germany's federal structure — one of the five central constitutional principles of the Federal Republic today.",src:"Holy Roman Empire",topic:"Holy Roman Empire"},
+    {q:"What was the Prussian three-class franchise (1820) and how did it connect to taxation?",a:"It weighted votes by the amount of tax paid — wealthier (higher-taxing) citizens had proportionally greater political influence. A direct constitutional link between fiscal and political status.",src:"Prussia's Reforms",topic:"Prussia"},
+    {q:"Who was Matthias Erzberger and what were the key features of his reform?",a:"Finance Minister of the Weimar Republic (assassinated 26 August 1921). His reform centralised ALL tax legislation at Reich level (unitarism), introduced PIT (10–60%) and CIT (10% retained / 20% distributed profits).",src:"Weimar Republic",topic:"Erzberger Reform"},
+    {q:"What did the Financial Equalisation Act (30 March 1920) do?",a:"Compensated the Länder for losing tax legislative sovereignty by granting them revenue sovereignty over property tax and trade tax. The resulting diversity in Länder trade taxes ended only with the 1936 National Socialist reform.",src:"Weimar Republic",topic:"Erzberger Reform"},
+    {q:"What caused Weimar hyperinflation and what is its direct legacy today?",a:"Gold standard suspended 1914; WWI financed by war bonds; Versailles reparations; Ruhr occupation; government printed money → hyperinflation peaked autumn 1923. Legacy: the Schuldenbremse (constitutional debt brake since 2009) and Germany's fiscal conservatism.",src:"Hyperinflation",topic:"Hyperinflation"},
+    {q:"What was the Enabling Act (23 March 1933) and why does it matter for tax law?",a:"It transferred all legislative power to the Reich Government — the Reichstag abolished itself. As a result, major tax laws (EStG and GewStG) were passed by executive decree, not parliament. Their structural legacy remains in German law today.",src:"Third Reich",topic:"Third Reich"},
+    {q:"What is the German Trade Tax (Gewerbesteuer) and why is it legally unusual?",a:"Unified nationally since 1936. Under German legal doctrine it is a property (Sach-) tax — it targets the objective profit of the enterprise, not the taxpayer's ability to pay. Revenue goes to municipalities who set their own multiplier rates. One of the core structural problems of German tax law.",src:"Third Reich / GewStG",topic:"Trade Tax"},
+    {q:"What was the Anschluss and what was its immediate legal consequence?",a:"On 12–13 March 1938, Germany annexed Austria. German law — including all tax law — was immediately imposed. This is why Austria's tax system structurally resembles Germany's, even though both have developed independently since 1945.",src:"Austria",topic:"Austria"},
+    {q:"Why is Austria NOT in NATO despite being an EU member?",a:"Austria declared permanent neutrality on 26 October 1955 (the day after Allied occupation ended). This prevents NATO membership. Austria joined the EU on 1 January 1995.",src:"Austria",topic:"Austria"},
+    {q:"What was the 2+4 Treaty and what did it achieve?",a:"A treaty between the FRG, GDR, and the four WWII powers (USA, UK, France, USSR). It restored Germany's full sovereignty, confirmed reunification, and required Germany to renounce claims to former eastern territories. Reunification on 3 October 1990 alone did NOT restore full sovereignty.",src:"Reunification",topic:"Reunification"},
+    {q:"What does the Reichstag's glass dome symbolise and who designed it?",a:"The transparency of German democracy. Designed by Sir Norman Foster. The original building dates to 1894; damaged by fire in 1933 and in WWII; rebuilt after reunification.",src:"German Reichstag",topic:"Reunification"},
+    {q:"What is the Weimar Triangle?",a:"A Germany–France–Poland trilateral diplomatic forum for coordinating European and international policy, established after German reunification. Named after the city of Weimar but entirely unrelated to the Weimar Republic.",src:"Reunification",topic:"Reunification"},
   ],
   svi:[
     {q:"What principle did Van Gend en Loos establish?",a:"Direct Effect — individuals can directly rely on clear, precise, unconditional provisions of EU law in national courts, without MS action.",src:"Van Gend en Loos (1963)",topic:"Direct Effect"},
@@ -2760,6 +3056,23 @@ const qDataMap={
     {q:"What were the Copenhagen Criteria (1993)?",opts:["Rules for eurozone membership","Rules for EU budget contributions","Conditions for EU accession: political, economic, and acquis criteria","Standards for Council of Europe membership"],ans:2,exp:"The Copenhagen Criteria (1993) set three conditions for EU accession: (1) political — stable institutions, rule of law, minority protection; (2) economic — functioning market economy; (3) acquis — ability to adopt all EU obligations.",topic:"EU History"},
     {q:"What is the difference between tax avoidance and tax evasion?",opts:["There is no legal difference","Avoidance is illegal, evasion is aggressive but legal","Avoidance is legal (may contradict legislative intent); evasion is illegal","Both are legal forms of tax planning"],ans:2,exp:"Tax avoidance is technically legal (though may be contrary to the spirit of the law). Tax evasion is illegal — deliberate misrepresentation or concealment. Between them lies 'aggressive tax planning'.",topic:"Tax"},
   ],
+  siv:[
+    {q:"In which year did the Western Roman Empire fall?",opts:["410 AD","800 AD","476 AD","493 AD"],ans:2,exp:"476 AD — Odoacer deposed Romulus Augustulus. 410 AD was the Visigoth sack of Rome. 800 AD was Charlemagne's coronation. 493 AD was Odoacer's own overthrow.",topic:"Fall of Rome"},
+    {q:"What was Charlemagne's capital city?",opts:["Paris","Cologne","Rome","Aachen"],ans:3,exp:"Aachen (Aix-la-Chapelle) was Charlemagne's capital and where the EU's Charlemagne Prize is awarded. Paris was Clovis I's capital. Charlemagne was crowned in Rome but governed from Aachen.",topic:"Charlemagne"},
+    {q:"Which statement about the Holy Roman Empire is correct?",opts:["It was a centralised nation-state with a single capital","It was a loose confederation with no single national capital","It was governed jointly by France and Germany","It ended when Napoleon conquered all German territories"],ans:1,exp:"The HRE was explicitly NOT a nation-state — it was a loose, heterogeneous confederation with no single capital. It ended when the Emperor abdicated (not through military conquest), under Napoleonic pressure.",topic:"Holy Roman Empire"},
+    {q:"The Prussian three-class franchise (1820) stipulated that:",opts:["Only three social classes were allowed to vote","The weight of a vote depended on the amount of tax paid","Citizens were taxed in three bands based on their vote","Church, nobility, and commoners each had equal votes"],ans:1,exp:"The three-class franchise directly linked voting weight to tax paid. It is a key example of taxation shaping political rights — a running theme of the course.",topic:"Prussia"},
+    {q:"What did the Erzberger Reform introduce in the Weimar Republic?",opts:["A decentralised tax system returning sovereignty to the Länder","Full centralisation of tax legislation at Reich level, with PIT and CIT introduced uniformly","The first ever German income tax","The abolition of trade tax"],ans:1,exp:"Erzberger established unitarism — centralising ALL tax legislation at Reich level. PIT (10–60%) and CIT (10% retained / 20% distributed) were introduced uniformly. Trade tax was not abolished; it was given to the Länder as compensation under the Financial Equalisation Act.",topic:"Erzberger Reform"},
+    {q:"Under the Financial Equalisation Act (30 March 1920), the Länder received revenue sovereignty over:",opts:["Income tax and VAT","Inheritance tax and excise duties","Property tax and trade tax","Corporation tax and church tax"],ans:2,exp:"In compensation for losing their general tax legislative sovereignty, the Länder received revenue sovereignty specifically over property tax and trade tax. Income, corporation, and VAT remained with the Reich. Church tax is a separate constitutional arrangement.",topic:"Erzberger Reform"},
+    {q:"Hyperinflation in Germany peaked in:",opts:["1919","1921","Autumn 1923","1929"],ans:2,exp:"Hyperinflation peaked in autumn 1923, stabilised by the Rentenmark introduced on 15 November 1923. 1919 was the Treaty of Versailles. 1921 was Erzberger's assassination. 1929 was the Wall Street Crash — a separate crisis.",topic:"Hyperinflation"},
+    {q:"What is the direct modern legacy of Weimar hyperinflation?",opts:["Germany's refusal to join the eurozone","The constitutional debt brake (Schuldenbremse) since 2009","The abolition of the Deutsche Mark in 1990","The introduction of VAT in 1968"],ans:1,exp:"The professor stressed that hyperinflation had a profound impact on the German mindset, not just the economy. The Schuldenbremse (constitutional obligation to a balanced budget, since 2009) is the direct institutional expression of this trauma.",topic:"Hyperinflation"},
+    {q:"The Enabling Act of 23 March 1933 matters for German tax law because:",opts:["It introduced the first national income tax","It abolished the trade tax","Major tax laws (EStG, GewStG) were subsequently passed by executive decree, not parliament","It transferred all tax authority back to the Länder"],ans:2,exp:"The Reichstag abolished itself under the Enabling Act. With no parliament functioning, the Reich Government passed the Income Tax Act (EStG) and Trade Tax Act (GewStG) by decree — not through democratic legislation. Their structural legacy remains in German law.",topic:"Third Reich"},
+    {q:"What is the German Trade Tax (Gewerbesteuer) classified as under German legal doctrine?",opts:["A personal tax based on the taxpayer's ability to pay","A consumption tax similar to VAT","A property tax targeting the objective profit of the enterprise","A federal tax shared equally between Bund and Länder"],ans:2,exp:"The professor explicitly flagged this. The Trade Tax is a property (Sach-) tax — it targets the objective profit of the enterprise without regard to the taxpayer's personal circumstances. Revenue goes to municipalities, not the federal government or Länder.",topic:"Trade Tax"},
+    {q:"Why is Austria NOT a member of NATO?",opts:["It was excluded due to its role in WWII as part of the Third Reich","Its constitution prohibits all military alliances","It declared permanent neutrality on 26 October 1955","It chose not to apply when NATO was founded in 1949"],ans:2,exp:"Austria declared permanent neutrality on 26 October 1955 — the day after Allied occupation ended — as a condition of regaining sovereignty. This prevents NATO membership. Austria joined the EU in 1995 without conflict, as EU membership does not require military participation.",topic:"Austria"},
+    {q:"The Anschluss (12–13 March 1938) is legally significant because:",opts:["Austria voluntarily harmonised its laws with Germany's","German law, including tax law, was immediately imposed on Austria","Austria adopted a new constitution modelled on the Weimar Republic","It created the Austro-Hungarian Dual Monarchy"],ans:1,exp:"When Germany annexed Austria, German law — including all tax law — was immediately applied. This is the direct reason Austria's income tax system structurally resembles Germany's today, even though both countries have developed their laws independently since 1945.",topic:"Austria"},
+    {q:"What did the 2+4 Treaty achieve?",opts:["It established the European Community","It restored Germany's full sovereignty and required renunciation of claims to former eastern territories","It reunited the FRG and GDR militarily","It created the Weimar Triangle"],ans:1,exp:"The 2+4 Treaty (FRG + GDR + USA/UK/France/USSR) formally restored full German sovereignty and required Germany to renounce claims to East Prussia, Pomerania, and Silesia. Reunification on 3 October 1990 alone did not restore sovereignty — the treaty was the necessary legal step.",topic:"Reunification"},
+    {q:"What is the Weimar Triangle?",opts:["The three governing parties of the Weimar Republic","The three occupation zones of post-WWII Germany","A Germany–France–Poland policy coordination forum established after reunification","The constitutional structure of the Weimar Republic"],ans:2,exp:"The Weimar Triangle is a post-reunification (1990) trilateral diplomatic forum between Germany, France, and Poland — named after the city of Weimar but entirely unrelated to the Weimar Republic. Options A, B, and D are plausible-sounding traps.",topic:"Reunification"},
+    {q:"Exam trap — was Austria a member of NATO when it joined the EU in 1995?",opts:["Yes — EU and NATO membership went together","No — Austria declared permanent neutrality in 1955, preventing NATO membership","No — Austria was still under Allied occupation in 1995","Yes — Austria joined NATO in 1990 alongside reunified Germany"],ans:1,exp:"Classic exam trap. Austria joined the EU on 1 January 1995 but has never been a NATO member due to its declaration of permanent neutrality on 26 October 1955. Allied occupation ended in 1955, not 1995.",topic:"Austria"},
+  ],
   svi:[
     {q:"Which case established the doctrine of Direct Effect?",opts:["Costa v. ENEL","Van Gend en Loos","Simmenthal","Francovich"],ans:1,exp:"Van Gend en Loos (1963) established that EU law can create rights for individuals which national courts must protect directly. The EEC was declared a 'new legal order of international law.'",topic:"Direct Effect"},
     {q:"What must a national court do when national law conflicts with EU law?",opts:["Wait for the constitutional court to rule","Refer the question to the ECJ first","Immediately disapply the conflicting national law","Apply national law if it was enacted later"],ans:2,exp:"Simmenthal (1978): national courts must immediately disapply conflicting national law. They do not need to wait for a constitutional court ruling, legislative repeal, or ECJ referral.",topic:"National Courts"},
@@ -2840,7 +3153,16 @@ function renderWeakSpots(prefix){
       'Digital Tax Gap':'No physical PE = no taxing right. Art. 5 para. 4 auxiliary exclusion is the loophole. DST + digital PE are the EU solutions.',
       'BEPS & Pillar 2':'Know the €750m threshold, ETR vs nominal rate distinction, IIR/UTPR/QDMTT mechanisms, and UPE role.',
       'Social Security':'Contributions ≠ taxes (benefit in return). Know 5 pillars, rates, ceilings (€69,750 / €101,400), and 41.3% tax wedge.',
-      'Twelve Tables':'Review the core principle — written, public law vs patrician monopoly. Be able to explain in one paragraph.',
+      'Fall of Rome':'Review the 476 AD date and Odoacer — distinguish from 410 AD (sack of Rome) and 493 AD (Odoacer overthrown).',
+      'Charlemagne':'Key facts: crowned 800 AD in Rome, capital Aachen, Charlemagne Prize, Treaty of Verdun 843 AD. Trap: he was neither French nor German.',
+      'Holy Roman Empire':'HRE = loose confederation, no capital, 962–1806. Explains Germany\'s federal structure today. Main tax: excise duties.',
+      'Prussia':'Three-class franchise 1820 = vote weight tied to tax paid. Income tax 1808–1811 (temporary). Trade tax reform 1891 → municipalities.',
+      'Erzberger Reform':'Unitarism = ALL tax centralised at Reich level. PIT 10–60%, CIT 10%/20%. Financial Equalisation Act 30 Mar 1920 gave Länder property + trade tax.',
+      'Hyperinflation':'1923 peak → Rentenmark 15 Nov 1923. Legacy = Schuldenbremse (debt brake) since 2009. Mindset impact — not just economic.',
+      'Third Reich':'Enabling Act 23 Mar 1933 = Reichstag abolished itself. EStG + GewStG passed by decree. GewStG unified 1936.',
+      'Trade Tax':'Property (Sach-) tax — objective profit, not ability to pay. Revenue to municipalities. Unified 1936. One of the core structural problems of German tax law.',
+      'Austria':'Full timeline: 1866 left confederation, 1867 Dual Monarchy, 1919 Saint-Germain, 1938 Anschluss + German tax law imposed, 1955 permanent neutrality (≠ NATO), 1995 EU.',
+      'Reunification':'3 Oct 1990 = reunification. 2+4 Treaty = FRG + GDR + 4 powers. Reunification alone did NOT restore sovereignty. Weimar Triangle = post-1990 Germany-France-Poland forum.',
       'Byzantine':'Focus on the 395/476/1453 dates and why citizens called themselves Romans — classic exam traps.',
       'Christianity':'Use the Compare tab: Edict of Milan (313) ≠ Cunctos Populos (380). Armenia was first (301), not Rome.',
       'Corpus Juris Civilis':'Know all four parts (Code, Digest, Institutes, Novels) and that Justinian compiled it 529–534 AD — after the Western Empire fell.',
