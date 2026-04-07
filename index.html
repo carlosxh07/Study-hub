@@ -258,6 +258,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
     <div class="nav-label">EU Law</div>
     <button class="nav-btn" data-color="eu" onclick="showPage('eu-overview',this)"><span class="nav-dot" style="background:var(--eu)"></span>All Sessions</button>
     <button class="nav-sub" onclick="showLecture('eu','i',this)">Session I</button>
+    <button class="nav-sub" onclick="showLecture('eu','ii',this)">Session II</button>
     <button class="nav-sub" onclick="showLecture('eu','iii',this)">Session III</button>
     <button class="nav-sub" onclick="showLecture('eu','v',this)">Session V</button>
     <button class="nav-sub" onclick="showLecture('eu','vi',this)">Session VI</button>
@@ -293,7 +294,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
     <div class="subject-card sc-eu" onclick="showPage('eu-overview',null)">
       <div class="sc-name">EU Law</div><div class="sc-meta">Sessions · Prof. Adrian Cloer</div>
       <div class="sc-progress"><div class="sc-progress-fill" style="width:14%;background:var(--eu)"></div></div>
-      <div class="sc-stats"><div class="sc-stat"><strong>4</strong> sessions loaded</div><div class="sc-stat"><strong>79</strong> flashcards</div><div class="sc-stat"><strong>57</strong> quiz Qs</div></div>
+      <div class="sc-stats"><div class="sc-stat"><strong>5</strong> sessions loaded</div><div class="sc-stat"><strong>102</strong> flashcards</div><div class="sc-stat"><strong>74</strong> quiz Qs</div></div>
     </div>
     <div class="subject-card sc-micro" onclick="showPage('micro-overview',null)">
       <div class="sc-name">Microeconomics</div><div class="sc-meta">Chapters · Microeconomics 1</div>
@@ -325,7 +326,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
   <div class="page-desc">Select a session to access its summary, flashcards, quiz, and interactive tools.</div>
   <div class="lectures-list">
     <div class="lec-card" onclick="showLecture('eu','i',null)"><div class="lec-num" style="background:var(--eu-l);color:var(--eu)">01</div><div class="lec-info"><div class="lec-title">Session I</div><div class="lec-sub">German Tax System, Double Taxation Conventions &amp; Digital Taxation</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Compare</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span></div></div>
-    <div class="lec-card empty"><div class="lec-num" style="background:var(--eu-l);color:var(--eu)">02</div><div class="lec-info"><div class="lec-title">Session II</div><div class="lec-sub">Not yet added</div></div><div class="lec-badges"><span class="lec-badge">Summary</span><span class="lec-badge">Cards</span><span class="lec-badge">Quiz</span></div></div>
+    <div class="lec-card" onclick="showLecture('eu','ii',null)"><div class="lec-num" style="background:var(--eu-l);color:var(--eu)">02</div><div class="lec-info"><div class="lec-title">Session II</div><div class="lec-sub">Legal Systems, Separation of Powers &amp; the German Basic Law</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Timeline</span><span class="lec-badge has">Compare</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span></div></div>
     <div class="lec-card" onclick="showLecture('eu','iii',null)"><div class="lec-num" style="background:var(--eu-l);color:var(--eu)">03</div><div class="lec-info"><div class="lec-title">Session III</div><div class="lec-sub">Roman Law, Byzantine Empire &amp; Legal Foundations of Europe</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Timeline</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span></div></div>
     <div class="lec-card empty"><div class="lec-num" style="background:var(--eu-l);color:var(--eu)">04</div><div class="lec-info"><div class="lec-title">Session IV</div><div class="lec-sub">Not yet added</div></div><div class="lec-badges"><span class="lec-badge">Summary</span><span class="lec-badge">Cards</span><span class="lec-badge">Quiz</span></div></div>
     <div class="lec-card" onclick="showLecture('eu','v',null)"><div class="lec-num" style="background:var(--eu-l);color:var(--eu)">05</div><div class="lec-info"><div class="lec-title">Session V</div><div class="lec-sub">Wrap-Up: BEPS · Legal Systems · EU History</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span></div></div>
@@ -538,6 +539,294 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
       <div class="weak-section" id="si-weak-section"></div>
       <div style="margin-top:20px;display:flex;gap:10px">
         <button class="btn btn-primary" onclick="restartQuiz('si')">Try again</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SESSION II ══ -->
+<div id="page-eu-ii" class="page">
+  <div class="page-eyebrow" style="color:var(--eu)">EU Law · Session II</div>
+  <div class="page-title">Legal Systems, Separation of Powers &amp; the German Basic Law</div>
+  <div class="page-desc">From types of legal systems through the rule of law and democracy to the Enabling Act 1933 and the constitutional architecture of the Grundgesetz.</div>
+  <div class="study-tabs">
+    <button class="study-tab active" onclick="showTab('sii','summary',this)">Summary</button>
+    <button class="study-tab" onclick="showTab('sii','timeline',this)">Timeline</button>
+    <button class="study-tab" onclick="showTab('sii','compare',this)">Compare</button>
+    <button class="study-tab" onclick="showTab('sii','flashcards',this)">Flashcards</button>
+    <button class="study-tab" onclick="showTab('sii','quiz',this)">Quiz</button>
+  </div>
+
+  <!-- SUMMARY -->
+  <div id="sii-summary" class="study-panel active">
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-eu">A. Types of Legal Systems</span></div>
+      <p>A <strong>legal system</strong> is a framework of rules, procedures, and institutions used to interpret, apply, and enforce laws. Its three features are: Laws/Codes, Institutions, and Procedures.</p>
+      <ul>
+        <li><strong>Common Law (England):</strong> Judges create binding precedent (<em>stare decisis</em>). Case law is central. Key countries: UK, USA, Australia, Canada, Ireland. Common law countries DO have statutes — the defining feature is binding precedent, NOT the absence of written rules.</li>
+        <li><strong>Code Law / Civil Law (Roman Law):</strong> Comprehensive written codes define all law; judges apply codes, they do not create binding precedent. Key countries: Germany, France, Italy, Spain. Most EU members.</li>
+        <li><strong>Religious Law:</strong> Legal system based on holy texts and religious traditions (e.g. Islamic Sharia law states).</li>
+        <li><strong>Customary Law:</strong> Long-standing community practices that have acquired legal force. Generally unwritten (various tribal/indigenous systems).</li>
+      </ul>
+      <div class="note-box"><strong>EU relevance:</strong> The EU spans both traditions — Ireland (common law) vs. continental members (code law). EU legislation leans toward comprehensive written texts (code law influence) but CJEU case law also matters significantly (common law influence).</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-teal">B. The Rule of Law — 6 EU Principles</span></div>
+      <p>The rule of law guarantees that all public powers act within constraints set by law, in accordance with democratic values and fundamental rights, and under independent courts. The EU's six principles (COM/2014/0158 final) — <strong>memorise all six</strong>:</p>
+      <ul>
+        <li><strong>(1) Legality</strong> — transparent, accountable, democratic, and pluralistic process for enacting laws.</li>
+        <li><strong>(2) Legal certainty</strong> — laws are clear and predictable; citizens can foresee legal consequences.</li>
+        <li><strong>(3) Prohibition of arbitrary exercise of executive power</strong> — the executive cannot act without legal constraint.</li>
+        <li><strong>(4) Effective judicial protection</strong> by independent and impartial courts, including respect for fundamental rights and effective judicial review.</li>
+        <li><strong>(5) Separation of powers</strong> — legislative, executive, and judicial branches are distinct.</li>
+        <li><strong>(6) Equality before the law</strong> — the law applies equally to everyone.</li>
+      </ul>
+      <div class="note-box">⚠️ <strong>Exam trap:</strong> "Supremacy of EU law" is NOT one of the six rule of law principles — it is a separate EU constitutional law principle. World Bank data shows a strong positive correlation (0.73–0.77) between rule of law and economic prosperity.</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-amber">C. Democracy &amp; Separation of Powers</span></div>
+      <p><strong>Democracy</strong> (from Greek <em>demos</em> = people + <em>kratos</em> = power) — rule by the people. Two forms: <strong>Representative democracy</strong> (citizens elect representatives — Germany's model under Art. 20(2) GG) and <strong>Direct democracy</strong> (citizens vote directly via referendums — Switzerland's prime example).</p>
+      <p style="margin-top:10px">The <strong>separation of powers</strong> prevents dictatorship by ensuring no single branch accumulates too much power. Intellectual origins: <strong>John Locke (1632–1704)</strong> and <strong>Montesquieu (1689–1755)</strong>.</p>
+      <ul>
+        <li><strong>Legislative:</strong> Enacts laws, sets policy, holds power of the purse — Bundestag + Bundesrat.</li>
+        <li><strong>Executive:</strong> Implements laws, oversees day-to-day government — Bundesregierung.</li>
+        <li><strong>Judicial:</strong> Interprets laws, resolves disputes, exercises judicial review — Bundesverfassungsgericht + federal courts.</li>
+      </ul>
+      <p style="margin-top:8px"><strong>Two dimensions:</strong> Horizontal (three branches checking each other) and Vertical (federal → Länder → local level). The <strong>"fourth estate"</strong> (independent press, coined by Thomas Carlyle 1841) is an unofficial watchdog on all three branches.</p>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-coral">D. The Enabling Act of 1933 &amp; Why the Basic Law Looks the Way It Does</span></div>
+      <p>Official name: <em>"Act to Remedy the Distress of the People and the Reich"</em> (Ermächtigungsgesetz), passed <strong>24 March 1933</strong>.</p>
+      <ul>
+        <li>Transferred legislative authority to Hitler's government — laws required neither Reichstag nor Reich President approval.</li>
+        <li>Laws could deviate from the Weimar Constitution — effectively suspending constitutional limits.</li>
+        <li>Vote: <strong>444 to 94</strong>. Only the SPD (led by Otto Wels) voted against unanimously.</li>
+        <li>Extended in 1937, 1939, and 1943 — in force until 1945.</li>
+      </ul>
+      <p style="margin-top:8px"><strong>Lesson for the Basic Law:</strong> Democratic legitimacy can be hijacked through formally legal procedures. The Basic Law's response: (1) the Eternity Clause, (2) the Bundesverfassungsgericht as independent guardian, (3) fundamental rights placed FIRST.</p>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-purple">E. The German Basic Law (Grundgesetz)</span></div>
+      <p>Adopted <strong>8 May 1949</strong> by the Parliamentary Council (representatives elected by the Länder parliaments). Entered into force <strong>23 May 1949</strong>. Originally intended as temporary — now 75+ years old.</p>
+      <ul>
+        <li><strong>Fundamental rights placed first (Arts. 1–19)</strong> — signal that rights precede the state.</li>
+        <li><strong>Five core state principles:</strong> democracy, rule of law, republic, federalism, social state.</li>
+        <li><strong>Article 1 (human dignity)</strong> — the single most important article; every person has an inviolable right not to be treated as a mere object.</li>
+        <li><strong>Eternity Clause (Art. 79(3)):</strong> Permanently protects the federal structure (Länder), Länder participation in legislation, and the principles of Arts. 1 and 20. Cannot be amended even by two-thirds majority.</li>
+        <li><strong>Bundesverfassungsgericht</strong> (Karlsruhe) — "Guardian of the Basic Law," final say on constitutional interpretation.</li>
+        <li><strong>Verfassungsbeschwerde</strong> — citizens can file constitutional complaints directly to the Federal Constitutional Court.</li>
+      </ul>
+      <div class="note-box">⚠️ <strong>Exam trap:</strong> The Eternity Clause does NOT prevent ALL constitutional amendments. Most articles CAN be changed with a two-thirds majority in both chambers — only the specific principles in Art. 79(3) are absolutely unamendable.</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-eu">F. Fundamental Rights &amp; the Democratic Legitimation Chain</span></div>
+      <p><strong>Three categories of fundamental rights:</strong></p>
+      <ul>
+        <li><strong>Status negativus</strong> — defensive rights protecting citizens from unlawful state interference (e.g. Art. 1(1) — human dignity; prohibition of torture).</li>
+        <li><strong>Status positivus</strong> — rights to benefits; state must actively provide something (e.g. Art. 6(4) — mother's right to protection and care).</li>
+        <li><strong>Status activus</strong> — participatory rights empowering citizens to shape the state (e.g. Art. 38 — right to vote; Art. 8 — freedom of assembly).</li>
+      </ul>
+      <p style="margin-top:8px">Fundamental rights primarily protect individuals against the <strong>STATE</strong> (public law), not against other private citizens (private law).</p>
+      <p style="margin-top:8px"><strong>Democratic legitimation chain (Art. 20(2) GG):</strong> People → Election → Parliament → Legislation → Administration → Individual acts. Every state act must be traceable to the will of the people. Three requirements for any government action: <strong>(1) proportionality</strong> (suitable, necessary, appropriate), <strong>(2) legal basis / reservation of law</strong> (specific authorisation required), <strong>(3) legitimate purpose</strong> (public interest).</p>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-teal">G. Council of Europe — Exam Trap Alert</span></div>
+      <p>The Council of Europe is <strong>completely separate</strong> from the EU. This is one of the most common student errors.</p>
+      <ul>
+        <li><strong>Council of Europe:</strong> Founded 1949 · 46 member states · Headquarters: Strasbourg · Purpose: human rights, democracy, rule of law · Key court: European Court of Human Rights (ECHR).</li>
+        <li><strong>European Union:</strong> Founded (in current form) 1993 · 27 member states · Headquarters: Brussels/Luxembourg · Purpose: political and economic integration · Key court: Court of Justice of the EU (CJEU).</li>
+      </ul>
+      <div class="note-box">⚠️ Never confuse the ECHR (Council of Europe, Strasbourg) with the CJEU (EU, Luxembourg). Three completely different courts: Bundesverfassungsgericht (Germany), ECHR (Council of Europe), CJEU (EU).</div>
+    </div>
+  </div>
+
+  <!-- TIMELINE -->
+  <div id="sii-timeline" class="study-panel">
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot" style="color:var(--eu)"></div>
+        <div class="tl-year">1632</div>
+        <div class="tl-card" onclick="this.querySelector('.tl-body').classList.toggle('open');this.querySelector('.tl-toggle').textContent=this.querySelector('.tl-body').classList.contains('open')?'▲ Less':'▼ More'">
+          <div class="tl-title">John Locke born — foundational theorist of separation of powers</div>
+          <div class="tl-toggle">▼ More</div>
+          <div class="tl-body">English philosopher whose ideas on natural rights and limited government directly influenced constitutional design across Europe and America.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot" style="color:var(--eu)"></div>
+        <div class="tl-year">1689</div>
+        <div class="tl-card" onclick="this.querySelector('.tl-body').classList.toggle('open');this.querySelector('.tl-toggle').textContent=this.querySelector('.tl-body').classList.contains('open')?'▲ Less':'▼ More'">
+          <div class="tl-title">Montesquieu born — developed classic three-branch theory</div>
+          <div class="tl-toggle">▼ More</div>
+          <div class="tl-body">French political philosopher. His <em>The Spirit of the Laws</em> (1748) articulated the legislative–executive–judicial model that became the template for modern constitutional design including the German Basic Law.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot" style="color:var(--ic)"></div>
+        <div class="tl-year">30 Jan 1933</div>
+        <div class="tl-card" onclick="this.querySelector('.tl-body').classList.toggle('open');this.querySelector('.tl-toggle').textContent=this.querySelector('.tl-body').classList.contains('open')?'▲ Less':'▼ More'">
+          <div class="tl-title">Hitler appointed Chancellor — democratic erosion begins</div>
+          <div class="tl-toggle">▼ More</div>
+          <div class="tl-body">Appointed legally by Reich President Hindenburg. The Nazi party had never won an outright parliamentary majority. The destruction of democracy began entirely within the existing legal framework — the key lesson for the Basic Law's designers.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot" style="color:var(--ic)"></div>
+        <div class="tl-year">24 Mar 1933</div>
+        <div class="tl-card" onclick="this.querySelector('.tl-body').classList.toggle('open');this.querySelector('.tl-toggle').textContent=this.querySelector('.tl-body').classList.contains('open')?'▲ Less':'▼ More'">
+          <div class="tl-title">Enabling Act passed — 444 to 94 — legal end of Weimar democracy</div>
+          <div class="tl-toggle">▼ More</div>
+          <div class="tl-body">The Reichstag stripped itself of its own powers in a single vote. Only the SPD (Otto Wels) voted against unanimously. Laws could now deviate from the constitution. Separation of powers was destroyed legally. This moment explains nearly every structural choice in the 1949 Basic Law.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot" style="color:var(--ic)"></div>
+        <div class="tl-year">1937 · 1939 · 1943</div>
+        <div class="tl-card" onclick="this.querySelector('.tl-body').classList.toggle('open');this.querySelector('.tl-toggle').textContent=this.querySelector('.tl-body').classList.contains('open')?'▲ Less':'▼ More'">
+          <div class="tl-title">Enabling Act extended three times — in force until 1945</div>
+          <div class="tl-toggle">▼ More</div>
+          <div class="tl-body">Originally limited to four years. Extended repeatedly, permanently consolidating the dictatorship. Ceased to apply only with Germany's unconditional surrender in May 1945.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot" style="color:var(--micro)"></div>
+        <div class="tl-year">1949</div>
+        <div class="tl-card" onclick="this.querySelector('.tl-body').classList.toggle('open');this.querySelector('.tl-toggle').textContent=this.querySelector('.tl-body').classList.contains('open')?'▲ Less':'▼ More'">
+          <div class="tl-title">Council of Europe founded (Strasbourg) + Basic Law adopted (8 May)</div>
+          <div class="tl-toggle">▼ More</div>
+          <div class="tl-body">Two landmarks in one year. The Council of Europe (46 members) was founded to protect human rights — completely independent of what would become the EU. The Basic Law was adopted by the Parliamentary Council (Länder representatives) on 8 May 1949 and entered into force on 23 May 1949.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot" style="color:var(--micro)"></div>
+        <div class="tl-year">23 May 1949</div>
+        <div class="tl-card" onclick="this.querySelector('.tl-body').classList.toggle('open');this.querySelector('.tl-toggle').textContent=this.querySelector('.tl-body').classList.contains('open')?'▲ Less':'▼ More'">
+          <div class="tl-title">Basic Law enters into force — Federal Republic of Germany founded</div>
+          <div class="tl-toggle">▼ More</div>
+          <div class="tl-body">Originally intended as temporary pending reunification. Now 75+ years old and considered one of the most successful constitutional documents in history. Its structural choices — rights first, Eternity Clause, independent constitutional court — have been widely copied internationally.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot" style="color:var(--text3)"></div>
+        <div class="tl-year">Present</div>
+        <div class="tl-card" onclick="this.querySelector('.tl-body').classList.toggle('open');this.querySelector('.tl-toggle').textContent=this.querySelector('.tl-body').classList.contains('open')?'▲ Less':'▼ More'">
+          <div class="tl-title">Rule of law under pressure — EU proceedings against Poland &amp; Hungary</div>
+          <div class="tl-toggle">▼ More</div>
+          <div class="tl-body">The EU has initiated rule of law proceedings against Poland and Hungary for violations of judicial independence and media freedom — directly invoking the six COM/2014/0158 principles. The Bundesverfassungsgericht remains the guardian of the Basic Law and has asserted its right to review EU acts against German constitutional standards (Solange jurisprudence).</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPARE -->
+  <div id="sii-compare" class="study-panel">
+    <div class="sum-card">
+      <div class="sum-title">Legal Systems — Full Comparison</div>
+      <table class="comp-table">
+        <tr><th>Dimension</th><th>Common Law</th><th>Code Law</th><th>Religious Law</th><th>Customary Law</th></tr>
+        <tr><td><strong>Origin</strong></td><td>England</td><td>Roman Law</td><td>Religious texts</td><td>Community tradition</td></tr>
+        <tr><td><strong>Primary source</strong></td><td>Judicial decisions (precedent)</td><td>Comprehensive written codes</td><td>Holy texts (e.g. Quran)</td><td>Long-standing customs</td></tr>
+        <tr><td><strong>Role of judges</strong></td><td>Create law through precedent (<em>stare decisis</em>)</td><td>Apply the code; do not create precedent</td><td>Interpret religious texts</td><td>Recognise and apply customs</td></tr>
+        <tr><td><strong>Written codes?</strong></td><td>Yes (statutes exist) — but precedent is key</td><td>Yes — comprehensive and updated</td><td>Varies</td><td>Generally unwritten</td></tr>
+        <tr><td><strong>Key countries</strong></td><td>UK, USA, Australia, Canada, Ireland</td><td>Germany, France, Italy, Spain</td><td>Islamic Sharia states</td><td>Tribal/indigenous systems</td></tr>
+        <tr><td><strong>EU relevance</strong></td><td>Ireland uses common law</td><td>Most EU members</td><td>—</td><td>—</td></tr>
+      </table>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">Council of Europe vs. European Union — Exam Trap</div>
+      <table class="comp-table">
+        <tr><th>Feature</th><th>Council of Europe</th><th>European Union</th></tr>
+        <tr><td><strong>Founded</strong></td><td>1949</td><td>EEC 1957; EU 1993</td></tr>
+        <tr><td><strong>Members</strong></td><td>46</td><td>27</td></tr>
+        <tr><td><strong>Headquarters</strong></td><td>Strasbourg, France</td><td>Brussels / Luxembourg</td></tr>
+        <tr><td><strong>Purpose</strong></td><td>Human rights, democracy, rule of law</td><td>Political and economic integration</td></tr>
+        <tr><td><strong>Key court</strong></td><td>European Court of Human Rights (ECHR)</td><td>Court of Justice of the EU (CJEU)</td></tr>
+        <tr><td><strong>Relationship to EU</strong></td><td>Completely independent</td><td>—</td></tr>
+        <tr><td><strong>Key instrument</strong></td><td>European Convention on Human Rights</td><td>EU Treaties, Regulations, Directives</td></tr>
+      </table>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">Public Law vs. Private Law</div>
+      <table class="comp-table">
+        <tr><th>Dimension</th><th>Private Law</th><th>Public Law</th></tr>
+        <tr><td><strong>Governs</strong></td><td>Person ↔ Person; Person ↔ Thing</td><td>Person ↔ State; Public authority ↔ Public authority</td></tr>
+        <tr><td><strong>Governing principle</strong></td><td>Equality (parties on equal footing)</td><td>Subordination (state acts with authority)</td></tr>
+        <tr><td><strong>German examples</strong></td><td>BGB (Civil Code), contract law, tort law, property law</td><td>Constitutional law, administrative law, tax law, criminal law</td></tr>
+        <tr><td><strong>Fundamental rights apply?</strong></td><td>Indirectly (at most)</td><td>Directly — primary arena</td></tr>
+        <tr><td><strong>Who initiates?</strong></td><td>Private parties</td><td>Often the state (can impose unilaterally)</td></tr>
+      </table>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">Three Categories of Fundamental Rights</div>
+      <table class="comp-table">
+        <tr><th>Category</th><th>Latin Term</th><th>Meaning</th><th>State obligation</th><th>Example</th></tr>
+        <tr><td><strong>Defensive rights</strong></td><td><em>Status negativus</em></td><td>Protect citizens from state interference</td><td>State must refrain from action</td><td>Art. 1(1) — human dignity (prohibition of torture)</td></tr>
+        <tr><td><strong>Rights to benefits</strong></td><td><em>Status positivus</em></td><td>State must actively provide something</td><td>State must act/provide</td><td>Art. 6(4) — mother's right to protection</td></tr>
+        <tr><td><strong>Participatory rights</strong></td><td><em>Status activus</em></td><td>Empower citizens to shape the state</td><td>State must enable participation</td><td>Art. 38 (vote); Art. 8 (assembly); Art. 17 (petition)</td></tr>
+      </table>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">Common Exam Traps — Session II</div>
+      <table class="comp-table">
+        <tr><th>Trap</th><th>Wrong assumption</th><th>Correct answer</th></tr>
+        <tr><td>Common law = no written rules</td><td>Common law countries rely only on case law</td><td>Common law countries DO have statutes — defining feature is binding <em>stare decisis</em></td></tr>
+        <tr><td>Eternity Clause = no amendments ever</td><td>Art. 79(3) makes the entire Basic Law unamendable</td><td>Only Art. 1 + Art. 20 principles + federal structure are unamendable; most articles can be amended with 2/3 majority</td></tr>
+        <tr><td>Fundamental rights protect vs. private citizens</td><td>You can invoke Art. 1 GG against your employer</td><td>Fundamental rights primarily protect against the STATE — public law function</td></tr>
+        <tr><td>Council of Europe = EU institution</td><td>The ECHR is an EU court</td><td>Completely separate: 46 members (not 27), Strasbourg (not Brussels), ECHR not CJEU</td></tr>
+        <tr><td>Supremacy of EU law = rule of law principle</td><td>Supremacy is one of the 6 COM/2014/0158 principles</td><td>Supremacy is a separate EU constitutional principle — NOT one of the six rule of law principles</td></tr>
+        <tr><td>Germany uses direct democracy</td><td>Germans vote on laws directly (national referendums)</td><td>Germany is a representative democracy — Art. 20(2) GG; no national referendums</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- FLASHCARDS -->
+  <div id="sii-flashcards" class="study-panel">
+    <div class="fc-controls">
+      <button class="btn btn-sm" onclick="shuffleFC('sii')">Shuffle</button>
+      <button class="btn btn-sm" onclick="resetFC('sii')">Reset all</button>
+      <span style="font-size:12px;color:var(--text3);margin-left:4px">Rate each card to focus on what you don't know yet</span>
+    </div>
+    <div class="fc-sr-bar" id="sii-sr-bar"></div>
+    <div id="sii-fc-wrap">
+      <div class="flashcard-wrap"><div class="flashcard" id="sii-fc-card" onclick="flipFC('sii')">
+        <div class="fc-face fc-front"><div class="fc-label">Question</div><div class="fc-question" id="sii-fc-q"></div><div class="fc-hint">Click to reveal answer</div></div>
+        <div class="fc-face fc-back"><div class="fc-label">Answer</div><div class="fc-answer" id="sii-fc-a"></div><div class="fc-src" id="sii-fc-src"></div></div>
+      </div></div>
+      <div class="sr-btns">
+        <button class="sr-btn sr-btn-hard" onclick="rateFC('sii',0)">😬 Still learning</button>
+        <button class="sr-btn sr-btn-ok" onclick="rateFC('sii',1)">🤔 Almost</button>
+        <button class="sr-btn sr-btn-easy" onclick="rateFC('sii',2)">✓ Got it</button>
+      </div>
+      <div class="sr-mode-note" id="sii-sr-note">Card <span id="sii-fc-counter">1</span> of <span id="sii-fc-total">1</span></div>
+    </div>
+    <div class="fc-sr-done" id="sii-fc-done" style="display:none">
+      <h3>Session complete! 🎉</h3>
+      <p id="sii-done-msg"></p>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:16px">
+        <button class="btn btn-primary" onclick="reviewWeak('sii')">Review weak cards</button>
+        <button class="btn" onclick="resetFC('sii')">Start over</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUIZ -->
+  <div id="sii-quiz" class="study-panel">
+    <div id="sii-quiz-wrap">
+      <div class="quiz-prog"><div class="quiz-prog-fill" id="sii-qpfill" style="width:0%"></div></div>
+      <div class="quiz-meta" id="sii-q-meta"></div>
+      <div class="quiz-q" id="sii-q-text"></div>
+      <div class="quiz-opts" id="sii-q-opts"></div>
+      <div class="quiz-fb" id="sii-q-fb"></div>
+      <div id="sii-q-next" style="display:none"><button class="btn btn-primary" onclick="nextQ('sii')">Next →</button></div>
+    </div>
+    <div class="quiz-score-screen" id="sii-quiz-score">
+      <div class="score-row">
+        <div class="score-big" id="sii-score-big"></div>
+        <div class="score-right"><div class="score-lbl">correct answers</div><div class="score-msg" id="sii-score-msg"></div></div>
+      </div>
+      <div class="weak-section" id="sii-weak-section"></div>
+      <div style="margin-top:20px;display:flex;gap:10px">
+        <button class="btn btn-primary" onclick="restartQuiz('sii')">Try again</button>
       </div>
     </div>
   </div>
@@ -2066,7 +2355,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
 <script>
 // ── Navigation ──
 function showPage(id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));document.getElementById('page-'+id).classList.add('active');if(btn)btn.classList.add('active')}
-function showLecture(subject,id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-sub').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');const el=document.getElementById('page-'+subject+'-'+id);if(el){el.classList.add('active');if(subject==='eu'&&id==='i'){initFC('si');initQuiz('si')}if(subject==='eu'&&id==='iii'){initFC('siii');initQuiz('siii');initSiiiTimeline()}if(subject==='eu'&&id==='v'){initFC('sv');initQuiz('sv')}if(subject==='eu'&&id==='vi'){initFC('svi');initQuiz('svi');loadScenario(0,document.querySelector('.scenario-btn'))}if(subject==='micro'&&id==='ch2'){initMicroFC('ch2');initMicroQuiz('ch2');initCalcFor('ch2')}
+function showLecture(subject,id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-sub').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');const el=document.getElementById('page-'+subject+'-'+id);if(el){el.classList.add('active');if(subject==='eu'&&id==='i'){initFC('si');initQuiz('si')}if(subject==='eu'&&id==='ii'){initFC('sii');initQuiz('sii')}if(subject==='eu'&&id==='iii'){initFC('siii');initQuiz('siii');initSiiiTimeline()}if(subject==='eu'&&id==='v'){initFC('sv');initQuiz('sv')}if(subject==='eu'&&id==='vi'){initFC('svi');initQuiz('svi');loadScenario(0,document.querySelector('.scenario-btn'))}if(subject==='micro'&&id==='ch2'){initMicroFC('ch2');initMicroQuiz('ch2');initCalcFor('ch2')}
 if(subject==='micro'&&id==='ch3'){initMicroFC('ch3');initMicroQuiz('ch3');initCalc()}if(subject==='micro'&&id==='ps1'){initMicroFC('ps1');initMicroQuiz('ps1');initCalcFor('ps1')}if(subject==='micro'&&id==='ps2'){initMicroFC('ps2');initMicroQuiz('ps2');initCalcFor('ps2')}if(subject==='macro'&&id==='lec1'){initMacroFC('lec1');initMacroQuiz('lec1');initCalcFor('lec1')}if(subject==='macro'&&id==='lec2'){initMacroFC('lec2');initMacroQuiz('lec2');initCalcFor('lec2')}}}
 function showMacroTab(tab,btn,prefix){
   const page=document.getElementById('page-macro-'+prefix);if(!page)return;
@@ -2093,7 +2382,7 @@ function showMicroTab(tab,btn,prefix){
 }
 function toggleTl(card){const body=card.querySelector('.tl-body');const toggle=card.querySelector('.tl-toggle');body.classList.toggle('open');toggle.textContent=body.classList.contains('open')?'− Hide details':'+ Show details'}
 function showTab(prefix,tab,btn){
-  const pageMap={si:'page-eu-i',siii:'page-eu-iii',sv:'page-eu-v',svi:'page-eu-vi'};
+  const pageMap={si:'page-eu-i',sii:'page-eu-ii',siii:'page-eu-iii',sv:'page-eu-v',svi:'page-eu-vi'};
   const page=document.getElementById(pageMap[prefix]);
   if(!page)return;
   page.querySelectorAll('.study-panel').forEach(p=>p.classList.remove('active'));
@@ -2204,6 +2493,31 @@ const fcDataMap={
     {q:"What are the entity types in the lecture legend and what tax applies to each?",a:"Rectangle = capital company (GmbH/AG) → CIT at entity level. Triangle = partnership → transparent, income taxed at partner level (PIT). Circle = sole trader → PIT. Oval = permanent establishment → no separate legal personality.",src:"Session I lecture",topic:"German Taxes"},
     {q:"What was the political development regarding Pillar 2 in 2024–2026?",a:"Following Trump's election (Nov 2024), the global minimum corporate tax deal was put 'in peril' (FT). By January 2026, the US won exemptions from global minimum tax rules — showing international tax cooperation depends entirely on political will.",src:"FT Nov 2024 / FT Jan 2026",topic:"BEPS & Pillar 2"},
     {q:"What is the UPE in the context of Pillar 2?",a:"Ultimate Parent Entity — the entity at the very top of an MNE group structure. Under the IIR, the UPE is the primary entity responsible for levying the top-up tax on low-taxed subsidiaries within its group.",src:"Pillar 2 / Session I",topic:"BEPS & Pillar 2"},
+  ],
+  sii:[
+    {q:"What is a legal system and what are its three core features?",a:"A framework of rules, procedures, and institutions used to interpret, apply, and enforce laws. Three features: (1) Laws/Codes — the actual rules, (2) Institutions — courts, parliaments, law enforcement, (3) Procedures — formal steps to enforce laws and resolve disputes.",src:"Session II — Legal Systems",topic:"Legal Systems"},
+    {q:"What is the defining feature of common law that distinguishes it from code law?",a:"Binding judicial precedent (stare decisis) — past court decisions bind future courts. NOT the absence of written rules; common law countries absolutely have statutes. In code law, judges apply comprehensive written codes and do not create binding precedent.",src:"Session II — Legal Systems",topic:"Legal Systems"},
+    {q:"What is code law, where does it originate, and which countries use it?",a:"A legal system derived from Roman law using comprehensive, updated written codes. Judges apply the codes rather than creating precedent. Key countries: Germany, France, Italy, Spain — most EU members.",src:"Session II — Legal Systems",topic:"Legal Systems"},
+    {q:"List the 6 EU principles of the rule of law (COM/2014/0158 final).",a:"(1) Legality — transparent, accountable, democratic law-making; (2) Legal certainty; (3) Prohibition of arbitrary exercise of executive power; (4) Effective judicial protection by independent and impartial courts; (5) Separation of powers; (6) Equality before the law.",src:"Session II — Rule of Law",topic:"Rule of Law"},
+    {q:"What does 'democracy' literally mean etymologically?",a:"From Greek: demos (δῆμος) = the people, citizens of a city-state + kratos (κράτος) = power, authority, strength. Literally: rule by the people.",src:"Session II — Democracy",topic:"Democracy"},
+    {q:"What is the difference between representative and direct democracy? Give an example of each.",a:"Representative democracy: citizens elect representatives who make decisions on their behalf — Germany's model (Art. 20(2) GG). Direct democracy: citizens vote directly on laws via referendums — Switzerland is the prime example.",src:"Session II — Democracy",topic:"Democracy"},
+    {q:"Who are the two classical theorists of separation of powers?",a:"John Locke (1632–1704), English philosopher, and Charles de Montesquieu (1689–1755), French political philosopher. Montesquieu's The Spirit of the Laws articulated the three-branch model.",src:"Session II — Separation of Powers",topic:"Separation of Powers"},
+    {q:"What are the three branches of government, their functions, and their German equivalents?",a:"Legislative: enacts laws, holds power of the purse — Bundestag + Bundesrat. Executive: implements laws, oversees day-to-day government — Bundesregierung. Judicial: interprets laws, resolves disputes, exercises judicial review — Bundesverfassungsgericht + federal courts.",src:"Session II — Separation of Powers",topic:"Separation of Powers"},
+    {q:"What is the 'fourth estate' and why does it matter for separation of powers?",a:"The independent press — an unofficial but critical check on the three branches of government. It monitors whether branches operate within legal boundaries and in the public interest. Term coined by Thomas Carlyle (1841). Absence of free press (Russia, China) correlates directly with breakdown of separation of powers.",src:"Session II — Fourth Estate",topic:"Separation of Powers"},
+    {q:"What is the Eternity Clause and which article contains it?",a:"Article 79(3) of the German Basic Law. It makes certain core principles unamendable — they cannot be changed even with a two-thirds majority in both chambers. Protected: (1) division of Germany into Länder, (2) Länder participation in the legislative process, (3) principles in Art. 1 (human dignity) and Art. 20 (democracy, rule of law, republic, social state).",src:"Session II — Eternity Clause",topic:"Basic Law"},
+    {q:"Does the Eternity Clause prevent ALL amendments to the Basic Law?",a:"No — this is a common exam trap. Most articles CAN be amended with a two-thirds majority in both the Bundestag and Bundesrat. Only the specific core principles in Art. 79(3) — federalism, Länder participation, human dignity, democracy, rule of law — are absolutely unamendable.",src:"Session II — Eternity Clause",topic:"Basic Law"},
+    {q:"What was the Enabling Act of 24 March 1933 and what did it do?",a:"The 'Act to Remedy the Distress of the People and the Reich' — the decisive legal mechanism transforming the Weimar Republic into a dictatorship. It transferred legislative power to Hitler's government without requiring Reichstag or Reich President approval, and laws could deviate from the constitution. Passed 444–94; only the SPD voted against.",src:"Session II — Enabling Act",topic:"Enabling Act"},
+    {q:"When was the German Basic Law adopted, by whom, and when did it enter into force?",a:"Adopted on 8 May 1949 by the Parliamentary Council (representatives elected by the Länder parliaments). Entered into force on 23 May 1949. Originally intended as temporary; now in force for 75+ years.",src:"Session II — Basic Law",topic:"Basic Law"},
+    {q:"Who is the 'Guardian of the Basic Law' and where is it located?",a:"The Bundesverfassungsgericht (Federal Constitutional Court), located in Karlsruhe. It has the final say on constitutional interpretation and can strike down unconstitutional laws.",src:"Session II — Basic Law",topic:"Basic Law"},
+    {q:"What is a Verfassungsbeschwerde?",a:"A constitutional complaint that citizens of Germany can file directly with the Bundesverfassungsgericht if they believe their fundamental rights under the Basic Law have been violated by state action.",src:"Session II — Basic Law",topic:"Basic Law"},
+    {q:"What are the three categories of fundamental rights in German constitutional law (with Latin terms)?",a:"(1) Status negativus — defensive rights protecting citizens from state interference (e.g. Art. 1(1) — human dignity); (2) Status positivus — rights to benefits, requiring active state provision (e.g. Art. 6(4) — mother's right to protection); (3) Status activus — participatory rights empowering citizens to shape the state (e.g. Art. 38 — right to vote; Art. 8 — freedom of assembly).",src:"Session II — Fundamental Rights",topic:"Fundamental Rights"},
+    {q:"Do fundamental rights in Germany primarily protect citizens against other private citizens?",a:"No — this is a common exam trap. Fundamental rights primarily protect individuals against the STATE (public law function). They govern the relationship between citizen and state, not between private individuals.",src:"Session II — Fundamental Rights",topic:"Fundamental Rights"},
+    {q:"What is the difference between private law and public law?",a:"Private law governs relationships between persons or between persons and things — parties are on equal footing (principle of equality). Examples: BGB, contract law, tort law. Public law governs relationships between persons and the state — characterised by subordination (state acts with authority). Examples: constitutional law, administrative law, tax law, criminal law.",src:"Session II — Public vs Private Law",topic:"Public vs Private Law"},
+    {q:"What is the democratic legitimation chain under Art. 20(2) GG?",a:"Every state act must be traceable to the will of the people: People → Election → Parliament (legislation) → Administration (executive) → Individual acts. Core component of the rule of law. All state authority is derived from the people.",src:"Session II — Legitimation Chain",topic:"Legitimation Chain"},
+    {q:"What are the three requirements for any government action to be lawful?",a:"(1) Proportionality — must be suitable, necessary, and appropriate; (2) Legal basis (reservation of law / Gesetzesvorbehalt) — every intervention requires a specific legal authorisation; (3) Legitimate purpose — state action must serve the public interest.",src:"Session II — Legitimation Chain",topic:"Legitimation Chain"},
+    {q:"What is the Council of Europe and why must it not be confused with EU institutions?",a:"An international human rights organisation founded in 1949, based in Strasbourg, with 46 member states. Completely independent of the EU (which has 27 members). The Council of Europe's judicial body is the European Court of Human Rights (ECHR) — NOT an EU court.",src:"Session II — Council of Europe",topic:"Council of Europe"},
+    {q:"What are the five core state principles enshrined in the German Basic Law?",a:"Democracy, rule of law (Rechtsstaat), republic, federalism, and the social state (Sozialstaat). These are the foundational and — via the Eternity Clause — largely unamendable organising principles of the German state.",src:"Session II — Basic Law",topic:"Basic Law"},
+    {q:"Which article of the German Basic Law is the single most important and why?",a:"Article 1 — human dignity. It anchors the entire Basic Law: every person has an inviolable right not to be treated as a mere object of state action. It is the foundation from which all other rights flow and is protected by the Eternity Clause.",src:"Session II — Basic Law Art. 1",topic:"Basic Law"},
   ],
   siii:[
     {q:"When was Rome traditionally founded, and by whom?",a:"21 April 753 BC by Romulus, who killed his twin brother Remus according to mythology.",src:"Session III — Roman Phases",topic:"Roman Phases"},
@@ -2392,6 +2706,25 @@ const qDataMap={
     {q:"ACo/LuxCo case: what is the overall result of the full DTC analysis?",opts:["Germany can tax at the full ~30% rate because a warehouse is always a PE","Germany can tax only the profits attributable to the sales office, not the warehouse","Germany cannot tax at all — the DTC eliminates Germany's taxing right over the warehouse","LuxCo must pay 15% to both Germany and Luxembourg"],ans:1,exp:"Wait — this question tests the nuanced result. If the question refers to the warehouse only: Germany cannot tax (Art. 5 para. 4 = auxiliary). But if there is also a sales office (contract negotiation), that IS a PE. The core Amazon warehouse loophole: no PE, no German tax.",topic:"DTC Analysis"},
     {q:"What is 'aggressive tax planning' in the spectrum between tax saving and tax evasion?",opts:["It is simply the same as tax avoidance — both legal","It is legal structuring that goes beyond normal planning but exploits technical rules contrary to legislative intent","It is always illegal and prosecutable","It refers only to structures used by private individuals, not companies"],ans:1,exp:"The spectrum runs: tax saving (legal, no avoidance intent) → tax planning (legal, structuring affairs) → tax avoidance (legal but contrary to intent) → aggressive tax planning → tax evasion (illegal). Aggressive tax planning is legal but ethically contested.",topic:"BEPS & Pillar 2"},
     {q:"What two conditions must BOTH be present for a payment to be subject to the equivalence principle (i.e. treated as a fee)?",opts:["It must be paid annually AND collected by a federal authority","It must be set by law AND payable in exchange for a specific individual public service","It must be paid by a business AND be CIT-deductible","It must exceed €100 AND relate to property"],ans:1,exp:"A fee (Gebühr) is a payment set by law as consideration for the use of specific public administration services in a specific individual case. The equivalence principle requires the fee to correspond to the service. Annual frequency and federal level are irrelevant.",topic:"Tax Definition"},
+  ],
+  sii:[
+    {q:"Which of the following best defines the key distinction between common law and code law?",opts:["Common law countries have no written rules","In common law, judicial decisions create binding precedent; in code law, judges apply written codes and do not create precedent","Code law is based on religious texts; common law is based on customs","Common law originates from Roman law; code law originates in England"],ans:1,exp:"The defining feature of common law is stare decisis — binding judicial precedent. Common law countries DO have statutes (A is wrong). C confuses code law with religious law. D has the origins reversed.",topic:"Legal Systems"},
+    {q:"Which of the following is NOT one of the EU's six rule of law principles under COM/2014/0158 final?",opts:["Legal certainty","Separation of powers","Supremacy of EU law over national law","Equality before the law"],ans:2,exp:"Supremacy of EU law is a separate EU constitutional principle — it is NOT one of the six rule of law principles. The six are: legality, legal certainty, prohibition of arbitrary executive power, effective judicial protection, separation of powers, and equality before the law.",topic:"Rule of Law"},
+    {q:"The Enabling Act of 1933 was significant for the design of the German Basic Law because it:",opts:["Established the Bundesverfassungsgericht as an independent court","Demonstrated how democratic majorities could legally destroy democracy by transferring legislative power to the executive","Was the first German law to protect fundamental rights","Introduced the concept of separation of powers into German law"],ans:1,exp:"The Enabling Act showed that Hitler could gain dictatorial power through a formally legal vote, stripping parliament of its own powers. This led the Basic Law's framers to build in structural safeguards — Eternity Clause, Bundesverfassungsgericht, fundamental rights first. A, C, D describe features of the Basic Law, not the Enabling Act.",topic:"Enabling Act"},
+    {q:"The Eternity Clause (Art. 79(3) GG) makes which of the following unamendable?",opts:["All articles of the German Basic Law","Only Article 1 (human dignity)","The division of Germany into Länder, Länder participation in legislation, and the principles of Arts. 1 and 20","Any article that deals with fundamental rights (Arts. 1–19)"],ans:2,exp:"The Eternity Clause protects: federal structure (Länder), Länder participation in legislation, and principles of Arts. 1 (dignity) and 20 (democracy, rule of law). A is wrong — most articles can be amended with 2/3 majority. B is too narrow. D is wrong — not all of Arts. 1–19 are individually protected.",topic:"Basic Law"},
+    {q:"Which institution is the 'Guardian of the Basic Law' in Germany?",opts:["The Bundestag","The Federal Ministry of Justice","The Bundesverfassungsgericht (Federal Constitutional Court)","The European Court of Human Rights"],ans:2,exp:"The Bundesverfassungsgericht in Karlsruhe has final say on constitutional interpretation and can strike down unconstitutional laws. The Bundestag is the legislature. The Federal Ministry of Justice is part of the executive. The ECHR is the Council of Europe's court — not a German institution.",topic:"Basic Law"},
+    {q:"The Council of Europe:",opts:["Is an EU institution based in Brussels","Has 27 member states and enforces EU law","Is an independent human rights organisation with 46 members based in Strasbourg","Was founded in 1957 along with the European Economic Community"],ans:2,exp:"The Council of Europe is completely independent of the EU, has 46 (not 27) members, is based in Strasbourg, was founded in 1949 (not 1957), and its judicial body is the ECHR. A and B confuse it with EU institutions. D gives the wrong founding date.",topic:"Council of Europe"},
+    {q:"Under German constitutional law, fundamental rights primarily protect citizens:",opts:["Against other private citizens in civil disputes","Against the state","Against EU institutions","Against international organisations"],ans:1,exp:"Fundamental rights are a public law instrument protecting individuals against the state. They do not directly govern private law relationships between citizens — that is a matter for the BGB and private law. A, C, and D all describe incorrect applications.",topic:"Fundamental Rights"},
+    {q:"Which of the following is an example of a status positivus (rights to benefits) under German fundamental rights doctrine?",opts:["Art. 1(1) GG — prohibition of torture","Art. 38 GG — right to vote","Art. 6(4) GG — mother's right to protection and care from the community","Art. 8 GG — freedom of assembly"],ans:2,exp:"Status positivus requires the state to actively provide something. Art. 1(1) is status negativus (defensive right). Arts. 38 and 8 are status activus (participatory rights). Only Art. 6(4) requires the state to actively provide care and protection.",topic:"Fundamental Rights"},
+    {q:"What are the three requirements for any government action to be lawful?",opts:["Proportionality, legitimacy, and efficiency","Proportionality, legal basis (reservation of law), and legitimate purpose","Democratic majority, judicial approval, and public consultation","Legality, rationality, and reasonableness"],ans:1,exp:"The three requirements are: (1) Proportionality (suitable, necessary, appropriate), (2) Legal basis (reservation of law — the state needs a specific authorising law), and (3) Legitimate purpose (public interest). The other options mix in incorrect or irrelevant requirements.",topic:"Legitimation Chain"},
+    {q:"Switzerland is cited as a prime example of:",opts:["Code law tradition","The Eternity Clause in action","Direct democracy","Representative democracy"],ans:2,exp:"Switzerland is the prime example of direct democracy, with extensive popular initiatives and referendums. Germany, by contrast, is a representative democracy under Art. 20(2) GG — it has no national referendums.",topic:"Democracy"},
+    {q:"The democratic legitimation chain in Germany flows in which direction?",opts:["Administration → Parliament → Election → People","Parliament → People → Election → Administration","People → Election → Parliament → Administration → Individual acts","Courts → Parliament → People → Government"],ans:2,exp:"The chain flows from the sovereign people through democratic election to parliament, then through legislation to the administration, and finally to individual acts. All state authority must be traceable back to this chain (Art. 20(2) GG).",topic:"Legitimation Chain"},
+    {q:"The Enabling Act of 1933 was passed in the Reichstag by:",opts:["Unanimous vote","444 votes to 94; only the SPD voted against","A narrow majority; most parties opposed it","A judicial decree bypassing parliament entirely"],ans:1,exp:"The Act passed 444–94. The SPD, led by Otto Wels, was the only party to vote unanimously against it. All other parties — including the Centre Party and conservative parties — voted in favour after receiving tactical assurances from Hitler.",topic:"Enabling Act"},
+    {q:"What is the 'reservation of law' (Gesetzesvorbehalt) principle?",opts:["The principle that only judges can interpret laws","The principle that every government intervention into civil liberties requires a specific legal authorisation — the state cannot act without a law permitting it","The principle that certain laws are reserved exclusively for the federal level","The principle that constitutional amendments require a two-thirds majority"],ans:1,exp:"The reservation of law means the government cannot act — especially against citizens' rights — without a specific legal basis authorising that action. This is a core requirement of the rule of law and the democratic legitimation chain.",topic:"Legitimation Chain"},
+    {q:"Which describes horizontal separation of powers as opposed to vertical?",opts:["The distribution of power between the federal government and the Länder","The distribution of power between federal, state, and local levels","The division between the legislative, executive, and judicial branches checking each other","The relationship between EU institutions and national governments"],ans:2,exp:"Horizontal separation = the three branches (legislative, executive, judicial) checking each other — the classic Montesquieu model. Vertical separation = division of power between federal and state (Länder) levels. A and B describe vertical separation. D relates to EU constitutional law.",topic:"Separation of Powers"},
+    {q:"Which article of the German Basic Law establishes popular sovereignty (all state authority derives from the people)?",opts:["Article 1","Article 20(2)","Article 79(3)","Article 38"],ans:1,exp:"Article 20(2) GG establishes that all state authority is derived from the people. Article 1 is human dignity. Article 79(3) is the Eternity Clause. Article 38 is the right to vote.",topic:"Basic Law"},
+    {q:"Fundamental rights in the German Basic Law are placed:",opts:["At the end of the Basic Law, in a special annex","In the middle of the Basic Law, after provisions on government structure","In the very first articles (Arts. 1–19), deliberately to signal that rights precede the state","They are not in the Basic Law itself but in separate legislation"],ans:2,exp:"Fundamental rights appear first (Arts. 1–19) — a deliberate choice by the framers to signal individual rights take precedence over state organisation. This was a direct response to the Nazi period. A, B, and D are all factually incorrect.",topic:"Basic Law"},
+    {q:"What was the vote count on the Enabling Act and who voted against?",opts:["Unanimous in favour","444 for, 94 against — only the SPD voted against unanimously","A narrow majority; most centre parties voted against","200 for, 250 against — it narrowly passed"],ans:1,exp:"The Act passed 444–94. Only the SPD, led by Otto Wels who delivered a famous speech, voted unanimously against. All other parties including conservatives and the Centre Party voted in favour, having received tactical assurances from Hitler.",topic:"Enabling Act"},
   ],
   siii:[
     {q:"In which year did the Western Roman Empire officially fall?",opts:["410 AD","395 AD","476 AD","1453 AD"],ans:2,exp:"476 AD — Odoacer deposed Romulus Augustulus. 395 AD was the split of the empire. 1453 AD was the fall of the Eastern (Byzantine) Empire. 410 AD was the Visigoth sack of Rome, significant but not the final fall.",topic:"Byzantine"},
