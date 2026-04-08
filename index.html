@@ -263,7 +263,9 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
     <button class="nav-sub" onclick="showLecture('eu','iv',this)">Session IV</button>
     <button class="nav-sub" onclick="showLecture('eu','v',this)">Session V</button>
     <button class="nav-sub" onclick="showLecture('eu','vi',this)">Session VI</button>
-    <button class="nav-sub" style="opacity:.5;cursor:default;pointer-events:none">+ More coming</button>
+    <button class="nav-sub" onclick="showLecture('eu','vii',this)">Session VII</button>
+    <button class="nav-sub" onclick="showLecture('eu','viii',this)">Session VIII</button>
+    <button class="nav-sub" onclick="showLecture('eu','ix',this)">Session IX</button>
     <div class="nav-label">Microeconomics</div>
     <button class="nav-btn" data-color="micro" onclick="showPage('micro-overview',this)"><span class="nav-dot" style="background:var(--micro)"></span>All Chapters</button>
     <button class="nav-sub" onclick="showLecture('micro','ch2',this)">Chapter 2: Consumer Theory</button>
@@ -332,7 +334,9 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
     <div class="lec-card" onclick="showLecture('eu','iv',null)"><div class="lec-num" style="background:var(--eu-l);color:var(--eu)">04</div><div class="lec-info"><div class="lec-title">Session IV</div><div class="lec-sub">European History: Post-Rome to German Reunification</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Timeline</span><span class="lec-badge has">Compare</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span></div></div>
     <div class="lec-card" onclick="showLecture('eu','v',null)"><div class="lec-num" style="background:var(--eu-l);color:var(--eu)">05</div><div class="lec-info"><div class="lec-title">Session V</div><div class="lec-sub">Wrap-Up: BEPS · Legal Systems · EU History</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span></div></div>
     <div class="lec-card" onclick="showLecture('eu','vi',null)"><div class="lec-num" style="background:var(--eu-l);color:var(--eu)">06</div><div class="lec-info"><div class="lec-title">Session VI</div><div class="lec-sub">Nature of EU Law · 5 Landmark Cases · Decision Tree</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span><span class="lec-badge has">Interactive</span></div></div>
-    <div class="lec-card empty"><div class="lec-num" style="background:var(--eu-l);color:var(--eu)">07+</div><div class="lec-info"><div class="lec-title">More sessions coming</div><div class="lec-sub">Share your notes to add the next session</div></div><div class="lec-badges"><span class="lec-badge">Summary</span><span class="lec-badge">Cards</span><span class="lec-badge">Quiz</span></div></div>
+    <div class="lec-card" onclick="showLecture('eu','vii',null)"><div class="lec-num" style="background:var(--eu-l);color:var(--eu)">07</div><div class="lec-info"><div class="lec-title">Session VII</div><div class="lec-sub">EU Trade Policy &amp; the Common Commercial Policy</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Timeline</span><span class="lec-badge has">Compare</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span></div></div>
+    <div class="lec-card" onclick="showLecture('eu','viii',null)"><div class="lec-num" style="background:var(--eu-l);color:var(--eu)">08</div><div class="lec-info"><div class="lec-title">Session VIII</div><div class="lec-sub">Enforcement of EU Law · Primacy &amp; Constitutional Limits</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Timeline</span><span class="lec-badge has">Compare</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span></div></div>
+    <div class="lec-card" onclick="showLecture('eu','ix',null)"><div class="lec-num" style="background:var(--eu-l);color:var(--eu)">09</div><div class="lec-info"><div class="lec-title">Session IX</div><div class="lec-sub">EU Institutions · Competences (Exclusive/Shared/Complementary) · CFSP</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Compare</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span></div></div>
   </div>
 </div>
 
@@ -1552,6 +1556,1077 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
   </div>
 </div>
 
+<!-- ══ SESSION VII ══ -->
+<div id="page-eu-vii" class="page">
+  <div class="page-eyebrow" style="color:var(--eu)">EU Law · Session VII</div>
+  <div class="page-title">EU Trade Policy &amp; the Common Commercial Policy</div>
+  <div class="page-desc">Legal basis, trade barriers, agreement types, values-based approach, key trade relationships, and the legal status of international agreements in EU law.</div>
+  <div class="study-tabs">
+    <button class="study-tab active" onclick="showTab('svii','summary',this)">Summary</button>
+    <button class="study-tab" onclick="showTab('svii','timeline',this)">Timeline</button>
+    <button class="study-tab" onclick="showTab('svii','compare',this)">Compare</button>
+    <button class="study-tab" onclick="showTab('svii','flashcards',this)">Flashcards</button>
+    <button class="study-tab" onclick="showTab('svii','quiz',this)">Quiz</button>
+  </div>
+
+  <!-- SUMMARY -->
+  <div id="svii-summary" class="study-panel active">
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-eu">A. Why Free Trade Matters</span></div>
+      <p>Free trade is foundational to the EU's economic model. Removing barriers boosts growth, lowers consumer prices, and allows specialisation according to <strong>comparative advantage</strong>. Competition from open trade drives innovation and strengthens political ties.</p>
+      <div class="note-box"><strong>Exam statistic (2024):</strong> EU = 2nd largest exporter (14%, behind China 18%, ahead of US 10%) and 2nd largest importer (12.9%, behind US 16.4%, ahead of China 12.6%).</div>
+      <ul style="margin-top:10px">
+        <li><strong>Aims:</strong> economic growth, maintaining product standards, protecting GI designations, promoting EU values (democracy, human rights, workers' rights, environment)</li>
+        <li><strong>China policy:</strong> not decoupling, but <em>de-risking</em></li>
+      </ul>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-teal">B. Legal Basis of EU Trade Policy</span></div>
+      <p><strong>Arts. 206 and 207 TFEU</strong> are the primary legal basis. Trade policy falls under the <strong>exclusive competence</strong> of the EU (Art. 3 TFEU) — member states cannot individually conclude trade agreements.</p>
+      <table class="comp-table" style="margin-top:8px">
+        <tr><th>Actor</th><th>Role</th></tr>
+        <tr><td><strong>Commission</strong></td><td>Negotiates on behalf of all 27 member states</td></tr>
+        <tr><td><strong>Council of the EU</strong></td><td>Defines negotiation mandate; approves final agreement</td></tr>
+        <tr><td><strong>European Parliament</strong></td><td>Consents to final agreements (co-legislator since Lisbon 2009)</td></tr>
+      </table>
+      <div class="note-box">Art. 218 TFEU governs the procedure for negotiating and concluding international agreements.</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-amber">C. Trade Barriers: Tariff vs. Non-Tariff</span></div>
+      <p><strong>Tariffs (customs duties):</strong> A direct financial levy on imported goods — raises costs, protects domestic producers, generates revenue.</p>
+      <p style="margin-top:8px"><strong>Non-Tariff Measures (NTMs):</strong> "Policy measures other than ordinary customs tariffs that can potentially have an economic effect on international trade in goods" (UN definition). NTMs are increasingly the main tool of protection as tariffs are progressively removed.</p>
+      <p style="margin-top:8px"><strong>UN Classification (technical vs non-technical):</strong></p>
+      <ul>
+        <li><strong>A — SPS:</strong> Sanitary and Phytosanitary measures (health, animal/plant protection)</li>
+        <li><strong>B — TBT:</strong> Technical Barriers to Trade (standards, testing, certification)</li>
+        <li><strong>C — Pre-shipment inspection and formalities</strong></li>
+        <li><strong>D–O — Non-technical:</strong> anti-dumping, quotas, price controls, subsidies, IP, rules of origin, etc.</li>
+      </ul>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-coral">D. Classification of EU Trade Agreements</span></div>
+      <table class="comp-table">
+        <tr><th>Type</th><th>Abbr.</th><th>Purpose</th></tr>
+        <tr><td>Economic Partnership Agreements</td><td><strong>EPAs</strong></td><td>Support ACP (African, Caribbean, Pacific) developing countries</td></tr>
+        <tr><td>Free Trade Agreements</td><td><strong>FTAs</strong></td><td>Reciprocal market opening with developed/emerging economies</td></tr>
+        <tr><td>Association Agreements</td><td><strong>AAs</strong></td><td>Broader political agreements (accession, deep partnership)</td></tr>
+        <tr><td>Partnership and Cooperation Agreements</td><td><strong>PCAs</strong></td><td>Non-preferential; broader strategic framework</td></tr>
+      </table>
+      <p style="margin-top:8px">Governed by <strong>Art. 218 TFEU</strong>. EU has concluded 40+ agreements with ~80 partners.</p>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-purple">E. Five Pillars of Values-Based Trade Policy</span></div>
+      <ul>
+        <li><strong>1. Sustainability &amp; Climate Action</strong> — European Green Deal + CBAM integrated into trade</li>
+        <li><strong>2. Human Rights &amp; Labour Standards</strong> — binding sustainable development chapters, ILO standards, anti-corruption</li>
+        <li><strong>3. Open Strategic Autonomy</strong> — supply chain resilience, reducing single-source dependency on critical raw materials</li>
+        <li><strong>4. Rules-Based Multilateralism</strong> — supporting WTO as backbone of global trading system</li>
+        <li><strong>5. Fairness &amp; Level Playing Field</strong> — anti-dumping and anti-subsidy measures</li>
+      </ul>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-eu">F. EU–China: Partner / Competitor / Systemic Rival</span></div>
+      <p>The EU simultaneously characterises China as: <strong>(1) a partner for cooperation, (2) an economic competitor, (3) a systemic rival.</strong> Policy conclusion: <em>de-risking, not decoupling.</em></p>
+      <ul style="margin-top:8px">
+        <li><strong>2020:</strong> CAI (Comprehensive Investment Agreement) negotiations concluded in principle</li>
+        <li><strong>2021:</strong> China sanctioned European officials → EP refused to advance CAI → blocked by Xinjiang/Hong Kong human rights concerns</li>
+        <li><strong>Current:</strong> No free trade negotiations underway; structural tensions persist (overcapacity, export controls, market access)</li>
+      </ul>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-teal">G. Key Trade Agreements Survey</span></div>
+      <table class="comp-table">
+        <tr><th>Partner</th><th>Status</th><th>Key Points</th></tr>
+        <tr><td><strong>Mercosur</strong></td><td>Provisional application from 1 May 2026</td><td>91–92% tariff elimination over 15 years; deforestation safeguards; one of world\'s largest FTAs</td></tr>
+        <tr><td><strong>Canada (CETA)</strong></td><td>Provisionally in force since 21 Sep 2017</td><td>Full force pending ratification by all member states</td></tr>
+        <tr><td><strong>Chile</strong></td><td>Signed 29 Feb 2024</td><td>99.9% of EU exports tariff-free; secures lithium and copper access</td></tr>
+        <tr><td><strong>Mexico</strong></td><td>Revised Jan 2025</td><td>Mexico lifts almost all tariffs on EU goods</td></tr>
+        <tr><td><strong>India</strong></td><td>Agreement announced 27 Jan 2026</td><td>Tariffs to be abolished/reduced in many areas</td></tr>
+        <tr><td><strong>Africa</strong></td><td>18 preferential agreements</td><td>"Everything But Arms" (EBA) — 90%+ of African exports enter EU duty-free</td></tr>
+      </table>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-coral">H. Legal Status of International Agreements in EU Law <span class="badge b-eu" style="margin-left:6px">Exam Critical</span></span></div>
+      <p>International agreements concluded by the EU:</p>
+      <ul>
+        <li>Are an <strong>integral part of EU law</strong></li>
+        <li>Form a <strong>sui generis category</strong> — separate from primary law (Treaties) and secondary law</li>
+        <li>Can have <strong>direct effect</strong> (according to some CJEU judgments)</li>
+        <li>Rank <strong>above secondary legislation</strong> — regulations, directives, decisions must comply with them</li>
+      </ul>
+      <div class="note-box"><strong>Hierarchy:</strong> Primary law (Treaties) &gt; International agreements concluded by EU &gt; Secondary legislation (regulations, directives, decisions)</div>
+      <p style="margin-top:8px">Art. 216 TFEU: conditions for the EU's authority to conclude agreements. Art. 207 TFEU: governs the common commercial policy specifically.</p>
+    </div>
+  </div>
+
+  <!-- TIMELINE -->
+  <div id="svii-timeline" class="study-panel">
+    <div class="timeline" id="svii-tl"></div>
+  </div>
+
+  <!-- COMPARE -->
+  <div id="svii-compare" class="study-panel">
+    <div class="sum-card">
+      <div class="sum-title">Four Types of EU Trade Agreements</div>
+      <table class="comp-table">
+        <tr><th>Type</th><th>Partners</th><th>Key Feature</th><th>Example</th></tr>
+        <tr><td><strong>EPA</strong></td><td>ACP countries</td><td>Development-focused; asymmetric opening</td><td>ACP EPAs</td></tr>
+        <tr><td><strong>FTA</strong></td><td>Developed/emerging economies</td><td>Reciprocal market access; tariff reductions</td><td>CETA, Chile</td></tr>
+        <tr><td><strong>AA</strong></td><td>Neighbouring/candidate countries</td><td>Broad political + economic framework</td><td>EU–Ukraine AA</td></tr>
+        <tr><td><strong>PCA</strong></td><td>Strategic partners</td><td>Non-preferential; diplomatic/political</td><td>EU–India PCA</td></tr>
+      </table>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">UN NTM Classification — Technical vs Non-Technical</div>
+      <table class="comp-table">
+        <tr><th>Category</th><th>Code</th><th>Description</th></tr>
+        <tr><td><strong>SPS measures</strong></td><td>A</td><td>Sanitary and Phytosanitary — human, animal, plant health</td></tr>
+        <tr><td><strong>TBT</strong></td><td>B</td><td>Technical Barriers to Trade — standards, testing, certification</td></tr>
+        <tr><td><strong>Pre-shipment</strong></td><td>C</td><td>Inspection and formalities before shipment</td></tr>
+        <tr><td><strong>Anti-dumping/countervailing</strong></td><td>D</td><td>Contingent trade-protective measures</td></tr>
+        <tr><td><strong>Quotas/licensing/prohibitions</strong></td><td>E</td><td>Non-automatic import licensing</td></tr>
+        <tr><td><strong>Price controls</strong></td><td>F</td><td>Additional taxes and charges</td></tr>
+        <tr><td><strong>Subsidies</strong></td><td>L</td><td>Support to domestic producers</td></tr>
+        <tr><td><strong>IP / Rules of origin</strong></td><td>N/O</td><td>Intellectual property &amp; origin requirements</td></tr>
+      </table>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">EU Trade Relationships at a Glance</div>
+      <table class="comp-table">
+        <tr><th>Partner</th><th>Status</th><th>Key Issues</th><th>EU Stance</th></tr>
+        <tr><td><strong>China</strong></td><td>Complex: partner/competitor/rival</td><td>Human rights, overcapacity, export controls</td><td>De-risking, not decoupling</td></tr>
+        <tr><td><strong>Mercosur</strong></td><td>Provisional May 2026</td><td>Deforestation, agricultural competition</td><td>Values + economics balanced</td></tr>
+        <tr><td><strong>Canada (CETA)</strong></td><td>Provisional since 2017</td><td>Full force pending all MS ratification</td><td>Positive</td></tr>
+        <tr><td><strong>Chile</strong></td><td>In force Feb 2024</td><td>Raw materials (Li, Cu)</td><td>Strategic</td></tr>
+        <tr><td><strong>India</strong></td><td>Agreement Jan 2026</td><td>Broad tariff reductions</td><td>Strategic</td></tr>
+        <tr><td><strong>Mexico</strong></td><td>Revised 2025</td><td>Mexico lifts almost all tariffs on EU goods</td><td>Positive</td></tr>
+      </table>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">Common Exam Traps — Session VII</div>
+      <table class="comp-table">
+        <tr><th>Trap</th><th>Wrong assumption</th><th>Correct answer</th></tr>
+        <tr><td>Who negotiates trade deals?</td><td>The Council negotiates</td><td>The Commission negotiates; the Council mandates and approves; the EP consents</td></tr>
+        <tr><td>EP role before/after Lisbon</td><td>EP always had co-legislative power on trade</td><td>Only since Lisbon Treaty (2009)</td></tr>
+        <tr><td>CETA status</td><td>CETA is fully in force</td><td>Only provisionally in force (since 2017); full force requires all MS ratification</td></tr>
+        <tr><td>Mercosur tariff %</td><td>99.9% tariff-free</td><td>91–92% over 15 years (99.9% is Chile)</td></tr>
+        <tr><td>International agreements rank</td><td>Equivalent to the Treaties (primary law)</td><td>Below primary law but above secondary legislation — sui generis</td></tr>
+        <tr><td>Member states and trade</td><td>MS can still conclude individual trade deals</td><td>No — CCP is exclusive EU competence; MS have lost this power</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- FLASHCARDS -->
+  <div id="svii-flashcards" class="study-panel">
+    <div class="fc-controls">
+      <button class="btn btn-sm" onclick="shuffleFC('svii')">Shuffle</button>
+      <button class="btn btn-sm" onclick="resetFC('svii')">Reset all</button>
+      <span style="font-size:12px;color:var(--text3);margin-left:4px">Rate each card to focus on what you don't know yet</span>
+    </div>
+    <div class="fc-sr-bar" id="svii-sr-bar"></div>
+    <div id="svii-fc-wrap">
+      <div class="flashcard-wrap"><div class="flashcard" id="svii-fc-card" onclick="flipFC('svii')">
+        <div class="fc-face fc-front"><div class="fc-label">Question</div><div class="fc-question" id="svii-fc-q"></div><div class="fc-hint">Click to reveal answer</div></div>
+        <div class="fc-face fc-back"><div class="fc-label">Answer</div><div class="fc-answer" id="svii-fc-a"></div><div class="fc-src" id="svii-fc-src"></div></div>
+      </div></div>
+      <div class="sr-btns">
+        <button class="sr-btn sr-btn-hard" onclick="rateFC('svii',0)">😬 Still learning</button>
+        <button class="sr-btn sr-btn-ok" onclick="rateFC('svii',1)">🤔 Almost</button>
+        <button class="sr-btn sr-btn-easy" onclick="rateFC('svii',2)">✓ Got it</button>
+      </div>
+      <div class="sr-mode-note" id="svii-sr-note">Card <span id="svii-fc-counter">1</span> of <span id="svii-fc-total">1</span></div>
+    </div>
+    <div class="fc-sr-done" id="svii-fc-done" style="display:none">
+      <h3>Session complete! 🎉</h3>
+      <p id="svii-done-msg"></p>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:16px">
+        <button class="btn btn-primary" onclick="reviewWeak('svii')">Review weak cards</button>
+        <button class="btn" onclick="resetFC('svii')">Start over</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="svii-quiz" class="study-panel">
+    <div id="svii-quiz-wrap">
+      <div class="quiz-prog"><div class="quiz-prog-fill" id="svii-qpfill" style="width:0%"></div></div>
+      <div class="quiz-meta" id="svii-q-meta"></div>
+      <div class="quiz-q" id="svii-q-text"></div>
+      <div class="quiz-opts" id="svii-q-opts"></div>
+      <div class="quiz-fb" id="svii-q-fb"></div>
+      <button class="btn btn-primary" id="svii-q-next" onclick="nextQ('svii')" style="display:none">Next question →</button>
+    </div>
+    <div class="quiz-score-screen" id="svii-quiz-score">
+      <div class="score-row"><div class="score-big" id="svii-score-big"></div><div class="score-right"><div class="score-lbl">Your score</div><div class="score-msg" id="svii-score-msg"></div></div></div>
+      <div class="weak-section" id="svii-weak-section"></div>
+      <button class="btn btn-primary" style="margin-top:16px" onclick="restartQuiz('svii')">Try again</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SESSION VIII ══ -->
+<div id="page-eu-viii" class="page">
+  <div class="page-eyebrow" style="color:var(--eu)">EU Law · Session VIII</div>
+  <div class="page-title">Enforcement of EU Law · Primacy &amp; Constitutional Limits</div>
+  <div class="page-desc">Decentralised enforcement, procedural autonomy, equivalence &amp; effectiveness, EU primacy vs national constitutional identity — GFCC case law from Solange to PSPP.</div>
+  <div class="study-tabs">
+    <button class="study-tab active" onclick="showTab('sviii','summary',this)">Summary</button>
+    <button class="study-tab" onclick="showTab('sviii','timeline',this)">GFCC Timeline</button>
+    <button class="study-tab" onclick="showTab('sviii','compare',this)">Compare</button>
+    <button class="study-tab" onclick="showTab('sviii','flashcards',this)">Flashcards</button>
+    <button class="study-tab" onclick="showTab('sviii','quiz',this)">Quiz</button>
+  </div>
+
+  <!-- SUMMARY -->
+  <div id="sviii-summary" class="study-panel active">
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-eu">A. Principle of Decentralised Enforcement</span></div>
+      <p>The EU does not have its own administrative enforcement apparatus at the national level. Instead, <strong>member states enforce EU law</strong> through their own national institutions, courts, and procedures.</p>
+      <p style="margin-top:8px"><strong>Legal basis:</strong> Art. 291 para 1 TFEU (member states adopt all necessary national measures to implement binding EU acts) + Art. 19 para 1 TEU (member states provide remedies for effective legal protection).</p>
+      <div class="note-box">Practical effect: When an individual has an EU-law right (e.g. to a refund of unlawfully charged customs duties), they enforce it through national courts using national procedural rules.</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-teal">B. Procedural Autonomy &amp; Its Two Absolute Limits</span></div>
+      <p>Member states may organise their enforcement procedures as they see fit (jurisdiction, time limits, standing rules, remedies). BUT two absolute limits apply:</p>
+      <table class="comp-table" style="margin-top:8px">
+        <tr><th>Limit</th><th>Definition</th></tr>
+        <tr><td><strong>Equivalence</strong></td><td>National procedures for EU-based claims must not be less favourable than those for comparable domestic claims</td></tr>
+        <tr><td><strong>Effectiveness</strong></td><td>National procedures must not make it impossible or excessively difficult to exercise EU rights in practice</td></tr>
+      </table>
+      <p style="margin-top:8px"><strong>Leading case:</strong> <em>Rewe Zentralfinanz</em>, ECJ 16.12.1976, Case 33/76 — the foundational case establishing both principles.</p>
+      <div class="note-box">Example: A one-month limitation period for challenging administrative decisions is in principle compatible — if it applies equally to domestic and EU-based claims (equivalence) and is not so short it makes EU rights practically impossible to exercise (effectiveness).</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-amber">C. EU Primacy — The ECJ Perspective</span></div>
+      <p>From the EU's standpoint, <strong>EU law takes precedence over ALL national law</strong>, including national constitutional law. This is absolute and unconditional from the ECJ's perspective.</p>
+      <p style="margin-top:8px"><strong>Practical effect:</strong> National courts must <em>disapply</em> (set aside) conflicting national rules — they do not strike them down permanently. The national rule remains formally in force but is inapplicable to the extent of the conflict.</p>
+      <p style="margin-top:8px">Established in: <em>Costa v ENEL</em> (1964) and <em>Simmenthal</em> (1978).</p>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-coral">D. GFCC Case Law — Integration Limits <span class="badge b-eu" style="margin-left:6px">Exam Critical</span></span></div>
+      <table class="comp-table">
+        <tr><th>Case</th><th>Date</th><th>Key Holding</th><th>Posture</th></tr>
+        <tr><td><strong>Solange I</strong></td><td>29 May 1974</td><td>GFCC reserves right to review EU law against German fundamental rights "as long as" Community law lacks equivalent protection</td><td>Confrontational</td></tr>
+        <tr><td><strong>Solange II</strong></td><td>22 Oct 1986</td><td>GFCC withdraws review — ECJ has by now developed sufficient fundamental rights protection</td><td>Cooperative</td></tr>
+        <tr><td><strong>Maastricht</strong></td><td>12 Oct 1993</td><td>Confirms constitutionality; introduces ultra vires review; sets limits on sovereignty transfer; stresses Bundestag role</td><td>Conditional</td></tr>
+        <tr><td><strong>Lisbon</strong></td><td>30 Jun 2009</td><td>Confirms constitutionality; identifies integration-proof constitutional core (eternity clause areas)</td><td>Conditional</td></tr>
+        <tr><td><strong>Mangold (ultra vires)</strong></td><td>6 Jul 2010</td><td>Confirms ultra vires review is available BUT requires: (1) manifest exceeding of powers + (2) structurally significant shift to detriment of MS. A "mere misinterpretation" is not enough.</td><td>High bar for review</td></tr>
+        <tr><td><strong>PSPP</strong></td><td>5 May 2020</td><td>GFCC rules ECJ exceeded powers on ECB bond purchases — ECJ's proportionality review "methodologically not tenable." First actual ultra vires finding by any national court. Creates open GFCC–ECJ confrontation.</td><td>Active confrontation</td></tr>
+      </table>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-purple">E. The Core Tension: Primacy vs Constitutional Identity</span></div>
+      <table class="comp-table">
+        <tr><th>Dimension</th><th>EU / ECJ Position</th><th>German GFCC Position</th></tr>
+        <tr><td>Scope of primacy</td><td>Absolute — over all national law including constitutions</td><td>Accepted in principle but subject to national constitutional limits</td></tr>
+        <tr><td>Fundamental rights</td><td>EU Charter sufficient</td><td>Monitored under Solange doctrine</td></tr>
+        <tr><td>Ultra vires acts</td><td>ECJ has final word</td><td>GFCC can review — only for manifest, structurally significant excess</td></tr>
+        <tr><td>Constitutional identity</td><td>Not recognised as a limit</td><td>Integration-proof core cannot be transferred</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- GFCC TIMELINE -->
+  <div id="sviii-timeline" class="study-panel">
+    <div class="timeline" id="sviii-tl"></div>
+  </div>
+
+  <!-- COMPARE -->
+  <div id="sviii-compare" class="study-panel">
+    <div class="sum-card">
+      <div class="sum-title">Decision Tree — Is a National Procedural Rule Compatible with EU Law?</div>
+      <div class="dtree">
+        <div class="dt-step"><div class="dt-num">1</div><div class="dt-q">Does the rule apply to an EU-law based claim?</div><div class="dt-opts"><span class="dt-opt">NO → Pure national law, EU principles don't apply</span><span class="dt-opt">YES → Continue to Step 2</span></div></div>
+        <div class="dt-connector">↓</div>
+        <div class="dt-step"><div class="dt-num">2</div><div class="dt-q">Is the rule applied equally to comparable domestic claims?</div><div class="dt-opts"><span class="dt-opt">NO → VIOLATES EQUIVALENCE → Rule must be set aside</span><span class="dt-opt">YES → Continue to Step 3</span></div></div>
+        <div class="dt-connector">↓</div>
+        <div class="dt-step"><div class="dt-num">3</div><div class="dt-q">Does the rule make it practically impossible or excessively difficult to exercise the EU right?</div><div class="dt-opts"><span class="dt-opt">YES → VIOLATES EFFECTIVENESS → Rule must be set aside</span><span class="dt-opt">NO → Compatible with EU law ✓</span></div></div>
+      </div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">Solange I vs Solange II — The Shift</div>
+      <table class="comp-table">
+        <tr><th>Feature</th><th>Solange I (1974)</th><th>Solange II (1986)</th></tr>
+        <tr><td>GFCC posture</td><td>Confrontational</td><td>Cooperative</td></tr>
+        <tr><td>Will GFCC review EU law?</td><td>YES — as long as EU lacks equivalent rights protection</td><td>NO — as long as EU-level protection is generally guaranteed</td></tr>
+        <tr><td>Reason for shift</td><td>N/A — first decision</td><td>ECJ had developed substantial fundamental rights jurisprudence by 1986</td></tr>
+        <tr><td>Meaning of "Solange"</td><td colspan="2">"As long as" in German — both decisions are conditional on an ongoing factual assessment</td></tr>
+      </table>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">Common Exam Traps — Session VIII</div>
+      <table class="comp-table">
+        <tr><th>Trap</th><th>Wrong assumption</th><th>Correct answer</th></tr>
+        <tr><td>Solange I vs II confused</td><td>GFCC always reviews / never reviews EU law</td><td>Solange I = WILL review; Solange II = will NOT review — opposite positions</td></tr>
+        <tr><td>Ultra vires trigger</td><td>Any ECJ error triggers GFCC review</td><td>Mangold: requires (1) manifest excess of powers + (2) structurally significant shift — very high bar</td></tr>
+        <tr><td>PSPP effect</td><td>Germany can routinely override ECJ rulings</td><td>PSPP was exceptional and controversial — not a routine override mechanism</td></tr>
+        <tr><td>Disapply vs strike down</td><td>National courts strike down conflicting national rules</td><td>They disapply (set aside) in the specific case — the rule formally remains in force</td></tr>
+        <tr><td>Procedural autonomy unlimited</td><td>Member states can set any procedure they want</td><td>Always subject to equivalence and effectiveness</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- FLASHCARDS -->
+  <div id="sviii-flashcards" class="study-panel">
+    <div class="fc-controls">
+      <button class="btn btn-sm" onclick="shuffleFC('sviii')">Shuffle</button>
+      <button class="btn btn-sm" onclick="resetFC('sviii')">Reset all</button>
+      <span style="font-size:12px;color:var(--text3);margin-left:4px">Rate each card to focus on what you don't know yet</span>
+    </div>
+    <div class="fc-sr-bar" id="sviii-sr-bar"></div>
+    <div id="sviii-fc-wrap">
+      <div class="flashcard-wrap"><div class="flashcard" id="sviii-fc-card" onclick="flipFC('sviii')">
+        <div class="fc-face fc-front"><div class="fc-label">Question</div><div class="fc-question" id="sviii-fc-q"></div><div class="fc-hint">Click to reveal answer</div></div>
+        <div class="fc-face fc-back"><div class="fc-label">Answer</div><div class="fc-answer" id="sviii-fc-a"></div><div class="fc-src" id="sviii-fc-src"></div></div>
+      </div></div>
+      <div class="sr-btns">
+        <button class="sr-btn sr-btn-hard" onclick="rateFC('sviii',0)">😬 Still learning</button>
+        <button class="sr-btn sr-btn-ok" onclick="rateFC('sviii',1)">🤔 Almost</button>
+        <button class="sr-btn sr-btn-easy" onclick="rateFC('sviii',2)">✓ Got it</button>
+      </div>
+      <div class="sr-mode-note" id="sviii-sr-note">Card <span id="sviii-fc-counter">1</span> of <span id="sviii-fc-total">1</span></div>
+    </div>
+    <div class="fc-sr-done" id="sviii-fc-done" style="display:none">
+      <h3>Session complete! 🎉</h3>
+      <p id="sviii-done-msg"></p>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:16px">
+        <button class="btn btn-primary" onclick="reviewWeak('sviii')">Review weak cards</button>
+        <button class="btn" onclick="resetFC('sviii')">Start over</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="sviii-quiz" class="study-panel">
+    <div id="sviii-quiz-wrap">
+      <div class="quiz-prog"><div class="quiz-prog-fill" id="sviii-qpfill" style="width:0%"></div></div>
+      <div class="quiz-meta" id="sviii-q-meta"></div>
+      <div class="quiz-q" id="sviii-q-text"></div>
+      <div class="quiz-opts" id="sviii-q-opts"></div>
+      <div class="quiz-fb" id="sviii-q-fb"></div>
+      <button class="btn btn-primary" id="sviii-q-next" onclick="nextQ('sviii')" style="display:none">Next question →</button>
+    </div>
+    <div class="quiz-score-screen" id="sviii-quiz-score">
+      <div class="score-row"><div class="score-big" id="sviii-score-big"></div><div class="score-right"><div class="score-lbl">Your score</div><div class="score-msg" id="sviii-score-msg"></div></div></div>
+      <div class="weak-section" id="sviii-weak-section"></div>
+      <button class="btn btn-primary" style="margin-top:16px" onclick="restartQuiz('sviii')">Try again</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SESSION IX ══ -->
+<div id="page-eu-ix" class="page">
+  <div class="page-eyebrow" style="color:var(--eu)">EU Law · Session IX</div>
+  <div class="page-title">EU Institutions · Competences · CFSP</div>
+  <div class="page-desc">The seven official EU institutions, the critical three-councils distinction, Commission monopoly of initiative, the three-category competence system (exclusive/shared/complementary), subsidiarity, proportionality, and the CFSP.</div>
+  <div class="study-tabs">
+    <button class="study-tab active" onclick="showTab('six','summary',this)">Summary</button>
+    <button class="study-tab" onclick="showTab('six','compare',this)">Compare</button>
+    <button class="study-tab" onclick="showTab('six','flashcards',this)">Flashcards</button>
+    <button class="study-tab" onclick="showTab('six','quiz',this)">Quiz</button>
+  </div>
+
+  <!-- SUMMARY -->
+  <div id="six-summary" class="study-panel active">
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-eu">A. The Seven Official EU Institutions (Art. 13 TEU) <span class="badge b-eu" style="margin-left:6px">Exam Critical</span></span></div>
+      <table class="comp-table">
+        <tr><th>Institution</th><th>Current Head</th><th>From</th></tr>
+        <tr><td><strong>European Parliament</strong></td><td>Roberta Metsola (EPP)</td><td>Italy</td></tr>
+        <tr><td><strong>European Council</strong></td><td>António Costa</td><td>Portugal</td></tr>
+        <tr><td><strong>Council of the EU</strong></td><td>Rotating — currently Cyprus</td><td>—</td></tr>
+        <tr><td><strong>European Commission</strong></td><td>Ursula von der Leyen</td><td>Germany</td></tr>
+        <tr><td><strong>Court of Justice of the EU</strong></td><td>Koen Lenaerts</td><td>Belgium</td></tr>
+        <tr><td><strong>European Central Bank</strong></td><td>Christine Lagarde</td><td>France</td></tr>
+        <tr><td><strong>Court of Auditors</strong></td><td>Tony Murphy</td><td>Ireland</td></tr>
+      </table>
+      <div class="note-box">Art. 13 para 2 TEU: Each institution must act within the limits of powers conferred on it (principle of conferral).</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-coral">B. Three "Councils" + Two "Courts" — Critical Exam Distinction</span></div>
+      <table class="comp-table">
+        <tr><th>Name</th><th>EU Institution?</th><th>Composition</th><th>Function</th><th>Court</th></tr>
+        <tr><td><strong>Council of Europe</strong></td><td>NO — separate organisation</td><td>46 member states</td><td>Human rights, democracy, rule of law</td><td>ECtHR (ECHR)</td></tr>
+        <tr><td><strong>European Council</strong></td><td>YES (Art. 15 TEU)</td><td>Heads of state/government + President</td><td>Political direction; NO legislative function</td><td>CJEU</td></tr>
+        <tr><td><strong>Council of the EU</strong></td><td>YES</td><td>Ministers (10 configurations)</td><td>Co-legislates with EP; budgetary power</td><td>CJEU</td></tr>
+      </table>
+      <div class="note-box">⚠️ Confusing these three in an exam is a cardinal error — the professor flagged this as the most important distinction.</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-teal">C. Commission's Monopoly of Legislative Initiative</span></div>
+      <p><strong>Art. 17 para 2 TEU:</strong> Union legislative acts can only be adopted on the basis of a Commission proposal, unless the Treaties provide otherwise.</p>
+      <ul style="margin-top:8px">
+        <li>Parliament and Council <strong>adopt</strong> legislation — they cannot normally initiate it</li>
+        <li>The EP may <em>request</em> the Commission to propose (Art. 225 TFEU) — but this does not bind the Commission</li>
+        <li>Commission also acts as <strong>"Guardian of the Treaties"</strong> — ensures EU law is applied; brings infringement proceedings against non-compliant MS</li>
+        <li>Commissioners serve the <strong>general interest of the Union</strong> — NOT their home member state</li>
+      </ul>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-amber">D. Three Types of EU Competences <span class="badge b-eu" style="margin-left:6px">Exam Critical</span></span></div>
+      <table class="comp-table">
+        <tr><th>Type</th><th>Article</th><th>EU Can...</th><th>MS Can...</th><th>Subsidiarity?</th><th>Examples</th></tr>
+        <tr><td><strong>Exclusive</strong></td><td>Art. 3 TFEU</td><td>Act alone; MS cannot act without EU authorisation</td><td>Only if empowered by EU</td><td>NO</td><td>Customs union, CCP, monetary policy (€), competition, marine biological resources</td></tr>
+        <tr><td><strong>Shared</strong></td><td>Art. 4 TFEU</td><td>Act and displace MS rules (pre-emption)</td><td>Act before EU acts; displaced after</td><td>YES</td><td>Internal market, environment, agriculture, transport, energy, consumer protection</td></tr>
+        <tr><td><strong>Complementary</strong></td><td>Art. 6 TFEU</td><td>Support, coordinate, supplement only — NO harmonisation</td><td>Continue to legislate freely</td><td>YES</td><td>Culture, education, tourism, sport, civil protection, industry, health</td></tr>
+      </table>
+      <div class="note-box"><strong>Classic exam trap:</strong> Agriculture is SHARED (Art. 4) but conservation of marine biological resources under the common fisheries policy is EXCLUSIVE (Art. 3). Also: subsidiarity does NOT apply to exclusive competences.</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-purple">E. ERTA Doctrine — Art. 3 para 2 TFEU</span></div>
+      <p>When the EU adopts internal common rules to implement a policy, member states lose the right to enter into international agreements with third countries that affect those rules or alter their scope. <strong>External competence becomes exclusive by virtue of internal rule-making.</strong></p>
+      <p style="margin-top:8px">Leading case: ECJ 22/70 (ERTA case). This doctrine directly connects internal and external competences — relevant for both trade policy (Session VII) and competence law (Session IX).</p>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-eu">F. Subsidiarity &amp; Proportionality</span></div>
+      <p><strong>Subsidiarity (Art. 5 para 3 TEU):</strong> EU action only permitted if objectives cannot be sufficiently achieved by member states but can be better achieved at EU level. Applies ONLY to non-exclusive competences.</p>
+      <p style="margin-top:10px"><strong>Proportionality (Art. 5 para 4 TEU) — three steps:</strong></p>
+      <ul>
+        <li><strong>Suitability:</strong> measure is appropriate and sufficient to achieve the objective</li>
+        <li><strong>Necessity:</strong> measure does not go beyond what is necessary</li>
+        <li><strong>Appropriateness:</strong> balancing the public interest against restrictions on EU citizens' rights</li>
+      </ul>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-teal">G. Common Foreign &amp; Security Policy (CFSP) — Arts. 21–46 TEU</span></div>
+      <p>The CFSP is <strong>intergovernmental, not supranational</strong>. Key characteristics:</p>
+      <ul>
+        <li><strong>Unanimity:</strong> decisions generally require unanimity — one state can veto (exception: constructive abstention)</li>
+        <li><strong>Constructive abstention:</strong> a state may abstain without blocking — the decision passes, but the abstaining state need not implement it</li>
+        <li>ECJ jurisdiction very limited</li>
+        <li>High Representative: <strong>Kaja Kallas</strong></li>
+      </ul>
+      <div class="note-box">Why unanimity here? CFSP involves core sovereignty — foreign policy, defence, security. Member states are not willing to be outvoted on these matters.</div>
+    </div>
+  </div>
+
+  <!-- COMPARE -->
+  <div id="six-compare" class="study-panel">
+    <div class="sum-card">
+      <div class="sum-title">EU Institution Functions — At a Glance</div>
+      <table class="comp-table">
+        <tr><th>Institution</th><th>Represents</th><th>Initiates Law?</th><th>Adopts Law?</th><th>Enforces?</th></tr>
+        <tr><td><strong>European Parliament</strong></td><td>EU citizens</td><td>No (can request)</td><td>Yes (with Council)</td><td>No</td></tr>
+        <tr><td><strong>European Council</strong></td><td>MS heads of state</td><td>No</td><td>No (no legislative power)</td><td>No</td></tr>
+        <tr><td><strong>Council of the EU</strong></td><td>MS governments</td><td>No</td><td>Yes (with EP)</td><td>No</td></tr>
+        <tr><td><strong>Commission</strong></td><td>General EU interest</td><td>YES (monopoly)</td><td>No</td><td>Yes (infringement)</td></tr>
+        <tr><td><strong>CJEU</strong></td><td>Rule of law</td><td>No</td><td>No</td><td>Yes (judicial)</td></tr>
+        <tr><td><strong>ECB</strong></td><td>Euro monetary system</td><td>No</td><td>No</td><td>Yes (monetary)</td></tr>
+        <tr><td><strong>Court of Auditors</strong></td><td>Financial accountability</td><td>No</td><td>No</td><td>Yes (audit)</td></tr>
+      </table>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">Supranational vs Intergovernmental</div>
+      <table class="comp-table">
+        <tr><th>Feature</th><th>Supranational (e.g. internal market)</th><th>Intergovernmental (CFSP)</th></tr>
+        <tr><td>Voting</td><td>Qualified majority possible</td><td>Unanimity required</td></tr>
+        <tr><td>Binding force</td><td>EU law binds directly</td><td>States coordinate; less binding</td></tr>
+        <tr><td>ECJ jurisdiction</td><td>Full</td><td>Very limited</td></tr>
+        <tr><td>State control</td><td>Transferred to EU level</td><td>States retain sovereignty</td></tr>
+      </table>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">Common Exam Traps — Session IX</div>
+      <table class="comp-table">
+        <tr><th>Trap</th><th>Wrong assumption</th><th>Correct answer</th></tr>
+        <tr><td>European Council legislates</td><td>It passes EU laws</td><td>NO — it provides political direction only; the Council of the EU + EP legislate</td></tr>
+        <tr><td>ECtHR = CJEU</td><td>Same court, different name</td><td>Completely separate: ECtHR = Council of Europe, enforces ECHR; CJEU = EU institution</td></tr>
+        <tr><td>Subsidiarity + exclusive competence</td><td>Subsidiarity applies everywhere</td><td>Subsidiarity does NOT apply to exclusive competences — only to non-exclusive</td></tr>
+        <tr><td>Marine biological resources</td><td>All fisheries = shared competence</td><td>Conservation of marine biological resources = EXCLUSIVE (Art. 3), even though other fisheries = shared (Art. 4)</td></tr>
+        <tr><td>Commissioners' loyalty</td><td>They represent their home country</td><td>They serve the general interest of the Union — not their home MS</td></tr>
+        <tr><td>EP can initiate legislation</td><td>EP has full legislative initiative</td><td>Commission holds the monopoly; EP can request but not compel</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- FLASHCARDS -->
+  <div id="six-flashcards" class="study-panel">
+    <div class="fc-controls">
+      <button class="btn btn-sm" onclick="shuffleFC('six')">Shuffle</button>
+      <button class="btn btn-sm" onclick="resetFC('six')">Reset all</button>
+      <span style="font-size:12px;color:var(--text3);margin-left:4px">Rate each card to focus on what you don't know yet</span>
+    </div>
+    <div class="fc-sr-bar" id="six-sr-bar"></div>
+    <div id="six-fc-wrap">
+      <div class="flashcard-wrap"><div class="flashcard" id="six-fc-card" onclick="flipFC('six')">
+        <div class="fc-face fc-front"><div class="fc-label">Question</div><div class="fc-question" id="six-fc-q"></div><div class="fc-hint">Click to reveal answer</div></div>
+        <div class="fc-face fc-back"><div class="fc-label">Answer</div><div class="fc-answer" id="six-fc-a"></div><div class="fc-src" id="six-fc-src"></div></div>
+      </div></div>
+      <div class="sr-btns">
+        <button class="sr-btn sr-btn-hard" onclick="rateFC('six',0)">😬 Still learning</button>
+        <button class="sr-btn sr-btn-ok" onclick="rateFC('six',1)">🤔 Almost</button>
+        <button class="sr-btn sr-btn-easy" onclick="rateFC('six',2)">✓ Got it</button>
+      </div>
+      <div class="sr-mode-note" id="six-sr-note">Card <span id="six-fc-counter">1</span> of <span id="six-fc-total">1</span></div>
+    </div>
+    <div class="fc-sr-done" id="six-fc-done" style="display:none">
+      <h3>Session complete! 🎉</h3>
+      <p id="six-done-msg"></p>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:16px">
+        <button class="btn btn-primary" onclick="reviewWeak('six')">Review weak cards</button>
+        <button class="btn" onclick="resetFC('six')">Start over</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="six-quiz" class="study-panel">
+    <div id="six-quiz-wrap">
+      <div class="quiz-prog"><div class="quiz-prog-fill" id="six-qpfill" style="width:0%"></div></div>
+      <div class="quiz-meta" id="six-q-meta"></div>
+      <div class="quiz-q" id="six-q-text"></div>
+      <div class="quiz-opts" id="six-q-opts"></div>
+      <div class="quiz-fb" id="six-q-fb"></div>
+      <button class="btn btn-primary" id="six-q-next" onclick="nextQ('six')" style="display:none">Next question →</button>
+    </div>
+    <div class="quiz-score-screen" id="six-quiz-score">
+      <div class="score-row"><div class="score-big" id="six-score-big"></div><div class="score-right"><div class="score-lbl">Your score</div><div class="score-msg" id="six-score-msg"></div></div></div>
+      <div class="weak-section" id="six-weak-section"></div>
+      <button class="btn btn-primary" style="margin-top:16px" onclick="restartQuiz('six')">Try again</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SESSION VII ══ -->
+<div id="page-eu-vii" class="page">
+  <div class="page-eyebrow" style="color:var(--eu)">EU Law · Session VII</div>
+  <div class="page-title">EU Trade Policy &amp; the Common Commercial Policy</div>
+  <div class="page-desc">Legal basis, trade barriers, agreement types, values-based approach, key trade relationships, and the legal status of international agreements in EU law.</div>
+  <div class="study-tabs">
+    <button class="study-tab active" onclick="showTab('svii','summary',this)">Summary</button>
+    <button class="study-tab" onclick="showTab('svii','timeline',this)">Timeline</button>
+    <button class="study-tab" onclick="showTab('svii','compare',this)">Compare</button>
+    <button class="study-tab" onclick="showTab('svii','flashcards',this)">Flashcards</button>
+    <button class="study-tab" onclick="showTab('svii','quiz',this)">Quiz</button>
+  </div>
+
+  <!-- SUMMARY -->
+  <div id="svii-summary" class="study-panel active">
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-eu">A. Why Free Trade Matters</span></div>
+      <p>Free trade is foundational to the EU's economic model. Removing barriers boosts growth, lowers consumer prices, and allows specialisation according to <strong>comparative advantage</strong>. Competition from open trade drives innovation and strengthens political ties.</p>
+      <div class="note-box"><strong>Exam statistic (2024):</strong> EU = 2nd largest exporter (14%, behind China 18%, ahead of US 10%) and 2nd largest importer (12.9%, behind US 16.4%, ahead of China 12.6%).</div>
+      <ul style="margin-top:10px">
+        <li><strong>Aims:</strong> economic growth, maintaining product standards, protecting GI designations, promoting EU values (democracy, human rights, workers' rights, environment)</li>
+        <li><strong>China policy:</strong> not decoupling, but <em>de-risking</em></li>
+      </ul>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-teal">B. Legal Basis of EU Trade Policy</span></div>
+      <p><strong>Arts. 206 and 207 TFEU</strong> are the primary legal basis. Trade policy falls under the <strong>exclusive competence</strong> of the EU (Art. 3 TFEU) — member states cannot individually conclude trade agreements.</p>
+      <table class="comp-table" style="margin-top:8px">
+        <tr><th>Actor</th><th>Role</th></tr>
+        <tr><td><strong>Commission</strong></td><td>Negotiates on behalf of all 27 member states</td></tr>
+        <tr><td><strong>Council of the EU</strong></td><td>Defines negotiation mandate; approves final agreement</td></tr>
+        <tr><td><strong>European Parliament</strong></td><td>Consents to final agreements (co-legislator since Lisbon 2009)</td></tr>
+      </table>
+      <div class="note-box">Art. 218 TFEU governs the procedure for negotiating and concluding international agreements.</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-amber">C. Trade Barriers: Tariff vs. Non-Tariff</span></div>
+      <p><strong>Tariffs (customs duties):</strong> A direct financial levy on imported goods — raises costs, protects domestic producers, generates revenue.</p>
+      <p style="margin-top:8px"><strong>Non-Tariff Measures (NTMs):</strong> "Policy measures other than ordinary customs tariffs that can potentially have an economic effect on international trade in goods" (UN definition). NTMs are increasingly the main tool of protection as tariffs are progressively removed.</p>
+      <p style="margin-top:8px"><strong>UN Classification (technical vs non-technical):</strong></p>
+      <ul>
+        <li><strong>A — SPS:</strong> Sanitary and Phytosanitary measures (health, animal/plant protection)</li>
+        <li><strong>B — TBT:</strong> Technical Barriers to Trade (standards, testing, certification)</li>
+        <li><strong>C — Pre-shipment inspection and formalities</strong></li>
+        <li><strong>D–O — Non-technical:</strong> anti-dumping, quotas, price controls, subsidies, IP, rules of origin, etc.</li>
+      </ul>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-coral">D. Classification of EU Trade Agreements</span></div>
+      <table class="comp-table">
+        <tr><th>Type</th><th>Abbr.</th><th>Purpose</th></tr>
+        <tr><td>Economic Partnership Agreements</td><td><strong>EPAs</strong></td><td>Support ACP (African, Caribbean, Pacific) developing countries</td></tr>
+        <tr><td>Free Trade Agreements</td><td><strong>FTAs</strong></td><td>Reciprocal market opening with developed/emerging economies</td></tr>
+        <tr><td>Association Agreements</td><td><strong>AAs</strong></td><td>Broader political agreements (accession, deep partnership)</td></tr>
+        <tr><td>Partnership and Cooperation Agreements</td><td><strong>PCAs</strong></td><td>Non-preferential; broader strategic framework</td></tr>
+      </table>
+      <p style="margin-top:8px">Governed by <strong>Art. 218 TFEU</strong>. EU has concluded 40+ agreements with ~80 partners.</p>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-purple">E. Five Pillars of Values-Based Trade Policy</span></div>
+      <ul>
+        <li><strong>1. Sustainability &amp; Climate Action</strong> — European Green Deal + CBAM integrated into trade</li>
+        <li><strong>2. Human Rights &amp; Labour Standards</strong> — binding sustainable development chapters, ILO standards, anti-corruption</li>
+        <li><strong>3. Open Strategic Autonomy</strong> — supply chain resilience, reducing single-source dependency on critical raw materials</li>
+        <li><strong>4. Rules-Based Multilateralism</strong> — supporting WTO as backbone of global trading system</li>
+        <li><strong>5. Fairness &amp; Level Playing Field</strong> — anti-dumping and anti-subsidy measures</li>
+      </ul>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-eu">F. EU–China: Partner / Competitor / Systemic Rival</span></div>
+      <p>The EU simultaneously characterises China as: <strong>(1) a partner for cooperation, (2) an economic competitor, (3) a systemic rival.</strong> Policy conclusion: <em>de-risking, not decoupling.</em></p>
+      <ul style="margin-top:8px">
+        <li><strong>2020:</strong> CAI (Comprehensive Investment Agreement) negotiations concluded in principle</li>
+        <li><strong>2021:</strong> China sanctioned European officials → EP refused to advance CAI → blocked by Xinjiang/Hong Kong human rights concerns</li>
+        <li><strong>Current:</strong> No free trade negotiations underway; structural tensions persist (overcapacity, export controls, market access)</li>
+      </ul>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-teal">G. Key Trade Agreements Survey</span></div>
+      <table class="comp-table">
+        <tr><th>Partner</th><th>Status</th><th>Key Points</th></tr>
+        <tr><td><strong>Mercosur</strong></td><td>Provisional application from 1 May 2026</td><td>91–92% tariff elimination over 15 years; deforestation safeguards; one of world\'s largest FTAs</td></tr>
+        <tr><td><strong>Canada (CETA)</strong></td><td>Provisionally in force since 21 Sep 2017</td><td>Full force pending ratification by all member states</td></tr>
+        <tr><td><strong>Chile</strong></td><td>Signed 29 Feb 2024</td><td>99.9% of EU exports tariff-free; secures lithium and copper access</td></tr>
+        <tr><td><strong>Mexico</strong></td><td>Revised Jan 2025</td><td>Mexico lifts almost all tariffs on EU goods</td></tr>
+        <tr><td><strong>India</strong></td><td>Agreement announced 27 Jan 2026</td><td>Tariffs to be abolished/reduced in many areas</td></tr>
+        <tr><td><strong>Africa</strong></td><td>18 preferential agreements</td><td>"Everything But Arms" (EBA) — 90%+ of African exports enter EU duty-free</td></tr>
+      </table>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-coral">H. Legal Status of International Agreements in EU Law <span class="badge b-eu" style="margin-left:6px">Exam Critical</span></span></div>
+      <p>International agreements concluded by the EU:</p>
+      <ul>
+        <li>Are an <strong>integral part of EU law</strong></li>
+        <li>Form a <strong>sui generis category</strong> — separate from primary law (Treaties) and secondary law</li>
+        <li>Can have <strong>direct effect</strong> (according to some CJEU judgments)</li>
+        <li>Rank <strong>above secondary legislation</strong> — regulations, directives, decisions must comply with them</li>
+      </ul>
+      <div class="note-box"><strong>Hierarchy:</strong> Primary law (Treaties) &gt; International agreements concluded by EU &gt; Secondary legislation (regulations, directives, decisions)</div>
+      <p style="margin-top:8px">Art. 216 TFEU: conditions for the EU's authority to conclude agreements. Art. 207 TFEU: governs the common commercial policy specifically.</p>
+    </div>
+  </div>
+
+  <!-- TIMELINE -->
+  <div id="svii-timeline" class="study-panel">
+    <div class="timeline" id="svii-tl"></div>
+  </div>
+
+  <!-- COMPARE -->
+  <div id="svii-compare" class="study-panel">
+    <div class="sum-card">
+      <div class="sum-title">Four Types of EU Trade Agreements</div>
+      <table class="comp-table">
+        <tr><th>Type</th><th>Partners</th><th>Key Feature</th><th>Example</th></tr>
+        <tr><td><strong>EPA</strong></td><td>ACP countries</td><td>Development-focused; asymmetric opening</td><td>ACP EPAs</td></tr>
+        <tr><td><strong>FTA</strong></td><td>Developed/emerging economies</td><td>Reciprocal market access; tariff reductions</td><td>CETA, Chile</td></tr>
+        <tr><td><strong>AA</strong></td><td>Neighbouring/candidate countries</td><td>Broad political + economic framework</td><td>EU–Ukraine AA</td></tr>
+        <tr><td><strong>PCA</strong></td><td>Strategic partners</td><td>Non-preferential; diplomatic/political</td><td>EU–India PCA</td></tr>
+      </table>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">UN NTM Classification — Technical vs Non-Technical</div>
+      <table class="comp-table">
+        <tr><th>Category</th><th>Code</th><th>Description</th></tr>
+        <tr><td><strong>SPS measures</strong></td><td>A</td><td>Sanitary and Phytosanitary — human, animal, plant health</td></tr>
+        <tr><td><strong>TBT</strong></td><td>B</td><td>Technical Barriers to Trade — standards, testing, certification</td></tr>
+        <tr><td><strong>Pre-shipment</strong></td><td>C</td><td>Inspection and formalities before shipment</td></tr>
+        <tr><td><strong>Anti-dumping/countervailing</strong></td><td>D</td><td>Contingent trade-protective measures</td></tr>
+        <tr><td><strong>Quotas/licensing/prohibitions</strong></td><td>E</td><td>Non-automatic import licensing</td></tr>
+        <tr><td><strong>Price controls</strong></td><td>F</td><td>Additional taxes and charges</td></tr>
+        <tr><td><strong>Subsidies</strong></td><td>L</td><td>Support to domestic producers</td></tr>
+        <tr><td><strong>IP / Rules of origin</strong></td><td>N/O</td><td>Intellectual property &amp; origin requirements</td></tr>
+      </table>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">EU Trade Relationships at a Glance</div>
+      <table class="comp-table">
+        <tr><th>Partner</th><th>Status</th><th>Key Issues</th><th>EU Stance</th></tr>
+        <tr><td><strong>China</strong></td><td>Complex: partner/competitor/rival</td><td>Human rights, overcapacity, export controls</td><td>De-risking, not decoupling</td></tr>
+        <tr><td><strong>Mercosur</strong></td><td>Provisional May 2026</td><td>Deforestation, agricultural competition</td><td>Values + economics balanced</td></tr>
+        <tr><td><strong>Canada (CETA)</strong></td><td>Provisional since 2017</td><td>Full force pending all MS ratification</td><td>Positive</td></tr>
+        <tr><td><strong>Chile</strong></td><td>In force Feb 2024</td><td>Raw materials (Li, Cu)</td><td>Strategic</td></tr>
+        <tr><td><strong>India</strong></td><td>Agreement Jan 2026</td><td>Broad tariff reductions</td><td>Strategic</td></tr>
+        <tr><td><strong>Mexico</strong></td><td>Revised 2025</td><td>Mexico lifts almost all tariffs on EU goods</td><td>Positive</td></tr>
+      </table>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">Common Exam Traps — Session VII</div>
+      <table class="comp-table">
+        <tr><th>Trap</th><th>Wrong assumption</th><th>Correct answer</th></tr>
+        <tr><td>Who negotiates trade deals?</td><td>The Council negotiates</td><td>The Commission negotiates; the Council mandates and approves; the EP consents</td></tr>
+        <tr><td>EP role before/after Lisbon</td><td>EP always had co-legislative power on trade</td><td>Only since Lisbon Treaty (2009)</td></tr>
+        <tr><td>CETA status</td><td>CETA is fully in force</td><td>Only provisionally in force (since 2017); full force requires all MS ratification</td></tr>
+        <tr><td>Mercosur tariff %</td><td>99.9% tariff-free</td><td>91–92% over 15 years (99.9% is Chile)</td></tr>
+        <tr><td>International agreements rank</td><td>Equivalent to the Treaties (primary law)</td><td>Below primary law but above secondary legislation — sui generis</td></tr>
+        <tr><td>Member states and trade</td><td>MS can still conclude individual trade deals</td><td>No — CCP is exclusive EU competence; MS have lost this power</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- FLASHCARDS -->
+  <div id="svii-flashcards" class="study-panel">
+    <div class="fc-controls">
+      <button class="btn btn-sm" onclick="shuffleFC('svii')">Shuffle</button>
+      <button class="btn btn-sm" onclick="resetFC('svii')">Reset all</button>
+      <span style="font-size:12px;color:var(--text3);margin-left:4px">Rate each card to focus on what you don't know yet</span>
+    </div>
+    <div class="fc-sr-bar" id="svii-sr-bar"></div>
+    <div class="flashcard-wrap" id="svii-fc-wrap">
+      <div class="fc-header">
+        <span class="fc-counter"><span id="svii-fc-counter">1</span> / <span id="svii-fc-total">18</span></span>
+        <span style="font-size:12px;color:var(--text3)">Click card to flip</span>
+      </div>
+      <div class="flashcard" id="svii-fc-card" onclick="flipFC('svii')">
+        <div class="fc-face fc-front"><div class="fc-label">Question</div><div class="fc-question" id="svii-fc-q"></div><div class="fc-hint">Click to reveal answer</div></div>
+        <div class="fc-face fc-back"><div class="fc-label" style="color:rgba(255,255,255,.6)">Answer</div><div class="fc-answer" id="svii-fc-a"></div><div class="fc-src" id="svii-fc-src"></div></div>
+      </div>
+      <div class="sr-btns">
+        <button class="sr-btn sr-btn-hard" onclick="rateFC('svii',0)">Hard — review again</button>
+        <button class="sr-btn sr-btn-ok" onclick="rateFC('svii',1)">OK — not sure yet</button>
+        <button class="sr-btn sr-btn-easy" onclick="rateFC('svii',2)">Easy — I know this</button>
+      </div>
+      <div class="sr-mode-note">Cards you mark Hard will reappear at the end of the deck</div>
+    </div>
+    <div class="fc-sr-done" id="svii-fc-done" style="display:none">
+      <h3>Session complete</h3>
+      <p id="svii-done-msg"></p>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+        <button class="btn btn-primary" onclick="resetFC('svii')">Start over</button>
+        <button class="btn" onclick="reviewWeakFC('svii')">Review weak cards</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUIZ -->
+  <div id="svii-quiz" class="study-panel">
+    <div id="svii-quiz-wrap">
+      <div class="quiz-prog"><div class="quiz-prog-fill" id="svii-qpfill" style="width:0%"></div></div>
+      <div class="quiz-meta" id="svii-q-meta"></div>
+      <div class="quiz-q" id="svii-q-text"></div>
+      <div class="quiz-opts" id="svii-q-opts"></div>
+      <div class="quiz-fb" id="svii-q-fb"></div>
+      <button class="btn btn-primary" id="svii-q-next" onclick="nextQ('svii')" style="display:none">Next question →</button>
+    </div>
+    <div class="quiz-score-screen" id="svii-quiz-score">
+      <div class="score-row"><div class="score-big" id="svii-score-big"></div><div class="score-right"><div class="score-lbl">Your score</div><div class="score-msg" id="svii-score-msg"></div></div></div>
+      <div class="weak-section" id="svii-weak-section"></div>
+      <button class="btn btn-primary" onclick="restartQuiz('svii')">Try again</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SESSION VIII ══ -->
+<div id="page-eu-viii" class="page">
+  <div class="page-eyebrow" style="color:var(--eu)">EU Law · Session VIII</div>
+  <div class="page-title">Enforcement of EU Law · Primacy &amp; Constitutional Limits</div>
+  <div class="page-desc">Decentralised enforcement, procedural autonomy, equivalence &amp; effectiveness, EU primacy vs national constitutional identity — GFCC case law from Solange to PSPP.</div>
+  <div class="study-tabs">
+    <button class="study-tab active" onclick="showTab('sviii','summary',this)">Summary</button>
+    <button class="study-tab" onclick="showTab('sviii','timeline',this)">GFCC Timeline</button>
+    <button class="study-tab" onclick="showTab('sviii','compare',this)">Compare</button>
+    <button class="study-tab" onclick="showTab('sviii','flashcards',this)">Flashcards</button>
+    <button class="study-tab" onclick="showTab('sviii','quiz',this)">Quiz</button>
+  </div>
+
+  <!-- SUMMARY -->
+  <div id="sviii-summary" class="study-panel active">
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-eu">A. Principle of Decentralised Enforcement</span></div>
+      <p>The EU does not have its own administrative enforcement apparatus at the national level. Instead, <strong>member states enforce EU law</strong> through their own national institutions, courts, and procedures.</p>
+      <p style="margin-top:8px"><strong>Legal basis:</strong> Art. 291 para 1 TFEU (member states adopt all necessary national measures to implement binding EU acts) + Art. 19 para 1 TEU (member states provide remedies for effective legal protection).</p>
+      <div class="note-box">Practical effect: When an individual has an EU-law right (e.g. to a refund of unlawfully charged customs duties), they enforce it through national courts using national procedural rules.</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-teal">B. Procedural Autonomy &amp; Its Two Absolute Limits</span></div>
+      <p>Member states may organise their enforcement procedures as they see fit (jurisdiction, time limits, standing rules, remedies). BUT two absolute limits apply:</p>
+      <table class="comp-table" style="margin-top:8px">
+        <tr><th>Limit</th><th>Definition</th></tr>
+        <tr><td><strong>Equivalence</strong></td><td>National procedures for EU-based claims must not be less favourable than those for comparable domestic claims</td></tr>
+        <tr><td><strong>Effectiveness</strong></td><td>National procedures must not make it impossible or excessively difficult to exercise EU rights in practice</td></tr>
+      </table>
+      <p style="margin-top:8px"><strong>Leading case:</strong> <em>Rewe Zentralfinanz</em>, ECJ 16.12.1976, Case 33/76 — the foundational case establishing both principles.</p>
+      <div class="note-box">Example: A one-month limitation period for challenging administrative decisions is in principle compatible — if it applies equally to domestic and EU-based claims (equivalence) and is not so short it makes EU rights practically impossible to exercise (effectiveness).</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-amber">C. EU Primacy — The ECJ Perspective</span></div>
+      <p>From the EU's standpoint, <strong>EU law takes precedence over ALL national law</strong>, including national constitutional law. This is absolute and unconditional from the ECJ's perspective.</p>
+      <p style="margin-top:8px"><strong>Practical effect:</strong> National courts must <em>disapply</em> (set aside) conflicting national rules — they do not strike them down permanently. The national rule remains formally in force but is inapplicable to the extent of the conflict.</p>
+      <p style="margin-top:8px">Established in: <em>Costa v ENEL</em> (1964) and <em>Simmenthal</em> (1978).</p>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-coral">D. GFCC Case Law — Integration Limits <span class="badge b-eu" style="margin-left:6px">Exam Critical</span></span></div>
+      <table class="comp-table">
+        <tr><th>Case</th><th>Date</th><th>Key Holding</th><th>Posture</th></tr>
+        <tr><td><strong>Solange I</strong></td><td>29 May 1974</td><td>GFCC reserves right to review EU law against German fundamental rights "as long as" Community law lacks equivalent protection</td><td>Confrontational</td></tr>
+        <tr><td><strong>Solange II</strong></td><td>22 Oct 1986</td><td>GFCC withdraws review — ECJ has by now developed sufficient fundamental rights protection</td><td>Cooperative</td></tr>
+        <tr><td><strong>Maastricht</strong></td><td>12 Oct 1993</td><td>Confirms constitutionality; introduces ultra vires review; sets limits on sovereignty transfer; stresses Bundestag role</td><td>Conditional</td></tr>
+        <tr><td><strong>Lisbon</strong></td><td>30 Jun 2009</td><td>Confirms constitutionality; identifies integration-proof constitutional core (eternity clause areas)</td><td>Conditional</td></tr>
+        <tr><td><strong>Mangold (ultra vires)</strong></td><td>6 Jul 2010</td><td>Confirms ultra vires review is available BUT requires: (1) manifest exceeding of powers + (2) structurally significant shift to detriment of MS. A "mere misinterpretation" is not enough.</td><td>High bar for review</td></tr>
+        <tr><td><strong>PSPP</strong></td><td>5 May 2020</td><td>GFCC rules ECJ exceeded powers on ECB bond purchases — ECJ's proportionality review "methodologically not tenable." First actual ultra vires finding by any national court. Creates open GFCC–ECJ confrontation.</td><td>Active confrontation</td></tr>
+      </table>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-purple">E. The Core Tension: Primacy vs Constitutional Identity</span></div>
+      <table class="comp-table">
+        <tr><th>Dimension</th><th>EU / ECJ Position</th><th>German GFCC Position</th></tr>
+        <tr><td>Scope of primacy</td><td>Absolute — over all national law including constitutions</td><td>Accepted in principle but subject to national constitutional limits</td></tr>
+        <tr><td>Fundamental rights</td><td>EU Charter sufficient</td><td>Monitored under Solange doctrine</td></tr>
+        <tr><td>Ultra vires acts</td><td>ECJ has final word</td><td>GFCC can review — only for manifest, structurally significant excess</td></tr>
+        <tr><td>Constitutional identity</td><td>Not recognised as a limit</td><td>Integration-proof core cannot be transferred</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- GFCC TIMELINE -->
+  <div id="sviii-timeline" class="study-panel">
+    <div class="timeline" id="sviii-tl"></div>
+  </div>
+
+  <!-- COMPARE -->
+  <div id="sviii-compare" class="study-panel">
+    <div class="sum-card">
+      <div class="sum-title">Decision Tree — Is a National Procedural Rule Compatible with EU Law?</div>
+      <div class="dtree">
+        <div class="dt-step"><div class="dt-num">1</div><div class="dt-q">Does the rule apply to an EU-law based claim?</div><div class="dt-opts"><span class="dt-opt">NO → Pure national law, EU principles don't apply</span><span class="dt-opt">YES → Continue to Step 2</span></div></div>
+        <div class="dt-connector">↓</div>
+        <div class="dt-step"><div class="dt-num">2</div><div class="dt-q">Is the rule applied equally to comparable domestic claims?</div><div class="dt-opts"><span class="dt-opt">NO → VIOLATES EQUIVALENCE → Rule must be set aside</span><span class="dt-opt">YES → Continue to Step 3</span></div></div>
+        <div class="dt-connector">↓</div>
+        <div class="dt-step"><div class="dt-num">3</div><div class="dt-q">Does the rule make it practically impossible or excessively difficult to exercise the EU right?</div><div class="dt-opts"><span class="dt-opt">YES → VIOLATES EFFECTIVENESS → Rule must be set aside</span><span class="dt-opt">NO → Compatible with EU law ✓</span></div></div>
+      </div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">Solange I vs Solange II — The Shift</div>
+      <table class="comp-table">
+        <tr><th>Feature</th><th>Solange I (1974)</th><th>Solange II (1986)</th></tr>
+        <tr><td>GFCC posture</td><td>Confrontational</td><td>Cooperative</td></tr>
+        <tr><td>Will GFCC review EU law?</td><td>YES — as long as EU lacks equivalent rights protection</td><td>NO — as long as EU-level protection is generally guaranteed</td></tr>
+        <tr><td>Reason for shift</td><td>N/A — first decision</td><td>ECJ had developed substantial fundamental rights jurisprudence by 1986</td></tr>
+        <tr><td>Meaning of "Solange"</td><td colspan="2">"As long as" in German — both decisions are conditional on an ongoing factual assessment</td></tr>
+      </table>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">Common Exam Traps — Session VIII</div>
+      <table class="comp-table">
+        <tr><th>Trap</th><th>Wrong assumption</th><th>Correct answer</th></tr>
+        <tr><td>Solange I vs II confused</td><td>GFCC always reviews / never reviews EU law</td><td>Solange I = WILL review; Solange II = will NOT review — opposite positions</td></tr>
+        <tr><td>Ultra vires trigger</td><td>Any ECJ error triggers GFCC review</td><td>Mangold: requires (1) manifest excess of powers + (2) structurally significant shift — very high bar</td></tr>
+        <tr><td>PSPP effect</td><td>Germany can routinely override ECJ rulings</td><td>PSPP was exceptional and controversial — not a routine override mechanism</td></tr>
+        <tr><td>Disapply vs strike down</td><td>National courts strike down conflicting national rules</td><td>They disapply (set aside) in the specific case — the rule formally remains in force</td></tr>
+        <tr><td>Procedural autonomy unlimited</td><td>Member states can set any procedure they want</td><td>Always subject to equivalence and effectiveness</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- FLASHCARDS -->
+  <div id="sviii-flashcards" class="study-panel">
+    <div class="fc-controls">
+      <button class="btn btn-sm" onclick="shuffleFC('sviii')">Shuffle</button>
+      <button class="btn btn-sm" onclick="resetFC('sviii')">Reset all</button>
+      <span style="font-size:12px;color:var(--text3);margin-left:4px">Rate each card to focus on what you don't know yet</span>
+    </div>
+    <div class="fc-sr-bar" id="sviii-sr-bar"></div>
+    <div class="flashcard-wrap" id="sviii-fc-wrap">
+      <div class="fc-header">
+        <span class="fc-counter"><span id="sviii-fc-counter">1</span> / <span id="sviii-fc-total">16</span></span>
+        <span style="font-size:12px;color:var(--text3)">Click card to flip</span>
+      </div>
+      <div class="flashcard" id="sviii-fc-card" onclick="flipFC('sviii')">
+        <div class="fc-face fc-front"><div class="fc-label">Question</div><div class="fc-question" id="sviii-fc-q"></div><div class="fc-hint">Click to reveal answer</div></div>
+        <div class="fc-face fc-back"><div class="fc-label" style="color:rgba(255,255,255,.6)">Answer</div><div class="fc-answer" id="sviii-fc-a"></div><div class="fc-src" id="sviii-fc-src"></div></div>
+      </div>
+      <div class="sr-btns">
+        <button class="sr-btn sr-btn-hard" onclick="rateFC('sviii',0)">Hard — review again</button>
+        <button class="sr-btn sr-btn-ok" onclick="rateFC('sviii',1)">OK — not sure yet</button>
+        <button class="sr-btn sr-btn-easy" onclick="rateFC('sviii',2)">Easy — I know this</button>
+      </div>
+      <div class="sr-mode-note">Cards you mark Hard will reappear at the end of the deck</div>
+    </div>
+    <div class="fc-sr-done" id="sviii-fc-done" style="display:none">
+      <h3>Session complete</h3>
+      <p id="sviii-done-msg"></p>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+        <button class="btn btn-primary" onclick="resetFC('sviii')">Start over</button>
+        <button class="btn" onclick="reviewWeakFC('sviii')">Review weak cards</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUIZ -->
+  <div id="sviii-quiz" class="study-panel">
+    <div id="sviii-quiz-wrap">
+      <div class="quiz-prog"><div class="quiz-prog-fill" id="sviii-qpfill" style="width:0%"></div></div>
+      <div class="quiz-meta" id="sviii-q-meta"></div>
+      <div class="quiz-q" id="sviii-q-text"></div>
+      <div class="quiz-opts" id="sviii-q-opts"></div>
+      <div class="quiz-fb" id="sviii-q-fb"></div>
+      <button class="btn btn-primary" id="sviii-q-next" onclick="nextQ('sviii')" style="display:none">Next question →</button>
+    </div>
+    <div class="quiz-score-screen" id="sviii-quiz-score">
+      <div class="score-row"><div class="score-big" id="sviii-score-big"></div><div class="score-right"><div class="score-lbl">Your score</div><div class="score-msg" id="sviii-score-msg"></div></div></div>
+      <div class="weak-section" id="sviii-weak-section"></div>
+      <button class="btn btn-primary" onclick="restartQuiz('sviii')">Try again</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SESSION IX ══ -->
+<div id="page-eu-ix" class="page">
+  <div class="page-eyebrow" style="color:var(--eu)">EU Law · Session IX</div>
+  <div class="page-title">EU Institutions · Competences · CFSP</div>
+  <div class="page-desc">The seven official EU institutions, the critical three-councils distinction, Commission monopoly of initiative, the three-category competence system (exclusive/shared/complementary), subsidiarity, proportionality, and the CFSP.</div>
+  <div class="study-tabs">
+    <button class="study-tab active" onclick="showTab('six','summary',this)">Summary</button>
+    <button class="study-tab" onclick="showTab('six','compare',this)">Compare</button>
+    <button class="study-tab" onclick="showTab('six','flashcards',this)">Flashcards</button>
+    <button class="study-tab" onclick="showTab('six','quiz',this)">Quiz</button>
+  </div>
+
+  <!-- SUMMARY -->
+  <div id="six-summary" class="study-panel active">
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-eu">A. The Seven Official EU Institutions (Art. 13 TEU) <span class="badge b-eu" style="margin-left:6px">Exam Critical</span></span></div>
+      <table class="comp-table">
+        <tr><th>Institution</th><th>Current Head</th><th>From</th></tr>
+        <tr><td><strong>European Parliament</strong></td><td>Roberta Metsola (EPP)</td><td>Italy</td></tr>
+        <tr><td><strong>European Council</strong></td><td>António Costa</td><td>Portugal</td></tr>
+        <tr><td><strong>Council of the EU</strong></td><td>Rotating — currently Cyprus</td><td>—</td></tr>
+        <tr><td><strong>European Commission</strong></td><td>Ursula von der Leyen</td><td>Germany</td></tr>
+        <tr><td><strong>Court of Justice of the EU</strong></td><td>Koen Lenaerts</td><td>Belgium</td></tr>
+        <tr><td><strong>European Central Bank</strong></td><td>Christine Lagarde</td><td>France</td></tr>
+        <tr><td><strong>Court of Auditors</strong></td><td>Tony Murphy</td><td>Ireland</td></tr>
+      </table>
+      <div class="note-box">Art. 13 para 2 TEU: Each institution must act within the limits of powers conferred on it (principle of conferral).</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-coral">B. Three "Councils" + Two "Courts" — Critical Exam Distinction</span></div>
+      <table class="comp-table">
+        <tr><th>Name</th><th>EU Institution?</th><th>Composition</th><th>Function</th><th>Court</th></tr>
+        <tr><td><strong>Council of Europe</strong></td><td>NO — separate organisation</td><td>46 member states</td><td>Human rights, democracy, rule of law</td><td>ECtHR (ECHR)</td></tr>
+        <tr><td><strong>European Council</strong></td><td>YES (Art. 15 TEU)</td><td>Heads of state/government + President</td><td>Political direction; NO legislative function</td><td>CJEU</td></tr>
+        <tr><td><strong>Council of the EU</strong></td><td>YES</td><td>Ministers (10 configurations)</td><td>Co-legislates with EP; budgetary power</td><td>CJEU</td></tr>
+      </table>
+      <div class="note-box">⚠️ Confusing these three in an exam is a cardinal error — the professor flagged this as the most important distinction.</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-teal">C. Commission's Monopoly of Legislative Initiative</span></div>
+      <p><strong>Art. 17 para 2 TEU:</strong> Union legislative acts can only be adopted on the basis of a Commission proposal, unless the Treaties provide otherwise.</p>
+      <ul style="margin-top:8px">
+        <li>Parliament and Council <strong>adopt</strong> legislation — they cannot normally initiate it</li>
+        <li>The EP may <em>request</em> the Commission to propose (Art. 225 TFEU) — but this does not bind the Commission</li>
+        <li>Commission also acts as <strong>"Guardian of the Treaties"</strong> — ensures EU law is applied; brings infringement proceedings against non-compliant MS</li>
+        <li>Commissioners serve the <strong>general interest of the Union</strong> — NOT their home member state</li>
+      </ul>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-amber">D. Three Types of EU Competences <span class="badge b-eu" style="margin-left:6px">Exam Critical</span></span></div>
+      <table class="comp-table">
+        <tr><th>Type</th><th>Article</th><th>EU Can...</th><th>MS Can...</th><th>Subsidiarity?</th><th>Examples</th></tr>
+        <tr><td><strong>Exclusive</strong></td><td>Art. 3 TFEU</td><td>Act alone; MS cannot act without EU authorisation</td><td>Only if empowered by EU</td><td>NO</td><td>Customs union, CCP, monetary policy (€), competition, marine biological resources</td></tr>
+        <tr><td><strong>Shared</strong></td><td>Art. 4 TFEU</td><td>Act and displace MS rules (pre-emption)</td><td>Act before EU acts; displaced after</td><td>YES</td><td>Internal market, environment, agriculture, transport, energy, consumer protection</td></tr>
+        <tr><td><strong>Complementary</strong></td><td>Art. 6 TFEU</td><td>Support, coordinate, supplement only — NO harmonisation</td><td>Continue to legislate freely</td><td>YES</td><td>Culture, education, tourism, sport, civil protection, industry, health</td></tr>
+      </table>
+      <div class="note-box"><strong>Classic exam trap:</strong> Agriculture is SHARED (Art. 4) but conservation of marine biological resources under the common fisheries policy is EXCLUSIVE (Art. 3). Also: subsidiarity does NOT apply to exclusive competences.</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-purple">E. ERTA Doctrine — Art. 3 para 2 TFEU</span></div>
+      <p>When the EU adopts internal common rules to implement a policy, member states lose the right to enter into international agreements with third countries that affect those rules or alter their scope. <strong>External competence becomes exclusive by virtue of internal rule-making.</strong></p>
+      <p style="margin-top:8px">Leading case: ECJ 22/70 (ERTA case). This doctrine directly connects internal and external competences — relevant for both trade policy (Session VII) and competence law (Session IX).</p>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-eu">F. Subsidiarity &amp; Proportionality</span></div>
+      <p><strong>Subsidiarity (Art. 5 para 3 TEU):</strong> EU action only permitted if objectives cannot be sufficiently achieved by member states but can be better achieved at EU level. Applies ONLY to non-exclusive competences.</p>
+      <p style="margin-top:10px"><strong>Proportionality (Art. 5 para 4 TEU) — three steps:</strong></p>
+      <ul>
+        <li><strong>Suitability:</strong> measure is appropriate and sufficient to achieve the objective</li>
+        <li><strong>Necessity:</strong> measure does not go beyond what is necessary</li>
+        <li><strong>Appropriateness:</strong> balancing the public interest against restrictions on EU citizens' rights</li>
+      </ul>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-teal">G. Common Foreign &amp; Security Policy (CFSP) — Arts. 21–46 TEU</span></div>
+      <p>The CFSP is <strong>intergovernmental, not supranational</strong>. Key characteristics:</p>
+      <ul>
+        <li><strong>Unanimity:</strong> decisions generally require unanimity — one state can veto (exception: constructive abstention)</li>
+        <li><strong>Constructive abstention:</strong> a state may abstain without blocking — the decision passes, but the abstaining state need not implement it</li>
+        <li>ECJ jurisdiction very limited</li>
+        <li>High Representative: <strong>Kaja Kallas</strong></li>
+      </ul>
+      <div class="note-box">Why unanimity here? CFSP involves core sovereignty — foreign policy, defence, security. Member states are not willing to be outvoted on these matters.</div>
+    </div>
+  </div>
+
+  <!-- COMPARE -->
+  <div id="six-compare" class="study-panel">
+    <div class="sum-card">
+      <div class="sum-title">EU Institution Functions — At a Glance</div>
+      <table class="comp-table">
+        <tr><th>Institution</th><th>Represents</th><th>Initiates Law?</th><th>Adopts Law?</th><th>Enforces?</th></tr>
+        <tr><td><strong>European Parliament</strong></td><td>EU citizens</td><td>No (can request)</td><td>Yes (with Council)</td><td>No</td></tr>
+        <tr><td><strong>European Council</strong></td><td>MS heads of state</td><td>No</td><td>No (no legislative power)</td><td>No</td></tr>
+        <tr><td><strong>Council of the EU</strong></td><td>MS governments</td><td>No</td><td>Yes (with EP)</td><td>No</td></tr>
+        <tr><td><strong>Commission</strong></td><td>General EU interest</td><td>YES (monopoly)</td><td>No</td><td>Yes (infringement)</td></tr>
+        <tr><td><strong>CJEU</strong></td><td>Rule of law</td><td>No</td><td>No</td><td>Yes (judicial)</td></tr>
+        <tr><td><strong>ECB</strong></td><td>Euro monetary system</td><td>No</td><td>No</td><td>Yes (monetary)</td></tr>
+        <tr><td><strong>Court of Auditors</strong></td><td>Financial accountability</td><td>No</td><td>No</td><td>Yes (audit)</td></tr>
+      </table>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">Supranational vs Intergovernmental</div>
+      <table class="comp-table">
+        <tr><th>Feature</th><th>Supranational (e.g. internal market)</th><th>Intergovernmental (CFSP)</th></tr>
+        <tr><td>Voting</td><td>Qualified majority possible</td><td>Unanimity required</td></tr>
+        <tr><td>Binding force</td><td>EU law binds directly</td><td>States coordinate; less binding</td></tr>
+        <tr><td>ECJ jurisdiction</td><td>Full</td><td>Very limited</td></tr>
+        <tr><td>State control</td><td>Transferred to EU level</td><td>States retain sovereignty</td></tr>
+      </table>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">Common Exam Traps — Session IX</div>
+      <table class="comp-table">
+        <tr><th>Trap</th><th>Wrong assumption</th><th>Correct answer</th></tr>
+        <tr><td>European Council legislates</td><td>It passes EU laws</td><td>NO — it provides political direction only; the Council of the EU + EP legislate</td></tr>
+        <tr><td>ECtHR = CJEU</td><td>Same court, different name</td><td>Completely separate: ECtHR = Council of Europe, enforces ECHR; CJEU = EU institution</td></tr>
+        <tr><td>Subsidiarity + exclusive competence</td><td>Subsidiarity applies everywhere</td><td>Subsidiarity does NOT apply to exclusive competences — only to non-exclusive</td></tr>
+        <tr><td>Marine biological resources</td><td>All fisheries = shared competence</td><td>Conservation of marine biological resources = EXCLUSIVE (Art. 3), even though other fisheries = shared (Art. 4)</td></tr>
+        <tr><td>Commissioners' loyalty</td><td>They represent their home country</td><td>They serve the general interest of the Union — not their home MS</td></tr>
+        <tr><td>EP can initiate legislation</td><td>EP has full legislative initiative</td><td>Commission holds the monopoly; EP can request but not compel</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- FLASHCARDS -->
+  <div id="six-flashcards" class="study-panel">
+    <div class="fc-controls">
+      <button class="btn btn-sm" onclick="shuffleFC('six')">Shuffle</button>
+      <button class="btn btn-sm" onclick="resetFC('six')">Reset all</button>
+      <span style="font-size:12px;color:var(--text3);margin-left:4px">Rate each card to focus on what you don't know yet</span>
+    </div>
+    <div class="fc-sr-bar" id="six-sr-bar"></div>
+    <div class="flashcard-wrap" id="six-fc-wrap">
+      <div class="fc-header">
+        <span class="fc-counter"><span id="six-fc-counter">1</span> / <span id="six-fc-total">22</span></span>
+        <span style="font-size:12px;color:var(--text3)">Click card to flip</span>
+      </div>
+      <div class="flashcard" id="six-fc-card" onclick="flipFC('six')">
+        <div class="fc-face fc-front"><div class="fc-label">Question</div><div class="fc-question" id="six-fc-q"></div><div class="fc-hint">Click to reveal answer</div></div>
+        <div class="fc-face fc-back"><div class="fc-label" style="color:rgba(255,255,255,.6)">Answer</div><div class="fc-answer" id="six-fc-a"></div><div class="fc-src" id="six-fc-src"></div></div>
+      </div>
+      <div class="sr-btns">
+        <button class="sr-btn sr-btn-hard" onclick="rateFC('six',0)">Hard — review again</button>
+        <button class="sr-btn sr-btn-ok" onclick="rateFC('six',1)">OK — not sure yet</button>
+        <button class="sr-btn sr-btn-easy" onclick="rateFC('six',2)">Easy — I know this</button>
+      </div>
+      <div class="sr-mode-note">Cards you mark Hard will reappear at the end of the deck</div>
+    </div>
+    <div class="fc-sr-done" id="six-fc-done" style="display:none">
+      <h3>Session complete</h3>
+      <p id="six-done-msg"></p>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+        <button class="btn btn-primary" onclick="resetFC('six')">Start over</button>
+        <button class="btn" onclick="reviewWeakFC('six')">Review weak cards</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUIZ -->
+  <div id="six-quiz" class="study-panel">
+    <div id="six-quiz-wrap">
+      <div class="quiz-prog"><div class="quiz-prog-fill" id="six-qpfill" style="width:0%"></div></div>
+      <div class="quiz-meta" id="six-q-meta"></div>
+      <div class="quiz-q" id="six-q-text"></div>
+      <div class="quiz-opts" id="six-q-opts"></div>
+      <div class="quiz-fb" id="six-q-fb"></div>
+      <button class="btn btn-primary" id="six-q-next" onclick="nextQ('six')" style="display:none">Next question →</button>
+    </div>
+    <div class="quiz-score-screen" id="six-quiz-score">
+      <div class="score-row"><div class="score-big" id="six-score-big"></div><div class="score-right"><div class="score-lbl">Your score</div><div class="score-msg" id="six-score-msg"></div></div></div>
+      <div class="weak-section" id="six-weak-section"></div>
+      <button class="btn btn-primary" onclick="restartQuiz('six')">Try again</button>
+    </div>
+  </div>
+</div>
+
 <!-- OTHER SUBJECTS -->
 <div id="page-micro-overview" class="page"><div class="page-eyebrow" style="color:var(--micro)">Microeconomics</div><div class="page-title">All Chapters</div><div class="page-desc">Select a session to access its summary, calculator, flashcards, and quiz.</div>
 <div class="lectures-list">
@@ -2675,7 +3750,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
 <script>
 // ── Navigation ──
 function showPage(id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));document.getElementById('page-'+id).classList.add('active');if(btn)btn.classList.add('active')}
-function showLecture(subject,id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-sub').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');const el=document.getElementById('page-'+subject+'-'+id);if(el){el.classList.add('active');if(subject==='eu'&&id==='i'){initFC('si');initQuiz('si')}if(subject==='eu'&&id==='ii'){initFC('sii');initQuiz('sii')}if(subject==='eu'&&id==='iii'){initFC('siii');initQuiz('siii');initSiiiTimeline()}if(subject==='eu'&&id==='iv'){initFC('siv');initQuiz('siv');initSivTimeline()}if(subject==='eu'&&id==='v'){initFC('sv');initQuiz('sv')}if(subject==='eu'&&id==='vi'){initFC('svi');initQuiz('svi');loadScenario(0,document.querySelector('.scenario-btn'))}if(subject==='micro'&&id==='ch2'){initMicroFC('ch2');initMicroQuiz('ch2');initCalcFor('ch2')}
+function showLecture(subject,id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-sub').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');const el=document.getElementById('page-'+subject+'-'+id);if(el){el.classList.add('active');if(subject==='eu'&&id==='i'){initFC('si');initQuiz('si')}if(subject==='eu'&&id==='ii'){initFC('sii');initQuiz('sii')}if(subject==='eu'&&id==='iii'){initFC('siii');initQuiz('siii');initSiiiTimeline()}if(subject==='eu'&&id==='iv'){initFC('siv');initQuiz('siv');initSivTimeline()}if(subject==='eu'&&id==='v'){initFC('sv');initQuiz('sv')}if(subject==='eu'&&id==='vi'){initFC('svi');initQuiz('svi');loadScenario(0,document.querySelector('.scenario-btn'))}if(subject==='eu'&&id==='vii'){initFC('svii');initQuiz('svii');initSviiTimeline()}if(subject==='eu'&&id==='viii'){initFC('sviii');initQuiz('sviii');initSviiiTimeline()}if(subject==='eu'&&id==='ix'){initFC('six');initQuiz('six')}if(subject==='micro'&&id==='ch2'){initMicroFC('ch2');initMicroQuiz('ch2');initCalcFor('ch2')}
 if(subject==='micro'&&id==='ch3'){initMicroFC('ch3');initMicroQuiz('ch3');initCalc()}if(subject==='micro'&&id==='ps1'){initMicroFC('ps1');initMicroQuiz('ps1');initCalcFor('ps1')}if(subject==='micro'&&id==='ps2'){initMicroFC('ps2');initMicroQuiz('ps2');initCalcFor('ps2')}if(subject==='macro'&&id==='lec1'){initMacroFC('lec1');initMacroQuiz('lec1');initCalcFor('lec1')}if(subject==='macro'&&id==='lec2'){initMacroFC('lec2');initMacroQuiz('lec2');initCalcFor('lec2')}}}
 function showMacroTab(tab,btn,prefix){
   const page=document.getElementById('page-macro-'+prefix);if(!page)return;
@@ -2702,7 +3777,7 @@ function showMicroTab(tab,btn,prefix){
 }
 function toggleTl(card){const body=card.querySelector('.tl-body');const toggle=card.querySelector('.tl-toggle');body.classList.toggle('open');toggle.textContent=body.classList.contains('open')?'− Hide details':'+ Show details'}
 function showTab(prefix,tab,btn){
-  const pageMap={si:'page-eu-i',sii:'page-eu-ii',siii:'page-eu-iii',sv:'page-eu-v',svi:'page-eu-vi'};
+  const pageMap={si:'page-eu-i',sii:'page-eu-ii',siii:'page-eu-iii',siv:'page-eu-iv',sv:'page-eu-v',svi:'page-eu-vi',svii:'page-eu-vii',sviii:'page-eu-viii',six:'page-eu-ix'};
   const page=document.getElementById(pageMap[prefix]);
   if(!page)return;
   page.querySelectorAll('.study-panel').forEach(p=>p.classList.remove('active'));
@@ -2713,7 +3788,7 @@ function showTab(prefix,tab,btn){
   if(tab==='flashcards'&&!fcState[prefix])initFC(prefix);
   if(tab==='quiz'&&!qState[prefix])initQuiz(prefix);
   if(tab==='timeline'&&prefix==='siii')initSiiiTimeline();
-  if(tab==='timeline'&&prefix==='siv')initSivTimeline();
+  if(tab==='timeline'&&prefix==='siv')initSivTimeline();if(tab==='timeline'&&prefix==='svii')initSviiTimeline();if(tab==='timeline'&&prefix==='sviii')initSviiiTimeline();
 }
 
 // ── Session III Timeline ──
@@ -2988,7 +4063,69 @@ const fcDataMap={
     {q:"Which article governs the preliminary ruling procedure?",a:"Art. 267 TFEU. National courts refer questions on EU law interpretation or validity to the ECJ. Lower courts may refer; courts of last instance must refer.",src:"Art. 267 TFEU",topic:"Procedure"},
     {q:"What is the principle of conferral (Art. 5 TEU)?",a:"The EU has no inherent powers. It can only act where the Treaties explicitly grant competence. Powers not conferred remain with Member States.",src:"Art. 5 TEU",topic:"EU Structure"},
     {q:"Since Lisbon, what is the legal status of the Charter of Fundamental Rights?",a:"Same legal value as the TEU and TFEU — binding primary law (Art. 6(1) TEU). Before Lisbon: only general principles (Internationale Handelsgesellschaft).",src:"Art. 6(1) TEU",topic:"Fundamental Rights"},
-  ]
+  ],
+  svii:[
+    {q:"What is the legal basis for EU trade policy?",a:"Articles 206 and 207 TFEU. Trade policy falls under the exclusive competence of the EU (Art. 3 TFEU), meaning only the EU — not individual member states — can legislate and conclude trade agreements in this area.",src:"Arts. 206–207 TFEU; Art. 3 TFEU",topic:"Legal Basis"},
+    {q:"What was the EU's ranking as a global trader in 2024?",a:"Second largest exporter (14%, behind China 18%, ahead of US 10%); second largest importer (12.9%, behind US 16.4%, ahead of China 12.6%).",src:"Session VII slides",topic:"Trade Stats"},
+    {q:"What are the three institutional actors in EU trade agreements and what does each do?",a:"(1) Commission: negotiates on behalf of all 27 member states. (2) Council of EU: defines negotiation mandate, approves final agreements. (3) European Parliament: consents to final agreements (co-legislator since Lisbon Treaty 2009).",src:"Art. 207 TFEU; Art. 218 TFEU",topic:"Institutions"},
+    {q:"What is the difference between a tariff and a non-tariff measure (NTM)?",a:"A tariff is a customs duty — a direct financial levy on imported goods. An NTM is any policy measure other than ordinary customs tariffs that affects international trade in goods, changing quantities or prices (e.g. SPS measures, quotas, licensing requirements, subsidies).",src:"Session VII — Trade Barriers",topic:"Trade Barriers"},
+    {q:"What are SPS measures and TBT measures?",a:"SPS (Sanitary and Phytosanitary) measures protect human, animal, and plant health from risks arising from imports — Category A under UN NTM classification. TBT (Technical Barriers to Trade) covers product standards, testing, and certification requirements — Category B.",src:"UN NTM Classification",topic:"Trade Barriers"},
+    {q:"What are the four main types of EU trade agreements and their purposes?",a:"(1) EPAs — support ACP developing countries. (2) FTAs — reciprocal market opening with developed/emerging economies. (3) AAs (Association Agreements) — broad political agreements. (4) PCAs (Partnership and Cooperation Agreements) — non-preferential, strategic/political frameworks.",src:"Session VII — Classification",topic:"Agreement Types"},
+    {q:"What are the five pillars of the EU's values-based trade policy?",a:"(1) Sustainability and Climate Action (Green Deal, CBAM). (2) Human Rights and Labour Standards (ILO, anti-corruption). (3) Open Strategic Autonomy (supply chain resilience). (4) Rules-Based Multilateralism (WTO). (5) Fairness and Level Playing Field (anti-dumping, anti-subsidy).",src:"Session VII — Values Based Approach",topic:"Values Policy"},
+    {q:"How does the EU characterise its relationship with China?",a:"Simultaneously as: (1) a partner for cooperation, (2) an economic competitor, and (3) a systemic rival. The policy conclusion is 'de-risking, not decoupling.'",src:"Session VII — China",topic:"China"},
+    {q:"Why did the EU–China Comprehensive Investment Agreement (CAI) fail to progress?",a:"In 2021, China sanctioned European officials, think tanks, and academics, prompting the EP to refuse further work. Many MEPs also blocked ratification due to human rights concerns about Xinjiang and Hong Kong.",src:"Session VII — China",topic:"China"},
+    {q:"What is the EU–Mercosur agreement and what is its current status?",a:"A trade and political deal between the EU and Mercosur (Argentina, Brazil, Paraguay, Uruguay; Bolivia pending). Eliminates tariffs on 91–92% of goods over 15 years. Provisional application (iTA) began 1 May 2026. Undergoing ECJ scrutiny and EP final approval.",src:"Session VII — Mercosur",topic:"Mercosur"},
+    {q:"What is CETA and what is its current status?",a:"The Comprehensive Economic and Trade Agreement between the EU and Canada. Provisionally in force since 21 September 2017. Full entry into force requires ratification by all EU member states, which has not yet been completed.",src:"Session VII — Other Agreements",topic:"Other Agreements"},
+    {q:"What is the legal status of international agreements in the hierarchy of EU law?",a:"They form a sui generis category — integral part of EU law, separate from primary law and secondary legislation. They rank above secondary law (regulations/directives must comply with them) but below primary law (the Treaties). They can have direct effect per some CJEU judgments.",src:"Session VII — Legal Assessment; Art. 216 TFEU",topic:"Legal Status"},
+    {q:"What is the 'Everything But Arms' (EBA) scheme?",a:"A preferential arrangement granting least-developed countries (many in Africa) duty-free, quota-free access to the EU internal market for all products except arms and ammunition. Over 90% of African exports enter the EU duty-free under various preferential schemes.",src:"Session VII — Africa",topic:"Other Agreements"},
+    {q:"What procedure governs the negotiation and conclusion of EU international agreements?",a:"Article 218 TFEU. It sets out the stages: Council authorises Commission's negotiating mandate; Commission negotiates; Council concludes (with EP consent where required).",src:"Art. 218 TFEU",topic:"Legal Basis"},
+    {q:"What is the Chile trade agreement (2024) notable for?",a:"Signed 29 February 2024. Removes tariffs on ~99.9% of EU exports to Chile. Expected to increase EU exports by up to €4.5 billion. Secures EU access to critical raw materials: lithium and copper. Excludes some sensitive agricultural products.",src:"Session VII — Chile",topic:"Other Agreements"},
+    {q:"Can a member state individually conclude a trade agreement in an area of exclusive EU competence?",a:"No. Common commercial policy is an exclusive EU competence under Art. 3 TFEU. Only the EU — acting through the Commission — can negotiate and conclude international trade agreements in this area. Member states have lost this power individually.",src:"Art. 3 TFEU; Art. 207 TFEU",topic:"Legal Basis"},
+    {q:"What is the ERTA doctrine's relevance to trade policy?",a:"Under Art. 3 para 2 TFEU (ERTA doctrine): when the EU has adopted internal common rules in a policy area, member states lose the right to conclude external agreements that affect those rules. External competence follows internal competence — making many trade-related external competences exclusive.",src:"Art. 3 para 2 TFEU; Case 22/70",topic:"Legal Basis"},
+    {q:"What was the EU–India trade announcement of January 2026?",a:"A major trade agreement announced on 27 January 2026, intending to enable free trade between the EU and India with tariffs to be abolished or reduced in many areas.",src:"Session VII — India",topic:"Other Agreements"},
+  ],
+  sviii:[
+    {q:"What is the principle of decentralised enforcement in EU law?",a:"EU law is enforced at the national level by member states using their own institutions, courts, and procedures. The EU does not have its own administrative enforcement apparatus at the national level. Legal basis: Art. 291 para 1 TFEU; Art. 19 para 1 TEU.",src:"Session VIII — Enforcement",topic:"Decentralised Enforcement"},
+    {q:"What are the two limits on national procedural autonomy in EU law enforcement?",a:"(1) Equivalence — national procedures for EU-based claims must not be less favourable than those for comparable domestic claims. (2) Effectiveness — national procedures must not make it impossible or excessively difficult to exercise EU rights in practice.",src:"Session VIII; Rewe Zentralfinanz (Case 33/76)",topic:"Procedural Autonomy"},
+    {q:"What case established equivalence and effectiveness as limits on national procedural autonomy?",a:"Rewe Zentralfinanz, ECJ, 16 December 1976, Case 33/76.",src:"Session VIII — Enforcement",topic:"Procedural Autonomy"},
+    {q:"What is the EU perspective on the relationship between EU law and national constitutional law?",a:"From the EU's perspective, EU law takes precedence over ALL national law, including national constitutions. A conflicting national constitutional rule must be disapplied (though not struck down) by national courts. Established in Costa v ENEL (1964) and Simmenthal (1978).",src:"Session VIII — Integration Limits",topic:"EU Primacy"},
+    {q:"What did the GFCC decide in Solange I (1974)?",a:"The GFCC reserved the right to review EU/Community law against the standard of German fundamental rights, because Community law at the time did not provide equivalent fundamental rights protection. Posture: confrontational.",src:"GFCC Solange I, 29 May 1974",topic:"GFCC Cases"},
+    {q:"What did the GFCC decide in Solange II (1986) and why was it a shift?",a:"The GFCC withdrew its review of Community law because by 1986 the ECJ had developed sufficient fundamental rights protection at EU level. The GFCC would defer — 'as long as' EU-level protection remained effective. Shift from confrontation to cooperation.",src:"GFCC Solange II, 22 October 1986",topic:"GFCC Cases"},
+    {q:"What key limits did the GFCC set in the Maastricht Decision (1993)?",a:"It confirmed the Maastricht Treaty was constitutional but set limits on sovereign power transfers to the EU, introduced ultra vires review (EU institutions must stay within conferred powers), and stressed the need to preserve the Bundestag's democratic role.",src:"GFCC Maastricht, 12 October 1993",topic:"GFCC Cases"},
+    {q:"What are the two conditions for ultra vires review as defined in the Mangold Decision (2010)?",a:"(1) Manifest exceeding of powers by an EU institution — a 'mere' misinterpretation of EU law is not sufficient. (2) The excess must cause a structurally significant shift to the detriment of member states.",src:"GFCC Mangold, 6 July 2010",topic:"GFCC Cases"},
+    {q:"What did the GFCC decide in the PSPP Decision (2020) and why is it significant?",a:"The GFCC ruled that the ECJ had exceeded its powers by failing to adequately scrutinise the ECB's government bond purchase programme. The GFCC found the ECJ's proportionality review 'methodologically not tenable' — the first time any national court directly found an ECJ ruling to be ultra vires.",src:"GFCC PSPP, 5 May 2020",topic:"GFCC Cases"},
+    {q:"What is the concept of 'integration-proof constitutional core'?",a:"The idea — developed primarily in German constitutional doctrine — that certain core constitutional principles (especially fundamental rights, democratic sovereignty, constitutional identity) cannot be transferred to the EU even by treaty. They form an unamendable core under the 'eternity clause' of the Basic Law (Art. 79 para 3 GG).",src:"Session VIII — Integration Limits",topic:"Constitutional Identity"},
+    {q:"What is the practical effect of EU law primacy on conflicting national rules?",a:"National courts and authorities must disapply (set aside) the conflicting national rule in the specific case. They do not strike it down or invalidate it permanently — it remains part of national law, but is inapplicable to the extent of the conflict.",src:"Session VIII; Costa v ENEL; Simmenthal",topic:"EU Primacy"},
+    {q:"What is the difference between the Solange I and Solange II positions of the GFCC?",a:"Solange I (1974): GFCC WILL review EU law against German fundamental rights — confrontational. Solange II (1986): GFCC will NOT review anymore, because EU-level protection is now generally guaranteed — cooperative. 'Solange' means 'as long as' — both are conditional.",src:"GFCC Solange I and II",topic:"GFCC Cases"},
+    {q:"What is the significance of the Lisbon Decision (2009) of the GFCC?",a:"The GFCC confirmed the constitutionality of the Lisbon Treaty but identified areas of sovereign identity that cannot be surrendered — linked to the eternity clause of the German Basic Law (Art. 79 para 3 GG). Also reaffirmed the Bundestag's democratic role.",src:"GFCC Lisbon, 30 June 2009",topic:"GFCC Cases"},
+    {q:"What is the legal basis for member states enforcing EU law at national level?",a:"Art. 291 para 1 TFEU: member states shall adopt all national measures necessary to implement legally binding Union acts. Art. 19 para 1 TEU: member states shall provide remedies sufficient to ensure effective legal protection in fields covered by Union law.",src:"Session VIII — Enforcement",topic:"Decentralised Enforcement"},
+    {q:"Why does a 'mere misinterpretation' by the ECJ not trigger ultra vires review by the GFCC?",a:"The Mangold threshold requires a manifest and structurally significant exceeding of powers — not just an error in legal analysis. Courts always risk making interpretive mistakes; that alone cannot justify refusing to follow ECJ rulings, as this would undermine the uniform application of EU law.",src:"GFCC Mangold, 6 July 2010",topic:"GFCC Cases"},
+    {q:"What is procedural autonomy in EU law?",a:"The freedom of member states to determine the structure, procedure, time limits, and remedies for enforcement of EU rights, according to their national legal traditions — subject always to the principles of equivalence and effectiveness.",src:"Session VIII — Enforcement",topic:"Procedural Autonomy"},
+  ],
+  six:[
+    {q:"What are the seven official EU institutions listed in Art. 13 para 1 TEU?",a:"(1) European Parliament, (2) European Council, (3) Council (of the EU), (4) European Commission, (5) Court of Justice of the EU, (6) European Central Bank, (7) Court of Auditors.",src:"Art. 13 para 1 TEU",topic:"EU Institutions"},
+    {q:"What is the Council of Europe and how does it differ from the EU's European Council?",a:"The Council of Europe is NOT an EU institution — it is a separate international organisation (46 member states) focused on human rights, democracy, and rule of law. It runs the European Court of Human Rights (ECtHR), which enforces the ECHR. The European Council IS an EU institution composed of heads of state/government that provides political direction for the EU.",src:"Session IX — Key Distinctions",topic:"Three Councils"},
+    {q:"What is the function of the European Council (Art. 15 TEU)?",a:"Provides the Union with the necessary impetus for its development and defines general political directions and priorities. It does NOT exercise legislative functions. Composed of heads of state or government + its President (António Costa).",src:"Art. 15 TEU",topic:"EU Institutions"},
+    {q:"How does the Council of the EU differ from the European Council?",a:"Council of the EU represents member states at ministerial level and co-legislates with the European Parliament (10 configurations e.g. ECOFIN, AGRIFISH). The European Council is composed of heads of state/government and sets political direction — it does not legislate.",src:"Session IX — Institutions",topic:"Three Councils"},
+    {q:"What is the Commission's monopoly of legislative initiative?",a:"Under Art. 17 para 2 TEU, Union legislative acts can only be adopted on the basis of a Commission proposal, unless the Treaties provide otherwise. Parliament and Council legislate, but they cannot normally propose legislation — that power belongs exclusively to the Commission.",src:"Art. 17 para 2 TEU",topic:"Commission"},
+    {q:"What does it mean that the Commission is the 'guardian of the Treaties'?",a:"The Commission promotes the general interest of the Union, ensures the application of the Treaties, and oversees the application of Union law under the control of the CJEU. If a member state fails to comply, the Commission may bring infringement proceedings before the CJEU.",src:"Art. 17 TEU",topic:"Commission"},
+    {q:"Do Commissioners represent their home member state's interests?",a:"No. Although each member state effectively nominates one Commissioner, Commissioners must serve the general interest of the Union, not their home state or government. This is a fundamental principle of Commission independence.",src:"Art. 17 TEU",topic:"Commission"},
+    {q:"What is progressive proportionality in the allocation of European Parliament seats?",a:"A system where larger member states receive more seats but smaller states are proportionally over-represented relative to their population. This ensures meaningful representation for small states and reflects the democratic value of pluralism.",src:"Art. 14 TEU",topic:"EU Institutions"},
+    {q:"What are the four functions of the European Parliament under Art. 14 TEU?",a:"(1) Exercises legislative functions jointly with the Council; (2) exercises budgetary functions jointly with the Council; (3) performs functions of political control; (4) performs consultative functions.",src:"Art. 14 TEU",topic:"EU Institutions"},
+    {q:"What is the difference between the CJEU and the ECtHR?",a:"The CJEU (Court of Justice of the EU) is an EU institution that interprets and applies EU law. The ECtHR (European Court of Human Rights) belongs to the Council of Europe (not the EU) and enforces the European Convention on Human Rights (ECHR). They are completely separate courts.",src:"Session IX — Key Distinctions",topic:"Three Councils"},
+    {q:"What is the ERTA doctrine (Art. 3 para 2 TFEU)?",a:"When the EU adopts internal common rules to implement a policy, member states lose the right — individually or collectively — to enter into international agreements with third countries that affect those rules or alter their scope. External competence becomes exclusive by virtue of internal EU rule-making. Leading case: ECJ 22/70.",src:"Art. 3 para 2 TFEU; Case 22/70",topic:"Competences"},
+    {q:"List the five areas of exclusive EU competence under Art. 3 para 1 TFEU.",a:"(1) Customs union; (2) competition rules necessary for the functioning of the internal market; (3) monetary policy for euro area states; (4) conservation of marine biological resources under the common fisheries policy; (5) common commercial policy.",src:"Art. 3 para 1 TFEU",topic:"Competences"},
+    {q:"What is the key rule about shared competences (Art. 4 TFEU)?",a:"Both the EU and member states can act. Before EU action: member states may regulate. After EU action: member states are pre-empted and cannot act inconsistently where the EU has exercised competence. Art. 4 is a catch-all — limited only by Arts. 3 (exclusive) and 6 (complementary).",src:"Art. 4 TFEU",topic:"Competences"},
+    {q:"What are complementary competences (Art. 6 TFEU)?",a:"Areas where the EU can only support, coordinate, or supplement member state action — it cannot adopt harmonising legislation. Areas include: human health, industry, culture, tourism, education/vocational training/youth/sport, civil protection, administrative cooperation.",src:"Art. 6 TFEU",topic:"Competences"},
+    {q:"To which types of competence does the subsidiarity principle apply?",a:"Only to non-exclusive competences — both shared and complementary. Subsidiarity does NOT apply to exclusive competences, because in those areas only the EU can act anyway — there is no choice to be made between EU and member state action.",src:"Art. 5 para 3 TEU",topic:"Subsidiarity"},
+    {q:"What are the three elements of the EU proportionality test (Art. 5 para 4 TEU)?",a:"(1) Suitability — the measure is appropriate and sufficient to achieve the objective. (2) Necessity — the measure does not go beyond what is necessary. (3) Appropriateness — balancing the public interest against restrictions on EU citizens' protected rights.",src:"Art. 5 para 4 TEU",topic:"Proportionality"},
+    {q:"What is the CFSP and why is it intergovernmental rather than supranational?",a:"The Common Foreign and Security Policy (Arts. 21–46 TEU) is the EU's framework for external action and security. Intergovernmental because: decisions require unanimity; no exclusive EU competence; ECJ jurisdiction very limited; member states retain foreign policy sovereignty.",src:"Arts. 21–46 TEU",topic:"CFSP"},
+    {q:"What is 'constructive abstention' in the CFSP?",a:"A mechanism allowing a member state to abstain from a CFSP decision without blocking it — the decision is adopted, but the abstaining state is not obliged to implement it. This allows the EU to act even without full unanimity.",src:"Session IX — CFSP",topic:"CFSP"},
+    {q:"Who is the current High Representative of the Union for Foreign Affairs and Security Policy?",a:"Kaja Kallas (as of Session IX slides, April 2026).",src:"Session IX — CFSP",topic:"CFSP"},
+    {q:"What does Art. 296 TFEU require of all EU legal acts?",a:"Every EU act must state its legal basis — the Treaty provision conferring competence to adopt it. This reflects the principle of conferral: the EU can only act on the basis of competence conferred by the Treaties.",src:"Art. 296 TFEU",topic:"Competences"},
+    {q:"What are the six characteristics of the rule of law flagged in Session IX?",a:"(1) Legality; (2) legal certainty; (3) prohibition of the arbitrary exercise of executive power; (4) effective judicial protection by independent and impartial courts; (5) separation of powers; (6) equality before the law.",src:"Session IX — Institutions slides",topic:"EU Institutions"},
+    {q:"Is agriculture generally an exclusive, shared, or complementary EU competence — and what is the important exception?",a:"Shared (Art. 4 para 2 TFEU) — EXCEPT the conservation of marine biological resources under the common fisheries policy, which is EXCLUSIVE (Art. 3 para 1 TFEU). This distinction is a classic exam trap.",src:"Art. 3 para 1(d) and Art. 4 para 2(d) TFEU",topic:"Competences"},
+  ],
 };
 
 // ── Spaced Repetition Engine ──
@@ -3084,7 +4221,7 @@ function resetFC(prefix){
   renderSRBar(prefix);
 }
 
-// ── Quiz data ──
+
 const qDataMap={
   si:[
     {q:"Which of the following is NOT a required element for a payment to qualify as a 'tax' under §3 GFC?",opts:["The payer must consent to the payment","The payment must be imposed by law","The payment must be made without consideration","The payment must be for revenue generation"],ans:0,exp:"Taxes are imposed by public authority regardless of consent — this is fundamental to their nature. All other options (imposed by law, without consideration, for revenue) are genuine elements of §3 GFC.",topic:"Tax Definition"},
@@ -3154,7 +4291,7 @@ const qDataMap={
   ],
   sv:[
     {q:"What is the revenue threshold for MNEs under BEPS Pillar 2?",opts:["€20 billion","€500 million","€750 million","€1 billion"],ans:2,exp:"Pillar 2 applies to MNE groups with annual consolidated revenues of at least €750 million — approximately 8,000 corporate groups globally.",topic:"BEPS"},
-    {q:"Why is BEPS Pillar 1 currently blocked?",opts:["EU Parliament rejected it","The OECD withdrew the proposal","USA withdrew support under Trump","Developing countries voted against it"],ans:2,exp:"The USA withdrew its support under the Trump administration. Without the world's largest economy, global consensus on Pillar 1 collapsed. Many countries responded with unilateral digital service taxes.",topic:"BEPS"},
+    {q:"Why is BEPS Pillar 1 currently blocked?",opts:["EU Parliament rejected it","The OECD withdrew the proposal","USA withdrew support under Trump","Developing countries voted against it"],ans:2,exp:"The USA withdrew its support under the Trump administration. Without the world\'s largest economy, global consensus on Pillar 1 collapsed. Many countries responded with unilateral digital service taxes.",topic:"BEPS"},
     {q:"Which EU directive implemented the global minimum tax (Pillar 2)?",opts:["ATAD","Directive 2022/2523","Directive 80/987","Single European Act"],ans:1,exp:"Directive 2022/2523 implemented Pillar 2 in the EU, entering into force on 31 December 2023. ATAD is a separate directive implementing other BEPS measures.",topic:"BEPS"},
     {q:"What does the QDMTT stand for and what is its role?",opts:["Qualified Domestic Minimum Tax Treaty — treaty provision","Qualified Domestic Minimum Top-up Tax — allows domestic top-up first","Quantified Direct Minimum Tax Threshold — sets the rate","Qualified Directive Minimum Transfer Tax — cross-border rule"],ans:1,exp:"QDMTT (Qualified Domestic Minimum Top-up Tax) allows a jurisdiction to apply the top-up tax to its own low-taxed entities first, before other countries can do so under IIR or UTPR.",topic:"BEPS"},
     {q:"How many aspects does the rule of law have under Art. 2 TEU?",opts:["4","5","6","7"],ans:2,exp:"Art. 2 TEU rule of law has 6 aspects: legality, legal certainty, prohibition of arbitrary executive power, effective judicial protection, separation of powers, equality before the law.",topic:"Legal Systems"},
@@ -3197,7 +4334,66 @@ const qDataMap={
     {q:"What is 'indirect effect' (consistent interpretation)?",opts:["EU law indirectly applying through national courts","National courts must interpret national law in light of the directive's purpose","A directive with weaker binding force than a regulation","The ECJ indirectly reviewing national law via preliminary ruling"],ans:1,exp:"Indirect effect (Von Colson principle): national courts must interpret national law as far as possible in conformity with the directive's purpose — even when direct effect is unavailable. It bridges the gap between direct effect and Francovich.",topic:"Direct Effect"},
     {q:"Which case operationalised primacy by telling courts exactly what to do?",opts:["Van Gend en Loos","Costa v. ENEL","Simmenthal","Internationale Handelsgesellschaft"],ans:2,exp:"Simmenthal (1978). Costa said EU law prevails in theory. Simmenthal told national courts exactly what to do: immediately disapply conflicting national law, no waiting required.",topic:"National Courts"},
     {q:"What was the significance of the preliminary ruling procedure used in Van Gend and Costa?",opts:["It allowed national courts to override EU law","It gave the ECJ power to strike down national legislation","It allowed national courts to get uniform answers on EU law interpretation from the ECJ","It gave individuals direct access to the ECJ"],ans:2,exp:"Art. 267 TFEU (then Art. 177 EEC): the preliminary ruling procedure allowed Dutch and Italian courts to ask the ECJ how EU law should be interpreted — creating landmark principles that now apply across all MS.",topic:"Procedure"},
-  ]
+  ],
+  svii:[
+    {q:"What is the legal basis for EU trade policy?",opts:["Articles 206 and 207 TFEU","Articles 3 and 4 TEU","Articles 21 and 46 TEU","Articles 101 and 102 TFEU"],ans:0,exp:"Arts. 206 and 207 TFEU specifically govern the common commercial policy and EU trade relations. Art. 3 TFEU is relevant to competence (exclusive), but 206/207 are the direct legal basis for trade policy. Arts. 21–46 TEU cover foreign and security policy. Arts. 101–102 TFEU cover competition.",topic:"Legal Basis"},
+    {q:"In 2024, the EU ranked as the world's _______ largest exporter of goods.",opts:["First","Second","Third","Fourth"],ans:1,exp:"The EU was second (14%), behind China (18%) and ahead of the US (10%). For imports, the EU was also second (12.9%), behind the US (16.4%).",topic:"Trade Stats"},
+    {q:"Who negotiates trade agreements on behalf of the EU?",opts:["The European Council","The Council of the EU (rotating presidency)","The European Commission","The European Parliament"],ans:2,exp:"The Commission negotiates on behalf of all 27 member states. The Council defines the mandate and approves agreements. The EP consents. The European Council (heads of state) does not negotiate trade deals.",topic:"Institutions"},
+    {q:"Since which treaty did the European Parliament become a co-legislator on trade agreements?",opts:["Maastricht Treaty (1992)","Amsterdam Treaty (1997)","Nice Treaty (2001)","Lisbon Treaty (2009)"],ans:3,exp:"The Lisbon Treaty (2009) granted the EP co-legislative powers, including the right of consent over trade agreements. Before Lisbon, Parliament's role was more limited.",topic:"Institutions"},
+    {q:"What is the difference between a tariff and a non-tariff measure (NTM)?",opts:["Tariffs apply only to services; NTMs apply to goods","Tariffs are financial levies on imports; NTMs are non-financial policy measures affecting trade","Tariffs are imposed by international organisations; NTMs are imposed by states","Tariffs and NTMs are the same thing"],ans:1,exp:"A tariff is a direct financial levy (customs duty) on imported goods. NTMs are any other policy measure — technical standards, licensing, quotas, subsidies — that affects trade without being a direct customs duty.",topic:"Trade Barriers"},
+    {q:"Which UN NTM category covers sanitary and phytosanitary measures?",opts:["Category B — TBT","Category D — Contingent trade-protective measures","Category A — SPS measures","Category F — Price-control measures"],ans:2,exp:"Category A = SPS (Sanitary and Phytosanitary) measures. Category B = TBT (Technical Barriers to Trade). These are technical measures, as opposed to the non-technical categories D–O.",topic:"Trade Barriers"},
+    {q:"What type of EU trade agreement is specifically designed to support development of African, Caribbean, and Pacific countries?",opts:["Free Trade Agreements (FTAs)","Association Agreements (AAs)","Economic Partnership Agreements (EPAs)","Partnership and Cooperation Agreements (PCAs)"],ans:2,exp:"EPAs are tailored to support development of ACP countries. FTAs are for reciprocal market opening. AAs are for broader political relationships. PCAs are non-preferential, broader strategic frameworks.",topic:"Agreement Types"},
+    {q:"How does the EU characterise its relationship with China?",opts:["Exclusively as a strategic ally","As a partner, competitor, and systemic rival simultaneously","As a pure economic rival with no partnership dimension","As a neutral trading partner with no political dimension"],ans:1,exp:"The EU's official three-part characterisation of China is: partner for cooperation, economic competitor, and systemic rival. This nuanced framing explains why the EU pursues de-risking rather than decoupling.",topic:"China"},
+    {q:"Why did the EU–China Comprehensive Investment Agreement (CAI) stall?",opts:["The Commission refused to negotiate it","The European Council vetoed it by unanimity","China's sanctions against European officials led the EP to refuse further work; MEPs also raised Xinjiang and Hong Kong human rights concerns","The WTO ruled it incompatible with international trade law"],ans:2,exp:"After China sanctioned European officials, think tanks, and academics in 2021, the EP refused to continue. Human rights concerns about Xinjiang and Hong Kong also made ratification politically impossible for many MEPs.",topic:"China"},
+    {q:"What share of goods traded between the EU and Mercosur is the EU–Mercosur agreement intended to make tariff-free?",opts:["70–75%","80–85%","91–92%","99.9%"],ans:2,exp:"The EU–Mercosur agreement targets elimination of tariffs on 91–92% of goods over a 15-year period. The 99.9% figure applies to the EU–Chile agreement — a classic exam trap.",topic:"Mercosur"},
+    {q:"When did CETA (the EU–Canada trade agreement) enter into force provisionally?",opts:["21 September 2017","1 January 2021","29 February 2024","1 May 2026"],ans:0,exp:"CETA entered into force provisionally on 21 September 2017. Full entry into force requires ratification by all EU member states, which has not yet been completed.",topic:"Other Agreements"},
+    {q:"What is the legal rank of international agreements concluded by the EU within EU law?",opts:["They are equivalent to primary law (Treaties)","They rank below secondary legislation","They are sui generis — above secondary legislation but below primary law","They have no independent legal status in EU law"],ans:2,exp:"International agreements form a sui generis category — integral part of EU law, superior to secondary legislation (which must comply with them), but they do not amend the primary Treaties themselves.",topic:"Legal Status"},
+    {q:"Which article governs the procedure for negotiating and concluding international agreements by the EU?",opts:["Art. 207 TFEU","Art. 216 TFEU","Art. 218 TFEU","Art. 206 TFEU"],ans:2,exp:"Art. 218 TFEU sets out the procedural rules for negotiating, signing, and concluding international agreements. Art. 207 TFEU governs the substantive trade policy. Art. 216 TFEU addresses conditions for the EU's authority to conclude agreements.",topic:"Legal Basis"},
+    {q:"What is the EU's 'Everything But Arms' (EBA) scheme?",opts:["A defence procurement arrangement","Duty-free, quota-free access for least-developed countries on all products except weapons","A scheme giving EU arms manufacturers preferential export licences","A WTO arrangement eliminating all arms trade tariffs"],ans:1,exp:"EBA grants least-developed countries (many in Africa) duty-free, quota-free access to the EU internal market for all products except arms and ammunition — one of the most generous preferential trade schemes globally.",topic:"Other Agreements"},
+    {q:"Can a member state conclude its own trade agreement with a third country in the area of common commercial policy?",opts:["Yes, always — trade remains a shared competence","Yes, but only with Commission approval","No — common commercial policy is an exclusive EU competence; member states have no individual power to act","Yes, if the Council of the EU unanimously approves"],ans:2,exp:"Common commercial policy is an exclusive EU competence under Art. 3 TFEU. Member states cannot individually legislate or conclude trade agreements in this area, even with approval.",topic:"Legal Basis"},
+    {q:"The EU–Chile trade agreement (2024) is notable for granting the EU access to which critical raw materials?",opts:["Rare earth elements and cobalt","Lithium and copper","Uranium and manganese","Nickel and platinum"],ans:1,exp:"The 2024 EU–Chile agreement secures EU access to lithium (key for batteries/electric vehicles) and copper, both critical for the EU's green and digital transitions.",topic:"Other Agreements"},
+    {q:"Which of the following is NOT one of the five pillars of the EU's values-based trade approach?",opts:["Sustainability and Climate Action","Rules-Based Multilateralism","Free Capital Movement","Open Strategic Autonomy"],ans:2,exp:"The five pillars are: Sustainability and Climate Action; Human Rights and Labour Standards; Open Strategic Autonomy; Rules-Based Multilateralism; Fairness and Level Playing Field. Free capital movement is an internal market concept (four freedoms), not a trade policy pillar.",topic:"Values Policy"},
+  ],
+  sviii:[
+    {q:"What is the principle of decentralised enforcement in EU law?",opts:["The Commission enforces EU law directly in all member states through its own inspectors","The ECJ enforces EU law directly in national courts","Member states enforce EU law through their own national institutions and procedures","The European Parliament monitors compliance with EU law"],ans:2,exp:"Decentralised enforcement means member states use their own courts, agencies, and procedural rules to implement and enforce EU law. The EU does not have a centralised enforcement administration at the national level. Art. 291 para 1 TFEU and Art. 19 para 1 TEU are the relevant provisions.",topic:"Decentralised Enforcement"},
+    {q:"The principle of equivalence in EU procedural law means:",opts:["All EU member states must have identical procedural rules","EU law claims must be processed at least as favourably as comparable domestic claims","EU courts must apply the same procedures as national courts","National rules must be replaced by EU procedural rules"],ans:1,exp:"Equivalence means national procedures governing EU-based claims cannot be less favourable than those governing equivalent domestic claims. It is a non-discrimination requirement — not a requirement of identical rules across member states.",topic:"Procedural Autonomy"},
+    {q:"The principle of effectiveness as a limit on national procedural autonomy means:",opts:["National courts must process EU cases more quickly than domestic cases","National procedures must not make it impossible or excessively difficult to exercise EU rights","Member states must create special fast-track procedures for EU law claims","The EU must directly fund national enforcement procedures"],ans:1,exp:"The effectiveness principle (from Rewe Zentralfinanz) prevents national procedural rules from making EU rights practically unenforceable. If a rule makes it impossible or excessively difficult — e.g. an impossibly short limitation period — it must be set aside.",topic:"Procedural Autonomy"},
+    {q:"Which case established the principles of equivalence and effectiveness as limits on national procedural autonomy?",opts:["Costa v ENEL (1964)","Simmenthal (1978)","Rewe Zentralfinanz (1976)","Mangold (2010)"],ans:2,exp:"Rewe Zentralfinanz, Case 33/76, decided by the ECJ on 16 December 1976, is the foundational case for equivalence and effectiveness as limits on national procedural autonomy.",topic:"Procedural Autonomy"},
+    {q:"From the EU/ECJ perspective, EU law primacy means:",opts:["EU law prevails over national statutory law but not national constitutions","EU law prevails over all national law, including national constitutions","EU law applies only if expressly incorporated by member states","EU law prevails only in exclusive competence areas"],ans:1,exp:"The ECJ's position is that EU law has unconditional primacy over all national law, including constitutional provisions. Established in Costa v ENEL (1964) and Simmenthal (1978).",topic:"EU Primacy"},
+    {q:"What was the GFCC's key holding in Solange I (1974)?",opts:["The GFCC accepted full primacy of EU law over the German Basic Law","The GFCC would review EU law against German fundamental rights until equivalent EU-level protection existed","The GFCC declared the Treaties unconstitutional","The GFCC held that German courts could not ask the ECJ for preliminary rulings"],ans:1,exp:"In Solange I, the GFCC reserved the right to review Community law against the German fundamental rights standard, because Community law did not yet provide equivalent protection. This was a confrontational stance.",topic:"GFCC Cases"},
+    {q:"Why did the GFCC change its position in Solange II (1986)?",opts:["The German Basic Law was amended to accept full EU primacy","The ECJ had by then developed sufficient fundamental rights protection at EU level","A political agreement was reached between Germany and the EU institutions","The German government instructed the GFCC to defer to EU law"],ans:1,exp:"By 1986, the ECJ had developed a substantial body of fundamental rights case law, providing protection equivalent in substance to national standards. The GFCC therefore withdrew its review — 'as long as' that protection was maintained.",topic:"GFCC Cases"},
+    {q:"What are the two conditions the GFCC requires for ultra vires review (as stated in Mangold 2010)?",opts:["Any ECJ error in interpretation + national constitutional concerns","A manifest exceeding of powers + a structurally significant shift to the detriment of member states","A violation of fundamental rights + a written complaint from the German government","Unanimous agreement of all EU member states + referral from the Commission"],ans:1,exp:"The Mangold decision set a high bar: ultra vires review requires both (1) a manifest/obvious exceeding of powers and (2) that this causes a structurally significant shift to the detriment of member states. A mere misinterpretation is not enough.",topic:"GFCC Cases"},
+    {q:"What was remarkable about the GFCC's PSPP decision of May 2020?",opts:["It was the first time the GFCC declared a provision of the Treaties unconstitutional","It was the first time a national constitutional court found an ECJ ruling to be ultra vires","It required Germany to leave the eurozone","It annulled the ECB's government bond purchase programme"],ans:1,exp:"The PSPP decision (5 May 2020) was historically significant because it was the first time any national constitutional court directly ruled that an ECJ judgment exceeded the EU institutions' powers. It moved the GFCC's ultra vires doctrine from theoretical to operational.",topic:"GFCC Cases"},
+    {q:"What is the practical effect of EU law primacy on a conflicting national rule?",opts:["The national rule is permanently struck down and removed from the legal order","The national rule is disapplied (set aside) in the specific case but remains formally part of national law","The national parliament must immediately amend the conflicting rule","The Commission automatically initiates infringement proceedings"],ans:1,exp:"National courts do not invalidate conflicting national rules permanently. Instead, the national rule is disapplied (inapplicable) in the particular case involving EU law. The rule may remain in force but cannot be applied in EU law contexts.",topic:"EU Primacy"},
+    {q:"What is the significance of the Maastricht Decision (1993) of the GFCC?",opts:["The GFCC declared the Maastricht Treaty unconstitutional","The GFCC confirmed constitutionality but set limits on sovereign power transfers and introduced ultra vires review","The GFCC fully accepted unconditional EU law primacy for the first time","The GFCC held that EU law could override the German eternity clause"],ans:1,exp:"The GFCC confirmed Maastricht's constitutionality but introduced critical limits: constraints on further sovereignty transfers, the principle of ultra vires review, and the requirement that the Bundestag retain sufficient democratic powers.",topic:"GFCC Cases"},
+    {q:"A national limitation period requiring challenges to administrative decisions within one month — is this compatible with EU law?",opts:["No — EU law prohibits any limitation period","Possibly — if it applies equally to domestic and EU-based claims (equivalence) and does not make it practically impossible to claim EU rights (effectiveness)","No — national courts must always allow unlimited time for EU law claims","Yes — national procedural autonomy is unlimited"],ans:1,exp:"A limitation period is in principle compatible (legal certainty is a legitimate value) IF it satisfies both equivalence (not less favourable than equivalent domestic claims) and effectiveness (not so short it makes EU rights practically unenforceable).",topic:"Procedural Autonomy"},
+    {q:"Why is the GFCC's Solange doctrine called 'Solange' ('as long as')?",opts:["It refers to the duration of Germany's EU membership","Both Solange I and II are conditional — 'as long as' certain conditions are met, a particular review posture applies","It refers to the length of time the ECJ has jurisdiction","It is named after the judge who wrote the opinions"],ans:1,exp:"'Solange' = German for 'as long as.' Solange I: GFCC WILL review EU law as long as equivalent fundamental rights protection is absent at EU level. Solange II: GFCC will NOT review as long as adequate protection is generally guaranteed.",topic:"GFCC Cases"},
+    {q:"What did the Lisbon Decision (2009) of the GFCC contribute to the debate on integration limits?",opts:["It held that the Lisbon Treaty was unconstitutional","It identified areas of sovereignty so fundamental they cannot be transferred to the EU, linked to the German constitutional identity","It accepted unlimited EU law primacy for the first time","It abolished ultra vires review as incompatible with EU law"],ans:1,exp:"The Lisbon Decision confirmed the Treaty's constitutionality but identified unamendable constitutional core areas (linked to Art. 79 para 3 Basic Law — the eternity clause) that limit how far integration can go.",topic:"GFCC Cases"},
+    {q:"Which article of the TFEU establishes member states' obligation to implement EU law at national level?",opts:["Art. 288 TFEU","Art. 291 para 1 TFEU","Art. 267 TFEU","Art. 258 TFEU"],ans:1,exp:"Art. 291 para 1 TFEU: Member states shall adopt all national measures necessary to implement legally binding EU acts. Art. 19 para 1 TEU complements this by requiring effective legal remedies. Art. 267 covers preliminary rulings; Art. 258 covers infringement proceedings.",topic:"Decentralised Enforcement"},
+  ],
+  six:[
+    {q:"Which of the following is NOT an EU institution?",opts:["The European Commission","The Council of Europe","The European Central Bank","The Court of Auditors"],ans:1,exp:"The Council of Europe is a completely separate international organisation, predating the EU and encompassing 46 states. It is focused on human rights and runs the ECtHR. The other three are all official EU institutions listed in Art. 13 TEU.",topic:"EU Institutions"},
+    {q:"Which institution provides the EU with its general political direction and priorities but does NOT legislate?",opts:["The European Parliament","The European Commission","The European Council","The Council of the European Union"],ans:2,exp:"The European Council (Art. 15 TEU) — heads of state/government — defines political directions and priorities but is not vested with legislative functions. The EP and the Council of the EU legislate jointly; the Commission initiates legislation.",topic:"EU Institutions"},
+    {q:"Which EU institution has the monopoly on initiating legislation?",opts:["The European Parliament","The European Council","The Council of the European Union","The European Commission"],ans:3,exp:"Art. 17 para 2 TEU: Union legislative acts are adopted on the basis of a Commission proposal, unless the Treaties provide otherwise. Parliament and Council adopt legislation but do not normally initiate it.",topic:"Commission"},
+    {q:"What does 'progressive proportionality' in the allocation of EP seats mean?",opts:["Larger states receive fewer seats than their population warrants","All member states receive exactly the same number of seats","Larger states receive more seats but smaller states are proportionally over-represented relative to population","Seats are allocated randomly by the Council"],ans:2,exp:"Progressive proportionality means larger states get more seats overall, but smaller states receive more seats per capita than a pure population-based system. This protects meaningful representation for smaller member states.",topic:"EU Institutions"},
+    {q:"The Commission President and Commissioners serve:",opts:["The interests of their home member state","The interests of the Council of the EU","The general interest of the Union","The interests of the European Parliament"],ans:2,exp:"Art. 17 TEU: Commissioners must be independent and act in the general interest of the Union. They may not seek or take instructions from any government or other body.",topic:"Commission"},
+    {q:"Which five areas fall under the EU's EXCLUSIVE competence under Art. 3 para 1 TFEU?",opts:["Internal market, environment, transport, energy, agriculture","Customs union, competition, monetary union (€), marine biological resources, common commercial policy","Culture, education, tourism, civil protection, industry","Foreign policy, defence, security, immigration, taxation"],ans:1,exp:"Art. 3 para 1 TFEU lists: customs union; competition rules necessary for the internal market; monetary policy for euro area; conservation of marine biological resources under the fisheries policy; common commercial policy.",topic:"Competences"},
+    {q:"The ERTA doctrine (Art. 3 para 2 TFEU) means:",opts:["Member states can always conclude trade agreements if they notify the Commission","When the EU has adopted internal common rules, member states lose the right to enter international agreements affecting those rules","The Commission must approve all member state international agreements","Member states retain full external treaty-making power regardless of internal EU legislation"],ans:1,exp:"ERTA (Case 22/70): once the EU has adopted internal rules in a policy area, member states lose the power to conclude external agreements with third countries that would affect or alter those rules. External competence follows internal competence.",topic:"Competences"},
+    {q:"What is the key difference between shared and complementary EU competences?",opts:["In shared competences, the EU can replace national law; in complementary competences, the EU can only support/coordinate but not harmonise","Shared competences require unanimity; complementary competences require qualified majority","Complementary competences allow more EU action than shared competences","Shared competences are listed in Art. 6 TFEU; complementary in Art. 4 TFEU"],ans:0,exp:"In shared competences (Art. 4), the EU can legislate and displace member state rules through pre-emption. In complementary competences (Art. 6), the EU may only support, coordinate, or supplement member states — it cannot adopt harmonising legislation.",topic:"Competences"},
+    {q:"To which types of EU competence does the subsidiarity principle (Art. 5 para 3 TEU) apply?",opts:["Only exclusive competences","Only complementary competences","Both shared and complementary competences (all non-exclusive)","All competences including exclusive"],ans:2,exp:"Subsidiarity only applies where the EU does not have exclusive competence. In exclusive competences, only the EU can act — there is no subsidiarity question. Subsidiarity applies to shared and complementary competences.",topic:"Subsidiarity"},
+    {q:"Which of the following is a shared EU competence under Art. 4 TFEU?",opts:["Culture","Education","Environment","Common commercial policy"],ans:2,exp:"Environment is listed in Art. 4 para 2 TFEU as a shared competence. Culture and education are complementary competences (Art. 6). Common commercial policy is an exclusive competence (Art. 3).",topic:"Competences"},
+    {q:"The three proportionality steps under Art. 5 para 4 TEU are:",opts:["Subsidiarity, conferral, proportionality","Suitability, necessity, appropriateness","Legitimacy, effectiveness, equivalence","Competence, mandate, enforcement"],ans:1,exp:"EU proportionality has three elements: (1) suitability — the measure is right and sufficient; (2) necessity — it does not go further than needed; (3) appropriateness — balancing public interest against restrictions on rights.",topic:"Proportionality"},
+    {q:"How are CFSP decisions generally taken?",opts:["By qualified majority voting in the Council","By the European Parliament alone","Unanimously by the European Council or Council","By the Commission acting independently"],ans:2,exp:"CFSP decisions require unanimity to preserve member state sovereignty. This is what makes the CFSP structurally different from supranational legislative areas. Constructive abstention is allowed, but there is no majority voting in the normal sense.",topic:"CFSP"},
+    {q:"What is the difference between the CJEU and the ECtHR?",opts:["The CJEU enforces human rights; the ECtHR enforces trade law","The CJEU is an EU institution enforcing EU law; the ECtHR belongs to the Council of Europe and enforces the ECHR","They are the same court with different names","The ECtHR is an EU institution but has a narrower jurisdiction than the CJEU"],ans:1,exp:"The CJEU is one of the seven EU institutions, interpreting and applying EU law. The ECtHR is the court of the Council of Europe (a non-EU body), enforcing the European Convention on Human Rights. They are completely separate courts.",topic:"EU Institutions"},
+    {q:"What is 'constructive abstention' in CFSP?",opts:["A mechanism for the Commission to propose foreign policy measures","When the European Parliament declines to vote on a foreign policy issue","When a member state abstains in a CFSP vote without blocking the decision — the decision passes but the abstaining state need not implement it","When all member states agree to defer a CFSP decision to the Commission"],ans:2,exp:"Constructive abstention allows a member state to step aside without vetoing a CFSP decision. The decision is adopted and binds the participating states, but the abstaining state is not obliged to implement it.",topic:"CFSP"},
+    {q:"Agriculture falls under which category of EU competence — and what is the important exception?",opts:["Exclusive competence for all agricultural matters","Shared competence for agriculture generally, BUT conservation of marine biological resources under the common fisheries policy is EXCLUSIVE","Complementary competence — the EU can only support member states on agricultural issues","Agriculture is an intergovernmental matter outside the competence structure"],ans:1,exp:"Art. 4 para 2(d) places agriculture and fisheries under shared competence — EXCLUDING the conservation of marine biological resources, which Art. 3 para 1(d) makes exclusive. This split is a classic exam trap.",topic:"Competences"},
+    {q:"What does Art. 296 TFEU require?",opts:["All EU legislation must be published in the Official Journal","All EU acts must identify their legal basis (the Treaty provision conferring competence)","The Commission must consult national parliaments before proposing legislation","All EU acts require unanimous Council approval"],ans:1,exp:"Art. 296 TFEU requires every Union act to state the reasons on which it is based and refer to the Treaty provisions conferring competence. Without a valid legal basis, an act can be annulled.",topic:"Competences"},
+    {q:"Which of the following best describes the nature of the European Union?",opts:["A classic international organisation where member states retain full sovereignty","A federal state where member states have lost their sovereignty","A supranational organisation where member states have transferred sovereign powers to a new legal order","A confederation with no binding legal acts"],ans:2,exp:"The EU is supranational — member states remain sovereign states but have transferred sovereign powers. EU law can bind them directly (direct effect) and prevails over national law (primacy). This distinguishes it from both a classic international organisation and a federal state.",topic:"EU Institutions"},
+    {q:"Can the European Parliament normally initiate legislation?",opts:["Yes — it has a full right of legislative initiative equivalent to the Commission","No — the Commission holds the monopoly of legislative initiative; Parliament can request the Commission to propose but cannot initiate directly","Yes, but only in areas of exclusive EU competence","No — only the European Council can initiate legislation"],ans:1,exp:"Art. 17 para 2 TEU: legislative acts are adopted on the basis of a Commission proposal. The EP may ask the Commission to submit proposals (Art. 225 TFEU), but this does not bind the Commission. The Commission's monopoly of initiative is fundamental.",topic:"Commission"},
+    {q:"What role does the rotating Council presidency play?",opts:["The presidency state can veto any legislation during its term","The presidency plans and chairs Council meetings, represents the Council, conducts negotiations with other institutions, and acts as honest mediator","The presidency appoints the Commission President for its term","The presidency controls the European Parliament's legislative agenda"],ans:1,exp:"The rotating presidency is responsible for planning and coordinating Council work, chairing meetings, representing the Council in inter-institutional negotiations, and facilitating compromise. It has no special legislative veto or appointment powers.",topic:"EU Institutions"},
+    {q:"Which Treaty article governs the right of member states to enforce EU law through their own national procedures?",opts:["Art. 258 TFEU (infringement proceedings)","Art. 267 TFEU (preliminary rulings)","Art. 291 para 1 TFEU and Art. 19 para 1 TEU","Art. 296 TFEU (legal basis requirement)"],ans:2,exp:"Art. 291 para 1 TFEU obliges member states to adopt all necessary national measures to implement EU law. Art. 19 para 1 TEU requires member states to provide remedies sufficient for effective legal protection. These together form the decentralised enforcement framework.",topic:"Competences"},
+  ],
+
 };
 
 // ── Quiz engine with weak spots ──
@@ -3287,6 +4483,27 @@ function renderWeakSpots(prefix){
       'Legal Systems':'Review the rule of law 6 aspects',
       'EU History':'Go through the timeline in the summary',
       'Tax':'Review tax avoidance vs evasion distinction',
+      'Legal Basis':'Review Arts. 206-207 TFEU for trade; Art. 218 TFEU for procedure; Art. 3 TFEU for exclusive competence.',
+      'Trade Stats':'The EU is 2nd largest exporter (14%) and importer (12.9%). China leads exports at 18%, US leads imports at 16.4%.',
+      'Trade Barriers':'Tariff = customs duty (financial levy). NTM = any other measure. SPS = Category A, TBT = Category B.',
+      'Agreement Types':'EPA = ACP development. FTA = reciprocal opening. AA = broad political. PCA = non-preferential strategic.',
+      'Values Policy':'Five pillars: Sustainability/Climate, Human Rights/Labour, Open Strategic Autonomy, Rules-Based Multilateralism, Fairness.',
+      'China':'Triple characterisation: partner + competitor + systemic rival. Policy = de-risking not decoupling.',
+      'Mercosur':'91-92% tariff elimination over 15 years. Provisional from 1 May 2026. Note: 99.9% is Chile, not Mercosur.',
+      'Other Agreements':'CETA provisional since 2017 (not fully in force). Chile 99.9% tariff-free + lithium/copper. India Jan 2026.',
+      'Legal Status':'International agreements = sui generis: above secondary law, below primary law (Treaties). Can have direct effect.',
+      'Decentralised Enforcement':'Art. 291 para 1 TFEU + Art. 19 para 1 TEU. Member states enforce using national procedures.',
+      'Procedural Autonomy':'Two limits: equivalence (not less favourable than domestic claims) + effectiveness (not impossible in practice). Rewe Zentralfinanz Case 33/76.',
+      'EU Primacy':'ECJ: absolute primacy over all national law including constitutions. Established in Costa v ENEL (1964) and Simmenthal (1978).',
+      'GFCC Cases':'Use the GFCC Timeline tab: Solange I (1974, confrontational) → Solange II (1986, cooperative) → Maastricht → Lisbon → Mangold → PSPP.',
+      'Constitutional Identity':'Integration-proof core: Art. 79 para 3 Basic Law (eternity clause) protects fundamental rights, democracy, federal structure.',
+      'EU Institutions':'Seven institutions: EP, European Council, Council of EU, Commission, CJEU, ECB, Court of Auditors. Art. 13 TEU.',
+      'Three Councils':'Council of Europe (NOT EU, 46 states, ECtHR, ECHR) vs European Council (EU, heads of state, political direction, NO legislation) vs Council of EU (EU, ministers, co-legislates).',
+      'Commission':'Monopoly of legislative initiative (Art. 17 para 2 TEU). Guardian of Treaties. Commissioners serve Union, not home state.',
+      'Competences':'Art. 3 = exclusive (5 areas incl. CCP, customs, competition, monetary, marine resources). Art. 4 = shared (catch-all). Art. 6 = complementary (support only, no harmonisation).',
+      'Subsidiarity':'Art. 5 para 3 TEU. ONLY applies to non-exclusive competences. Does NOT apply to exclusive competences.',
+      'Proportionality':'Art. 5 para 4 TEU. Three steps: suitability, necessity, appropriateness.',
+      'CFSP':'Arts. 21-46 TEU. Intergovernmental, not supranational. Unanimity required. Constructive abstention possible. High Rep: Kaja Kallas.',
     };
     html+='<div class="weak-item"><span class="weak-item-icon">⚠️</span><div><div class="weak-item-text">'+t+'</div><div class="weak-item-tip">'+(tips[t]||'Review this topic in the summary and flashcards')+'</div></div></div>';
   });
@@ -4429,6 +5646,66 @@ function renderMacroWeakSpots(prefix){
   ws.innerHTML=html;
 }
 function restartMacroQuiz(prefix){initMacroQuiz(prefix);}
+
+// ── Session VII Timeline ──
+const sviiEvents=[
+  {year:'1947',label:'GATT — General Agreement on Tariffs and Trade',detail:'The foundational multilateral trade framework, created to reduce tariffs and promote free trade after WWII. Predecessor to the WTO.',color:'var(--eu)'},
+  {year:'1957',label:'Treaty of Rome — Common Commercial Policy born',detail:'The Treaty of Rome (founding the EEC) establishes the common commercial policy as an exclusive Community competence — a core pillar of European integration from the very start.',color:'var(--eu)'},
+  {year:'1995',label:'WTO established',detail:'The World Trade Organisation replaces GATT. The EU is a founding member and uses the WTO as the backbone of rules-based multilateralism in its trade policy.',color:'var(--micro)'},
+  {year:'2009',label:'Lisbon Treaty — EP becomes co-legislator on trade',detail:'Before Lisbon, the European Parliament played a limited role. After Lisbon (Art. 218 TFEU), the EP must consent to all trade agreements — a major democratic shift.',color:'var(--eu)'},
+  {year:'2017 (Sep 21)',label:'CETA provisionally enters into force',detail:'The Comprehensive Economic and Trade Agreement between the EU and Canada enters into provisional force. Full force still pending ratification by all EU member states.',color:'var(--micro)'},
+  {year:'2020',label:'EU–China CAI negotiations concluded in principle',detail:'After 7 years, the EU and China conclude negotiations on the Comprehensive Investment Agreement in principle. Also, the EU and China agree on protection of geographical designations.',color:'var(--macro)'},
+  {year:'2021',label:'China sanctions Europeans — CAI ratification blocked',detail:'China sanctions European officials, think tanks, and academics. The European Parliament refuses to advance the CAI. Human rights concerns about Xinjiang and Hong Kong make ratification politically impossible.',color:'var(--ic)'},
+  {year:'2024 (Feb 29)',label:'EU–Chile trade agreement signed',detail:'99.9% of EU exports to Chile become tariff-free. Secures EU access to lithium and copper — critical for green transition. Expected to increase EU exports by up to €4.5bn.',color:'var(--micro)'},
+  {year:'2025 (Jan)',label:'EU–Mexico revised agreement',detail:'Mexico lifts almost all tariffs on EU goods under a revised trade agreement.',color:'var(--micro)'},
+  {year:'2025 (Dec)',label:'EU–Mercosur safeguard mechanisms strengthened',detail:'Strengthened safeguard mechanisms added to the EU–Mercosur deal, allowing the EU to rapidly suspend tariff preferences if imports harm EU farmers.',color:'var(--macro)'},
+  {year:'2026 (Jan 27)',label:'EU–India major trade agreement announced',detail:'A landmark agreement announced between the EU and India, intended to eliminate or reduce tariffs in many areas — the most significant EU–India trade development to date.',color:'var(--eu)'},
+  {year:'2026 (May 1)',label:'EU–Mercosur provisional application begins',detail:'One of the world\'s largest free-trade zones enters provisional application. Eliminates tariffs on 91–92% of goods over 15 years. Undergoing ECJ scrutiny and EP final approval.',color:'var(--eu)'},
+];
+function initSviiTimeline(){
+  const tl=document.getElementById('svii-tl');if(!tl)return;
+  tl.innerHTML='';
+  sviiEvents.forEach(e=>{
+    const div=document.createElement('div');div.className='tl-item';
+    div.innerHTML=`<div class="tl-dot" style="color:${e.color}"></div>
+      <div class="tl-year">${e.year}</div>
+      <div class="tl-card" onclick="toggleTl(this)">
+        <div class="tl-title">${e.label}</div>
+        <div class="tl-toggle">+ Show details</div>
+        <div class="tl-body">${e.detail}</div>
+      </div>`;
+    tl.appendChild(div);
+  });
+}
+
+// ── Session VIII (GFCC) Timeline ──
+const sviiiEvents=[
+  {year:'1964',label:'Costa v ENEL — EU primacy established',detail:"ECJ establishes that EEC law takes precedence over conflicting national law — including national constitutions. This is the ECJ's unconditional position.",color:'var(--eu)'},
+  {year:'1974 (May 29)',label:'Solange I — GFCC confronts EU law',detail:"GFCC reserves the right to review Community law against the standard of German fundamental rights. 'As long as' Community law lacks equivalent protection, German review is warranted. Confrontational posture.",color:'var(--ic)'},
+  {year:'1976 (Dec 16)',label:'Rewe Zentralfinanz — Equivalence & Effectiveness',detail:'ECJ establishes that national procedural autonomy is subject to two limits: equivalence (EU claims treated no worse than domestic) and effectiveness (EU rights must be practically exercisable). Case 33/76.',color:'var(--micro)'},
+  {year:'1978',label:'Simmenthal — Courts must disapply national law',detail:'ECJ tells national courts exactly what to do when national law conflicts with EU law: immediately disapply it — no waiting, no referral to national constitutional court required.',color:'var(--eu)'},
+  {year:'1986 (Oct 22)',label:'Solange II — GFCC withdraws review',detail:"By 1986 the ECJ has built substantial fundamental rights jurisprudence. The GFCC switches to a cooperative posture: 'as long as' EU-level protection is generally guaranteed, the GFCC will not review. Major shift.",color:'var(--micro)'},
+  {year:'1993 (Oct 12)',label:'Maastricht Decision — Ultra vires introduced',detail:"GFCC confirms Maastricht Treaty's constitutionality but introduces ultra vires review. EU institutions must stay within conferred powers. Sets limits on sovereignty transfer. Stresses Bundestag's democratic role.",color:'var(--macro)'},
+  {year:'2009 (Jun 30)',label:'Lisbon Decision — Integration-proof core',detail:'GFCC confirms Lisbon Treaty is constitutional but identifies areas linked to the eternity clause (Art. 79 para 3 Basic Law) that cannot be surrendered. Reaffirms democratic accountability requirements.',color:'var(--macro)'},
+  {year:'2010 (Jul 6)',label:'Mangold — Ultra vires threshold defined',detail:'GFCC confirms ultra vires review is available but sets a very high bar: (1) manifest exceeding of powers AND (2) structurally significant shift to the detriment of member states. A mere misinterpretation is not sufficient.',color:'var(--macro)'},
+  {year:'2020 (May 5)',label:'PSPP — First actual ultra vires ruling',detail:"GFCC rules the ECJ exceeded its powers by failing to adequately scrutinise the ECB's government bond purchase programme (QE). ECJ's proportionality review found 'methodologically not tenable.' First time any national court directly ruled an ECJ judgment ultra vires — creates open confrontation.",color:'var(--ic)'},
+];
+function initSviiiTimeline(){
+  const tl=document.getElementById('sviii-tl');if(!tl)return;
+  tl.innerHTML='';
+  sviiiEvents.forEach(e=>{
+    const div=document.createElement('div');div.className='tl-item';
+    div.innerHTML=`<div class="tl-dot" style="color:${e.color}"></div>
+      <div class="tl-year">${e.year}</div>
+      <div class="tl-card" onclick="toggleTl(this)">
+        <div class="tl-title">${e.label}</div>
+        <div class="tl-toggle">+ Show details</div>
+        <div class="tl-body">${e.detail}</div>
+      </div>`;
+    tl.appendChild(div);
+  });
+}
+
 </script>
 </body>
 </html>
