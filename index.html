@@ -320,6 +320,64 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
 .ep-search:focus{border-color:var(--eu)}
 .ep-search-ico{position:absolute;left:11px;top:50%;transform:translateY(-50%);font-size:13px;color:var(--text3)}
 
+
+/* ── Enlargement Game ── */
+.epg-tabs{display:flex;gap:6px;margin-bottom:20px}
+.epg-tab{border:1px solid var(--border);background:var(--surface);color:var(--text2);padding:8px 18px;border-radius:8px;font-size:13px;cursor:pointer;transition:all .15s;font-family:var(--sans)}
+.epg-tab:hover{border-color:var(--border2);color:var(--text)}
+.epg-tab.active{background:var(--eu);border-color:var(--eu);color:#fff;font-weight:500}
+.epg-instructions{font-size:13px;color:var(--text2);background:var(--eu-l);border:1px solid var(--eu-m);border-radius:8px;padding:10px 14px;margin-bottom:16px;line-height:1.5}
+.epg-drag-layout{display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap}
+.epg-pool-wrap{flex-shrink:0;width:200px}
+.epg-pool-label{font-size:10px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--text3);margin-bottom:8px}
+.epg-pool{display:flex;flex-direction:column;gap:6px;min-height:60px;padding:8px;border:1px dashed var(--border2);border-radius:8px;background:var(--surface2)}
+.epg-timeline-wrap{flex:1;min-width:300px}
+.epg-timeline{display:flex;flex-direction:column;gap:10px}
+.epg-wave{border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--surface);overflow:hidden}
+.epg-wave-header{padding:8px 14px;display:flex;align-items:center;gap:10px;font-size:12px;font-weight:600;border-bottom:1px solid var(--border)}
+.epg-wave-year{font-family:var(--serif);font-size:1.1rem;color:var(--text)}
+.epg-wave-name{color:var(--text2);font-weight:400;font-size:11px}
+.epg-wave-count{margin-left:auto;font-size:11px;color:var(--text3)}
+.epg-drop-zone{display:flex;flex-wrap:wrap;gap:6px;padding:10px;min-height:44px;transition:background .15s}
+.epg-drop-zone.drag-over{background:var(--eu-l);border-radius:0 0 var(--radius-sm) var(--radius-sm)}
+.epg-card{display:inline-flex;align-items:center;padding:5px 11px;border-radius:6px;font-size:12.5px;font-weight:500;cursor:grab;user-select:none;border:1px solid;transition:all .18s;white-space:nowrap}
+.epg-card:active{cursor:grabbing;transform:scale(1.04);box-shadow:var(--shadow-md)}
+.epg-card.correct{opacity:.7;cursor:default;pointer-events:none}
+.epg-card.wrong-shake{animation:epgShake .35s ease}
+@keyframes epgShake{0%,100%{transform:translateX(0)}20%{transform:translateX(-7px)}40%{transform:translateX(7px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
+.epg-drag-footer{display:flex;justify-content:space-between;align-items:center;margin-top:14px;flex-wrap:wrap;gap:10px}
+.epg-score-row{display:flex;gap:8px;flex-wrap:wrap}
+.epg-score-chip{font-size:12px;color:var(--text2);background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:4px 10px}
+.epg-reset-btn{border:1px solid var(--border);background:var(--surface);color:var(--text2);padding:7px 16px;border-radius:8px;font-size:12.5px;cursor:pointer;font-family:var(--sans);transition:all .15s}
+.epg-reset-btn:hover{border-color:var(--eu);color:var(--eu)}
+/* Type game */
+.epg-type-progress-row{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.epg-type-wave-label{font-family:var(--serif);font-size:1.1rem;color:var(--text);white-space:nowrap}
+.epg-type-prog-bar{flex:1;height:6px;background:var(--border);border-radius:3px;overflow:hidden}
+.epg-type-prog-fill{height:100%;background:linear-gradient(90deg,var(--eu),var(--micro));border-radius:3px;transition:width .4s ease;width:0%}
+.epg-type-prompt{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:14px 18px;margin-bottom:14px;font-size:13.5px;color:var(--text);line-height:1.55}
+.epg-type-prompt strong{color:var(--eu);font-family:var(--serif);font-size:1.15rem}
+.epg-type-slots{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:14px;min-height:36px}
+.epgt-slot{display:inline-flex;align-items:center;padding:5px 12px;border-radius:6px;font-size:12.5px;border:1px dashed var(--border2);background:var(--surface2);color:var(--text3);transition:all .25s}
+.epgt-slot.filled{border-style:solid;font-weight:500}
+.epgt-slot.filled-correct{background:var(--micro-l);border-color:var(--micro);color:var(--micro)}
+.epgt-slot.filled-wrong{background:var(--ic-l);border-color:var(--ic);color:var(--ic)}
+.epg-type-input-row{display:flex;gap:8px;margin-bottom:10px}
+.epgt-input{flex:1;background:var(--surface);border:1px solid var(--border);color:var(--text);padding:9px 14px;border-radius:8px;font-size:14px;font-family:var(--sans);outline:none;transition:border-color .15s;box-shadow:var(--shadow)}
+.epgt-input:focus{border-color:var(--eu)}
+.epgt-hint-btn{border:1px solid var(--border);background:var(--surface);color:var(--text3);padding:9px 14px;border-radius:8px;font-size:13px;cursor:pointer;transition:all .15s;font-family:var(--sans);white-space:nowrap}
+.epgt-hint-btn:hover{border-color:var(--macro);color:var(--macro)}
+.epgt-feedback{font-size:13px;min-height:20px;margin-bottom:6px;font-weight:500;transition:all .2s}
+.epgt-feedback.ok{color:var(--micro)}
+.epgt-feedback.err{color:var(--ic)}
+.epgt-feedback.hint{color:var(--macro)}
+.epgt-already{font-size:12px;color:var(--text3);min-height:18px;margin-bottom:10px}
+.epg-type-footer{display:flex;justify-content:space-between;align-items:center;margin-top:8px;flex-wrap:wrap;gap:8px}
+.epgt-done{text-align:center;padding:32px 0}
+.epgt-done-icon{font-size:2.5rem;margin-bottom:8px}
+.epgt-done-title{font-family:var(--serif);font-size:1.6rem;margin-bottom:6px}
+.epgt-done-sub{font-size:13.5px;color:var(--text2)}
+
 </style>
 </head>
 <body>
@@ -3860,6 +3918,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
   <div class="ep-mode-row">
     <button class="ep-mode-btn active" id="ep-btn-flash" onclick="epSetMode('flash')">⟳ Flashcards</button>
     <button class="ep-mode-btn" id="ep-btn-browse" onclick="epSetMode('browse')">☰ Browse All</button>
+    <button class="ep-mode-btn" id="ep-btn-game" onclick="epSetMode('game')">🗺️ Enlargement Game</button>
     <button class="ep-shuffle" onclick="epShuffle()">⇄ Shuffle</button>
   </div>
 
@@ -3913,6 +3972,65 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
       <div class="ep-done-chip"><div class="val" style="color:var(--ic)" id="ep-ds-again">0</div><div class="lbl">Again</div></div>
     </div>
     <button class="ep-restart" onclick="epRestart()">Restart Session</button>
+  </div>
+
+  <!-- ENLARGEMENT GAME VIEW -->
+  <div id="ep-game-view" style="display:none">
+    <div class="epg-tabs">
+      <button class="epg-tab active" id="epg-tab-drag" onclick="epgSetTab('drag')">🧩 Drag to Timeline</button>
+      <button class="epg-tab" id="epg-tab-type" onclick="epgSetTab('type')">⌨️ Type the Order</button>
+    </div>
+
+    <!-- DRAG GAME -->
+    <div id="epg-drag">
+      <div class="epg-instructions">Drag each country card to its correct enlargement wave. All cards must be placed to complete the round.</div>
+      <div class="epg-drag-layout">
+        <div class="epg-pool-wrap">
+          <div class="epg-pool-label">Country Cards</div>
+          <div class="epg-pool" id="epg-pool"></div>
+        </div>
+        <div class="epg-timeline-wrap">
+          <div class="epg-timeline" id="epg-timeline"></div>
+        </div>
+      </div>
+      <div class="epg-drag-footer">
+        <div class="epg-score-row">
+          <span class="epg-score-chip">✅ <span id="epg-correct">0</span> correct</span>
+          <span class="epg-score-chip">❌ <span id="epg-wrong">0</span> wrong</span>
+          <span class="epg-score-chip">📌 <span id="epg-remaining">0</span> remaining</span>
+        </div>
+        <button class="epg-reset-btn" onclick="epgInitDrag()">↺ Reset</button>
+      </div>
+    </div>
+
+    <!-- TYPE GAME -->
+    <div id="epg-type" style="display:none">
+      <div class="epg-type-progress-row">
+        <div class="epg-type-wave-label" id="epgt-wave-label"></div>
+        <div class="epg-type-prog-bar"><div class="epg-type-prog-fill" id="epgt-prog-fill"></div></div>
+      </div>
+      <div class="epg-type-prompt" id="epgt-prompt"></div>
+      <div class="epg-type-slots" id="epgt-slots"></div>
+      <div class="epg-type-input-row">
+        <input class="epgt-input" id="epgt-input" placeholder="Type a country name and press Enter…" autocomplete="off" onkeydown="epgtHandleKey(event)" />
+        <button class="epgt-hint-btn" onclick="epgtHint()">💡 Hint</button>
+      </div>
+      <div class="epgt-feedback" id="epgt-feedback"></div>
+      <div class="epgt-already" id="epgt-already"></div>
+      <div class="epg-type-footer">
+        <div class="epg-score-row">
+          <span class="epg-score-chip">✅ <span id="epgt-correct">0</span></span>
+          <span class="epg-score-chip">❌ <span id="epgt-wrong">0</span></span>
+        </div>
+        <button class="epg-reset-btn" onclick="epgtInit()">↺ Restart</button>
+      </div>
+      <div class="epgt-done" id="epgt-done" style="display:none">
+        <div class="epgt-done-icon">🏆</div>
+        <div class="epgt-done-title">All waves complete!</div>
+        <div class="epgt-done-sub" id="epgt-done-sub"></div>
+        <button class="epg-reset-btn" onclick="epgtInit()" style="margin-top:12px">Play Again</button>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -6322,6 +6440,420 @@ showPage = function(id, btn){
   _origShowPage(id, btn);
   if(id === 'exam-prep') epInit();
 };
+
+
+
+// ══════════════════════════════════════════
+// ENLARGEMENT GAME
+// ══════════════════════════════════════════
+const EPG_WAVES = [
+  {
+    year: "1957 / 1958",
+    name: "Founding Six",
+    color: "#2d5a9e", bg: "var(--eu-l)", border: "var(--eu-m)",
+    countries: ["Belgium","France","Germany","Italy","Luxembourg","Netherlands"]
+  },
+  {
+    year: "1973",
+    name: "First Enlargement",
+    color: "#1a7a5e", bg: "var(--micro-l)", border: "var(--micro-m)",
+    countries: ["Denmark","Ireland","United Kingdom"]
+  },
+  {
+    year: "1981",
+    name: "Southern Enlargement I",
+    color: "#8a5c00", bg: "var(--macro-l)", border: "var(--macro-m)",
+    countries: ["Greece"]
+  },
+  {
+    year: "1986",
+    name: "Southern Enlargement II",
+    color: "#7a2d6e", bg: "var(--ibt-l)", border: "var(--ibt-m)",
+    countries: ["Portugal","Spain"]
+  },
+  {
+    year: "1995",
+    name: "EFTA Enlargement",
+    color: "#5a7a2e", bg: "#edf4e0", border: "#c5e09a",
+    countries: ["Austria","Finland","Sweden"]
+  },
+  {
+    year: "2004",
+    name: "Eastern Enlargement",
+    color: "#9c3520", bg: "var(--ic-l)", border: "var(--ic-m)",
+    countries: ["Cyprus","Czech Republic","Estonia","Hungary","Latvia","Lithuania","Malta","Poland","Slovakia","Slovenia"]
+  },
+  {
+    year: "2007",
+    name: "Further Eastern Enlargement",
+    color: "#4a4a8a", bg: "#eeeef8", border: "#c0c0e8",
+    countries: ["Bulgaria","Romania"]
+  },
+  {
+    year: "2013",
+    name: "Most Recent Accession",
+    color: "#6a3a00", bg: "#f8f0e8", border: "#e0c090",
+    countries: ["Croatia"]
+  }
+];
+
+// ── SHARED HELPERS ──
+function epgSetTab(tab) {
+  ['drag','type'].forEach(t => {
+    document.getElementById('epg-'+t).style.display = t===tab ? 'block' : 'none';
+    document.getElementById('epg-tab-'+t).classList.toggle('active', t===tab);
+  });
+  if(tab==='drag') epgInitDrag();
+  if(tab==='type') epgtInit();
+}
+
+// ═══════════════════════════
+// DRAG GAME
+// ═══════════════════════════
+let epgDragSrc = null;
+let epgCorrectCount = 0;
+let epgWrongCount = 0;
+
+function epgInitDrag() {
+  epgCorrectCount = 0;
+  epgWrongCount = 0;
+  epgUpdateDragScore();
+
+  // Build pool — shuffle all countries
+  const allCountries = EPG_WAVES.flatMap(w => w.countries);
+  const shuffled = [...allCountries].sort(() => Math.random() - 0.5);
+
+  const pool = document.getElementById('epg-pool');
+  if(!pool) return;
+  pool.innerHTML = '';
+  shuffled.forEach(c => {
+    pool.appendChild(epgMakeCard(c));
+  });
+
+  // Build timeline slots
+  const tl = document.getElementById('epg-timeline');
+  if(!tl) return;
+  tl.innerHTML = '';
+  EPG_WAVES.forEach((wave, wi) => {
+    const waveEl = document.createElement('div');
+    waveEl.className = 'epg-wave';
+
+    const header = document.createElement('div');
+    header.className = 'epg-wave-header';
+    header.style.borderLeft = '3px solid '+wave.color;
+    header.innerHTML = '<span class="epg-wave-year">'+wave.year+'</span>'
+      +'<span class="epg-wave-name">'+wave.name+'</span>'
+      +'<span class="epg-wave-count">'+wave.countries.length+' countr'+(wave.countries.length===1?'y':'ies')+'</span>';
+
+    const dropZone = document.createElement('div');
+    dropZone.className = 'epg-drop-zone';
+    dropZone.dataset.waveIndex = wi;
+    dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('drag-over'); });
+    dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag-over'));
+    dropZone.addEventListener('drop', e => { e.preventDefault(); dropZone.classList.remove('drag-over'); epgHandleDrop(dropZone, wi); });
+
+    waveEl.appendChild(header);
+    waveEl.appendChild(dropZone);
+    tl.appendChild(waveEl);
+  });
+
+  epgUpdateDragScore();
+}
+
+function epgMakeCard(country) {
+  const el = document.createElement('div');
+  el.className = 'epg-card';
+  el.textContent = country;
+  el.draggable = true;
+  // Neutral styling
+  el.style.background = 'var(--surface)';
+  el.style.borderColor = 'var(--border2)';
+  el.style.color = 'var(--text)';
+  el.dataset.country = country;
+  el.addEventListener('dragstart', () => { epgDragSrc = country; el.style.opacity = '0.5'; });
+  el.addEventListener('dragend', () => { el.style.opacity = '1'; });
+  return el;
+}
+
+function epgHandleDrop(dropZone, waveIndex) {
+  if(!epgDragSrc) return;
+  const wave = EPG_WAVES[waveIndex];
+  const isCorrect = wave.countries.includes(epgDragSrc);
+
+  // Find the card in DOM
+  const allCards = document.querySelectorAll('.epg-card');
+  let srcCard = null;
+  allCards.forEach(c => { if(c.dataset.country === epgDragSrc && !c.classList.contains('correct')) srcCard = c; });
+  if(!srcCard) { epgDragSrc = null; return; }
+
+  if(isCorrect) {
+    epgCorrectCount++;
+    // Style as correct
+    srcCard.classList.add('correct');
+    srcCard.style.background = wave.bg;
+    srcCard.style.borderColor = wave.border || wave.color;
+    srcCard.style.color = wave.color;
+    srcCard.style.opacity = '1';
+    srcCard.draggable = false;
+    // Move card to drop zone
+    dropZone.appendChild(srcCard);
+  } else {
+    epgWrongCount++;
+    // Shake and return
+    srcCard.classList.add('wrong-shake');
+    setTimeout(() => srcCard.classList.remove('wrong-shake'), 400);
+  }
+
+  epgDragSrc = null;
+  epgUpdateDragScore();
+}
+
+function epgUpdateDragScore() {
+  const total = EPG_WAVES.flatMap(w=>w.countries).length;
+  const el_c = document.getElementById('epg-correct');
+  const el_w = document.getElementById('epg-wrong');
+  const el_r = document.getElementById('epg-remaining');
+  if(el_c) el_c.textContent = epgCorrectCount;
+  if(el_w) el_w.textContent = epgWrongCount;
+  if(el_r) el_r.textContent = total - epgCorrectCount;
+}
+
+// ═══════════════════════════
+// TYPE GAME
+// ═══════════════════════════
+let epgtWaveIdx = 0;
+let epgtAnswered = [];  // booleans for current wave slots
+let epgtTyped = [];     // which countries entered this wave
+let epgtCorrect = 0;
+let epgtWrong = 0;
+let epgtHintUsed = false;
+
+function epgtInit() {
+  epgtWaveIdx = 0;
+  epgtCorrect = 0;
+  epgtWrong = 0;
+  document.getElementById('epgt-done').style.display = 'none';
+  const inputRow = document.querySelector('.epg-type-input-row');
+  if(inputRow) inputRow.style.display = 'flex';
+  const footer = document.querySelector('.epg-type-footer');
+  if(footer) footer.style.display = 'flex';
+  epgtLoadWave();
+}
+
+function epgtLoadWave() {
+  const wave = EPG_WAVES[epgtWaveIdx];
+  epgtAnswered = wave.countries.map(() => false);
+  epgtTyped = [];
+  epgtHintUsed = false;
+
+  // Progress bar
+  const fill = document.getElementById('epgt-prog-fill');
+  if(fill) fill.style.width = (epgtWaveIdx / EPG_WAVES.length * 100) + '%';
+
+  // Wave label
+  const lbl = document.getElementById('epgt-wave-label');
+  if(lbl) lbl.textContent = wave.year + ' — ' + wave.name;
+
+  // Prompt
+  const prompt = document.getElementById('epgt-prompt');
+  if(prompt) prompt.innerHTML = 'Name all <strong>'+wave.countries.length+'</strong> countr'+(wave.countries.length===1?'y':'ies')+' that joined in <strong>'+wave.year+'</strong>';
+
+  // Slots
+  epgtRenderSlots();
+
+  // Clear input/feedback
+  const inp = document.getElementById('epgt-input');
+  if(inp) { inp.value = ''; inp.focus(); }
+  epgtSetFeedback('', '');
+  const already = document.getElementById('epgt-already');
+  if(already) already.textContent = '';
+
+  epgtUpdateScore();
+}
+
+function epgtRenderSlots() {
+  const wave = EPG_WAVES[epgtWaveIdx];
+  const container = document.getElementById('epgt-slots');
+  if(!container) return;
+  container.innerHTML = '';
+  wave.countries.forEach((c, i) => {
+    const slot = document.createElement('div');
+    slot.className = 'epgt-slot' + (epgtAnswered[i] ? ' filled filled-correct' : '');
+    slot.id = 'epgt-slot-'+i;
+    slot.style.borderColor = epgtAnswered[i] ? EPG_WAVES[epgtWaveIdx].color : '';
+    slot.style.color = epgtAnswered[i] ? EPG_WAVES[epgtWaveIdx].color : '';
+    slot.style.background = epgtAnswered[i] ? EPG_WAVES[epgtWaveIdx].bg : '';
+    slot.textContent = epgtAnswered[i] ? c : (i+1)+'.';
+    container.appendChild(slot);
+  });
+}
+
+function epgtNormalise(s) {
+  return s.toLowerCase()
+    .replace(/[^a-z ]/g,'')
+    .replace(/\s+/g,' ')
+    .trim();
+}
+
+function epgtFuzzyMatch(input, country) {
+  const a = epgtNormalise(input);
+  const b = epgtNormalise(country);
+  if(a === b) return true;
+  // Allow common abbreviations and alternate names
+  const aliases = {
+    'czech republic': ['czechia','czech rep','czech'],
+    'netherlands': ['the netherlands','holland'],
+    'united kingdom': ['uk','great britain','britain'],
+    'west germany': ['germany'],
+    'germany': ['west germany','germany'],
+  };
+  for(const [canonical, alts] of Object.entries(aliases)) {
+    if(epgtNormalise(country) === canonical && alts.includes(a)) return true;
+  }
+  // Fuzzy: allow 1-2 char levenshtein distance for longer names
+  if(b.length >= 5 && epgtLevenshtein(a, b) <= 2) return true;
+  return false;
+}
+
+function epgtLevenshtein(a, b) {
+  const m = a.length, n = b.length;
+  const dp = Array.from({length:m+1}, (_,i) => Array.from({length:n+1}, (_,j) => i===0?j:j===0?i:0));
+  for(let i=1;i<=m;i++) for(let j=1;j<=n;j++)
+    dp[i][j] = a[i-1]===b[j-1] ? dp[i-1][j-1] : 1+Math.min(dp[i-1][j],dp[i][j-1],dp[i-1][j-1]);
+  return dp[m][n];
+}
+
+function epgtHandleKey(e) {
+  if(e.key === 'Enter') {
+    const inp = document.getElementById('epgt-input');
+    if(!inp) return;
+    const val = inp.value.trim();
+    if(!val) return;
+    epgtSubmit(val);
+    inp.value = '';
+  }
+}
+
+function epgtSubmit(val) {
+  const wave = EPG_WAVES[epgtWaveIdx];
+
+  // Check if already entered
+  if(epgtTyped.includes(epgtNormalise(val))) {
+    epgtSetFeedback('Already entered!', 'hint');
+    return;
+  }
+
+  // Try to match
+  let matchIdx = -1;
+  wave.countries.forEach((c, i) => {
+    if(!epgtAnswered[i] && epgtFuzzyMatch(val, c)) matchIdx = i;
+  });
+
+  if(matchIdx >= 0) {
+    epgtAnswered[matchIdx] = true;
+    epgtTyped.push(epgtNormalise(val));
+    epgtCorrect++;
+    const actual = wave.countries[matchIdx];
+    const matched = epgtNormalise(val) === epgtNormalise(actual);
+    epgtSetFeedback(matched ? '✓ '+actual : '✓ Close enough — '+actual, 'ok');
+    epgtRenderSlots();
+    epgtUpdateScore();
+
+    // Check if wave complete
+    if(epgtAnswered.every(Boolean)) {
+      setTimeout(() => epgtNextWave(), 700);
+    }
+  } else {
+    // Wrong guess — was it a country from a different wave?
+    const allCountries = EPG_WAVES.flatMap(w => w.countries);
+    const wrongMatch = allCountries.find(c => epgtFuzzyMatch(val, c));
+    if(wrongMatch) {
+      epgtWrong++;
+      epgtSetFeedback('✗ '+wrongMatch+' is in a different wave!', 'err');
+    } else {
+      epgtWrong++;
+      epgtSetFeedback('✗ Not a recognised EU country name', 'err');
+    }
+    epgtUpdateScore();
+  }
+}
+
+function epgtNextWave() {
+  epgtWaveIdx++;
+  if(epgtWaveIdx >= EPG_WAVES.length) {
+    epgtShowDone();
+    return;
+  }
+  // Progress bar
+  const fill = document.getElementById('epgt-prog-fill');
+  if(fill) fill.style.width = (epgtWaveIdx / EPG_WAVES.length * 100) + '%';
+  epgtLoadWave();
+}
+
+function epgtHint() {
+  const wave = EPG_WAVES[epgtWaveIdx];
+  const remaining = wave.countries.filter((_, i) => !epgtAnswered[i]);
+  if(!remaining.length) return;
+  // Reveal first letter of first remaining
+  const pick = remaining[0];
+  epgtSetFeedback('💡 Starts with: ' + pick[0].toUpperCase() + '...', 'hint');
+  epgtHintUsed = true;
+}
+
+function epgtSetFeedback(msg, type) {
+  const el = document.getElementById('epgt-feedback');
+  if(!el) return;
+  el.textContent = msg;
+  el.className = 'epgt-feedback' + (type ? ' '+type : '');
+}
+
+function epgtUpdateScore() {
+  const el_c = document.getElementById('epgt-correct');
+  const el_w = document.getElementById('epgt-wrong');
+  if(el_c) el_c.textContent = epgtCorrect;
+  if(el_w) el_w.textContent = epgtWrong;
+}
+
+function epgtShowDone() {
+  const done = document.getElementById('epgt-done');
+  const inputRow = document.querySelector('.epg-type-input-row');
+  const footer = document.querySelector('.epg-type-footer');
+  if(done) done.style.display = 'block';
+  if(inputRow) inputRow.style.display = 'none';
+  const fill = document.getElementById('epgt-prog-fill');
+  if(fill) fill.style.width = '100%';
+  const sub = document.getElementById('epgt-done-sub');
+  const total = EPG_WAVES.flatMap(w=>w.countries).length;
+  if(sub) sub.textContent = epgtCorrect + ' correct, ' + epgtWrong + ' wrong out of ' + total + ' countries across ' + EPG_WAVES.length + ' waves.';
+}
+
+// Update epSetMode to handle 'game'
+(function(){
+  const _orig = epSetMode;
+  epSetMode = function(mode) {
+    const gv = document.getElementById('ep-game-view');
+    const bg = document.getElementById('ep-btn-game');
+    if(mode === 'game') {
+      // Hide all other EP views
+      ['ep-flash-view','ep-browse-view','ep-done'].forEach(id => {
+        const el = document.getElementById(id);
+        if(el) el.style.display = 'none';
+      });
+      if(gv) gv.style.display = 'block';
+      // Update mode buttons
+      ['ep-btn-flash','ep-btn-browse','ep-btn-game'].forEach(id => {
+        const el = document.getElementById(id);
+        if(el) el.classList.toggle('active', id === 'ep-btn-game');
+      });
+      // Init drag game by default
+      epgInitDrag();
+    } else {
+      if(gv) gv.style.display = 'none';
+      if(bg) bg.classList.remove('active');
+      _orig(mode);
+    }
+  };
+})();
 
 </script>
 </body>
