@@ -416,7 +416,12 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
     <button class="nav-sub" onclick="showLecture('macro','lec2',this)">Lec 2: Goods Market &amp; Business Cycle</button>
     <button class="nav-sub" style="opacity:.5;cursor:default;pointer-events:none">+ More coming</button>
     <div class="nav-label">Intl. Business Trade</div>
-    <button class="nav-btn" data-color="ibt" onclick="showPage('ibt-overview',this)"><span class="nav-dot" style="background:var(--ibt)"></span>All Chapters</button>
+    <button class="nav-btn" data-color="ibt" onclick="showPage('ibt-overview',this)"><span class="nav-dot" style="background:var(--ibt)"></span>All Sessions</button>
+    <button class="nav-sub" onclick="showLecture('ibt','s1',this)">Session 1: International Trade</button>
+    <button class="nav-sub" onclick="showLecture('ibt','s2',this)">Session 2: Trade Barriers &amp; Wars</button>
+    <button class="nav-sub" onclick="showLecture('ibt','s3',this)">Session 3: Integration &amp; WTO</button>
+    <button class="nav-sub" onclick="showLecture('ibt','s4',this)">Session 4: Exchange Rates</button>
+    <button class="nav-sub" onclick="showLecture('ibt','s5',this)">Session 5: Money &amp; Prices</button>
     <div class="nav-label">Intercultural Comp.</div>
     <button class="nav-btn" data-color="ic" onclick="showPage('ic-overview',this)"><span class="nav-dot" style="background:var(--ic)"></span>All Chapters</button>
     <div class="nav-label">Tools</div>
@@ -449,9 +454,9 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
       <div class="sc-stats"><div class="sc-stat"><strong>2</strong> lectures loaded</div><div class="sc-stat"><strong>62</strong> flashcards</div><div class="sc-stat"><strong>39</strong> quiz Qs</div></div>
     </div>
     <div class="subject-card sc-ibt" onclick="showPage('ibt-overview',null)">
-      <div class="sc-name">International Business Trade</div><div class="sc-meta">Chapters · Coming soon</div>
-      <div class="sc-progress"><div class="sc-progress-fill" style="width:0%;background:var(--ibt)"></div></div>
-      <div class="sc-stats"><div class="sc-stat"><strong>0</strong> chapters loaded</div></div>
+      <div class="sc-name">International Business Trade</div><div class="sc-meta">Sessions · Dr. Jan-Christoph Rülke · Spring 2026</div>
+      <div class="sc-progress"><div class="sc-progress-fill" style="width:36%;background:var(--ibt)"></div></div>
+      <div class="sc-stats"><div class="sc-stat"><strong>5</strong> sessions loaded</div><div class="sc-stat"><strong>32</strong> flashcards</div><div class="sc-stat"><strong>40</strong> quiz Qs</div></div>
     </div>
     <div class="subject-card sc-ic" onclick="showPage('ic-overview',null)">
       <div class="sc-name">Intercultural Competence</div><div class="sc-meta">Chapters · Coming soon</div>
@@ -3881,7 +3886,511 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
   </div>
 </div>
 
-<div id="page-ibt-overview" class="page"><div class="page-eyebrow" style="color:var(--ibt)">International Business Trade</div><div class="page-title">All Chapters</div><div class="page-desc">No chapters loaded yet.</div><div class="empty-state"><h3>Ready to populate</h3><p>Share your IBT notes and I'll build the summary, flashcards, and quiz for each chapter.</p></div></div>
+<!-- IBT OVERVIEW -->
+<div id="page-ibt-overview" class="page">
+  <div class="page-eyebrow" style="color:var(--ibt)">International Business &amp; Trade</div>
+  <div class="page-title">All Sessions</div>
+  <div class="page-desc">Dr. Jan-Christoph Rülke · Spring 2026 · Select a session to access its summary, flashcards, quiz, and interactive tools.</div>
+  <div class="lectures-list">
+    <div class="lec-card" onclick="showLecture('ibt','s1',null)"><div class="lec-num" style="background:var(--ibt-l);color:var(--ibt)">01</div><div class="lec-info"><div class="lec-title">Session 1 — International Trade</div><div class="lec-sub">Balance of Payments · Absolute Advantage · Gains from Trade · Terms of Trade</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Timeline</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span></div></div>
+    <div class="lec-card" onclick="showLecture('ibt','s2',null)"><div class="lec-num" style="background:var(--ibt-l);color:var(--ibt)">02</div><div class="lec-info"><div class="lec-title">Session 2 — Trade Barriers, Policies &amp; Trade Wars</div><div class="lec-sub">Tariffs · Non-Tariff Barriers · Sanctions · Export Subsidies · Airbus vs. Boeing</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Compare</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span></div></div>
+    <div class="lec-card" onclick="showLecture('ibt','s3',null)"><div class="lec-num" style="background:var(--ibt-l);color:var(--ibt)">03</div><div class="lec-info"><div class="lec-title">Session 3 — Tariffs, Regional Integration &amp; WTO</div><div class="lec-sub">Trade Blocs · Trade Diversion/Creation · European Integration · WTO/GATT</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Timeline</span><span class="lec-badge has">Compare</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span></div></div>
+    <div class="lec-card" onclick="showLecture('ibt','s4',null)"><div class="lec-num" style="background:var(--ibt-l);color:var(--ibt)">04</div><div class="lec-info"><div class="lec-title">Session 4 — Exchange Rates &amp; the Global Financial System</div><div class="lec-sub">CIP · UIP · Impossible Trinity · Gold Standard · Bretton-Woods</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Timeline</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span></div></div>
+    <div class="lec-card" onclick="showLecture('ibt','s5',null)"><div class="lec-num" style="background:var(--ibt-l);color:var(--ibt)">05</div><div class="lec-info"><div class="lec-title">Session 5 — Money, Prices &amp; Long-Run Exchange Rate</div><div class="lec-sub">Law of One Price · PPP · Monetary Model · Balassa-Samuelson · Dutch Disease</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Compare</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span></div></div>
+  </div>
+</div>
+
+<!-- ══ IBT SESSION 1 ══ -->
+<div id="page-ibt-s1" class="page">
+  <div class="page-eyebrow" style="color:var(--ibt)">IBT · Session 1</div>
+  <div class="page-title">International Trade</div>
+  <div class="page-desc">Balance of Payments · Absolute Advantage · Gains from Trade · Terms of Trade · 11 Theories of Trade</div>
+  <div class="study-tabs">
+    <button class="study-tab active" onclick="ibtShowTab('s1','summary',this)">Summary</button>
+    <button class="study-tab" onclick="ibtShowTab('s1','timeline',this)">BOP Timeline</button>
+    <button class="study-tab" onclick="ibtShowTab('s1','flashcards',this)">Flashcards</button>
+    <button class="study-tab" onclick="ibtShowTab('s1','quiz',this)">Quiz</button>
+  </div>
+
+  <div id="ibts1-summary" class="study-panel active">
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-purple">1.1 Globalization — Two Faces</span></div>
+      <p><strong>Globalization of markets</strong> = merging of historically distinct national markets into a single global marketplace. <strong>Globalization of production</strong> = sourcing goods and services from locations worldwide to exploit differences in factor costs (labor, land, capital, energy).</p>
+      <ul>
+        <li><strong>Interindustry trade</strong>: between countries with different structures (Germany exports cars, Zimbabwe exports bananas) — driven by comparative advantage.</li>
+        <li><strong>Intraindustry trade</strong>: between countries with similar structures (Germany &amp; France both trade cars) — driven by preferences and economies of scale.</li>
+      </ul>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-purple">1.2 Balance of Payments — ⚠️ Exam Critical</span></div>
+      <p>The BOP is the full ledger of all economic transactions a country has with the rest of the world. It <strong>always nets to zero</strong> due to double-entry bookkeeping. It is a <em>flow</em> concept (per year/quarter), residency-based.</p>
+      <div class="note-box" style="border-left-color:var(--ibt-m);background:var(--ibt-l)">
+        <strong>BOP Identity:</strong><br>
+        Flexible exchange rates: <strong>CA + FA = 0</strong><br>
+        Fixed exchange rates: <strong>CA + FA = FX</strong><br>
+        ⚠️ A <em>negative</em> FX value = <em>increase</em> in official reserves (classic sign-convention trap!).
+      </div>
+      <table class="comp-table" style="margin-top:12px">
+        <tr><th>Sub-Balance</th><th>What it records</th></tr>
+        <tr><td>Trade Account</td><td>Goods exports minus goods imports</td></tr>
+        <tr><td>Service Account</td><td>Services exports minus services imports</td></tr>
+        <tr><td>Primary Income</td><td>Factor income received vs. paid (wages, dividends, interest)</td></tr>
+        <tr><td>Secondary Income</td><td>Unilateral transfers (foreign aid, remittances)</td></tr>
+        <tr><td><strong>Current Account (CA)</strong></td><td>Sum of all above — no future claims created</td></tr>
+        <tr><td>Capital Account (CP)</td><td>Net transfer of wealth (capital transfers)</td></tr>
+        <tr><td>Financial Account (FA)</td><td>Capital imports vs. exports (NFA changes)</td></tr>
+        <tr><td>FX Reserves</td><td>Change in official central bank reserves</td></tr>
+      </table>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-purple">1.3 Current Account &amp; Net Foreign Assets</span></div>
+      <p>A CA surplus → country exports more than imports → accumulates claims → NFA improves. Formally: <strong>∑CA<sub>t</sub> = NFA<sub>t</sub></strong>. NFA is also subject to valuation effects (exchange rate revaluation of external debt).</p>
+      <ul>
+        <li><strong>US NFA ≈ –$29 trn</strong> (cumulative CA deficits); <strong>China NFA ≈ +$4 trn</strong></li>
+        <li>Three resolution scenarios: "beautiful" (gradual rebalancing), "inflationary" (US inflation erodes China's NFA), "nasty" (US default → financial crisis)</li>
+      </ul>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-purple">1.4 World Trade Structure</span></div>
+      <p><strong>Export ratio = Exports/GDP</strong> — higher for smaller countries, better-connected countries, and FTA members. Germany = #1 exporter ($1,653 bn, 8.7% share); US = #1 importer ($2,331 bn, 12.4%). Netherlands export ratio = 77.8% (transit hub).</p>
+      <p style="margin-top:8px"><strong>3 dominant drivers of interindustry trade:</strong> Disposability (~5%), transportation costs (~1%), price differences (~90%).</p>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-purple">1.5 Absolute Advantage — Adam Smith</span></div>
+      <p>Model: 2 countries (Germany, Zimbabwe), 2 goods (cars, bananas), 1 input (labor), L = 120 hours each.</p>
+      <table class="comp-table" style="margin-top:8px">
+        <tr><th></th><th>Germany</th><th>Zimbabwe</th></tr>
+        <tr><td>Cars/hour (productivity)</td><td>0.50</td><td>0.13</td></tr>
+        <tr><td>Bananas/hour (productivity)</td><td>0.25</td><td>0.30</td></tr>
+        <tr><td>Hours per car (a<sub>C</sub>)</td><td>2</td><td>7.5</td></tr>
+        <tr><td>Hours per banana (a<sub>B</sub>)</td><td>4</td><td>3</td></tr>
+        <tr><td>Max cars (L/a<sub>C</sub>)</td><td>60</td><td>16</td></tr>
+        <tr><td>Max bananas (L/a<sub>B</sub>)</td><td>30</td><td>40</td></tr>
+        <tr><td>OC of 1 car (a<sub>C</sub>/a<sub>B</sub>)</td><td>0.5 bananas</td><td>2.5 bananas</td></tr>
+      </table>
+      <div class="note-box" style="border-left-color:var(--ibt-m);background:var(--ibt-l);margin-top:10px">
+        <strong>Production frontier formula:</strong> a<sub>C</sub>·C + a<sub>B</sub>·B ≤ L<br>
+        Germany: 2C + 4B ≤ 120 | Zimbabwe: 7.5C + 3B ≤ 120<br>
+        Slope = –a<sub>C</sub>/a<sub>B</sub> = opportunity cost of 1 car in bananas
+      </div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-purple">1.6 Gains from Trade — Welfare Effects</span></div>
+      <ul>
+        <li><strong>Exports:</strong> domestic price rises to world price → CS↓, PS↑, TA↑. Welfare gain = triangle ABC.</li>
+        <li><strong>Imports:</strong> domestic price falls to world price → CS↑, PS↓, TA↓. Welfare gain = triangle ABC.</li>
+        <li>Who gains more? The country with the <strong>less elastic (steeper) trade curve</strong> — it experiences a larger price change from autarky to world price.</li>
+        <li>Trade = "indirect method of production" that converts bananas into cars. Always win-win globally; distribution depends on price elasticity.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="ibts1-timeline" class="study-panel">
+    <p style="font-size:13px;color:var(--text2);margin-bottom:16px">BOP Transaction Worked Examples — each transaction and how it is recorded.</p>
+    <div class="timeline">
+      <div class="tl-item"><div class="tl-dot" style="color:var(--ibt)"></div><div class="tl-year">Transaction 1</div><div class="tl-card" onclick="toggleTl(this)"><div class="tl-title">BMW sells a car to US importer for €40,000</div><div class="tl-toggle">+ Show details</div><div class="tl-body"><strong>CA (Trade Account):</strong> +40,000 (goods export, credit)<br><strong>FA (Financial Account):</strong> –40,000 (claim on Chase Manhattan, capital export, debit)<br><strong>Net: CA + FA = 0 ✓</strong></div></div></div>
+      <div class="tl-item"><div class="tl-dot" style="color:var(--ibt)"></div><div class="tl-year">Transaction 2</div><div class="tl-card" onclick="toggleTl(this)"><div class="tl-title">BMW donates €8,000 as development aid</div><div class="tl-toggle">+ Show details</div><div class="tl-body"><strong>CA (Secondary Income):</strong> –8,000 (unilateral transfer paid, debit)<br><strong>CP (Capital Account):</strong> –8,000 (capital transfer paid)<br><strong>FA:</strong> –8,000 (cash payment sent abroad)</div></div></div>
+      <div class="tl-item"><div class="tl-dot" style="color:var(--ibt)"></div><div class="tl-year">Transaction 3</div><div class="tl-card" onclick="toggleTl(this)"><div class="tl-title">BMW exchanges $37,500 → €30,000 with ECB</div><div class="tl-toggle">+ Show details</div><div class="tl-body"><strong>FA:</strong> +30,000 (BMW converts dollar claim → capital import, credit)<br><strong>FX:</strong> –30,000 (ECB loses dollar reserves — sign convention: increase in ECB € holdings appears as debit)</div></div></div>
+      <div class="tl-item"><div class="tl-dot" style="color:var(--ibt)"></div><div class="tl-year">Transaction 4</div><div class="tl-card" onclick="toggleTl(this)"><div class="tl-title">BMW imports US parts, exchanges €10,000 for dollars</div><div class="tl-toggle">+ Show details</div><div class="tl-body"><strong>CA (Trade Account):</strong> –10,000 (goods import, debit)<br><strong>FX:</strong> +10,000 (ECB dollar reserves increase — recorded positive in stats → sign convention trap: positive FX = reserve decrease!)</div></div></div>
+      <div class="tl-item"><div class="tl-dot" style="color:var(--ibt)"></div><div class="tl-year">Identity Check</div><div class="tl-card" onclick="toggleTl(this)"><div class="tl-title">⚠️ Sign Convention Trap — Must Know</div><div class="tl-toggle">+ Show details</div><div class="tl-body"><strong>Flexible rates:</strong> CA + FA = 0 (reserves don't change)<br><strong>Fixed rates:</strong> CA + FA = FX<br>BOP surplus → FX negative in statistics (= reserve accumulation). BOP deficit → FX positive (= reserve depletion). This is the #1 most-tested BOP trap.</div></div></div>
+    </div>
+  </div>
+
+  <div id="ibts1-flashcards" class="study-panel">
+    <div id="ibts1-fc-wrap"></div>
+  </div>
+  <div id="ibts1-quiz" class="study-panel">
+    <div id="ibts1-quiz-wrap"></div>
+  </div>
+</div>
+
+<!-- ══ IBT SESSION 2 ══ -->
+<div id="page-ibt-s2" class="page">
+  <div class="page-eyebrow" style="color:var(--ibt)">IBT · Session 2</div>
+  <div class="page-title">Trade Barriers, Policies &amp; Trade Wars</div>
+  <div class="page-desc">Tariffs · Non-Tariff Barriers · Import Quotas · Russia Sanctions · Export Subsidies · Strategic Trade Policy</div>
+  <div class="study-tabs">
+    <button class="study-tab active" onclick="ibtShowTab('s2','summary',this)">Summary</button>
+    <button class="study-tab" onclick="ibtShowTab('s2','compare',this)">Compare</button>
+    <button class="study-tab" onclick="ibtShowTab('s2','flashcards',this)">Flashcards</button>
+    <button class="study-tab" onclick="ibtShowTab('s2','quiz',this)">Quiz</button>
+  </div>
+
+  <div id="ibts2-summary" class="study-panel active">
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-purple">2.1 Tariffs — Types &amp; Objectives</span></div>
+      <p>A tariff is a tax on traded goods. <strong>Two types:</strong></p>
+      <ul>
+        <li><strong>Specific tariff:</strong> fixed charge per unit (e.g., €0.20/kg). Simple but doesn't adjust to price changes.</li>
+        <li><strong>Ad valorem tariff:</strong> percentage of value (e.g., 20% of car price). Adjusts automatically to price, but value is hard to determine (FOB vs. CIF).</li>
+      </ul>
+      <p style="margin-top:8px"><strong>Objectives:</strong> generate government revenue, protect domestic industry, improve the balance of payments.</p>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-purple">2.2 Non-Tariff Barriers (NTBs)</span></div>
+      <p>NTBs include: import/export quotas, technical standards, health/environmental/security standards, administrative barriers. Under WTO rules, tariffs are restricted → NTBs have grown in importance.</p>
+      <div class="note-box" style="border-left-color:var(--ibt-m);background:var(--ibt-l)">⚠️ <strong>Key difference from tariffs:</strong> NTBs do NOT generate government revenue. Revenue that would go to government under a tariff goes to license holders (importers). This makes NTBs potentially more welfare-costly than equivalent tariffs unless licenses are auctioned.</div>
+      <p style="margin-top:8px"><strong>Import embargo</strong> = zero-import quota = equivalent to a prohibitive tariff. Current EU embargoes: Russia, Belarus, Iran, North Korea, Syria.</p>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-purple">2.3 Export Subsidy Effects</span></div>
+      <p><strong>Small open economy (SMOPEC):</strong> world price doesn't change regardless of how much is subsidized. Domestic exports increase, domestic price rises to p<sub>W</sub> + t.</p>
+      <ul>
+        <li>Budget deficit increases (–2–3–4)</li>
+        <li>Producer surplus increases (+1+2+3)</li>
+        <li>Consumer surplus decreases (–1–2)</li>
+        <li><strong>Net welfare = –2–4 (net loss)</strong></li>
+      </ul>
+      <p style="margin-top:8px"><strong>Large open economy:</strong> Domestic exports large enough to depress world price → benefits foreign CS*, but net global welfare cost. Domestic net welfare = –2–4–5.</p>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-purple">2.4 Strategic Trade Policy — Airbus vs. Boeing</span></div>
+      <p>In markets with high barriers (natural monopoly/duopoly), government intervention can shift profit from a foreign firm to a domestic one ("beggar-my-neighbour").</p>
+      <table class="comp-table" style="margin-top:8px">
+        <tr><th></th><th>Boeing: Produce</th><th>Boeing: Don't</th></tr>
+        <tr><td><strong>Airbus: Produce</strong></td><td>–5 / –5</td><td>100 / 0</td></tr>
+        <tr><td><strong>Airbus: Don't</strong></td><td>0 / 100</td><td>0 / 0</td></tr>
+      </table>
+      <p style="margin-top:8px">Sequential game: first mover wins. Boeing goes first → (0/100). With <strong>€25 subsidy to Airbus</strong>: Airbus payoff when both produce = 20 (not –5) → Airbus has dominant strategy to produce → Boeing deterred → equilibrium (125/0). Net European gain = 125 – 25 = <strong>100</strong>. US loses 100.</p>
+      <div class="note-box" style="border-left-color:var(--ibt-m);background:var(--ibt-l)">Risk: foreign retaliation. If payoffs change, the subsidy could be a costly misjudgment.</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-purple">2.5 Russia Sanctions Timeline</span></div>
+      <ul>
+        <li><strong>2008:</strong> Georgia invasion → first EU reactions</li>
+        <li><strong>2014:</strong> Crimea annexation → first serious sanctions packages</li>
+        <li><strong>2022:</strong> Full invasion of Ukraine → sweeping sanctions (financial, energy, SWIFT exclusion)</li>
+        <li>MOEX fell ~85%; global asset losses ~$22 trn (24% of Gross World Product)</li>
+        <li>Russia &amp; Ukraine = world's largest wheat suppliers → grain embargo risks famine in poor countries</li>
+        <li><strong>2026:</strong> Trump bilateral negotiations begin</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="ibts2-compare" class="study-panel">
+    <div class="sum-card">
+      <div class="sum-title">Import Tariff vs. Import Quota vs. Production Subsidy</div>
+      <table class="comp-table">
+        <tr><th>Effect</th><th>Import Tariff</th><th>Import Quota</th><th>Production Subsidy</th></tr>
+        <tr><td>Domestic price</td><td>Rises to p<sub>W</sub> + t</td><td>Rises (= tariff equivalent)</td><td>Unchanged (stays p<sub>W</sub>)</td></tr>
+        <tr><td>Consumer surplus</td><td>Decreases</td><td>Decreases</td><td>Unchanged</td></tr>
+        <tr><td>Producer surplus</td><td>Increases</td><td>Increases</td><td>Increases</td></tr>
+        <tr><td>Government revenue</td><td>Yes (tariff revenue)</td><td>No (unless auctioned)</td><td>No (budget cost)</td></tr>
+        <tr><td>Net welfare effect</td><td>Negative (DWL)</td><td>Negative (worse if not auctioned)</td><td>Less negative than tariff</td></tr>
+        <tr><td>BOP effect</td><td>Improves</td><td>Improves</td><td>No direct effect</td></tr>
+        <tr><td>WTO compliance</td><td>Increasingly restricted</td><td>Restricted</td><td>Generally permitted</td></tr>
+        <tr><td>Welfare ranking</td><td colspan="3" style="text-align:center">Free Trade &gt; Subsidy &gt; Tariff &gt; Quota ≥ Autarky</td></tr>
+      </table>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">Specific Tariff vs. Ad Valorem Tariff</div>
+      <table class="comp-table">
+        <tr><th>Feature</th><th>Specific Tariff</th><th>Ad Valorem Tariff</th></tr>
+        <tr><td>Structure</td><td>Fixed € per unit</td><td>% of value</td></tr>
+        <tr><td>Price adjustment</td><td>Does NOT adjust to price changes</td><td>Adjusts automatically</td></tr>
+        <tr><td>Measurement</td><td>Easy (count units)</td><td>Hard (FOB vs. CIF dispute)</td></tr>
+        <tr><td>Example</td><td>€0.20/kg bananas</td><td>20% of car invoice value</td></tr>
+        <tr><td>Best used for</td><td>Homogeneous commodities</td><td>Differentiated manufactures</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div id="ibts2-flashcards" class="study-panel"><div id="ibts2-fc-wrap"></div></div>
+  <div id="ibts2-quiz" class="study-panel"><div id="ibts2-quiz-wrap"></div></div>
+</div>
+
+<!-- ══ IBT SESSION 3 ══ -->
+<div id="page-ibt-s3" class="page">
+  <div class="page-eyebrow" style="color:var(--ibt)">IBT · Session 3</div>
+  <div class="page-title">Tariffs, Regional Integration &amp; the WTO</div>
+  <div class="page-desc">Trade Blocs · Trade Diversion/Creation · European Integration · Trump Tariffs · WTO/GATT · The Banana War</div>
+  <div class="study-tabs">
+    <button class="study-tab active" onclick="ibtShowTab('s3','summary',this)">Summary</button>
+    <button class="study-tab" onclick="ibtShowTab('s3','timeline',this)">EU Timeline</button>
+    <button class="study-tab" onclick="ibtShowTab('s3','compare',this)">Trade Blocs</button>
+    <button class="study-tab" onclick="ibtShowTab('s3','flashcards',this)">Flashcards</button>
+    <button class="study-tab" onclick="ibtShowTab('s3','quiz',this)">Quiz</button>
+  </div>
+
+  <div id="ibts3-summary" class="study-panel active">
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-purple">3.1 Trade Diversion vs. Trade Creation — ⚠️ Exam Critical</span></div>
+      <ul>
+        <li><strong>Trade creation:</strong> Forming a customs union → previously inefficient domestic production replaced by cheaper imports from partner → <strong>welfare increases</strong>.</li>
+        <li><strong>Trade diversion:</strong> Common external tariff diverts imports from efficient world producer to less efficient partner (who is exempt from tariffs) → <strong>welfare decreases</strong>.</li>
+      </ul>
+      <div class="note-box" style="border-left-color:var(--ibt-m);background:var(--ibt-l)">
+        <strong>US–Mexico–Bangladesh Numerical Example:</strong><br>
+        <em>High tariff (t=$5):</em> No CU: US produces domestically at $8 (too expensive to import). CU with Mexico: US imports from Mexico at $6 &lt; $8 → replaces inefficient domestic production → <strong>trade creation (+$2)</strong>.<br>
+        <em>Low tariff (t=$3):</em> No CU: US imports Bangladesh at $4+$3=$7. CU: US switches to Mexico at $6 — but displaced efficient Bangladesh → <strong>trade diversion (–$2)</strong>.
+      </div>
+      <div class="note-box" style="border-left-color:var(--ic-m);background:var(--ic-l);margin-top:8px">⚠️ <strong>Trap:</strong> Customs unions do NOT always improve welfare. If trade diversion outweighs creation, welfare falls.</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-purple">3.2 Import Tariff Effects — Small vs. Large Economy</span></div>
+      <p><strong>Small open economy (SMOPEC) — 9 effects:</strong> Consumption ↓, domestic production ↑, imports ↓, BOP improves, government revenue (+), net welfare = negative (DWL triangles EGH and DFI). Welfare ranking: <strong>Autarky ≤ Tariff ≤ Free Trade</strong>.</p>
+      <p style="margin-top:8px"><strong>Large open economy:</strong> Tariff large enough to depress world price (p<sub>W</sub> falls). Terms of trade improve but trade volume falls. Net domestic welfare is <em>ambiguous</em> ("beggar-my-neighbour" potential gain). Larger economy = bigger effect (Trump example).</p>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-purple">3.3 WTO and GATT</span></div>
+      <p>WTO: established 1995 in Geneva; 164 members; ~€200m budget; head Ngozi Okonjo-Iweala. Succeeds GATT (1947, 23 nations).</p>
+      <ul>
+        <li><strong>3 GATT Principles:</strong> (1) Reduction of trade barriers, (2) Non-discrimination / MFN, (3) No unfair export encouragement</li>
+        <li><strong>MFN clause:</strong> A tariff reduction applies to ALL nations — any country with MFN status pays the same (lowest) rate</li>
+        <li><strong>Banana War (Dispute #27):</strong> EU gave tariff-free access to ACP (former colony) banana producers → US objected because US firms controlled Latin American plantations that were undercut. Illustrates WTO MFN vs. development policy conflict.</li>
+      </ul>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-purple">3.4 Rules of Origin — FTA vs. Customs Union</span></div>
+      <p>In an FTA, each member keeps its own tariff against third countries. Without rules of origin, goods could enter through the lowest-tariff member and be shipped tariff-free ("tariff shopping"). Rules of origin require a <strong>minimum local content percentage</strong>.</p>
+      <p style="margin-top:8px">A <strong>customs union</strong> avoids this problem because all members share one common external tariff — no incentive to prefer one entry point over another.</p>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-purple">3.5 Trump Trade Policy</span></div>
+      <ul>
+        <li>2017: Withdrawal from TPP, NAFTA renegotiations</li>
+        <li>2018: Steel/aluminum tariffs (25%), tariffs on $4bn Chinese goods → escalated to $300bn by 2019</li>
+        <li>2025: Second inauguration</li>
+        <li>2026: <strong>10% global import tariff imposed</strong></li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="ibts3-timeline" class="study-panel">
+    <p style="font-size:13px;color:var(--text2);margin-bottom:16px">Key milestones in European economic integration.</p>
+    <div class="timeline">
+      <div class="tl-item"><div class="tl-dot" style="color:var(--ibt)"></div><div class="tl-year">1947–1952</div><div class="tl-card" onclick="toggleTl(this)"><div class="tl-title">Scandinavian customs union &amp; ECSC</div><div class="tl-toggle">+ Show details</div><div class="tl-body">1947: First post-war regional integration attempt. 1952: ECSC (Benelux, France, Italy, W. Germany) — first supranational authority over key industries (coal and steel).</div></div></div>
+      <div class="tl-item"><div class="tl-dot" style="color:var(--ibt)"></div><div class="tl-year">1957–1958</div><div class="tl-card" onclick="toggleTl(this)"><div class="tl-title">Treaty of Rome → EEC-6 &amp; European Payment Union</div><div class="tl-toggle">+ Show details</div><div class="tl-body">1957: Treaty of Rome creates EEC-6 — the legal foundation of European integration. 1958: European Payment Union → later SWIFT — exchange rate stabilization; precursor to monetary union.</div></div></div>
+      <div class="tl-item"><div class="tl-dot" style="color:var(--ibt)"></div><div class="tl-year">1960–1972</div><div class="tl-card" onclick="toggleTl(this)"><div class="tl-title">EFTA created &amp; Werner Report</div><div class="tl-toggle">+ Show details</div><div class="tl-body">1960: EFTA created (Austria, Denmark, Norway, Portugal, Sweden, Switzerland, UK) — parallel free trade area outside EEC. 1970: Werner Report → EC becomes customs union + common market. 1972: EC-EFTA Free Trade Area bridges both tracks.</div></div></div>
+      <div class="tl-item"><div class="tl-dot" style="color:var(--ibt)"></div><div class="tl-year">1973–1986</div><div class="tl-card" onclick="toggleTl(this)"><div class="tl-title">First &amp; Mediterranean enlargements</div><div class="tl-toggle">+ Show details</div><div class="tl-body">1973: UK, Ireland, Denmark join → EC-9 (first enlargement). 1981: Greece joins. 1986: Spain and Portugal join → Mediterranean enlargement.</div></div></div>
+      <div class="tl-item"><div class="tl-dot" style="color:var(--ibt)"></div><div class="tl-year">1993–1995</div><div class="tl-card" onclick="toggleTl(this)"><div class="tl-title">Single European Market &amp; Maastricht → EU-15</div><div class="tl-toggle">+ Show details</div><div class="tl-body">1993: Single European Market + Maastricht Treaty → EU-12 (full common market; political union aspirations). 1995: CEFTA; Austria, Finland, Sweden join → EU-15.</div></div></div>
+      <div class="tl-item"><div class="tl-dot" style="color:var(--ibt)"></div><div class="tl-year">2004–2013</div><div class="tl-card" onclick="toggleTl(this)"><div class="tl-title">Eastern enlargement → EU-27</div><div class="tl-toggle">+ Show details</div><div class="tl-body">2004: 10 new members → EU-25 (largest single enlargement). 2007: Bulgaria &amp; Romania join. 2013: Croatia joins → EU-28. Significant eastward expansion post-Cold War.</div></div></div>
+      <div class="tl-item"><div class="tl-dot" style="color:var(--ibt)"></div><div class="tl-year">2023–2026</div><div class="tl-card" onclick="toggleTl(this)"><div class="tl-title">BREXIT confirmed → EU-27; Albania/Macedonia accession talks</div><div class="tl-toggle">+ Show details</div><div class="tl-body">2023: BREXIT formally confirmed — first ever departure. EU confirmed at 27 members. 2026: Albania and Macedonia accession talks ongoing — future enlargement pending.</div></div></div>
+    </div>
+  </div>
+
+  <div id="ibts3-compare" class="study-panel">
+    <div class="sum-card">
+      <div class="sum-title">Regional Integration Hierarchy — Must Know Full Table</div>
+      <table class="comp-table">
+        <tr><th>Level</th><th>Example</th><th>Free Trade</th><th>Common Tariff</th><th>Free Factors</th><th>Common Bank</th><th>Common Gov.</th></tr>
+        <tr><td>1. Preferential Trade Area</td><td>GATT, EU–Turkey</td><td>Partial</td><td>✗</td><td>✗</td><td>✗</td><td>✗</td></tr>
+        <tr><td>2. Free Trade Area</td><td>NAFTA, EFTA</td><td>✓</td><td>✗</td><td>✗</td><td>✗</td><td>✗</td></tr>
+        <tr><td>3. Customs Union</td><td>EC (1970–1992), MERCOSUR</td><td>✓</td><td>✓</td><td>✗</td><td>✗</td><td>✗</td></tr>
+        <tr><td>4. Common Market</td><td>EU-27, Single European Market</td><td>✓</td><td>✓</td><td>✓</td><td>✗</td><td>✗</td></tr>
+        <tr><td>5. Monetary Union</td><td>Eurozone, WAEMU</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✗</td></tr>
+        <tr><td>6. Political Union</td><td>USA, Germany</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
+      </table>
+      <div class="note-box" style="border-left-color:var(--ibt-m);background:var(--ibt-l);margin-top:10px">Rules of origin needed? Only in FTAs (level 2). Customs unions and above have common external tariffs — no rules of origin problem.</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">Five Major EU Institutions</div>
+      <table class="comp-table">
+        <tr><th>Institution</th><th>Role</th><th>Key Detail</th></tr>
+        <tr><td>European Council</td><td>Defines political direction</td><td>Heads of government; no formal legislative power. President: Charles Michel</td></tr>
+        <tr><td>European Commission</td><td>Executive; proposes legislation</td><td>27 commissioners; implements decisions. President: Ursula von der Leyen</td></tr>
+        <tr><td>European Parliament</td><td>Democratic representation</td><td>750 directly elected members</td></tr>
+        <tr><td>Court of Justice (CJEU)</td><td>Judicial interpretation</td><td>36 appointed judges; based in Luxembourg</td></tr>
+        <tr><td>Council of Ministers</td><td>Main decision-making body</td><td>Unanimous on treaty changes; ~80% by qualified majority voting; meets monthly</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div id="ibts3-flashcards" class="study-panel"><div id="ibts3-fc-wrap"></div></div>
+  <div id="ibts3-quiz" class="study-panel"><div id="ibts3-quiz-wrap"></div></div>
+</div>
+
+<!-- ══ IBT SESSION 4 ══ -->
+<div id="page-ibt-s4" class="page">
+  <div class="page-eyebrow" style="color:var(--ibt)">IBT · Session 4</div>
+  <div class="page-title">Exchange Rates &amp; the Global Financial System</div>
+  <div class="page-desc">Nominal/Real Exchange Rates · CIP · UIP · Impossible Trinity · Gold Standard · Bretton-Woods · IMF</div>
+  <div class="study-tabs">
+    <button class="study-tab active" onclick="ibtShowTab('s4','summary',this)">Summary</button>
+    <button class="study-tab" onclick="ibtShowTab('s4','timeline',this)">Financial Systems</button>
+    <button class="study-tab" onclick="ibtShowTab('s4','flashcards',this)">Flashcards</button>
+    <button class="study-tab" onclick="ibtShowTab('s4','quiz',this)">Quiz</button>
+  </div>
+
+  <div id="ibts4-summary" class="study-panel active">
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-purple">4.1 Nominal vs. Real Exchange Rate</span></div>
+      <p><strong>Nominal exchange rate E</strong> (e.g., €/$) = price of foreign currency in domestic currency. E↑ = depreciation; E↓ = appreciation.</p>
+      <p style="margin-top:8px"><strong>Real exchange rate:</strong> R = (E · P*) / P, where P* = foreign price level, P = domestic price level.</p>
+      <ul>
+        <li>R↑ = real depreciation = competitiveness improves</li>
+        <li>R↓ = real appreciation = competitiveness deteriorates</li>
+        <li><strong>NEER</strong> = weighted product of bilateral nominal exchange rate indices</li>
+        <li><strong>REER</strong> = NEER adjusted for relative price levels</li>
+      </ul>
+      <div class="note-box" style="border-left-color:var(--ibt-m);background:var(--ibt-l)"><strong>Greece case study:</strong> After eurozone entry (2000–2012), Greek prices rose faster than German prices → real appreciation → lost competitiveness. Since devaluation was impossible (eurozone), only options: (1) domestic deflation, (2) German inflation rise, or (3) GREXIT.</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-purple">4.2 Covered Interest Rate Parity (CIP)</span></div>
+      <p><strong>Formula:</strong> i – i* = (F – E)/E, where F = forward exchange rate (contractual).</p>
+      <p style="margin-top:8px">If CIP doesn't hold → risk-free arbitrage is possible → interest arbitrage restores CIP. <strong>Violations</strong> arise from: capital controls (e.g., China), differential risk premia (e.g., Greek vs. German bonds), rounding errors.</p>
+      <p style="margin-top:8px">Under fixed exchange rates: i = i* (CIP trivially satisfied).</p>
+      <div class="note-box" style="border-left-color:var(--ibt-m);background:var(--ibt-l)"><strong>Capital flight example:</strong> If CIP violated (domestic currency expected to depreciate sharply), central bank must raise i to defend currency. Example: Sweden, November 1992.</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-purple">4.3 Uncovered Interest Rate Parity (UIP)</span></div>
+      <p><strong>Formula:</strong> i = i* + (E<sup>exp</sup> – E)/E. Uses <em>expected</em> future spot rate (E<sup>exp</sup>) — exchange rate risk is NOT covered (hence "uncovered").</p>
+      <p style="margin-top:8px">A risk-neutral investor is indifferent between domestic and foreign assets when UIP holds. Given i, i*, E<sup>exp</sup>, the UIP pins down the current E (capital flows dominate short-term dynamics).</p>
+      <p style="margin-top:8px"><strong>Short-run equilibrium shifts:</strong></p>
+      <ul>
+        <li>MS↓ → i↑ → domestic assets more attractive → capital inflows → E↓ (appreciation)</li>
+        <li>i*↑ → foreign assets more attractive → capital outflows → E↑ (depreciation)</li>
+        <li>E<sup>exp</sup>↑ → expected return on foreign assets rises → capital outflows → E↑</li>
+      </ul>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-purple">4.4 Impossible Trinity</span></div>
+      <p>A central bank can achieve <strong>only 2 of 3</strong> simultaneously:</p>
+      <ul>
+        <li>Fixed exchange rates</li>
+        <li>Convertibility (free capital flows)</li>
+        <li>Autonomous monetary policy</li>
+      </ul>
+      <table class="comp-table" style="margin-top:10px">
+        <tr><th>Country/Bloc</th><th>Sacrificed</th><th>Kept</th></tr>
+        <tr><td>Eurozone</td><td>Autonomous monetary policy</td><td>Fixed rates + free capital flows</td></tr>
+        <tr><td>China</td><td>Free capital flows</td><td>Fixed rates + autonomous monetary policy</td></tr>
+        <tr><td>US / UK</td><td>Fixed exchange rate</td><td>Free capital flows + autonomous monetary policy</td></tr>
+      </table>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-purple">4.5 Price-Specie-Flow Mechanism (Gold Standard)</span></div>
+      <p>Under the gold standard (1873–1914), each currency was fixed in terms of gold → fixed bilateral rates. Self-correcting mechanism: trade deficit → gold exports → M↓ → P↓ → R↑ (competitiveness improves) → EX↑, IM↓ → BOP surplus → gold inflows.</p>
+      <p style="margin-top:8px"><strong>Why it failed:</strong> Short-term capital movements offset gold flows before prices adjusted; income effects (M↓ → Y↓) complicated adjustment; speculative attacks exploited fixed parities; constrained monetary policy for other macro goals.</p>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-purple">4.6 Bretton-Woods (1944–1971)</span></div>
+      <p>Dollar fixed at $35/oz gold; all other currencies fixed to dollar. IMF created to manage the system, approve devaluations, issue SDRs.</p>
+      <p style="margin-top:8px"><strong>Why it collapsed:</strong> Impossible Trinity became apparent (fixed rates + free capital + autonomous policy impossible); differing inflation rates → misalignment; one-way speculative gamble on devaluations; France demanded gold for dollars → US gold reserves insufficient → Nixon shock 1971, system abandoned 1973.</p>
+    </div>
+  </div>
+
+  <div id="ibts4-timeline" class="study-panel">
+    <p style="font-size:13px;color:var(--text2);margin-bottom:16px">The ~30-year cycle between fixed and flexible exchange rate systems.</p>
+    <div class="timeline">
+      <div class="tl-item"><div class="tl-dot" style="color:var(--ibt)"></div><div class="tl-year">1873–1914</div><div class="tl-card" onclick="toggleTl(this)"><div class="tl-title">Gold Standard — Fixed</div><div class="tl-toggle">+ Show details</div><div class="tl-body">All currencies pegged to gold → fixed bilateral rates. Price-specie-flow mechanism supposed to self-correct imbalances. Collapsed: WWI disruption, speculative attacks, mechanism failed due to capital movements.</div></div></div>
+      <div class="tl-item"><div class="tl-dot" style="color:var(--ibt)"></div><div class="tl-year">1914–1944</div><div class="tl-card" onclick="toggleTl(this)"><div class="tl-title">Inter-war Flexible Period</div><div class="tl-toggle">+ Show details</div><div class="tl-body">Wartime monetary chaos and competitive devaluations ("beggar-my-neighbour" currency wars). Political instability made coordination impossible.</div></div></div>
+      <div class="tl-item"><div class="tl-dot" style="color:var(--ibt)"></div><div class="tl-year">1944–1971</div><div class="tl-card" onclick="toggleTl(this)"><div class="tl-title">Bretton-Woods — Fixed (Dollar Anchor)</div><div class="tl-toggle">+ Show details</div><div class="tl-body">Dollar = $35/oz gold; IMF created. Collapse: Impossible Trinity, speculative attacks on overvalued currencies, France's gold demands, Nixon shock 1971.</div></div></div>
+      <div class="tl-item"><div class="tl-dot" style="color:var(--ibt)"></div><div class="tl-year">1972–1998</div><div class="tl-card" onclick="toggleTl(this)"><div class="tl-title">Post-Bretton-Woods Flexible</div><div class="tl-toggle">+ Show details</div><div class="tl-body">Major currencies float. Growing global imbalances (especially US–Japan, later US–China). Managed floating increasingly common.</div></div></div>
+      <div class="tl-item"><div class="tl-dot" style="color:var(--ibt)"></div><div class="tl-year">1999–202?</div><div class="tl-card" onclick="toggleTl(this)"><div class="tl-title">Eurozone Era — Mixed (Fixed Within EMU)</div><div class="tl-toggle">+ Show details</div><div class="tl-body">Euro as reserve currency; fixed internally, flexible vs. USD/JPY etc. Ongoing challenges: Greek crisis (2010–2015), BREXIT (2016–2023), COVID-19, war in Ukraine.</div></div></div>
+      <div class="tl-item"><div class="tl-dot" style="color:var(--ibt)"></div><div class="tl-year">202?–?</div><div class="tl-card" onclick="toggleTl(this)"><div class="tl-title">Next System — TBD</div><div class="tl-toggle">+ Show details</div><div class="tl-body">Global imbalances building again (US–China, dollar hegemony questioned). Professor's theory: the ~30-year cycle suggests another pendulum swing toward fixed rates is building.</div></div></div>
+    </div>
+  </div>
+
+  <div id="ibts4-flashcards" class="study-panel"><div id="ibts4-fc-wrap"></div></div>
+  <div id="ibts4-quiz" class="study-panel"><div id="ibts4-quiz-wrap"></div></div>
+</div>
+
+<!-- ══ IBT SESSION 5 ══ -->
+<div id="page-ibt-s5" class="page">
+  <div class="page-eyebrow" style="color:var(--ibt)">IBT · Session 5</div>
+  <div class="page-title">Money, Prices &amp; Long-Run Exchange Rate</div>
+  <div class="page-desc">Law of One Price · Exchange Rate Pass-Through · PPP · Monetary Model · Balassa-Samuelson · Dutch Disease</div>
+  <div class="study-tabs">
+    <button class="study-tab active" onclick="ibtShowTab('s5','summary',this)">Summary</button>
+    <button class="study-tab" onclick="ibtShowTab('s5','compare',this)">PPP Compare</button>
+    <button class="study-tab" onclick="ibtShowTab('s5','flashcards',this)">Flashcards</button>
+    <button class="study-tab" onclick="ibtShowTab('s5','quiz',this)">Quiz</button>
+  </div>
+
+  <div id="ibts5-summary" class="study-panel active">
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-purple">5.1 Law of One Price (LoP)</span></div>
+      <p>In the long run, with homogeneous goods and no frictions: <strong>P<sub>i</sub> = E · P<sub>i</sub>*</strong>. Any violation → goods arbitrage restores equality. Implies R = 1 when LoP holds for all goods.</p>
+      <ul>
+        <li><strong>Holds:</strong> Oil, commodities, diamonds, stock prices</li>
+        <li><strong>Holds less well:</strong> Mobile phones, pharmaceuticals</li>
+        <li><strong>Does NOT hold:</strong> Big Macs (non-tradable inputs: labor, rent, taxes; no arbitrage possible)</li>
+      </ul>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-purple">5.2 Exchange Rate Pass-Through (ERPT)</span></div>
+      <p>Measures how much a 10% exchange rate change translates into export price changes.</p>
+      <table class="comp-table" style="margin-top:8px">
+        <tr><th>Type</th><th>ERPT</th><th>Who absorbs</th><th>Examples</th></tr>
+        <tr><td>Complete ERPT (Producer Currency Pricing)</td><td>= 10%</td><td>Foreign buyer</td><td>Oil, gold, commodities, stocks</td></tr>
+        <tr><td>Pricing to Market / No ERPT (Local Currency)</td><td>= 0%</td><td>Exporter (reduces markup)</td><td>Newspapers, iPod, Big Mac</td></tr>
+        <tr><td>Incomplete / Partial ERPT</td><td>0%–10%</td><td>Shared</td><td>Most manufactured goods</td></tr>
+      </table>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-purple">5.3 Purchasing Power Parity (PPP)</span></div>
+      <ul>
+        <li><strong>Absolute PPP:</strong> P = E · P* (price levels equal in common currency; R = 1)</li>
+        <li><strong>Relative PPP:</strong> ΔE = ε – ε* (exchange rate change = inflation differential). More empirically useful.</li>
+        <li><strong>Big Mac Index:</strong> "implied PPP" = exchange rate that equalizes Big Mac prices. Switzerland franc overvalued (+42.4%); Ukraine most undervalued (–67.7%).</li>
+        <li><strong>Empirical findings:</strong> PPP holds in the long run; speed of convergence ~15%/year; half-life of deviations ≈ 4 years.</li>
+      </ul>
+      <div class="note-box" style="border-left-color:var(--ibt-m);background:var(--ibt-l)">⚠️ <strong>PPP fails in the short run:</strong> Capital flows dominate goods flows; non-tradable goods sector; transaction costs; trade barriers; non-homogeneous goods baskets.</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-purple">5.4 The Monetary Model of Exchange Rates</span></div>
+      <p>Long-run model (&gt;5 years). Quantity equation: M · v = Y · P → P = M / (L(Y,i) · v). Combined with PPP: <strong>E = (M/M*) · (L*/L)</strong>.</p>
+      <table class="comp-table" style="margin-top:8px">
+        <tr><th>Change</th><th>Effect on P</th><th>Effect on E (flexible)</th><th>Effect on E (fixed)</th></tr>
+        <tr><td>M↑ 10%</td><td>P↑ 10%</td><td>E↑ 10% (depreciation)</td><td>CB sells reserves → M↓ back</td></tr>
+        <tr><td>Y↑ (domestic)</td><td>P↓ (L↑)</td><td>E↓ (appreciation)</td><td>BOP surplus → reserves accumulate</td></tr>
+        <tr><td>i↑</td><td>P↑ (L↓)</td><td>E↑ (depreciation)</td><td>Defended by reserve sale</td></tr>
+      </table>
+      <div class="note-box" style="border-left-color:var(--ibt-m);background:var(--ibt-l)"><strong>Super-neutrality of money:</strong> Money has no real effects long-term. M↑ 10% → P↑ 10% → E↑ 10%, but R = constant.</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-purple">5.5 Balassa-Samuelson Effect</span></div>
+      <p>Why are prices lower in low-income countries? Labor productivity in <strong>tradables</strong> (cars) is lower in poor countries; in <strong>non-tradables</strong> (haircuts) it's similar everywhere. Low tradable productivity → low wages → low non-tradable costs → low overall price level.</p>
+      <p style="margin-top:8px">As catching-up economies develop: tradable productivity rises → wages rise → non-tradable prices rise → structural inflation.</p>
+      <table class="comp-table" style="margin-top:8px">
+        <tr><th>Country</th><th>Productivity gain</th><th>Extra B-S inflation</th></tr>
+        <tr><td>Czech Republic</td><td>+0.3% p.a.</td><td>0.2% p.a.</td></tr>
+        <tr><td>Hungary</td><td>+3.7% p.a.</td><td>2.6% p.a.</td></tr>
+        <tr><td>Poland</td><td>+4.4% p.a.</td><td>2.9% p.a.</td></tr>
+      </table>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-purple">5.6 Dutch Disease</span></div>
+      <p><strong>Definition:</strong> Natural resource exports → real exchange rate appreciation → de-industrialization. Two mechanisms:</p>
+      <ul>
+        <li><strong>Spending effect:</strong> resource revenues → higher domestic demand → non-tradable prices rise → real appreciation</li>
+        <li><strong>Resource movement effect:</strong> labor/capital shift from manufacturing to resource sector → manufacturing shrinks</li>
+      </ul>
+      <p style="margin-top:8px"><strong>Country examples:</strong> Nigeria (1975+), Venezuela (2010+), Azerbaijan (2012+), Russia (2016+), Netherlands (1960s gas).</p>
+      <p style="margin-top:8px"><strong>How to avoid it:</strong> Sovereign wealth funds (Norway, Kuwait, Saudi Arabia), invest in education/R&amp;D, pay down foreign debt, democratic governance + independent central bank, eliminate trade barriers. Success cases: Norway, Indonesia, Kuwait.</p>
+    </div>
+  </div>
+
+  <div id="ibts5-compare" class="study-panel">
+    <div class="sum-card">
+      <div class="sum-title">Absolute PPP vs. Relative PPP</div>
+      <table class="comp-table">
+        <tr><th>Feature</th><th>Absolute PPP</th><th>Relative PPP</th></tr>
+        <tr><td>Formula</td><td>P = E · P*</td><td>ΔE = ε – ε*</td></tr>
+        <tr><td>Real exchange rate</td><td>R = 1 (constant)</td><td>R = ω (constant structural)</td></tr>
+        <tr><td>What it predicts</td><td>Price levels equal across countries (common currency)</td><td>Exchange rate change = inflation differential</td></tr>
+        <tr><td>Holds empirically?</td><td>Rarely (short run fails completely)</td><td>Better (long run, ~4-year half-life)</td></tr>
+        <tr><td>Big Mac application</td><td>Implied PPP rate vs. actual rate → over/undervaluation</td><td>Rate of Big Mac price change vs. exchange rate change</td></tr>
+      </table>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">CIP vs. UIP — Full Comparison</div>
+      <table class="comp-table">
+        <tr><th>Feature</th><th>CIP</th><th>UIP</th></tr>
+        <tr><td>Exchange rate used</td><td>Forward rate F (contractual)</td><td>Expected spot rate E<sup>exp</sup></td></tr>
+        <tr><td>Exchange rate risk</td><td>Eliminated (covered)</td><td>Not eliminated (uncovered)</td></tr>
+        <tr><td>Arbitrage type</td><td>Risk-free</td><td>Requires risk neutrality</td></tr>
+        <tr><td>Formula</td><td>i – i* = (F – E)/E</td><td>i = i* + (E<sup>exp</sup> – E)/E</td></tr>
+        <tr><td>Empirical support</td><td>Strong (holds in liquid markets)</td><td>Weaker (forward premium puzzle)</td></tr>
+        <tr><td>Violation implies</td><td>Riskless profit available</td><td>Expected return differential</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div id="ibts5-flashcards" class="study-panel"><div id="ibts5-fc-wrap"></div></div>
+  <div id="ibts5-quiz" class="study-panel"><div id="ibts5-quiz-wrap"></div></div>
+</div>
 <div id="page-ic-overview" class="page"><div class="page-eyebrow" style="color:var(--ic)">Intercultural Competence</div><div class="page-title">All Chapters</div><div class="page-desc">No chapters loaded yet.</div><div class="empty-state"><h3>Ready to populate</h3><p>Share your IC notes and I'll build the summary, flashcards, and quiz for each chapter.</p></div></div>
 
 <!-- ══════════════════════════════════════════
@@ -6827,7 +7336,281 @@ function epgtShowDone() {
   if(sub) sub.textContent = epgtCorrect + ' correct, ' + epgtWrong + ' wrong out of ' + total + ' countries across ' + EPG_WAVES.length + ' waves.';
 }
 
-// Update epSetMode to handle 'game'
+// ══════════════════════════════════════════
+// IBT — TAB SWITCHING
+// ══════════════════════════════════════════
+function ibtShowTab(session, tab, btn) {
+  const page = document.getElementById('page-ibt-' + session);
+  if (!page) return;
+  page.querySelectorAll('.study-panel').forEach(p => p.classList.remove('active'));
+  page.querySelectorAll('.study-tab').forEach(b => b.classList.remove('active'));
+  // session = 's1' → panel prefix = 'ibts1' (strip leading 's' and prepend 'ibt')
+  const num = session.replace('s','');
+  const panel = document.getElementById('ibts' + num + '-' + tab);
+  if (panel) panel.classList.add('active');
+  if (btn) btn.classList.add('active');
+  if (tab === 'flashcards' && !ibtFcState[session]) initIbtFC(session);
+  if (tab === 'quiz' && !ibtQState[session]) initIbtQuiz(session);
+}
+
+// ══════════════════════════════════════════
+// IBT — FLASHCARD DATA
+// ══════════════════════════════════════════
+const IBT_FLASHCARDS = {
+  s1: [
+    {q:'What is the BOP identity under flexible exchange rates?',a:'CA + FA = 0. Current Account + Financial Account = 0. Any CA surplus is automatically offset by a FA deficit (capital outflows), with no change in official reserves.',src:'Session 1 — BOP Identity'},
+    {q:'What does a negative FX value mean in BOP statistics?',a:'A negative FX value = increase in official foreign exchange reserves. This is the classic sign-convention trap: reserve accumulation is recorded as negative (debit). BOP surplus → FX negative in stats.',src:'Session 1 — BOP Sign Convention'},
+    {q:'What is the relationship between the current account and net foreign assets (NFA)?',a:'∑CA_t = NFA_t. A CA surplus means exports exceed imports → country accumulates claims against the rest of the world → NFA improves directly. NFA is also subject to valuation effects from exchange rate changes.',src:'Session 1 — CA and NFA'},
+    {q:'What is the difference between interindustry and intraindustry trade?',a:'Interindustry trade: between countries with different structures (Germany exports cars, Zimbabwe exports bananas) — driven by comparative advantage. Intraindustry trade: between similar economies (Germany and France both trading cars) — driven by preferences and economies of scale.',src:'Session 1 — Trade Types'},
+    {q:'Germany: a_C=2, a_B=4, L=120. What is max car output, max banana output, and OC of 1 car?',a:'Max cars = L/a_C = 120/2 = 60. Max bananas = L/a_B = 120/4 = 30. OC of 1 car = a_C/a_B = 2/4 = 0.5 bananas (slope of production frontier = −a_C/a_B).',src:'Session 1 — Production Frontier'},
+    {q:'What are the three welfare effects of exports on the domestic economy?',a:'(1) Trade account improves (TA↑), (2) Consumer surplus decreases (CS↓ — domestic consumers pay higher world price), (3) Producer surplus increases (PS↑ — domestic producers receive higher world price). Net welfare gain = triangle ABC.',src:'Session 1 — Welfare Effects'},
+    {q:'Which country gains more from trade — elastic or inelastic trade demand?',a:'The country with the less elastic (steeper) trade curve gains more, because it experiences a larger price change relative to its autarky price. Gains are proportional to the price differential.',src:'Session 1 — Gains Distribution'},
+    {q:'Can a country with an absolute disadvantage in all goods still benefit from trade?',a:'Yes. Comparative advantage (relative opportunity costs), not absolute advantage, determines trade patterns. Even if Zimbabwe produces both goods less efficiently than Germany, as long as its relative OC of bananas is lower, both countries benefit from specialization.',src:'Session 1 — Comparative Advantage'},
+  ],
+  s2: [
+    {q:'What is the key difference between a tariff and a non-tariff barrier in terms of government revenue?',a:'Tariffs generate government revenue (tariff × import quantity). NTBs do NOT generate revenue (unless licenses are auctioned) — the potential revenue goes to importers holding licenses. This makes NTBs unambiguously more welfare-costly than equivalent tariffs.',src:'Session 2 — NTBs'},
+    {q:'What is the difference between an import quota and an import embargo?',a:'An import quota limits import quantity to >0. An import embargo is a zero-import quota — equivalent to a prohibitive tariff. An embargo is the extreme case of an import quota.',src:'Session 2 — Quotas vs. Embargo'},
+    {q:'In the Airbus-Boeing game, how does a €25 subsidy to Airbus change the equilibrium?',a:'Without subsidy: sequential game → first mover wins → Boeing produces, Airbus doesn\'t (0/100). With €25 subsidy: Airbus earns 20 even if both produce (vs. −5 without subsidy) → Airbus has dominant strategy to produce regardless → Boeing deterred → new equilibrium (125/0). Net European gain = 125 − 25 = 100.',src:'Session 2 — Strategic Trade Policy'},
+    {q:'What is the net welfare effect of an export subsidy in a small open economy?',a:'Budget deficit increases (−2−3−4), producer surplus increases (+1+2+3), consumer surplus decreases (−1−2). Net welfare = −2−4 (net loss). The subsidy costs more in budget terms than the PS gain exceeds the CS loss.',src:'Session 2 — Export Subsidies'},
+    {q:'What is "beggar-my-neighbour" trade policy and why is it risky?',a:'Beggar-my-neighbour = using government intervention (subsidies, tariffs) in oligopolistic industries to shift profits from a foreign firm to a domestic one. Risk: foreign retaliation can nullify the gain, and if underlying payoffs differ from the model, the subsidy can be a costly misjudgment.',src:'Session 2 — Strategic Trade'},
+  ],
+  s3: [
+    {q:'What is the difference between trade creation and trade diversion in a customs union?',a:'Trade creation: CU eliminates tariffs between members → inefficient domestic production replaced by cheaper partner imports → welfare increases. Trade diversion: common external tariff diverts imports from efficient world producer to less efficient partner (who faces zero tariff) → welfare decreases.',src:'Session 3 — Trade Effects'},
+    {q:'In the low-tariff scenario (t=$3), why does a US-Mexico customs union divert trade?',a:'No CU: US imports Bangladesh at $4+$3=$7 (efficient). CU with Mexico: US switches to Mexico at $6 (no tariff). But Bangladesh was the efficient producer — replacing it with less efficient Mexico = trade diversion. Welfare falls by −$2.',src:'Session 3 — Trade Diversion Example'},
+    {q:'Why does a free trade area need rules of origin but a customs union does not?',a:'In an FTA each member sets its own external tariff → goods could enter through the lowest-tariff member and ship tariff-free inside ("tariff shopping"). Rules of origin (minimum local content %) prevent this. A customs union has one common external tariff — no incentive for tariff shopping, so no rules of origin needed.',src:'Session 3 — Rules of Origin'},
+    {q:'What are the five EU institutions and the key decision-making rule of the Council of Ministers?',a:'(1) European Council (political direction, no legislative power), (2) European Commission (executive, proposes legislation, 27 commissioners), (3) European Parliament (750 elected), (4) Court of Justice (36 judges), (5) Council of Ministers (main decision-making; unanimous on treaties; ~80% by qualified majority voting).',src:'Session 3 — EU Institutions'},
+    {q:'What is the welfare ranking of autarky, tariff, and free trade for a small open economy?',a:'Welfare_Autarky ≤ Welfare_Tariff ≤ Welfare_Free Trade. A tariff always causes net deadweight loss vs. free trade (triangles EGH and DFI). A prohibitive tariff = autarky. A production subsidy ranks between tariff and free trade.',src:'Session 3 — Welfare Ranking'},
+    {q:'What are the three GATT principles?',a:'(1) Reduction of barriers to trade, (2) Non-discrimination among countries (Most Favored Nation principle — tariff reduction applies to ALL MFN nations), (3) No unfair encouragement for exports (WTO target: export subsidies like Airbus subsidies).',src:'Session 3 — GATT Principles'},
+    {q:'Why is a production subsidy preferred over an import tariff if the sole goal is to protect domestic producers?',a:'Both raise domestic output to the same level. But the tariff raises domestic price → CS↓. The subsidy keeps price at p_W → CS unchanged. Subsidy is more targeted and less distortionary. Net welfare: Subsidy > Tariff > Autarky.',src:'Session 3 — Subsidy vs. Tariff'},
+  ],
+  s4: [
+    {q:'What is the real exchange rate formula and what does R↑ mean?',a:'R = (E · P*) / P, where P* = foreign price level, P = domestic price level. R↑ = real depreciation = competitiveness improves. R↓ = real appreciation = competitiveness deteriorates. A country loses competitiveness via nominal appreciation (E↓) or domestic inflation exceeding foreign (P↑ > P*).',src:'Session 4 — Real Exchange Rate'},
+    {q:'What is the CIP formula, and what happens if it is violated?',a:'CIP: i − i* = (F − E)/E, where F = forward exchange rate (contractual). Violation → risk-free arbitrage available → interest arbitrage flows until CIP is restored. Common violations: capital controls (China), differential risk premia (Greek vs. German bonds).',src:'Session 4 — CIP'},
+    {q:'What is the key difference between CIP and UIP?',a:'CIP uses the contractual forward rate F → exchange rate risk is eliminated (covered) → risk-free arbitrage condition. UIP uses expected future spot rate E^exp → risk is NOT covered → holds only for risk-neutral investors. UIP pins down the current E given i, i*, E^exp.',src:'Session 4 — CIP vs. UIP'},
+    {q:'State the Impossible Trinity. Give one example for each sacrificed goal.',a:'Only 2 of 3 achievable: (1) Fixed exchange rate, (2) Free capital flows, (3) Autonomous monetary policy. Eurozone: sacrificed (3). China: sacrificed (2). US/UK: sacrificed (1).',src:'Session 4 — Impossible Trinity'},
+    {q:'What was the price-specie-flow mechanism and why did the gold standard fail?',a:'Mechanism: trade deficit → gold exports → M↓ → P↓ → R↑ (competitiveness improves) → exports rise, imports fall → BOP corrects. Why it failed: short-term capital movements offset gold flows before prices adjusted; income effects (M↓→Y↓); speculative attacks exploited predictable fixed parities; constrained monetary policy.',src:'Session 4 — Gold Standard'},
+    {q:'Why did Bretton-Woods collapse?',a:'(1) Impossible Trinity: fixed rates + free capital + autonomous policy cannot coexist. (2) Differing national inflation rates → exchange rate misalignment. (3) One-way speculative gamble on devaluation. (4) France demanded gold for dollars → US gold reserves insufficient → Nixon shock 1971 → system abandoned 1973.',src:'Session 4 — Bretton-Woods'},
+  ],
+  s5: [
+    {q:'State the Law of One Price. What goods violate it and why?',a:'LoP: P_i = E · P_i*. If violated → goods arbitrage restores equality. Holds for: oil, commodities, stocks. Does NOT hold for: Big Macs (non-tradable inputs: local labor, rent, taxes; no international arbitrage possible). Real exchange rate R = 1 when LoP holds for all goods.',src:'Session 5 — Law of One Price'},
+    {q:'What is the difference between absolute and relative PPP?',a:'Absolute PPP: P = E · P* (price levels equal in common currency; R = 1). Relative PPP: ΔE = ε − ε* (exchange rate change = inflation differential; ω = constant structural barrier). Relative PPP is empirically more useful: allows level differences while predicting directional changes.',src:'Session 5 — PPP'},
+    {q:'According to the monetary model, what happens to E when domestic money supply rises 10%?',a:'M↑ 10% → (quantity equation) P↑ 10% → (PPP) E↑ 10%. Money is super-neutral in the long run — no real effects. Under flexible rates: E depreciates proportionally. Under fixed rates: P↑ → uncompetitive → BOP deficit → CB sells reserves → M↓ back to original → no lasting E change.',src:'Session 5 — Monetary Model'},
+    {q:'Explain the Balassa-Samuelson effect. Why does Poland joining the EU cause inflation?',a:'In catching-up economies, tradable productivity (cars) rises faster than non-tradable productivity (haircuts). Since tradable prices are set internationally, higher tradable productivity → higher wages → higher non-tradable costs → non-tradable prices rise → overall price level rises (structural inflation). Poland: +4.4% productivity growth → 2.9% extra B-S inflation.',src:'Session 5 — Balassa-Samuelson'},
+    {q:'What is Dutch Disease and what are its two core mechanisms?',a:'Dutch Disease = natural resource windfalls cause real appreciation and de-industrialization. (1) Spending effect: resource revenues → higher domestic demand → non-tradable prices rise → real appreciation. (2) Resource movement effect: labor/capital shift from manufacturing to resource sector → manufacturing shrinks. Non-resource exports become uncompetitive.',src:'Session 5 — Dutch Disease'},
+    {q:'How does PPP fail in the short run, and what is the speed of long-run convergence?',a:'Short-run failures: capital flows dominate goods flows; non-tradable sector not covered; transaction costs and trade barriers prevent arbitrage; different goods baskets. Long-run: PPP holds empirically. Speed of convergence ≈ 15% per year. Half-life of PPP deviations ≈ 4 years.',src:'Session 5 — PPP Convergence'},
+  ],
+};
+
+// ══════════════════════════════════════════
+// IBT — QUIZ DATA
+// ══════════════════════════════════════════
+const IBT_QUIZ = {
+  s1: [
+    {q:'Under flexible exchange rates, which BOP identity holds?',opts:['CA + FA = FX','CA + FA = 0','CA = FA','CA + FA + FX = 1'],correct:1,fb:'Under flexible exchange rates, the central bank does not intervene → FX = 0 by definition → CA + FA = 0. Any CA surplus is matched by a FA deficit.'},
+    {q:'A negative FX value in BOP statistics means:',opts:['A BOP deficit','A decrease in official reserves','An increase in official reserves','A current account surplus'],correct:2,fb:'⚠️ Sign convention trap! Negative FX = increase in official reserves (reserve accumulation is recorded as a debit/negative). This is the #1 most-tested BOP trap.'},
+    {q:'Germany: a_C = 2, a_B = 4, L = 120. What is the opportunity cost of one car in bananas?',opts:['0.25 bananas','2 bananas','0.5 bananas','4 bananas'],correct:2,fb:'OC of 1 car = a_C / a_B = 2 / 4 = 0.5 bananas. This is the absolute value of the slope of the production frontier.'},
+    {q:'Zimbabwe: a_C = 7.5, a_B = 3, L = 120. What is the maximum banana output if Zimbabwe fully specializes?',opts:['16','30','40','60'],correct:2,fb:'Max bananas = L / a_B = 120 / 3 = 40. Full specialization in bananas uses all 120 labor hours at 3 hours/banana.'},
+    {q:'Which country gains proportionally more from international trade?',opts:['The country with the larger economy','The country with the more elastic (flatter) trade curve','The country with the less elastic (steeper) trade curve','Both countries always gain equally'],correct:2,fb:'The country with the less elastic (steeper) trade curve gains more, because it experiences a larger price change from autarky to world price. Gains are proportional to the price change experienced.'},
+    {q:'The main driver of interindustry trade (explaining ~90% of trade) is:',opts:['Transportation costs','Disposability of goods','Price differences between countries','Preference for domestic goods'],correct:2,fb:'Price differences (~90%) are the dominant driver. If a good is cheaper domestically than the world price, the country exports it. Transportation costs account for only ~1%, disposability ~5%.'},
+    {q:'If the US NFA = –$29 trillion, this means:',opts:['The US holds $29 trn in foreign assets','The US has accumulated $29 trn in cumulative CA surpluses','The US has accumulated $29 trn in cumulative CA deficits','US exports exceed imports by $29 trn'],correct:2,fb:'∑CA_t = NFA_t. The US has run cumulative CA deficits totaling ~$29 trillion, meaning it is a net borrower from the rest of the world.'},
+    {q:'Which statement about the BOP is CORRECT?',opts:['It measures a stock of wealth at a point in time','The overall BOP can run a persistent surplus','It uses single-entry bookkeeping','It always nets to zero due to double-entry bookkeeping'],correct:3,fb:'The BOP always nets to zero because every transaction creates both a credit and a debit (double-entry bookkeeping). It is a flow concept (not a stock), measured per year/quarter.'},
+  ],
+  s2: [
+    {q:'The key welfare disadvantage of a non-tariff barrier vs. an equivalent tariff is:',opts:['NTBs restrict more imports','NTBs do not generate government revenue','NTBs increase domestic production more','NTBs are harder to implement'],correct:1,fb:'NTBs restrict trade to the same level as equivalent tariffs, but the government does not receive revenue. Revenue that would go to government under a tariff goes instead to importers holding licenses — making NTBs more welfare-costly unless licenses are auctioned.'},
+    {q:'An import embargo is equivalent to:',opts:['A specific tariff set at 10%','A production subsidy for domestic firms','A prohibitive tariff (zero imports)','An ad valorem tariff of 100%'],correct:2,fb:'An embargo = zero-import quota = equivalent to a prohibitive tariff. It is the extreme case of an import quota that reduces imports to exactly zero.'},
+    {q:'In the Airbus-Boeing sequential game WITHOUT a subsidy, the equilibrium is:',opts:['Airbus produces, Boeing doesn\'t (100/0)','Both produce (−5/−5)','Boeing produces, Airbus doesn\'t (0/100)','Neither produces (0/0)'],correct:2,fb:'In the sequential game (Boeing moves first, first mover wins), Boeing produces and earns 100. Airbus earns 0. The first-mover advantage gives Boeing the entire market.'},
+    {q:'With a €25 subsidy to Airbus, what is the net European welfare gain?',opts:['€125','€25','€100','€75'],correct:2,fb:'With the subsidy, Airbus earns 125 in the new equilibrium. Net gain = 125 (Airbus profit) − 25 (subsidy cost) = €100. US loses €100.'},
+    {q:'An ad valorem tariff differs from a specific tariff in that it:',opts:['Is fixed per unit regardless of price','Generates no government revenue','Adjusts automatically to the value of the good','Is always higher than a specific tariff'],correct:2,fb:'An ad valorem tariff (% of value) automatically adjusts as the price of the good changes. A specific tariff is a fixed charge per unit (e.g., €0.20/kg) — it does NOT adjust to price changes.'},
+    {q:'The net welfare effect of an export subsidy for a small open economy is:',opts:['Positive (always beneficial)','Zero (transfers from consumers to producers)','Negative (net welfare loss)','Depends on the size of the subsidy'],correct:2,fb:'For a SMOPEC, the export subsidy always produces a net welfare loss = areas −2−4. Budget cost exceeds the net gain from PS↑ − CS↓. No terms-of-trade benefit since the world price doesn\'t change.'},
+    {q:'Why are Russia and Ukraine\'s wheat exports strategically significant in the context of sanctions?',opts:['They are the world\'s largest wheat suppliers, so embargo risks famine in poor countries','Russia uses wheat tariffs to retaliate against EU','Ukraine exports wheat only to EU countries','Wheat is Russia\'s main export by value'],correct:0,fb:'Russia and Ukraine together are the world\'s largest wheat suppliers. A full grain embargo would risk severe food shortages and famine in poor countries that depend on these exports — creating a major humanitarian dilemma in sanctions design.'},
+  ],
+  s3: [
+    {q:'Trade diversion occurs when:',opts:['A customs union replaces domestic production with partner imports','A customs union replaces efficient world producer imports with less efficient partner imports','A free trade area creates new trade flows','Tariffs are reduced for all trading partners'],correct:1,fb:'Trade diversion = the common external tariff makes the efficient world producer uncompetitive while the less efficient partner faces zero tariff → imports switch from efficient to inefficient source → welfare decreases.'},
+    {q:'In the US-Mexico-Bangladesh example with t=$5, a US-Mexico customs union causes:',opts:['Trade diversion — Bangladesh replaced by Mexico','Trade creation — domestic production replaced by Mexican imports','Trade creation — Mexican production replaced by domestic production','No trade effect — domestic production unchanged'],correct:1,fb:'At t=$5, all imports are too expensive vs. US domestic production ($8). CU removes tariff on Mexico → imports from Mexico at $6 < $8 → replaces inefficient domestic production → trade creation (welfare gain).'},
+    {q:'Which level of regional integration is the Eurozone?',opts:['Free Trade Area','Customs Union','Common Market','Monetary Union'],correct:3,fb:'The Eurozone is a Monetary Union (level 5): free trade, common external tariff, free factor movement, and a common central bank (ECB). It lacks a common government (level 6 = Political Union).'},
+    {q:'What is the MFN (Most Favored Nation) principle?',opts:['A tariff reduction applies only to the favored nation\'s goods','All GATT members pay the same (lowest) tariff rate','Developing countries receive lower tariffs than developed countries','Nations can choose which partners to grant reduced tariffs'],correct:1,fb:'MFN: any tariff reduction negotiated under GATT applies to ALL nations with MFN status. No nation can be given a better rate than others — it is the cornerstone of GATT\'s non-discrimination principle.'},
+    {q:'Why does a free trade area (FTA) need rules of origin but a customs union does not?',opts:['FTAs have lower tariffs overall','FTAs allow free factor movement, customs unions don\'t','FTA members keep different external tariffs → tariff shopping risk; CU has one common external tariff','FTAs include more countries than customs unions'],correct:2,fb:'In an FTA, each member keeps its own external tariff → goods could enter through the lowest-tariff member and ship tariff-free inside ("tariff shopping"). Rules of origin (local content %) prevent this. A CU has one common external tariff — no incentive difference, so no rules of origin needed.'},
+    {q:'Which welfare ranking is CORRECT for a small open economy?',opts:['Autarky > Tariff > Free Trade','Free Trade > Tariff > Autarky','Tariff > Free Trade > Autarky','Free Trade = Tariff > Autarky'],correct:1,fb:'For a SMOPEC: Welfare_Free Trade > Welfare_Tariff > Welfare_Autarky. Tariffs always cause net deadweight loss vs. free trade (but still better than autarky). A prohibitive tariff = autarky.'},
+    {q:'What is the Banana War (WTO Dispute #27) about?',opts:['The EU banned banana imports from all countries','EU gave tariff-free access to former-colony banana producers, violating MFN for US-controlled Latin American plantations','The WTO banned all banana subsidies','The US imposed a 100% tariff on EU bananas'],correct:1,fb:'EU gave tariff-free access to ACP (African, Caribbean, Pacific former colony) banana producers. US objected because large US firms controlled Latin American plantations that were undercut by this preferential regime. Illustrates tension between WTO MFN principle and development policy obligations.'},
+  ],
+  s4: [
+    {q:'If the nominal exchange rate E (€/$) increases, this means:',opts:['The euro has appreciated','The euro has depreciated','The dollar has depreciated','US inflation has risen'],correct:1,fb:'E = €/$ = price of dollars in euros. E↑ means you need more euros to buy one dollar → euro is weaker (depreciated). This is price quotation: E↑ = domestic currency depreciation.'},
+    {q:'The real exchange rate R = (E · P*) / P. If R↑, this means:',opts:['Real appreciation — competitiveness deteriorates','Real depreciation — competitiveness improves','Nominal appreciation','Higher domestic inflation than foreign'],correct:1,fb:'R↑ = real depreciation = competitiveness improves (domestic goods are relatively cheaper in real terms). R↓ = real appreciation = competitiveness deteriorates.'},
+    {q:'CIP states: i − i* = (F − E)/E. If CIP is violated (i > i* + (F−E)/E), what happens?',opts:['Currency depreciates','Risk-free arbitrage profits are available until CIP is restored','The central bank must raise rates','The forward rate adjusts to world price'],correct:1,fb:'CIP violation → risk-free arbitrage available. Investors borrow abroad (at i*), invest domestically (at i), and cover via forward rate F. This arbitrage continues until i − i* = (F − E)/E is restored.'},
+    {q:'The Impossible Trinity states that a central bank can achieve only 2 of 3. Which 2 does the Eurozone choose?',opts:['Fixed rates + autonomous monetary policy','Autonomous monetary policy + free capital flows','Fixed rates + free capital flows','Fixed rates + capital controls'],correct:2,fb:'Eurozone: fixed rates (€ to €, i.e., common currency) + free capital flows (no capital controls within EU). Sacrificed: autonomous monetary policy (ECB sets one rate for all members). This caused Greece\'s dilemma — couldn\'t devalue to restore competitiveness.'},
+    {q:'Under the gold standard, the price-specie-flow mechanism works as follows:',opts:['Trade surplus → gold imports → M↑ → P↑ → less competitive → surplus corrects','Trade deficit → gold imports → M↑ → P↑ → more competitive → deficit corrects','Trade deficit → gold exports → M↓ → P↓ → more competitive → deficit corrects','Trade surplus → gold exports → M↓ → P↓ → more competitive → surplus corrects'],correct:2,fb:'Price-specie-flow: Trade deficit → gold exported to pay for imports → M↓ → P↓ (via quantity equation) → real depreciation (R↑) → exports become competitive → imports fall → BOP corrects → gold flows back. Self-correcting mechanism.'},
+    {q:'Bretton-Woods collapsed primarily because of:',opts:['The Great Depression','The Impossible Trinity — fixed rates + free capital + autonomous policy cannot coexist','OPEC oil shocks caused inflation','The formation of the EEC'],correct:1,fb:'Bretton-Woods collapsed because the Impossible Trinity became apparent in the 1960s. Differing inflation rates → exchange rate misalignment; one-way speculative gamble on overvalued currencies; France demanded gold for dollars → US gold reserves insufficient → Nixon shock 1971.'},
+    {q:'Under contractionary domestic monetary policy (MS↓), what happens to the exchange rate?',opts:['E↑ (depreciation)','E↓ (appreciation)','E is unchanged','E depends on foreign inflation'],correct:1,fb:'MS↓ → i↑ (domestic interest rates rise) → domestic assets more attractive → capital inflows → demand for domestic currency rises → E↓ (appreciation). This is the UIP/money market channel.'},
+  ],
+  s5: [
+    {q:'According to the Law of One Price, which of these goods MOST reliably follows it?',opts:['Big Mac hamburgers','Haircuts','Gold and crude oil','Restaurant meals'],correct:2,fb:'LoP holds most reliably for homogeneous, tradable commodities like oil and gold — price differences trigger immediate arbitrage. Big Macs, haircuts, and restaurant meals all have significant non-tradable input components (local labor, rent) that prevent arbitrage.'},
+    {q:'Relative PPP predicts:',opts:['Price levels are equal across countries','Real exchange rate equals 1','The exchange rate change equals the inflation differential (ΔE = ε − ε*)','The forward rate equals the expected spot rate'],correct:2,fb:'Relative PPP: ΔE = ε − ε* (change in exchange rate = domestic inflation minus foreign inflation). More empirically robust than absolute PPP because it allows for structural price level differences (ω) while still predicting directional exchange rate changes.'},
+    {q:'In the monetary model, if domestic real income Y↑, what happens to the exchange rate E?',opts:['E↑ (depreciation)','E↓ (appreciation)','E is unchanged','E depends on foreign money supply'],correct:1,fb:'Y↑ → money demand L↑ → for given MS, P↓ → PPP: E↓ (appreciation). Higher real income = higher demand for domestic currency = currency strengthens. This is counterintuitive: economic growth → currency appreciation (not depreciation).'},
+    {q:'The Balassa-Samuelson effect explains why:',opts:['Rich countries have higher inflation','Poor countries have lower overall price levels because their non-tradable prices are low','Poor countries should peg to the dollar','Productivity grows faster in non-tradables than tradables'],correct:1,fb:'Balassa-Samuelson: Poor countries have low tradable-sector productivity → low wages → low cost for non-tradables (haircuts, etc.) → low overall price level. As catch-up economies develop, tradable productivity rises → wages rise → non-tradable prices rise → structural inflation.'},
+    {q:'Dutch Disease refers to:',opts:['High inflation in the Netherlands after WWII','Natural resource booms causing real appreciation and de-industrialization','The Netherlands exporting more than it imports','Currency depreciation caused by Dutch monetary policy'],correct:1,fb:'Dutch Disease = natural resource windfalls → large capital inflows → domestic currency appreciates in real terms → non-resource tradable sector (manufacturing) loses competitiveness → shrinks. Named after the Netherlands\' experience after North Sea gas discovery (1960s).'},
+    {q:'The Swiss franc is OVERVALUED according to the Big Mac Index. This means:',opts:['Big Macs are cheaper in Switzerland than the US','Big Macs cost the same in Switzerland as the US','Big Macs are more expensive in Switzerland than implied by PPP','Switzerland has lower inflation than the US'],correct:2,fb:'Overvalued (+42.4% for CHF) = Big Macs cost more in Switzerland when converted to USD at the current exchange rate than in the US. The implied PPP exchange rate is lower (CHF weaker) than the actual market rate.'},
+    {q:'Under fixed exchange rates, if domestic money supply increases, what is the long-run outcome?',opts:['E↑ permanently (depreciation)','P↑ permanently (inflation)','M and P return to original levels as CB sells reserves','Real output rises permanently'],correct:2,fb:'Under fixed rates: MS↑ → P↑ → real appreciation → uncompetitive → BOP deficit → central bank sells FX reserves → domestic MS↓ back to original → P↓ back to original. No lasting effect on E (fixed!) or the real economy. Monetary policy is ineffective under fixed exchange rates.'},
+  ],
+};
+
+// ══════════════════════════════════════════
+// IBT — FC AND QUIZ STATE + RENDERERS
+// ══════════════════════════════════════════
+const ibtFcState = {};
+const ibtQState = {};
+
+function initIbtFC(session) {
+  ibtFcState[session] = { cards: [...IBT_FLASHCARDS[session]], idx: 0, flipped: false, know: [], review: [] };
+  renderIbtFC(session);
+}
+
+function renderIbtFC(session) {
+  const num = session.replace('s','');
+  const wrap = document.getElementById('ibts' + num + '-fc-wrap');
+  if (!wrap) return;
+  const st = ibtFcState[session];
+  if (!st) return;
+  const card = st.cards[st.idx];
+  const total = st.cards.length;
+  const knowN = st.know.length, revN = st.review.length;
+  wrap.innerHTML = `
+    <div class="fc-header">
+      <span class="fc-counter">${st.idx + 1} / ${total}</span>
+      <div class="fc-sr-bar">
+        ${st.cards.map((_,i) => `<div class="sr-pip ${st.know.includes(i)?'know':st.review.includes(i)?'review':''}"></div>`).join('')}
+      </div>
+    </div>
+    <div class="flashcard-wrap">
+      <div class="flashcard ${st.flipped ? 'flipped' : ''}" onclick="ibtFlipCard('${session}')">
+        <div class="fc-face fc-front">
+          <div class="fc-label">Question</div>
+          <div class="fc-question">${card.q}</div>
+          <div class="fc-hint">Click to reveal answer</div>
+        </div>
+        <div class="fc-face fc-back" style="background:var(--ibt)">
+          <div class="fc-label">Answer</div>
+          <div class="fc-answer">${card.a}</div>
+          <div class="fc-src">${card.src}</div>
+        </div>
+      </div>
+    </div>
+    ${st.flipped ? `
+    <div class="sr-btns">
+      <button class="sr-btn sr-btn-hard" onclick="ibtFcNext('${session}','review')">⚠️ Still learning</button>
+      <button class="sr-btn sr-btn-ok" onclick="ibtFcNext('${session}','ok')">→ Next</button>
+      <button class="sr-btn sr-btn-easy" onclick="ibtFcNext('${session}','know')">✓ Got it</button>
+    </div>` : `<p class="sr-mode-note">Click card to flip · Rate yourself after</p>`}
+    <div style="margin-top:12px;font-size:12px;color:var(--text3);text-align:center">✓ Know: ${knowN} · ⚠ Review: ${revN} · Remaining: ${total - knowN - revN}</div>
+  `;
+}
+
+function ibtFlipCard(session) {
+  const st = ibtFcState[session];
+  if (!st) return;
+  st.flipped = !st.flipped;
+  renderIbtFC(session);
+}
+
+function ibtFcNext(session, rating) {
+  const st = ibtFcState[session];
+  if (!st) return;
+  if (rating === 'know') st.know.push(st.idx);
+  if (rating === 'review') st.review.push(st.idx);
+  st.flipped = false;
+  st.idx++;
+  if (st.idx >= st.cards.length) {
+    const num = session.replace('s','');
+    const wrap = document.getElementById('ibts' + num + '-fc-wrap');
+    if (wrap) wrap.innerHTML = `<div class="fc-sr-done"><h3>Session complete!</h3><p>${st.know.length} known · ${st.review.length} to review · ${st.cards.length - st.know.length - st.review.length} skipped</p><button class="btn btn-primary" onclick="ibtFcRestart('${session}')">Restart</button></div>`;
+    return;
+  }
+  renderIbtFC(session);
+}
+
+function ibtFcRestart(session) {
+  ibtFcState[session] = { cards: [...IBT_FLASHCARDS[session]], idx: 0, flipped: false, know: [], review: [] };
+  renderIbtFC(session);
+}
+
+// ── IBT Quiz ──
+function initIbtQuiz(session) {
+  const qs = IBT_QUIZ[session];
+  ibtQState[session] = { qs: [...qs], idx: 0, score: 0, answered: false, wrong: [] };
+  renderIbtQuiz(session);
+}
+
+function renderIbtQuiz(session) {
+  const num = session.replace('s','');
+  const wrap = document.getElementById('ibts' + num + '-quiz-wrap');
+  if (!wrap) return;
+  const st = ibtQState[session];
+  if (!st) return;
+  if (st.idx >= st.qs.length) {
+    const pct = Math.round(st.score / st.qs.length * 100);
+    wrap.innerHTML = `<div class="quiz-score-screen show"><div class="score-row"><div class="score-big">${pct}%</div><div class="score-right"><div class="score-lbl">Your score</div><div class="score-msg">${st.score} / ${st.qs.length} correct${pct>=80?' — Excellent!':pct>=60?' — Good effort':'  — Keep reviewing'}</div></div></div>${st.wrong.length?`<div class="weak-section"><div class="weak-title">Review these topics:</div>${st.wrong.map(w=>`<div class="weak-item"><div class="weak-item-icon">📌</div><div><div class="weak-item-text">${w.q.substring(0,60)}…</div><div class="weak-item-tip">${w.fb.substring(0,80)}…</div></div></div>`).join('')}</div>`:''}<button class="btn btn-primary" style="margin-top:16px" onclick="initIbtQuiz('${session}')">Retry Quiz</button></div>`;
+    return;
+  }
+  const q = st.qs[st.idx];
+  const prog = ((st.idx) / st.qs.length * 100).toFixed(0);
+  wrap.innerHTML = `
+    <div class="quiz-prog"><div class="quiz-prog-fill" style="width:${prog}%"></div></div>
+    <div class="quiz-meta">Question ${st.idx + 1} of ${st.qs.length} · Score: ${st.score}</div>
+    <div class="quiz-q">${q.q}</div>
+    <div class="quiz-opts">
+      ${q.opts.map((o, i) => `<button class="quiz-opt" onclick="ibtQuizAnswer('${session}',${i})">${o}</button>`).join('')}
+    </div>
+    <div class="quiz-fb" id="ibt-qfb-${num}"></div>
+    <button class="btn" id="ibt-qnext-${num}" style="display:none" onclick="ibtQuizNext('${session}')">Next →</button>
+  `;
+}
+
+function ibtQuizAnswer(session, chosen) {
+  const st = ibtQState[session];
+  if (!st || st.answered) return;
+  st.answered = true;
+  const q = st.qs[st.idx];
+  const num = session.replace('s','');
+  const opts = document.querySelectorAll('#ibts' + num + '-quiz-wrap .quiz-opt');
+  opts.forEach((o, i) => {
+    o.disabled = true;
+    if (i === q.correct) o.classList.add('correct');
+    if (i === chosen && chosen !== q.correct) o.classList.add('wrong');
+  });
+  const fb = document.getElementById('ibt-qfb-' + num);
+  if (fb) {
+    fb.className = 'quiz-fb show ' + (chosen === q.correct ? 'correct' : 'wrong');
+    fb.textContent = (chosen === q.correct ? '✓ Correct! ' : '✗ Incorrect. ') + q.fb;
+  }
+  if (chosen === q.correct) st.score++;
+  else st.wrong.push(q);
+  const nxt = document.getElementById('ibt-qnext-' + num);
+  if (nxt) nxt.style.display = 'inline-block';
+}
+
+function ibtQuizNext(session) {
+  const st = ibtQState[session];
+  if (!st) return;
+  st.idx++;
+  st.answered = false;
+  renderIbtQuiz(session);
+}
+
+// ══════════════════════════════════════════
+// IBT — HOOK INTO showLecture (init FC/quiz on navigate)
+// ══════════════════════════════════════════
+(function(){
+  const _origSL = showLecture;
+  showLecture = function(subject, id, btn) {
+    _origSL(subject, id, btn);
+    if (subject === 'ibt') {
+      // Original showLecture already shows the page; we just need to pre-init nothing
+      // (lazy init happens when tabs are clicked via ibtShowTab)
+    }
+  };
+})();
+
+
+
 (function(){
   const _orig = epSetMode;
   epSetMode = function(mode) {
