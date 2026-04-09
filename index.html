@@ -100,7 +100,9 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
 
 /* ── Comparison table ── */
 .comp-table{width:100%;border-collapse:collapse;margin-top:8px}
-.comp-table th{background:var(--surface2);font-size:12px;font-weight:600;text-align:left;padding:10px 14px;border:1px solid var(--border);color:var(--text2)}
+.comp-table code{font-family:monospace;font-size:12.5px;background:var(--surface2);padding:2px 6px;border-radius:4px;color:var(--text);white-space:nowrap}
+
+.comp-table th{font-size:12px;font-weight:600;text-align:left;padding:10px 14px;border:1px solid var(--border);color:var(--text2);background:var(--surface2)}
 .comp-table td{font-size:13px;color:var(--text2);padding:10px 14px;border:1px solid var(--border);vertical-align:top;line-height:1.5}
 .comp-table tr:hover td{background:var(--surface2)}
 
@@ -3574,6 +3576,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
   <div class="study-tabs">
     <button class="study-tab active" onclick="showMacroTab('summary',this,'lec2')">Summary</button>
     <button class="study-tab" onclick="showMacroTab('compare',this,'lec2')">Compare</button>
+    <button class="study-tab" onclick="showMacroTab('cheatsheet',this,'lec2')">📐 Cheatsheet</button>
     <button class="study-tab" onclick="showMacroTab('calc',this,'lec2')">Calculator</button>
     <button class="study-tab" onclick="showMacroTab('flashcards',this,'lec2')">Flashcards</button>
     <button class="study-tab" onclick="showMacroTab('quiz',this,'lec2')">Quiz</button>
@@ -3884,9 +3887,146 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
       </div>
     </div>
   </div>
-</div>
 
-<!-- IBT OVERVIEW -->
+  <!-- CHEATSHEET -->
+  <div id="mlec2-cheatsheet" class="study-panel">
+
+    <div class="note-box" style="border-left-color:var(--macro-m);background:var(--macro-l);margin-bottom:18px;color:var(--macro)">
+      <strong>📐 Exam note:</strong> The two most calculation-heavy topics are the <strong>multiplier</strong> (pick the right version!) and the <strong>IS curve derivation</strong>. Everything else is more conceptual.
+    </div>
+
+    <!-- FORMULAS -->
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-amber">Consumption &amp; Savings</span></div>
+      <table class="comp-table">
+        <tr><th>Formula</th><th>Meaning</th></tr>
+        <tr><td><code>C = a + c·Y</code></td><td>Consumption = autonomous consumption + MPC × income</td></tr>
+        <tr><td><code>S = −a + s·Y</code></td><td>Savings = −autonomous + MPS × income &nbsp;(s = 1−c)</td></tr>
+        <tr><td><code>Yᵛ = Y − T + U</code></td><td>Disposable income = income − taxes + transfers</td></tr>
+      </table>
+    </div>
+
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-amber">Equilibrium</span></div>
+      <table class="comp-table">
+        <tr><th>Formula</th><th>Meaning</th></tr>
+        <tr><td><code>Ŷ = (a + I<sup>aut</sup> + G) / (1−c)</code></td><td>45° diagram solution — equilibrium income</td></tr>
+        <tr><td><code>I = S</code></td><td>Alternative condition: injections = leakages (closed economy)</td></tr>
+        <tr><td><code>S + T + IM = I + G + EX</code></td><td>Open economy: all leakages = all injections</td></tr>
+      </table>
+    </div>
+
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-amber">Investment</span></div>
+      <table class="comp-table">
+        <tr><th>Formula</th><th>Meaning</th></tr>
+        <tr><td><code>I = I<sup>aut</sup> − g·i</code></td><td>Simplified (b = 0): investment depends only on interest rate</td></tr>
+        <tr><td><code>I = I<sup>aut</sup> + b·Y − g·i</code></td><td>Full version: also depends on income Y</td></tr>
+      </table>
+    </div>
+
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-amber">⚠️ Multipliers — Pick the Right Version!</span></div>
+      <table class="comp-table">
+        <tr><th>Type</th><th>Formula</th><th>When to use</th></tr>
+        <tr><td>Gov. spending / Investment</td><td><code>μ = 1/(1−c)</code></td><td>No taxes</td></tr>
+        <tr><td>Gov. spending / Investment</td><td><code>μ = 1/(1−c+c·t)</code></td><td>With proportional tax t</td></tr>
+        <tr><td>Transfer payments</td><td><code>c/(1−c+c·t)</code></td><td>Transfers go to households first → smaller effect</td></tr>
+        <tr><td>Tax cut (−ΔT)</td><td><code>−c/(1−c+c·t)</code></td><td>Negative because tax cut = reduced leakage</td></tr>
+        <tr><td>Haavelmo (balanced budget)</td><td><code>= 1</code></td><td>Always 1 — ΔG = ΔT simultaneously</td></tr>
+      </table>
+    </div>
+
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-amber">Output Gap &amp; Elasticity</span></div>
+      <table class="comp-table">
+        <tr><th>Formula</th><th>Meaning</th></tr>
+        <tr><td><code>Output gap = Actual Y − Potential Y</code></td><td>Positive = boom (overheating); Negative = recession</td></tr>
+        <tr><td><code>ηₛ = growth rate / inflation rate</code></td><td>Price elasticity of supply</td></tr>
+      </table>
+    </div>
+
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-amber">⚠️ IS Curve</span></div>
+      <table class="comp-table">
+        <tr><th>Formula</th><th>Meaning</th></tr>
+        <tr><td><code>Y = C + I + G → solve for Y(i)</code></td><td>Derived by substituting C and I into equilibrium condition</td></tr>
+        <tr><td>Slope depends on <code>g</code> and <code>c</code></td><td>Higher g or c → flatter IS curve (more interest-rate sensitive)</td></tr>
+      </table>
+    </div>
+
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-amber">Budget</span></div>
+      <table class="comp-table">
+        <tr><th>Formula</th><th>Meaning</th></tr>
+        <tr><td><code>B = T − U − G</code></td><td>Budget balance: positive = surplus, negative = deficit</td></tr>
+        <tr><td><code>T = T<sup>aut</sup> + t·Y</code></td><td>Tax function: fixed component + proportional component</td></tr>
+      </table>
+    </div>
+
+    <!-- VARIABLES -->
+    <div class="sum-card" style="margin-top:24px">
+      <div class="sum-title"><span class="badge b-amber">Variable Glossary — Income &amp; Output</span></div>
+      <table class="comp-table">
+        <tr><th>Symbol</th><th>Name</th><th>What it means</th></tr>
+        <tr><td><code>Y</code></td><td>National income / GDP</td><td>The main variable — what the whole model tries to determine</td></tr>
+        <tr><td><code>Ŷ</code></td><td>Equilibrium income</td><td>The Y where aggregate supply = aggregate demand</td></tr>
+        <tr><td><code>Yᵛ</code></td><td>Disposable income</td><td>What households actually have after taxes and transfers</td></tr>
+        <tr><td><code>Y<sup>D</sup></code></td><td>Aggregate demand</td><td>Total spending in the economy</td></tr>
+        <tr><td><code>Y<sup>S</sup></code></td><td>Aggregate supply</td><td>Total output produced</td></tr>
+      </table>
+    </div>
+
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-amber">Variable Glossary — Consumption &amp; Savings</span></div>
+      <table class="comp-table">
+        <tr><th>Symbol</th><th>Name</th><th>What it means</th></tr>
+        <tr><td><code>C</code></td><td>Consumption</td><td>Household spending</td></tr>
+        <tr><td><code>a</code></td><td>Autonomous consumption</td><td>Spending at zero income; the baseline floor</td></tr>
+        <tr><td><code>c</code></td><td>MPC</td><td>Marginal Propensity to Consume — fraction of each extra €1 spent (0 &lt; c &lt; 1)</td></tr>
+        <tr><td><code>s</code></td><td>MPS</td><td>Marginal Propensity to Save — fraction saved; s = 1−c</td></tr>
+        <tr><td><code>S</code></td><td>Total savings</td><td>Income not consumed</td></tr>
+      </table>
+    </div>
+
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-amber">Variable Glossary — Government</span></div>
+      <table class="comp-table">
+        <tr><th>Symbol</th><th>Name</th><th>What it means</th></tr>
+        <tr><td><code>G</code></td><td>Government spending</td><td>Public expenditure on goods and services</td></tr>
+        <tr><td><code>T</code></td><td>Total taxes</td><td>T = T<sup>aut</sup> + t·Y</td></tr>
+        <tr><td><code>T<sup>aut</sup></code></td><td>Autonomous taxes</td><td>Fixed portion, independent of income</td></tr>
+        <tr><td><code>t</code></td><td>Proportional tax rate</td><td>Fraction of each extra €1 of income taken as tax — built-in stabiliser</td></tr>
+        <tr><td><code>U</code></td><td>Transfer payments</td><td>Flows from government to households (e.g. unemployment benefits)</td></tr>
+        <tr><td><code>B</code></td><td>Budget balance</td><td>T − U − G (positive = surplus, negative = deficit)</td></tr>
+      </table>
+    </div>
+
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-amber">Variable Glossary — Investment</span></div>
+      <table class="comp-table">
+        <tr><th>Symbol</th><th>Name</th><th>What it means</th></tr>
+        <tr><td><code>I</code></td><td>Total investment</td><td>Business spending on capital goods</td></tr>
+        <tr><td><code>I<sup>aut</sup></code></td><td>Autonomous investment</td><td>Baseline investment independent of Y and i</td></tr>
+        <tr><td><code>b</code></td><td>Income sensitivity of I</td><td>How much I rises per extra unit of Y (usually set to 0)</td></tr>
+        <tr><td><code>g</code></td><td>Interest-rate sensitivity of I</td><td>How much I falls per 1pp rise in i — determines IS slope</td></tr>
+        <tr><td><code>i</code></td><td>Interest rate</td><td>Exogenous in the goods market; set by monetary policy</td></tr>
+      </table>
+    </div>
+
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-amber">Variable Glossary — Trade &amp; Business Cycle</span></div>
+      <table class="comp-table">
+        <tr><th>Symbol</th><th>Name</th><th>What it means</th></tr>
+        <tr><td><code>EX</code></td><td>Exports</td><td>Goods and services sold abroad</td></tr>
+        <tr><td><code>IM</code></td><td>Imports</td><td>Goods and services bought from abroad</td></tr>
+        <tr><td><code>ηₛ</code></td><td>Price elasticity of supply</td><td>Growth rate / inflation rate</td></tr>
+        <tr><td><code>μ</code></td><td>Multiplier</td><td>1/(1−c) or 1/(1−c+c·t) with taxes</td></tr>
+      </table>
+    </div>
+
+  </div>
+</div>
 <div id="page-ibt-overview" class="page">
   <div class="page-eyebrow" style="color:var(--ibt)">International Business &amp; Trade</div>
   <div class="page-title">All Sessions</div>
@@ -3907,6 +4047,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
   <div class="page-desc">Balance of Payments · Absolute Advantage · Gains from Trade · Terms of Trade · 11 Theories of Trade</div>
   <div class="study-tabs">
     <button class="study-tab active" onclick="ibtShowTab('s1','summary',this)">Summary</button>
+    <button class="study-tab" onclick="ibtShowTab('s1','transcript',this)">📋 Lecture Notes</button>
     <button class="study-tab" onclick="ibtShowTab('s1','timeline',this)">BOP Timeline</button>
     <button class="study-tab" onclick="ibtShowTab('s1','flashcards',this)">Flashcards</button>
     <button class="study-tab" onclick="ibtShowTab('s1','quiz',this)">Quiz</button>
@@ -3982,6 +4123,159 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
         <li>Who gains more? The country with the <strong>less elastic (steeper) trade curve</strong> — it experiences a larger price change from autarky to world price.</li>
         <li>Trade = "indirect method of production" that converts bananas into cars. Always win-win globally; distribution depends on price elasticity.</li>
       </ul>
+    </div>
+  </div>
+
+  <div id="ibts1-transcript" class="study-panel">
+    <div class="note-box" style="border-left-color:var(--ibt-m);background:var(--ibt-l);margin-bottom:18px">
+      <strong>📋 Lecture Notes — Session 1: International Trade</strong><br>
+      Exam warnings and key priorities directly from the lecturer. Items marked ⚠️ were explicitly called out as exam-critical.
+    </div>
+
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-purple">⚠️ #1 Exam Warning — Germany–Zimbabwe Problem</span></div>
+      <p>The lecturer made it <strong>very clear</strong>: <em>Question 1 of the exam will very likely be this classic Germany–Zimbabwe trade problem.</em> You must be able to:</p>
+      <ul>
+        <li>Calculate the production frontiers for both countries</li>
+        <li>Identify which country specializes in which good</li>
+        <li>Compute world GDP before and after specialization</li>
+        <li>Show the trade flows (who exports what, how much)</li>
+        <li>Find consumption bundles after trade</li>
+        <li>Explain welfare gains graphically and in words</li>
+        <li>Interpret the terms of trade</li>
+      </ul>
+    </div>
+
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-purple">Production Coefficient — Must Be Able to Explain in Words</span></div>
+      <p>The lecturer said you may need to <strong>explain this in words</strong> in the exam:</p>
+      <ul>
+        <li><strong>Production coefficient</strong> = how many units of labour are needed to produce one unit of output</li>
+        <li>It is the <em>inverse</em> of productivity</li>
+        <li>Higher production coefficient = lower productivity</li>
+        <li>Lower production coefficient = higher productivity</li>
+      </ul>
+    </div>
+
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-purple">⚠️ Production Frontier — Very Likely Exam Question</span></div>
+      <p>The lecturer emphasized this is one of the most important concepts. <strong>Very likely exam question: interpret points on, below, and above the frontier.</strong></p>
+      <ul>
+        <li><strong>On the frontier</strong> = efficient (all resources fully used)</li>
+        <li><strong>Below the frontier</strong> = inefficient — economic crisis / recession</li>
+        <li><strong>Above the frontier</strong> = not feasible in autarky, but <em>can become reachable through trade and specialization</em></li>
+      </ul>
+      <div class="note-box" style="border-left-color:var(--ibt-m);background:var(--ibt-l);margin-top:10px">
+        <strong>How to calculate:</strong> Max cars = L ÷ a<sub>C</sub> &nbsp;|&nbsp; Max bananas = L ÷ a<sub>B</sub> &nbsp;|&nbsp; Draw straight line between intercepts
+      </div>
+    </div>
+
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-purple">⚠️ Slope = Opportunity Costs — Emphasized a Lot</span></div>
+      <p>The lecturer <strong>emphasized the slope a lot</strong>. Likely exam question: <em>Interpret the slope economically.</em></p>
+      <ul>
+        <li>The slope of the production frontier represents <strong>opportunity costs</strong></li>
+        <li>It tells you how much of one good must be given up to produce one more unit of the other</li>
+        <li>Example: slope of –0.5 means one more car costs half a banana in foregone production</li>
+        <li>Formula: slope = –a<sub>C</sub> / a<sub>B</sub></li>
+      </ul>
+    </div>
+
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-purple">World GDP — Before and After Specialization</span></div>
+      <p>You should be able to do this step-by-step in the exam:</p>
+      <ul>
+        <li><strong>Step 1:</strong> Find each country's output in autarky (chosen consumption/production point)</li>
+        <li><strong>Step 2:</strong> Add together → World GDP without trade</li>
+        <li><strong>Step 3:</strong> Let each country fully specialize in its comparative advantage good</li>
+        <li><strong>Step 4:</strong> Add specialized outputs → World GDP with trade</li>
+        <li><strong>Core result:</strong> Specialization increases total world output — Adam Smith's main conclusion</li>
+      </ul>
+      <div class="note-box" style="border-left-color:var(--ibt-m);background:var(--ibt-l);margin-top:10px">
+        <strong>Consumption after trade formula:</strong> Production – Exports + Imports = Consumption
+      </div>
+    </div>
+
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-purple">Trade Line vs. Production Frontier</span></div>
+      <ul>
+        <li><strong>Production frontier</strong> = what a country <em>can produce</em> (bounded by resources)</li>
+        <li><strong>Trade line</strong> = what a country <em>can consume</em> once it trades at the world exchange ratio</li>
+        <li>The trade line has the same slope in both countries — both face the same world price</li>
+        <li>The trade line allows consumption <em>above</em> the production frontier → welfare gain</li>
+      </ul>
+    </div>
+
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-purple">Real vs. Nominal Exchange Rate — Explicitly Distinguished</span></div>
+      <p>The lecturer <strong>explicitly distinguished</strong> these two concepts in this lecture:</p>
+      <ul>
+        <li><strong>Nominal exchange rate</strong> = currency against currency (e.g., €/$)</li>
+        <li><strong>Real exchange rate</strong> = good against good (e.g., 1 car = 1.5 bananas)</li>
+        <li>In the Germany–Zimbabwe model, the "real exchange rate" is the terms of trade — the good-for-good ratio</li>
+      </ul>
+    </div>
+
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-purple">⚠️ Terms of Trade — Extremely Important for Later Exam Questions</span></div>
+      <p>The lecturer said this is <strong>extremely important for later exam questions</strong>:</p>
+      <ul>
+        <li><strong>Definition:</strong> The rate at which countries exchange goods internationally (e.g., how many bananas does one car buy?)</li>
+        <li>The terms of trade determine how the <strong>gains from trade are distributed</strong> between countries</li>
+        <li>Better terms of trade = bigger welfare gain for that country</li>
+        <li>The world price lies <em>between</em> the two autarky prices (invisible hand)</li>
+      </ul>
+      <div class="note-box" style="border-left-color:var(--ibt-m);background:var(--ibt-l);margin-top:10px">
+        <strong>Determinants of terms of trade</strong> (lecturer said explicitly important):<br>
+        Tariffs · Factor endowment · Infrastructure · Trade agreements · Consumption preferences · Exchange rates · Market power / size of economy
+      </div>
+    </div>
+
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-purple">Large vs. Small Open Economy — Important Concept</span></div>
+      <ul>
+        <li>Small open economies must largely <strong>accept</strong> the prices set by large open economies</li>
+        <li>Large economies have more <strong>market power</strong> over the terms of trade</li>
+        <li><strong>Key takeaway:</strong> A small open economy suffers much more in a trade war against a large open economy</li>
+        <li>This matters especially for trade policy analysis</li>
+      </ul>
+    </div>
+
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-purple">Autarky Equilibrium — Depends on Preferences</span></div>
+      <ul>
+        <li>Without trade: countries consume exactly what they produce</li>
+        <li>The autarky point depends on <strong>preferences/utility</strong> — conceptually where the indifference curve touches the production frontier</li>
+        <li><strong>Exam tip:</strong> You may be told in words that one country prefers more bananas and the other more cars → choose the appropriate autarky point accordingly</li>
+      </ul>
+    </div>
+
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-purple">Intra- vs. Inter-Industrial Trade — Exam Relevant</span></div>
+      <table class="comp-table" style="margin-top:8px">
+        <tr><th>Type</th><th>Definition</th><th>Example</th></tr>
+        <tr><td><strong>Inter-industrial trade</strong></td><td>Trade between different industries</td><td>Cars for bananas (Germany ↔ Zimbabwe)</td></tr>
+        <tr><td><strong>Intra-industrial trade</strong></td><td>Trade within the same industry</td><td>Cars for cars (high-quality vs. low-quality)</td></tr>
+      </table>
+      <p style="margin-top:8px;font-size:13px;color:var(--text2)">Intra-industrial trade arises from <strong>consumer preferences</strong>: rich consumers in low-income countries may still want BMWs → countries can simultaneously import and export within the same category.</p>
+    </div>
+
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-purple">🎯 If Short on Time — Study in This Order</span></div>
+      <ol style="font-size:13.5px;color:var(--text2);line-height:2;padding-left:20px">
+        <li>Production coefficient</li>
+        <li>Production frontier (+ points on/below/above)</li>
+        <li>Slope = opportunity costs</li>
+        <li>Autarky vs. specialization</li>
+        <li>World GDP before and after trade</li>
+        <li>Consumption after trade (Production – Exports + Imports)</li>
+        <li>Welfare gains from trade</li>
+        <li>Trade line</li>
+        <li>Real exchange rate</li>
+        <li>Terms of trade + determinants</li>
+        <li>Large vs. small open economy</li>
+        <li>Intra- vs. inter-industrial trade</li>
+      </ol>
     </div>
   </div>
 
