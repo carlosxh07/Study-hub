@@ -417,6 +417,9 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
     <button class="nav-sub" onclick="showLecture('macro','lec1',this)">Lec 1: Economic Growth</button>
     <button class="nav-sub" onclick="showLecture('macro','lec2',this)">Lec 2: Goods Market &amp; Business Cycle</button>
     <button class="nav-sub" style="opacity:.5;cursor:default;pointer-events:none">+ More coming</button>
+    <div class="nav-label">Podcast</div>
+    <button class="nav-btn" data-color="macro" onclick="showPage('podcast-overview',this)"><span class="nav-dot" style="background:var(--macro)"></span>All Episodes</button>
+    <button class="nav-sub" onclick="showLecture('podcast','macro',this)">Macroeconomics</button>
     <div class="nav-label">Intl. Business Trade</div>
     <button class="nav-btn" data-color="ibt" onclick="showPage('ibt-overview',this)"><span class="nav-dot" style="background:var(--ibt)"></span>All Sessions</button>
     <button class="nav-sub" onclick="showLecture('ibt','s1',this)">Session 1: International Trade</button>
@@ -4685,6 +4688,168 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
   <div id="ibts5-flashcards" class="study-panel"><div id="ibts5-fc-wrap"></div></div>
   <div id="ibts5-quiz" class="study-panel"><div id="ibts5-quiz-wrap"></div></div>
 </div>
+<!-- ══════════════════════════════════════════
+     PODCAST OVERVIEW
+══════════════════════════════════════════ -->
+<div id="page-podcast-overview" class="page">
+  <div class="page-eyebrow" style="color:var(--macro)">Podcast Studio</div>
+  <div class="page-title">Study Podcasts</div>
+  <div class="page-desc">AI-generated two-host dialogues from your lecture content. Alex explains, Sam questions. ~45 min per lecture.</div>
+  <div class="lectures-list">
+    <div class="lec-card" onclick="showLecture('podcast','macro',null)">
+      <div class="lec-num" style="background:var(--macro-l);color:var(--macro)">01</div>
+      <div class="lec-info">
+        <div class="lec-title">Macroeconomics — Full Course</div>
+        <div class="lec-sub">GDP · Growth · Business Cycle · Goods Market · Multiplier · IS Curve · Fiscal Policy</div>
+      </div>
+      <div class="lec-badges">
+        <span class="lec-badge has">Script</span>
+        <span class="lec-badge has">Player</span>
+        <span class="lec-badge has">Flashcards</span>
+        <span class="lec-badge has">Quiz</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PODCAST — MACROECONOMICS
+══════════════════════════════════════════ -->
+<div id="page-podcast-macro" class="page">
+  <div class="page-eyebrow" style="color:var(--macro)">Podcast · Macroeconomics</div>
+  <div class="page-title">The Macro Hour</div>
+  <div class="page-desc">Alex &amp; Sam — GDP, Growth, Business Cycles, Goods Market &amp; IS Curve · ~55 min</div>
+
+  <div class="study-tabs">
+    <button class="study-tab active" onclick="podShowTab('macro','player',this)">▶ Player</button>
+    <button class="study-tab" onclick="podShowTab('macro','script',this)">📄 Script</button>
+    <button class="study-tab" onclick="podShowTab('macro','flashcards',this)">Flashcards</button>
+    <button class="study-tab" onclick="podShowTab('macro','quiz',this)">Quiz</button>
+  </div>
+
+  <!-- PLAYER -->
+  <div id="pod-macro-player" class="study-panel active">
+    <div class="sum-card" style="margin-bottom:18px">
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:14px">
+        <div style="width:52px;height:52px;border-radius:12px;background:var(--macro-l);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0">🎙</div>
+        <div>
+          <div style="font-family:var(--serif);font-size:18px;color:var(--text)">The Macro Hour</div>
+          <div style="font-size:12px;color:var(--text3);margin-top:2px">Alex &amp; Sam · Macroeconomics 1 · Dr. Rülke</div>
+        </div>
+        <div style="margin-left:auto;text-align:right">
+          <div id="pod-macro-runtime" style="font-family:var(--serif);font-size:22px;color:var(--macro)">~55 min</div>
+          <div style="font-size:11px;color:var(--text3)">estimated runtime</div>
+        </div>
+      </div>
+      <!-- Segment progress bar -->
+      <div style="display:flex;gap:3px;margin-bottom:14px" id="pod-macro-seg-bar"></div>
+      <!-- Current segment info -->
+      <div id="pod-macro-seg-info" style="font-size:13px;color:var(--text2);margin-bottom:14px;min-height:18px"></div>
+      <!-- Controls -->
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+        <button class="btn btn-sm" id="pod-macro-prev-btn" onclick="podPrevSeg('macro')" style="font-size:16px;padding:8px 14px">⏮</button>
+        <button class="btn btn-primary" id="pod-macro-play-btn" onclick="podToggle('macro')" style="background:var(--macro);border-color:var(--macro);min-width:90px;font-size:14px">▶ Play</button>
+        <button class="btn btn-sm" id="pod-macro-next-btn" onclick="podNextSeg('macro')" style="font-size:16px;padding:8px 14px">⏭</button>
+        <button class="btn btn-sm" id="pod-macro-stop-btn" onclick="podStop('macro')">■ Stop</button>
+        <div style="display:flex;align-items:center;gap:6px;margin-left:8px">
+          <span style="font-size:12px;color:var(--text3)">Speed</span>
+          <select id="pod-macro-rate" onchange="podSetRate('macro')" style="font-size:12px;border:1px solid var(--border);border-radius:6px;padding:4px 6px;background:var(--surface);color:var(--text);cursor:pointer">
+            <option value="0.8">0.8×</option>
+            <option value="0.9">0.9×</option>
+            <option value="1.0" selected>1.0×</option>
+            <option value="1.1">1.1×</option>
+            <option value="1.25">1.25×</option>
+            <option value="1.5">1.5×</option>
+          </select>
+        </div>
+        <div style="display:flex;align-items:center;gap:6px">
+          <span style="font-size:12px;color:var(--text3)">Voice</span>
+          <select id="pod-macro-voice" onchange="podSetVoice('macro')" style="font-size:12px;border:1px solid var(--border);border-radius:6px;padding:4px 6px;background:var(--surface);color:var(--text);cursor:pointer">
+            <option value="auto">Auto (best)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Currently speaking + line display -->
+    <div class="sum-card" id="pod-macro-now-card" style="display:none">
+      <div style="display:flex;align-items:flex-start;gap:12px">
+        <div id="pod-macro-speaker-avatar" style="width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:13px;flex-shrink:0;background:var(--macro-l);color:var(--macro)">A</div>
+        <div style="flex:1">
+          <div id="pod-macro-speaker-label" style="font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text3);margin-bottom:4px">Alex — Professor</div>
+          <div id="pod-macro-current-line" style="font-size:15px;color:var(--text);line-height:1.65;font-family:var(--serif)"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Segment chapter list -->
+    <div style="margin-top:18px">
+      <div style="font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text3);margin-bottom:10px">Episode chapters</div>
+      <div id="pod-macro-chapters" style="display:flex;flex-direction:column;gap:6px"></div>
+    </div>
+  </div>
+
+  <!-- SCRIPT VIEW -->
+  <div id="pod-macro-script" class="study-panel">
+    <div class="note-box" style="border-left-color:var(--macro-m);background:var(--macro-l);color:var(--macro);margin-bottom:18px">
+      <strong>Full episode script</strong> — Alex (professor) and Sam (student). Switch to the Player tab to listen with Web Speech API voices.
+    </div>
+    <div id="pod-macro-script-body" style="display:flex;flex-direction:column;gap:10px"></div>
+  </div>
+
+  <!-- FLASHCARDS -->
+  <div id="pod-macro-flashcards" class="study-panel">
+    <div class="fc-controls">
+      <button class="btn btn-sm" onclick="podFcShuffle('macro')">Shuffle</button>
+      <button class="btn btn-sm" onclick="podFcReset('macro')">Reset</button>
+      <span style="font-size:12px;color:var(--text3);margin-left:4px">Podcast key concepts</span>
+    </div>
+    <div class="fc-sr-bar" id="pod-macro-sr-bar"></div>
+    <div id="pod-macro-fc-wrap">
+      <div class="flashcard-wrap">
+        <div class="flashcard" id="pod-macro-fc-card" onclick="podFcFlip('macro')">
+          <div class="fc-face fc-front"><div class="fc-label">Question</div><div class="fc-question" id="pod-macro-fc-q"></div><div class="fc-hint">Click to reveal</div></div>
+          <div class="fc-face fc-back" style="background:var(--macro)"><div class="fc-label">Answer</div><div class="fc-answer" id="pod-macro-fc-a"></div><div class="fc-src" id="pod-macro-fc-src"></div></div>
+        </div>
+      </div>
+      <div class="sr-btns">
+        <button class="sr-btn sr-btn-hard" onclick="podFcRate('macro',0)">😬 Still learning</button>
+        <button class="sr-btn sr-btn-ok" onclick="podFcRate('macro',1)">🤔 Almost</button>
+        <button class="sr-btn sr-btn-easy" onclick="podFcRate('macro',2)">✓ Got it</button>
+      </div>
+      <div class="sr-mode-note">Card <span id="pod-macro-fc-counter">1</span> of <span id="pod-macro-fc-total">?</span></div>
+    </div>
+    <div class="fc-sr-done" id="pod-macro-fc-done" style="display:none">
+      <h3>Deck complete!</h3>
+      <p id="pod-macro-fc-done-msg"></p>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:16px">
+        <button class="btn btn-primary" onclick="podFcReviewWeak('macro')" style="background:var(--macro);border-color:var(--macro)">Review weak cards</button>
+        <button class="btn" onclick="podFcReset('macro')">Start over</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUIZ -->
+  <div id="pod-macro-quiz" class="study-panel">
+    <div id="pod-macro-quiz-wrap">
+      <div class="quiz-prog"><div class="quiz-prog-fill" id="pod-macro-qpfill" style="width:0%;background:var(--macro)"></div></div>
+      <div class="quiz-meta" id="pod-macro-qmeta"></div>
+      <div class="quiz-q" id="pod-macro-qtext"></div>
+      <div class="quiz-opts" id="pod-macro-qopts"></div>
+      <div class="quiz-fb" id="pod-macro-qfb"></div>
+      <div id="pod-macro-qnext" style="display:none"><button class="btn btn-primary" onclick="podQuizNext('macro')" style="background:var(--macro);border-color:var(--macro)">Next →</button></div>
+    </div>
+    <div class="quiz-score-screen" id="pod-macro-qscore">
+      <div class="score-row">
+        <div class="score-big" id="pod-macro-qbig" style="color:var(--macro)"></div>
+        <div class="score-right"><div class="score-lbl">correct answers</div><div class="score-msg" id="pod-macro-qmsg"></div></div>
+      </div>
+      <div class="weak-section" id="pod-macro-qweak"></div>
+      <button class="btn btn-primary" style="margin-top:16px;background:var(--macro);border-color:var(--macro)" onclick="podQuizInit('macro')">Try again</button>
+    </div>
+  </div>
+</div>
+
 <div id="page-ic-overview" class="page"><div class="page-eyebrow" style="color:var(--ic)">Intercultural Competence</div><div class="page-title">All Chapters</div><div class="page-desc">No chapters loaded yet.</div><div class="empty-state"><h3>Ready to populate</h3><p>Share your IC notes and I'll build the summary, flashcards, and quiz for each chapter.</p></div></div>
 
 <!-- ══════════════════════════════════════════
@@ -4843,7 +5008,8 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
 // ── Navigation ──
 function showPage(id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));document.getElementById('page-'+id).classList.add('active');if(btn)btn.classList.add('active')}
 function showLecture(subject,id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-sub').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');const el=document.getElementById('page-'+subject+'-'+id);if(el){el.classList.add('active');if(subject==='eu'&&id==='i'){initFC('si');initQuiz('si')}if(subject==='eu'&&id==='ii'){initFC('sii');initQuiz('sii')}if(subject==='eu'&&id==='iii'){initFC('siii');initQuiz('siii');initSiiiTimeline()}if(subject==='eu'&&id==='iv'){initFC('siv');initQuiz('siv');initSivTimeline()}if(subject==='eu'&&id==='v'){initFC('sv');initQuiz('sv')}if(subject==='eu'&&id==='vi'){initFC('svi');initQuiz('svi');loadScenario(0,document.querySelector('.scenario-btn'))}if(subject==='eu'&&id==='vii'){initFC('svii');initQuiz('svii');initSviiTimeline()}if(subject==='eu'&&id==='viii'){initFC('sviii');initQuiz('sviii');initSviiiTimeline()}if(subject==='eu'&&id==='ix'){initFC('six');initQuiz('six')}if(subject==='micro'&&id==='ch2'){initMicroFC('ch2');initMicroQuiz('ch2');initCalcFor('ch2')}
-if(subject==='micro'&&id==='ch3'){initMicroFC('ch3');initMicroQuiz('ch3');initCalc()}if(subject==='micro'&&id==='ps1'){initMicroFC('ps1');initMicroQuiz('ps1');initCalcFor('ps1')}if(subject==='micro'&&id==='ps2'){initMicroFC('ps2');initMicroQuiz('ps2');initCalcFor('ps2')}if(subject==='macro'&&id==='lec1'){initMacroFC('lec1');initMacroQuiz('lec1');initCalcFor('lec1')}if(subject==='macro'&&id==='lec2'){initMacroFC('lec2');initMacroQuiz('lec2');initCalcFor('lec2')}}}
+if(subject==='micro'&&id==='ch3'){initMicroFC('ch3');initMicroQuiz('ch3');initCalc()}if(subject==='micro'&&id==='ps1'){initMicroFC('ps1');initMicroQuiz('ps1');initCalcFor('ps1')}if(subject==='micro'&&id==='ps2'){initMicroFC('ps2');initMicroQuiz('ps2');initCalcFor('ps2')}if(subject==='macro'&&id==='lec1'){initMacroFC('lec1');initMacroQuiz('lec1');initCalcFor('lec1')}if(subject==='macro'&&id==='lec2'){initMacroFC('lec2');initMacroQuiz('lec2');initCalcFor('lec2')}if(subject==='podcast'&&id==='macro'){podInit('macro')}}}
+
 function showMacroTab(tab,btn,prefix){
   const page=document.getElementById('page-macro-'+prefix);if(!page)return;
   page.querySelectorAll('.study-panel').forEach(p=>p.classList.remove('active'));
@@ -7887,6 +8053,567 @@ function ibtQuizNext(session) {
   st.idx++;
   st.answered = false;
   renderIbtQuiz(session);
+}
+
+// ══════════════════════════════════════════
+// PODCAST ENGINE
+// ══════════════════════════════════════════
+
+// ── Script data ──
+const POD_SCRIPTS = {
+  macro: [
+    // ── COLD OPEN ──
+    { seg:'cold-open', segLabel:'Cold Open', speaker:'Sam', line:"Alex, quick question before we dive in — if the German government doubles its spending overnight, does that actually double GDP?" },
+    { seg:'cold-open', segLabel:'Cold Open', speaker:'Alex', line:"Not quite — and that gap between 'government spent more' and 'GDP rose by that amount' is the whole story of the goods market and the multiplier. By the end of this episode you'll be able to derive exactly how much GDP changes, and under what conditions the government's money machine breaks down entirely." },
+    { seg:'cold-open', segLabel:'Cold Open', speaker:'Sam', line:"Bold promise. Let's go." },
+
+    // ── CONTEXT ──
+    { seg:'context', segLabel:'Why This Matters', speaker:'Alex', line:"Today's episode covers two lectures from Dr. Rülke's Macroeconomics 1 course. Lecture one is all about economic growth — GDP, production functions, the Solow decomposition. Lecture two is the goods market model, the multiplier, and the IS curve. These are the backbone of any macroeconomics exam." },
+    { seg:'context', segLabel:'Why This Matters', speaker:'Sam', line:"And this is relevant beyond the exam, right? Like, when the ECB cuts rates, or the government launches a stimulus package — this is the framework journalists are vaguely gesturing at?" },
+    { seg:'context', segLabel:'Why This Matters', speaker:'Alex', line:"Exactly. Every economic policy debate you read about — austerity versus stimulus, helicopter money, fiscal multipliers — is a direct application of what we're covering today. The IS curve alone explains why some countries recover from recessions quickly and others don't." },
+
+    // ── CORE BLOCK 1: GDP & GROWTH ──
+    { seg:'core-1', segLabel:'GDP & Growth', speaker:'Alex', line:"Let's start with GDP. Gross Domestic Product — it's the market value of all final goods and services produced within a country's borders during a given period. Three equivalent methods: expenditure, production, and income. The expenditure formula is the one you need to know cold: Y equals C plus I plus G plus net exports." },
+    { seg:'core-1', segLabel:'GDP & Growth', speaker:'Sam', line:"What's the biggest trap students fall into with the expenditure formula?" },
+    { seg:'core-1', segLabel:'GDP & Growth', speaker:'Alex', line:"Counting financial investment. When your textbook says I — investment — it means physical capital formation. Buying shares, lending money, purchasing bonds — none of that counts as investment in GDP accounting. It's a transfer of ownership, not the creation of new productive capacity. Students lose marks on this constantly." },
+    { seg:'core-1', segLabel:'GDP & Growth', speaker:'Sam', line:"Got it — only real capital. What about the three growth determinants?" },
+    { seg:'core-1', segLabel:'GDP & Growth', speaker:'Alex', line:"The Solow decomposition breaks GDP growth into three sources. First, more physical capital — more machines, factories, infrastructure. Second, more labour — more workers or more hours worked. Third, and most important, total factor productivity — TFP — which is basically technology and efficiency. The formula is: growth in Y equals alpha times growth in K, plus beta times growth in L, plus the TFP residual. TFP is what makes rich countries rich." },
+    { seg:'core-1', segLabel:'GDP & Growth', speaker:'Sam', line:"So two countries can have the same capital and labour but different growth rates just because of TFP?" },
+    { seg:'core-1', segLabel:'GDP & Growth', speaker:'Alex', line:"Exactly. And the catch-up effect — poor countries growing faster than rich ones — is real but conditional. It only works if institutions are sound, property rights exist, and there's access to existing technology. If those conditions aren't met, you can stay poor indefinitely despite low capital per worker." },
+
+    // ── EXAM TRAP 1 ──
+    { seg:'trap-1', segLabel:'Exam Trap: GDP', speaker:'Sam', line:"Exam trap time. What would a student get wrong about GDP here?" },
+    { seg:'trap-1', segLabel:'Exam Trap: GDP', speaker:'Alex', line:"Three classic traps. First, confusing nominal and real GDP — nominal uses current prices, real adjusts for inflation, only real GDP tells you whether the economy actually grew. Second, treating financial transactions as investment. Third, forgetting that GDP is a flow concept — it measures production over a time period, not the stock of wealth. A rich country with zero new production in a quarter has zero GDP contribution for that quarter." },
+
+    // ── CORE BLOCK 2: GOODS MARKET ──
+    { seg:'core-2', segLabel:'Goods Market Model', speaker:'Alex', line:"Now the goods market model. We're in the short run — prices are fixed, output is demand-determined. The key equation is aggregate demand: Y-D equals C plus I-autonomous plus G. Consumption depends on income: C equals a plus c times Y, where a is autonomous consumption and c is the marginal propensity to consume." },
+    { seg:'core-2', segLabel:'Goods Market Model', speaker:'Sam', line:"The MPC. Germany's MPC is around 0.6, right?" },
+    { seg:'core-2', segLabel:'Goods Market Model', speaker:'Alex', line:"Correct — about 0.6. That means for every extra euro of income, Germans consume 60 cents and save 40 cents. Now, equilibrium in the goods market requires that output equals aggregate demand — Y equals Y-D. When you substitute and solve, you get the equilibrium output formula: Y-hat equals one over one minus c, times the sum of all autonomous components. That fraction is the multiplier." },
+    { seg:'core-2', segLabel:'Goods Market Model', speaker:'Sam', line:"So if MPC is 0.6, the multiplier is one over 0.4, which is 2.5. A government spends one billion euros extra and GDP rises by 2.5 billion?" },
+    { seg:'core-2', segLabel:'Goods Market Model', speaker:'Alex', line:"In the simple model, yes. But the multiplier shrinks fast once you introduce taxes and imports. With a proportional tax rate t, it becomes one over one minus c times one minus t. With both taxes and imports it shrinks further. The exam loves asking you to pick the right multiplier formula for the scenario described." },
+    { seg:'core-2', segLabel:'Goods Market Model', speaker:'Sam', line:"What about the paradox of thrift? That one genuinely confused me when I first saw it." },
+    { seg:'core-2', segLabel:'Goods Market Model', speaker:'Alex', line:"Perfect example of the goods market model in action. Each individual household is rational — they save more because the future looks uncertain. But collectively, when everyone saves more, consumption falls, firms see weaker demand, they cut output and jobs, income falls, and households end up with less savings in total, not more. Japan's two lost decades is the textbook case. Individually rational, collectively self-defeating." },
+
+    // ── EXAM TRAP 2 ──
+    { seg:'trap-2', segLabel:'Exam Trap: Multiplier', speaker:'Sam', line:"What's the multiplier exam trap?" },
+    { seg:'trap-2', segLabel:'Exam Trap: Multiplier', speaker:'Alex', line:"Always check whether the question includes taxes. Students apply 1 over (1 minus c) when the correct formula needs 1 over (1 minus c plus c times t). With a tax rate of 0.25 and MPC of 0.6, the simple multiplier gives 2.5 but the correct answer is around 1.82. That's a huge difference in a calculation question. Also watch for the Haavelmo theorem: an equal increase in G and T raises Y by exactly delta-G. The multiplier on the tax side is negative c over 1 minus c, and they sum to exactly 1." },
+
+    // ── CORE BLOCK 3: FISCAL POLICY & LAGS ──
+    { seg:'core-3', segLabel:'Fiscal Policy', speaker:'Alex', line:"Fiscal policy. The government can stimulate demand by increasing G or reducing taxes T. The structural budget balance is B equals T minus transfer payments minus G. Anti-cyclical policy means running deficits in recessions and surpluses in booms. In practice this is brutally difficult because of the five time lags." },
+    { seg:'core-3', segLabel:'Fiscal Policy', speaker:'Sam', line:"Walk me through the five lags. I always confuse the middle ones." },
+    { seg:'core-3', segLabel:'Fiscal Policy', speaker:'Alex', line:"Lag one: information lag. You need two consecutive quarters of negative growth before a recession is even official — months already lost. Lag two: decision lag. Political debate, committee hearings, budget negotiations — Germany takes six to nine months. Lag three: action lag. Actually implementing the decision. Germany's Corona relief was approved in principle quickly but payments didn't reach firms until January 2021. Lags four and five: policy and effectiveness lags — the multiplier working through the economy, round by round." },
+    { seg:'core-3', segLabel:'Fiscal Policy', speaker:'Sam', line:"And the inside-outside split?" },
+    { seg:'core-3', segLabel:'Fiscal Policy', speaker:'Alex', line:"Inside lag is lags one, two, and three — the delay before the money actually flows. Outside lag is four and five — the delay before the spending affects GDP. Total delay often exceeds a year, which means stimulus arrives during a recovery and becomes accidentally pro-cyclical. Haavelmo himself argued this makes anti-cyclical fiscal policy operationally inoperable." },
+
+    // ── CASE STUDY ──
+    { seg:'case', segLabel:'Case Study: Germany & COVID', speaker:'Sam', line:"Give me the real-world example — Germany and COVID." },
+    { seg:'case', segLabel:'Case Study: Germany & COVID', speaker:'Alex', line:"Germany approved around 100 billion euros of emergency relief in spring 2020 — Peter Altmaier's package. But the actual disbursement to businesses hit hardest by lockdowns didn't happen until late January 2021, nearly a year later. By then, Germany was already in the second wave and lockdown two — so the timing was at least aligned. But it perfectly illustrates the action lag. The political will was there, the money existed, but the administrative machinery is slow." },
+    { seg:'case', segLabel:'Case Study: Germany & COVID', speaker:'Sam', line:"And the ECB side?" },
+    { seg:'case', segLabel:'Case Study: Germany & COVID', speaker:'Alex', line:"The ECB launched the Pandemic Emergency Purchase Programme — PEPP — worth 1.85 trillion euros at its peak. That's monetary policy, not fiscal. But it shows how in a crisis, both arms of stabilisation policy move simultaneously. The IS-LM model is the framework for understanding how they interact — fiscal policy shifts the IS curve, monetary policy moves you along it." },
+
+    // ── CORE BLOCK 4: IS CURVE ──
+    { seg:'core-4', segLabel:'The IS Curve', speaker:'Alex', line:"The IS curve. It shows all combinations of interest rate i and output Y that produce equilibrium in the goods market. The derivation adds investment sensitive to interest rates: I equals I-autonomous minus g times i. When you solve the goods market equilibrium with this, you get Y as a decreasing function of i — that's the IS curve. It slopes downward because lower rates mean cheaper borrowing, more investment, more output." },
+    { seg:'core-4', segLabel:'The IS Curve', speaker:'Sam', line:"And there are four key scenarios the professor flagged for the exam?" },
+    { seg:'core-4', segLabel:'The IS Curve', speaker:'Alex', line:"Exactly four. Scenario one: interest rate falls due to monetary policy — you move along the existing IS curve from one point to another. The curve doesn't shift. Scenario two: expansionary fiscal policy — G rises or T falls — IS shifts right. Higher output at every interest rate. Scenario three: paradox of thrift or autonomous investment falls — IS shifts left. Scenario four, and this is the dangerous one: investment is completely insensitive to interest rates, g equals zero. The IS curve becomes vertical. Monetary policy — changing i — has absolutely zero effect on output. Only fiscal policy can help." },
+    { seg:'core-4', segLabel:'The IS Curve', speaker:'Sam', line:"When would g equal zero happen in practice?" },
+    { seg:'core-4', segLabel:'The IS Curve', speaker:'Alex', line:"In conditions of profound uncertainty. War, existential crisis, pandemic panic — when firms don't invest even at zero percent interest because they can't see any future demand. It's also connected to Keynes's liquidity trap concept. Japan in the 1990s came close. When the IS curve is vertical, you're completely dependent on fiscal policy, which brings us back to the lag problem." },
+
+    // ── EXAM TRAP 4 ──
+    { seg:'trap-4', segLabel:'Exam Trap: IS Curve', speaker:'Sam', line:"IS curve exam trap?" },
+    { seg:'trap-4', segLabel:'Exam Trap: Multiplier', speaker:'Alex', line:"Students mix up movement along the IS curve with shifts of the IS curve. If the interest rate changes because of monetary policy, you move along — same IS curve, different point. If fiscal policy changes G or T, or if autonomous consumption or investment changes, the whole curve shifts. The exam will describe a scenario and ask whether you're moving along or shifting. Always ask: did the interest rate change as the cause, or as the consequence?" },
+
+    // ── RAPID FIRE ──
+    { seg:'rapid', segLabel:'Lightning Round', speaker:'Sam', line:"Lightning round. I'll ask, you answer fast. What does MPC stand for and what is Germany's approximate value?" },
+    { seg:'rapid', segLabel:'Lightning Round', speaker:'Alex', line:"Marginal propensity to consume. Germany: approximately 0.6." },
+    { seg:'rapid', segLabel:'Lightning Round', speaker:'Sam', line:"What is the simple Keynesian multiplier formula?" },
+    { seg:'rapid', segLabel:'Lightning Round', speaker:'Alex', line:"One divided by one minus c." },
+    { seg:'rapid', segLabel:'Lightning Round', speaker:'Sam', line:"Define recession precisely." },
+    { seg:'rapid', segLabel:'Lightning Round', speaker:'Alex', line:"Two consecutive quarters of negative GDP growth. Regional. Part of the normal business cycle." },
+    { seg:'rapid', segLabel:'Lightning Round', speaker:'Sam', line:"What distinguishes depression from recession?" },
+    { seg:'rapid', segLabel:'Lightning Round', speaker:'Alex', line:"Depression exceeds negative 10 percent growth, has global impact, and is not part of the regular cycle. Great Depression 1929: US GDP fell around 30 percent." },
+    { seg:'rapid', segLabel:'Lightning Round', speaker:'Sam', line:"What does stagflation mean?" },
+    { seg:'rapid', segLabel:'Lightning Round', speaker:'Alex', line:"Inflation above 5 percent AND negative growth simultaneously. Standard tools conflict — stimulus fights unemployment but worsens inflation. 1970s oil shocks." },
+    { seg:'rapid', segLabel:'Lightning Round', speaker:'Sam', line:"What is the Haavelmo theorem?" },
+    { seg:'rapid', segLabel:'Lightning Round', speaker:'Alex', line:"A balanced budget increase — G and T rise by the same amount — raises GDP by exactly delta-G. Multiplier equals 1. Because government's MPC is 1 but households' MPC is less than 1." },
+    { seg:'rapid', segLabel:'Lightning Round', speaker:'Sam', line:"What are the three GDP measurement methods?" },
+    { seg:'rapid', segLabel:'Lightning Round', speaker:'Alex', line:"Expenditure method: C plus I plus G plus net exports. Production method: sum of value added. Income method: wages plus profits plus rents. All three give the same answer in principle." },
+    { seg:'rapid', segLabel:'Lightning Round', speaker:'Sam', line:"What is TFP and why does it matter?" },
+    { seg:'rapid', segLabel:'Lightning Round', speaker:'Alex', line:"Total factor productivity — the residual in the Solow decomposition after accounting for capital and labour growth. It captures technology and efficiency. It's what separates rich from poor countries with similar factor endowments." },
+
+    // ── WRAP UP ──
+    { seg:'wrap', segLabel:'Three Things to Remember', speaker:'Sam', line:"Three things to remember from this episode. Number one?" },
+    { seg:'wrap', segLabel:'Three Things to Remember', speaker:'Alex', line:"The multiplier formula changes depending on context. Simple model: one over one minus c. With taxes: one over one minus c times one minus t. Always identify which version the exam question needs." },
+    { seg:'wrap', segLabel:'Three Things to Remember', speaker:'Sam', line:"Number two?" },
+    { seg:'wrap', segLabel:'Three Things to Remember', speaker:'Alex', line:"IS curve: monetary policy moves you along the curve, fiscal policy shifts it. And when investment is interest-insensitive — g equals zero — the IS curve is vertical and monetary policy is powerless." },
+    { seg:'wrap', segLabel:'Three Things to Remember', speaker:'Sam', line:"Number three?" },
+    { seg:'wrap', segLabel:'Three Things to Remember', speaker:'Alex', line:"The five time lags make anti-cyclical fiscal policy operationally difficult. Inside lag is about political process, outside lag is about economic transmission. Total delay often exceeds a year." },
+    { seg:'wrap', segLabel:'Three Things to Remember', speaker:'Sam', line:"And Alex's sleeper point — something easy to miss?" },
+    { seg:'wrap', segLabel:'Three Things to Remember', speaker:'Alex', line:"The paradox of thrift direction chain. When asked to explain it, don't just say 'saving goes up so GDP goes down.' Write the full chain: autonomous savings rise, consumption falls, output falls, income falls, induced savings fall. Net savings don't increase — that's the paradox. The exam may ask you to trace the chain explicitly." },
+    { seg:'wrap', segLabel:'Three Things to Remember', speaker:'Sam', line:"Next episode we'll be going deeper into the IS-LM model and monetary policy. Thanks for listening to The Macro Hour." },
+    { seg:'wrap', segLabel:'Three Things to Remember', speaker:'Alex', line:"See you there." },
+  ]
+};
+
+const POD_SEGMENTS = {
+  macro: [
+    { id:'cold-open', label:'Cold Open', duration:'~2 min', color:'var(--micro)' },
+    { id:'context',   label:'Why This Matters', duration:'~3 min', color:'var(--eu)' },
+    { id:'core-1',    label:'GDP & Growth', duration:'~8 min', color:'var(--macro)' },
+    { id:'trap-1',    label:'Exam Trap: GDP', duration:'~2 min', color:'var(--amber)' },
+    { id:'core-2',    label:'Goods Market', duration:'~9 min', color:'var(--macro)' },
+    { id:'trap-2',    label:'Exam Trap: Multiplier', duration:'~2 min', color:'var(--amber)' },
+    { id:'core-3',    label:'Fiscal Policy & Lags', duration:'~7 min', color:'var(--macro)' },
+    { id:'case',      label:'Case: Germany & COVID', duration:'~5 min', color:'var(--ibt)' },
+    { id:'core-4',    label:'The IS Curve', duration:'~8 min', color:'var(--macro)' },
+    { id:'trap-4',    label:'Exam Trap: IS Curve', duration:'~2 min', color:'var(--amber)' },
+    { id:'rapid',     label:'Lightning Round', duration:'~4 min', color:'var(--micro)' },
+    { id:'wrap',      label:'3 Things to Remember', duration:'~3 min', color:'var(--micro)' },
+  ]
+};
+
+const POD_FLASHCARDS = {
+  macro: [
+    { q:'What are the three equivalent methods of measuring GDP?', a:'Expenditure (C+I+G+NX), Production (sum of value added), Income (wages+profits+rents). All yield identical results by national accounting identity.', src:'Lecture 1 — GDP' },
+    { q:'What is the expenditure formula for GDP and what does each term represent?', a:'Y = C + I + G + NX. C = private consumption, I = business investment (physical capital only!), G = government spending, NX = net exports (X−IM).', src:'Lecture 1 — GDP' },
+    { q:'Why does financial investment NOT count as I in GDP?', a:'Financial transactions (buying shares, bonds, lending) transfer ownership of existing assets — no new productive capacity is created. Only expenditure on new physical capital (machines, buildings, equipment) counts as investment in GDP.', src:'Lecture 1 — GDP Trap' },
+    { q:'What is the Solow decomposition of GDP growth?', a:'ΔY/Y = α·(ΔK/K) + β·(ΔL/L) + TFP growth. Growth = weighted contribution of more capital + more labour + total factor productivity (technology/efficiency residual).', src:'Lecture 1 — Growth' },
+    { q:'What is TFP and why does it matter for cross-country income differences?', a:'Total Factor Productivity — the residual growth after accounting for capital and labour. It captures technology, institutions, and efficiency. Countries with same K and L but different TFP have different incomes. It is the main driver of long-run growth differences.', src:'Lecture 1 — TFP' },
+    { q:'What is the catch-up effect and when does it fail?', a:'Poor countries grow faster than rich ones because diminishing returns to capital give higher marginal product at low K/L. Fails when institutions are weak, property rights absent, or technology transfer is blocked.', src:'Lecture 1 — Convergence' },
+    { q:'What are the three economic terminology definitions most likely to appear on the exam?', a:'Recession: 2 consecutive quarters of negative growth, regional, cyclical. Depression: >−10% growth, global, not cyclical. Stagflation: inflation >5% AND negative growth simultaneously (policy tools conflict).', src:'Lecture 2 — Terminology' },
+    { q:'What is the goods market equilibrium condition and how do you solve for Y-hat?', a:'Equilibrium: Y = Y^D. Substituting Y^D = a + cY + I^aut + G and solving: Y* = (1/(1−c)) · (a + I^aut + G). The fraction 1/(1−c) is the Keynesian multiplier.', src:'Lecture 2 — Goods Market' },
+    { q:'What is the Keynesian multiplier and what are its two main forms?', a:'Simple: 1/(1−c). With proportional tax t: 1/(1−c(1−t)). For every €1 of autonomous demand increase, GDP rises by the multiplier. A higher MPC means a larger multiplier.', src:'Lecture 2 — Multiplier' },
+    { q:'State the Haavelmo theorem and explain why it holds.', a:'A balanced budget increase (ΔG = ΔT) raises GDP by exactly ΔG (multiplier = 1). Why: government\'s MPC on spending = 1, but the tax multiplier is −c/(1−c) < 1 in absolute value. They sum to exactly 1.', src:'Lecture 2 — Haavelmo' },
+    { q:'Explain the paradox of thrift with the full chain of causation.', a:'↑a (autonomous saving) → ↓C → ↓Y → ↓s·Y (induced saving) → ↓S_total. Collectively rational saving leads to lower income, which reduces total savings. Individually rational, collectively self-defeating. Empirical case: Japan 1990s.', src:'Lecture 2 — Paradox of Thrift' },
+    { q:'What are the five fiscal policy time lags and which are inside vs outside?', a:'① Information lag (recession recognised after 2 quarters). ② Decision lag (political debate, ~6–9 months Germany). ③ Action lag (implementation, disbursement). ④ Policy lag (multiplier rounds begin). ⑤ Effectiveness lag (full multiplier complete). Inside = ①②③. Outside = ④⑤.', src:'Lecture 2 — Fiscal Lags' },
+    { q:'Derive the IS curve equation from the goods market model.', a:'Add I = I^aut − g·i to goods market. Equilibrium: Y = (1/(1−c)) · (a + I^aut + G − g·i). This gives Y as decreasing function of i → IS curve slopes downward. Steeper when g is small (investment insensitive to rates).', src:'Lecture 2 — IS Curve' },
+    { q:'What are the four IS curve scenarios flagged as exam-critical?', a:'① i falls → movement ALONG IS (no shift). ② G↑ or T↓ → IS shifts RIGHT. ③ Paradox of thrift / I^aut↓ → IS shifts LEFT. ④ g=0 → vertical IS → monetary policy completely ineffective, only fiscal works.', src:'Lecture 2 — IS Scenarios' },
+    { q:'When is the IS curve vertical and what does this mean for policy?', a:'When g = 0: investment is completely insensitive to interest rates. A vertical IS means changing i has zero effect on Y. Monetary policy is powerless. Only fiscal policy (shifting the vertical IS) can change output. Occurs in catastrophic uncertainty or investment traps.', src:'Lecture 2 — IS Curve' },
+  ]
+};
+
+const POD_QUIZ = {
+  macro: [
+    { q:'Which of the following correctly counts as investment (I) in the GDP expenditure formula?', opts:['Purchasing 100 shares of BMW stock','A household buying a government bond','A firm purchasing a new industrial robot','A pension fund buying corporate bonds'], ans:2, exp:'GDP investment = physical capital formation. Only the robot (C) creates new productive capacity. Financial transactions transfer existing ownership and do not appear in I.', topic:'GDP' },
+    { q:'Germany\'s MPC is approximately 0.6 and there is no tax. A government spends €2 billion extra. What is the total increase in GDP?', opts:['€2 billion','€3 billion','€5 billion','€1.2 billion'], ans:2, exp:'Multiplier = 1/(1−0.6) = 1/0.4 = 2.5. GDP increase = 2.5 × €2bn = €5bn (C). With no tax, the simple multiplier applies.', topic:'Multiplier' },
+    { q:'With MPC = 0.6 and proportional tax rate t = 0.25, what is the correct multiplier?', opts:['2.5','1.82','4.0','1.67'], ans:1, exp:'With tax: 1/(1−c(1−t)) = 1/(1−0.6×0.75) = 1/(1−0.45) = 1/0.55 ≈ 1.82 (B). The simple multiplier 2.5 ignores tax leakage.', topic:'Multiplier' },
+    { q:'Which sequence correctly describes the paradox of thrift?', opts:['↑S → ↑Y → ↑Investment → ↑S','↑a → ↓C → ↓Y → ↓s·Y → ↓S_total','↓i → ↑I → ↑Y → ↑S','↑G → ↑Y → ↑C → ↑S'], ans:1, exp:'The correct chain (B): autonomous saving rises → consumption falls → output falls → induced saving falls → total saving falls. The paradox is that trying to save more collectively reduces total savings.', topic:'Paradox of Thrift' },
+    { q:'Germany recognises a recession in Q2, passes a fiscal package in Q4, and disbursements reach firms in Q1 of the following year. This illustrates which lags?', opts:['Only the information lag','Information lag + decision lag','Information lag + decision lag + action lag','Only the outside lag'], ans:2, exp:'Recognition (information lag ①), parliamentary approval (decision lag ②), actual payment to firms (action lag ③). All three are "inside lag" stages. The outside lag (④⑤) begins when spending starts affecting demand.', topic:'Fiscal Lags' },
+    { q:'The ECB cuts interest rates. In the IS-LM framework, what happens to the IS curve?', opts:['IS shifts right','IS shifts left','IS does not shift — you move along it','IS becomes vertical'], ans:2, exp:'Monetary policy (interest rate change) causes movement ALONG the IS curve, not a shift. The IS curve shifts only when autonomous components change (G, T, autonomous consumption/investment). (C) is correct.', topic:'IS Curve' },
+    { q:'When is the IS curve vertical and what is the policy implication?', opts:['When MPC = 1, making fiscal policy very powerful','When g = 0, making monetary policy completely ineffective','When the tax rate equals MPC','When autonomous investment is zero'], ans:1, exp:'g = 0 means investment does not respond to interest rates → IS is vertical (B). Any change in i moves along a curve that gives the same Y at every i. Only fiscal policy (shifting the vertical IS curve) can change output.', topic:'IS Curve' },
+    { q:'What does the Haavelmo theorem state?', opts:['Balanced budgets always cause recessions','An equal increase in G and T raises Y by exactly ΔG','Fiscal multipliers are always larger than monetary multipliers','Deficit spending is more effective than tax cuts'], ans:1, exp:'Haavelmo (B): ΔY = ΔG when ΔG = ΔT. Government multiplier = 1/(1−c), tax multiplier = −c/(1−c). Sum = 1/(1−c) − c/(1−c) = 1. The government\'s MPC on its own spending is 1, while households\' MPC on tax cuts is only c < 1.', topic:'Haavelmo' },
+    { q:'Which correctly defines stagflation?', opts:['Negative growth for two consecutive quarters','Inflation above 5% AND negative growth simultaneously','Stagnant growth with deflation','Inflation above 50% per month'], ans:1, exp:'Stagflation (B) = inflation >5% AND negative growth. Policy tools conflict: stimulus reduces unemployment but worsens inflation. First observed during the 1970s oil shocks. Hyperinflation (D) is >50%/month. Recession (A) is two negative quarters.', topic:'Terminology' },
+    { q:'What is the key difference between recession and depression?', opts:['Recessions last longer than depressions','Depressions are cyclical, recessions are structural','Depressions exceed −10% growth and have global impact; recessions are cyclical and regional','Recessions require monetary intervention; depressions require fiscal intervention'], ans:2, exp:'Depression (C): exceeds −10% growth, global scope, not part of the normal cycle (Great Depression 1929). Recession: two negative quarters, regional, part of the cycle. The structural vs cyclical distinction is exam-critical.', topic:'Terminology' },
+  ]
+};
+
+// ── Podcast state ──
+const podState = {};
+
+function podInit(name) {
+  if (podState[name]) return;
+  podState[name] = {
+    lineIdx: 0,
+    segIdx: 0,
+    playing: false,
+    utterance: null,
+    rate: 1.0,
+    voices: [],
+    voiceA: null,
+    voiceB: null,
+  };
+  podLoadVoices(name);
+  podBuildChapters(name);
+  podBuildSegBar(name);
+  podFcInit(name);
+  podQuizInit(name);
+}
+
+function podLoadVoices(name) {
+  const st = podState[name];
+  const sel = document.getElementById('pod-'+name+'-voice');
+  function populate() {
+    const voices = speechSynthesis.getVoices();
+    if (!voices.length) return;
+    st.voices = voices;
+    // Pick two distinct voices: prefer different genders
+    const en = voices.filter(v => v.lang.startsWith('en'));
+    const pool = en.length >= 2 ? en : voices;
+    st.voiceA = pool[0] || voices[0];
+    st.voiceB = pool.find((v,i) => i > 0 && v.name !== st.voiceA.name) || (voices[1] || voices[0]);
+    if (sel) {
+      sel.innerHTML = '<option value="auto">Auto (best)</option>';
+      pool.forEach((v,i) => {
+        const o = document.createElement('option');
+        o.value = i;
+        o.textContent = v.name.replace(/Microsoft|Google|Apple/g,'').trim();
+        sel.appendChild(o);
+      });
+    }
+  }
+  if (speechSynthesis.getVoices().length) populate();
+  else speechSynthesis.addEventListener('voiceschanged', populate);
+}
+
+function podSetVoice(name) {
+  const sel = document.getElementById('pod-'+name+'-voice');
+  if (!sel || sel.value === 'auto') return;
+  const st = podState[name];
+  const voices = speechSynthesis.getVoices().filter(v => v.lang.startsWith('en'));
+  const idx = parseInt(sel.value);
+  st.voiceA = voices[idx] || st.voiceA;
+  st.voiceB = voices[(idx + 1) % voices.length] || st.voiceB;
+}
+
+function podSetRate(name) {
+  const sel = document.getElementById('pod-'+name+'-rate');
+  if (sel) podState[name].rate = parseFloat(sel.value);
+}
+
+function podBuildChapters(name) {
+  const segs = POD_SEGMENTS[name];
+  const container = document.getElementById('pod-'+name+'-chapters');
+  if (!container) return;
+  container.innerHTML = '';
+  segs.forEach((seg, i) => {
+    const div = document.createElement('div');
+    div.id = 'pod-'+name+'-ch-'+i;
+    div.style.cssText = 'display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:8px;cursor:pointer;transition:background .15s;font-size:13px;color:var(--text2)';
+    div.onmouseenter = () => { if (!div.classList.contains('pod-ch-active')) div.style.background='var(--surface2)'; };
+    div.onmouseleave = () => { if (!div.classList.contains('pod-ch-active')) div.style.background=''; };
+    div.onclick = () => podJumpToSeg(name, i);
+    div.innerHTML = `<span style="width:10px;height:10px;border-radius:50%;flex-shrink:0;background:${seg.color}"></span><span style="flex:1">${seg.label}</span><span style="font-size:11px;color:var(--text3)">${seg.duration}</span>`;
+    container.appendChild(div);
+  });
+}
+
+function podBuildSegBar(name) {
+  const segs = POD_SEGMENTS[name];
+  const bar = document.getElementById('pod-'+name+'-seg-bar');
+  if (!bar) return;
+  bar.innerHTML = '';
+  segs.forEach((seg, i) => {
+    const div = document.createElement('div');
+    div.id = 'pod-'+name+'-seg-pip-'+i;
+    div.style.cssText = 'flex:1;height:4px;border-radius:2px;background:var(--border);transition:background .3s';
+    bar.appendChild(div);
+  });
+}
+
+function podUpdateUI(name) {
+  const st = podState[name];
+  const script = POD_SCRIPTS[name];
+  const segs = POD_SEGMENTS[name];
+  const line = script[st.lineIdx];
+  const seg = segs[st.segIdx];
+
+  // Segment progress bar
+  segs.forEach((s, i) => {
+    const pip = document.getElementById('pod-'+name+'-seg-pip-'+i);
+    if (pip) pip.style.background = i < st.segIdx ? seg.color : i === st.segIdx ? 'var(--macro)' : 'var(--border)';
+  });
+  // Segment info
+  const info = document.getElementById('pod-'+name+'-seg-info');
+  if (info) info.textContent = seg ? seg.label + ' · ' + seg.duration : '';
+  // Chapter highlight
+  segs.forEach((s, i) => {
+    const ch = document.getElementById('pod-'+name+'-ch-'+i);
+    if (!ch) return;
+    if (i === st.segIdx) {
+      ch.classList.add('pod-ch-active');
+      ch.style.background = 'var(--macro-l)';
+      ch.style.color = 'var(--macro)';
+    } else {
+      ch.classList.remove('pod-ch-active');
+      ch.style.background = '';
+      ch.style.color = 'var(--text2)';
+    }
+  });
+  // Speaker card
+  if (line) {
+    const nowCard = document.getElementById('pod-'+name+'-now-card');
+    const avatar = document.getElementById('pod-'+name+'-speaker-avatar');
+    const label = document.getElementById('pod-'+name+'-speaker-label');
+    const lineEl = document.getElementById('pod-'+name+'-current-line');
+    if (nowCard) nowCard.style.display = 'block';
+    const isAlex = line.speaker === 'Alex';
+    if (avatar) { avatar.textContent = line.speaker[0]; avatar.style.background = isAlex ? 'var(--macro-l)' : 'var(--eu-l)'; avatar.style.color = isAlex ? 'var(--macro)' : 'var(--eu)'; }
+    if (label) label.textContent = isAlex ? 'Alex — Professor' : 'Sam — Student';
+    if (lineEl) lineEl.textContent = line.line;
+  }
+  // Play button
+  const btn = document.getElementById('pod-'+name+'-play-btn');
+  if (btn) btn.textContent = st.playing ? '⏸ Pause' : '▶ Play';
+}
+
+function podSpeak(name) {
+  const st = podState[name];
+  const script = POD_SCRIPTS[name];
+  if (st.lineIdx >= script.length) { podStop(name); return; }
+  const line = script[st.lineIdx];
+
+  // Update segment index
+  const segs = POD_SEGMENTS[name];
+  const segIdx = segs.findIndex(s => s.id === line.seg);
+  if (segIdx !== -1) st.segIdx = segIdx;
+  podUpdateUI(name);
+
+  const u = new SpeechSynthesisUtterance(line.line);
+  u.rate = st.rate;
+  u.pitch = line.speaker === 'Alex' ? 0.92 : 1.08;
+  u.volume = 1;
+  if (line.speaker === 'Alex' && st.voiceA) u.voice = st.voiceA;
+  if (line.speaker === 'Sam' && st.voiceB) u.voice = st.voiceB;
+  u.onend = () => {
+    if (!st.playing) return;
+    st.lineIdx++;
+    podSpeak(name);
+  };
+  u.onerror = () => { if (st.playing) { st.lineIdx++; podSpeak(name); } };
+  st.utterance = u;
+  speechSynthesis.speak(u);
+}
+
+function podToggle(name) {
+  const st = podState[name];
+  if (st.playing) {
+    st.playing = false;
+    speechSynthesis.cancel();
+    podUpdateUI(name);
+  } else {
+    st.playing = true;
+    speechSynthesis.cancel();
+    podSpeak(name);
+  }
+}
+
+function podStop(name) {
+  const st = podState[name];
+  st.playing = false;
+  st.lineIdx = 0;
+  st.segIdx = 0;
+  speechSynthesis.cancel();
+  const nowCard = document.getElementById('pod-'+name+'-now-card');
+  if (nowCard) nowCard.style.display = 'none';
+  podBuildSegBar(name);
+  podBuildChapters(name);
+  const btn = document.getElementById('pod-'+name+'-play-btn');
+  if (btn) btn.textContent = '▶ Play';
+  const info = document.getElementById('pod-'+name+'-seg-info');
+  if (info) info.textContent = '';
+}
+
+function podJumpToSeg(name, segIdx) {
+  const st = podState[name];
+  const segs = POD_SEGMENTS[name];
+  const script = POD_SCRIPTS[name];
+  const segId = segs[segIdx].id;
+  const lineIdx = script.findIndex(l => l.seg === segId);
+  if (lineIdx === -1) return;
+  const wasPlaying = st.playing;
+  speechSynthesis.cancel();
+  st.lineIdx = lineIdx;
+  st.segIdx = segIdx;
+  if (wasPlaying) { st.playing = true; podSpeak(name); }
+  else podUpdateUI(name);
+}
+
+function podNextSeg(name) {
+  const st = podState[name];
+  const segs = POD_SEGMENTS[name];
+  if (st.segIdx < segs.length - 1) podJumpToSeg(name, st.segIdx + 1);
+}
+
+function podPrevSeg(name) {
+  const st = podState[name];
+  if (st.segIdx > 0) podJumpToSeg(name, st.segIdx - 1);
+  else { speechSynthesis.cancel(); st.lineIdx = 0; st.segIdx = 0; if (st.playing) podSpeak(name); else podUpdateUI(name); }
+}
+
+// ── Script view ──
+function podBuildScript(name) {
+  const script = POD_SCRIPTS[name];
+  const container = document.getElementById('pod-'+name+'-script-body');
+  if (!container || container.children.length) return;
+  let lastSeg = '';
+  script.forEach(line => {
+    if (line.seg !== lastSeg) {
+      lastSeg = line.seg;
+      const hdr = document.createElement('div');
+      hdr.style.cssText = 'font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text3);margin:20px 0 8px;padding-top:8px;border-top:1px solid var(--border)';
+      hdr.textContent = line.segLabel;
+      container.appendChild(hdr);
+    }
+    const isAlex = line.speaker === 'Alex';
+    const div = document.createElement('div');
+    div.style.cssText = 'display:flex;gap:10px;align-items:flex-start';
+    div.innerHTML = `<div style="width:28px;height:28px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;background:${isAlex?'var(--macro-l)':'var(--eu-l)'};color:${isAlex?'var(--macro)':'var(--eu)'};">${line.speaker[0]}</div><div style="flex:1;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:10px 14px;font-size:13.5px;color:var(--text);line-height:1.65">${line.line}</div>`;
+    container.appendChild(div);
+  });
+}
+
+// ── Tab switching ──
+function podShowTab(name, tab, btn) {
+  const page = document.getElementById('page-podcast-'+name);
+  if (!page) return;
+  page.querySelectorAll('.study-panel').forEach(p => p.classList.remove('active'));
+  page.querySelectorAll('.study-tab').forEach(b => b.classList.remove('active'));
+  const panel = document.getElementById('pod-'+name+'-'+tab);
+  if (panel) panel.classList.add('active');
+  if (btn) btn.classList.add('active');
+  if (tab === 'script') podBuildScript(name);
+  if (tab === 'flashcards' && !podState[name]) podInit(name);
+  if (tab === 'quiz' && !podState[name]) podInit(name);
+}
+
+// ── Flashcard engine ──
+const podFcState = {};
+function podFcInit(name) {
+  const cards = POD_FLASHCARDS[name];
+  if (!cards) return;
+  podFcState[name] = { all: cards.map((c,i) => ({...c, idx:i, confidence:1})), queue:[], current:0 };
+  podFcState[name].queue = [...podFcState[name].all].sort(() => Math.random() - .5);
+  podFcRender(name);
+}
+function podFcRender(name) {
+  const s = podFcState[name]; if (!s || !s.queue.length) return;
+  const c = s.queue[s.current];
+  const qEl = document.getElementById('pod-'+name+'-fc-q');
+  const aEl = document.getElementById('pod-'+name+'-fc-a');
+  const srcEl = document.getElementById('pod-'+name+'-fc-src');
+  const ctrEl = document.getElementById('pod-'+name+'-fc-counter');
+  const totEl = document.getElementById('pod-'+name+'-fc-total');
+  const card = document.getElementById('pod-'+name+'-fc-card');
+  if (qEl) qEl.textContent = c.q;
+  if (aEl) aEl.textContent = c.a;
+  if (srcEl) srcEl.textContent = '— ' + c.src;
+  if (ctrEl) ctrEl.textContent = s.current + 1;
+  if (totEl) totEl.textContent = s.queue.length;
+  if (card) card.classList.remove('flipped');
+  const wrap = document.getElementById('pod-'+name+'-fc-wrap');
+  const done = document.getElementById('pod-'+name+'-fc-done');
+  if (wrap) wrap.style.display = 'block';
+  if (done) done.style.display = 'none';
+  podFcSRBar(name);
+}
+function podFcSRBar(name) {
+  const s = podFcState[name]; if (!s) return;
+  const bar = document.getElementById('pod-'+name+'-sr-bar'); if (!bar) return;
+  let html = '<span style="font-size:12px;color:var(--text3);margin-right:6px">Progress:</span>';
+  s.all.forEach(c => { html += '<span class="sr-pip ' + (c.confidence >= 2 ? 'know' : 'review') + '"></span>'; });
+  bar.innerHTML = html;
+}
+function podFcFlip(name) { const c = document.getElementById('pod-'+name+'-fc-card'); if (c) c.classList.toggle('flipped'); }
+function podFcRate(name, score) {
+  const s = podFcState[name]; if (!s) return;
+  s.queue[s.current].confidence = score;
+  if (score === 0) s.queue.push({...s.queue[s.current]});
+  s.current++;
+  podFcSRBar(name);
+  if (s.current >= s.queue.length) {
+    const know = s.all.filter(c => c.confidence >= 2).length;
+    const wrap = document.getElementById('pod-'+name+'-fc-wrap');
+    const done = document.getElementById('pod-'+name+'-fc-done');
+    const msg = document.getElementById('pod-'+name+'-fc-done-msg');
+    if (wrap) wrap.style.display = 'none';
+    if (done) done.style.display = 'block';
+    if (msg) msg.textContent = know + ' of ' + s.all.length + ' cards mastered.';
+  } else podFcRender(name);
+}
+function podFcShuffle(name) { const s = podFcState[name]; if (!s) return; s.queue = [...s.all].sort(() => Math.random()-.5); s.current = 0; podFcRender(name); }
+function podFcReset(name) { podFcInit(name); }
+function podFcReviewWeak(name) {
+  const s = podFcState[name]; if (!s) return;
+  const weak = s.all.filter(c => c.confidence < 2);
+  if (!weak.length) { podFcReset(name); return; }
+  s.queue = [...weak].sort(() => Math.random()-.5); s.current = 0;
+  const wrap = document.getElementById('pod-'+name+'-fc-wrap');
+  const done = document.getElementById('pod-'+name+'-fc-done');
+  if (wrap) wrap.style.display = 'block';
+  if (done) done.style.display = 'none';
+  podFcRender(name);
+}
+
+// ── Quiz engine ──
+const podQState = {};
+function podQuizInit(name) {
+  const qs = POD_QUIZ[name]; if (!qs) return;
+  podQState[name] = { qs: [...qs].sort(() => Math.random()-.5), idx:0, score:0, answered:false, wrongs:[] };
+  const score = document.getElementById('pod-'+name+'-qscore');
+  const wrap = document.getElementById('pod-'+name+'-quiz-wrap');
+  if (score) score.classList.remove('show');
+  if (wrap) wrap.style.display = 'block';
+  podQuizRender(name);
+}
+function podQuizRender(name) {
+  const s = podQState[name]; if (!s) return;
+  const q = s.qs[s.idx];
+  const total = s.qs.length;
+  s.answered = false;
+  const pfill = document.getElementById('pod-'+name+'-qpfill');
+  const meta = document.getElementById('pod-'+name+'-qmeta');
+  const text = document.getElementById('pod-'+name+'-qtext');
+  const fb = document.getElementById('pod-'+name+'-qfb');
+  const nxt = document.getElementById('pod-'+name+'-qnext');
+  const opts = document.getElementById('pod-'+name+'-qopts');
+  if (pfill) pfill.style.width = (s.idx/total*100) + '%';
+  if (meta) meta.textContent = 'Question ' + (s.idx+1) + ' of ' + total + ' · ' + q.topic;
+  if (text) text.textContent = q.q;
+  if (fb) { fb.className = 'quiz-fb'; fb.textContent = ''; }
+  if (nxt) nxt.style.display = 'none';
+  if (opts) {
+    opts.innerHTML = '';
+    q.opts.forEach((o,i) => {
+      const btn = document.createElement('button');
+      btn.className = 'quiz-opt';
+      btn.textContent = o;
+      btn.onclick = () => podQuizAnswer(name, i);
+      opts.appendChild(btn);
+    });
+  }
+}
+function podQuizAnswer(name, chosen) {
+  const s = podQState[name]; if (!s || s.answered) return;
+  s.answered = true;
+  const q = s.qs[s.idx];
+  const opts = document.querySelectorAll('#pod-'+name+'-qopts .quiz-opt');
+  opts.forEach(b => b.disabled = true);
+  opts[q.ans].classList.add('correct');
+  const fb = document.getElementById('pod-'+name+'-qfb');
+  if (chosen === q.ans) {
+    s.score++;
+    if (fb) { fb.className = 'quiz-fb correct show'; fb.textContent = 'Correct! ' + q.exp; }
+  } else {
+    opts[chosen].classList.add('wrong');
+    s.wrongs.push(q);
+    if (fb) { fb.className = 'quiz-fb wrong show'; fb.textContent = 'Incorrect. ' + q.exp; }
+  }
+  const nxt = document.getElementById('pod-'+name+'-qnext');
+  if (nxt) nxt.style.display = 'block';
+}
+function podQuizNext(name) {
+  const s = podQState[name]; if (!s) return;
+  s.idx++;
+  if (s.idx >= s.qs.length) {
+    const wrap = document.getElementById('pod-'+name+'-quiz-wrap');
+    const score = document.getElementById('pod-'+name+'-qscore');
+    const big = document.getElementById('pod-'+name+'-qbig');
+    const msg = document.getElementById('pod-'+name+'-qmsg');
+    const weak = document.getElementById('pod-'+name+'-qweak');
+    const pfill = document.getElementById('pod-'+name+'-qpfill');
+    if (wrap) wrap.style.display = 'none';
+    if (score) score.classList.add('show');
+    if (big) big.textContent = s.score + '/' + s.qs.length;
+    if (pfill) pfill.style.width = '100%';
+    const pct = Math.round(s.score/s.qs.length*100);
+    if (msg) msg.textContent = pct >= 80 ? 'Excellent — podcast mastered!' : pct >= 60 ? 'Good progress — revisit the weak areas.' : 'Keep reviewing — listen to the episode again.';
+    if (weak) {
+      if (!s.wrongs.length) { weak.innerHTML = '<div class="weak-title">Perfect score!</div>'; }
+      else {
+        const topics = [...new Set(s.wrongs.map(q => q.topic))];
+        weak.innerHTML = '<div class="weak-title">Review these topics:</div>' + topics.map(t => '<div class="weak-item"><span class="weak-item-icon">⚠️</span><div class="weak-item-text">'+t+'</div></div>').join('');
+      }
+    }
+  } else podQuizRender(name);
 }
 
 // ══════════════════════════════════════════
