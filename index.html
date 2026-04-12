@@ -257,9 +257,13 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
 .ep-filter-btn.active{font-weight:500;color:#fff;border-color:transparent}
 .ep-filter-btn[data-part="all"].active{background:var(--eu)}
 .ep-filter-btn[data-part="1"].active{background:#8a5c00}
-.ep-filter-btn[data-part="2"].active{background:#1a7a5e}
+.ep-filter-btn[data-part="2a"].active{background:#1a7a5e}
+.ep-filter-btn[data-part="2b"].active{background:#1a7a5e}
+.ep-filter-btn[data-part="2c"].active{background:#1a7a5e}
 .ep-filter-btn[data-part="3"].active{background:#2d5a9e}
-.ep-filter-btn[data-part="4"].active{background:#7a2d6e}
+.ep-filter-btn[data-part="4a"].active{background:#7a2d6e}
+.ep-filter-btn[data-part="4b"].active{background:#7a2d6e}
+.ep-filter-btn[data-part="4c"].active{background:#7a2d6e}
 .ep-filter-btn[data-part="5"].active{background:#9c3520}
 .ep-mode-row{display:flex;gap:8px;align-items:center;margin-bottom:22px}
 .ep-mode-btn{border:1px solid var(--border);background:var(--surface);color:var(--text2);padding:7px 16px;border-radius:8px;font-size:13px;cursor:pointer;transition:all .15s;font-family:var(--sans)}
@@ -405,6 +409,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
     <button class="nav-sub" onclick="showLecture('eu','vii',this)">Session VII</button>
     <button class="nav-sub" onclick="showLecture('eu','viii',this)">Session VIII</button>
     <button class="nav-sub" onclick="showLecture('eu','ix',this)">Session IX</button>
+    <button class="nav-sub" onclick="showPage('exam-prep',this)" style="color:var(--eu);font-weight:500">🎯 Exam Prep</button>
     <div class="nav-label">Microeconomics</div>
     <button class="nav-btn" data-color="micro" onclick="showPage('micro-overview',this)"><span class="nav-dot" style="background:var(--micro)"></span>All Chapters</button>
     <button class="nav-sub" onclick="showLecture('micro','ch2',this)">Chapter 2: Consumer Theory</button>
@@ -417,9 +422,6 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
     <button class="nav-sub" onclick="showLecture('macro','lec1',this)">Lec 1: Economic Growth</button>
     <button class="nav-sub" onclick="showLecture('macro','lec2',this)">Lec 2: Goods Market &amp; Business Cycle</button>
     <button class="nav-sub" style="opacity:.5;cursor:default;pointer-events:none">+ More coming</button>
-    <div class="nav-label">Podcast</div>
-    <button class="nav-btn" data-color="macro" onclick="showPage('podcast-overview',this)"><span class="nav-dot" style="background:var(--macro)"></span>All Episodes</button>
-    <button class="nav-sub" onclick="showLecture('podcast','macro',this)">Macroeconomics</button>
     <div class="nav-label">Intl. Business Trade</div>
     <button class="nav-btn" data-color="ibt" onclick="showPage('ibt-overview',this)"><span class="nav-dot" style="background:var(--ibt)"></span>All Sessions</button>
     <button class="nav-sub" onclick="showLecture('ibt','s1',this)">Session 1: International Trade</button>
@@ -429,8 +431,6 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
     <button class="nav-sub" onclick="showLecture('ibt','s5',this)">Session 5: Money &amp; Prices</button>
     <div class="nav-label">Intercultural Comp.</div>
     <button class="nav-btn" data-color="ic" onclick="showPage('ic-overview',this)"><span class="nav-dot" style="background:var(--ic)"></span>All Chapters</button>
-    <div class="nav-label">Tools</div>
-    <button class="nav-btn" data-color="eu" onclick="showPage('exam-prep',this)"><span class="nav-dot" style="background:var(--eu)"></span>🎯 Exam Prep</button>
   </nav>
 </aside>
 
@@ -445,23 +445,23 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
   <div class="dash-grid">
     <div class="subject-card sc-eu" onclick="showPage('eu-overview',null)">
       <div class="sc-name">EU Law</div><div class="sc-meta">Sessions · Prof. Adrian Cloer</div>
-      <div class="sc-progress"><div class="sc-progress-fill" style="width:14%;background:var(--eu)"></div></div>
-      <div class="sc-stats"><div class="sc-stat"><strong>6</strong> sessions loaded</div><div class="sc-stat"><strong>119</strong> flashcards</div><div class="sc-stat"><strong>89</strong> quiz Qs</div></div>
+      <div class="sc-progress"><div class="sc-progress-fill" style="width:100%;background:var(--eu)"></div></div>
+      <div class="sc-stats"><div class="sc-stat"><strong>9</strong> sessions loaded</div><div class="sc-stat"><strong>119</strong> flashcards</div><div class="sc-stat"><strong>89</strong> quiz Qs</div></div>
     </div>
     <div class="subject-card sc-micro" onclick="showPage('micro-overview',null)">
       <div class="sc-name">Microeconomics</div><div class="sc-meta">Chapters · Microeconomics 1</div>
-      <div class="sc-progress"><div class="sc-progress-fill" style="width:21%;background:var(--micro)"></div></div>
-      <div class="sc-stats"><div class="sc-stat"><strong>4</strong> sessions loaded</div><div class="sc-stat"><strong>106</strong> flashcards</div><div class="sc-stat"><strong>71</strong> quiz Qs</div></div>
+      <div class="sc-progress"><div class="sc-progress-fill" style="width:31%;background:var(--micro)"></div></div>
+      <div class="sc-stats"><div class="sc-stat"><strong>2 / 7</strong> lectures</div><div class="sc-stat"><strong>2 / 6</strong> problem sets</div><div class="sc-stat"><strong>106</strong> flashcards</div></div>
     </div>
     <div class="subject-card sc-macro" onclick="showPage('macro-overview',null)">
       <div class="sc-name">Macroeconomics</div><div class="sc-meta">Lectures · Macroeconomics 1 · Dr. Rülke</div>
-      <div class="sc-progress"><div class="sc-progress-fill" style="width:8%;background:var(--macro)"></div></div>
-      <div class="sc-stats"><div class="sc-stat"><strong>2</strong> lectures loaded</div><div class="sc-stat"><strong>62</strong> flashcards</div><div class="sc-stat"><strong>39</strong> quiz Qs</div></div>
+      <div class="sc-progress"><div class="sc-progress-fill" style="width:67%;background:var(--macro)"></div></div>
+      <div class="sc-stats"><div class="sc-stat"><strong>2 / 3</strong> sessions loaded</div><div class="sc-stat"><strong>62</strong> flashcards</div><div class="sc-stat"><strong>39</strong> quiz Qs</div></div>
     </div>
     <div class="subject-card sc-ibt" onclick="showPage('ibt-overview',null)">
       <div class="sc-name">International Business Trade</div><div class="sc-meta">Sessions · Dr. Jan-Christoph Rülke · Spring 2026</div>
-      <div class="sc-progress"><div class="sc-progress-fill" style="width:36%;background:var(--ibt)"></div></div>
-      <div class="sc-stats"><div class="sc-stat"><strong>5</strong> sessions loaded</div><div class="sc-stat"><strong>32</strong> flashcards</div><div class="sc-stat"><strong>40</strong> quiz Qs</div></div>
+      <div class="sc-progress"><div class="sc-progress-fill" style="width:100%;background:var(--ibt)"></div></div>
+      <div class="sc-stats"><div class="sc-stat"><strong>5 / 5</strong> sessions loaded</div><div class="sc-stat"><strong>32</strong> flashcards</div><div class="sc-stat"><strong>40</strong> quiz Qs</div></div>
     </div>
     <div class="subject-card sc-ic" onclick="showPage('ic-overview',null)">
       <div class="sc-name">Intercultural Competence</div><div class="sc-meta">Chapters · Coming soon</div>
@@ -4688,168 +4688,6 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
   <div id="ibts5-flashcards" class="study-panel"><div id="ibts5-fc-wrap"></div></div>
   <div id="ibts5-quiz" class="study-panel"><div id="ibts5-quiz-wrap"></div></div>
 </div>
-<!-- ══════════════════════════════════════════
-     PODCAST OVERVIEW
-══════════════════════════════════════════ -->
-<div id="page-podcast-overview" class="page">
-  <div class="page-eyebrow" style="color:var(--macro)">Podcast Studio</div>
-  <div class="page-title">Study Podcasts</div>
-  <div class="page-desc">AI-generated two-host dialogues from your lecture content. Alex explains, Sam questions. ~45 min per lecture.</div>
-  <div class="lectures-list">
-    <div class="lec-card" onclick="showLecture('podcast','macro',null)">
-      <div class="lec-num" style="background:var(--macro-l);color:var(--macro)">01</div>
-      <div class="lec-info">
-        <div class="lec-title">Macroeconomics — Full Course</div>
-        <div class="lec-sub">GDP · Growth · Business Cycle · Goods Market · Multiplier · IS Curve · Fiscal Policy</div>
-      </div>
-      <div class="lec-badges">
-        <span class="lec-badge has">Script</span>
-        <span class="lec-badge has">Player</span>
-        <span class="lec-badge has">Flashcards</span>
-        <span class="lec-badge has">Quiz</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ══════════════════════════════════════════
-     PODCAST — MACROECONOMICS
-══════════════════════════════════════════ -->
-<div id="page-podcast-macro" class="page">
-  <div class="page-eyebrow" style="color:var(--macro)">Podcast · Macroeconomics</div>
-  <div class="page-title">The Macro Hour</div>
-  <div class="page-desc">Alex &amp; Sam — GDP, Growth, Business Cycles, Goods Market &amp; IS Curve · ~55 min</div>
-
-  <div class="study-tabs">
-    <button class="study-tab active" onclick="podShowTab('macro','player',this)">▶ Player</button>
-    <button class="study-tab" onclick="podShowTab('macro','script',this)">📄 Script</button>
-    <button class="study-tab" onclick="podShowTab('macro','flashcards',this)">Flashcards</button>
-    <button class="study-tab" onclick="podShowTab('macro','quiz',this)">Quiz</button>
-  </div>
-
-  <!-- PLAYER -->
-  <div id="pod-macro-player" class="study-panel active">
-    <div class="sum-card" style="margin-bottom:18px">
-      <div style="display:flex;align-items:center;gap:14px;margin-bottom:14px">
-        <div style="width:52px;height:52px;border-radius:12px;background:var(--macro-l);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0">🎙</div>
-        <div>
-          <div style="font-family:var(--serif);font-size:18px;color:var(--text)">The Macro Hour</div>
-          <div style="font-size:12px;color:var(--text3);margin-top:2px">Alex &amp; Sam · Macroeconomics 1 · Dr. Rülke</div>
-        </div>
-        <div style="margin-left:auto;text-align:right">
-          <div id="pod-macro-runtime" style="font-family:var(--serif);font-size:22px;color:var(--macro)">~55 min</div>
-          <div style="font-size:11px;color:var(--text3)">estimated runtime</div>
-        </div>
-      </div>
-      <!-- Segment progress bar -->
-      <div style="display:flex;gap:3px;margin-bottom:14px" id="pod-macro-seg-bar"></div>
-      <!-- Current segment info -->
-      <div id="pod-macro-seg-info" style="font-size:13px;color:var(--text2);margin-bottom:14px;min-height:18px"></div>
-      <!-- Controls -->
-      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-        <button class="btn btn-sm" id="pod-macro-prev-btn" onclick="podPrevSeg('macro')" style="font-size:16px;padding:8px 14px">⏮</button>
-        <button class="btn btn-primary" id="pod-macro-play-btn" onclick="podToggle('macro')" style="background:var(--macro);border-color:var(--macro);min-width:90px;font-size:14px">▶ Play</button>
-        <button class="btn btn-sm" id="pod-macro-next-btn" onclick="podNextSeg('macro')" style="font-size:16px;padding:8px 14px">⏭</button>
-        <button class="btn btn-sm" id="pod-macro-stop-btn" onclick="podStop('macro')">■ Stop</button>
-        <div style="display:flex;align-items:center;gap:6px;margin-left:8px">
-          <span style="font-size:12px;color:var(--text3)">Speed</span>
-          <select id="pod-macro-rate" onchange="podSetRate('macro')" style="font-size:12px;border:1px solid var(--border);border-radius:6px;padding:4px 6px;background:var(--surface);color:var(--text);cursor:pointer">
-            <option value="0.8">0.8×</option>
-            <option value="0.9">0.9×</option>
-            <option value="1.0" selected>1.0×</option>
-            <option value="1.1">1.1×</option>
-            <option value="1.25">1.25×</option>
-            <option value="1.5">1.5×</option>
-          </select>
-        </div>
-        <div style="display:flex;align-items:center;gap:6px">
-          <span style="font-size:12px;color:var(--text3)">Voice</span>
-          <select id="pod-macro-voice" onchange="podSetVoice('macro')" style="font-size:12px;border:1px solid var(--border);border-radius:6px;padding:4px 6px;background:var(--surface);color:var(--text);cursor:pointer">
-            <option value="auto">Auto (best)</option>
-          </select>
-        </div>
-      </div>
-    </div>
-
-    <!-- Currently speaking + line display -->
-    <div class="sum-card" id="pod-macro-now-card" style="display:none">
-      <div style="display:flex;align-items:flex-start;gap:12px">
-        <div id="pod-macro-speaker-avatar" style="width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:13px;flex-shrink:0;background:var(--macro-l);color:var(--macro)">A</div>
-        <div style="flex:1">
-          <div id="pod-macro-speaker-label" style="font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text3);margin-bottom:4px">Alex — Professor</div>
-          <div id="pod-macro-current-line" style="font-size:15px;color:var(--text);line-height:1.65;font-family:var(--serif)"></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Segment chapter list -->
-    <div style="margin-top:18px">
-      <div style="font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text3);margin-bottom:10px">Episode chapters</div>
-      <div id="pod-macro-chapters" style="display:flex;flex-direction:column;gap:6px"></div>
-    </div>
-  </div>
-
-  <!-- SCRIPT VIEW -->
-  <div id="pod-macro-script" class="study-panel">
-    <div class="note-box" style="border-left-color:var(--macro-m);background:var(--macro-l);color:var(--macro);margin-bottom:18px">
-      <strong>Full episode script</strong> — Alex (professor) and Sam (student). Switch to the Player tab to listen with Web Speech API voices.
-    </div>
-    <div id="pod-macro-script-body" style="display:flex;flex-direction:column;gap:10px"></div>
-  </div>
-
-  <!-- FLASHCARDS -->
-  <div id="pod-macro-flashcards" class="study-panel">
-    <div class="fc-controls">
-      <button class="btn btn-sm" onclick="podFcShuffle('macro')">Shuffle</button>
-      <button class="btn btn-sm" onclick="podFcReset('macro')">Reset</button>
-      <span style="font-size:12px;color:var(--text3);margin-left:4px">Podcast key concepts</span>
-    </div>
-    <div class="fc-sr-bar" id="pod-macro-sr-bar"></div>
-    <div id="pod-macro-fc-wrap">
-      <div class="flashcard-wrap">
-        <div class="flashcard" id="pod-macro-fc-card" onclick="podFcFlip('macro')">
-          <div class="fc-face fc-front"><div class="fc-label">Question</div><div class="fc-question" id="pod-macro-fc-q"></div><div class="fc-hint">Click to reveal</div></div>
-          <div class="fc-face fc-back" style="background:var(--macro)"><div class="fc-label">Answer</div><div class="fc-answer" id="pod-macro-fc-a"></div><div class="fc-src" id="pod-macro-fc-src"></div></div>
-        </div>
-      </div>
-      <div class="sr-btns">
-        <button class="sr-btn sr-btn-hard" onclick="podFcRate('macro',0)">😬 Still learning</button>
-        <button class="sr-btn sr-btn-ok" onclick="podFcRate('macro',1)">🤔 Almost</button>
-        <button class="sr-btn sr-btn-easy" onclick="podFcRate('macro',2)">✓ Got it</button>
-      </div>
-      <div class="sr-mode-note">Card <span id="pod-macro-fc-counter">1</span> of <span id="pod-macro-fc-total">?</span></div>
-    </div>
-    <div class="fc-sr-done" id="pod-macro-fc-done" style="display:none">
-      <h3>Deck complete!</h3>
-      <p id="pod-macro-fc-done-msg"></p>
-      <div style="display:flex;gap:10px;justify-content:center;margin-top:16px">
-        <button class="btn btn-primary" onclick="podFcReviewWeak('macro')" style="background:var(--macro);border-color:var(--macro)">Review weak cards</button>
-        <button class="btn" onclick="podFcReset('macro')">Start over</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- QUIZ -->
-  <div id="pod-macro-quiz" class="study-panel">
-    <div id="pod-macro-quiz-wrap">
-      <div class="quiz-prog"><div class="quiz-prog-fill" id="pod-macro-qpfill" style="width:0%;background:var(--macro)"></div></div>
-      <div class="quiz-meta" id="pod-macro-qmeta"></div>
-      <div class="quiz-q" id="pod-macro-qtext"></div>
-      <div class="quiz-opts" id="pod-macro-qopts"></div>
-      <div class="quiz-fb" id="pod-macro-qfb"></div>
-      <div id="pod-macro-qnext" style="display:none"><button class="btn btn-primary" onclick="podQuizNext('macro')" style="background:var(--macro);border-color:var(--macro)">Next →</button></div>
-    </div>
-    <div class="quiz-score-screen" id="pod-macro-qscore">
-      <div class="score-row">
-        <div class="score-big" id="pod-macro-qbig" style="color:var(--macro)"></div>
-        <div class="score-right"><div class="score-lbl">correct answers</div><div class="score-msg" id="pod-macro-qmsg"></div></div>
-      </div>
-      <div class="weak-section" id="pod-macro-qweak"></div>
-      <button class="btn btn-primary" style="margin-top:16px;background:var(--macro);border-color:var(--macro)" onclick="podQuizInit('macro')">Try again</button>
-    </div>
-  </div>
-</div>
-
 <div id="page-ic-overview" class="page"><div class="page-eyebrow" style="color:var(--ic)">Intercultural Competence</div><div class="page-title">All Chapters</div><div class="page-desc">No chapters loaded yet.</div><div class="empty-state"><h3>Ready to populate</h3><p>Share your IC notes and I'll build the summary, flashcards, and quiz for each chapter.</p></div></div>
 
 <!-- ══════════════════════════════════════════
@@ -4858,7 +4696,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
 <div id="page-exam-prep" class="page">
   <div class="page-eyebrow" style="color:var(--eu)">EU Law · Prof. Adrian Cloer</div>
   <div class="page-title">Exam Prep</div>
-  <div class="page-desc">196 official exam questions across 5 parts. Flip flashcards, rate your confidence, or browse all Q&amp;A.</div>
+  <div class="page-desc">203 official exam questions mapped to Sessions I–IX. Flip flashcards, rate your confidence, or browse all Q&amp;A.</div>
 
   <!-- Stats -->
   <div class="ep-stats">
@@ -4874,12 +4712,16 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
 
   <!-- Part Filter -->
   <div class="ep-filter-row">
-    <button class="ep-filter-btn active" data-part="all" onclick="epSetPart('all',this)">All (196)</button>
-    <button class="ep-filter-btn" data-part="1" onclick="epSetPart('1',this)">I · Tax (3)</button>
-    <button class="ep-filter-btn" data-part="2" onclick="epSetPart('2',this)">II · History (32)</button>
-    <button class="ep-filter-btn" data-part="3" onclick="epSetPart('3',this)">III · German Court (21)</button>
-    <button class="ep-filter-btn" data-part="4" onclick="epSetPart('4',this)">IV · EU Law (103)</button>
-    <button class="ep-filter-btn" data-part="5" onclick="epSetPart('5',this)">V · External (6)</button>
+    <button class="ep-filter-btn active" data-part="all" onclick="epSetPart('all',this)">All (203)</button>
+    <button class="ep-filter-btn" data-part="1" onclick="epSetPart('1',this)">S·I · Tax (3)</button>
+    <button class="ep-filter-btn" data-part="2c" onclick="epSetPart('2c',this)">S·II · Basic Law (20)</button>
+    <button class="ep-filter-btn" data-part="2a" onclick="epSetPart('2a',this)">S·III · Roman (20)</button>
+    <button class="ep-filter-btn" data-part="2b" onclick="epSetPart('2b',this)">S·IV · HRE &amp; History (21)</button>
+    <button class="ep-filter-btn" data-part="4b" onclick="epSetPart('4b',this)">S·VI · Primacy &amp; Effect (38)</button>
+    <button class="ep-filter-btn" data-part="4c" onclick="epSetPart('4c',this)">S·VII · Freedoms (37)</button>
+    <button class="ep-filter-btn" data-part="5" onclick="epSetPart('5',this)">S·VII · External (6)</button>
+    <button class="ep-filter-btn" data-part="3" onclick="epSetPart('3',this)">S·VIII · German Court (22)</button>
+    <button class="ep-filter-btn" data-part="4a" onclick="epSetPart('4a',this)">S·IX · Institutions (36)</button>
   </div>
 
   <!-- Mode + Shuffle -->
@@ -5008,7 +4850,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
 // ── Navigation ──
 function showPage(id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));document.getElementById('page-'+id).classList.add('active');if(btn)btn.classList.add('active')}
 function showLecture(subject,id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-sub').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');const el=document.getElementById('page-'+subject+'-'+id);if(el){el.classList.add('active');if(subject==='eu'&&id==='i'){initFC('si');initQuiz('si')}if(subject==='eu'&&id==='ii'){initFC('sii');initQuiz('sii')}if(subject==='eu'&&id==='iii'){initFC('siii');initQuiz('siii');initSiiiTimeline()}if(subject==='eu'&&id==='iv'){initFC('siv');initQuiz('siv');initSivTimeline()}if(subject==='eu'&&id==='v'){initFC('sv');initQuiz('sv')}if(subject==='eu'&&id==='vi'){initFC('svi');initQuiz('svi');loadScenario(0,document.querySelector('.scenario-btn'))}if(subject==='eu'&&id==='vii'){initFC('svii');initQuiz('svii');initSviiTimeline()}if(subject==='eu'&&id==='viii'){initFC('sviii');initQuiz('sviii');initSviiiTimeline()}if(subject==='eu'&&id==='ix'){initFC('six');initQuiz('six')}if(subject==='micro'&&id==='ch2'){initMicroFC('ch2');initMicroQuiz('ch2');initCalcFor('ch2')}
-if(subject==='micro'&&id==='ch3'){initMicroFC('ch3');initMicroQuiz('ch3');initCalc()}if(subject==='micro'&&id==='ps1'){initMicroFC('ps1');initMicroQuiz('ps1');initCalcFor('ps1')}if(subject==='micro'&&id==='ps2'){initMicroFC('ps2');initMicroQuiz('ps2');initCalcFor('ps2')}if(subject==='macro'&&id==='lec1'){initMacroFC('lec1');initMacroQuiz('lec1');initCalcFor('lec1')}if(subject==='macro'&&id==='lec2'){initMacroFC('lec2');initMacroQuiz('lec2');initCalcFor('lec2')}if(subject==='podcast'&&id==='macro'){podInit('macro')}}}
+if(subject==='micro'&&id==='ch3'){initMicroFC('ch3');initMicroQuiz('ch3');initCalc()}if(subject==='micro'&&id==='ps1'){initMicroFC('ps1');initMicroQuiz('ps1');initCalcFor('ps1')}if(subject==='micro'&&id==='ps2'){initMicroFC('ps2');initMicroQuiz('ps2');initCalcFor('ps2')}if(subject==='macro'&&id==='lec1'){initMacroFC('lec1');initMacroQuiz('lec1');initCalcFor('lec1')}if(subject==='macro'&&id==='lec2'){initMacroFC('lec2');initMacroQuiz('lec2');initCalcFor('lec2')}}}
 
 function showMacroTab(tab,btn,prefix){
   const page=document.getElementById('page-macro-'+prefix);if(!page)return;
@@ -6970,78 +6812,82 @@ function initSviiiTimeline(){
 // EXAM PREP ENGINE
 // ══════════════════════════════════════════
 const EP_PARTS = {
-  1:{label:"Part I · Tax & Amazon",color:"#8a5c00",bg:"var(--macro-l)"},
-  2:{label:"Part II · Historic Developments",color:"#1a7a5e",bg:"var(--micro-l)"},
-  3:{label:"Part III · German Court & EU",color:"#2d5a9e",bg:"var(--eu-l)"},
-  4:{label:"Part IV · EU Law",color:"#7a2d6e",bg:"var(--ibt-l)"},
-  5:{label:"Part V · External Relations",color:"#9c3520",bg:"var(--ic-l)"}
+  1: {label:"Session I · Tax & Amazon",color:"#8a5c00",bg:"var(--macro-l)"},
+  '2a':{label:"Session III · Roman & Byzantine History",color:"#1a7a5e",bg:"var(--micro-l)"},
+  '2b':{label:"Session IV · Frankish, HRE & Modern History",color:"#1a7a5e",bg:"var(--micro-l)"},
+  '2c':{label:"Session II · German Basic Law & Legal System",color:"#1a7a5e",bg:"var(--micro-l)"},
+  3: {label:"Session VIII · German Court & EU",color:"#2d5a9e",bg:"var(--eu-l)"},
+  '4a':{label:"Session IX · EU Institutions & Competences",color:"#7a2d6e",bg:"var(--ibt-l)"},
+  '4b':{label:"Session VI · Primacy, Direct Effect & Enforcement",color:"#7a2d6e",bg:"var(--ibt-l)"},
+  '4c':{label:"Session VII · Fundamental Freedoms",color:"#7a2d6e",bg:"var(--ibt-l)"},
+  5: {label:"Session VII · External Relations",color:"#9c3520",bg:"var(--ic-l)"}
 };
 
 const EP_QA = [
   {n:1,p:1,q:"Why does Amazon (incorporated in the USA, subsidiary in Luxembourg, conducting business in Germany) not pay taxes in Germany?",a:"Taxation of business profits requires a permanent establishment (PE) under the applicable double tax convention (DTC). Amazon's German warehouses are used only for storage and delivery — excluded from the PE definition under Art. 5(4) OECD MTC as incorporated into the German-Luxembourg DTC. Without a DTC PE, Art. 7 OECD MTC blocks German taxation entirely, even if a PE might exist under domestic German law."},
   {n:2,p:1,q:"Does Amazon have a permanent establishment in the sense of the German fiscal court?",a:"The German fiscal court may find a domestic PE exists. However, domestic PE recognition alone is insufficient — the applicable DTC (German-Luxembourg) must also recognise a PE. Because the German-Luxembourg DTC does not recognise a warehouse as a PE, Germany cannot levy tax regardless of domestic findings."},
   {n:3,p:1,q:"Does Amazon have a permanent establishment under the German-Luxembourg DTC?",a:"No. Art. 5(4) OECD MTC (incorporated into the German-Luxembourg DTC) expressly excludes warehouses used solely for storage, display, or delivery of goods from the PE definition. Amazon's German warehouses fall into this exclusion, so no DTC PE exists and Germany cannot tax Amazon's profits under Art. 7 OECD MTC."},
-  {n:4,p:2,q:"When was the Roman Empire divided into a western and eastern half?",a:"395 AD, upon the death of Emperor Theodosius I. The Western half went to his son Honorius; the Eastern half to Arcadius."},
-  {n:5,p:2,q:"What were the three phases of Roman history?",a:"(1) Royal Period: 753–509 BC. (2) Roman Republic: 509–27 BC. (3) Imperial Period: 27 BC–476 AD."},
-  {n:6,p:2,q:"When was the Roman Empire founded?",a:"27 BC, when the Senate granted Octavian the title 'Augustus', marking the start of the Imperial Period."},
-  {n:7,p:2,q:"When did the Western Roman Empire collapse, and why?",a:"476 AD, when Germanic chieftain Odoacer deposed Romulus Augustulus. Causes include military overextension, economic decline, political instability, migration pressure, and erosion of the tax base."},
-  {n:8,p:2,q:"When did the Eastern (Byzantine) Roman Empire collapse?",a:"1453 AD, when Ottoman Sultan Mehmed II conquered Constantinople."},
-  {n:9,p:2,q:"Which Roman Emperor chose Byzantium as his new capital ('New Rome')?",a:"Constantine I (Constantine the Great), in 330 AD, renaming the city Constantinople."},
-  {n:10,p:2,q:"Which language gradually replaced Latin for official use in the Roman Empire?",a:"Greek, especially in the Eastern (Byzantine) Empire from the 7th century onwards, formally adopted under Emperor Heraclius."},
-  {n:11,p:2,q:"Why did German emperors regard themselves as the true inheritors of Roman identity? Which other nations claimed Roman succession?",a:"Through translatio imperii — Carolingian and Ottonian coronations were seen as transfers of imperial power from Rome. Other claimants: the Byzantine Empire (direct continuation), Russia ('Moscow as Third Rome'), and the Ottoman Empire (after 1453)."},
-  {n:12,p:2,q:"Which state conquered the Byzantine Empire? How did the Ottomans break with Greco-Roman legitimacy?",a:"The Ottoman Empire conquered Byzantium in 1453. The Ottomans gradually replaced Roman legal/political traditions with Islamic law (Sharia), severing continuity with Greco-Roman governance."},
-  {n:13,p:2,q:"What do the heraldic symbols of the Roman Empire, Germany, Russia, and Austria have in common?",a:"All use the eagle — the double-headed eagle (Rome, Russia, Austria-Hungary) or single-headed eagle (Germany). This reflects the claim to Roman imperial succession (translatio imperii)."},
-  {n:14,p:2,q:"What is meant by translatio imperii?",a:"A medieval theological concept according to which the rule of a world empire is transferred to its successor. Used to legitimise Charlemagne's coronation (imperial power transferred from Romans to Franks) and later the Holy Roman Empire."},
-  {n:15,p:2,q:"What is the doctrine of four empires?",a:"Based on the Book of Daniel, interpreted by Church Father Jerome: four world empires — Babylon, Persia, Greece, and Rome — would succeed one another. Medieval rulers used this to present themselves as Roman successors within the final empire."},
-  {n:16,p:2,q:"What was the idea behind Charlemagne's imperial coronation in 800 AD?",a:"Translatio imperii — imperial power had passed from the Romans to the Franks. At the time, Empress Irene ruled Constantinople; Roman law barred women from supreme military command, creating a theoretical vacancy. Charlemagne was crowned by Pope Leo III and saw himself as protector of Christianity."},
-  {n:17,p:2,q:"Why was the coronation of Otto I so important for the Holy Roman Empire?",a:"Otto I's coronation in 962 AD transferred the translatio imperii to the East Frankish/German realm, establishing the Holy Roman Empire of the German Nation as the legitimate continuation of Roman imperial authority."},
-  {n:18,p:2,q:"Which three countries first adopted Christianity as a state religion?",a:"1. Armenia (301 AD) — the first ever. 2. Georgia (337 AD). 3. Roman Empire (380 AD, Edict of Thessalonica under Theodosius I)."},
-  {n:19,p:2,q:"From which term can the German 'Kaiser' and the Slavic 'Tsar' be traced back?",a:"Both derive from 'Caesar' — the title of Roman emperors — reflecting the claim to Roman imperial succession."},
-  {n:20,p:2,q:"What happened on the eve of the Battle of the Milvian Bridge (27 October 312)?",a:"Constantine I reportedly experienced a vision of the Christian chi-rho symbol with the message 'In hoc signo vinces' ('In this sign you will conquer'). He had his soldiers mark their shields with the symbol and defeated Maxentius the next day, attributing his victory to the Christian God."},
-  {n:21,p:2,q:"What was the Edict of Milan (313)?",a:"An agreement between Constantine I and Licinius proclaiming religious tolerance throughout the Roman Empire, granting Christians (and all others) freedom of worship and ordering the return of confiscated Church property."},
-  {n:22,p:2,q:"What did Constantine order on 3 March 321?",a:"He declared Sunday (dies Solis) a day of rest and worship — still visible in German (Sonntag) and English (Sunday). Later called dies dominicus ('day of the Lord'); French 'Dimanche'; Spanish 'domingo'."},
-  {n:23,p:2,q:"When was Constantinople founded?",a:"330 AD, by Emperor Constantine I, on the site of the ancient Greek city Byzantium."},
-  {n:24,p:2,q:"How did the Frankish Kingdom come into existence?",a:"The Franks were a confederation of Germanic tribes settling in Roman Gaul. Under Clovis I (r. 481–511 AD) they were united and converted to Christianity, establishing the Merovingian dynasty and the Frankish Kingdom."},
-  {n:25,p:2,q:"Which territories did the Frankish Kingdom encompass?",a:"At its height under Charlemagne: modern-day France, Belgium, Luxembourg, western Germany, Austria, Switzerland, northern Italy, the Low Countries, and parts of Spain (the Spanish March)."},
-  {n:26,p:2,q:"Which two states eventually replaced the Frankish Kingdom?",a:"By the Treaty of Verdun (843 AD): West Francia (precursor to France) and East Francia (precursor to Germany / the Holy Roman Empire). A Middle Kingdom including Italy also emerged."},
-  {n:27,p:2,q:"Who was Charlemagne (Carolus Magnus)? Where did he reside?",a:"King of the Franks (768–814) and first Holy Roman Emperor (800–814). He united much of Western Europe, promoted Christianity, learning, and legal reform. His main residence (palatium) was at Aachen."},
-  {n:28,p:2,q:"What was the official name of the Roman German empire that existed until 1806?",a:"The Holy Roman Empire of the German Nation (Heiliges Römisches Reich Deutscher Nation), also referred to as 'the old empire.'"},
-  {n:29,p:2,q:"What is the concept of a nation state?",a:"A political entity defined by a homogeneous language, culture, and ethnicity — the population shares a common national identity. The model emerged strongly after the French Revolution and Congress of Vienna (1815)."},
-  {n:30,p:2,q:"Was Scandinavia part of the Holy Roman Empire of the German Nation?",a:"No. Scandinavia (Denmark, Norway, Sweden) lay outside the empire's borders, though there were areas of political overlap (e.g. Schleswig-Holstein)."},
-  {n:31,p:2,q:"What is the 'Final Recess' (Reichsdeputationshauptschluss)?",a:"The Recess of 1803 — the last major act of the Holy Roman Empire. It reorganised German territories, secularised Church lands, abolished many small states, and compensated princes who lost territory to France west of the Rhine."},
-  {n:32,p:2,q:"What public subsidies are guaranteed by Article 138 of the Weimar Constitution (now part of the Basic Law via Art. 140 GG)?",a:"Art. 138 WV guarantees that state payments (Staatsleistungen) to religious societies based on law or treaty shall continue. These originate from the secularisation of church property in 1803 and represent ongoing financial transfers from German states to the major churches."},
-  {n:33,p:2,q:"Does Germany have a state church?",a:"No. Art. 137 WV (= Art. 140 GG) expressly states: 'There shall be no state church.' Germany has a cooperative model — the state supports religious communities without formally establishing one."},
-  {n:34,p:2,q:"What did the previous SPD-FDP-Green coalition agreement include regarding public subsidies to religious societies?",a:"A plan to abolish (ablösen) the historic Staatsleistungen by replacing perpetual annual payments with a one-time lump-sum settlement — ending the financial legacy of the 1803 secularisation."},
-  {n:35,p:2,q:"How did Hitler mainly consolidate his power in 1933 from a constitutional perspective?",a:"Primarily through the Enabling Act (Ermächtigungsgesetz) of 23 March 1933, which transferred legislative power from the Reichstag to the government, allowing Hitler to enact laws — including those deviating from the Weimar Constitution — without parliamentary approval."},
-  {n:36,p:2,q:"What is the nature of the Enabling Act? Would it be possible under current German law?",a:"The Enabling Act was a constitutional amendment abolishing the separation of powers by transferring legislative authority to the executive. No — it would be impossible under the Basic Law. Art. 79(3) GG (the Eternity Clause) prohibits amendments affecting the separation of powers, federal structure, and human dignity."},
-  {n:37,p:2,q:"What consequence of the Enabling Act is still visible in German lawmaking today?",a:"The principle of materiality (Wesentlichkeitsgrundsatz) — Parliament must itself decide all matters of fundamental importance and cannot delegate essential legislative decisions to the executive, preventing future enabling-act-style delegation."},
-  {n:38,p:2,q:"What is the principle of materiality (Wesentlichkeitsgrundsatz)?",a:"Derived from the rule of law and democracy principles of the Basic Law: Parliament (Bundestag) must itself regulate all matters of substantial importance — especially regarding fundamental rights — rather than delegating them to the executive."},
-  {n:39,p:2,q:"Which party voted against the Enabling Act, and why could the Communist Party not do so?",a:"The SPD (Social Democrats) voted against. The KPD (Communist Party) could not vote because its members had already been arrested or driven underground following the Reichstag Fire Decree of 28 February 1933."},
-  {n:40,p:2,q:"Who are Erich Honecker, Walter Ulbricht, Vladimir Ilyich Lenin, and Montesquieu?",a:"Honecker: head of the GDR 1971–1989. Ulbricht: head of the GDR 1950–1971. Lenin: leader of the Bolshevik Revolution 1917, founder of the Soviet state. Montesquieu: French Enlightenment philosopher (1689–1755), author of 'The Spirit of the Laws', who developed the systematic theory of separation of powers."},
-  {n:41,p:2,q:"The concept of separation of powers may be traced back to which person?",a:"Montesquieu (Charles-Louis de Secondat), in his 1748 work 'De l'esprit des lois', systematically developing the trias politica — legislative, executive, and judicial powers."},
-  {n:42,p:2,q:"What happens in a state of defense regarding the electoral term of the Bundestag?",a:"Under Art. 115h GG, the electoral term is automatically extended for the duration of the state of defense. Elections falling within that period are postponed until six months after it ends."},
-  {n:43,p:2,q:"If the Bundestag cannot convene in a state of defense, which body substitutes for it?",a:"The Joint Committee (Gemeinsamer Ausschuss) — two-thirds Bundestag members, one-third Bundesrat members — acts as substitute parliament with full legislative powers (Art. 53a, 115e GG)."},
-  {n:44,p:2,q:"What is the consequence of a state of defense for the Federal Chancellor?",a:"Command over the Bundeswehr passes from the Federal Minister of Defence to the Federal Chancellor, who becomes supreme commander (Art. 115b GG)."},
-  {n:45,p:2,q:"What is the nature of private law in comparison to public law?",a:"Private law governs relations between private parties on a basis of equality (Gleichordnung). Public law governs relations between the state and private parties characterised by subordination (Überordnung) — the state acts with authority (Hoheitsgewalt)."},
-  {n:46,p:2,q:"What are examples of private and public law?",a:"Private law: contract law, tort law, property law, family law, company law (BGB, HGB). Public law: constitutional law, administrative law, tax law, criminal law (GG, AO, StGB, VwGO)."},
-  {n:47,p:2,q:"What are the main principles of public and private law with respect to citizens?",a:"Private law: Privatautonomie — parties may agree on whatever terms they choose within legal limits. Public law: Gesetzmäßigkeit der Verwaltung — the state may only act where it has legal authority. Citizens are subordinate to state authority but protected against unlawful state action."},
-  {n:48,p:2,q:"What does the three-element doctrine require? Is the EU a state?",a:"Georg Jellinek's doctrine requires: (1) defined territory, (2) permanent population, (3) effective sovereign government. The EU has elements of all three but lacks full sovereign power — Member States retain ultimate authority. The EU is therefore not a state under this doctrine."},
-  {n:49,p:2,q:"What is the law of things (Sachenrecht) about?",a:"Property Law — it governs rights over physical objects: defining who holds ownership, possession, and other real rights (Dingliche Rechte) over tangible property, and how those rights are created, transferred, and extinguished."},
-  {n:50,p:2,q:"What must be done to transfer ownership in a sale under German law?",a:"Two separate legal acts: (1) the obligatory agreement (Verpflichtungsgeschäft) — the sales contract; and (2) the real agreement (Verfügungsgeschäft) — actual transfer of ownership by agreement to transfer plus delivery (§ 929 BGB for movables) or land register entry (for immovables)."},
-  {n:51,p:2,q:"What is meant by the principle of abstraction (Abstraktionsprinzip)?",a:"The validity of a real act (transfer of ownership) is independent of the underlying obligatory act (sales contract). Even if the contract is void, the transfer of ownership may remain valid — and vice versa."},
-  {n:52,p:2,q:"What is meant by the principle of separation (Trennungsprinzip)?",a:"The obligatory transaction (Verpflichtungsgeschäft — e.g. contract of sale creating the duty to transfer) and the real transaction (Verfügungsgeschäft — the actual transfer of ownership) are legally distinct, separate acts."},
-  {n:53,p:2,q:"What is the difference between possession and ownership?",a:"Ownership (Eigentum): the legal right to a thing — the fullest real right. Possession (Besitz): factual control over a thing. One can possess without owning (e.g. a thief) and own without possessing (e.g. an owner whose good is stolen)."},
-  {n:54,p:2,q:"Into how many zones was Germany divided after World War II?",a:"Four occupational zones: American (south), British (northwest), French (southwest), Soviet (east). Berlin was also divided into four corresponding sectors."},
-  {n:55,p:2,q:"Of how many federal states does Germany consist?",a:"16 Bundesländer: 13 area states (Flächenländer) and 3 city-states (Stadtstaaten): Berlin, Hamburg, and Bremen."},
-  {n:56,p:2,q:"What is the capital of the state of Hesse (Hessen)?",a:"Wiesbaden."},
-  {n:57,p:2,q:"In which part of the Basic Law are the basic rights located, in contrast to the Weimar Constitution?",a:"At the very beginning (Arts. 1–19 GG) — before the institutional provisions. In the Weimar Constitution they appeared at the end. This placement signals their priority and binding force on all state powers."},
-  {n:58,p:2,q:"What is a task of the Federal President?",a:"The Federal President represents Germany internationally, ratifies laws, appoints the Federal Chancellor (and ministers on the Chancellor's proposal), accredits ambassadors, and exercises the power of pardon. The role is largely ceremonial but includes important constitutional reserve powers."},
-  {n:59,p:2,q:"Who is considered the second highest-ranking person in the German constitutional order?",a:"The President of the Bundestag (Bundestagspräsident) — second in protocol rank after the Federal President."},
-  {n:60,p:2,q:"What are the five pillars of the German social insurance system and to what can they be traced back?",a:"(1) Health, (2) Accident, (3) Pension/Retirement, (4) Unemployment, (5) Long-term care insurance. All traced back to Chancellor Bismarck's social reforms of the 1880s."},
-  {n:61,p:2,q:"What are the six principles of state under Article 20 of the Basic Law?",a:"(1) Democracy, (2) Federal state, (3) Social state, (4) Republic, (5) Rule of law, (6) Environmental protection (Art. 20a GG). The first five are protected by the Eternity Clause (Art. 79(3) GG)."},
-  {n:62,p:2,q:"What are the five permanent constitutional bodies in Germany?",a:"(1) Bundestag, (2) Bundesrat, (3) Federal Government (Bundesregierung), (4) Federal President (Bundespräsident), (5) Federal Constitutional Court (Bundesverfassungsgericht)."},
-  {n:63,p:2,q:"Which body elects the Federal President?",a:"The Federal Assembly (Bundesversammlung / Federal Convention) — a special body convened solely for this purpose."},
-  {n:64,p:2,q:"Who is a member of the Federal Assembly (Bundesversammlung)?",a:"The entire Bundestag membership, plus an equal number of state delegates elected by each Bundesland parliament, proportional to population."},
+  {n:4,p:'2a',q:"When was the Roman Empire divided into a western and eastern half?",a:"395 AD, upon the death of Emperor Theodosius I. The Western half went to his son Honorius; the Eastern half to Arcadius."},
+  {n:5,p:'2a',q:"What were the three phases of Roman history?",a:"(1) Royal Period: 753–509 BC. (2) Roman Republic: 509–27 BC. (3) Imperial Period: 27 BC–476 AD."},
+  {n:6,p:'2a',q:"When was the Roman Empire founded?",a:"27 BC, when the Senate granted Octavian the title 'Augustus', marking the start of the Imperial Period."},
+  {n:7,p:'2a',q:"When did the Western Roman Empire collapse, and why?",a:"476 AD, when Germanic chieftain Odoacer deposed Romulus Augustulus. Causes include military overextension, economic decline, political instability, migration pressure, and erosion of the tax base."},
+  {n:8,p:'2a',q:"When did the Eastern (Byzantine) Roman Empire collapse?",a:"1453 AD, when Ottoman Sultan Mehmed II conquered Constantinople."},
+  {n:9,p:'2a',q:"Which Roman Emperor chose Byzantium as his new capital ('New Rome')?",a:"Constantine I (Constantine the Great), in 330 AD, renaming the city Constantinople."},
+  {n:10,p:'2a',q:"Which language gradually replaced Latin for official use in the Roman Empire?",a:"Greek, especially in the Eastern (Byzantine) Empire from the 7th century onwards, formally adopted under Emperor Heraclius."},
+  {n:11,p:'2a',q:"Why did German emperors regard themselves as the true inheritors of Roman identity? Which other nations claimed Roman succession?",a:"Through translatio imperii — Carolingian and Ottonian coronations were seen as transfers of imperial power from Rome. Other claimants: the Byzantine Empire (direct continuation), Russia ('Moscow as Third Rome'), and the Ottoman Empire (after 1453)."},
+  {n:12,p:'2a',q:"Which state conquered the Byzantine Empire? How did the Ottomans break with Greco-Roman legitimacy?",a:"The Ottoman Empire conquered Byzantium in 1453. The Ottomans gradually replaced Roman legal/political traditions with Islamic law (Sharia), severing continuity with Greco-Roman governance."},
+  {n:13,p:'2a',q:"What do the heraldic symbols of the Roman Empire, Germany, Russia, and Austria have in common?",a:"All use the eagle — the double-headed eagle (Rome, Russia, Austria-Hungary) or single-headed eagle (Germany). This reflects the claim to Roman imperial succession (translatio imperii)."},
+  {n:14,p:'2a',q:"What is meant by translatio imperii?",a:"A medieval theological concept according to which the rule of a world empire is transferred to its successor. Used to legitimise Charlemagne's coronation (imperial power transferred from Romans to Franks) and later the Holy Roman Empire."},
+  {n:15,p:'2a',q:"What is the doctrine of four empires?",a:"Based on the Book of Daniel, interpreted by Church Father Jerome: four world empires — Babylon, Persia, Greece, and Rome — would succeed one another. Medieval rulers used this to present themselves as Roman successors within the final empire."},
+  {n:16,p:'2a',q:"What was the idea behind Charlemagne's imperial coronation in 800 AD?",a:"Translatio imperii — imperial power had passed from the Romans to the Franks. At the time, Empress Irene ruled Constantinople; Roman law barred women from supreme military command, creating a theoretical vacancy. Charlemagne was crowned by Pope Leo III and saw himself as protector of Christianity."},
+  {n:17,p:'2a',q:"Why was the coronation of Otto I so important for the Holy Roman Empire?",a:"Otto I's coronation in 962 AD transferred the translatio imperii to the East Frankish/German realm, establishing the Holy Roman Empire of the German Nation as the legitimate continuation of Roman imperial authority."},
+  {n:18,p:'2a',q:"Which three countries first adopted Christianity as a state religion?",a:"1. Armenia (301 AD) — the first ever. 2. Georgia (337 AD). 3. Roman Empire (380 AD, Edict of Thessalonica under Theodosius I)."},
+  {n:19,p:'2a',q:"From which term can the German 'Kaiser' and the Slavic 'Tsar' be traced back?",a:"Both derive from 'Caesar' — the title of Roman emperors — reflecting the claim to Roman imperial succession."},
+  {n:20,p:'2a',q:"What happened on the eve of the Battle of the Milvian Bridge (27 October 312)?",a:"Constantine I reportedly experienced a vision of the Christian chi-rho symbol with the message 'In hoc signo vinces' ('In this sign you will conquer'). He had his soldiers mark their shields with the symbol and defeated Maxentius the next day, attributing his victory to the Christian God."},
+  {n:21,p:'2a',q:"What was the Edict of Milan (313)?",a:"An agreement between Constantine I and Licinius proclaiming religious tolerance throughout the Roman Empire, granting Christians (and all others) freedom of worship and ordering the return of confiscated Church property."},
+  {n:22,p:'2a',q:"What did Constantine order on 3 March 321?",a:"He declared Sunday (dies Solis) a day of rest and worship — still visible in German (Sonntag) and English (Sunday). Later called dies dominicus ('day of the Lord'); French 'Dimanche'; Spanish 'domingo'."},
+  {n:23,p:'2a',q:"When was Constantinople founded?",a:"330 AD, by Emperor Constantine I, on the site of the ancient Greek city Byzantium."},
+  {n:24,p:'2b',q:"How did the Frankish Kingdom come into existence?",a:"The Franks were a confederation of Germanic tribes settling in Roman Gaul. Under Clovis I (r. 481–511 AD) they were united and converted to Christianity, establishing the Merovingian dynasty and the Frankish Kingdom."},
+  {n:25,p:'2b',q:"Which territories did the Frankish Kingdom encompass?",a:"At its height under Charlemagne: modern-day France, Belgium, Luxembourg, western Germany, Austria, Switzerland, northern Italy, the Low Countries, and parts of Spain (the Spanish March)."},
+  {n:26,p:'2b',q:"Which two states eventually replaced the Frankish Kingdom?",a:"By the Treaty of Verdun (843 AD): West Francia (precursor to France) and East Francia (precursor to Germany / the Holy Roman Empire). A Middle Kingdom including Italy also emerged."},
+  {n:27,p:'2b',q:"Who was Charlemagne (Carolus Magnus)? Where did he reside?",a:"King of the Franks (768–814) and first Holy Roman Emperor (800–814). He united much of Western Europe, promoted Christianity, learning, and legal reform. His main residence (palatium) was at Aachen."},
+  {n:28,p:'2b',q:"What was the official name of the Roman German empire that existed until 1806?",a:"The Holy Roman Empire of the German Nation (Heiliges Römisches Reich Deutscher Nation), also referred to as 'the old empire.'"},
+  {n:29,p:'2b',q:"What is the concept of a nation state?",a:"A political entity defined by a homogeneous language, culture, and ethnicity — the population shares a common national identity. The model emerged strongly after the French Revolution and Congress of Vienna (1815)."},
+  {n:30,p:'2b',q:"Was Scandinavia part of the Holy Roman Empire of the German Nation?",a:"No. Scandinavia (Denmark, Norway, Sweden) lay outside the empire's borders, though there were areas of political overlap (e.g. Schleswig-Holstein)."},
+  {n:31,p:'2b',q:"What is the 'Final Recess' (Reichsdeputationshauptschluss)?",a:"The Recess of 1803 — the last major act of the Holy Roman Empire. It reorganised German territories, secularised Church lands, abolished many small states, and compensated princes who lost territory to France west of the Rhine."},
+  {n:32,p:'2b',q:"What public subsidies are guaranteed by Article 138 of the Weimar Constitution (now part of the Basic Law via Art. 140 GG)?",a:"Art. 138 WV guarantees that state payments (Staatsleistungen) to religious societies based on law or treaty shall continue. These originate from the secularisation of church property in 1803 and represent ongoing financial transfers from German states to the major churches."},
+  {n:33,p:'2b',q:"Does Germany have a state church?",a:"No. Art. 137 WV (= Art. 140 GG) expressly states: 'There shall be no state church.' Germany has a cooperative model — the state supports religious communities without formally establishing one."},
+  {n:34,p:'2b',q:"What did the previous SPD-FDP-Green coalition agreement include regarding public subsidies to religious societies?",a:"A plan to abolish (ablösen) the historic Staatsleistungen by replacing perpetual annual payments with a one-time lump-sum settlement — ending the financial legacy of the 1803 secularisation."},
+  {n:35,p:'2b',q:"How did Hitler mainly consolidate his power in 1933 from a constitutional perspective?",a:"Primarily through the Enabling Act (Ermächtigungsgesetz) of 23 March 1933, which transferred legislative power from the Reichstag to the government, allowing Hitler to enact laws — including those deviating from the Weimar Constitution — without parliamentary approval."},
+  {n:36,p:'2b',q:"What is the nature of the Enabling Act? Would it be possible under current German law?",a:"The Enabling Act was a constitutional amendment abolishing the separation of powers by transferring legislative authority to the executive. No — it would be impossible under the Basic Law. Art. 79(3) GG (the Eternity Clause) prohibits amendments affecting the separation of powers, federal structure, and human dignity."},
+  {n:37,p:'2b',q:"What consequence of the Enabling Act is still visible in German lawmaking today?",a:"The principle of materiality (Wesentlichkeitsgrundsatz) — Parliament must itself decide all matters of fundamental importance and cannot delegate essential legislative decisions to the executive, preventing future enabling-act-style delegation."},
+  {n:38,p:'2b',q:"What is the principle of materiality (Wesentlichkeitsgrundsatz)?",a:"Derived from the rule of law and democracy principles of the Basic Law: Parliament (Bundestag) must itself regulate all matters of substantial importance — especially regarding fundamental rights — rather than delegating them to the executive."},
+  {n:39,p:'2b',q:"Which party voted against the Enabling Act, and why could the Communist Party not do so?",a:"The SPD (Social Democrats) voted against. The KPD (Communist Party) could not vote because its members had already been arrested or driven underground following the Reichstag Fire Decree of 28 February 1933."},
+  {n:40,p:'2b',q:"Who are Erich Honecker, Walter Ulbricht, Vladimir Ilyich Lenin, and Montesquieu?",a:"Honecker: head of the GDR 1971–1989. Ulbricht: head of the GDR 1950–1971. Lenin: leader of the Bolshevik Revolution 1917, founder of the Soviet state. Montesquieu: French Enlightenment philosopher (1689–1755), author of 'The Spirit of the Laws', who developed the systematic theory of separation of powers."},
+  {n:41,p:'2b',q:"The concept of separation of powers may be traced back to which person?",a:"Montesquieu (Charles-Louis de Secondat), in his 1748 work 'De l'esprit des lois', systematically developing the trias politica — legislative, executive, and judicial powers."},
+  {n:42,p:'2b',q:"What happens in a state of defense regarding the electoral term of the Bundestag?",a:"Under Art. 115h GG, the electoral term is automatically extended for the duration of the state of defense. Elections falling within that period are postponed until six months after it ends."},
+  {n:43,p:'2b',q:"If the Bundestag cannot convene in a state of defense, which body substitutes for it?",a:"The Joint Committee (Gemeinsamer Ausschuss) — two-thirds Bundestag members, one-third Bundesrat members — acts as substitute parliament with full legislative powers (Art. 53a, 115e GG)."},
+  {n:44,p:'2b',q:"What is the consequence of a state of defense for the Federal Chancellor?",a:"Command over the Bundeswehr passes from the Federal Minister of Defence to the Federal Chancellor, who becomes supreme commander (Art. 115b GG)."},
+  {n:45,p:'2c',q:"What is the nature of private law in comparison to public law?",a:"Private law governs relations between private parties on a basis of equality (Gleichordnung). Public law governs relations between the state and private parties characterised by subordination (Überordnung) — the state acts with authority (Hoheitsgewalt)."},
+  {n:46,p:'2c',q:"What are examples of private and public law?",a:"Private law: contract law, tort law, property law, family law, company law (BGB, HGB). Public law: constitutional law, administrative law, tax law, criminal law (GG, AO, StGB, VwGO)."},
+  {n:47,p:'2c',q:"What are the main principles of public and private law with respect to citizens?",a:"Private law: Privatautonomie — parties may agree on whatever terms they choose within legal limits. Public law: Gesetzmäßigkeit der Verwaltung — the state may only act where it has legal authority. Citizens are subordinate to state authority but protected against unlawful state action."},
+  {n:48,p:'2c',q:"What does the three-element doctrine require? Is the EU a state?",a:"Georg Jellinek's doctrine requires: (1) defined territory, (2) permanent population, (3) effective sovereign government. The EU has elements of all three but lacks full sovereign power — Member States retain ultimate authority. The EU is therefore not a state under this doctrine."},
+  {n:49,p:'2c',q:"What is the law of things (Sachenrecht) about?",a:"Property Law — it governs rights over physical objects: defining who holds ownership, possession, and other real rights (Dingliche Rechte) over tangible property, and how those rights are created, transferred, and extinguished."},
+  {n:50,p:'2c',q:"What must be done to transfer ownership in a sale under German law?",a:"Two separate legal acts: (1) the obligatory agreement (Verpflichtungsgeschäft) — the sales contract; and (2) the real agreement (Verfügungsgeschäft) — actual transfer of ownership by agreement to transfer plus delivery (§ 929 BGB for movables) or land register entry (for immovables)."},
+  {n:51,p:'2c',q:"What is meant by the principle of abstraction (Abstraktionsprinzip)?",a:"The validity of a real act (transfer of ownership) is independent of the underlying obligatory act (sales contract). Even if the contract is void, the transfer of ownership may remain valid — and vice versa."},
+  {n:52,p:'2c',q:"What is meant by the principle of separation (Trennungsprinzip)?",a:"The obligatory transaction (Verpflichtungsgeschäft — e.g. contract of sale creating the duty to transfer) and the real transaction (Verfügungsgeschäft — the actual transfer of ownership) are legally distinct, separate acts."},
+  {n:53,p:'2c',q:"What is the difference between possession and ownership?",a:"Ownership (Eigentum): the legal right to a thing — the fullest real right. Possession (Besitz): factual control over a thing. One can possess without owning (e.g. a thief) and own without possessing (e.g. an owner whose good is stolen)."},
+  {n:54,p:'2c',q:"Into how many zones was Germany divided after World War II?",a:"Four occupational zones: American (south), British (northwest), French (southwest), Soviet (east). Berlin was also divided into four corresponding sectors."},
+  {n:55,p:'2c',q:"Of how many federal states does Germany consist?",a:"16 Bundesländer: 13 area states (Flächenländer) and 3 city-states (Stadtstaaten): Berlin, Hamburg, and Bremen."},
+  {n:56,p:'2c',q:"What is the capital of the state of Hesse (Hessen)?",a:"Wiesbaden."},
+  {n:57,p:'2c',q:"In which part of the Basic Law are the basic rights located, in contrast to the Weimar Constitution?",a:"At the very beginning (Arts. 1–19 GG) — before the institutional provisions. In the Weimar Constitution they appeared at the end. This placement signals their priority and binding force on all state powers."},
+  {n:58,p:'2c',q:"What is a task of the Federal President?",a:"The Federal President represents Germany internationally, ratifies laws, appoints the Federal Chancellor (and ministers on the Chancellor's proposal), accredits ambassadors, and exercises the power of pardon. The role is largely ceremonial but includes important constitutional reserve powers."},
+  {n:59,p:'2c',q:"Who is considered the second highest-ranking person in the German constitutional order?",a:"The President of the Bundestag (Bundestagspräsident) — second in protocol rank after the Federal President."},
+  {n:60,p:'2c',q:"What are the five pillars of the German social insurance system and to what can they be traced back?",a:"(1) Health, (2) Accident, (3) Pension/Retirement, (4) Unemployment, (5) Long-term care insurance. All traced back to Chancellor Bismarck's social reforms of the 1880s."},
+  {n:61,p:'2c',q:"What are the six principles of state under Article 20 of the Basic Law?",a:"(1) Democracy, (2) Federal state, (3) Social state, (4) Republic, (5) Rule of law, (6) Environmental protection (Art. 20a GG). The first five are protected by the Eternity Clause (Art. 79(3) GG)."},
+  {n:62,p:'2c',q:"What are the five permanent constitutional bodies in Germany?",a:"(1) Bundestag, (2) Bundesrat, (3) Federal Government (Bundesregierung), (4) Federal President (Bundespräsident), (5) Federal Constitutional Court (Bundesverfassungsgericht)."},
+  {n:63,p:'2c',q:"Which body elects the Federal President?",a:"The Federal Assembly (Bundesversammlung / Federal Convention) — a special body convened solely for this purpose."},
+  {n:64,p:'2c',q:"Who is a member of the Federal Assembly (Bundesversammlung)?",a:"The entire Bundestag membership, plus an equal number of state delegates elected by each Bundesland parliament, proportional to population."},
   {n:65,p:3,q:"What was the finding of Solange I (BVerfG, 29 May 1974)?",a:"As long as (Solange) the EC had not developed a democratically legitimised parliament and a catalogue of fundamental rights equivalent to the Basic Law, the Federal Constitutional Court reserved the right to review EC secondary law for compatibility with German fundamental rights."},
   {n:66,p:3,q:"Which company was the plaintiff in the proceedings leading to Solange I?",a:"Internationale Handelsgesellschaft mbH."},
   {n:67,p:3,q:"Did the FCC in Solange I decide on the validity of EC secondary law's compatibility with EC primary law?",a:"No. The FCC reviewed compatibility of EC secondary law with German fundamental rights (the Basic Law) — not whether EC secondary law was compatible with EC primary law, which is the ECJ's domain."},
@@ -7064,117 +6910,117 @@ const EP_QA = [
   {n:84,p:3,q:"What was the idea behind the PSPP?",a:"To stimulate consumption and investment by injecting liquidity, and to raise the eurozone inflation rate toward just under 2% (the ECB's price stability target)."},
   {n:85,p:3,q:"What did the FCC accuse the ECJ of in the PSPP decision (2020)?",a:"Conducting an 'essentially subpar review' (manifestly deficient examination) — the ECJ's proportionality review of the PSPP did not satisfy the requirements of a comprehensible review of whether the ESCB/ECB had observed the limits of their monetary policy mandate."},
   {n:86,p:3,q:"What did the FCC assert regarding the ECJ's competence in the PSPP case?",a:"The ECJ's findings 'manifestly exceed the judicial mandate conferred upon the CJEU in Art. 19(1) TEU', causing 'a structurally significant shift in the order of competences to the detriment of the Member States' — i.e. ultra vires action by the ECJ itself."},
-  {n:87,p:4,q:"Which are the constitutional documents of the European Union?",a:"The Treaty on European Union (TEU), the Treaty on the Functioning of the European Union (TFEU), and the Charter of Fundamental Rights of the EU. Together these constitute EU primary law."},
-  {n:88,p:4,q:"What happened with the Treaty establishing a Constitution for Europe?",a:"Rejected in public referendums by France (54.7% No, May 2005) and the Netherlands (61.6% No, June 2005), killing ratification."},
-  {n:89,p:4,q:"What was the result of the rejection of the EU Constitutional Treaty?",a:"Discussions led to the Treaty of Lisbon (2007, in force 2009), incorporating most reforms in amended treaty form without constitutional language."},
-  {n:90,p:4,q:"How are the TEU, TFEU, and the Charter of Fundamental Rights collectively called?",a:"Primary law (Primärrecht) — the highest level of EU law, binding on all EU institutions and Member States."},
-  {n:91,p:4,q:"What is the difference between the various legal acts of EU secondary law?",a:"Regulations: binding in entirety, directly applicable in all MS (no national implementation needed). Directives: binding as to result; MS choose form and method. Decisions: binding in entirety on those addressed. Recommendations and Opinions: non-binding."},
-  {n:92,p:4,q:"What two forms of secondary law are distinguished under Art. 288 TFEU?",a:"Binding acts (Regulations, Directives, Decisions) and non-binding acts (Recommendations, Opinions)."},
-  {n:93,p:4,q:"What is meant by the principle of degressive proportionality?",a:"In allocating EP seats, larger Member States receive more seats than smaller ones, but proportionally fewer per citizen. Small states are overrepresented relative to their population to ensure meaningful representation for all."},
-  {n:94,p:4,q:"Which country is the smallest in the EU?",a:"Malta (both by area and population among EU Member States)."},
-  {n:95,p:4,q:"Is the EU a 'Christian club'?",a:"No. The EU has opened accession negotiations with Albania (~57% Muslim), Bosnia-Herzegovina (~50% Muslim), and Turkey (predominantly Muslim). Membership is based on democratic values, not religion."},
-  {n:96,p:4,q:"Can any country become an EU member?",a:"No. Only European countries can apply (Art. 49 TEU). Morocco's 1987 application was rejected on geographic grounds."},
-  {n:97,p:4,q:"Is it decisive to be geographically part of Europe for EU membership?",a:"Not strictly. Cyprus is geographically closer to Asia yet is an EU member. Geographic location is a factor but not the sole determinant under Art. 49 TEU."},
-  {n:98,p:4,q:"Where is it stipulated who can join the EU?",a:"Art. 49 TEU — any European state respecting the values in Art. 2 TEU (rule of law, democracy, human rights, etc.) may apply."},
-  {n:99,p:4,q:"Which countries are official EU membership candidates?",a:"Albania, Bosnia-Herzegovina, Georgia, Moldova, Montenegro, North Macedonia, Serbia, Turkey, Ukraine."},
-  {n:100,p:4,q:"Who is the President of the EU Commission?",a:"Ursula von der Leyen (as of the course material)."},
-  {n:101,p:4,q:"How is the Treaty of the European Economic Community also called?",a:"The Treaty of Rome (signed in Rome on 25 March 1957)."},
-  {n:102,p:4,q:"Which countries were the founding members of the EEC?",a:"Belgium, Netherlands, Luxembourg, France, Germany, and Italy — the 'Inner Six.'"},
-  {n:103,p:4,q:"Name two examples of exclusive EU competences.",a:"Any two of: (1) Customs union; (2) Competition rules for the internal market; (3) Monetary policy for eurozone countries; (4) Conservation of marine biological resources (Common Fisheries Policy); (5) Common commercial policy."},
-  {n:104,p:4,q:"What is the principle of subsidiarity?",a:"Art. 5(3) TEU: the EU shall act only if and insofar as the objectives of the proposed action cannot be sufficiently achieved by Member States at national/regional/local level, but can better be achieved at Union level by reason of the scale or effects of the proposed action."},
-  {n:105,p:4,q:"What happens in case of breach of the principle of subsidiarity?",a:"The Committee of the Regions or Member States may refer an adopted act directly to the CJEU. National parliaments may issue 'yellow card' or 'orange card' objections under Protocol No. 2 TEU."},
-  {n:106,p:4,q:"Are there relevant documents dealing with the principle of subsidiarity?",a:"(a) Protocol No. 1 on the role of national parliaments — requires forwarding EU legislative proposals to national parliaments for review. (b) Protocol No. 2 — requires the Commission to respect subsidiarity; allows national parliaments to object; permits CJEU challenges to adopted acts."},
-  {n:107,p:4,q:"To which other principle is subsidiarity closely linked?",a:"Proportionality (Art. 5(4) TEU) — EU action must not go beyond what is necessary. Also linked to the principle of conferral (Art. 5(2) TEU) — the EU may only act within conferred competences."},
-  {n:108,p:4,q:"What is the concept of qualified (double) majority in the Council?",a:"55% of Member States (at least 15) representing at least 65% of total EU population. A blocking minority requires at least 4 Member States representing 35%+ of the population."},
-  {n:109,p:4,q:"What is codecision (Ordinary Legislative Procedure)?",a:"Art. 294 TFEU — the general rule for EU legislation. Requires joint adoption by the European Parliament and the Council on equal footing, starting from a Commission proposal, with up to three readings."},
-  {n:110,p:4,q:"What is the main characteristic of the Ordinary Legislative Procedure?",a:"Legislation adopted jointly and equally by Parliament and Council. Starts with a Commission proposal; up to three readings; conciliation committee possible if readings fail to produce agreement."},
-  {n:111,p:4,q:"In which cases must the Council decide unanimously?",a:"CFSP (with exceptions); citizenship (new rights); EU membership; harmonisation of indirect taxation; EU finances (own resources, MFF); certain JHA matters (European Prosecutor, family law, operational police cooperation); social security/social protection harmonisation."},
-  {n:112,p:4,q:"Does the EU have powers to levy or collect taxes?",a:"No. Tax powers rest with Member States. The EU cannot levy taxes directly. Harmonisation of direct taxes requires unanimity under Art. 115 TFEU."},
-  {n:113,p:4,q:"How many Council configurations exist?",a:"10 (e.g. General Affairs, Foreign Affairs, ECOFIN, Justice and Home Affairs, Agriculture and Fisheries, etc.)."},
-  {n:114,p:4,q:"Which institution holds the monopoly to initiate legislation in the EU?",a:"The European Commission (Art. 17(2) TEU) in the ordinary legislative procedure."},
-  {n:115,p:4,q:"What can the European Parliament do to start a legislative process?",a:"The EP may request the Commission to submit a proposal (Art. 225 TFEU). The Commission must state reasons if it declines, but is not legally bound to comply."},
-  {n:116,p:4,q:"What were the facts of Van Gend & Loos (ECJ, 5 February 1963)?",a:"Van Gend & Loos, a Dutch transport company, imported ureaformaldehyde from Germany into the Netherlands. Dutch customs imposed a higher duty than existed when the EEC Treaty entered into force — arguably breaching the treaty's standstill clause. Van Gend argued the treaty provision created rights enforceable by individuals before a Dutch tribunal."},
-  {n:117,p:4,q:"What is meant by the doctrine of direct applicability?",a:"EU legislation (especially regulations) enters into force and becomes part of Member States' national law automatically, without any domestic implementing legislation (unmittelbare Anwendbarkeit)."},
-  {n:118,p:4,q:"What is meant by the doctrine of direct effect?",a:"EU law endows individuals with rights directly enforceable before their domestic courts, without national implementing measures. Conditions: the provision must be clear, precise, and unconditional."},
-  {n:119,p:4,q:"What were the facts of Costa v. ENEL (ECJ, 15 July 1964)?",a:"Italy nationalised its electricity industry, creating Enel. Flaminio Costa, a customer and shareholder of an affected company, refused to pay his Enel bill and argued the nationalisation law was incompatible with EEC Treaty provisions, raising the question before an Italian court."},
-  {n:120,p:4,q:"Which concept of the relationship between legal spheres did the ECJ reject in Costa v. ENEL?",a:"Dualism — the theory that national and international/EU law are separate orders requiring domestic transformation before EU law applies."},
-  {n:121,p:4,q:"How did the ECJ justify rejecting dualism in Costa v. ENEL?",a:"Community law 'became an integral part' of the national legal systems upon entry into force. The EEC created its own legal order in which Member States permanently limited their sovereign rights."},
-  {n:122,p:4,q:"What nature of Community law did the ECJ emphasise in Costa v. ENEL?",a:"The autonomous nature — Community law has its own institutional framework, legal personality and capacity (including in international law), making it binding not only on Member States but directly on individuals."},
-  {n:123,p:4,q:"Which legal principle did the ECJ reject in Costa v. ENEL regarding conflicts of norms?",a:"Lex posterior derogat legi priori — the ECJ rejected that a later national law could override an earlier EC rule. EU law takes precedence regardless of chronological order."},
-  {n:124,p:4,q:"Why is Costa v. ENEL considered a legal revolution?",a:"It established the doctrine of supremacy (primacy) of Community law — EC law prevails over conflicting national law before national courts, creating a hierarchy with EU law at the apex within its scope."},
-  {n:125,p:4,q:"How is primacy of EU law understood from a German perspective?",a:"As 'precedence of application' (Anwendungsvorrang) rather than 'precedence of validity' (Geltungsvorrang). Conflicting national law is not declared void — it simply is not applied in the specific case."},
-  {n:126,p:4,q:"What does 'precedence of application' mean?",a:"A national court sets aside the conflicting national rule in the specific case and applies EU law instead. The national provision retains formal validity and can still apply where EU law is not engaged. This is competence-preserving: unlike Art. 31 GG (where Länder law loses validity), EU primacy only displaces national law in the specific conflict."},
-  {n:127,p:4,q:"How does precedence of application differ from precedence of validity?",a:"Precedence of validity (Geltungsvorrang): the higher norm renders the lower norm invalid — it ceases to exist (e.g. Art. 31 GG). Precedence of application (Anwendungsvorrang): the lower norm retains formal validity but is not applied in conflicts — can still apply outside EU law's scope. EU primacy operates as Anwendungsvorrang."},
-  {n:128,p:4,q:"What was the main finding of Simmenthal (ECJ, 9 March 1978)?",a:"Every national court — including lower courts — must apply EU law immediately and fully, setting aside any conflicting national provision, without waiting for a constitutional court ruling or parliamentary repeal. National constitutional rules restricting this power cannot limit this duty."},
-  {n:129,p:4,q:"What is the concept of supranationality?",a:"A form of international organisation where member states transfer sovereign powers to a common institution that can adopt binding decisions directly applicable in member states, independent of each government's approval in the specific case. The EU is the prime example."},
-  {n:130,p:4,q:"What is meant by the idea of 'sacrifice and creation' in EU law?",a:"Member States sacrifice (transfer) elements of their sovereignty to EU level, but in return create a new legal order that benefits all through the single market, legal certainty, and collective capacity to address shared problems."},
-  {n:131,p:4,q:"What is the principle of conferral?",a:"Art. 5(2) TEU: the EU shall act only within the limits of the competences conferred upon it by Member States in the Treaties. Competences not conferred remain with Member States. The EU has no Kompetenz-Kompetenz (no power to expand its own powers unilaterally)."},
-  {n:132,p:4,q:"What were the facts of the Francovich case (ECJ, 19 November 1991)?",a:"Italy failed to implement the Insolvency Directive (80/987/EEC) requiring guarantee funds protecting employees' wages in employer insolvency. When their employers went bankrupt, workers Francovich and Bonifaci could not recover wages and sued Italy for compensation."},
-  {n:133,p:4,q:"What was the main finding of the Francovich case?",a:"EU Member States can be held liable to pay compensation to individuals who have suffered loss as a result of the Member State's failure to transpose an EU directive within the required period."},
-  {n:134,p:4,q:"What were the exact conditions for a compensation claim under Francovich?",a:"(1) The directive must confer rights on individuals; (2) the contents of those rights must be identifiable from the wording of the directive; (3) there must be a causal link between the Member State's failure to implement and the damage suffered."},
-  {n:135,p:4,q:"In which case did the ECJ claim to protect fundamental rights even though not explicitly mentioned in primary law at the time?",a:"Internationale Handelsgesellschaft (ECJ, 17 December 1970, Case 11/70). The ECJ held that respect for fundamental rights forms an integral part of the general principles of law protected by the Court."},
-  {n:136,p:4,q:"To which FCC ruling did the Internationale Handelsgesellschaft case lead?",a:"Solange I (BVerfG, 29 May 1974, BvL 52/71) — the FCC's landmark ruling reserving fundamental rights review jurisdiction over EC law as long as the EC lacked an equivalent fundamental rights catalogue."},
-  {n:137,p:4,q:"What were the main findings of Internationale Handelsgesellschaft (ECJ)?",a:"(1) Respect for fundamental rights is an integral part of the general principles of law protected by the ECJ. (2) The supremacy of EU law is unconditional — EU acts cannot be assessed in light of national law, including national constitutional provisions on fundamental rights."},
-  {n:138,p:4,q:"What were the facts of the Ratti case (ECJ, 5 April 1979)?",a:"Mr Tullio Ratti, an Italian solvent producer, complied with EU labelling directives but not with stricter pre-existing Italian law. Italy prosecuted him for non-compliance with Italian law after the directives' implementation deadline had passed."},
-  {n:139,p:4,q:"What did the ECJ decide in the Ratti case?",a:"After expiry of the implementation deadline of a directive, a Member State may not apply its unadapted internal law against a person who has complied with the directive. The Member State is 'estopped' from relying on its own failure to implement."},
-  {n:140,p:4,q:"What forms of direct effect of a directive must be distinguished?",a:"Vertical direct effect: individuals can invoke an unimplemented directive against the state and state bodies (permitted). Horizontal direct effect: individuals invoking a directive against other private parties (not permitted for directives — see Faccini Dori)."},
-  {n:141,p:4,q:"What are the conditions for direct effect of a directive?",a:"(1) The directive's provisions must be unconditional and sufficiently clear and precise; (2) the Member State must have failed to transpose the directive by the implementation deadline."},
-  {n:142,p:4,q:"Is inverse vertical direct effect possible (state invoking directive against individual)? Cite the case.",a:"No — Kolpinghuis Nijmegen (ECJ, 8 October 1987, Case 80/86). A Member State cannot rely on an unimplemented directive against an individual. Directives create vertical direct effect only in favour of individuals against the state."},
-  {n:143,p:4,q:"Is horizontal direct effect of a directive possible? Cite the case.",a:"No — Faccini Dori (ECJ, 14 July 1994, C-91/92): a directive cannot be relied upon against another private party in the absence of national implementing measures. Horizontal direct effect of directives is excluded."},
-  {n:144,p:4,q:"What were the facts of Faccini Dori?",a:"Miss Dori concluded a contract for an Italian language course at Milan railway station and tried to cancel it under the unimplemented Doorstep Selling Directive. She sued the private company directly. The ECJ held she had the right under the directive but could not invoke it horizontally against a private party — only vertically against the state."},
-  {n:145,p:4,q:"What is the reason for the preliminary ruling procedure (Art. 267 TFEU)?",a:"To ensure uniform interpretation and application of EU law across all Member States. When a question of EU law arises before a national court that is new, of general interest, or where existing case law gives insufficient guidance, the national court may (or must) refer to the CJEU."},
-  {n:146,p:4,q:"Who makes the request for a preliminary ruling?",a:"The national court or tribunal before which the dispute is brought. It alone decides whether to refer and which questions to submit. Parties cannot force a reference, though they can request one."},
-  {n:147,p:4,q:"What happens to the national proceedings during a preliminary ruling?",a:"The national proceedings must be stayed until the CJEU has given its ruling. Once the CJEU answers the question of EU law, the national court applies the interpretation to resolve the case."},
-  {n:148,p:4,q:"May a preliminary ruling reference concern national law?",a:"No — a reference must concern the interpretation or validity of EU law only. Interpretation of national law and factual issues remain exclusively for the national court."},
-  {n:149,p:4,q:"Which EU institution is the guardian of EU law?",a:"The European Commission (Art. 17 TEU) — it monitors compliance with EU primary and secondary law, investigates Member State breaches, and may bring infringement proceedings before the CJEU."},
-  {n:150,p:4,q:"What happens if a Member State fails to comply with EU law?",a:"Art. 258 TFEU procedure: (1) Commission sends a letter of formal notice; (2) if violation persists, a reasoned opinion with a compliance deadline; (3) if still non-compliant, case brought before the CJEU; (4) financial penalties may follow under Art. 260 TFEU if the judgment is not complied with."},
-  {n:151,p:4,q:"May an individual lodge a complaint about a Member State's breach of EU law?",a:"Yes — any individual or organisation may complain to the Commission. However, only the Commission or another Member State can bring formal infringement proceedings before the CJEU."},
-  {n:152,p:4,q:"Which authority is mainly responsible for enforcing EU law at national level?",a:"National authorities — courts, public prosecutors, and competent regulatory bodies. They investigate breaches, initiate proceedings, impose sanctions, and enforce compliance. National courts are the primary enforcers for individuals."},
-  {n:153,p:4,q:"Where do you find the obligation of Member States to implement EU law?",a:"Art. 291 TFEU — Member States shall adopt all national measures necessary to implement legally binding EU acts."},
-  {n:154,p:4,q:"What is the Rewe-Zentralfinanz case about?",a:"German importers (Rewe) had paid inspection charges on imported apples found contrary to Art. 13 EEC Treaty (now Art. 30 TFEU). However, the German limitation period for seeking a refund had expired. The question was whether national procedural rules could block recovery of unlawfully levied charges."},
-  {n:155,p:4,q:"What did the ECJ decide in Rewe-Zentralfinanz?",a:"The case established the principle of national procedural autonomy — Member States may determine their own procedural rules for enforcing EU law rights — subject to the principles of equivalence and effectiveness."},
-  {n:156,p:4,q:"What is the principle of effectiveness in EU enforcement?",a:"National procedural rules governing actions to protect EU law rights must not make it in practice impossible or excessively difficult to exercise those rights."},
-  {n:157,p:4,q:"What is the principle of equivalence in EU enforcement?",a:"National procedural rules for EU law-based claims must not be less favourable than those applying to similar claims based purely on domestic law."},
-  {n:158,p:4,q:"What is the Kühne & Heitz case about?",a:"The ECJ held that an administrative body is — under certain conditions — obliged to review a final administrative decision in order to take account of a subsequent CJEU interpretation of relevant EU law."},
-  {n:159,p:4,q:"What were the facts of Tanja Kreil (ECJ, 11 January 2000)?",a:"In 1996 Miss Kreil applied for a voluntary post in the Bundeswehr in weapons electronic maintenance. Her application was rejected because German law prohibited women from serving in positions involving the use of arms."},
-  {n:160,p:4,q:"What is the Employment Equality Directive (2000/78/EC) about?",a:"It establishes a general framework for equal treatment in employment and occupation, prohibiting discrimination based on religion or belief, age, disability, and sexual orientation. The Equal Treatment Directive (76/207/EEC) covers sex discrimination including in the armed forces."},
-  {n:161,p:4,q:"What did the ECJ decide in Tanja Kreil?",a:"The Equal Treatment Directive applies to public sector employment including the armed forces. Germany's blanket exclusion of women from positions involving arms violated the directive. Individual derogations for national security are possible, but a general blanket ban is disproportionate."},
-  {n:162,p:4,q:"What is the free movement of goods about?",a:"Arts. 28–37 TFEU — the first fundamental freedom: prohibition of customs duties, quantitative restrictions (quotas), and measures having equivalent effect (MEQRs). Complemented by mutual recognition, elimination of physical/technical barriers, and standardisation."},
-  {n:163,p:4,q:"What were the facts of the Dassonville case (ECJ, 11 July 1974)?",a:"Dassonville (father and son) imported Scotch whisky into Belgium from France. French wholesalers had affixed a 'British Customs Certificate of Origin' label that did not satisfy Belgian requirements. The Belgian Public Prosecutor charged Dassonville with forgery."},
-  {n:164,p:4,q:"What is the Dassonville formula?",a:"All trading rules enacted by Member States which are capable of hindering, directly or indirectly, actually or potentially, intra-Community trade are to be considered as MEQRs — prohibited under Art. 34 TFEU."},
-  {n:165,p:4,q:"Why is Dassonville a landmark case?",a:"It provided the foundational broad definition of a MEQR — catching virtually any national trading rule capable of impeding imports, regardless of whether it discriminates or applies equally to domestic and imported goods."},
-  {n:166,p:4,q:"In which case did the Court further develop its Dassonville reasoning?",a:"Cassis de Dijon (Rewe-Zentral AG v Federal Monopoly Administration, ECJ, 20 February 1979, Case 120/78) — establishing mutual recognition and the 'mandatory requirements' justification."},
-  {n:167,p:4,q:"What is the Cassis de Dijon principle?",a:"Any product legally manufactured and marketed in one Member State must in principle be admitted to any other Member State's market. Imports may only be restricted on proportionate grounds of mandatory requirements (e.g. consumer protection, public health, fair trading)."},
-  {n:168,p:4,q:"What were the facts of the Keck case (ECJ, 24 November 1993)?",a:"Mr Keck and Mr Mithouard were prosecuted under French law for reselling alcohol below purchase price (loss-leader selling). They argued the French prohibition was a MEQR under Art. 34 TFEU."},
-  {n:169,p:4,q:"What is the Keck formula?",a:"National measures fall into two categories: (1) Product-bound measures — rules on the product itself (composition, labelling, etc.) — are MEQRs caught by Art. 34 TFEU. (2) Selling arrangements — rules on when, where, by whom goods are sold — fall outside Art. 34 TFEU, provided they apply equally in law and fact to all traders and do not impede imports more than domestic products."},
-  {n:170,p:4,q:"What was the Buy-Irish initiative and why was it in breach of EU law?",a:"The Irish government funded a campaign run by the Irish Goods Council promoting domestic products. The ECJ (Commission v Ireland, Case 249/81) held this was a MEQR — a state-funded domestic promotion campaign distorts intra-Community trade even without formal legal barriers. Trade had actually fallen 6% over three years of the campaign."},
-  {n:171,p:4,q:"What is the concept of freedom of workers (Art. 45 TFEU)?",a:"Prohibits discrimination based on nationality in employment, remuneration, and working conditions. EU workers may accept job offers in other MS, move freely, reside for work purposes, and remain afterwards. EFTA/EEA nationals enjoy equivalent rights via Art. 28 EEA Agreement; Swiss nationals via bilateral agreement."},
-  {n:172,p:4,q:"Why do nationals of EFTA countries have the right to work within the EU with the same rights as EU workers?",a:"Through the EEA Agreement (Art. 28 EEA) for Norway, Iceland, and Liechtenstein; and through a bilateral Agreement on Free Movement of Persons with Switzerland — extending the substance of Art. 45 TFEU to these nationals."},
-  {n:173,p:4,q:"Which directive and regulation are important for free movement of workers?",a:"Directive 2004/38/EC on free movement and residence rights; Regulation (EU) No 492/2011 ensuring non-discriminatory access to employment and equal working conditions across the EU."},
-  {n:174,p:4,q:"Which state is generally supposed to take personal circumstances (ability to pay) into account for tax purposes?",a:"The state of residence — it knows the taxpayer's full worldwide income and personal/family situation and can apply personal deductions, allowances, and progressive rates appropriately."},
-  {n:175,p:4,q:"Why does Schumacker not pay taxes in Belgium?",a:"Because almost all of Schumacker's income (97%+) came from Germany. Belgium had virtually no income to tax, so it could not grant the personal deductions and allowances that a Belgian resident would normally receive."},
-  {n:176,p:4,q:"Why is it generally possible for a source state to treat non-residents differently for tax purposes?",a:"Non-residents and residents are generally not in comparable situations — the source state taxes only their local income and lacks access to their full personal circumstances. Objective differences justify different treatment (established in Schumacker)."},
-  {n:177,p:4,q:"Why is Schumacker nonetheless comparable to a resident taxpayer?",a:"Because nearly all his income came from Germany and Belgium (state of residence) could grant no meaningful relief. In this exceptional situation the source state (Germany) must treat him like a resident — otherwise he suffers discrimination contrary to Art. 45 TFEU."},
-  {n:178,p:4,q:"What was the finding of the de Groot case (ECJ, 12 December 2002)?",a:"Free movement of workers prohibits a national provision under which a worker forfeits personal tax advantages because they have foreign-source income. The state of residence must consider the worker's overall situation and cannot reduce reliefs simply because some income arises abroad."},
-  {n:179,p:4,q:"What is the difference between a discriminatory measure and a restrictive measure in the context of free movement of workers?",a:"Discriminatory: treats non-nationals less favourably than nationals in comparable situations (direct or indirect discrimination). Restrictive: applies equally but deters exercise of free movement rights (e.g. reducing tax relief when a worker exercises EU rights). Both can breach Art. 45 TFEU."},
-  {n:180,p:4,q:"May an individual rely on fundamental freedoms against their own country?",a:"Yes — nationals returning after exercising free movement rights can invoke EU fundamental freedoms against their own Member State. Purely internal situations (no cross-border element at all) are not covered by EU law."},
-  {n:181,p:4,q:"What is the idea of the fundamental freedoms for self-employed persons?",a:"Freedom of establishment (Art. 49 TFEU): permanent, stable activity in another MS. Freedom of services (Art. 56 TFEU): temporary provision of services across borders. Self-employed persons enjoy both freedoms depending on the duration and nature of their activity."},
-  {n:182,p:4,q:"What does freedom of establishment preclude?",a:"Art. 49 TFEU precludes any national measure which, even if applicable without discrimination on grounds of nationality, is liable to hinder or render less attractive the exercise of freedom of establishment by EU citizens."},
-  {n:183,p:4,q:"What is a 'restriction' for the purposes of Art. 49 TFEU?",a:"Any measure applicable without distinction that affects access to the market for undertakings from other Member States and thereby hinders intra-Community trade — including prior authorisation requirements."},
-  {n:184,p:4,q:"Is a requirement of prior authorisation a restriction on freedom of establishment?",a:"Yes — even non-discriminatory prior authorisation requirements are restrictions if they affect market access for undertakings from other MS (confirmed in Spanish Hypermercados case, C-400/08)."},
-  {n:185,p:4,q:"Can a restriction on freedom of establishment be justified?",a:"Yes — restrictions applicable without discrimination may be justified by overriding reasons of general interest, provided they are appropriate for the objective and proportionate (do not go beyond what is necessary)."},
-  {n:186,p:4,q:"What are potential justification reasons for restrictions on establishment?",a:"Overriding reasons of general interest: urban planning, environmental protection, consumer protection, protection of small retailers, public health, and socioeconomic planning — all subject to proportionality."},
-  {n:187,p:4,q:"What is the difference between freedom of establishment and freedom to provide services?",a:"Establishment (Art. 49): permanent, stable presence in another MS on a long-term basis. Services (Art. 56): temporary provision across borders without a stable establishment. Temporariness is assessed based on duration, regularity, and continuity of activity."},
-  {n:188,p:4,q:"What did the ECJ decide in the Säger case (ECJ, 25 July 1991)?",a:"Any restrictions on freedom to provide services between Member States are prohibited unless justified by overriding public interest reasons, applied non-discriminatorily, and proportionate. The case concerned German licensing requirements blocking a UK firm from providing patent renewal services in Germany."},
-  {n:189,p:4,q:"Which scenarios are covered by the freedom of services?",a:"(1) Provider moves to another MS to provide services. (2) Recipient moves to receive services. (3) Service crosses border without movement of persons (e.g. broadcasting, online). (4) Both provider and recipient move to a third MS (tourist scenario)."},
-  {n:190,p:4,q:"What is the Services Directive (2006/123/EC)?",a:"Aims to remove barriers to trade in services — simplifying administrative procedures, enhancing consumer rights, and fostering cooperation. Exceptions apply: financial services, transport, private security, gambling, notaries, and bailiffs are excluded."},
-  {n:191,p:4,q:"How can the term 'movement of capital' be understood?",a:"The Treaty does not define it, but Council Directive 88/361/EEC and its Annex I nomenclature serve as reference: covering direct investment, portfolio investment, real estate, financial loans, and other capital movements."},
-  {n:192,p:4,q:"What are 'golden shares'?",a:"Special rights retained by governments in privatised companies (especially telecom and energy) to block acquisitions or veto major decisions. The ECJ has found most golden share arrangements violate free movement of capital (e.g. Commission v France, C-483/99)."},
-  {n:193,p:4,q:"What is the particular feature of freedom of capital compared to other fundamental freedoms?",a:"It also applies with respect to third countries (non-EU states) — Art. 63 TFEU prohibits restrictions on capital movements between Member States AND between Member States and third countries. Unique among the four freedoms."},
-  {n:194,p:4,q:"How are freedom of capital and freedom of establishment distinguished?",a:"If a shareholding enables the holder to exercise decisive influence on a company's decisions and activities, it falls under freedom of establishment. Shareholdings of 25%+ are considered potentially decisive. Portfolio investments (no decisive influence) fall under freedom of capital."},
-  {n:195,p:4,q:"Name the ECJ cases: (1) Belgians importing Scotch whisky from France without proper certificate. (2) Prosecution for selling below wholesale price in France. (3) German firm wanting to import a French blackcurrant liqueur with lower ABV than German law required. (4) Government-backed campaign where trade fell 6% over 3 years.",a:"(1) Dassonville (C-8/74, 1974). (2) Keck (C-267/91 and C-268/91, 1993). (3) Cassis de Dijon (C-120/78, 1979). (4) Commission v Ireland / Buy Irish (C-249/81, 1982). All concern free movement of goods (Art. 34 TFEU) and MEQRs."},
-  {n:196,p:4,q:"What is the difference between a preliminary ruling (Art. 267 TFEU) and infringement procedures (Art. 258/259 TFEU)?",a:"Art. 267 (preliminary ruling): a national court refers a question of EU law interpretation or validity to the CJEU — cooperative, non-adversarial. Art. 258 (Commission v MS): Commission brings enforcement proceedings against a breaching Member State. Art. 259 (MS v MS): one Member State sues another — very rare (e.g. Austria v Germany, C-591/17, re motorway tolls)."},
-  {n:197,p:4,q:"Is it the rule or exception that a Member State sues another Member State (Art. 259 TFEU)?",a:"Very much the exception. The Commission's Art. 258 procedure is by far the primary enforcement route. Austria v Germany (C-591/17) on discriminatory motorway tolls is one of very few examples."},
+  {n:87,p:'4a',q:"Which are the constitutional documents of the European Union?",a:"The Treaty on European Union (TEU), the Treaty on the Functioning of the European Union (TFEU), and the Charter of Fundamental Rights of the EU. Together these constitute EU primary law."},
+  {n:88,p:'4a',q:"What happened with the Treaty establishing a Constitution for Europe?",a:"Rejected in public referendums by France (54.7% No, May 2005) and the Netherlands (61.6% No, June 2005), killing ratification."},
+  {n:89,p:'4a',q:"What was the result of the rejection of the EU Constitutional Treaty?",a:"Discussions led to the Treaty of Lisbon (2007, in force 2009), incorporating most reforms in amended treaty form without constitutional language."},
+  {n:90,p:'4a',q:"How are the TEU, TFEU, and the Charter of Fundamental Rights collectively called?",a:"Primary law (Primärrecht) — the highest level of EU law, binding on all EU institutions and Member States."},
+  {n:91,p:'4a',q:"What is the difference between the various legal acts of EU secondary law?",a:"Regulations: binding in entirety, directly applicable in all MS (no national implementation needed). Directives: binding as to result; MS choose form and method. Decisions: binding in entirety on those addressed. Recommendations and Opinions: non-binding."},
+  {n:92,p:'4a',q:"What two forms of secondary law are distinguished under Art. 288 TFEU?",a:"Binding acts (Regulations, Directives, Decisions) and non-binding acts (Recommendations, Opinions)."},
+  {n:93,p:'4a',q:"What is meant by the principle of degressive proportionality?",a:"In allocating EP seats, larger Member States receive more seats than smaller ones, but proportionally fewer per citizen. Small states are overrepresented relative to their population to ensure meaningful representation for all."},
+  {n:94,p:'4a',q:"Which country is the smallest in the EU?",a:"Malta (both by area and population among EU Member States)."},
+  {n:95,p:'4a',q:"Is the EU a 'Christian club'?",a:"No. The EU has opened accession negotiations with Albania (~57% Muslim), Bosnia-Herzegovina (~50% Muslim), and Turkey (predominantly Muslim). Membership is based on democratic values, not religion."},
+  {n:96,p:'4a',q:"Can any country become an EU member?",a:"No. Only European countries can apply (Art. 49 TEU). Morocco's 1987 application was rejected on geographic grounds."},
+  {n:97,p:'4a',q:"Is it decisive to be geographically part of Europe for EU membership?",a:"Not strictly. Cyprus is geographically closer to Asia yet is an EU member. Geographic location is a factor but not the sole determinant under Art. 49 TEU."},
+  {n:98,p:'4a',q:"Where is it stipulated who can join the EU?",a:"Art. 49 TEU — any European state respecting the values in Art. 2 TEU (rule of law, democracy, human rights, etc.) may apply."},
+  {n:99,p:'4a',q:"Which countries are official EU membership candidates?",a:"Albania, Bosnia-Herzegovina, Georgia, Moldova, Montenegro, North Macedonia, Serbia, Turkey, Ukraine."},
+  {n:100,p:'4a',q:"Who is the President of the EU Commission?",a:"Ursula von der Leyen (as of the course material)."},
+  {n:101,p:'4a',q:"How is the Treaty of the European Economic Community also called?",a:"The Treaty of Rome (signed in Rome on 25 March 1957)."},
+  {n:102,p:'4a',q:"Which countries were the founding members of the EEC?",a:"Belgium, Netherlands, Luxembourg, France, Germany, and Italy — the 'Inner Six.'"},
+  {n:103,p:'4a',q:"Name two examples of exclusive EU competences.",a:"Any two of: (1) Customs union; (2) Competition rules for the internal market; (3) Monetary policy for eurozone countries; (4) Conservation of marine biological resources (Common Fisheries Policy); (5) Common commercial policy."},
+  {n:104,p:'4a',q:"What is the principle of subsidiarity?",a:"Art. 5(3) TEU: the EU shall act only if and insofar as the objectives of the proposed action cannot be sufficiently achieved by Member States at national/regional/local level, but can better be achieved at Union level by reason of the scale or effects of the proposed action."},
+  {n:105,p:'4a',q:"What happens in case of breach of the principle of subsidiarity?",a:"The Committee of the Regions or Member States may refer an adopted act directly to the CJEU. National parliaments may issue 'yellow card' or 'orange card' objections under Protocol No. 2 TEU."},
+  {n:106,p:'4a',q:"Are there relevant documents dealing with the principle of subsidiarity?",a:"(a) Protocol No. 1 on the role of national parliaments — requires forwarding EU legislative proposals to national parliaments for review. (b) Protocol No. 2 — requires the Commission to respect subsidiarity; allows national parliaments to object; permits CJEU challenges to adopted acts."},
+  {n:107,p:'4a',q:"To which other principle is subsidiarity closely linked?",a:"Proportionality (Art. 5(4) TEU) — EU action must not go beyond what is necessary. Also linked to the principle of conferral (Art. 5(2) TEU) — the EU may only act within conferred competences."},
+  {n:108,p:'4a',q:"What is the concept of qualified (double) majority in the Council?",a:"55% of Member States (at least 15) representing at least 65% of total EU population. A blocking minority requires at least 4 Member States representing 35%+ of the population."},
+  {n:109,p:'4a',q:"What is codecision (Ordinary Legislative Procedure)?",a:"Art. 294 TFEU — the general rule for EU legislation. Requires joint adoption by the European Parliament and the Council on equal footing, starting from a Commission proposal, with up to three readings."},
+  {n:110,p:'4a',q:"What is the main characteristic of the Ordinary Legislative Procedure?",a:"Legislation adopted jointly and equally by Parliament and Council. Starts with a Commission proposal; up to three readings; conciliation committee possible if readings fail to produce agreement."},
+  {n:111,p:'4a',q:"In which cases must the Council decide unanimously?",a:"CFSP (with exceptions); citizenship (new rights); EU membership; harmonisation of indirect taxation; EU finances (own resources, MFF); certain JHA matters (European Prosecutor, family law, operational police cooperation); social security/social protection harmonisation."},
+  {n:112,p:'4a',q:"Does the EU have powers to levy or collect taxes?",a:"No. Tax powers rest with Member States. The EU cannot levy taxes directly. Harmonisation of direct taxes requires unanimity under Art. 115 TFEU."},
+  {n:113,p:'4a',q:"How many Council configurations exist?",a:"10 (e.g. General Affairs, Foreign Affairs, ECOFIN, Justice and Home Affairs, Agriculture and Fisheries, etc.)."},
+  {n:114,p:'4a',q:"Which institution holds the monopoly to initiate legislation in the EU?",a:"The European Commission (Art. 17(2) TEU) in the ordinary legislative procedure."},
+  {n:115,p:'4a',q:"What can the European Parliament do to start a legislative process?",a:"The EP may request the Commission to submit a proposal (Art. 225 TFEU). The Commission must state reasons if it declines, but is not legally bound to comply."},
+  {n:116,p:'4a',q:"What were the facts of Van Gend & Loos (ECJ, 5 February 1963)?",a:"Van Gend & Loos, a Dutch transport company, imported ureaformaldehyde from Germany into the Netherlands. Dutch customs imposed a higher duty than existed when the EEC Treaty entered into force — arguably breaching the treaty's standstill clause. Van Gend argued the treaty provision created rights enforceable by individuals before a Dutch tribunal."},
+  {n:117,p:'4a',q:"What is meant by the doctrine of direct applicability?",a:"EU legislation (especially regulations) enters into force and becomes part of Member States' national law automatically, without any domestic implementing legislation (unmittelbare Anwendbarkeit)."},
+  {n:118,p:'4a',q:"What is meant by the doctrine of direct effect?",a:"EU law endows individuals with rights directly enforceable before their domestic courts, without national implementing measures. Conditions: the provision must be clear, precise, and unconditional."},
+  {n:119,p:'4a',q:"What were the facts of Costa v. ENEL (ECJ, 15 July 1964)?",a:"Italy nationalised its electricity industry, creating Enel. Flaminio Costa, a customer and shareholder of an affected company, refused to pay his Enel bill and argued the nationalisation law was incompatible with EEC Treaty provisions, raising the question before an Italian court."},
+  {n:120,p:'4a',q:"Which concept of the relationship between legal spheres did the ECJ reject in Costa v. ENEL?",a:"Dualism — the theory that national and international/EU law are separate orders requiring domestic transformation before EU law applies."},
+  {n:121,p:'4a',q:"How did the ECJ justify rejecting dualism in Costa v. ENEL?",a:"Community law 'became an integral part' of the national legal systems upon entry into force. The EEC created its own legal order in which Member States permanently limited their sovereign rights."},
+  {n:122,p:'4a',q:"What nature of Community law did the ECJ emphasise in Costa v. ENEL?",a:"The autonomous nature — Community law has its own institutional framework, legal personality and capacity (including in international law), making it binding not only on Member States but directly on individuals."},
+  {n:123,p:'4b',q:"Which legal principle did the ECJ reject in Costa v. ENEL regarding conflicts of norms?",a:"Lex posterior derogat legi priori — the ECJ rejected that a later national law could override an earlier EC rule. EU law takes precedence regardless of chronological order."},
+  {n:124,p:'4b',q:"Why is Costa v. ENEL considered a legal revolution?",a:"It established the doctrine of supremacy (primacy) of Community law — EC law prevails over conflicting national law before national courts, creating a hierarchy with EU law at the apex within its scope."},
+  {n:125,p:'4b',q:"How is primacy of EU law understood from a German perspective?",a:"As 'precedence of application' (Anwendungsvorrang) rather than 'precedence of validity' (Geltungsvorrang). Conflicting national law is not declared void — it simply is not applied in the specific case."},
+  {n:126,p:'4b',q:"What does 'precedence of application' mean?",a:"A national court sets aside the conflicting national rule in the specific case and applies EU law instead. The national provision retains formal validity and can still apply where EU law is not engaged. This is competence-preserving: unlike Art. 31 GG (where Länder law loses validity), EU primacy only displaces national law in the specific conflict."},
+  {n:127,p:'4b',q:"How does precedence of application differ from precedence of validity?",a:"Precedence of validity (Geltungsvorrang): the higher norm renders the lower norm invalid — it ceases to exist (e.g. Art. 31 GG). Precedence of application (Anwendungsvorrang): the lower norm retains formal validity but is not applied in conflicts — can still apply outside EU law's scope. EU primacy operates as Anwendungsvorrang."},
+  {n:128,p:'4b',q:"What was the main finding of Simmenthal (ECJ, 9 March 1978)?",a:"Every national court — including lower courts — must apply EU law immediately and fully, setting aside any conflicting national provision, without waiting for a constitutional court ruling or parliamentary repeal. National constitutional rules restricting this power cannot limit this duty."},
+  {n:129,p:'4b',q:"What is the concept of supranationality?",a:"A form of international organisation where member states transfer sovereign powers to a common institution that can adopt binding decisions directly applicable in member states, independent of each government's approval in the specific case. The EU is the prime example."},
+  {n:130,p:'4b',q:"What is meant by the idea of 'sacrifice and creation' in EU law?",a:"Member States sacrifice (transfer) elements of their sovereignty to EU level, but in return create a new legal order that benefits all through the single market, legal certainty, and collective capacity to address shared problems."},
+  {n:131,p:'4b',q:"What is the principle of conferral?",a:"Art. 5(2) TEU: the EU shall act only within the limits of the competences conferred upon it by Member States in the Treaties. Competences not conferred remain with Member States. The EU has no Kompetenz-Kompetenz (no power to expand its own powers unilaterally)."},
+  {n:132,p:'4b',q:"What were the facts of the Francovich case (ECJ, 19 November 1991)?",a:"Italy failed to implement the Insolvency Directive (80/987/EEC) requiring guarantee funds protecting employees' wages in employer insolvency. When their employers went bankrupt, workers Francovich and Bonifaci could not recover wages and sued Italy for compensation."},
+  {n:133,p:'4b',q:"What was the main finding of the Francovich case?",a:"EU Member States can be held liable to pay compensation to individuals who have suffered loss as a result of the Member State's failure to transpose an EU directive within the required period."},
+  {n:134,p:'4b',q:"What were the exact conditions for a compensation claim under Francovich?",a:"(1) The directive must confer rights on individuals; (2) the contents of those rights must be identifiable from the wording of the directive; (3) there must be a causal link between the Member State's failure to implement and the damage suffered."},
+  {n:135,p:'4b',q:"In which case did the ECJ claim to protect fundamental rights even though not explicitly mentioned in primary law at the time?",a:"Internationale Handelsgesellschaft (ECJ, 17 December 1970, Case 11/70). The ECJ held that respect for fundamental rights forms an integral part of the general principles of law protected by the Court."},
+  {n:136,p:'4b',q:"To which FCC ruling did the Internationale Handelsgesellschaft case lead?",a:"Solange I (BVerfG, 29 May 1974, BvL 52/71) — the FCC's landmark ruling reserving fundamental rights review jurisdiction over EC law as long as the EC lacked an equivalent fundamental rights catalogue."},
+  {n:137,p:'4b',q:"What were the main findings of Internationale Handelsgesellschaft (ECJ)?",a:"(1) Respect for fundamental rights is an integral part of the general principles of law protected by the ECJ. (2) The supremacy of EU law is unconditional — EU acts cannot be assessed in light of national law, including national constitutional provisions on fundamental rights."},
+  {n:138,p:'4b',q:"What were the facts of the Ratti case (ECJ, 5 April 1979)?",a:"Mr Tullio Ratti, an Italian solvent producer, complied with EU labelling directives but not with stricter pre-existing Italian law. Italy prosecuted him for non-compliance with Italian law after the directives' implementation deadline had passed."},
+  {n:139,p:'4b',q:"What did the ECJ decide in the Ratti case?",a:"After expiry of the implementation deadline of a directive, a Member State may not apply its unadapted internal law against a person who has complied with the directive. The Member State is 'estopped' from relying on its own failure to implement."},
+  {n:140,p:'4b',q:"What forms of direct effect of a directive must be distinguished?",a:"Vertical direct effect: individuals can invoke an unimplemented directive against the state and state bodies (permitted). Horizontal direct effect: individuals invoking a directive against other private parties (not permitted for directives — see Faccini Dori)."},
+  {n:141,p:'4b',q:"What are the conditions for direct effect of a directive?",a:"(1) The directive's provisions must be unconditional and sufficiently clear and precise; (2) the Member State must have failed to transpose the directive by the implementation deadline."},
+  {n:142,p:'4b',q:"Is inverse vertical direct effect possible (state invoking directive against individual)? Cite the case.",a:"No — Kolpinghuis Nijmegen (ECJ, 8 October 1987, Case 80/86). A Member State cannot rely on an unimplemented directive against an individual. Directives create vertical direct effect only in favour of individuals against the state."},
+  {n:143,p:'4b',q:"Is horizontal direct effect of a directive possible? Cite the case.",a:"No — Faccini Dori (ECJ, 14 July 1994, C-91/92): a directive cannot be relied upon against another private party in the absence of national implementing measures. Horizontal direct effect of directives is excluded."},
+  {n:144,p:'4b',q:"What were the facts of Faccini Dori?",a:"Miss Dori concluded a contract for an Italian language course at Milan railway station and tried to cancel it under the unimplemented Doorstep Selling Directive. She sued the private company directly. The ECJ held she had the right under the directive but could not invoke it horizontally against a private party — only vertically against the state."},
+  {n:145,p:'4b',q:"What is the reason for the preliminary ruling procedure (Art. 267 TFEU)?",a:"To ensure uniform interpretation and application of EU law across all Member States. When a question of EU law arises before a national court that is new, of general interest, or where existing case law gives insufficient guidance, the national court may (or must) refer to the CJEU."},
+  {n:146,p:'4b',q:"Who makes the request for a preliminary ruling?",a:"The national court or tribunal before which the dispute is brought. It alone decides whether to refer and which questions to submit. Parties cannot force a reference, though they can request one."},
+  {n:147,p:'4b',q:"What happens to the national proceedings during a preliminary ruling?",a:"The national proceedings must be stayed until the CJEU has given its ruling. Once the CJEU answers the question of EU law, the national court applies the interpretation to resolve the case."},
+  {n:148,p:'4b',q:"May a preliminary ruling reference concern national law?",a:"No — a reference must concern the interpretation or validity of EU law only. Interpretation of national law and factual issues remain exclusively for the national court."},
+  {n:149,p:'4b',q:"Which EU institution is the guardian of EU law?",a:"The European Commission (Art. 17 TEU) — it monitors compliance with EU primary and secondary law, investigates Member State breaches, and may bring infringement proceedings before the CJEU."},
+  {n:150,p:'4b',q:"What happens if a Member State fails to comply with EU law?",a:"Art. 258 TFEU procedure: (1) Commission sends a letter of formal notice; (2) if violation persists, a reasoned opinion with a compliance deadline; (3) if still non-compliant, case brought before the CJEU; (4) financial penalties may follow under Art. 260 TFEU if the judgment is not complied with."},
+  {n:151,p:'4b',q:"May an individual lodge a complaint about a Member State's breach of EU law?",a:"Yes — any individual or organisation may complain to the Commission. However, only the Commission or another Member State can bring formal infringement proceedings before the CJEU."},
+  {n:152,p:'4b',q:"Which authority is mainly responsible for enforcing EU law at national level?",a:"National authorities — courts, public prosecutors, and competent regulatory bodies. They investigate breaches, initiate proceedings, impose sanctions, and enforce compliance. National courts are the primary enforcers for individuals."},
+  {n:153,p:'4b',q:"Where do you find the obligation of Member States to implement EU law?",a:"Art. 291 TFEU — Member States shall adopt all national measures necessary to implement legally binding EU acts."},
+  {n:154,p:'4b',q:"What is the Rewe-Zentralfinanz case about?",a:"German importers (Rewe) had paid inspection charges on imported apples found contrary to Art. 13 EEC Treaty (now Art. 30 TFEU). However, the German limitation period for seeking a refund had expired. The question was whether national procedural rules could block recovery of unlawfully levied charges."},
+  {n:155,p:'4b',q:"What did the ECJ decide in Rewe-Zentralfinanz?",a:"The case established the principle of national procedural autonomy — Member States may determine their own procedural rules for enforcing EU law rights — subject to the principles of equivalence and effectiveness."},
+  {n:156,p:'4b',q:"What is the principle of effectiveness in EU enforcement?",a:"National procedural rules governing actions to protect EU law rights must not make it in practice impossible or excessively difficult to exercise those rights."},
+  {n:157,p:'4b',q:"What is the principle of equivalence in EU enforcement?",a:"National procedural rules for EU law-based claims must not be less favourable than those applying to similar claims based purely on domestic law."},
+  {n:158,p:'4b',q:"What is the Kühne & Heitz case about?",a:"The ECJ held that an administrative body is — under certain conditions — obliged to review a final administrative decision in order to take account of a subsequent CJEU interpretation of relevant EU law."},
+  {n:159,p:'4b',q:"What were the facts of Tanja Kreil (ECJ, 11 January 2000)?",a:"In 1996 Miss Kreil applied for a voluntary post in the Bundeswehr in weapons electronic maintenance. Her application was rejected because German law prohibited women from serving in positions involving the use of arms."},
+  {n:160,p:'4b',q:"What is the Employment Equality Directive (2000/78/EC) about?",a:"It establishes a general framework for equal treatment in employment and occupation, prohibiting discrimination based on religion or belief, age, disability, and sexual orientation. The Equal Treatment Directive (76/207/EEC) covers sex discrimination including in the armed forces."},
+  {n:161,p:'4c',q:"What did the ECJ decide in Tanja Kreil?",a:"The Equal Treatment Directive applies to public sector employment including the armed forces. Germany's blanket exclusion of women from positions involving arms violated the directive. Individual derogations for national security are possible, but a general blanket ban is disproportionate."},
+  {n:162,p:'4c',q:"What is the free movement of goods about?",a:"Arts. 28–37 TFEU — the first fundamental freedom: prohibition of customs duties, quantitative restrictions (quotas), and measures having equivalent effect (MEQRs). Complemented by mutual recognition, elimination of physical/technical barriers, and standardisation."},
+  {n:163,p:'4c',q:"What were the facts of the Dassonville case (ECJ, 11 July 1974)?",a:"Dassonville (father and son) imported Scotch whisky into Belgium from France. French wholesalers had affixed a 'British Customs Certificate of Origin' label that did not satisfy Belgian requirements. The Belgian Public Prosecutor charged Dassonville with forgery."},
+  {n:164,p:'4c',q:"What is the Dassonville formula?",a:"All trading rules enacted by Member States which are capable of hindering, directly or indirectly, actually or potentially, intra-Community trade are to be considered as MEQRs — prohibited under Art. 34 TFEU."},
+  {n:165,p:'4c',q:"Why is Dassonville a landmark case?",a:"It provided the foundational broad definition of a MEQR — catching virtually any national trading rule capable of impeding imports, regardless of whether it discriminates or applies equally to domestic and imported goods."},
+  {n:166,p:'4c',q:"In which case did the Court further develop its Dassonville reasoning?",a:"Cassis de Dijon (Rewe-Zentral AG v Federal Monopoly Administration, ECJ, 20 February 1979, Case 120/78) — establishing mutual recognition and the 'mandatory requirements' justification."},
+  {n:167,p:'4c',q:"What is the Cassis de Dijon principle?",a:"Any product legally manufactured and marketed in one Member State must in principle be admitted to any other Member State's market. Imports may only be restricted on proportionate grounds of mandatory requirements (e.g. consumer protection, public health, fair trading)."},
+  {n:168,p:'4c',q:"What were the facts of the Keck case (ECJ, 24 November 1993)?",a:"Mr Keck and Mr Mithouard were prosecuted under French law for reselling alcohol below purchase price (loss-leader selling). They argued the French prohibition was a MEQR under Art. 34 TFEU."},
+  {n:169,p:'4c',q:"What is the Keck formula?",a:"National measures fall into two categories: (1) Product-bound measures — rules on the product itself (composition, labelling, etc.) — are MEQRs caught by Art. 34 TFEU. (2) Selling arrangements — rules on when, where, by whom goods are sold — fall outside Art. 34 TFEU, provided they apply equally in law and fact to all traders and do not impede imports more than domestic products."},
+  {n:170,p:'4c',q:"What was the Buy-Irish initiative and why was it in breach of EU law?",a:"The Irish government funded a campaign run by the Irish Goods Council promoting domestic products. The ECJ (Commission v Ireland, Case 249/81) held this was a MEQR — a state-funded domestic promotion campaign distorts intra-Community trade even without formal legal barriers. Trade had actually fallen 6% over three years of the campaign."},
+  {n:171,p:'4c',q:"What is the concept of freedom of workers (Art. 45 TFEU)?",a:"Prohibits discrimination based on nationality in employment, remuneration, and working conditions. EU workers may accept job offers in other MS, move freely, reside for work purposes, and remain afterwards. EFTA/EEA nationals enjoy equivalent rights via Art. 28 EEA Agreement; Swiss nationals via bilateral agreement."},
+  {n:172,p:'4c',q:"Why do nationals of EFTA countries have the right to work within the EU with the same rights as EU workers?",a:"Through the EEA Agreement (Art. 28 EEA) for Norway, Iceland, and Liechtenstein; and through a bilateral Agreement on Free Movement of Persons with Switzerland — extending the substance of Art. 45 TFEU to these nationals."},
+  {n:173,p:'4c',q:"Which directive and regulation are important for free movement of workers?",a:"Directive 2004/38/EC on free movement and residence rights; Regulation (EU) No 492/2011 ensuring non-discriminatory access to employment and equal working conditions across the EU."},
+  {n:174,p:'4c',q:"Which state is generally supposed to take personal circumstances (ability to pay) into account for tax purposes?",a:"The state of residence — it knows the taxpayer's full worldwide income and personal/family situation and can apply personal deductions, allowances, and progressive rates appropriately."},
+  {n:175,p:'4c',q:"Why does Schumacker not pay taxes in Belgium?",a:"Because almost all of Schumacker's income (97%+) came from Germany. Belgium had virtually no income to tax, so it could not grant the personal deductions and allowances that a Belgian resident would normally receive."},
+  {n:176,p:'4c',q:"Why is it generally possible for a source state to treat non-residents differently for tax purposes?",a:"Non-residents and residents are generally not in comparable situations — the source state taxes only their local income and lacks access to their full personal circumstances. Objective differences justify different treatment (established in Schumacker)."},
+  {n:177,p:'4c',q:"Why is Schumacker nonetheless comparable to a resident taxpayer?",a:"Because nearly all his income came from Germany and Belgium (state of residence) could grant no meaningful relief. In this exceptional situation the source state (Germany) must treat him like a resident — otherwise he suffers discrimination contrary to Art. 45 TFEU."},
+  {n:178,p:'4c',q:"What was the finding of the de Groot case (ECJ, 12 December 2002)?",a:"Free movement of workers prohibits a national provision under which a worker forfeits personal tax advantages because they have foreign-source income. The state of residence must consider the worker's overall situation and cannot reduce reliefs simply because some income arises abroad."},
+  {n:179,p:'4c',q:"What is the difference between a discriminatory measure and a restrictive measure in the context of free movement of workers?",a:"Discriminatory: treats non-nationals less favourably than nationals in comparable situations (direct or indirect discrimination). Restrictive: applies equally but deters exercise of free movement rights (e.g. reducing tax relief when a worker exercises EU rights). Both can breach Art. 45 TFEU."},
+  {n:180,p:'4c',q:"May an individual rely on fundamental freedoms against their own country?",a:"Yes — nationals returning after exercising free movement rights can invoke EU fundamental freedoms against their own Member State. Purely internal situations (no cross-border element at all) are not covered by EU law."},
+  {n:181,p:'4c',q:"What is the idea of the fundamental freedoms for self-employed persons?",a:"Freedom of establishment (Art. 49 TFEU): permanent, stable activity in another MS. Freedom of services (Art. 56 TFEU): temporary provision of services across borders. Self-employed persons enjoy both freedoms depending on the duration and nature of their activity."},
+  {n:182,p:'4c',q:"What does freedom of establishment preclude?",a:"Art. 49 TFEU precludes any national measure which, even if applicable without discrimination on grounds of nationality, is liable to hinder or render less attractive the exercise of freedom of establishment by EU citizens."},
+  {n:183,p:'4c',q:"What is a 'restriction' for the purposes of Art. 49 TFEU?",a:"Any measure applicable without distinction that affects access to the market for undertakings from other Member States and thereby hinders intra-Community trade — including prior authorisation requirements."},
+  {n:184,p:'4c',q:"Is a requirement of prior authorisation a restriction on freedom of establishment?",a:"Yes — even non-discriminatory prior authorisation requirements are restrictions if they affect market access for undertakings from other MS (confirmed in Spanish Hypermercados case, C-400/08)."},
+  {n:185,p:'4c',q:"Can a restriction on freedom of establishment be justified?",a:"Yes — restrictions applicable without discrimination may be justified by overriding reasons of general interest, provided they are appropriate for the objective and proportionate (do not go beyond what is necessary)."},
+  {n:186,p:'4c',q:"What are potential justification reasons for restrictions on establishment?",a:"Overriding reasons of general interest: urban planning, environmental protection, consumer protection, protection of small retailers, public health, and socioeconomic planning — all subject to proportionality."},
+  {n:187,p:'4c',q:"What is the difference between freedom of establishment and freedom to provide services?",a:"Establishment (Art. 49): permanent, stable presence in another MS on a long-term basis. Services (Art. 56): temporary provision across borders without a stable establishment. Temporariness is assessed based on duration, regularity, and continuity of activity."},
+  {n:188,p:'4c',q:"What did the ECJ decide in the Säger case (ECJ, 25 July 1991)?",a:"Any restrictions on freedom to provide services between Member States are prohibited unless justified by overriding public interest reasons, applied non-discriminatorily, and proportionate. The case concerned German licensing requirements blocking a UK firm from providing patent renewal services in Germany."},
+  {n:189,p:'4c',q:"Which scenarios are covered by the freedom of services?",a:"(1) Provider moves to another MS to provide services. (2) Recipient moves to receive services. (3) Service crosses border without movement of persons (e.g. broadcasting, online). (4) Both provider and recipient move to a third MS (tourist scenario)."},
+  {n:190,p:'4c',q:"What is the Services Directive (2006/123/EC)?",a:"Aims to remove barriers to trade in services — simplifying administrative procedures, enhancing consumer rights, and fostering cooperation. Exceptions apply: financial services, transport, private security, gambling, notaries, and bailiffs are excluded."},
+  {n:191,p:'4c',q:"How can the term 'movement of capital' be understood?",a:"The Treaty does not define it, but Council Directive 88/361/EEC and its Annex I nomenclature serve as reference: covering direct investment, portfolio investment, real estate, financial loans, and other capital movements."},
+  {n:192,p:'4c',q:"What are 'golden shares'?",a:"Special rights retained by governments in privatised companies (especially telecom and energy) to block acquisitions or veto major decisions. The ECJ has found most golden share arrangements violate free movement of capital (e.g. Commission v France, C-483/99)."},
+  {n:193,p:'4c',q:"What is the particular feature of freedom of capital compared to other fundamental freedoms?",a:"It also applies with respect to third countries (non-EU states) — Art. 63 TFEU prohibits restrictions on capital movements between Member States AND between Member States and third countries. Unique among the four freedoms."},
+  {n:194,p:'4c',q:"How are freedom of capital and freedom of establishment distinguished?",a:"If a shareholding enables the holder to exercise decisive influence on a company's decisions and activities, it falls under freedom of establishment. Shareholdings of 25%+ are considered potentially decisive. Portfolio investments (no decisive influence) fall under freedom of capital."},
+  {n:195,p:'4c',q:"Name the ECJ cases: (1) Belgians importing Scotch whisky from France without proper certificate. (2) Prosecution for selling below wholesale price in France. (3) German firm wanting to import a French blackcurrant liqueur with lower ABV than German law required. (4) Government-backed campaign where trade fell 6% over 3 years.",a:"(1) Dassonville (C-8/74, 1974). (2) Keck (C-267/91 and C-268/91, 1993). (3) Cassis de Dijon (C-120/78, 1979). (4) Commission v Ireland / Buy Irish (C-249/81, 1982). All concern free movement of goods (Art. 34 TFEU) and MEQRs."},
+  {n:196,p:'4c',q:"What is the difference between a preliminary ruling (Art. 267 TFEU) and infringement procedures (Art. 258/259 TFEU)?",a:"Art. 267 (preliminary ruling): a national court refers a question of EU law interpretation or validity to the CJEU — cooperative, non-adversarial. Art. 258 (Commission v MS): Commission brings enforcement proceedings against a breaching Member State. Art. 259 (MS v MS): one Member State sues another — very rare (e.g. Austria v Germany, C-591/17, re motorway tolls)."},
+  {n:197,p:'4c',q:"Is it the rule or exception that a Member State sues another Member State (Art. 259 TFEU)?",a:"Very much the exception. The Commission's Art. 258 procedure is by far the primary enforcement route. Austria v Germany (C-591/17) on discriminatory motorway tolls is one of very few examples."},
   {n:198,p:5,q:"Is Switzerland part of the EU or the EEA?",a:"Neither. Switzerland is not a member of the EU or the EEA. It has concluded a network of bilateral agreements with the EU granting Swiss nationals and businesses many rights similar to those under EU law."},
   {n:199,p:5,q:"What is the nature of the German exit tax and why is it an infringement of free movement of persons?",a:"Germany taxes unrealised capital gains on shares when individuals transfer their residence abroad. In Martin Wächtler (C-581/17) the ECJ held this infringes free movement of persons — immediate taxation of unrealised gains discourages departure, while a resident would not face that tax until realisation. Deferred payment would be proportionate; immediate collection is not."},
   {n:200,p:5,q:"What is the nature of a Free Trade Agreement (FTA) and a Deep and Comprehensive Free Trade Agreement (DCFTA)?",a:"FTA: eliminates or reduces tariffs and quotas between parties; each keeps its own external tariff. DCFTA: goes further — also covers services, investment, intellectual property, regulatory convergence, sanitary standards, and public procurement, aligning the partner country's rules with EU standards."},
@@ -7217,8 +7063,8 @@ function epRenderCard(){
   if(inner) inner.classList.remove('flipped');
   epFlipped = false;
 
-  const romanNums = ['I','II','III','IV','V'];
-  const badgeText = 'Part ' + romanNums[card.p-1];
+  const badgeMap = {'1':'S·I','2a':'S·III','2b':'S·IV','2c':'S·II','3':'S·VIII','4a':'S·IX','4b':'S·VI','4c':'S·VII','5':'S·VII'};
+  const badgeText = badgeMap[String(card.p)] || 'S·?';
 
   const bf = document.getElementById('ep-badge-f');
   const bb = document.getElementById('ep-badge-b');
@@ -7376,7 +7222,6 @@ function epRenderBrowse(filter){
     });
     if(!items.length) return;
     const part = EP_PARTS[pNum];
-    const romanNums = ['I','II','III','IV','V'];
     const sec = document.createElement('div');
     sec.className = 'ep-part-section';
     const heading = document.createElement('div');
@@ -8055,566 +7900,6 @@ function ibtQuizNext(session) {
   renderIbtQuiz(session);
 }
 
-// ══════════════════════════════════════════
-// PODCAST ENGINE
-// ══════════════════════════════════════════
-
-// ── Script data ──
-const POD_SCRIPTS = {
-  macro: [
-    // ── COLD OPEN ──
-    { seg:'cold-open', segLabel:'Cold Open', speaker:'Sam', line:"Alex, quick question before we dive in — if the German government doubles its spending overnight, does that actually double GDP?" },
-    { seg:'cold-open', segLabel:'Cold Open', speaker:'Alex', line:"Not quite — and that gap between 'government spent more' and 'GDP rose by that amount' is the whole story of the goods market and the multiplier. By the end of this episode you'll be able to derive exactly how much GDP changes, and under what conditions the government's money machine breaks down entirely." },
-    { seg:'cold-open', segLabel:'Cold Open', speaker:'Sam', line:"Bold promise. Let's go." },
-
-    // ── CONTEXT ──
-    { seg:'context', segLabel:'Why This Matters', speaker:'Alex', line:"Today's episode covers two lectures from Dr. Rülke's Macroeconomics 1 course. Lecture one is all about economic growth — GDP, production functions, the Solow decomposition. Lecture two is the goods market model, the multiplier, and the IS curve. These are the backbone of any macroeconomics exam." },
-    { seg:'context', segLabel:'Why This Matters', speaker:'Sam', line:"And this is relevant beyond the exam, right? Like, when the ECB cuts rates, or the government launches a stimulus package — this is the framework journalists are vaguely gesturing at?" },
-    { seg:'context', segLabel:'Why This Matters', speaker:'Alex', line:"Exactly. Every economic policy debate you read about — austerity versus stimulus, helicopter money, fiscal multipliers — is a direct application of what we're covering today. The IS curve alone explains why some countries recover from recessions quickly and others don't." },
-
-    // ── CORE BLOCK 1: GDP & GROWTH ──
-    { seg:'core-1', segLabel:'GDP & Growth', speaker:'Alex', line:"Let's start with GDP. Gross Domestic Product — it's the market value of all final goods and services produced within a country's borders during a given period. Three equivalent methods: expenditure, production, and income. The expenditure formula is the one you need to know cold: Y equals C plus I plus G plus net exports." },
-    { seg:'core-1', segLabel:'GDP & Growth', speaker:'Sam', line:"What's the biggest trap students fall into with the expenditure formula?" },
-    { seg:'core-1', segLabel:'GDP & Growth', speaker:'Alex', line:"Counting financial investment. When your textbook says I — investment — it means physical capital formation. Buying shares, lending money, purchasing bonds — none of that counts as investment in GDP accounting. It's a transfer of ownership, not the creation of new productive capacity. Students lose marks on this constantly." },
-    { seg:'core-1', segLabel:'GDP & Growth', speaker:'Sam', line:"Got it — only real capital. What about the three growth determinants?" },
-    { seg:'core-1', segLabel:'GDP & Growth', speaker:'Alex', line:"The Solow decomposition breaks GDP growth into three sources. First, more physical capital — more machines, factories, infrastructure. Second, more labour — more workers or more hours worked. Third, and most important, total factor productivity — TFP — which is basically technology and efficiency. The formula is: growth in Y equals alpha times growth in K, plus beta times growth in L, plus the TFP residual. TFP is what makes rich countries rich." },
-    { seg:'core-1', segLabel:'GDP & Growth', speaker:'Sam', line:"So two countries can have the same capital and labour but different growth rates just because of TFP?" },
-    { seg:'core-1', segLabel:'GDP & Growth', speaker:'Alex', line:"Exactly. And the catch-up effect — poor countries growing faster than rich ones — is real but conditional. It only works if institutions are sound, property rights exist, and there's access to existing technology. If those conditions aren't met, you can stay poor indefinitely despite low capital per worker." },
-
-    // ── EXAM TRAP 1 ──
-    { seg:'trap-1', segLabel:'Exam Trap: GDP', speaker:'Sam', line:"Exam trap time. What would a student get wrong about GDP here?" },
-    { seg:'trap-1', segLabel:'Exam Trap: GDP', speaker:'Alex', line:"Three classic traps. First, confusing nominal and real GDP — nominal uses current prices, real adjusts for inflation, only real GDP tells you whether the economy actually grew. Second, treating financial transactions as investment. Third, forgetting that GDP is a flow concept — it measures production over a time period, not the stock of wealth. A rich country with zero new production in a quarter has zero GDP contribution for that quarter." },
-
-    // ── CORE BLOCK 2: GOODS MARKET ──
-    { seg:'core-2', segLabel:'Goods Market Model', speaker:'Alex', line:"Now the goods market model. We're in the short run — prices are fixed, output is demand-determined. The key equation is aggregate demand: Y-D equals C plus I-autonomous plus G. Consumption depends on income: C equals a plus c times Y, where a is autonomous consumption and c is the marginal propensity to consume." },
-    { seg:'core-2', segLabel:'Goods Market Model', speaker:'Sam', line:"The MPC. Germany's MPC is around 0.6, right?" },
-    { seg:'core-2', segLabel:'Goods Market Model', speaker:'Alex', line:"Correct — about 0.6. That means for every extra euro of income, Germans consume 60 cents and save 40 cents. Now, equilibrium in the goods market requires that output equals aggregate demand — Y equals Y-D. When you substitute and solve, you get the equilibrium output formula: Y-hat equals one over one minus c, times the sum of all autonomous components. That fraction is the multiplier." },
-    { seg:'core-2', segLabel:'Goods Market Model', speaker:'Sam', line:"So if MPC is 0.6, the multiplier is one over 0.4, which is 2.5. A government spends one billion euros extra and GDP rises by 2.5 billion?" },
-    { seg:'core-2', segLabel:'Goods Market Model', speaker:'Alex', line:"In the simple model, yes. But the multiplier shrinks fast once you introduce taxes and imports. With a proportional tax rate t, it becomes one over one minus c times one minus t. With both taxes and imports it shrinks further. The exam loves asking you to pick the right multiplier formula for the scenario described." },
-    { seg:'core-2', segLabel:'Goods Market Model', speaker:'Sam', line:"What about the paradox of thrift? That one genuinely confused me when I first saw it." },
-    { seg:'core-2', segLabel:'Goods Market Model', speaker:'Alex', line:"Perfect example of the goods market model in action. Each individual household is rational — they save more because the future looks uncertain. But collectively, when everyone saves more, consumption falls, firms see weaker demand, they cut output and jobs, income falls, and households end up with less savings in total, not more. Japan's two lost decades is the textbook case. Individually rational, collectively self-defeating." },
-
-    // ── EXAM TRAP 2 ──
-    { seg:'trap-2', segLabel:'Exam Trap: Multiplier', speaker:'Sam', line:"What's the multiplier exam trap?" },
-    { seg:'trap-2', segLabel:'Exam Trap: Multiplier', speaker:'Alex', line:"Always check whether the question includes taxes. Students apply 1 over (1 minus c) when the correct formula needs 1 over (1 minus c plus c times t). With a tax rate of 0.25 and MPC of 0.6, the simple multiplier gives 2.5 but the correct answer is around 1.82. That's a huge difference in a calculation question. Also watch for the Haavelmo theorem: an equal increase in G and T raises Y by exactly delta-G. The multiplier on the tax side is negative c over 1 minus c, and they sum to exactly 1." },
-
-    // ── CORE BLOCK 3: FISCAL POLICY & LAGS ──
-    { seg:'core-3', segLabel:'Fiscal Policy', speaker:'Alex', line:"Fiscal policy. The government can stimulate demand by increasing G or reducing taxes T. The structural budget balance is B equals T minus transfer payments minus G. Anti-cyclical policy means running deficits in recessions and surpluses in booms. In practice this is brutally difficult because of the five time lags." },
-    { seg:'core-3', segLabel:'Fiscal Policy', speaker:'Sam', line:"Walk me through the five lags. I always confuse the middle ones." },
-    { seg:'core-3', segLabel:'Fiscal Policy', speaker:'Alex', line:"Lag one: information lag. You need two consecutive quarters of negative growth before a recession is even official — months already lost. Lag two: decision lag. Political debate, committee hearings, budget negotiations — Germany takes six to nine months. Lag three: action lag. Actually implementing the decision. Germany's Corona relief was approved in principle quickly but payments didn't reach firms until January 2021. Lags four and five: policy and effectiveness lags — the multiplier working through the economy, round by round." },
-    { seg:'core-3', segLabel:'Fiscal Policy', speaker:'Sam', line:"And the inside-outside split?" },
-    { seg:'core-3', segLabel:'Fiscal Policy', speaker:'Alex', line:"Inside lag is lags one, two, and three — the delay before the money actually flows. Outside lag is four and five — the delay before the spending affects GDP. Total delay often exceeds a year, which means stimulus arrives during a recovery and becomes accidentally pro-cyclical. Haavelmo himself argued this makes anti-cyclical fiscal policy operationally inoperable." },
-
-    // ── CASE STUDY ──
-    { seg:'case', segLabel:'Case Study: Germany & COVID', speaker:'Sam', line:"Give me the real-world example — Germany and COVID." },
-    { seg:'case', segLabel:'Case Study: Germany & COVID', speaker:'Alex', line:"Germany approved around 100 billion euros of emergency relief in spring 2020 — Peter Altmaier's package. But the actual disbursement to businesses hit hardest by lockdowns didn't happen until late January 2021, nearly a year later. By then, Germany was already in the second wave and lockdown two — so the timing was at least aligned. But it perfectly illustrates the action lag. The political will was there, the money existed, but the administrative machinery is slow." },
-    { seg:'case', segLabel:'Case Study: Germany & COVID', speaker:'Sam', line:"And the ECB side?" },
-    { seg:'case', segLabel:'Case Study: Germany & COVID', speaker:'Alex', line:"The ECB launched the Pandemic Emergency Purchase Programme — PEPP — worth 1.85 trillion euros at its peak. That's monetary policy, not fiscal. But it shows how in a crisis, both arms of stabilisation policy move simultaneously. The IS-LM model is the framework for understanding how they interact — fiscal policy shifts the IS curve, monetary policy moves you along it." },
-
-    // ── CORE BLOCK 4: IS CURVE ──
-    { seg:'core-4', segLabel:'The IS Curve', speaker:'Alex', line:"The IS curve. It shows all combinations of interest rate i and output Y that produce equilibrium in the goods market. The derivation adds investment sensitive to interest rates: I equals I-autonomous minus g times i. When you solve the goods market equilibrium with this, you get Y as a decreasing function of i — that's the IS curve. It slopes downward because lower rates mean cheaper borrowing, more investment, more output." },
-    { seg:'core-4', segLabel:'The IS Curve', speaker:'Sam', line:"And there are four key scenarios the professor flagged for the exam?" },
-    { seg:'core-4', segLabel:'The IS Curve', speaker:'Alex', line:"Exactly four. Scenario one: interest rate falls due to monetary policy — you move along the existing IS curve from one point to another. The curve doesn't shift. Scenario two: expansionary fiscal policy — G rises or T falls — IS shifts right. Higher output at every interest rate. Scenario three: paradox of thrift or autonomous investment falls — IS shifts left. Scenario four, and this is the dangerous one: investment is completely insensitive to interest rates, g equals zero. The IS curve becomes vertical. Monetary policy — changing i — has absolutely zero effect on output. Only fiscal policy can help." },
-    { seg:'core-4', segLabel:'The IS Curve', speaker:'Sam', line:"When would g equal zero happen in practice?" },
-    { seg:'core-4', segLabel:'The IS Curve', speaker:'Alex', line:"In conditions of profound uncertainty. War, existential crisis, pandemic panic — when firms don't invest even at zero percent interest because they can't see any future demand. It's also connected to Keynes's liquidity trap concept. Japan in the 1990s came close. When the IS curve is vertical, you're completely dependent on fiscal policy, which brings us back to the lag problem." },
-
-    // ── EXAM TRAP 4 ──
-    { seg:'trap-4', segLabel:'Exam Trap: IS Curve', speaker:'Sam', line:"IS curve exam trap?" },
-    { seg:'trap-4', segLabel:'Exam Trap: Multiplier', speaker:'Alex', line:"Students mix up movement along the IS curve with shifts of the IS curve. If the interest rate changes because of monetary policy, you move along — same IS curve, different point. If fiscal policy changes G or T, or if autonomous consumption or investment changes, the whole curve shifts. The exam will describe a scenario and ask whether you're moving along or shifting. Always ask: did the interest rate change as the cause, or as the consequence?" },
-
-    // ── RAPID FIRE ──
-    { seg:'rapid', segLabel:'Lightning Round', speaker:'Sam', line:"Lightning round. I'll ask, you answer fast. What does MPC stand for and what is Germany's approximate value?" },
-    { seg:'rapid', segLabel:'Lightning Round', speaker:'Alex', line:"Marginal propensity to consume. Germany: approximately 0.6." },
-    { seg:'rapid', segLabel:'Lightning Round', speaker:'Sam', line:"What is the simple Keynesian multiplier formula?" },
-    { seg:'rapid', segLabel:'Lightning Round', speaker:'Alex', line:"One divided by one minus c." },
-    { seg:'rapid', segLabel:'Lightning Round', speaker:'Sam', line:"Define recession precisely." },
-    { seg:'rapid', segLabel:'Lightning Round', speaker:'Alex', line:"Two consecutive quarters of negative GDP growth. Regional. Part of the normal business cycle." },
-    { seg:'rapid', segLabel:'Lightning Round', speaker:'Sam', line:"What distinguishes depression from recession?" },
-    { seg:'rapid', segLabel:'Lightning Round', speaker:'Alex', line:"Depression exceeds negative 10 percent growth, has global impact, and is not part of the regular cycle. Great Depression 1929: US GDP fell around 30 percent." },
-    { seg:'rapid', segLabel:'Lightning Round', speaker:'Sam', line:"What does stagflation mean?" },
-    { seg:'rapid', segLabel:'Lightning Round', speaker:'Alex', line:"Inflation above 5 percent AND negative growth simultaneously. Standard tools conflict — stimulus fights unemployment but worsens inflation. 1970s oil shocks." },
-    { seg:'rapid', segLabel:'Lightning Round', speaker:'Sam', line:"What is the Haavelmo theorem?" },
-    { seg:'rapid', segLabel:'Lightning Round', speaker:'Alex', line:"A balanced budget increase — G and T rise by the same amount — raises GDP by exactly delta-G. Multiplier equals 1. Because government's MPC is 1 but households' MPC is less than 1." },
-    { seg:'rapid', segLabel:'Lightning Round', speaker:'Sam', line:"What are the three GDP measurement methods?" },
-    { seg:'rapid', segLabel:'Lightning Round', speaker:'Alex', line:"Expenditure method: C plus I plus G plus net exports. Production method: sum of value added. Income method: wages plus profits plus rents. All three give the same answer in principle." },
-    { seg:'rapid', segLabel:'Lightning Round', speaker:'Sam', line:"What is TFP and why does it matter?" },
-    { seg:'rapid', segLabel:'Lightning Round', speaker:'Alex', line:"Total factor productivity — the residual in the Solow decomposition after accounting for capital and labour growth. It captures technology and efficiency. It's what separates rich from poor countries with similar factor endowments." },
-
-    // ── WRAP UP ──
-    { seg:'wrap', segLabel:'Three Things to Remember', speaker:'Sam', line:"Three things to remember from this episode. Number one?" },
-    { seg:'wrap', segLabel:'Three Things to Remember', speaker:'Alex', line:"The multiplier formula changes depending on context. Simple model: one over one minus c. With taxes: one over one minus c times one minus t. Always identify which version the exam question needs." },
-    { seg:'wrap', segLabel:'Three Things to Remember', speaker:'Sam', line:"Number two?" },
-    { seg:'wrap', segLabel:'Three Things to Remember', speaker:'Alex', line:"IS curve: monetary policy moves you along the curve, fiscal policy shifts it. And when investment is interest-insensitive — g equals zero — the IS curve is vertical and monetary policy is powerless." },
-    { seg:'wrap', segLabel:'Three Things to Remember', speaker:'Sam', line:"Number three?" },
-    { seg:'wrap', segLabel:'Three Things to Remember', speaker:'Alex', line:"The five time lags make anti-cyclical fiscal policy operationally difficult. Inside lag is about political process, outside lag is about economic transmission. Total delay often exceeds a year." },
-    { seg:'wrap', segLabel:'Three Things to Remember', speaker:'Sam', line:"And Alex's sleeper point — something easy to miss?" },
-    { seg:'wrap', segLabel:'Three Things to Remember', speaker:'Alex', line:"The paradox of thrift direction chain. When asked to explain it, don't just say 'saving goes up so GDP goes down.' Write the full chain: autonomous savings rise, consumption falls, output falls, income falls, induced savings fall. Net savings don't increase — that's the paradox. The exam may ask you to trace the chain explicitly." },
-    { seg:'wrap', segLabel:'Three Things to Remember', speaker:'Sam', line:"Next episode we'll be going deeper into the IS-LM model and monetary policy. Thanks for listening to The Macro Hour." },
-    { seg:'wrap', segLabel:'Three Things to Remember', speaker:'Alex', line:"See you there." },
-  ]
-};
-
-const POD_SEGMENTS = {
-  macro: [
-    { id:'cold-open', label:'Cold Open', duration:'~2 min', color:'var(--micro)' },
-    { id:'context',   label:'Why This Matters', duration:'~3 min', color:'var(--eu)' },
-    { id:'core-1',    label:'GDP & Growth', duration:'~8 min', color:'var(--macro)' },
-    { id:'trap-1',    label:'Exam Trap: GDP', duration:'~2 min', color:'var(--amber)' },
-    { id:'core-2',    label:'Goods Market', duration:'~9 min', color:'var(--macro)' },
-    { id:'trap-2',    label:'Exam Trap: Multiplier', duration:'~2 min', color:'var(--amber)' },
-    { id:'core-3',    label:'Fiscal Policy & Lags', duration:'~7 min', color:'var(--macro)' },
-    { id:'case',      label:'Case: Germany & COVID', duration:'~5 min', color:'var(--ibt)' },
-    { id:'core-4',    label:'The IS Curve', duration:'~8 min', color:'var(--macro)' },
-    { id:'trap-4',    label:'Exam Trap: IS Curve', duration:'~2 min', color:'var(--amber)' },
-    { id:'rapid',     label:'Lightning Round', duration:'~4 min', color:'var(--micro)' },
-    { id:'wrap',      label:'3 Things to Remember', duration:'~3 min', color:'var(--micro)' },
-  ]
-};
-
-const POD_FLASHCARDS = {
-  macro: [
-    { q:'What are the three equivalent methods of measuring GDP?', a:'Expenditure (C+I+G+NX), Production (sum of value added), Income (wages+profits+rents). All yield identical results by national accounting identity.', src:'Lecture 1 — GDP' },
-    { q:'What is the expenditure formula for GDP and what does each term represent?', a:'Y = C + I + G + NX. C = private consumption, I = business investment (physical capital only!), G = government spending, NX = net exports (X−IM).', src:'Lecture 1 — GDP' },
-    { q:'Why does financial investment NOT count as I in GDP?', a:'Financial transactions (buying shares, bonds, lending) transfer ownership of existing assets — no new productive capacity is created. Only expenditure on new physical capital (machines, buildings, equipment) counts as investment in GDP.', src:'Lecture 1 — GDP Trap' },
-    { q:'What is the Solow decomposition of GDP growth?', a:'ΔY/Y = α·(ΔK/K) + β·(ΔL/L) + TFP growth. Growth = weighted contribution of more capital + more labour + total factor productivity (technology/efficiency residual).', src:'Lecture 1 — Growth' },
-    { q:'What is TFP and why does it matter for cross-country income differences?', a:'Total Factor Productivity — the residual growth after accounting for capital and labour. It captures technology, institutions, and efficiency. Countries with same K and L but different TFP have different incomes. It is the main driver of long-run growth differences.', src:'Lecture 1 — TFP' },
-    { q:'What is the catch-up effect and when does it fail?', a:'Poor countries grow faster than rich ones because diminishing returns to capital give higher marginal product at low K/L. Fails when institutions are weak, property rights absent, or technology transfer is blocked.', src:'Lecture 1 — Convergence' },
-    { q:'What are the three economic terminology definitions most likely to appear on the exam?', a:'Recession: 2 consecutive quarters of negative growth, regional, cyclical. Depression: >−10% growth, global, not cyclical. Stagflation: inflation >5% AND negative growth simultaneously (policy tools conflict).', src:'Lecture 2 — Terminology' },
-    { q:'What is the goods market equilibrium condition and how do you solve for Y-hat?', a:'Equilibrium: Y = Y^D. Substituting Y^D = a + cY + I^aut + G and solving: Y* = (1/(1−c)) · (a + I^aut + G). The fraction 1/(1−c) is the Keynesian multiplier.', src:'Lecture 2 — Goods Market' },
-    { q:'What is the Keynesian multiplier and what are its two main forms?', a:'Simple: 1/(1−c). With proportional tax t: 1/(1−c(1−t)). For every €1 of autonomous demand increase, GDP rises by the multiplier. A higher MPC means a larger multiplier.', src:'Lecture 2 — Multiplier' },
-    { q:'State the Haavelmo theorem and explain why it holds.', a:'A balanced budget increase (ΔG = ΔT) raises GDP by exactly ΔG (multiplier = 1). Why: government\'s MPC on spending = 1, but the tax multiplier is −c/(1−c) < 1 in absolute value. They sum to exactly 1.', src:'Lecture 2 — Haavelmo' },
-    { q:'Explain the paradox of thrift with the full chain of causation.', a:'↑a (autonomous saving) → ↓C → ↓Y → ↓s·Y (induced saving) → ↓S_total. Collectively rational saving leads to lower income, which reduces total savings. Individually rational, collectively self-defeating. Empirical case: Japan 1990s.', src:'Lecture 2 — Paradox of Thrift' },
-    { q:'What are the five fiscal policy time lags and which are inside vs outside?', a:'① Information lag (recession recognised after 2 quarters). ② Decision lag (political debate, ~6–9 months Germany). ③ Action lag (implementation, disbursement). ④ Policy lag (multiplier rounds begin). ⑤ Effectiveness lag (full multiplier complete). Inside = ①②③. Outside = ④⑤.', src:'Lecture 2 — Fiscal Lags' },
-    { q:'Derive the IS curve equation from the goods market model.', a:'Add I = I^aut − g·i to goods market. Equilibrium: Y = (1/(1−c)) · (a + I^aut + G − g·i). This gives Y as decreasing function of i → IS curve slopes downward. Steeper when g is small (investment insensitive to rates).', src:'Lecture 2 — IS Curve' },
-    { q:'What are the four IS curve scenarios flagged as exam-critical?', a:'① i falls → movement ALONG IS (no shift). ② G↑ or T↓ → IS shifts RIGHT. ③ Paradox of thrift / I^aut↓ → IS shifts LEFT. ④ g=0 → vertical IS → monetary policy completely ineffective, only fiscal works.', src:'Lecture 2 — IS Scenarios' },
-    { q:'When is the IS curve vertical and what does this mean for policy?', a:'When g = 0: investment is completely insensitive to interest rates. A vertical IS means changing i has zero effect on Y. Monetary policy is powerless. Only fiscal policy (shifting the vertical IS) can change output. Occurs in catastrophic uncertainty or investment traps.', src:'Lecture 2 — IS Curve' },
-  ]
-};
-
-const POD_QUIZ = {
-  macro: [
-    { q:'Which of the following correctly counts as investment (I) in the GDP expenditure formula?', opts:['Purchasing 100 shares of BMW stock','A household buying a government bond','A firm purchasing a new industrial robot','A pension fund buying corporate bonds'], ans:2, exp:'GDP investment = physical capital formation. Only the robot (C) creates new productive capacity. Financial transactions transfer existing ownership and do not appear in I.', topic:'GDP' },
-    { q:'Germany\'s MPC is approximately 0.6 and there is no tax. A government spends €2 billion extra. What is the total increase in GDP?', opts:['€2 billion','€3 billion','€5 billion','€1.2 billion'], ans:2, exp:'Multiplier = 1/(1−0.6) = 1/0.4 = 2.5. GDP increase = 2.5 × €2bn = €5bn (C). With no tax, the simple multiplier applies.', topic:'Multiplier' },
-    { q:'With MPC = 0.6 and proportional tax rate t = 0.25, what is the correct multiplier?', opts:['2.5','1.82','4.0','1.67'], ans:1, exp:'With tax: 1/(1−c(1−t)) = 1/(1−0.6×0.75) = 1/(1−0.45) = 1/0.55 ≈ 1.82 (B). The simple multiplier 2.5 ignores tax leakage.', topic:'Multiplier' },
-    { q:'Which sequence correctly describes the paradox of thrift?', opts:['↑S → ↑Y → ↑Investment → ↑S','↑a → ↓C → ↓Y → ↓s·Y → ↓S_total','↓i → ↑I → ↑Y → ↑S','↑G → ↑Y → ↑C → ↑S'], ans:1, exp:'The correct chain (B): autonomous saving rises → consumption falls → output falls → induced saving falls → total saving falls. The paradox is that trying to save more collectively reduces total savings.', topic:'Paradox of Thrift' },
-    { q:'Germany recognises a recession in Q2, passes a fiscal package in Q4, and disbursements reach firms in Q1 of the following year. This illustrates which lags?', opts:['Only the information lag','Information lag + decision lag','Information lag + decision lag + action lag','Only the outside lag'], ans:2, exp:'Recognition (information lag ①), parliamentary approval (decision lag ②), actual payment to firms (action lag ③). All three are "inside lag" stages. The outside lag (④⑤) begins when spending starts affecting demand.', topic:'Fiscal Lags' },
-    { q:'The ECB cuts interest rates. In the IS-LM framework, what happens to the IS curve?', opts:['IS shifts right','IS shifts left','IS does not shift — you move along it','IS becomes vertical'], ans:2, exp:'Monetary policy (interest rate change) causes movement ALONG the IS curve, not a shift. The IS curve shifts only when autonomous components change (G, T, autonomous consumption/investment). (C) is correct.', topic:'IS Curve' },
-    { q:'When is the IS curve vertical and what is the policy implication?', opts:['When MPC = 1, making fiscal policy very powerful','When g = 0, making monetary policy completely ineffective','When the tax rate equals MPC','When autonomous investment is zero'], ans:1, exp:'g = 0 means investment does not respond to interest rates → IS is vertical (B). Any change in i moves along a curve that gives the same Y at every i. Only fiscal policy (shifting the vertical IS curve) can change output.', topic:'IS Curve' },
-    { q:'What does the Haavelmo theorem state?', opts:['Balanced budgets always cause recessions','An equal increase in G and T raises Y by exactly ΔG','Fiscal multipliers are always larger than monetary multipliers','Deficit spending is more effective than tax cuts'], ans:1, exp:'Haavelmo (B): ΔY = ΔG when ΔG = ΔT. Government multiplier = 1/(1−c), tax multiplier = −c/(1−c). Sum = 1/(1−c) − c/(1−c) = 1. The government\'s MPC on its own spending is 1, while households\' MPC on tax cuts is only c < 1.', topic:'Haavelmo' },
-    { q:'Which correctly defines stagflation?', opts:['Negative growth for two consecutive quarters','Inflation above 5% AND negative growth simultaneously','Stagnant growth with deflation','Inflation above 50% per month'], ans:1, exp:'Stagflation (B) = inflation >5% AND negative growth. Policy tools conflict: stimulus reduces unemployment but worsens inflation. First observed during the 1970s oil shocks. Hyperinflation (D) is >50%/month. Recession (A) is two negative quarters.', topic:'Terminology' },
-    { q:'What is the key difference between recession and depression?', opts:['Recessions last longer than depressions','Depressions are cyclical, recessions are structural','Depressions exceed −10% growth and have global impact; recessions are cyclical and regional','Recessions require monetary intervention; depressions require fiscal intervention'], ans:2, exp:'Depression (C): exceeds −10% growth, global scope, not part of the normal cycle (Great Depression 1929). Recession: two negative quarters, regional, part of the cycle. The structural vs cyclical distinction is exam-critical.', topic:'Terminology' },
-  ]
-};
-
-// ── Podcast state ──
-const podState = {};
-
-function podInit(name) {
-  if (podState[name]) return;
-  podState[name] = {
-    lineIdx: 0,
-    segIdx: 0,
-    playing: false,
-    utterance: null,
-    rate: 1.0,
-    voices: [],
-    voiceA: null,
-    voiceB: null,
-  };
-  podLoadVoices(name);
-  podBuildChapters(name);
-  podBuildSegBar(name);
-  podFcInit(name);
-  podQuizInit(name);
-}
-
-function podLoadVoices(name) {
-  const st = podState[name];
-  const sel = document.getElementById('pod-'+name+'-voice');
-  function populate() {
-    const voices = speechSynthesis.getVoices();
-    if (!voices.length) return;
-    st.voices = voices;
-    // Pick two distinct voices: prefer different genders
-    const en = voices.filter(v => v.lang.startsWith('en'));
-    const pool = en.length >= 2 ? en : voices;
-    st.voiceA = pool[0] || voices[0];
-    st.voiceB = pool.find((v,i) => i > 0 && v.name !== st.voiceA.name) || (voices[1] || voices[0]);
-    if (sel) {
-      sel.innerHTML = '<option value="auto">Auto (best)</option>';
-      pool.forEach((v,i) => {
-        const o = document.createElement('option');
-        o.value = i;
-        o.textContent = v.name.replace(/Microsoft|Google|Apple/g,'').trim();
-        sel.appendChild(o);
-      });
-    }
-  }
-  if (speechSynthesis.getVoices().length) populate();
-  else speechSynthesis.addEventListener('voiceschanged', populate);
-}
-
-function podSetVoice(name) {
-  const sel = document.getElementById('pod-'+name+'-voice');
-  if (!sel || sel.value === 'auto') return;
-  const st = podState[name];
-  const voices = speechSynthesis.getVoices().filter(v => v.lang.startsWith('en'));
-  const idx = parseInt(sel.value);
-  st.voiceA = voices[idx] || st.voiceA;
-  st.voiceB = voices[(idx + 1) % voices.length] || st.voiceB;
-}
-
-function podSetRate(name) {
-  const sel = document.getElementById('pod-'+name+'-rate');
-  if (sel) podState[name].rate = parseFloat(sel.value);
-}
-
-function podBuildChapters(name) {
-  const segs = POD_SEGMENTS[name];
-  const container = document.getElementById('pod-'+name+'-chapters');
-  if (!container) return;
-  container.innerHTML = '';
-  segs.forEach((seg, i) => {
-    const div = document.createElement('div');
-    div.id = 'pod-'+name+'-ch-'+i;
-    div.style.cssText = 'display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:8px;cursor:pointer;transition:background .15s;font-size:13px;color:var(--text2)';
-    div.onmouseenter = () => { if (!div.classList.contains('pod-ch-active')) div.style.background='var(--surface2)'; };
-    div.onmouseleave = () => { if (!div.classList.contains('pod-ch-active')) div.style.background=''; };
-    div.onclick = () => podJumpToSeg(name, i);
-    div.innerHTML = `<span style="width:10px;height:10px;border-radius:50%;flex-shrink:0;background:${seg.color}"></span><span style="flex:1">${seg.label}</span><span style="font-size:11px;color:var(--text3)">${seg.duration}</span>`;
-    container.appendChild(div);
-  });
-}
-
-function podBuildSegBar(name) {
-  const segs = POD_SEGMENTS[name];
-  const bar = document.getElementById('pod-'+name+'-seg-bar');
-  if (!bar) return;
-  bar.innerHTML = '';
-  segs.forEach((seg, i) => {
-    const div = document.createElement('div');
-    div.id = 'pod-'+name+'-seg-pip-'+i;
-    div.style.cssText = 'flex:1;height:4px;border-radius:2px;background:var(--border);transition:background .3s';
-    bar.appendChild(div);
-  });
-}
-
-function podUpdateUI(name) {
-  const st = podState[name];
-  const script = POD_SCRIPTS[name];
-  const segs = POD_SEGMENTS[name];
-  const line = script[st.lineIdx];
-  const seg = segs[st.segIdx];
-
-  // Segment progress bar
-  segs.forEach((s, i) => {
-    const pip = document.getElementById('pod-'+name+'-seg-pip-'+i);
-    if (pip) pip.style.background = i < st.segIdx ? seg.color : i === st.segIdx ? 'var(--macro)' : 'var(--border)';
-  });
-  // Segment info
-  const info = document.getElementById('pod-'+name+'-seg-info');
-  if (info) info.textContent = seg ? seg.label + ' · ' + seg.duration : '';
-  // Chapter highlight
-  segs.forEach((s, i) => {
-    const ch = document.getElementById('pod-'+name+'-ch-'+i);
-    if (!ch) return;
-    if (i === st.segIdx) {
-      ch.classList.add('pod-ch-active');
-      ch.style.background = 'var(--macro-l)';
-      ch.style.color = 'var(--macro)';
-    } else {
-      ch.classList.remove('pod-ch-active');
-      ch.style.background = '';
-      ch.style.color = 'var(--text2)';
-    }
-  });
-  // Speaker card
-  if (line) {
-    const nowCard = document.getElementById('pod-'+name+'-now-card');
-    const avatar = document.getElementById('pod-'+name+'-speaker-avatar');
-    const label = document.getElementById('pod-'+name+'-speaker-label');
-    const lineEl = document.getElementById('pod-'+name+'-current-line');
-    if (nowCard) nowCard.style.display = 'block';
-    const isAlex = line.speaker === 'Alex';
-    if (avatar) { avatar.textContent = line.speaker[0]; avatar.style.background = isAlex ? 'var(--macro-l)' : 'var(--eu-l)'; avatar.style.color = isAlex ? 'var(--macro)' : 'var(--eu)'; }
-    if (label) label.textContent = isAlex ? 'Alex — Professor' : 'Sam — Student';
-    if (lineEl) lineEl.textContent = line.line;
-  }
-  // Play button
-  const btn = document.getElementById('pod-'+name+'-play-btn');
-  if (btn) btn.textContent = st.playing ? '⏸ Pause' : '▶ Play';
-}
-
-function podSpeak(name) {
-  const st = podState[name];
-  const script = POD_SCRIPTS[name];
-  if (st.lineIdx >= script.length) { podStop(name); return; }
-  const line = script[st.lineIdx];
-
-  // Update segment index
-  const segs = POD_SEGMENTS[name];
-  const segIdx = segs.findIndex(s => s.id === line.seg);
-  if (segIdx !== -1) st.segIdx = segIdx;
-  podUpdateUI(name);
-
-  const u = new SpeechSynthesisUtterance(line.line);
-  u.rate = st.rate;
-  u.pitch = line.speaker === 'Alex' ? 0.92 : 1.08;
-  u.volume = 1;
-  if (line.speaker === 'Alex' && st.voiceA) u.voice = st.voiceA;
-  if (line.speaker === 'Sam' && st.voiceB) u.voice = st.voiceB;
-  u.onend = () => {
-    if (!st.playing) return;
-    st.lineIdx++;
-    podSpeak(name);
-  };
-  u.onerror = () => { if (st.playing) { st.lineIdx++; podSpeak(name); } };
-  st.utterance = u;
-  speechSynthesis.speak(u);
-}
-
-function podToggle(name) {
-  const st = podState[name];
-  if (st.playing) {
-    st.playing = false;
-    speechSynthesis.cancel();
-    podUpdateUI(name);
-  } else {
-    st.playing = true;
-    speechSynthesis.cancel();
-    podSpeak(name);
-  }
-}
-
-function podStop(name) {
-  const st = podState[name];
-  st.playing = false;
-  st.lineIdx = 0;
-  st.segIdx = 0;
-  speechSynthesis.cancel();
-  const nowCard = document.getElementById('pod-'+name+'-now-card');
-  if (nowCard) nowCard.style.display = 'none';
-  podBuildSegBar(name);
-  podBuildChapters(name);
-  const btn = document.getElementById('pod-'+name+'-play-btn');
-  if (btn) btn.textContent = '▶ Play';
-  const info = document.getElementById('pod-'+name+'-seg-info');
-  if (info) info.textContent = '';
-}
-
-function podJumpToSeg(name, segIdx) {
-  const st = podState[name];
-  const segs = POD_SEGMENTS[name];
-  const script = POD_SCRIPTS[name];
-  const segId = segs[segIdx].id;
-  const lineIdx = script.findIndex(l => l.seg === segId);
-  if (lineIdx === -1) return;
-  const wasPlaying = st.playing;
-  speechSynthesis.cancel();
-  st.lineIdx = lineIdx;
-  st.segIdx = segIdx;
-  if (wasPlaying) { st.playing = true; podSpeak(name); }
-  else podUpdateUI(name);
-}
-
-function podNextSeg(name) {
-  const st = podState[name];
-  const segs = POD_SEGMENTS[name];
-  if (st.segIdx < segs.length - 1) podJumpToSeg(name, st.segIdx + 1);
-}
-
-function podPrevSeg(name) {
-  const st = podState[name];
-  if (st.segIdx > 0) podJumpToSeg(name, st.segIdx - 1);
-  else { speechSynthesis.cancel(); st.lineIdx = 0; st.segIdx = 0; if (st.playing) podSpeak(name); else podUpdateUI(name); }
-}
-
-// ── Script view ──
-function podBuildScript(name) {
-  const script = POD_SCRIPTS[name];
-  const container = document.getElementById('pod-'+name+'-script-body');
-  if (!container || container.children.length) return;
-  let lastSeg = '';
-  script.forEach(line => {
-    if (line.seg !== lastSeg) {
-      lastSeg = line.seg;
-      const hdr = document.createElement('div');
-      hdr.style.cssText = 'font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text3);margin:20px 0 8px;padding-top:8px;border-top:1px solid var(--border)';
-      hdr.textContent = line.segLabel;
-      container.appendChild(hdr);
-    }
-    const isAlex = line.speaker === 'Alex';
-    const div = document.createElement('div');
-    div.style.cssText = 'display:flex;gap:10px;align-items:flex-start';
-    div.innerHTML = `<div style="width:28px;height:28px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;background:${isAlex?'var(--macro-l)':'var(--eu-l)'};color:${isAlex?'var(--macro)':'var(--eu)'};">${line.speaker[0]}</div><div style="flex:1;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:10px 14px;font-size:13.5px;color:var(--text);line-height:1.65">${line.line}</div>`;
-    container.appendChild(div);
-  });
-}
-
-// ── Tab switching ──
-function podShowTab(name, tab, btn) {
-  const page = document.getElementById('page-podcast-'+name);
-  if (!page) return;
-  page.querySelectorAll('.study-panel').forEach(p => p.classList.remove('active'));
-  page.querySelectorAll('.study-tab').forEach(b => b.classList.remove('active'));
-  const panel = document.getElementById('pod-'+name+'-'+tab);
-  if (panel) panel.classList.add('active');
-  if (btn) btn.classList.add('active');
-  if (tab === 'script') podBuildScript(name);
-  if (tab === 'flashcards' && !podState[name]) podInit(name);
-  if (tab === 'quiz' && !podState[name]) podInit(name);
-}
-
-// ── Flashcard engine ──
-const podFcState = {};
-function podFcInit(name) {
-  const cards = POD_FLASHCARDS[name];
-  if (!cards) return;
-  podFcState[name] = { all: cards.map((c,i) => ({...c, idx:i, confidence:1})), queue:[], current:0 };
-  podFcState[name].queue = [...podFcState[name].all].sort(() => Math.random() - .5);
-  podFcRender(name);
-}
-function podFcRender(name) {
-  const s = podFcState[name]; if (!s || !s.queue.length) return;
-  const c = s.queue[s.current];
-  const qEl = document.getElementById('pod-'+name+'-fc-q');
-  const aEl = document.getElementById('pod-'+name+'-fc-a');
-  const srcEl = document.getElementById('pod-'+name+'-fc-src');
-  const ctrEl = document.getElementById('pod-'+name+'-fc-counter');
-  const totEl = document.getElementById('pod-'+name+'-fc-total');
-  const card = document.getElementById('pod-'+name+'-fc-card');
-  if (qEl) qEl.textContent = c.q;
-  if (aEl) aEl.textContent = c.a;
-  if (srcEl) srcEl.textContent = '— ' + c.src;
-  if (ctrEl) ctrEl.textContent = s.current + 1;
-  if (totEl) totEl.textContent = s.queue.length;
-  if (card) card.classList.remove('flipped');
-  const wrap = document.getElementById('pod-'+name+'-fc-wrap');
-  const done = document.getElementById('pod-'+name+'-fc-done');
-  if (wrap) wrap.style.display = 'block';
-  if (done) done.style.display = 'none';
-  podFcSRBar(name);
-}
-function podFcSRBar(name) {
-  const s = podFcState[name]; if (!s) return;
-  const bar = document.getElementById('pod-'+name+'-sr-bar'); if (!bar) return;
-  let html = '<span style="font-size:12px;color:var(--text3);margin-right:6px">Progress:</span>';
-  s.all.forEach(c => { html += '<span class="sr-pip ' + (c.confidence >= 2 ? 'know' : 'review') + '"></span>'; });
-  bar.innerHTML = html;
-}
-function podFcFlip(name) { const c = document.getElementById('pod-'+name+'-fc-card'); if (c) c.classList.toggle('flipped'); }
-function podFcRate(name, score) {
-  const s = podFcState[name]; if (!s) return;
-  s.queue[s.current].confidence = score;
-  if (score === 0) s.queue.push({...s.queue[s.current]});
-  s.current++;
-  podFcSRBar(name);
-  if (s.current >= s.queue.length) {
-    const know = s.all.filter(c => c.confidence >= 2).length;
-    const wrap = document.getElementById('pod-'+name+'-fc-wrap');
-    const done = document.getElementById('pod-'+name+'-fc-done');
-    const msg = document.getElementById('pod-'+name+'-fc-done-msg');
-    if (wrap) wrap.style.display = 'none';
-    if (done) done.style.display = 'block';
-    if (msg) msg.textContent = know + ' of ' + s.all.length + ' cards mastered.';
-  } else podFcRender(name);
-}
-function podFcShuffle(name) { const s = podFcState[name]; if (!s) return; s.queue = [...s.all].sort(() => Math.random()-.5); s.current = 0; podFcRender(name); }
-function podFcReset(name) { podFcInit(name); }
-function podFcReviewWeak(name) {
-  const s = podFcState[name]; if (!s) return;
-  const weak = s.all.filter(c => c.confidence < 2);
-  if (!weak.length) { podFcReset(name); return; }
-  s.queue = [...weak].sort(() => Math.random()-.5); s.current = 0;
-  const wrap = document.getElementById('pod-'+name+'-fc-wrap');
-  const done = document.getElementById('pod-'+name+'-fc-done');
-  if (wrap) wrap.style.display = 'block';
-  if (done) done.style.display = 'none';
-  podFcRender(name);
-}
-
-// ── Quiz engine ──
-const podQState = {};
-function podQuizInit(name) {
-  const qs = POD_QUIZ[name]; if (!qs) return;
-  podQState[name] = { qs: [...qs].sort(() => Math.random()-.5), idx:0, score:0, answered:false, wrongs:[] };
-  const score = document.getElementById('pod-'+name+'-qscore');
-  const wrap = document.getElementById('pod-'+name+'-quiz-wrap');
-  if (score) score.classList.remove('show');
-  if (wrap) wrap.style.display = 'block';
-  podQuizRender(name);
-}
-function podQuizRender(name) {
-  const s = podQState[name]; if (!s) return;
-  const q = s.qs[s.idx];
-  const total = s.qs.length;
-  s.answered = false;
-  const pfill = document.getElementById('pod-'+name+'-qpfill');
-  const meta = document.getElementById('pod-'+name+'-qmeta');
-  const text = document.getElementById('pod-'+name+'-qtext');
-  const fb = document.getElementById('pod-'+name+'-qfb');
-  const nxt = document.getElementById('pod-'+name+'-qnext');
-  const opts = document.getElementById('pod-'+name+'-qopts');
-  if (pfill) pfill.style.width = (s.idx/total*100) + '%';
-  if (meta) meta.textContent = 'Question ' + (s.idx+1) + ' of ' + total + ' · ' + q.topic;
-  if (text) text.textContent = q.q;
-  if (fb) { fb.className = 'quiz-fb'; fb.textContent = ''; }
-  if (nxt) nxt.style.display = 'none';
-  if (opts) {
-    opts.innerHTML = '';
-    q.opts.forEach((o,i) => {
-      const btn = document.createElement('button');
-      btn.className = 'quiz-opt';
-      btn.textContent = o;
-      btn.onclick = () => podQuizAnswer(name, i);
-      opts.appendChild(btn);
-    });
-  }
-}
-function podQuizAnswer(name, chosen) {
-  const s = podQState[name]; if (!s || s.answered) return;
-  s.answered = true;
-  const q = s.qs[s.idx];
-  const opts = document.querySelectorAll('#pod-'+name+'-qopts .quiz-opt');
-  opts.forEach(b => b.disabled = true);
-  opts[q.ans].classList.add('correct');
-  const fb = document.getElementById('pod-'+name+'-qfb');
-  if (chosen === q.ans) {
-    s.score++;
-    if (fb) { fb.className = 'quiz-fb correct show'; fb.textContent = 'Correct! ' + q.exp; }
-  } else {
-    opts[chosen].classList.add('wrong');
-    s.wrongs.push(q);
-    if (fb) { fb.className = 'quiz-fb wrong show'; fb.textContent = 'Incorrect. ' + q.exp; }
-  }
-  const nxt = document.getElementById('pod-'+name+'-qnext');
-  if (nxt) nxt.style.display = 'block';
-}
-function podQuizNext(name) {
-  const s = podQState[name]; if (!s) return;
-  s.idx++;
-  if (s.idx >= s.qs.length) {
-    const wrap = document.getElementById('pod-'+name+'-quiz-wrap');
-    const score = document.getElementById('pod-'+name+'-qscore');
-    const big = document.getElementById('pod-'+name+'-qbig');
-    const msg = document.getElementById('pod-'+name+'-qmsg');
-    const weak = document.getElementById('pod-'+name+'-qweak');
-    const pfill = document.getElementById('pod-'+name+'-qpfill');
-    if (wrap) wrap.style.display = 'none';
-    if (score) score.classList.add('show');
-    if (big) big.textContent = s.score + '/' + s.qs.length;
-    if (pfill) pfill.style.width = '100%';
-    const pct = Math.round(s.score/s.qs.length*100);
-    if (msg) msg.textContent = pct >= 80 ? 'Excellent — podcast mastered!' : pct >= 60 ? 'Good progress — revisit the weak areas.' : 'Keep reviewing — listen to the episode again.';
-    if (weak) {
-      if (!s.wrongs.length) { weak.innerHTML = '<div class="weak-title">Perfect score!</div>'; }
-      else {
-        const topics = [...new Set(s.wrongs.map(q => q.topic))];
-        weak.innerHTML = '<div class="weak-title">Review these topics:</div>' + topics.map(t => '<div class="weak-item"><span class="weak-item-icon">⚠️</span><div class="weak-item-text">'+t+'</div></div>').join('');
-      }
-    }
-  } else podQuizRender(name);
-}
 
 // ══════════════════════════════════════════
 // IBT — HOOK INTO showLecture (init FC/quiz on navigate)
