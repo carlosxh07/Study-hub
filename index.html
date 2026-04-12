@@ -4339,6 +4339,11 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
         <li><strong>Net welfare = –2–4 (net loss)</strong></li>
       </ul>
       <p style="margin-top:8px"><strong>Large open economy:</strong> Domestic exports large enough to depress world price → benefits foreign CS*, but net global welfare cost. Domestic net welfare = –2–4–5.</p>
+      <div class="note-box" style="border-left-color:var(--ibt-m);background:var(--ibt-l);margin-top:10px">
+        <strong>Why pW must fall in a large open economy:</strong> Domestic exports are large enough to constitute meaningful additional supply to the foreign market — the world market directly "notices" the increase. This is why pW must fall. The size of the price drop depends on foreign demand elasticity: the more elastic the foreign demand curve, the larger the quantity response but the <em>smaller</em> the price drop; inelastic foreign demand produces a <em>larger</em> price drop. The key intuition is that <strong>domestic exports = foreign market supply</strong>, which is why only large economies (not SMOPEC) can influence pW through export subsidies.
+        <br><br>
+        <strong>Global welfare effect is ambiguous:</strong> it depends on whether the domestic welfare losses (areas 2+4+5) outweigh the foreign welfare gains (area 6). Do not assume global welfare is simply negative — the net outcome requires comparing these areas explicitly.
+      </div>
     </div>
     <div class="sum-card">
       <div class="sum-title"><span class="badge b-purple">2.4 Strategic Trade Policy — Airbus vs. Boeing</span></div>
@@ -4349,7 +4354,11 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
         <tr><td><strong>Airbus: Don't</strong></td><td>0 / 100</td><td>0 / 0</td></tr>
       </table>
       <p style="margin-top:8px">Sequential game: first mover wins. Boeing goes first → (0/100). With <strong>€25 subsidy to Airbus</strong>: Airbus payoff when both produce = 20 (not –5) → Airbus has dominant strategy to produce → Boeing deterred → equilibrium (125/0). Net European gain = 125 – 25 = <strong>100</strong>. US loses 100.</p>
-      <div class="note-box" style="border-left-color:var(--ibt-m);background:var(--ibt-l)">Risk: foreign retaliation. If payoffs change, the subsidy could be a costly misjudgment.</div>
+      <div class="note-box" style="border-left-color:var(--ibt-m);background:var(--ibt-l);margin-top:10px">
+        <strong>⚠️ Exam-critical distinction — Dominant strategy vs. conditional best response:</strong><br>
+        A <strong>dominant strategy</strong> is one that is always the best choice <em>regardless of what the other firm does</em>. Without the subsidy, Airbus only wants to produce if Boeing does <em>not</em> — this is a <strong>conditional best response</strong>, not a dominant strategy. With the EU subsidy of 25, Airbus wants to produce even if Boeing also produces (payoff 20 &gt; 0), making "produce" a <strong>dominant strategy</strong> for Airbus. Boeing anticipates this and rationally exits. This distinction — between a conditional best response and a true dominant strategy — was tested as a standalone exam question.
+      </div>
+      <div class="note-box" style="border-left-color:var(--ibt-m);background:var(--ibt-l);margin-top:8px">Risk: foreign retaliation. If payoffs change, the subsidy could be a costly misjudgment.</div>
     </div>
     <div class="sum-card">
       <div class="sum-title"><span class="badge b-purple">2.5 Russia Sanctions Timeline</span></div>
@@ -7675,7 +7684,7 @@ const IBT_FLASHCARDS = {
   s2: [
     {q:'What is the key difference between a tariff and a non-tariff barrier in terms of government revenue?',a:'Tariffs generate government revenue (tariff × import quantity). NTBs do NOT generate revenue (unless licenses are auctioned) — the potential revenue goes to importers holding licenses. This makes NTBs unambiguously more welfare-costly than equivalent tariffs.',src:'Session 2 — NTBs'},
     {q:'What is the difference between an import quota and an import embargo?',a:'An import quota limits import quantity to >0. An import embargo is a zero-import quota — equivalent to a prohibitive tariff. An embargo is the extreme case of an import quota.',src:'Session 2 — Quotas vs. Embargo'},
-    {q:'In the Airbus-Boeing game, how does a €25 subsidy to Airbus change the equilibrium?',a:'Without subsidy: sequential game → first mover wins → Boeing produces, Airbus doesn\'t (0/100). With €25 subsidy: Airbus earns 20 even if both produce (vs. −5 without subsidy) → Airbus has dominant strategy to produce regardless → Boeing deterred → new equilibrium (125/0). Net European gain = 125 − 25 = 100.',src:'Session 2 — Strategic Trade Policy'},
+    {q:'In the Airbus-Boeing game, how does a €25 subsidy to Airbus change the equilibrium?',a:'Without subsidy: sequential game → first mover wins → Boeing produces, Airbus doesn\'t (0/100). With €25 subsidy: Airbus earns 20 even if both produce (vs. −5 without subsidy) → Airbus has dominant strategy to produce regardless → Boeing deterred → new equilibrium (125/0). Net European gain = 125 − 25 = 100. Note: without the subsidy, Airbus has no dominant strategy — it only wants to produce if Boeing does not (conditional best response). The subsidy converts this into a dominant strategy because Airbus prefers to produce regardless of Boeing\'s choice (20 > 0 even when both produce).',src:'Session 2 — Strategic Trade Policy'},
     {q:'What is the net welfare effect of an export subsidy in a small open economy?',a:'Budget deficit increases (−2−3−4), producer surplus increases (+1+2+3), consumer surplus decreases (−1−2). Net welfare = −2−4 (net loss). The subsidy costs more in budget terms than the PS gain exceeds the CS loss.',src:'Session 2 — Export Subsidies'},
     {q:'What is "beggar-my-neighbour" trade policy and why is it risky?',a:'Beggar-my-neighbour = using government intervention (subsidies, tariffs) in oligopolistic industries to shift profits from a foreign firm to a domestic one. Risk: foreign retaliation can nullify the gain, and if underlying payoffs differ from the model, the subsidy can be a costly misjudgment.',src:'Session 2 — Strategic Trade'},
   ],
