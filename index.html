@@ -431,6 +431,10 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
     <button class="nav-sub" onclick="showLecture('ibt','s5',this)">Session 5: Money &amp; Prices</button>
     <div class="nav-label">Intercultural Comp.</div>
     <button class="nav-btn" data-color="ic" onclick="showPage('ic-overview',this)"><span class="nav-dot" style="background:var(--ic)"></span>All Chapters</button>
+    <button class="nav-sub" onclick="showLecture('ic','s1',this)">Session 1: Global Manager &amp; Culture</button>
+    <button class="nav-sub" onclick="showLecture('ic','s2',this)">Session 2: Leadership</button>
+    <button class="nav-sub" onclick="showLecture('ic','s3',this)">Session 3: Power</button>
+    <button class="nav-sub" onclick="showLecture('ic','s4',this)">Session 4: Diverse Teams</button>
   </nav>
 </aside>
 
@@ -464,9 +468,9 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
       <div class="sc-stats"><div class="sc-stat"><strong>5 / 5</strong> sessions loaded</div><div class="sc-stat"><strong>32</strong> flashcards</div><div class="sc-stat"><strong>40</strong> quiz Qs</div></div>
     </div>
     <div class="subject-card sc-ic" onclick="showPage('ic-overview',null)">
-      <div class="sc-name">Intercultural Competence</div><div class="sc-meta">Chapters · Coming soon</div>
-      <div class="sc-progress"><div class="sc-progress-fill" style="width:0%;background:var(--ic)"></div></div>
-      <div class="sc-stats"><div class="sc-stat"><strong>0</strong> chapters loaded</div></div>
+      <div class="sc-name">Intercultural Competence</div><div class="sc-meta">Sessions 1–4 · Global Manager, Leadership, Power, Diverse Teams</div>
+      <div class="sc-progress"><div class="sc-progress-fill" style="width:100%;background:var(--ic)"></div></div>
+      <div class="sc-stats"><div class="sc-stat"><strong>4</strong> sessions loaded</div><div class="sc-stat"><strong>60</strong> flashcards</div><div class="sc-stat"><strong>60</strong> quiz Qs</div></div>
     </div>
   </div>
 </div>
@@ -4697,7 +4701,101 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
   <div id="ibts5-flashcards" class="study-panel"><div id="ibts5-fc-wrap"></div></div>
   <div id="ibts5-quiz" class="study-panel"><div id="ibts5-quiz-wrap"></div></div>
 </div>
-<div id="page-ic-overview" class="page"><div class="page-eyebrow" style="color:var(--ic)">Intercultural Competence</div><div class="page-title">All Chapters</div><div class="page-desc">No chapters loaded yet.</div><div class="empty-state"><h3>Ready to populate</h3><p>Share your IC notes and I'll build the summary, flashcards, and quiz for each chapter.</p></div></div>
+<div id="page-ic-overview" class="page">
+  <div class="page-eyebrow" style="color:var(--ic)">Intercultural Competence</div>
+  <div class="page-title">All Sessions</div>
+  <div class="page-desc">Select a session to access its summary, flashcards, and quiz.</div>
+  <div class="lectures-list">
+    <div class="lec-card" onclick="showLecture('ic','s1',null)"><div class="lec-num" style="background:var(--ic-l);color:var(--ic)">01</div><div class="lec-info"><div class="lec-title">Session 1</div><div class="lec-sub">The Challenge of the Global Manager &amp; Culture</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span></div></div>
+    <div class="lec-card" onclick="showLecture('ic','s2',null)"><div class="lec-num" style="background:var(--ic-l);color:var(--ic)">02</div><div class="lec-info"><div class="lec-title">Session 2</div><div class="lec-sub">Leadership — Trait, Behavioural, Transformational &amp; Universal Principles</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span></div></div>
+    <div class="lec-card" onclick="showLecture('ic','s3',null)"><div class="lec-num" style="background:var(--ic-l);color:var(--ic)">03</div><div class="lec-info"><div class="lec-title">Session 3</div><div class="lec-sub">Power — Acquisition, Appearance &amp; Network Strategies</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span></div></div>
+    <div class="lec-card" onclick="showLecture('ic','s4',null)"><div class="lec-num" style="background:var(--ic-l);color:var(--ic)">04</div><div class="lec-info"><div class="lec-title">Session 4</div><div class="lec-sub">Managing Diverse Teams — CEM, Faultlines &amp; Leader Goals</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span></div></div>
+  </div>
+</div>
+
+<!-- ══ IC SESSION 1 ══ -->
+<div id="page-ic-s1" class="page">
+  <div class="page-eyebrow" style="color:var(--ic)">Intercultural Competence · Session 1</div>
+  <div class="page-title">The Challenge of the Global Manager &amp; Culture</div>
+  <div class="page-desc">Globalisation forces, culture defined, Hofstede's three-level model, and three cultural frameworks: K&amp;S, Hofstede, Schwartz.</div>
+  <div class="study-tabs">
+    <button class="study-tab active" onclick="icShowTab('s1','summary',this)">Summary</button>
+    <button class="study-tab" onclick="icShowTab('s1','flashcards',this)">Flashcards</button>
+    <button class="study-tab" onclick="icShowTab('s1','quiz',this)">Quiz</button>
+  </div>
+  <div id="ic-s1-summary" class="study-panel active">
+    <div class="sum-card"><div class="sum-title">🌐 2A — Challenges of the Global Manager</div><p>Global leadership has grown harder along four axes. <strong>Economic interconnectedness</strong> exploded — regional trade agreements rose from 45 in the 1990s to over 420 by 2016 — but a counter-trend toward localisation and reshoring has emerged since 2016 due to US–China tensions (e.g., Intel mega-plants). <strong>Workforce complexity</strong> grows via permanent migration (migrant shares: Germany 12%, Spain 14%, Canada 21%, Australia 28%) and ageing EU populations. <strong>Technology</strong> reduces geographic barriers through virtual and dispersed work. <strong>Political tensions</strong> create a local vs. universal management dilemma. Key implication: leaders must distinguish universal leadership aspects (e.g., power dynamics) from context-dependent ones (e.g., cultural norms).</p></div>
+    <div class="sum-card"><div class="sum-title">📖 2B — Defining Culture</div><p>Multiple scholars converge on the same core idea: culture is a shared lens that shapes thinking, perceiving, and behaving.</p><ul><li><strong>Hofstede (1991)</strong> — "the collective programming of the mind"</li><li><strong>Hodgetts (2005)</strong> — acquired knowledge used to interpret experience</li><li><strong>Kluckhohn (1954)</strong> — patterned ways of thinking</li><li><strong>Shweder &amp; LeVine (1984)</strong> — a shared meaning system</li></ul></div>
+    <div class="sum-card"><div class="sum-title">🧠 2C — Hofstede's Three Levels of Mental Programming</div><p><strong>Human Nature</strong> (inherited, universal) → <strong>Culture</strong> (learned, group-specific) → <strong>Personality</strong> (inherited + learned, individual). Culture sits between biology and individuality — it is what you share with some people but not all. This layering is why global managers must understand culture without reducing individuals to national stereotypes.</p></div>
+    <div class="sum-card"><div class="sum-title">🔑 2D — Three Core Principles of Culture</div><ul><li><strong>Shared</strong> — Most members share an intuitive understanding of underlying values and norms, even if they personally disagree. "Shared" ≠ unanimous agreement.</li><li><strong>Learned</strong> — Culture is acquired through socialisation, not inherited biologically.</li><li><strong>Influences attitudes, cognitions &amp; behaviour</strong> — Culture filters what information we acquire and recall. Example: mastery-culture managers recalled subordinates' financial achievements; collectivistic-culture managers recalled team-building success.</li></ul></div>
+    <div class="sum-card"><div class="sum-title">📊 2E — Cultural Frameworks</div><p><strong>Kluckhohn &amp; Strodtbeck (1961)</strong> — 5 universal societal problems, each with 3 solution orientations: Human Nature (Evil/Mixed/Good), Relationship to Nature (Mastery/Harmony/Submission), Time (Past/Present/Future), Activity (Being/Becoming/Doing), Space (Public/Mixed/Private).</p><p style="margin-top:8px"><strong>Hofstede</strong> — Analysed IBM data 1967–73 across 70+ countries → 5 statistical dimensions (Power Distance, Individualism/Collectivism, Uncertainty Avoidance, Masculinity/Femininity, Long-Term Orientation).</p><p style="margin-top:8px"><strong>Schwartz</strong> — 70+ countries, 10 universal values arranged in a circular spectrum where adjacent values are compatible and opposite values conflict: Power · Achievement · Hedonism · Stimulation · Self-direction · Universalism · Benevolence · Tradition · Conformity · Security. Two conflict axes: Self-Enhancement ↔ Self-Transcendence; Conservation ↔ Openness to Change.</p></div>
+    <div class="sum-card"><div class="sum-title">⚠️ 2F — Limitations of Country Culture Research</div><p>Country averages mask individual variation; countries contain major subcultures; samples are often small. Research provides a "first rough approximation" — useful for prediction but not deterministic. Managers must never stereotype individuals based on national scores.</p><div class="note-box">🪤 <strong>Common traps:</strong> Confusing K&amp;S's "past-focused time" with Schwartz's "Tradition" value — two different frameworks, similar words. "Shared" ≠ unanimous. Hofstede's data is 1967–73 — not recent.</div></div>
+  </div>
+  <div id="ic-s1-flashcards" class="study-panel"><div id="ic-s1-fc-wrap"></div></div>
+  <div id="ic-s1-quiz" class="study-panel"><div id="ic-s1-quiz-wrap"></div></div>
+</div>
+
+<!-- ══ IC SESSION 2 ══ -->
+<div id="page-ic-s2" class="page">
+  <div class="page-eyebrow" style="color:var(--ic)">Intercultural Competence · Session 2</div>
+  <div class="page-title">Leadership</div>
+  <div class="page-desc">From trait to contemporary: evolution of leadership theory, Social Identity Theory, and three universal leadership principles.</div>
+  <div class="study-tabs">
+    <button class="study-tab active" onclick="icShowTab('s2','summary',this)">Summary</button>
+    <button class="study-tab" onclick="icShowTab('s2','flashcards',this)">Flashcards</button>
+    <button class="study-tab" onclick="icShowTab('s2','quiz',this)">Quiz</button>
+  </div>
+  <div id="ic-s2-summary" class="study-panel active">
+    <div class="sum-card"><div class="sum-title">⏱ Evolution of Leadership Approaches</div><p>Post-WWI → 1960s: <strong>Trait</strong> (leadership is innate). 1960s–70s: <strong>Behavioural/Style</strong> (leadership can be learned). 1970s–80s: <strong>Contingency</strong> (context moderates). 1980s–90s: <strong>Transformational/Relational</strong>. Current: <strong>Contemporary</strong> — AI leadership, Theory U, leading in diverse worlds.</p></div>
+    <div class="sum-card"><div class="sum-title">🧬 Trait Approach &amp; Implicit Leadership Theories (ILTs)</div><p>ILTs = "everyday images of what leaders are like in terms of traits and behaviours" (Antonakis &amp; Dalgas, 2009). The French election study showed children (73%) and adults (67%) chose the winning candidate from face photos alone — ILTs operate below conscious awareness.</p><p style="margin-top:8px"><strong>Height study (Judge &amp; Cable, 2004)</strong>: r=.24 with leader emergence; €230/year/cm income gap over 30-year career.</p><p style="margin-top:8px"><strong>Big Five (Judge, 2002)</strong>: Conscientiousness (.36) and Extraversion (.30) best predict emergence (28% explained variance). Openness (.19) best predicts effectiveness (15%). Agreeableness is negatively correlated with emergence (r=−.14) — assertiveness needed to be recognised as a leader.</p></div>
+    <div class="sum-card"><div class="sum-title">⚙️ Behavioural Approach — Ohio State Studies</div><p>Two independent dimensions (Judge, Piccolo &amp; Ilies, 2004):<br><strong>Initiating Structure</strong> (task-oriented) — structuring the environment for goal attainment: assigning deadlines, designing tasks.<br><strong>Consideration</strong> (relationship-oriented) — building trust, respect, and regard for employees' feelings.<br>These are orthogonal — a leader can be high or low on each simultaneously.</p></div>
+    <div class="sum-card"><div class="sum-title">🔄 Modern Definition &amp; Three Universal Principles</div><p><strong>Fischer, Dietz &amp; Antonakis (2017)</strong>: "The process of influencing others toward the achievement of a goal." Shift: Leader → Follower (unidirectional) became Leader ↔ Follower (mutual, relational).</p><p style="margin-top:8px"><strong>Principle 1 — Balance Constraints &amp; Freedom:</strong> Constraints = directive leadership, goal-setting, vision, rules. Freedom = authenticity, creativity, diversity, empowerment. Calibrate the balance.</p><p style="margin-top:8px"><strong>Principle 2 — Create a Shared Identity (SIT):</strong> Five SIT propositions: (1) defined by similarities/differences; (2) shared identity enables social action; (3) in-group favouritism + out-group bias; (4) depersonalisation — individuals adopt group-prototypical traits when group identity is salient; (5) salience — not all identities active simultaneously. Tactics: "we" language, team-based rewards, shared values, shared vision, shared "enemy."</p><p style="margin-top:8px"><strong>Principle 3 — Foster Closeness &amp; Openness:</strong> Mutual vulnerability → closeness → trust. Key pattern: sustained, escalating, reciprocal, personal self-disclosure (Aron's intimacy research).</p><div class="note-box">🪤 Traits explain only 15–28% of leadership. Depersonalisation in SIT is <em>not</em> negative — it is how group identity generates collective action. Initiating Structure and Consideration are independent dimensions, not a trade-off.</div></div>
+  </div>
+  <div id="ic-s2-flashcards" class="study-panel"><div id="ic-s2-fc-wrap"></div></div>
+  <div id="ic-s2-quiz" class="study-panel"><div id="ic-s2-quiz-wrap"></div></div>
+</div>
+
+<!-- ══ IC SESSION 3 ══ -->
+<div id="page-ic-s3" class="page">
+  <div class="page-eyebrow" style="color:var(--ic)">Intercultural Competence · Session 3</div>
+  <div class="page-title">Power</div>
+  <div class="page-desc">Power defined, political skills, four rules for acquiring power, body language, networking principles, and the Warmth × Competence matrix.</div>
+  <div class="study-tabs">
+    <button class="study-tab active" onclick="icShowTab('s3','summary',this)">Summary</button>
+    <button class="study-tab" onclick="icShowTab('s3','flashcards',this)">Flashcards</button>
+    <button class="study-tab" onclick="icShowTab('s3','quiz',this)">Quiz</button>
+  </div>
+  <div id="ic-s3-summary" class="study-panel active">
+    <div class="sum-card"><div class="sum-title">⚡ What is Power?</div><p><strong>Power = asymmetric control over valued resources in social relations.</strong> Resources include: material goods, services, currency, information, affection. The "E" study (Galinsky et al., 2006): high-power individuals draw the letter "E" for themselves (self-focused); low-power individuals orient it for the observer. Power reduces perspective-taking. Higher power correlates with greater subjective wellbeing (Kifer et al., 2013). Political skills predict total compensation, promotions, career satisfaction, and life satisfaction (Todd et al., 2009).</p></div>
+    <div class="sum-card"><div class="sum-title">🚧 Rule 1 — Get Out of Your Own Way</div><p><strong>Self-perception theory (Bem)</strong>: individuals infer internal states from their own behaviour — so describing yourself powerfully creates a virtuous self-fulfilling cycle.</p><p style="margin-top:6px"><strong>Low power perpetuates itself (Belmi &amp; Laurin, 2016)</strong>: Political strategies (networking, flattery, self-promotion) are more effective than pro-social ones (hard work, helping others), but lower-class individuals are less willing to use them due to collectivistic orientation.</p><p style="margin-top:6px"><strong>Curse of authenticity</strong>: Avoiding networking, flattery, and self-promotion "to be authentic" costs power. Vulnerability disclosure increases closeness but decreases perceived influence.</p><p style="margin-top:6px"><strong>Paradox of likability (Fiske)</strong>: Two judging dimensions = Warmth &amp; Competence; perceived as negatively related. High Warmth + High Competence = Admiration; High Warmth + Low Competence = Pity; Low Warmth + High Competence = Envy; Low Warmth + Low Competence = Contempt. Amabile (2000): negative reviewers rated as more intelligent — criticism signals competence.</p></div>
+    <div class="sum-card"><div class="sum-title">📏 Rule 2 — Break the Rules</div><p>Norm violation increases perceived power for four reasons: (1) heuristic — power is associated with freedom from norms; (2) surprise effect — captures attention; (3) resistance is less than expected — people avoid difficult confrontations; (4) rules are made by the powerful — violating them restructures who holds power. The dilemma: fitting in vs. standing out.</p></div>
+    <div class="sum-card"><div class="sum-title">💼 Rule 3 — Appear Powerful</div><p><strong>Blankfein vs. Hayward (2010 Congress)</strong>: Blankfein (Goldman Sachs) — confrontational, open posture, direct eye contact, declarations, unapologetic → appeared powerful. Hayward (BP) — apologetic, hunched, read prepared statement → appeared weak.</p><p style="margin-top:6px"><strong>Anger vs. Apology (Tiedens)</strong>: Anger → more promotions, higher salary, less likable. Apology → warm, remorseful, lower status. Apology is only useful when separated from personal responsibility.</p><p style="margin-top:6px"><strong>Body language (Carney, 2020 meta-analysis — cross-culturally valid)</strong>: More gestures, open posture, less interpersonal distance, louder voice, more speaking time, longer gaze, controlled gestures, declarations not questions, successful interruptions, repeating ideas.</p></div>
+    <div class="sum-card"><div class="sum-title">🕸 Rule 4 — Network Relentlessly</div><p>Networking is the most robust predictor of career success. Resistance reasons: not enjoyable, moral objections, reluctance to use friendships instrumentally.</p><p style="margin-top:6px"><strong>Ties</strong>: Strong ties = deep, intimate (family, close co-workers). Weak ties = infrequent (acquaintances) → non-redundant information from different social circles → better for finding jobs (Granovetter, N=282).</p><p style="margin-top:6px"><strong>Network roles</strong>: Hub (most connections, central), Broker (bridges isolated communities — unique social capital), Peripheral (fewest connections, niche expertise).</p><p style="margin-top:6px"><strong>Three networking principles</strong>: (1) Pursue weak ties — they tap different circles. (2) Become a broker — connect isolated parties, generate social capital. (3) Provide value — triggers norm of reciprocity.</p><div class="note-box">🪤 Warmth is NOT simply good — it costs competence perceptions. Hub ≠ Broker. Lower-class individuals resist political strategies for psychological, not circumstantial, reasons.</div></div>
+  </div>
+  <div id="ic-s3-flashcards" class="study-panel"><div id="ic-s3-fc-wrap"></div></div>
+  <div id="ic-s3-quiz" class="study-panel"><div id="ic-s3-quiz-wrap"></div></div>
+</div>
+
+<!-- ══ IC SESSION 4 ══ -->
+<div id="page-ic-s4" class="page">
+  <div class="page-eyebrow" style="color:var(--ic)">Intercultural Competence · Session 4</div>
+  <div class="page-title">Managing Diverse Teams</div>
+  <div class="page-desc">The CEM framework, why diverse teams fail, faultlines, key moderators, and three leader goals for realising diversity's potential.</div>
+  <div class="study-tabs">
+    <button class="study-tab active" onclick="icShowTab('s4','summary',this)">Summary</button>
+    <button class="study-tab" onclick="icShowTab('s4','flashcards',this)">Flashcards</button>
+    <button class="study-tab" onclick="icShowTab('s4','quiz',this)">Quiz</button>
+  </div>
+  <div id="ic-s4-summary" class="study-panel active">
+    <div class="sum-card"><div class="sum-title">🔍 Diversity &amp; the Research Problem</div><p><strong>Diversity (Van Knippenberg et al., 2004)</strong>: "Characteristic of a social grouping that reflects the degree to which there are objective or subjective differences among people within the group."</p><p style="margin-top:6px"><strong>Optimistic path</strong>: Diversity → broader task-relevant knowledge pool → better problem-solving, innovation. <strong>Pessimistic path</strong>: Diversity → social categorisation → intergroup bias → conflict, reduced cohesion.</p><p style="margin-top:6px"><strong>Meta-analyses</strong>: Horwitz &amp; Horwitz (2007, 35 studies) — demographic diversity hurts, task-related diversity helps. Van Dijk et al. (2012, 146 studies) — inconsistent. Post &amp; Byron (2015, 140 studies on women on boards) — near-zero relationship with financial performance. Conclusion: diversity's effect depends entirely on moderators.</p></div>
+    <div class="sum-card"><div class="sum-title">🧩 The CEM (Categorisation-Elaboration Model)</div><p><strong>CEM Principle 1</strong>: The primary mechanism for diversity's positive effects is <em>elaboration of task-relevant information</em> — the active sharing, processing, and integration of unique knowledge from different members.</p><p style="margin-top:6px"><strong>CEM Principle 2</strong>: Any diversity type (surface or deep, task-related or not) can simultaneously trigger both information processing AND social categorisation. This is why typology approaches only partially resolve inconsistency.</p><p style="margin-top:6px"><strong>CEM Principle 3</strong>: Diversity's impact depends on moderators — and leaders CAN influence those moderators. This shifts the question from "does diversity help or hurt?" to "how do we realise the promise of diversity?"</p></div>
+    <div class="sum-card"><div class="sum-title">❌ Why Diverse Teams Often Fail (Three Root Causes)</div><ul><li><strong>Lack of information elaboration</strong> — no knowledge sharing, withholding, superficial sharing</li><li><strong>Lack of shared understanding of reality</strong> — no shared mental models, goal misalignment</li><li><strong>Lack of shared identity — faultlines</strong> — subgroups form along demographic lines: no cross-subgroup collaboration, knowledge hoarded within subgroups, in-group trust / out-group bias. Connected to SIT: when demographic categories become salient, depersonalisation fragments the team.</li></ul></div>
+    <div class="sum-card"><div class="sum-title">⚙️ Moderators: What Determines Whether Diversity Helps?</div><p><strong>Task complexity (Wegge et al., 2008 — 4,538 tax employees, 222 work units)</strong>: High age diversity + complex tasks → better performance, fewer health symptoms. High age diversity + routine tasks → worse performance, more symptoms. Elaboration pays off when the task actually requires multiple perspectives.</p><p style="margin-top:6px"><strong>Diversity beliefs (Homan et al., 2008)</strong>: Teams whose members view diversity as a resource (not a threat) are more likely to engage in information elaboration. Positive diversity beliefs are a key moderator.</p></div>
+    <div class="sum-card"><div class="sum-title">🎯 Three Leader Goals for Diverse Teams</div><p><strong>Goal 1 — Increase Information Elaboration</strong>: Create psychological safety (Edmondson, 1999 — beliefs that it is safe to take interpersonal risks). Assign complex tasks. Ensure roughly equal participation (Woolley et al., 2010). Plan collaboration in advance (Fisher et al., 2014).</p><p style="margin-top:6px"><strong>Goal 2 — Create Shared Understanding (Team Charter)</strong>: Agree on objectives, leadership structure, meeting norms, values and rules, anticipated difficulties, conflict handling, monitoring, and breakdown protocols.</p><p style="margin-top:6px"><strong>Goal 3 — Create Shared Identity</strong>: Make team identity more salient than sub-group identities. Use same SIT tactics from Leadership session: "we" language, team-based rewards, shared vision, shared values, identify external challenges.</p><div class="note-box">🪤 Diverse teams are NOT automatically better — they are more often negative without management. Psychological safety ≠ comfort — it is safety to take interpersonal risks (disagreement, voicing concerns). Elaboration is an active process, not simply having diverse members.</div></div>
+  </div>
+  <div id="ic-s4-flashcards" class="study-panel"><div id="ic-s4-fc-wrap"></div></div>
+  <div id="ic-s4-quiz" class="study-panel"><div id="ic-s4-quiz-wrap"></div></div>
+</div>
 
 <!-- ══════════════════════════════════════════
      EXAM PREP PAGE
@@ -4859,7 +4957,11 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
 // ── Navigation ──
 function showPage(id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));document.getElementById('page-'+id).classList.add('active');if(btn)btn.classList.add('active')}
 function showLecture(subject,id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-sub').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');const el=document.getElementById('page-'+subject+'-'+id);if(el){el.classList.add('active');if(subject==='eu'&&id==='i'){initFC('si');initQuiz('si')}if(subject==='eu'&&id==='ii'){initFC('sii');initQuiz('sii')}if(subject==='eu'&&id==='iii'){initFC('siii');initQuiz('siii');initSiiiTimeline()}if(subject==='eu'&&id==='iv'){initFC('siv');initQuiz('siv');initSivTimeline()}if(subject==='eu'&&id==='v'){initFC('sv');initQuiz('sv')}if(subject==='eu'&&id==='vi'){initFC('svi');initQuiz('svi');loadScenario(0,document.querySelector('.scenario-btn'))}if(subject==='eu'&&id==='vii'){initFC('svii');initQuiz('svii');initSviiTimeline()}if(subject==='eu'&&id==='viii'){initFC('sviii');initQuiz('sviii');initSviiiTimeline()}if(subject==='eu'&&id==='ix'){initFC('six');initQuiz('six')}if(subject==='micro'&&id==='ch2'){initMicroFC('ch2');initMicroQuiz('ch2');initCalcFor('ch2')}
-if(subject==='micro'&&id==='ch3'){initMicroFC('ch3');initMicroQuiz('ch3');initCalc()}if(subject==='micro'&&id==='ps1'){initMicroFC('ps1');initMicroQuiz('ps1');initCalcFor('ps1')}if(subject==='micro'&&id==='ps2'){initMicroFC('ps2');initMicroQuiz('ps2');initCalcFor('ps2')}if(subject==='macro'&&id==='lec1'){initMacroFC('lec1');initMacroQuiz('lec1');initCalcFor('lec1')}if(subject==='macro'&&id==='lec2'){initMacroFC('lec2');initMacroQuiz('lec2');initCalcFor('lec2')}}}
+if(subject==='micro'&&id==='ch3'){initMicroFC('ch3');initMicroQuiz('ch3');initCalc()}if(subject==='micro'&&id==='ps1'){initMicroFC('ps1');initMicroQuiz('ps1');initCalcFor('ps1')}if(subject==='micro'&&id==='ps2'){initMicroFC('ps2');initMicroQuiz('ps2');initCalcFor('ps2')}if(subject==='macro'&&id==='lec1'){initMacroFC('lec1');initMacroQuiz('lec1');initCalcFor('lec1')}if(subject==='macro'&&id==='lec2'){initMacroFC('lec2');initMacroQuiz('lec2');initCalcFor('lec2')}
+if(subject==='ic'&&id==='s1'){icInitFC('s1');icInitQuiz('s1')}
+if(subject==='ic'&&id==='s2'){icInitFC('s2');icInitQuiz('s2')}
+if(subject==='ic'&&id==='s3'){icInitFC('s3');icInitQuiz('s3')}
+if(subject==='ic'&&id==='s4'){icInitFC('s4');icInitQuiz('s4')}}}
 
 function showMacroTab(tab,btn,prefix){
   const page=document.getElementById('page-macro-'+prefix);if(!page)return;
@@ -7909,6 +8011,284 @@ function ibtQuizNext(session) {
   renderIbtQuiz(session);
 }
 
+
+// ══════════════════════════════════════════
+// INTERCULTURAL COMPETENCE — TAB, DATA, ENGINE
+// ══════════════════════════════════════════
+
+function icShowTab(session, tab, btn) {
+  const page = document.getElementById('page-ic-' + session);
+  if (!page) return;
+  page.querySelectorAll('.study-panel').forEach(p => p.classList.remove('active'));
+  page.querySelectorAll('.study-tab').forEach(b => b.classList.remove('active'));
+  const panel = document.getElementById('ic-' + session + '-' + tab);
+  if (panel) panel.classList.add('active');
+  if (btn) btn.classList.add('active');
+  if (tab === 'flashcards') icInitFC(session);
+  if (tab === 'quiz') icInitQuiz(session);
+}
+
+// ── IC Flashcard Data ──
+const IC_FLASHCARDS = {
+  s1: [
+    {q:"What is Hofstede's (1991) definition of culture?", a:"'The collective programming of the mind' — a shared lens that shapes thinking, perceiving, and behaving. It is learned and group-specific, not inherited.", src:"Session 1 · Culture Defined"},
+    {q:"What are the Three Core Principles of Culture?", a:"(1) Culture is SHARED — most members have intuitive understanding of values/norms even if they personally disagree. (2) Culture is LEARNED — acquired through socialisation, not inherited. (3) Culture INFLUENCES attitudes, cognitions, and behaviour.", src:"Session 1 · Core Principles"},
+    {q:"What are the three levels of Hofstede's mental programming model?", a:"Human Nature (inherited, universal) → Culture (learned, group-specific) → Personality (inherited + learned, individual-specific). Culture sits between biology and individuality.", src:"Session 1 · Three Levels"},
+    {q:"How does 'culture is shared' NOT mean unanimity?", a:"Members can widely disagree with cultural values but most have an intuitive working understanding of them. Shared = awareness of the norms, not agreement with them.", src:"Session 1 · Principle 1"},
+    {q:"How did regional trade agreements change from the 1990s to 2016?", a:"From ~45 agreements in the 1990s to over 420 by 2016 — a nearly tenfold increase. Since 2016 a counter-trend toward reshoring has begun due to US–China tensions.", src:"Session 1 · Globalisation"},
+    {q:"What are the five K&S dimensions and their three orientations each?", a:"(1) Human Nature: Evil/Mixed/Good. (2) Relationship to Nature: Mastery/Harmony/Submission. (3) Time: Past/Present/Future. (4) Activity: Being/Becoming/Doing. (5) Space: Public/Mixed/Private.", src:"Session 1 · Kluckhohn & Strodtbeck"},
+    {q:"What is the difference between Mastery, Harmony, and Submission in K&S?", a:"Mastery = actively exploit/dominate nature. Harmony = work cooperatively with nature. Submission = defer to and accept nature's will.", src:"Session 1 · K&S Nature Dimension"},
+    {q:"What is the difference between Being, Becoming, and Doing in K&S?", a:"Being = status from who you are (ascribed). Becoming = self-development/growth focus. Doing = status from what you achieve (achievement-based).", src:"Session 1 · K&S Activity Dimension"},
+    {q:"Name all 10 Schwartz values.", a:"Power, Achievement, Hedonism, Stimulation, Self-direction, Universalism, Benevolence, Tradition, Conformity, Security.", src:"Session 1 · Schwartz Values"},
+    {q:"What are the two conflict axes in the Schwartz circular value model?", a:"Self-Enhancement (Power, Achievement) ↔ Self-Transcendence (Universalism, Benevolence); Conservation (Tradition, Conformity, Security) ↔ Openness to Change (Stimulation, Self-direction).", src:"Session 1 · Schwartz Structure"},
+    {q:"What makes Schwartz 'values' different from mere preferences? Give 3 of 6 characteristics.", a:"Values are (1) linked to affect — emotionally arousing when threatened; (2) desirable goals that motivate action; (3) evaluative standards guiding judgement; (4) trans-situational (not context-bound); (5) ranked by relative importance; (6) relative priority guides action.", src:"Session 1 · Value Characteristics"},
+    {q:"How does culture influence information processing? Give an example.", a:"Culture filters what information we acquire and recall. Example: mastery-culture managers recalled subordinate financial achievements; collectivistic-culture managers recalled subordinate team-building success.", src:"Session 1 · Culture & Cognition"},
+    {q:"What is the Schwartz Conformity value and how does it differ from Tradition?", a:"Conformity = obedience to clear rules and structures for control. Tradition = respecting and preserving what has come before (customs, heritage). Both are 'Conservation' values but distinct.", src:"Session 1 · Schwartz Conformity vs Tradition"},
+    {q:"What is the primary limitation of country-level cultural scores?", a:"Country averages mask individual variation; countries contain major subcultures; cross-border cultural groups exist; samples are often small. Scores are a 'first rough approximation' — never deterministic for individuals.", src:"Session 1 · Limitations"},
+    {q:"How do individualistic vs. collectivistic cultures differ in attributing success?", a:"Individualistic: success attributed to the leader's skills and efforts. Collectivistic: success attributed to the team's skills and efforts.", src:"Session 1 · Attributions"},
+  ],
+  s2: [
+    {q:"What is the modern definition of leadership (Fischer, Dietz & Antonakis, 2017)?", a:"'The process of influencing others toward the achievement of a goal.' It is relational and mutual — Leader ↔ Follower — not unidirectional.", src:"Session 2 · Leadership Defined"},
+    {q:"What are Implicit Leadership Theories (ILTs)?", a:"'Everyday images of what leaders are like in terms of traits and behaviors' (Antonakis & Dalgas, 2009). Pre-conscious schemas that operate below awareness and influence leader selection.", src:"Session 2 · ILTs"},
+    {q:"What did the French election study (Antonakis & Dalgas, 2009) show?", a:"Children (73%) and adults (67%) chose the winning candidate based on face photos alone — demonstrating ILTs operate below conscious awareness and influence real-world leader selection.", src:"Session 2 · Face Perception Study"},
+    {q:"What are the Big Five correlations with leadership emergence (Judge, 2002)?", a:"Conscientiousness (.36), Extraversion (.30), Openness (.14), Agreeableness (−.14), Emotional Stability (.09). Total explained variance = 28%.", src:"Session 2 · Big Five"},
+    {q:"Why does Agreeableness correlate negatively with leadership emergence (r=−.14)?", a:"Highly agreeable people are conflict-averse and deferential — traits that undermine the assertiveness needed to be recognised as a leader.", src:"Session 2 · Agreeableness"},
+    {q:"What are the two Ohio State leadership dimensions and what does each involve?", a:"Initiating Structure (task-oriented): structuring the environment for goal attainment — assigning deadlines, designing tasks. Consideration (relationship-oriented): building trust, respect, and regard for feelings. They are independent — a leader can be high on both.", src:"Session 2 · Ohio State"},
+    {q:"What is the key distinction between the Trait and Behavioural approaches?", a:"Trait: leadership is innate — you either have it or you don't. Behavioural: leadership is created through actions — and actions can be learned.", src:"Session 2 · Trait vs Behavioural"},
+    {q:"What are the five propositions of Social Identity Theory?", a:"(1) We are defined by similarities/differences. (2) Shared identity enables social action. (3) In-group favouritism + out-group bias. (4) Depersonalisation — when identity is salient, individuals adopt group-prototypical traits. (5) Salience — not all identities are active simultaneously.", src:"Session 2 · SIT Propositions"},
+    {q:"What is depersonalisation in SIT and why is it NOT negative?", a:"When group identity becomes salient, individuals see themselves as group members and adopt group-prototypical characteristics. It is the mechanism through which shared identity generates collective action — a positive leadership tool.", src:"Session 2 · Depersonalisation"},
+    {q:"What is salience in Social Identity Theory?", a:"The degree to which a particular group identity is cognitively active at a given moment. Context determines which identity is salient — only the active identity shapes perception and behaviour.", src:"Session 2 · Salience"},
+    {q:"What tactics can leaders use to increase group identity salience?", a:"(1) Use 'we' language. (2) Reward/punish team behaviour, not just individual. (3) Emphasise common values. (4) Create shared vision and future. (5) Identify a shared 'enemy' or external challenge.", src:"Session 2 · Shared Identity Tactics"},
+    {q:"What is Leadership Principle 3 and its underlying mechanism?", a:"Foster Closeness and Openness. Mechanism: mutual vulnerability → closeness → trust, inclusion, satisfaction. Key pattern: sustained, escalating, reciprocal, personal self-disclosure (Aron's intimacy research).", src:"Session 2 · Principle 3"},
+    {q:"What falls under 'Constraints' vs 'Freedom' in Leadership Principle 1?", a:"Constraints: directive leadership, goal setting, vision, rules and norms. Freedom: authenticity, creativity, diversity, empowerment. Leaders must calibrate between the two.", src:"Session 2 · Principle 1"},
+    {q:"What do traits explain about leadership emergence and effectiveness?", a:"Traits explain only 28% of leadership emergence and 15% of effectiveness. They matter but are far from the whole story — leadership is also shaped by behaviour, context, and relationships.", src:"Session 2 · Trait Limitations"},
+    {q:"What shift does the modern relational definition represent?", a:"From Leader → Follower (unidirectional, hierarchical influence) to Leader ↔ Follower (mutual, co-created process). Leadership is no longer done to followers but co-created with them.", src:"Session 2 · Relational Shift"},
+  ],
+  s3: [
+    {q:"What is the definition of power in this course?", a:"Asymmetric control over valued resources in social relations. Resources include: material goods, services, currency, information, affection.", src:"Session 3 · Power Defined"},
+    {q:"What did the 'E' study (Galinsky et al., 2006) demonstrate?", a:"High-power individuals drew 'E' oriented for themselves (self-focused); low-power individuals drew it for the observer (other-focused). Power reduces automatic perspective-taking.", src:"Session 3 · E Study"},
+    {q:"What is self-perception theory (Bem) and how does it apply to power?", a:"Individuals infer their internal states partly from their own behaviour. Applied to power: describing yourself in confident, competent terms creates a virtuous self-reinforcing cycle of perceived power.", src:"Session 3 · Self-Perception Theory"},
+    {q:"What are the two strategies for gaining power and which is more effective?", a:"Pro-social (hard work, helping, collective contribution) and Political (networking, flattery, self-promotion). Political is more effective but lower-class individuals are less willing to use it due to collectivistic orientation.", src:"Session 3 · Belmi & Laurin 2016"},
+    {q:"What is the 'curse of authenticity'?", a:"Avoiding networking, self-promotion, flattery, and requests for resources 'to be authentic' — costing yourself power as a result. Vulnerability disclosure increases closeness but decreases perceived influence.", src:"Session 3 · Curse of Authenticity"},
+    {q:"What are Susan Fiske's two judging dimensions and the four quadrant outcomes?", a:"Dimensions: Warmth and Competence (perceived as negatively related). Quadrants: High W + High C = Admiration; High W + Low C = Pity; Low W + High C = Envy; Low W + Low C = Contempt.", src:"Session 3 · Fiske Warmth × Competence"},
+    {q:"What are the four reasons why rule-breaking increases perceived power?", a:"(1) Heuristic — power is associated with norm freedom. (2) Surprise — captures attention. (3) Resistance is less than expected — people avoid confrontation. (4) Rules are made by the powerful — violating them restructures power.", src:"Session 3 · Rule 2"},
+    {q:"How did Blankfein and Hayward differ in their Congressional testimony?", a:"Blankfein (Goldman): confrontational, open posture, direct eye contact, unapologetic declarations → appeared powerful. Hayward (BP): apologetic, hunched, read statement → appeared weak, conveyed loss of control.", src:"Session 3 · Rule 3 Case Study"},
+    {q:"What does Tiedens' research show about anger vs. apology?", a:"Anger → more promotions, higher salary, less likable/colder. Apology → warm, remorseful, lower status. Apology is only useful when separated from personal responsibility.", src:"Session 3 · Tiedens"},
+    {q:"Name 5 body language behaviours associated with power (Carney 2020).", a:"Any 5 of: more gestures, open body posture, less interpersonal distance, louder voice, more speaking time, longer gaze, controlled arm/hand gestures, declarations not questions, successful interruptions, disinhibited laughs, repeating ideas.", src:"Session 3 · Rule 3 Body Language"},
+    {q:"What is the Granovetter finding on weak ties and job search?", a:"In a study of 282 job seekers, most jobs were found through weak ties (casual acquaintances) — not strong ties. Weak ties provide non-redundant information from different social circles.", src:"Session 3 · Granovetter"},
+    {q:"What are the three network roles and how do they differ?", a:"Hub = most connections, highly central. Broker = bridges isolated communities — the only link between subgroups; unique social capital. Peripheral = fewest connections; niche expertise at network edges.", src:"Session 3 · Network Roles"},
+    {q:"What are the three networking principles in Rule 4?", a:"(1) Pursue weak ties — they access non-redundant information. (2) Become a broker — connect isolated parties, generate social capital and visibility. (3) Provide value for others — triggers norm of reciprocity and builds liking.", src:"Session 3 · Rule 4"},
+    {q:"What is the norm of reciprocity and why does it matter for networking?", a:"The social norm that when someone provides genuine value or help, the recipient feels obligated to repay in some form. Providing value in networking creates obligations and builds liking, expanding influence.", src:"Session 3 · Reciprocity"},
+    {q:"Why are lower-class individuals less willing to use political strategies for power?", a:"Lower social class correlates with a more collectivistic orientation — self-promotion and strategic networking feel contrary to collective values. This perpetuates power inequality through psychology, not just circumstance.", src:"Session 3 · Belmi & Laurin / Class"},
+  ],
+  s4: [
+    {q:"What is the formal definition of diversity (Van Knippenberg et al., 2004)?", a:"'Characteristic of a social grouping that reflects the degree to which there are objective or subjective differences among people within the group.'", src:"Session 4 · Diversity Defined"},
+    {q:"What are the three principles of the CEM?", a:"(1) Positive effects of diversity work through elaboration of task-relevant information. (2) Any diversity type can simultaneously trigger both information processing AND categorisation. (3) Diversity's impact depends on moderators — which leaders can influence.", src:"Session 4 · CEM Principles"},
+    {q:"What is information elaboration in the CEM?", a:"The active sharing, processing, and integration of unique knowledge from different team members — openly complementing each other, considering all perspectives, and generating solutions better than any individual could alone.", src:"Session 4 · Elaboration"},
+    {q:"What are the three root causes of diverse team failure?", a:"(1) Lack of information elaboration (no sharing, withholding, superficial). (2) Lack of shared understanding of reality (no shared mental models, goal misalignment). (3) Lack of shared identity / faultlines.", src:"Session 4 · Why Teams Fail"},
+    {q:"What are faultlines and what are their three symptoms?", a:"Subgroups or coalitions that form within teams, typically along demographic lines. Symptoms: (1) no collaboration across subgroups; (2) knowledge shared only within subgroups; (3) trust/liking within subgroups + bias against out-groups.", src:"Session 4 · Faultlines"},
+    {q:"What did Horwitz & Horwitz (2007) find about diversity and team performance?", a:"Meta-analysis of 35 studies: Demographic diversity had negative effects on performance. Task-related diversity had positive effects on performance.", src:"Session 4 · Horwitz Meta-Analysis"},
+    {q:"What did Wegge et al. (2008) find about task complexity as a moderator?", a:"4,538 federal tax employees, 222 units: high age diversity + complex tasks → better performance and fewer health symptoms. High age diversity + routine tasks → worse performance and more symptoms.", src:"Session 4 · Wegge 2008"},
+    {q:"What is psychological safety (Edmondson) and why does it matter?", a:"Psychological safety = beliefs that it is safe to take interpersonal risks. It is a prerequisite for information elaboration — teams with high safety are more innovative (Nembhard & Edmondson 2006) and productive (Edmondson 1999).", src:"Session 4 · Psychological Safety"},
+    {q:"What are the three managerial goals for leaders of diverse teams?", a:"(1) Increase information elaboration. (2) Create a shared understanding of reality. (3) Create a shared identity.", src:"Session 4 · Leader Goals"},
+    {q:"How does the CEM reframe the diversity research question?", a:"From 'Does diversity help or hurt?' → 'How do we realise the promise of diversity in teams?' This shifts focus from a fixed characteristic to the dynamic management of moderators.", src:"Session 4 · CEM Reframe"},
+    {q:"What is the key difference between surface-level and deep-level diversity?", a:"Surface = visible attributes (age, gender, race) — higher categorisation risk, triggered faster. Deep = less visible (personality, values, expertise) — more task-relevant, revealed over time. Task-related diversity tends to benefit; task-unrelated tends to disrupt.", src:"Session 4 · Surface vs Deep"},
+    {q:"What does Woolley et al. (2010) show about participation and team productivity?", a:"Teams where members contribute roughly equally to discussions are more productive. Dominant-member dynamics reduce collective intelligence and overall team performance.", src:"Session 4 · Woolley 2010"},
+    {q:"What are diversity beliefs and how do they moderate elaboration (Homan et al., 2008)?", a:"Diversity beliefs = the extent to which members view diversity as a resource vs. a source of conflict. Teams with positive diversity beliefs are more likely to engage in information elaboration.", src:"Session 4 · Homan 2008"},
+    {q:"How does CEM differ from the main effects approach to diversity?", a:"Main effects assumes diversity leads to either information gains OR categorisation losses. CEM recognises any diversity can simultaneously trigger BOTH processes — and moderators determine which dominates, making management the key lever.", src:"Session 4 · CEM vs Main Effects"},
+    {q:"How does SIT explain faultline activation in diverse teams?", a:"When demographic categories become salient, depersonalisation occurs — members see themselves as subgroup representatives, not unique team members. This drives in-group favouritism and out-group bias, fragmenting the team.", src:"Session 4 · SIT & Faultlines"},
+  ],
+};
+
+// ── IC Quiz Data ──
+const IC_QUIZ = {
+  s1: [
+    {q:"Hofstede defines culture as:", opts:["A fixed set of national laws and customs","An innate biological predisposition","'The collective programming of the mind' — a shared, learned lens","An individual's personality traits"], correct:2, fb:"Hofstede's definition emphasises 'collective programming' — learned and group-specific. It is not biological (that's human nature) and not individual (that's personality)."},
+    {q:"Which is NOT one of the three core principles of culture?", opts:["Culture is shared","Culture is learned","Culture is genetically transmitted","Culture influences attitudes and behaviour"], correct:2, fb:"Culture is explicitly learned — this distinguishes it from human nature (which is inherited). Genetic transmission is a property of human nature, not culture."},
+    {q:"In the K&S framework, a society that believes in working cooperatively with nature falls under:", opts:["Mastery","Submission","Harmony","Universalism"], correct:2, fb:"Harmony = cooperative relationship with nature. Mastery = dominance. Submission = deference. Universalism is a Schwartz value, not a K&S category."},
+    {q:"The Schwartz value of 'Conformity' is best described as:", opts:["Seeking pleasure above all things","Obedience to rules and structures for control","Respecting custom and preserving tradition","Seeking social justice for all"], correct:1, fb:"Conformity = obedience to rules for control. Tradition = respecting what has come before. Universalism = social justice. Hedonism = pleasure."},
+    {q:"How many regional trade agreements existed globally by 2016?", opts:["45","150","Over 420","Over 1,000"], correct:2, fb:"From ~45 in the 1990s to over 420 by 2016 — nearly tenfold growth. Since 2016 a localisation counter-trend has begun."},
+    {q:"Hofstede's IBM data was collected from:", opts:["2003–2010 across 120 countries","1967–1973 across 70+ countries","1990–2000 across 50 countries","1980–1995 across 30 countries"], correct:1, fb:"Hofstede's foundational data came from IBM employees 1967–1973 across 70+ countries. This is often flagged as a limitation — old and single-organisation data."},
+    {q:"In Schwartz's circular value model, which pair is most in conflict?", opts:["Benevolence and Tradition","Power and Universalism","Security and Conformity","Stimulation and Hedonism"], correct:1, fb:"Opposite values conflict. Power (dominance, control) directly opposes Universalism (social justice, tolerance). Adjacent values like Security and Conformity are compatible."},
+    {q:"'Culture influences what information we choose to acquire and remember' illustrates which core principle?", opts:["Culture is shared","Culture is learned","Culture influences attitudes, cognitions, and behaviour","Culture is universal"], correct:2, fb:"This directly illustrates Principle 3. Principle 1 is about sharing; Principle 2 is about learning. Universality is a feature of human nature, not culture."},
+    {q:"What is the key limitation of using country-level cultural scores to manage individuals?", opts:["The scores are too expensive to produce","Countries have no meaningful differences","Country averages mask individual variation and within-country subcultures","The frameworks pre-date globalisation"], correct:2, fb:"Country averages are useful first approximations but do not determine individual behaviour. Managers must avoid stereotyping. The other options are factually incorrect."},
+    {q:"In the K&S Activity dimension, which orientation values achievement-based status?", opts:["Being","Becoming","Doing","Harmony"], correct:2, fb:"Doing = status from what you achieve. Being = ascribed status (who you are). Becoming = self-development focus. Harmony belongs to the Nature dimension."},
+    {q:"Why does culture sit between Human Nature and Personality in Hofstede's model?", opts:["Culture is inherited but not universal","Culture is learned and group-specific — not universal, not individual","Culture is unique to each individual","Culture is universal and fixed at birth"], correct:1, fb:"Human Nature = universal + inherited. Personality = individual. Culture is in between: learned (not inherited) and group-specific (shared with some, not all humans)."},
+    {q:"Which trend since 2016 is described as reversing globalisation?", opts:["Rise of regional trade agreements","Reshoring and localisation driven partly by US-China tensions","Increased migration in the EU","Expansion of virtual work"], correct:1, fb:"Rising US-China tensions triggered reshoring and localisation — Intel mega-plants in Europe/US are cited examples. The other options are drivers of globalisation, not its reversal."},
+    {q:"The Schwartz 'Benevolence' value is characterised by:", opts:["Seeking dominance and control of resources","Respecting customary practices","Helping others for general welfare","Seeking excitement and thrills"], correct:2, fb:"Benevolence = helping others, general welfare. Power = dominance/control. Tradition = customary practices. Stimulation = excitement/thrills."},
+    {q:"What does it mean that values 'transcend specific situations'?", opts:["Values only apply in work contexts","Values are universal across all cultures","Values guide behaviour across many contexts, not just specific ones","Values change depending on the situation"], correct:2, fb:"Transcendence is Schwartz's 4th value characteristic — they are not context-bound (unlike attitudes). This is what distinguishes a value from a situational attitude."},
+    {q:"A manager in a mastery-culture organisation is more likely to recall which subordinate information?", opts:["Team-building successes","Family background and personal wellbeing","Financial achievements","Cultural background"], correct:2, fb:"Mastery-culture managers recalled financial achievements; collectivistic-culture managers recalled team-building success. Culture acts as a filter on information processing — Principle 3."},
+  ],
+  s2: [
+    {q:"'Consideration' as a leadership behaviour (Ohio State) means:", opts:["Assigning deadlines and structuring tasks","Forming relationships based on trust, respect, and regard for feelings","Setting a compelling vision","Monitoring individual performance"], correct:1, fb:"Consideration = relationship-oriented. Initiating Structure = task-oriented (Option A). Vision and monitoring are neither of the two Ohio State dimensions."},
+    {q:"What percentage of leadership effectiveness do personality traits explain (Judge, 2002)?", opts:["36%","28%","15%","9%"], correct:2, fb:"28% = leadership emergence; 15% = leadership effectiveness. 36% is Conscientiousness's correlation with emergence, not total explained variance."},
+    {q:"Which principle of leadership is most directly grounded in Social Identity Theory?", opts:["Balance constraints and freedom","Foster closeness and openness","Create a shared identity","Initiating structure"], correct:2, fb:"Principle 2 (Create a Shared Identity) is explicitly grounded in SIT. Principle 3 is grounded in Aron's intimacy research. Initiating Structure is from Ohio State studies."},
+    {q:"In SIT, 'depersonalisation' means:", opts:["Leaders losing their unique personality","Followers ignoring the leader's personal traits","Individuals seeing themselves as group members rather than unique individuals","Groups becoming less cohesive"], correct:2, fb:"Depersonalisation = salient group identity causes individuals to define themselves by group-prototypical traits rather than personal unique features. It enables collective action."},
+    {q:"Which approach to leadership FIRST argued leadership can be LEARNED?", opts:["Trait approach","Contingency approach","Behavioural approach","Contemporary approach"], correct:2, fb:"The behavioural approach's core assumption: leadership is created by how people act — and actions can be learned. The trait approach assumes leadership is innate."},
+    {q:"The Antonakis & Dalgas (2009) study demonstrated:", opts:["Taller candidates always win","Face-based ILTs influence leader selection — children pick the winner at above-chance rates","Voter education is the strongest predictor","Debate performance determines elections"], correct:1, fb:"Children (73%) and adults (67%) chose the same winning candidate from face photos alone — demonstrating unconscious ILTs at work."},
+    {q:"Which pattern most strongly predicts development of close peer relationships?", opts:["Working together on a long shared task","Sustained, escalating, reciprocal, personal self-disclosure","Sharing meals and social time","Having similar demographic backgrounds"], correct:1, fb:"Principle 3 explicitly cites this pattern based on Aron's interpersonal intimacy research. The specific four-part pattern is key: sustained, escalating, reciprocal, personal."},
+    {q:"Which Big Five trait has the HIGHEST correlation with leadership emergence?", opts:["Extraversion (.30)","Openness (.14)","Conscientiousness (.36)","Emotional Stability (.09)"], correct:2, fb:"Conscientiousness correlates .36 with emergence — the highest of any trait. Extraversion is second (.30). Emotional Stability is the lowest (.09)."},
+    {q:"Which leader action would MOST effectively increase group identity salience?", opts:["Rewarding individual star performers publicly","Encouraging competition between team members","Emphasising a shared external challenge the team faces together","Giving employees greater individual autonomy"], correct:2, fb:"Identifying a shared external challenge (shared 'enemy') is explicitly listed as a salience-increasing tactic. Options A, B, D emphasise individual identity — reducing group salience."},
+    {q:"The shift from 'Leader → Follower' to 'Leader ↔ Follower' signifies:", opts:["Leaders now follow their followers","Leadership became a mutual, relational process rather than unidirectional influence","Followers set the team's goals","Leaders delegate all direction to the team"], correct:1, fb:"Fischer et al. (2017) define leadership as a process of mutual influence — a two-way relationship. The old model was purely top-down hierarchical."},
+    {q:"Leadership Principle 1 lists which items under 'freedom'?", opts:["Deadlines, goal setting, rules","Vision, norms, reporting structures","Authenticity, creativity, diversity, empowerment","Monitoring, performance reviews, KPIs"], correct:2, fb:"Freedom: authenticity, creativity, diversity, empowerment. Constraints: directive leadership, goal setting, vision, rules and norms."},
+    {q:"Which statement about the Trait Approach is FALSE?", opts:["It assumes some people are natural leaders","Height correlates positively with leader emergence","Traits alone explain the majority of leadership effectiveness","Extraversion correlates positively with both emergence and effectiveness"], correct:2, fb:"Traits explain only 15% of effectiveness — far from the majority. All other statements are true."},
+    {q:"A leader who uses 'we' language, ties rewards to team achievements, and emphasises a shared vision is applying:", opts:["Balance constraints and freedom","Foster closeness and openness","Create a shared identity","Initiating structure"], correct:2, fb:"All three tactics (collective language, team rewards, shared vision) are explicitly listed under 'Creating a strong shared identity' to increase group salience via SIT."},
+    {q:"The Agreeableness–Leadership Emergence correlation (r=−.14) means:", opts:["More agreeable people make better leaders","Agreeableness is unrelated to leadership","More agreeable people are LESS likely to emerge as leaders","Agreeableness only predicts effectiveness"], correct:2, fb:"Negative correlation = as Agreeableness increases, emergence decreases. High agreeableness = conflict-avoidant and deferential — undermining the assertiveness needed to emerge as a leader."},
+    {q:"Which contemporary leadership theme relates to 'searching for what is uniquely human'?", opts:["Transformational leadership","Theory U","Social Identity Theory","The Trait approach"], correct:1, fb:"The slides explicitly name 'Searching for what is uniquely human – Theory U' as one of three contemporary leadership themes, alongside AI leadership and leading in diverse worlds."},
+  ],
+  s3: [
+    {q:"Power is defined in this course as:", opts:["The ability to influence others' emotions","Having the most formal authority","Asymmetric control over valued resources in social relations","Having access to financial capital"], correct:2, fb:"The definition emphasises asymmetric control (not just having resources) and social relations (not just formal authority). Resources include information, affection, services — not just money."},
+    {q:"The 'E' study (Galinsky, 2006) showed that high-power individuals:", opts:["Are better at understanding others","Draw E oriented for themselves — showing reduced perspective-taking","Are more likely to apologise in conflict","Have higher emotional intelligence"], correct:1, fb:"High-power participants drew E from their own perspective (self-focused). Low-power drew it for the observer. Power reduces automatic perspective-taking."},
+    {q:"Which strategy is MOST effective for gaining power (Belmi & Laurin, 2016)?", opts:["Working harder than everyone","Volunteering for collective initiatives","Political behaviour — networking, self-promotion, flattery","Building technical expertise"], correct:2, fb:"Political strategies are more effective than pro-social ones. However lower-class individuals are less willing to use them due to collectivistic values — perpetuating inequality."},
+    {q:"The 'curse of authenticity' refers to:", opts:["Being too open about weaknesses in negotiations","Using vulnerability to gain power","Avoiding networking and self-promotion 'to be authentic' — costing power","Over-relying on emotional intelligence"], correct:2, fb:"The trap of avoiding strategic behaviours (networking, self-promotion, flattery) because they feel 'inauthentic' — at the cost of accumulated power."},
+    {q:"In Fiske's Warmth × Competence model, High Warmth + Low Competence elicits:", opts:["Admiration","Envy","Contempt","Pity"], correct:3, fb:"High W + Low C = Pity (low status, people want to help). Admiration = High/High. Envy = Low W/High C. Contempt = Low W/Low C."},
+    {q:"Tiedens' research on anger vs. apology shows:", opts:["Anger → more likable, lower competence","Anger → more promotions and higher salary, but perceived as less likable","Apology → no career effect","Anger → reduces perceived status"], correct:1, fb:"Anger = competence signal → promotions, higher salary, but less likable. Apology = warmth signal → likable but lower power and status."},
+    {q:"Which type of network tie is most useful for finding non-redundant information?", opts:["Strong ties (close friends)","Hub connections","Weak ties (casual acquaintances)","Peripheral ties"], correct:2, fb:"Granovetter: weak ties provide non-redundant information from different social circles — more valuable for career advancement than strong ties which share the same information."},
+    {q:"A Broker in a social network is BEST described as:", opts:["The most connected person in the network","Someone with niche expertise at the edges","The only link connecting two otherwise isolated communities","A formal financial intermediary"], correct:2, fb:"Brokers bridge isolated subgroups — they are the only connection between otherwise disconnected communities. Hubs = most connected. Peripherals = fewest connections at edges."},
+    {q:"Rule 2 (Break the Rules) works PARTLY because:", opts:["Breaking rules always leads to better performance","Resistance is less than expected — people avoid difficult confrontations","Rules are designed to be broken in creative orgs","Rule-breakers are always rewarded"], correct:1, fb:"People's desire to be liked means they avoid confrontation — so resistance to rule-breaking is usually less than expected. One of four reasons norm violation increases perceived power."},
+    {q:"Body language associated with power (Carney 2020) includes:", opts:["Asking many questions, taking up less space, minimising eye contact","Making declarations, longer gazing, open posture, controlled gestures","Frequent apologies, soft voice, minimal gestures","Avoiding interruptions, nodding frequently"], correct:1, fb:"Power signals: declarations (not questions), longer gaze, open posture, controlled gestures, louder voice, more speaking time. Options A, C, D describe low-power behaviours."},
+    {q:"Tony Hayward appeared weaker than Blankfein at Congress PRIMARILY because:", opts:["He had less factual knowledge","He was formally subordinate to Blankfein","He was apologetic, hunched, read a statement, and conveyed loss of control","He refused to answer questions"], correct:2, fb:"The comparison focused on behavioural signals: apologetic tone, hunched posture, scripted statement — all low-power signals regardless of the underlying facts."},
+    {q:"The norm of reciprocity in networking means:", opts:["Only help people who have already helped you","Providing genuine value creates an obligation for some form of repayment","All relationships must be perfectly balanced","Networking must be strictly professional"], correct:1, fb:"The norm creates an obligation for repayment when you help others — making value provision in networking a strategic power-building behaviour, not just altruism."},
+    {q:"Which is NOT listed as a reason people resist networking?", opts:["They find it unenjoyable","They have moral objections to using relationships instrumentally","They lack social skills","They are reluctant to leverage friendships for personal goals"], correct:2, fb:"The slides list three resistance reasons: not enjoyable, moral objections, and reluctance to use friendships. 'Lack of social skills' is not mentioned — this is a common distractor."},
+    {q:"When is an apology most useful in power dynamics?", opts:["When you want to appear warm generally","When apologising for an act not fully in your control","When in a lower-power position to signal deference","When demonstrating emotional intelligence"], correct:1, fb:"Apology is most useful when you can separate yourself from the action — apologising for something not fully in your control minimises the damage to perceived competence."},
+    {q:"Why does low power perpetuate itself psychologically?", opts:["Low-power people have fewer connections","Low-power people lack intelligence for political strategies","Lower social class → collectivistic orientation → self-promotion feels contrary to collective values","Low-power people have less information"], correct:2, fb:"Belmi & Laurin's explanation: lower class → more collectivistic self-concept → political strategies feel like acting against the group — perpetuating inequality through psychology, not just circumstance."},
+  ],
+  s4: [
+    {q:"Diversity is formally defined (Van Knippenberg et al., 2004) as:", opts:["The percentage of minority-group members in a team","The degree of objective or subjective differences among people within a social grouping","The range of professional skills in a team","Presence of both male and female employees"], correct:1, fb:"The formal definition covers both objective and subjective differences — it is broader than gender, skills, or minority status alone."},
+    {q:"CEM Principle 1 states that diversity's positive effects primarily work through:", opts:["Social categorisation and intergroup bias reduction","Demographic representativeness","Elaboration of task-relevant information","Higher member satisfaction"], correct:2, fb:"CEM Principle 1 is explicit: elaboration of task-relevant information is the primary mechanism for positive diversity effects — not simply having diverse members."},
+    {q:"The Horwitz & Horwitz (2007) meta-analysis found:", opts:["All diversity hurts performance","All diversity benefits performance","Demographic diversity hurts; task-related diversity benefits","Diversity has no effect on performance"], correct:2, fb:"35 studies: demographic diversity → negative effects. Task-related diversity → positive effects. Neither blanket statement (all helpful or all harmful) holds."},
+    {q:"CEM Principle 3 states that diversity's effects:", opts:["Are determined simply by diversity type","Are fixed and unaffected by leadership","Are determined by team size","Can be influenced by leaders through moderating factors"], correct:3, fb:"Principle 3 is the key managerial insight: moderators determine outcomes, and crucially leaders CAN influence those moderators — making diversity management active, not passive."},
+    {q:"Faultlines in teams are best described as:", opts:["Formal disagreements about task direction","Subgroups that emerge along demographic lines causing in-group/out-group splits","Natural performance differences between members","Cultural communication differences"], correct:1, fb:"Faultlines = subgroups forming along demographic lines → no cross-subgroup collaboration, knowledge hoarding within subgroups, and intergroup bias."},
+    {q:"Wegge et al. (2008) found age diversity BENEFITS performance when:", opts:["The team has high psychological safety","The team works on routine tasks","The team works on complex tasks","The leader is experienced and autocratic"], correct:2, fb:"Complex tasks benefit from multiple perspectives — age diversity helps. Routine tasks do not benefit from the diversity of views, so diversity becomes disruptive rather than additive."},
+    {q:"Elaboration involves all of the following EXCEPT:", opts:["Openly sharing knowledge between members","Carefully considering unique information from each member","Assigning tasks based on seniority","Generating solutions better than any individual could alone"], correct:2, fb:"Elaboration = active information sharing and integration. Assigning tasks by seniority is an administrative process with no connection to the elaboration mechanism."},
+    {q:"Psychological safety (Edmondson) is defined as:", opts:["The absence of interpersonal conflict","The belief that it is safe to take interpersonal risks","Comfort with task structure","Security of having a permanent team role"], correct:1, fb:"Edmondson's specific definition: psychological safety = beliefs that it is safe to take interpersonal risks. This is what enables members to speak up, disagree, and share unique knowledge."},
+    {q:"Which statement about diverse teams is most consistent with the CEM?", opts:["Diverse teams always outperform homogeneous teams","Diverse teams always underperform","Diverse teams have greater potential but often don't realise it without proper management","Diversity type is the only factor that matters"], correct:2, fb:"CEM's central conclusion: diverse teams more often produce negative outcomes BUT have greater potential. The question is how leaders realise that potential through moderator management."},
+    {q:"A team establishing ground rules at its first meeting for decisions, conflicts, and task assignments is creating:", opts:["Information elaboration","A team charter and collaboration norms","Faultlines","A trait-based team structure"], correct:1, fb:"Establishing collaboration norms = team charter — the key tool for Goal 2 (shared understanding of reality). Elaboration is the ongoing knowledge-sharing process, not the norms themselves."},
+    {q:"Which participation pattern is associated with HIGHER productivity (Woolley et al., 2010)?", opts:["One expert dominates and guides others","Members specialise and rarely interact","Members contribute roughly equally to discussions","Seniority determines speaking priority"], correct:2, fb:"Equal contribution → higher collective intelligence → more productive teams. Dominant-member dynamics suppress the collective potential of the team."},
+    {q:"The key question the CEM answers is:", opts:["What type of diversity should organisations avoid?","How can we realise the promise of diversity in teams?","Which demographic combinations produce the best teams?","How many diverse members are needed for positive effects?"], correct:1, fb:"The CEM explicitly reframes from 'does it help or hurt?' to 'how do we realise the promise?' — shifting from passive to active management of moderators."},
+    {q:"Which would BEST prevent faultline activation in a diverse team?", opts:["Separating members into specialised subgroups","Ignoring demographic differences entirely","Creating a strong salient team identity that supersedes sub-group identities","Reducing diversity by hiring similar individuals"], correct:2, fb:"Faultlines are prevented by making team identity more salient than sub-group identities (SIT logic). Separating into subgroups worsens faultlines; ignoring differences doesn't address categorisation."},
+    {q:"Task-related diversity differs from demographic diversity in that:", opts:["Task-related diversity always improves performance","Demographic diversity is more easily managed","Task-related diversity is more likely to drive elaboration; demographic diversity more likely triggers categorisation","They have identical effects"], correct:2, fb:"Typology approach and Horwitz meta-analysis support this: task differences → knowledge diversity → elaboration; demographic differences → social categorisation → intergroup bias. Neither is absolute, per CEM Principle 2."},
+    {q:"What attitude moderates whether diverse teams actually elaborate information (Homan et al., 2008)?", opts:["Trust in formal authority","Positive diversity beliefs — viewing diversity as a resource for performance","A belief in egalitarianism","Team members' extraversion scores"], correct:1, fb:"Positive diversity beliefs — the view that diversity is valuable for performance — moderate whether teams engage in elaboration. This is the key attitudinal moderator alongside task complexity."},
+  ],
+};
+
+// ── IC Flashcard Engine ──
+const icFcState = {};
+function icInitFC(session) {
+  const cards = IC_FLASHCARDS[session];
+  if (!cards) return;
+  icFcState[session] = { cards: [...cards], idx: 0, know: [], review: [] };
+  icRenderFC(session);
+}
+function icRenderFC(session) {
+  const wrap = document.getElementById('ic-' + session + '-fc-wrap');
+  if (!wrap) return;
+  const st = icFcState[session];
+  if (!st || !st.cards.length) return;
+  if (st.idx >= st.cards.length) {
+    const knowN = st.know.length; const revN = st.review.length;
+    wrap.innerHTML = `<div class="fc-sr-done"><h3>Session complete!</h3><p>${knowN} known · ${revN} to review · ${st.cards.length - knowN - revN} skipped</p><button class="btn btn-primary" onclick="icFcRestart('${session}')">Restart</button></div>`;
+    return;
+  }
+  const card = st.cards[st.idx];
+  const knowN = st.know.length; const revN = st.review.length; const total = st.cards.length;
+  // Use the same flashcard-wrap / flashcard / fc-face pattern as the rest of the app
+  wrap.innerHTML = `
+    <div style="font-size:12px;color:var(--text3);margin-bottom:8px;text-align:center">Card ${st.idx+1} of ${total} &nbsp;·&nbsp; ✓ ${knowN} &nbsp;·&nbsp; ⚠ ${revN}</div>
+    <div class="flashcard-wrap">
+      <div class="flashcard" id="ic-${session}-card" onclick="icFlipCard('${session}')">
+        <div class="fc-face fc-front">
+          <div class="fc-label">Question</div>
+          <div class="fc-question">${card.q}</div>
+          <div class="fc-hint">Click to reveal answer</div>
+        </div>
+        <div class="fc-face fc-back" style="background:var(--ic)">
+          <div class="fc-label">Answer</div>
+          <div class="fc-answer">${card.a}</div>
+          <div class="fc-src">${card.src}</div>
+        </div>
+      </div>
+    </div>
+    <div class="sr-btns" id="ic-${session}-sr-btns" style="display:none">
+      <button class="sr-btn sr-btn-hard" onclick="icFcNext('${session}','review')">⚠️ Still learning</button>
+      <button class="sr-btn sr-btn-ok" onclick="icFcNext('${session}','ok')">→ Next</button>
+      <button class="sr-btn sr-btn-easy" onclick="icFcNext('${session}','know')">✓ Got it</button>
+    </div>
+    <p class="sr-mode-note" id="ic-${session}-sr-note">Click card to flip · Rate yourself after</p>
+  `;
+}
+function icFlipCard(session) {
+  const card = document.getElementById('ic-' + session + '-card');
+  if (!card) return;
+  card.classList.toggle('flipped');
+  const btns = document.getElementById('ic-' + session + '-sr-btns');
+  const note = document.getElementById('ic-' + session + '-sr-note');
+  const isFlipped = card.classList.contains('flipped');
+  if (btns) btns.style.display = isFlipped ? 'flex' : 'none';
+  if (note) note.style.display = isFlipped ? 'none' : 'block';
+}
+function icFcNext(session, rating) {
+  const st = icFcState[session]; if (!st) return;
+  if (rating === 'know') st.know.push(st.idx);
+  if (rating === 'review') st.review.push(st.idx);
+  st.idx++;
+  icRenderFC(session);
+}
+function icFcRestart(session) {
+  icFcState[session] = { cards: [...IC_FLASHCARDS[session]], idx: 0, know: [], review: [] };
+  icRenderFC(session);
+}
+
+// ── IC Quiz Engine ──
+const icQState = {};
+function icInitQuiz(session) {
+  const qs = IC_QUIZ[session]; if (!qs) return;
+  icQState[session] = { qs: [...qs], idx: 0, score: 0, answered: false, wrong: [] };
+  icRenderQuiz(session);
+}
+function icRenderQuiz(session) {
+  const wrap = document.getElementById('ic-' + session + '-quiz-wrap');
+  if (!wrap) return;
+  const st = icQState[session]; if (!st) return;
+  if (st.idx >= st.qs.length) {
+    const pct = Math.round(st.score / st.qs.length * 100);
+    wrap.innerHTML = `<div class="quiz-score-screen show"><div class="score-row"><div class="score-big">${pct}%</div><div class="score-right"><div class="score-lbl">Your score</div><div class="score-msg">${st.score} / ${st.qs.length} correct${pct>=80?' — Excellent!':pct>=60?' — Good effort':' — Keep reviewing'}</div></div></div>${st.wrong.length?`<div class="weak-section"><div class="weak-title">Review these:</div>${st.wrong.map(w=>`<div class="weak-item"><div class="weak-item-icon">📌</div><div><div class="weak-item-text">${w.q.substring(0,60)}…</div><div class="weak-item-tip">${w.fb.substring(0,90)}…</div></div></div>`).join('')}</div>`:''}<button class="btn btn-primary" style="margin-top:16px" onclick="icInitQuiz('${session}')">Retry Quiz</button></div>`;
+    return;
+  }
+  const q = st.qs[st.idx];
+  const prog = ((st.idx) / st.qs.length * 100).toFixed(0);
+  wrap.innerHTML = `
+    <div class="quiz-prog"><div class="quiz-prog-fill" style="width:${prog}%"></div></div>
+    <div class="quiz-meta">Question ${st.idx + 1} of ${st.qs.length} · Score: ${st.score}</div>
+    <div class="quiz-q">${q.q}</div>
+    <div class="quiz-opts">
+      ${q.opts.map((o, i) => `<button class="quiz-opt" onclick="icQuizAnswer('${session}',${i})">${o}</button>`).join('')}
+    </div>
+    <div class="quiz-fb" id="ic-qfb-${session}"></div>
+    <button class="btn" id="ic-qnext-${session}" style="display:none" onclick="icQuizNext('${session}')">Next →</button>
+  `;
+}
+function icQuizAnswer(session, chosen) {
+  const st = icQState[session]; if (!st || st.answered) return;
+  st.answered = true;
+  const q = st.qs[st.idx];
+  const opts = document.querySelectorAll('#ic-' + session + '-quiz-wrap .quiz-opt');
+  opts.forEach((o, i) => {
+    o.disabled = true;
+    if (i === q.correct) o.classList.add('correct');
+    if (i === chosen && chosen !== q.correct) o.classList.add('wrong');
+  });
+  const fb = document.getElementById('ic-qfb-' + session);
+  if (fb) { fb.className = 'quiz-fb show ' + (chosen === q.correct ? 'correct' : 'wrong'); fb.textContent = (chosen === q.correct ? '✓ Correct! ' : '✗ Incorrect. ') + q.fb; }
+  if (chosen === q.correct) st.score++;
+  else st.wrong.push(q);
+  const nxt = document.getElementById('ic-qnext-' + session);
+  if (nxt) nxt.style.display = 'inline-block';
+}
+function icQuizNext(session) {
+  const st = icQState[session]; if (!st) return;
+  st.idx++; st.answered = false; icRenderQuiz(session);
+}
 
 // ══════════════════════════════════════════
 // IBT — HOOK INTO showLecture (init FC/quiz on navigate)
