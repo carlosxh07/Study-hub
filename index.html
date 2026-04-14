@@ -421,7 +421,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
     <button class="nav-btn" data-color="macro" onclick="showPage('macro-overview',this)"><span class="nav-dot" style="background:var(--macro)"></span>All Chapters</button>
     <button class="nav-sub" onclick="showLecture('macro','lec1',this)">Lec 1: Economic Growth</button>
     <button class="nav-sub" onclick="showLecture('macro','lec2',this)">Lec 2: Goods Market &amp; Business Cycle</button>
-    <button class="nav-sub" style="opacity:.5;cursor:default;pointer-events:none">+ More coming</button>
+    <button class="nav-sub" onclick="showLecture('macro','lec3',this)">Lec 3: Money, Interest Rates &amp; ECB</button>
     <div class="nav-label">Intl. Business Trade</div>
     <button class="nav-btn" data-color="ibt" onclick="showPage('ibt-overview',this)"><span class="nav-dot" style="background:var(--ibt)"></span>All Sessions</button>
     <button class="nav-sub" onclick="showLecture('ibt','s1',this)">Session 1: International Trade</button>
@@ -460,7 +460,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
     <div class="subject-card sc-macro" onclick="showPage('macro-overview',null)">
       <div class="sc-name">Macroeconomics</div><div class="sc-meta">Lectures · Macroeconomics 1 · Dr. Rülke</div>
       <div class="sc-progress"><div class="sc-progress-fill" style="width:67%;background:var(--macro)"></div></div>
-      <div class="sc-stats"><div class="sc-stat"><strong>2 / 3</strong> sessions loaded</div><div class="sc-stat"><strong>62</strong> flashcards</div><div class="sc-stat"><strong>39</strong> quiz Qs</div></div>
+      <div class="sc-stats"><div class="sc-stat"><strong>3 / 3</strong> sessions loaded</div><div class="sc-stat"><strong>87</strong> flashcards</div><div class="sc-stat"><strong>59</strong> quiz Qs</div></div>
     </div>
     <div class="subject-card sc-ibt" onclick="showPage('ibt-overview',null)">
       <div class="sc-name">International Business Trade</div><div class="sc-meta">Sessions · Dr. Jan-Christoph Rülke · Spring 2026</div>
@@ -3363,6 +3363,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
   <div class="lectures-list">
     <div class="lec-card" onclick="showLecture('macro','lec1',null)"><div class="lec-num" style="background:var(--macro-l);color:var(--macro)">01</div><div class="lec-info"><div class="lec-title">Lecture 1 — Macroeconomics &amp; Economic Growth</div><div class="lec-sub">GDP · Production Function · GDP per Capita · Circular Flow · COVID-19</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span><span class="lec-badge has">Calculator</span></div></div>
     <div class="lec-card" onclick="showLecture('macro','lec2',null)"><div class="lec-num" style="background:var(--macro-l);color:var(--macro)">02</div><div class="lec-info"><div class="lec-title">Lecture 2 — Goods Market, Business Cycle &amp; Fiscal Policy</div><div class="lec-sub">45° Diagram · Multiplier · Haavelmo · Anti-Cyclical Policy · IS Curve</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Compare</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span><span class="lec-badge has">Calculator</span></div></div>
+    <div class="lec-card" onclick="showLecture('macro','lec3',null)"><div class="lec-num" style="background:var(--macro-l);color:var(--macro)">03</div><div class="lec-info"><div class="lec-title">Lecture 3 — Money, Interest Rates &amp; the ECB</div><div class="lec-sub">Money Multiplier · LM Curve · IS-LM Model · ECB &amp; MRO · Liquidity Trap · Optimal Currency Area</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Compare</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span><span class="lec-badge has">Calculator</span></div></div>
     <div class="lec-card empty"><div class="lec-num" style="background:var(--macro-l);color:var(--macro)">03+</div><div class="lec-info"><div class="lec-title">More lectures coming</div><div class="lec-sub">Share your notes to add the next lecture</div></div><div class="lec-badges"><span class="lec-badge">Summary</span><span class="lec-badge">Cards</span><span class="lec-badge">Quiz</span></div></div>
   </div>
 </div>
@@ -4034,6 +4035,411 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
 
   </div>
 </div>
+<!-- MACRO LEC3 PAGE -->
+<div id="page-macro-lec3" class="page">
+  <div class="page-eyebrow" style="color:var(--macro)">Macroeconomics · Lecture 3</div>
+  <div class="page-title">Money, Interest Rates &amp; the ECB</div>
+  <div class="page-desc">Money market · Two-tier banking · Money multiplier · LM curve · IS-LM model · ECB instruments · Optimal currency area · Liquidity trap</div>
+  <div class="study-tabs">
+    <button class="study-tab active" onclick="showMacroTab('summary',this,'lec3')">Summary</button>
+    <button class="study-tab" onclick="showMacroTab('compare',this,'lec3')">Compare</button>
+    <button class="study-tab" onclick="showMacroTab('cheatsheet',this,'lec3')">📐 Cheatsheet</button>
+    <button class="study-tab" onclick="showMacroTab('calc',this,'lec3')">Calculator</button>
+    <button class="study-tab" onclick="showMacroTab('flashcards',this,'lec3')">Flashcards</button>
+    <button class="study-tab" onclick="showMacroTab('quiz',this,'lec3')">Quiz</button>
+  </div>
+
+  <!-- SUMMARY -->
+  <div id="mlec3-summary" class="study-panel active">
+
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-amber">A. The Money Market — Foundations</span></div>
+      <p>The money market is the <strong>second largest market by trading volume</strong>. It brings money demand and supply into equilibrium and <strong>determines the interest rate i</strong>. It is connected to bond and stock markets, subject to ECB monetary policy, and highly integrated in the EMU.</p>
+      <ul>
+        <li><strong>Unit of account</strong> — measurement for pricing, lowers information costs</li>
+        <li><strong>Store of value</strong> — savings, intertemporal allocation of consumption</li>
+        <li><strong>Medium of exchange</strong> — lowers search and transaction costs</li>
+      </ul>
+      <div class="note-box">🔑 Full macroeconomic equilibrium requires BOTH goods market (IS) AND money market (LM) to clear simultaneously — this is the core of the IS-LM model.</div>
+    </div>
+
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-amber">B. Optimal Currency Area — Asymmetric Shock</span></div>
+      <p><strong>Robert Mundell (Nobel Prize 1999)</strong> analysed when sharing a currency is beneficial. Setup: asymmetric demand shift from Greece (recession) to Germany (boom).</p>
+      <p style="margin-top:8px"><strong>Monetary Independence (before 1999):</strong></p>
+      <ul>
+        <li>Greece: negative shock → income↓, prices↓ → expansionary monetary policy (i↓) → Drachma depreciates → competitiveness↑ → employment↑ → recovery</li>
+        <li>Germany: positive shock → income↑, prices↑ → restrictive monetary policy (i↑) → Mark appreciates → competitiveness↓ → cooling</li>
+      </ul>
+      <p style="margin-top:8px"><strong>Monetary Union (since 1999) — Two tools RULED OUT:</strong></p>
+      <ul>
+        <li>❌ Independent monetary policy — one ECB, one interest rate</li>
+        <li>❌ Exchange rate devaluation — one currency (Euro)</li>
+        <li>⚠️ Fiscal transfers — severely limited in EMU</li>
+        <li>✅ Wage &amp; price flexibility — slow because wages are sticky downward</li>
+        <li>✅ Labor mobility — limited by language, culture, social security differences</li>
+      </ul>
+      <div class="note-box">⚠️ <strong>Exam trap:</strong> Students often say wage flexibility and labor mobility are ruled out — WRONG. Only monetary policy and exchange rate tools are ruled out. Wages and labor mobility remain but are slow and imperfect.</div>
+    </div>
+
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-amber">C. Two-Tier Banking System <span class="badge b-coral" style="margin-left:6px">Exam Critical</span></span></div>
+      <p><strong>Three players, two tiers:</strong> Central Bank ↔ Commercial Banks (Tier 1) · Commercial Banks ↔ Non-Banks (Tier 2)</p>
+      <ul>
+        <li><strong>Central Bank:</strong> Creates M0, sets base rate via MRO, lender of last resort — CANNOT lend directly to households/firms</li>
+        <li><strong>Commercial Banks:</strong> Borrow from central bank, trade via SWIFT around the clock, create M1/M2/M3 through lending</li>
+        <li><strong>Non-Banks:</strong> Households, firms, government — receive loans, hold deposits and currency</li>
+      </ul>
+      <p style="margin-top:8px">Money market characteristics: second largest by volume · determines i · subject to monetary policy · connected to bond/stock markets · highly integrated in EMU</p>
+      <div class="note-box">Model simplification: despite complexity (different maturities, risk classes, banks), we assume ONE interest rate i directly set by the central bank.</div>
+    </div>
+
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-amber">D. Central Bank Balance Sheet</span></div>
+      <table class="comp-table">
+        <tr><th>Assets</th><th>Liabilities</th></tr>
+        <tr><td>Government Bonds</td><td>Currency in circulation (CU)</td></tr>
+        <tr><td>Foreign exchange / Gold reserves</td><td>Deposits of banking sector (CRES)</td></tr>
+        <tr><td>Credits to government</td><td>Liabilities of government</td></tr>
+        <tr><td>Other assets</td><td>Other liabilities</td></tr>
+      </table>
+      <p style="margin-top:8px"><strong>Monetary Base M0 = CU + CRES</strong> (currency in circulation + bank reserves)</p>
+      <ul>
+        <li>Asset purchase → balance sheet expands → M0 increases → <strong>expansionary</strong></li>
+        <li>Asset sale → balance sheet shrinks → M0 decreases → <strong>contractionary</strong></li>
+      </ul>
+      <div class="note-box">🔑 <strong>Golden rule: Every central bank asset purchase creates money. Every asset sale destroys money.</strong></div>
+    </div>
+
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-amber">E. MRO — Main Refinancing Operations <span class="badge b-coral" style="margin-left:6px">Exam Critical</span></span></div>
+      <p>The MRO is the ECB's most important tool. Eight key characteristics:</p>
+      <ul>
+        <li><strong>1. Most important</strong> — provides bulk of liquidity to banking system</li>
+        <li><strong>2. Weekly, one week maturity</strong> — conducted every week</li>
+        <li><strong>3. Sets the base rate</strong> — determines main refinancing rate</li>
+        <li><strong>4. Repurchase agreement</strong> — banks must return money after one week</li>
+        <li><strong>5. Collateralized loan</strong> — assets rated A (relaxed to BBB in crisis)</li>
+        <li><strong>6. Fixed rate tender, full allotment</strong> — since Oct 2008 (previously variable rate)</li>
+        <li><strong>7. Steers interest rates</strong> — pivotal in managing liquidity</li>
+        <li><strong>8. Decentralized</strong> — organized through NCBs, not directly ECB</li>
+      </ul>
+      <p style="margin-top:8px"><strong>Two other instruments:</strong> LTRO (monthly, up to 3 years maturity) · Standing facilities (lending = ceiling, deposit = floor, together create EONIA corridor)</p>
+    </div>
+
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-amber">F. Monetary Aggregates</span></div>
+      <table class="comp-table">
+        <tr><th>Aggregate</th><th>Formula</th><th>Created by</th></tr>
+        <tr><td><strong>M0</strong></td><td>CU + CRES</td><td>Central bank only</td></tr>
+        <tr><td><strong>M1</strong></td><td>CU + DEP (short-term deposits)</td><td>Central bank + commercial banks</td></tr>
+        <tr><td><strong>M2</strong></td><td>M1 + demand deposits + time deposits</td><td>All banks</td></tr>
+        <tr><td><strong>M3</strong></td><td>M2 + obligations + repo assets</td><td>All banks</td></tr>
+      </table>
+    </div>
+
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-amber">G. Money Supply Multiplier <span class="badge b-coral" style="margin-left:6px">Exam Critical</span></span></div>
+      <p><strong>Formula: m = (cdr + 1) / (cdr + rdr)</strong></p>
+      <p>Where <strong>cdr = CU/DEP</strong> (currency-deposit ratio) and <strong>rdr = CRES/DEP</strong> (reserve-deposit ratio)</p>
+      <p style="margin-top:8px"><strong>Main formula:</strong> M1 = m × M0</p>
+      <p style="margin-top:8px"><strong>Six calculation steps (always do all!):</strong></p>
+      <ul>
+        <li>1. m = (cdr+1)/(cdr+rdr)</li>
+        <li>2. ΔM1 = m × ΔM0</li>
+        <li>3. DEP = ΔM1 / (cdr+1)</li>
+        <li>4. CU = ΔM1 − DEP</li>
+        <li>5. CRES = rdr × DEP</li>
+        <li>6. <strong>Verify: CU + CRES = ΔM0 ✅ (must always equal!)</strong></li>
+      </ul>
+      <div class="note-box">⚠️ <strong>Exam trap:</strong> The verify step is non-negotiable — always write it out explicitly. If CU + CRES ≠ ΔM0, you have an error somewhere.</div>
+    </div>
+
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-amber">H. Money Multiplier Extreme Cases <span class="badge b-coral" style="margin-left:6px">Exam Critical</span></span></div>
+      <table class="comp-table">
+        <tr><th>Case</th><th>Values</th><th>m</th><th>Economic reason</th><th>Real world</th></tr>
+        <tr><td><strong>Bank run</strong></td><td>cdr = ∞</td><td>1</td><td>Everyone holds cash, no deposits → no lending chain</td><td>Greece 2010, queues at ATMs</td></tr>
+        <tr><td><strong>Insolvency fear</strong></td><td>rdr = 1</td><td>1</td><td>ECB forces banks to keep 100% as reserves</td><td>ECB crisis intervention</td></tr>
+        <tr><td><strong>Theoretical max</strong></td><td>cdr=0, rdr=0</td><td>∞</td><td>All deposited, all lent — infinite cycle</td><td>Purely theoretical</td></tr>
+      </table>
+      <p style="margin-top:8px"><strong>Key difference bank run vs rdr=1:</strong> Bank run is caused by households panicking. rdr=1 is forced by the ECB fearing bank insolvency. Both give m=1 but for completely different reasons!</p>
+    </div>
+
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-amber">I. Quantity Equation</span></div>
+      <p><strong>M · v = P · Y</strong> &nbsp;→&nbsp; growth rate: <strong>ΔM + Δv = π + ΔY</strong></p>
+      <p>Assuming constant velocity (Δv = 0): <strong>ΔM = π + ΔY</strong></p>
+      <table class="comp-table" style="margin-top:8px">
+        <tr><th>Economy</th><th>Supply curve</th><th>M↑ effect</th><th>Prices</th><th>Income</th></tr>
+        <tr><td><strong>Boom</strong></td><td>Vertical (inelastic)</td><td>All → prices</td><td>↑↑</td><td>unchanged</td></tr>
+        <tr><td><strong>Recession</strong></td><td>Horizontal (elastic)</td><td>All → output</td><td>unchanged</td><td>↑↑</td></tr>
+        <tr><td><strong>Normal</strong></td><td>Upward sloping</td><td>Split between both</td><td>↑</td><td>↑</td></tr>
+      </table>
+      <div class="note-box">⚠️ <strong>Exam trap:</strong> The quantity equation has NOTHING to do with interest rates — only about the split between inflation and real growth. Common mistake is to confuse this with IS-LM interest rate effects.</div>
+    </div>
+
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-amber">J. Money Demand — Two Motives</span></div>
+      <p><strong>Formula: L^D = k · Y − h · i</strong></p>
+      <ul>
+        <li><strong>Transaction motive (L^T)</strong> — positively related to Y (+): Y↑ → spending↑ → need more money</li>
+        <li><strong>Speculative motive (L^S)</strong> — negatively related to i (−): i↑ → bonds more attractive → hold less money</li>
+      </ul>
+      <p style="margin-top:8px"><strong>Bond price relationship (critical!):</strong> P^B = CF / (1+i) → i↑ = P^B↓ · i↓ = P^B↑ — always inverse!</p>
+      <p style="margin-top:8px"><strong>Monetary policy:</strong> ECB buys bonds → P^B↑ → i↓ · ECB sells bonds → P^B↓ → i↑</p>
+      <p style="margin-top:8px"><strong>Shifts vs movements:</strong> Change in i → movement ALONG demand curve · Change in Y or P → SHIFT of curve</p>
+    </div>
+
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-amber">K. LM Curve — Money Market Equilibrium</span></div>
+      <p>The LM curve shows all (Y, i) combinations where the money market is in equilibrium (L^D = M^S).</p>
+      <p style="margin-top:8px"><strong>Derivation:</strong> M^S = k·Y − h·i → solve for i: <strong>i = (k/h)·Y − (1/h)·M^S</strong></p>
+      <p style="margin-top:8px"><strong>Why upward sloping:</strong> Y↑ → transaction money demand↑ → excess money demand → i must rise to reduce speculative demand → new equilibrium</p>
+      <p style="margin-top:8px"><strong>Slope = di/dY = k/h</strong></p>
+      <ul>
+        <li>M^S↑ → LM shifts <strong>right/down</strong> (expansionary)</li>
+        <li>M^S↓ → LM shifts <strong>left/up</strong> (contractionary)</li>
+      </ul>
+      <div class="note-box">🔑 Change in M^S → LM SHIFTS · Change in Y → movement ALONG LM curve</div>
+    </div>
+
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-amber">L. IS-LM Model — Full Framework <span class="badge b-coral" style="margin-left:6px">Exam Critical</span></span></div>
+      <p><strong>Four assumptions:</strong> prices fixed (P=1) · closed economy (EX−IM=0) · money market reacts faster than goods market · simultaneous equilibrium required</p>
+      <table class="comp-table" style="margin-top:8px">
+        <tr><th>#</th><th>Equation</th><th>Name</th></tr>
+        <tr><td>1</td><td>Y = C + I + G</td><td>Goods Market</td></tr>
+        <tr><td>2</td><td>C = a + c·Yv</td><td>Consumption</td></tr>
+        <tr><td>3</td><td>Yv = Y − T + U</td><td>Disposable Income</td></tr>
+        <tr><td>4</td><td>T = T^aut + t·Y</td><td>Taxes</td></tr>
+        <tr><td>5</td><td>I = I^aut − g·i</td><td>Investment</td></tr>
+        <tr><td>6</td><td>MS = LD</td><td>Money Market</td></tr>
+        <tr><td>7</td><td>LD = k·Y − h·i</td><td>Money Demand</td></tr>
+      </table>
+      <div class="note-box">⚠️ <strong>Most common calculation error:</strong> When deriving IS curve, always use (1−t)·Y NOT (1+t)·Y! Yv = Y − T^aut − t·Y = (1−t)·Y − T^aut</div>
+    </div>
+
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-amber">M. Fiscal &amp; Monetary Policy Effects <span class="badge b-coral" style="margin-left:6px">Exam Critical</span></span></div>
+      <p><strong>Crowding out (G↑):</strong> G↑ → Y↑ → transaction money demand↑ → i↑ → I↓ → Y↓ (partially)</p>
+      <p style="margin-top:8px"><strong>Crowding in (T↑):</strong> T↑ → Yv↓ → C↓ → Y↓ → transaction money demand↓ → i↓ → I↑ → Y partially recovers</p>
+      <p style="margin-top:8px"><strong>Expansionary monetary policy (M↑):</strong> M↑ → excess money supply → bond prices↑ → i↓ → I↑ → Y↑</p>
+      <div class="note-box">⚠️ <strong>Most common exam trap:</strong> After G↑, interest rate RISES not falls! Fiscal policy → i↑ (money demand up, supply unchanged). Monetary policy → i↓ (money supply up). They move in OPPOSITE directions.</div>
+    </div>
+
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-amber">N. Extreme IS-LM Cases <span class="badge b-coral" style="margin-left:6px">Exam Critical</span></span></div>
+      <table class="comp-table">
+        <tr><th>Case</th><th>Parameter</th><th>Curve shape</th><th>Fiscal policy</th><th>Monetary policy</th><th>Why</th></tr>
+        <tr><td><strong>Inelastic IS</strong></td><td>g = 0</td><td>IS vertical</td><td>✅ Very effective</td><td>❌ Ineffective</td><td>Investment ignores i — deep recession pessimism</td></tr>
+        <tr><td><strong>Liquidity trap</strong></td><td>h = ∞</td><td>LM horizontal</td><td>✅ Very effective (no crowding out)</td><td>❌ Ineffective</td><td>i near zero, everyone holds cash not bonds</td></tr>
+        <tr><td><strong>Neoclassical</strong></td><td>k = ∞</td><td>LM vertical</td><td>❌ Ineffective (perfect crowding out)</td><td>✅ Very effective</td><td>Economy at full capacity</td></tr>
+      </table>
+      <p style="margin-top:8px"><strong>Memory rule:</strong> g=0 and h=∞ → fiscal works, monetary fails · k=∞ → monetary works, fiscal fails</p>
+    </div>
+
+  </div>
+
+  <!-- COMPARE -->
+  <div id="mlec3-compare" class="study-panel">
+    <div class="sum-card">
+      <div class="sum-title">Fiscal vs. Monetary Policy</div>
+      <table class="comp-table">
+        <tr><th>Feature</th><th>Fiscal Policy</th><th>Monetary Policy</th></tr>
+        <tr><td><strong>Who</strong></td><td>Government</td><td>Central Bank (ECB)</td></tr>
+        <tr><td><strong>Tools</strong></td><td>G, T, U</td><td>Money supply, interest rate</td></tr>
+        <tr><td><strong>Curve</strong></td><td>IS shifts</td><td>LM shifts</td></tr>
+        <tr><td><strong>Effect on i</strong></td><td>↑ (expansionary)</td><td>↓ (expansionary)</td></tr>
+        <tr><td><strong>Effect on I</strong></td><td>↓ crowding out</td><td>↑ stimulated</td></tr>
+        <tr><td><strong>Speed</strong></td><td>Slow (political)</td><td>Fast (ECB decides)</td></tr>
+      </table>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">Normal Effects of All Policy Shocks</div>
+      <table class="comp-table">
+        <tr><th>Shock</th><th>IS</th><th>LM</th><th>Y</th><th>i</th></tr>
+        <tr><td>G ↑</td><td>Right</td><td>None</td><td>↑</td><td>↑</td></tr>
+        <tr><td>G ↓</td><td>Left</td><td>None</td><td>↓</td><td>↓</td></tr>
+        <tr><td>T ↑</td><td>Left</td><td>None</td><td>↓</td><td>↓</td></tr>
+        <tr><td>T ↓</td><td>Right</td><td>None</td><td>↑</td><td>↑</td></tr>
+        <tr><td>U ↑</td><td>Right</td><td>None</td><td>↑</td><td>↑</td></tr>
+        <tr><td>U ↓</td><td>Left</td><td>None</td><td>↓</td><td>↓</td></tr>
+        <tr><td>M ↑</td><td>None</td><td>Right/down</td><td>↑</td><td>↓</td></tr>
+        <tr><td>M ↓</td><td>None</td><td>Left/up</td><td>↓</td><td>↑</td></tr>
+      </table>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">Monetary Independence vs. Monetary Union</div>
+      <table class="comp-table">
+        <tr><th>Feature</th><th>Monetary Independence</th><th>Monetary Union</th></tr>
+        <tr><td><strong>Monetary policy</strong></td><td>✅ Each country sets own i</td><td>❌ Ruled out (one ECB)</td></tr>
+        <tr><td><strong>Exchange rate</strong></td><td>✅ Can depreciate/appreciate</td><td>❌ Ruled out (one currency)</td></tr>
+        <tr><td><strong>Fiscal transfers</strong></td><td>✅ Possible</td><td>⚠️ Severely limited</td></tr>
+        <tr><td><strong>Wage flexibility</strong></td><td>✅ Less urgent</td><td>✅ Available but slow</td></tr>
+        <tr><td><strong>Labor mobility</strong></td><td>✅ Less urgent</td><td>✅ Available but limited</td></tr>
+        <tr><td><strong>Greece recession response</strong></td><td>Expansionary policy → depreciation → recovery</td><td>Wait for wages to fall → slow painful adjustment</td></tr>
+      </table>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">Money Multiplier Extreme Cases — Side by Side</div>
+      <table class="comp-table">
+        <tr><th></th><th>Bank Run (cdr=∞)</th><th>rdr=1</th><th>cdr=0, rdr=0</th></tr>
+        <tr><td><strong>m</strong></td><td>1</td><td>1</td><td>∞</td></tr>
+        <tr><td><strong>Who causes it</strong></td><td>Households panic</td><td>ECB forces it</td><td>Theoretical only</td></tr>
+        <tr><td><strong>DEP</strong></td><td>€0</td><td>ΔM0/(cdr+1)</td><td>∞</td></tr>
+        <tr><td><strong>CU</strong></td><td>ΔM0</td><td>Small</td><td>0</td></tr>
+        <tr><td><strong>CRES</strong></td><td>€0</td><td>All DEP</td><td>0</td></tr>
+        <tr><td><strong>Lending</strong></td><td>Zero</td><td>Zero</td><td>Infinite</td></tr>
+        <tr><td><strong>Real world</strong></td><td>Greece 2010</td><td>Crisis intervention</td><td>Never happens</td></tr>
+      </table>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">ECB Instruments — MRO vs LTRO vs Standing Facilities</div>
+      <table class="comp-table">
+        <tr><th>Feature</th><th>MRO</th><th>LTRO</th><th>Standing Facilities</th></tr>
+        <tr><td><strong>Frequency</strong></td><td>Weekly</td><td>Monthly</td><td>Daily (on demand)</td></tr>
+        <tr><td><strong>Maturity</strong></td><td>1 week</td><td>Up to 3 years</td><td>Overnight</td></tr>
+        <tr><td><strong>Purpose</strong></td><td>Main liquidity tool</td><td>Longer-term stability</td><td>Upper/lower bound</td></tr>
+        <tr><td><strong>Role</strong></td><td>Sets base rate</td><td>~1/3 liquidity normal times</td><td>EONIA corridor</td></tr>
+        <tr><td><strong>Collateral</strong></td><td>Yes (A, BBB in crisis)</td><td>Yes</td><td>Yes</td></tr>
+      </table>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">Common Exam Traps — Lecture 3</div>
+      <table class="comp-table">
+        <tr><th>Trap</th><th>Wrong assumption</th><th>Correct answer</th></tr>
+        <tr><td>G↑ → i↓</td><td>Fiscal expansion lowers interest rates</td><td>G↑ → money demand↑ → i↑. Only monetary policy (M↑) lowers i</td></tr>
+        <tr><td>IS curve: (1+t)Y</td><td>Adding tax to Y when deriving IS</td><td>Yv = Y − T^aut − t·Y = (1−t)·Y − T^aut. Always SUBTRACT t·Y</td></tr>
+        <tr><td>Negative shock → prices up</td><td>Recession causes inflation</td><td>Negative demand shock → income↓, prices↓ first. Recovery comes later via monetary policy</td></tr>
+        <tr><td>Quantity equation = interest rates</td><td>M·v=P·Y affects i</td><td>Quantity equation only splits ΔM into inflation (π) and growth (ΔY). Nothing to do with i</td></tr>
+        <tr><td>Bank run and rdr=1 are the same</td><td>Both give m=1 for same reason</td><td>Bank run = household panic (cdr=∞). rdr=1 = ECB forces full reserves. Same outcome, different cause</td></tr>
+        <tr><td>Liquidity trap → fiscal fails</td><td>h=∞ makes all policy fail</td><td>In liquidity trap, FISCAL is very effective (no crowding out). Only MONETARY fails</td></tr>
+        <tr><td>Wage/labor ruled out in EMU</td><td>All 5 adjustments are impossible in EMU</td><td>Only monetary policy (1) and exchange rate (2) are ruled out. Wages and labor mobility still work, just slowly</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- CHEATSHEET -->
+  <div id="mlec3-cheatsheet" class="study-panel">
+    <div class="note-box" style="border-left-color:var(--macro-m);background:var(--macro-l);margin-bottom:18px;color:var(--macro)">
+      <strong>📐 Exam note:</strong> The money multiplier calculation and IS-LM numerical solution are the two guaranteed calculation questions. Know all 6 steps for multiplier and the IS derivation trap (1−t not 1+t).
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-amber">Money Multiplier Formulas</span></div>
+      <table class="comp-table">
+        <tr><th>Formula</th><th>Meaning</th></tr>
+        <tr><td><code>m = (cdr+1)/(cdr+rdr)</code></td><td>Money multiplier</td></tr>
+        <tr><td><code>M1 = m × M0</code></td><td>Broad money from monetary base</td></tr>
+        <tr><td><code>DEP = ΔM1/(cdr+1)</code></td><td>Deposits created</td></tr>
+        <tr><td><code>CU = ΔM1 − DEP</code></td><td>Currency in circulation</td></tr>
+        <tr><td><code>CRES = rdr × DEP</code></td><td>Reserves held</td></tr>
+        <tr><td><code>CU + CRES = ΔM0 ✅</code></td><td>Verification — must always hold!</td></tr>
+      </table>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-amber">Money Market</span></div>
+      <table class="comp-table">
+        <tr><th>Formula</th><th>Meaning</th></tr>
+        <tr><td><code>L^D = k·Y − h·i</code></td><td>Money demand (k = income sensitivity, h = interest rate sensitivity)</td></tr>
+        <tr><td><code>M^S = L^D</code></td><td>Money market equilibrium</td></tr>
+        <tr><td><code>i = (k/h)·Y − (1/h)·M^S</code></td><td>LM curve equation</td></tr>
+        <tr><td><code>di/dY = k/h &gt; 0</code></td><td>Slope of LM curve (upward sloping)</td></tr>
+        <tr><td><code>P^B = CF/(1+i)</code></td><td>Bond price — always inverse to interest rate</td></tr>
+        <tr><td><code>r = i − π</code></td><td>Real interest rate</td></tr>
+      </table>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-amber">IS-LM Model</span></div>
+      <table class="comp-table">
+        <tr><th>Formula</th><th>Meaning</th></tr>
+        <tr><td><code>Yv = (1−t)·Y − T^aut + U</code></td><td>Disposable income (CRITICAL: use 1−t not 1+t!)</td></tr>
+        <tr><td><code>IS: Y = ... − (g·c/...)·i</code></td><td>IS curve — substitute all equations and solve for Y(i)</td></tr>
+        <tr><td><code>LM: i = (k/h)·Y − M^S/h</code></td><td>LM curve — solve money market for i(Y)</td></tr>
+        <tr><td><code>dY/dG = 1/(1−c(1−t)+gk/h)</code></td><td>Government spending multiplier (IS-LM)</td></tr>
+        <tr><td><code>dY/dU = c/(1−c(1−t)+gk/h)</code></td><td>Transfer multiplier — smaller by factor c</td></tr>
+      </table>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-amber">Quantity Equation</span></div>
+      <table class="comp-table">
+        <tr><th>Formula</th><th>Meaning</th></tr>
+        <tr><td><code>M·v = P·Y</code></td><td>Quantity equation — money × velocity = price level × real output</td></tr>
+        <tr><td><code>ΔM + Δv = π + ΔY</code></td><td>Growth rate version</td></tr>
+        <tr><td><code>ΔM = π + ΔY</code></td><td>Simplified (constant velocity, Δv=0)</td></tr>
+      </table>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-amber">Variable Glossary — Money Market</span></div>
+      <table class="comp-table">
+        <tr><th>Symbol</th><th>Name</th><th>What it means</th></tr>
+        <tr><td><code>M0</code></td><td>Monetary base</td><td>CU + CRES — created exclusively by central bank</td></tr>
+        <tr><td><code>M1</code></td><td>Narrow money</td><td>CU + DEP — money used day to day</td></tr>
+        <tr><td><code>CU</code></td><td>Currency in circulation</td><td>Cash held by households</td></tr>
+        <tr><td><code>DEP</code></td><td>Deposits</td><td>Money held in commercial bank accounts</td></tr>
+        <tr><td><code>CRES</code></td><td>Bank reserves</td><td>Banks' deposits at the central bank</td></tr>
+        <tr><td><code>cdr</code></td><td>Currency-deposit ratio</td><td>CU/DEP — how much cash vs deposits households hold</td></tr>
+        <tr><td><code>rdr</code></td><td>Reserve-deposit ratio</td><td>CRES/DEP — fraction of deposits kept as reserves</td></tr>
+        <tr><td><code>m</code></td><td>Money multiplier</td><td>How much M1 per €1 of M0</td></tr>
+        <tr><td><code>k</code></td><td>Income sensitivity of money demand</td><td>How much more money needed per unit of income rise</td></tr>
+        <tr><td><code>h</code></td><td>Interest rate sensitivity of money demand</td><td>How much money demand falls per 1pp rise in i</td></tr>
+        <tr><td><code>g</code></td><td>Interest rate sensitivity of investment</td><td>How much I falls per 1pp rise in i — determines IS slope</td></tr>
+        <tr><td><code>v</code></td><td>Velocity of money</td><td>How many times per year each unit of money changes hands</td></tr>
+        <tr><td><code>π</code></td><td>Inflation rate</td><td>Rate of price increase; in quantity equation: π = ΔP/P</td></tr>
+        <tr><td><code>r</code></td><td>Real interest rate</td><td>r = i − π; measures real cost of borrowing</td></tr>
+        <tr><td><code>P^B</code></td><td>Bond price</td><td>CF/(1+i) — always inverse to interest rate</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- CALCULATOR -->
+  <div id="mlec3-calc" class="study-panel">
+    <div class="calc-header"><div><div id="lec3-calc-title" style="font-family:var(--serif);font-size:20px;color:var(--text)"></div><div class="calc-pick-label" id="lec3-calc-pick-label"></div></div><div class="calc-nav"><button class="btn btn-sm" onclick="calcPrevFor('lec3')">← Prev</button><button class="btn btn-sm" onclick="calcNextFor('lec3')">Next →</button></div></div>
+    <div class="calc-desc-box" id="lec3-calc-desc" style="background:var(--macro-l);border-color:var(--macro-m);color:var(--macro)"></div>
+    <div id="lec3-calc-steps"></div>
+    <div class="calc-footer"><button class="btn btn-primary btn-sm" id="lec3-calc-next" onclick="calcNextStepFor('lec3')" style="background:var(--macro);border-color:var(--macro)">Next step →</button><button class="btn btn-sm" id="lec3-calc-reveal"></button></div>
+  </div>
+
+  <!-- FLASHCARDS -->
+  <div id="mlec3-flashcards" class="study-panel">
+    <div class="fc-controls"><button class="btn btn-sm" onclick="shuffleMacroFC('lec3')">Shuffle</button><button class="btn btn-sm" onclick="resetMacroFC('lec3')">Reset all</button><span style="font-size:12px;color:var(--text3);margin-left:4px">Rate each card — hard ones come back sooner</span></div>
+    <div class="fc-sr-bar" id="mlec3-sr-bar"></div>
+    <div id="mlec3-fc-wrap">
+      <div class="flashcard-wrap"><div class="flashcard" id="mlec3-fc-card" onclick="flipMacroFC('lec3')">
+        <div class="fc-face fc-front" style="background:var(--surface)"><div class="fc-label">Question</div><div class="fc-question" id="mlec3-fc-q"></div><div class="fc-hint">Click to reveal</div></div>
+        <div class="fc-face fc-back" style="background:var(--macro);transform:rotateY(180deg)"><div class="fc-label">Answer</div><div class="fc-answer" id="mlec3-fc-a"></div><div class="fc-src" id="mlec3-fc-src"></div></div>
+      </div></div>
+      <div class="sr-btns"><button class="sr-btn sr-btn-hard" onclick="rateMacroFC('lec3',0)">😬 Still learning</button><button class="sr-btn sr-btn-ok" onclick="rateMacroFC('lec3',1)">🤔 Almost</button><button class="sr-btn sr-btn-easy" onclick="rateMacroFC('lec3',2)">✓ Got it</button></div>
+      <div class="sr-mode-note">Card <span id="mlec3-fc-counter">1</span> of <span id="mlec3-fc-total">25</span></div>
+    </div>
+    <div class="fc-sr-done" id="mlec3-fc-done" style="display:none"><h3>Session complete!</h3><p id="mlec3-done-msg"></p><div style="display:flex;gap:10px;justify-content:center;margin-top:16px"><button class="btn btn-primary" onclick="reviewMacroWeak('lec3')" style="background:var(--macro);border-color:var(--macro)">Review weak cards</button><button class="btn" onclick="resetMacroFC('lec3')">Start over</button></div></div>
+  </div>
+
+  <!-- QUIZ -->
+  <div id="mlec3-quiz" class="study-panel">
+    <div id="mqlec3-wrap">
+      <div class="quiz-prog"><div class="quiz-prog-fill" id="mqlec3-pfill" style="width:0%;background:var(--macro)"></div></div>
+      <div class="quiz-meta" id="mqlec3-meta"></div>
+      <div class="quiz-q" id="mqlec3-text"></div>
+      <div class="quiz-opts" id="mqlec3-opts"></div>
+      <div class="quiz-fb" id="mqlec3-fb"></div>
+      <div id="mqlec3-next" style="display:none"><button class="btn btn-primary" onclick="nextMacroQ('lec3')" style="background:var(--macro);border-color:var(--macro)">Next →</button></div>
+    </div>
+    <div class="quiz-score-screen" id="mqlec3-score">
+      <div class="score-row">
+        <div class="score-big" id="mqlec3-big" style="color:var(--macro)"></div>
+        <div class="score-right"><div class="score-lbl">correct answers</div><div class="score-msg" id="mqlec3-msg"></div></div>
+      </div>
+      <div class="weak-section" id="mqlec3-weak"></div>
+      <div style="margin-top:20px;display:flex;gap:10px">
+        <button class="btn btn-primary" onclick="restartMacroQuiz('lec3')" style="background:var(--macro);border-color:var(--macro)">Try again</button>
+        <button class="btn" onclick="showMacroTab('calc',null,'lec3')">Practice calculator</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
 <div id="page-ibt-overview" class="page">
   <div class="page-eyebrow" style="color:var(--ibt)">International Business &amp; Trade</div>
   <div class="page-title">All Sessions</div>
@@ -4957,7 +5363,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
 // ── Navigation ──
 function showPage(id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));document.getElementById('page-'+id).classList.add('active');if(btn)btn.classList.add('active')}
 function showLecture(subject,id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-sub').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');const el=document.getElementById('page-'+subject+'-'+id);if(el){el.classList.add('active');if(subject==='eu'&&id==='i'){initFC('si');initQuiz('si')}if(subject==='eu'&&id==='ii'){initFC('sii');initQuiz('sii')}if(subject==='eu'&&id==='iii'){initFC('siii');initQuiz('siii');initSiiiTimeline()}if(subject==='eu'&&id==='iv'){initFC('siv');initQuiz('siv');initSivTimeline()}if(subject==='eu'&&id==='v'){initFC('sv');initQuiz('sv')}if(subject==='eu'&&id==='vi'){initFC('svi');initQuiz('svi');loadScenario(0,document.querySelector('.scenario-btn'))}if(subject==='eu'&&id==='vii'){initFC('svii');initQuiz('svii');initSviiTimeline()}if(subject==='eu'&&id==='viii'){initFC('sviii');initQuiz('sviii');initSviiiTimeline()}if(subject==='eu'&&id==='ix'){initFC('six');initQuiz('six')}if(subject==='micro'&&id==='ch2'){initMicroFC('ch2');initMicroQuiz('ch2');initCalcFor('ch2')}
-if(subject==='micro'&&id==='ch3'){initMicroFC('ch3');initMicroQuiz('ch3');initCalc()}if(subject==='micro'&&id==='ps1'){initMicroFC('ps1');initMicroQuiz('ps1');initCalcFor('ps1')}if(subject==='micro'&&id==='ps2'){initMicroFC('ps2');initMicroQuiz('ps2');initCalcFor('ps2')}if(subject==='macro'&&id==='lec1'){initMacroFC('lec1');initMacroQuiz('lec1');initCalcFor('lec1')}if(subject==='macro'&&id==='lec2'){initMacroFC('lec2');initMacroQuiz('lec2');initCalcFor('lec2')}
+if(subject==='micro'&&id==='ch3'){initMicroFC('ch3');initMicroQuiz('ch3');initCalc()}if(subject==='micro'&&id==='ps1'){initMicroFC('ps1');initMicroQuiz('ps1');initCalcFor('ps1')}if(subject==='micro'&&id==='ps2'){initMicroFC('ps2');initMicroQuiz('ps2');initCalcFor('ps2')}if(subject==='macro'&&id==='lec1'){initMacroFC('lec1');initMacroQuiz('lec1');initCalcFor('lec1')}if(subject==='macro'&&id==='lec2'){initMacroFC('lec2');initMacroQuiz('lec2');initCalcFor('lec2')}if(subject==='macro'&&id==='lec3'){initMacroFC('lec3');initMacroQuiz('lec3');initCalcFor('lec3')}
 if(subject==='ic'&&id==='s1'){icInitFC('s1');icInitQuiz('s1')}
 if(subject==='ic'&&id==='s2'){icInitFC('s2');icInitQuiz('s2')}
 if(subject==='ic'&&id==='s3'){icInitFC('s3');icInitQuiz('s3')}
@@ -6037,6 +6443,33 @@ microQData['ps2']=[
 ];
 // ── Macro Flashcard & Quiz Data ──
 const macroFcData={
+  lec3:[
+    {q:"What are the three functions of money?",a:"Unit of account (pricing/information costs) · Store of value (savings, intertemporal allocation) · Medium of exchange (lower search and transaction costs)",src:"Money Market Foundations",topic:"Money Market"},
+    {q:"What is the difference between ESCB and Eurosystem?",a:"ESCB = ECB + ALL EU national central banks (including non-euro countries). Eurosystem = ECB + only eurozone NCBs. ESCB is broader.",src:"EMU Structure",topic:"EMU"},
+    {q:"What are the five convergence criteria to join the EMU?",a:"1. Inflation ≤ avg of 3 most stable + 1.5% · 2. Long-run interest rate ≤ avg + 2% · 3. Public balance ≥ −3% GDP · 4. Debt ≤ 60% GDP · 5. Exchange rate stability ±15%",src:"Convergence Criteria",topic:"EMU"},
+    {q:"In Mundell's asymmetric shock model, what is the full transmission chain for Greece under monetary independence?",a:"Negative demand shock → income↓ → prices↓ → expansionary monetary policy (i↓) → Drachma depreciates → competitiveness↑ → employment↑ → prices↑",src:"Optimal Currency Area",topic:"Asymmetric Shock"},
+    {q:"Which two adjustment mechanisms are RULED OUT in a monetary union after an asymmetric shock?",a:"1. Independent monetary policy (one ECB, one interest rate) · 2. Exchange rate devaluation (one currency — the Euro). Only wages, labor mobility, and limited fiscal transfers remain.",src:"Optimal Currency Area",topic:"Asymmetric Shock"},
+    {q:"Why is the Eurozone NOT an optimal currency area according to Mundell?",a:"Wages are sticky downward, labor mobility is limited (language/culture/social security barriers), and fiscal transfers are severely constrained → adjustment to asymmetric shocks is slow and painful → prolonged unemployment = real economic costs",src:"Optimal Currency Area",topic:"Asymmetric Shock"},
+    {q:"What is the two-tier banking system and why can't the central bank lend directly to households?",a:"Two tiers: Central Bank ↔ Commercial Banks (Tier 1) · Commercial Banks ↔ Non-Banks (Tier 2). The central bank can only create M0 and inject it through commercial banks — it has no direct lending channel to households or firms.",src:"Two-Tier Banking",topic:"Banking System"},
+    {q:"What is the Monetary Base M0 and what are its two components?",a:"M0 = Currency in Circulation (CU) + Bank Reserves (CRES). Created exclusively by the central bank. The foundation on which commercial banks build M1, M2, M3 through lending.",src:"Monetary Base",topic:"Monetary Aggregates"},
+    {q:"State the golden rule of central bank balance sheet operations.",a:"Every asset purchase creates money (M0↑). Every asset sale destroys money (M0↓). Asset purchase: bonds↑ on assets side, bank deposits↑ on liabilities side — balance sheet expands.",src:"Central Bank Balance Sheet",topic:"Banking System"},
+    {q:"What are the 8 key characteristics of the MRO?",a:"1. Most important liquidity instrument · 2. Weekly, one week maturity · 3. Sets base rate · 4. Repurchase agreement · 5. Collateralized (A rated, BBB in crisis) · 6. Fixed rate tender, full allotment since Oct 2008 · 7. Steers interest rates · 8. Decentralized through NCBs",src:"MRO",topic:"ECB Instruments"},
+    {q:"What is the money supply multiplier formula and what do cdr and rdr mean?",a:"m = (cdr+1)/(cdr+rdr). cdr = CU/DEP (currency-deposit ratio: how much cash vs deposits households hold). rdr = CRES/DEP (reserve-deposit ratio: fraction of deposits kept as reserves by banks).",src:"Money Supply Multiplier",topic:"Money Multiplier"},
+    {q:"What are the 6 steps to solve a money multiplier calculation?",a:"1. m = (cdr+1)/(cdr+rdr) · 2. ΔM1 = m×ΔM0 · 3. DEP = ΔM1/(cdr+1) · 4. CU = ΔM1−DEP · 5. CRES = rdr×DEP · 6. Verify: CU+CRES = ΔM0 ✅ (must always hold!)",src:"Money Supply Multiplier",topic:"Money Multiplier"},
+    {q:"What happens to the money multiplier in a bank run (cdr=∞) and why?",a:"m=1. Everyone holds cash, no deposits → DEP=0, CRES=0, CU=entire ΔM0. Banks cannot lend because they have no deposits. No multiplication occurs. Real example: Greece 2010, queues at ATMs.",src:"Extreme Cases",topic:"Money Multiplier"},
+    {q:"What happens when rdr=1 and why does the ECB force this?",a:"m=1. Banks keep 100% of deposits as reserves → no lending possible. ECB forces rdr=1 when it fears banks are becoming insolvent, to increase financial stability and prevent systemic collapse.",src:"Extreme Cases",topic:"Money Multiplier"},
+    {q:"What is the quantity equation and what does it predict in a boom vs recession?",a:"M·v = P·Y → ΔM = π + ΔY (constant velocity). Boom: supply inelastic → M↑ only raises prices (π↑, Y unchanged). Recession: supply elastic → M↑ only raises output (Y↑, π unchanged). Normal: splits between both.",src:"Quantity Equation",topic:"Quantity Equation"},
+    {q:"What are the two motives for holding money and how do they relate to Y and i?",a:"Transaction motive (L^T): positively related to Y (+) — higher income → more spending → need more money. Speculative motive (L^S): negatively related to i (−) — higher i → bonds more attractive → hold less money.",src:"Money Demand",topic:"Money Demand"},
+    {q:"What is the bond price formula and what is its critical relationship with the interest rate?",a:"P^B = CF/(1+i). Always inverse: i↑ → P^B↓ · i↓ → P^B↑. ECB buys bonds → P^B↑ → i↓. ECB sells bonds → P^B↓ → i↑. This is the mechanism of monetary policy.",src:"Bond Price Relationship",topic:"Money Demand"},
+    {q:"What is the LM curve and why does it slope upward?",a:"All (Y,i) combinations where money market is in equilibrium (L^D = M^S). Upward sloping because: Y↑ → transaction money demand↑ → excess money demand → i must rise to reduce speculative demand → new equilibrium. Slope = k/h.",src:"LM Curve",topic:"LM Curve"},
+    {q:"What is the most common IS curve derivation error in the exam?",a:"Using (1+t)Y instead of (1−t)Y. Correct: Yv = Y − T^aut − t·Y = (1−t)·Y − T^aut. When you multiply by c you get c·(1−t)·Y NOT c·(1+t)·Y. This error completely changes the IS curve and all subsequent results.",src:"IS Curve Derivation",topic:"IS-LM Model"},
+    {q:"What is crowding out and what is the FULL transmission chain?",a:"G↑ → Y↑ → transaction money demand (L^T)↑ → excess money demand → i↑ → Investment (I)↓ → Y↓ (partially). Government spending partially reduces private investment through higher interest rates. Net effect on Y is less than full multiplier.",src:"Crowding Out",topic:"IS-LM Model"},
+    {q:"What is crowding in and when does it happen?",a:"T↑ → Yv↓ → C↓ → Y↓ → transaction money demand↓ → i↓ → I↑ → Y partially recovers. Tax increase partially offset by higher private investment through lower interest rates. Y never fully returns to original level.",src:"Crowding In",topic:"IS-LM Model"},
+    {q:"What is the KEY difference between fiscal and monetary policy effects on the interest rate?",a:"Fiscal (G↑) → i↑ (money DEMAND rises, supply unchanged → money scarcer → price rises). Monetary (M↑) → i↓ (money SUPPLY rises, demand unchanged → money more plentiful → price falls). They ALWAYS move in opposite directions.",src:"Policy Comparison",topic:"IS-LM Model"},
+    {q:"In the liquidity trap (h=∞), why is monetary policy ineffective and fiscal policy very effective?",a:"h=∞: interest rates so low nobody wants bonds → everyone holds cash → any extra money injected immediately absorbed → i cannot fall → investment unchanged → monetary policy useless. Fiscal: G↑ → Y↑ → no crowding out because i cannot rise → full multiplier effect.",src:"Liquidity Trap",topic:"Extreme Cases"},
+    {q:"In the neoclassical case (k=∞), why is fiscal policy ineffective and monetary policy effective?",a:"k=∞: LM is vertical → G↑ → i rises massively → investment completely crowded out → Y unchanged (perfect crowding out). Monetary: M↑ → LM shifts right → i falls substantially → investment rises strongly → Y increases significantly.",src:"Neoclassical Case",topic:"Extreme Cases"},
+    {q:"In the inelastic IS case (g=0), why is monetary policy ineffective and fiscal policy effective?",a:"g=0: investment ignores interest rates (firms too pessimistic to invest regardless of borrowing cost — deep recession). Monetary: i↓ → investment unchanged → Y unchanged. Fiscal: G↑ → direct demand boost → no crowding out of investment possible → full multiplier.",src:"Inelastic IS",topic:"Extreme Cases"},
+  ],
   lec2:[
     {q:"What is the output gap and what does it indicate?",a:"Output gap = Actual income − Potential income. Positive = boom (above potential). Negative = recession (below potential). Measures where the economy sits in the business cycle.",src:"Business-Cycle Basics",topic:"Business Cycle"},
     {q:"What is the formula for price elasticity of supply?",a:"ηₛ = (dx/x)/(dp/p) = (dx/dp)×(p/x). Equivalently: ηₛ = growth rate / inflation rate.",src:"Price Elasticity of Supply",topic:"Supply Elasticity"},
@@ -6113,6 +6546,29 @@ const macroFcData={
   ]
 };
 const macroQData={
+  lec3:[
+    {q:"What happens to the interest rate when the government increases spending (G↑)?",opts:["Falls — more money in the economy lowers interest rates","Rises — transaction money demand increases with higher income","Stays the same — only the IS curve shifts, not i","Falls — investment becomes more attractive"],ans:1,exp:"G↑ → Y↑ → transaction money demand (L^T)↑ → excess money demand → i must rise to restore money market equilibrium. This is crowding out. The most common exam trap is confusing fiscal policy (i↑) with monetary policy (i↓).",topic:"IS-LM Policy"},
+    {q:"In a bank run (cdr = ∞), what is the money multiplier?",opts:["0 — no money created","∞ — infinite money creation","1 — no multiplication beyond monetary base","Depends on rdr"],ans:2,exp:"m = (∞+1)/(∞+rdr) = ∞/∞ = 1. Everyone holds cash, no deposits → DEP=0, CRES=0. Banks cannot lend. CU = entire ΔM0. No multiplication occurs. Real example: Greece 2010.",topic:"Money Multiplier"},
+    {q:"What is the correct formula for disposable income Yv when deriving the IS curve?",opts:["Yv = Y + T^aut + t·Y","Yv = (1+t)·Y − T^aut","Yv = (1−t)·Y − T^aut + U","Yv = Y − t·Y"],ans:2,exp:"Yv = Y − T + U = Y − (T^aut + t·Y) + U = (1−t)·Y − T^aut + U. The most common exam error is using (1+t) instead of (1−t), which completely changes the IS curve result. Always SUBTRACT taxes.",topic:"IS Curve"},
+    {q:"Which two adjustment mechanisms are RULED OUT in a monetary union after an asymmetric shock?",opts:["Wage flexibility and labor mobility","Fiscal transfers and labor mobility","Independent monetary policy and exchange rate devaluation","All five adjustments are ruled out"],ans:2,exp:"In a monetary union: (1) independent monetary policy is impossible — one ECB, one rate for all; (2) exchange rate devaluation is impossible — one currency. Common trap: students say wage/labor are also ruled out — WRONG, they still work (just slowly).",topic:"Optimal Currency Area"},
+    {q:"Given ΔM0 = €1,000, cdr = 0.1, rdr = 0.1 — what is the money multiplier m?",opts:["5","5.5","10","11"],ans:1,exp:"m = (cdr+1)/(cdr+rdr) = (0.1+1)/(0.1+0.1) = 1.1/0.2 = 5.5. Common error: forgetting to add 1 to the numerator, or adding cdr+rdr incorrectly.",topic:"Money Multiplier"},
+    {q:"What happens to the LM curve when the ECB buys government bonds?",opts:["Shifts left/upward — money supply decreases","Shifts right/downward — money supply increases","Becomes steeper — slope increases","Does not shift — only a movement along the curve"],ans:1,exp:"ECB buys bonds → M^S↑ → excess money supply → bond prices↑ → i↓ → at any given Y, lower i for equilibrium → LM shifts right/down (expansionary). Left/up shift occurs with contractionary policy (selling bonds).",topic:"LM Curve"},
+    {q:"In the liquidity trap, what is the effect of expansionary monetary policy?",opts:["Very effective — interest rate falls significantly","Moderately effective — partial impact on income","Completely ineffective — interest rate cannot fall further","Effective only if combined with fiscal policy"],ans:2,exp:"h=∞ → interest rates already near zero → nobody wants bonds → all extra money absorbed as cash holdings → i cannot fall → investment unchanged → Y unchanged. Fiscal policy however is VERY effective in liquidity trap as there is no crowding out.",topic:"Extreme Cases"},
+    {q:"What does the quantity equation ΔM = π + ΔY predict when money supply increases 10% during a boom?",opts:["Income rises by 10%, prices unchanged","Both prices and income rise by 5% each","Prices rise by 10%, income unchanged","Interest rate falls by 10%"],ans:2,exp:"Boom = economy at full capacity = vertical supply curve (perfectly inelastic). Y cannot increase further. All extra money absorbed by prices (π↑). Common trap: students confuse quantity equation with interest rate effects — the quantity equation has NOTHING to do with i.",topic:"Quantity Equation"},
+    {q:"What is the relationship between bond prices and interest rates?",opts:["They move in the same direction","They move in opposite directions — always","Bond prices affect interest rates but not vice versa","They are unrelated"],ans:1,exp:"P^B = CF/(1+i). If i↑ → denominator larger → P^B↓. Always perfectly inverse. This is the mechanism of monetary policy: ECB buys bonds → P^B↑ → i↓. ECB sells bonds → P^B↓ → i↑.",topic:"Money Demand"},
+    {q:"What is the transfer multiplier dY/dU compared to the government spending multiplier dY/dG?",opts:["Equal — both raise income by the same amount","Larger by factor 1/(1−c)","Smaller by factor c","Zero — transfers don't affect income"],ans:2,exp:"Transfer multiplier = c/(1−c(1−t)+gk/h) vs spending multiplier = 1/(1−c(1−t)+gk/h). Transfers are smaller by factor c — they pass through households who save fraction (1−c) before spending. Direct government spending has c=1 (100% spent).",topic:"IS-LM Multipliers"},
+    {q:"In the neoclassical case (k=∞), what happens when government increases spending?",opts:["Income increases by full multiplier effect","Income increases partially due to crowding out","Income unchanged — perfect crowding out","Income decreases due to higher taxes"],ans:2,exp:"k=∞ → LM is vertical → G↑ → IS shifts right → but LM is vertical → interest rate rises massively → investment completely crowded out → Y unchanged (perfect crowding out). Monetary policy however is very effective in this case.",topic:"Extreme Cases"},
+    {q:"What is the EONIA and what role does it play?",opts:["European Official Nominal Interest Average — sets the base rate","Euro OverNight Index Average — weighted average of overnight loans, kept within standing facilities corridor","European Open Market Index — tracks bond prices","Emergency Overnight Note Index — emergency lending rate"],ans:1,exp:"EONIA = Euro OverNight Index Average = weighted average of all uncollateralized overnight loans between active banks. The lending facility (ceiling) and deposit facility (floor) create a corridor that contains the EONIA and prevents excess volatility.",topic:"ECB Instruments"},
+    {q:"Given: cdr=0.2, rdr=0.1, ΔM0=€1,000. What is the correct verification step result?",opts:["CU + DEP = €4,000","CU + CRES must equal €1,000","DEP + CRES must equal ΔM1","CU = ΔM0"],ans:1,exp:"The verification is always: CU + CRES = ΔM0. With m=4, ΔM1=€4,000, DEP=€3,333, CU=€667, CRES=€333. Check: 667+333=€1,000=ΔM0 ✅. This is mandatory in every exam — if it doesn't balance, there's an error.",topic:"Money Multiplier"},
+    {q:"What is the money demand formula and what do k and h represent?",opts:["L^D = k·i − h·Y (k=income sensitivity, h=interest sensitivity)","L^D = k·Y − h·i (k=income sensitivity, h=interest rate sensitivity)","L^D = k·Y + h·i (both positive)","L^D = k/(Y·i)"],ans:1,exp:"L^D = k·Y − h·i. k>0: income sensitivity — higher Y requires more money for transactions (positive). h>0: interest rate sensitivity — higher i makes bonds attractive, reducing money demand (negative). Transaction motive (+Y) and speculative motive (−i).",topic:"Money Demand"},
+    {q:"Which statement about the MRO is INCORRECT?",opts:["It is conducted on a weekly basis with one week maturity","Banks must provide eligible collateral (A rated, BBB in crisis)","It is organized centrally by the ECB headquarters directly","Since October 2008, it has been executed as a fixed rate tender with full allotment"],ans:2,exp:"The MRO is organized in a DECENTRALIZED manner by the National Central Banks (NCBs), not directly by ECB headquarters. All other statements are correct. This is a common exam trap — students assume everything is done centrally by Frankfurt.",topic:"ECB Instruments"},
+    {q:"Why does the LM curve slope upward?",opts:["Higher income requires higher interest rates to keep firms from over-investing","Higher income increases transaction money demand → excess money demand → i must rise to reduce speculative demand","The central bank raises rates when the economy grows","Higher Y directly causes i to rise through fiscal policy"],ans:1,exp:"Y↑ → L^T (transaction demand)↑ → money demand exceeds fixed supply → i must rise to reduce L^S (speculative demand) until L^D = M^S again. The slope = k/h. Higher k or lower h → steeper LM.",topic:"LM Curve"},
+    {q:"What is the ECB's primary mandate and target?",opts:["Maximize employment at any inflation rate","Maintain HICP inflation close to but below 2% over medium term","Balance the EU budget","Maintain exchange rate stability with the US dollar"],ans:1,exp:"Article 127 of the EU Treaty: 'The primary objective of the Eurosystem shall be to maintain price stability.' Target: HICP inflation close to but below 2% over medium term. Employment is secondary — pursued only 'without prejudice to price stability'.",topic:"ECB Mandate"},
+    {q:"Why does the ECB target 2% inflation rather than 0%?",opts:["2% is easier to achieve politically","Four measurement biases cause HICP to overstate true inflation — quality, substitution, new goods, online bias","2% allows more room for interest rate cuts","Higher inflation generates more government tax revenue"],ans:1,exp:"All four biases systematically push measured inflation above true inflation. Quality improves but shows as price rises; consumers substitute to cheaper goods; new goods enter at higher prices; online shopping reduces prices but isn't fully captured. So 2% measured ≈ 0% true inflation.",topic:"Price Stability"},
+    {q:"What happens to the IS-LM equilibrium when money supply increases?",opts:["IS shifts right → Y↑ and i↑","LM shifts right/down → Y↑ and i↓","Both IS and LM shift → Y↑ and i unchanged","LM shifts left/up → Y↓ and i↑"],ans:1,exp:"M↑ → LM shifts right/down (only LM moves, IS unaffected). At intersection: Y↑ and i↓. Lower i stimulates investment → Y rises further through multiplier. Note partial crowding out occurs: Y↑ → L^T↑ → i rises slightly back from its minimum.",topic:"IS-LM Policy"},
+    {q:"Real interest rate r = 3% and inflation π = 5%. What is the nominal interest rate?",opts:["2%","8%","−2%","15%"],ans:1,exp:"r = i − π → i = r + π = 3% + 5% = 8%. Rearranging the Fisher equation. Common trap: students subtract instead of add. The nominal rate must be higher than the real rate by the inflation premium.",topic:"Real Interest Rate"},
+    {q:"What is the ESCB?",opts:["Only the ECB and its executive board","ECB plus national central banks of ONLY eurozone countries (Eurosystem)","ECB plus national central banks of ALL EU member states, including non-euro countries","The governing body that sets fiscal policy for the EU"],ans:2,exp:"ESCB = European System of Central Banks = ECB + ALL EU NCBs regardless of euro adoption. The Eurosystem is the narrower concept = ECB + only eurozone NCBs. UK's Bank of England was in ESCB while UK was in EU, but not in Eurosystem.",topic:"EMU Structure"},
+  ],
   lec2:[
     {q:"What does price elasticity of supply (ηₛ) measure?",opts:["Percentage change in prices relative to quantity","Percentage change in quantity relative to a percentage change in price","The slope of the demand curve","The ratio of inflation to unemployment"],ans:1,exp:"ηₛ = (dx/x)/(dp/p). It measures how responsively quantity supplied reacts to a price change. A reverses the ratio. C and D are unrelated.",topic:"Supply Elasticity"},
     {q:"A market has ηₛ = 0.2. An increase in money supply occurs. What is the primary effect?",opts:["Large increase in output, small increase in prices","Equal increase in output and prices","Large increase in prices, small increase in output","No effect on either"],ans:2,exp:"ηₛ = 0.2 means supply is very inelastic — prices respond much more than quantities. Demand stimulus mostly generates inflation. This is the boom/vertical supply scenario.",topic:"Supply Elasticity"},
@@ -6503,9 +6959,93 @@ const calcProblemsCh2=[
     ]
   },
 ];
+const calcProblemsLec3=[
+  {
+    title:"Problem 1 — Money Multiplier (Standard)",
+    desc:"ECB increases monetary base by <b>ΔM0 = €1,000</b>. Given: <b>cdr = 0.5, rdr = 0.1</b>.<br>Find: m, ΔM1, DEP, CU, CRES. Verify.",
+    steps:[
+      {label:"Step 1: Calculate multiplier m",formula:"m = (cdr+1)/(cdr+rdr) = (0.5+1)/(0.5+0.1) = 1.5/0.6",result:"m = <b>2.5</b>"},
+      {label:"Step 2: Calculate ΔM1",formula:"ΔM1 = m × ΔM0 = 2.5 × 1,000",result:"ΔM1 = <b>€2,500</b>"},
+      {label:"Step 3: Calculate DEP",formula:"DEP = ΔM1/(cdr+1) = 2,500/1.5",result:"DEP = <b>€1,667</b>"},
+      {label:"Step 4: Calculate CU",formula:"CU = ΔM1 − DEP = 2,500 − 1,667",result:"CU = <b>€833</b>"},
+      {label:"Step 5: Calculate CRES",formula:"CRES = rdr × DEP = 0.1 × 1,667",result:"CRES = <b>€167</b>"},
+      {label:"Step 6: Verify ✅",formula:"CU + CRES = 833 + 167",result:"= <b>€1,000 = ΔM0 ✅</b> Correct!"},
+    ]
+  },
+  {
+    title:"Problem 2 — Money Multiplier (Exam-Level)",
+    desc:"ECB increases monetary base by <b>ΔM0 = €1,000</b>. Given: <b>cdr = 0.1, rdr = 0.1</b>.<br>Find all values. (This exact example appears in past exams!)",
+    steps:[
+      {label:"Step 1: Multiplier",formula:"m = (0.1+1)/(0.1+0.1) = 1.1/0.2",result:"m = <b>5.5</b>"},
+      {label:"Step 2: ΔM1",formula:"ΔM1 = 5.5 × 1,000",result:"ΔM1 = <b>€5,500</b>"},
+      {label:"Step 3: DEP",formula:"DEP = 5,500/(0.1+1) = 5,500/1.1",result:"DEP = <b>€5,000</b>"},
+      {label:"Step 4: CU",formula:"CU = 5,500 − 5,000",result:"CU = <b>€500</b>"},
+      {label:"Step 5: CRES",formula:"CRES = 0.1 × 5,000",result:"CRES = <b>€500</b>"},
+      {label:"Step 6: Verify ✅",formula:"500 + 500",result:"= <b>€1,000 = ΔM0 ✅</b>"},
+    ]
+  },
+  {
+    title:"Problem 3 — Extreme Case: Bank Run (cdr = ∞)",
+    desc:"ECB increases monetary base by <b>ΔM0 = €1,000</b>. Given: <b>cdr = ∞, rdr = 0.1</b>.<br>Find m. Interpret economically.",
+    steps:[
+      {label:"Step 1: Multiplier with cdr = ∞",formula:"m = (∞+1)/(∞+0.1) = ∞/∞",result:"m = <b>1</b>"},
+      {label:"Step 2: ΔM1",formula:"ΔM1 = 1 × 1,000",result:"ΔM1 = <b>€1,000</b>"},
+      {label:"Step 3: DEP and CRES",formula:"Nobody deposits → DEP = 0. CRES = rdr × 0 = 0",result:"DEP = <b>€0</b> · CRES = <b>€0</b>"},
+      {label:"Step 4: CU",formula:"CU = ΔM1 − DEP = 1,000 − 0",result:"CU = <b>€1,000</b> (all cash)"},
+      {label:"Step 5: Verify ✅",formula:"CU + CRES = 1,000 + 0",result:"= <b>€1,000 ✅</b>"},
+      {label:"Economic interpretation",formula:"Everyone panics and withdraws cash. Banks have no deposits → cannot lend → multiplier collapses to 1",result:"<b>Bank run: Greece 2010, queues at ATMs. No money creation beyond ΔM0.</b>"},
+    ]
+  },
+  {
+    title:"Problem 4 — IS-LM: Find Equilibrium",
+    desc:"C=60+0.8·Yv, I=100−4i, G=180, T=50+0.25Y, U=0, L^D=0.8Y−2i, MS=500.<br>Find IS curve, LM curve, Y* and i*.",
+    steps:[
+      {label:"Step 1: Disposable income",formula:"Yv = Y − (50+0.25Y) = <b>(1−0.25)·Y − 50</b> = 0.75Y − 50",result:"CRITICAL: always (1−t)Y not (1+t)Y!"},
+      {label:"Step 2: Consumption",formula:"C = 60 + 0.8·(0.75Y−50) = 60 + 0.6Y − 40",result:"C = 20 + 0.6Y"},
+      {label:"Step 3: IS equation",formula:"Y = (20+0.6Y) + (100−4i) + 180 → 0.4Y = 300 − 4i",result:"IS: <b>Y = 750 − 10i</b>"},
+      {label:"Step 4: LM equation",formula:"500 = 0.8Y − 2i → 2i = 0.8Y − 500",result:"LM: <b>i = 0.4Y − 250</b>"},
+      {label:"Step 5: Solve for Y*",formula:"Y = 750 − 10·(0.4Y−250) = 750 − 4Y + 2,500 → 5Y = 3,250",result:"Y* = <b>650</b>"},
+      {label:"Step 6: Solve for i*",formula:"i* = 0.4·(650) − 250 = 260 − 250",result:"i* = <b>10%</b>"},
+    ]
+  },
+  {
+    title:"Problem 5 — IS-LM: Fiscal Policy Shock (dG > 0)",
+    desc:"Same model as Problem 4. Now <b>G increases from 180 to 200 (ΔG = 20)</b>.<br>Find new Y*, i*. Calculate government spending multiplier dY/dG.",
+    steps:[
+      {label:"Step 1: New IS equation (G=200)",formula:"Y = (20+0.6Y) + (100−4i) + 200 → 0.4Y = 320 − 4i",result:"New IS: <b>Y = 800 − 10i</b>"},
+      {label:"Step 2: LM unchanged",formula:"i = 0.4Y − 250",result:"LM: same as before"},
+      {label:"Step 3: New equilibrium",formula:"Y = 800 − 10·(0.4Y−250) = 800 − 4Y + 2,500 → 5Y = 3,300",result:"New Y* = <b>660</b>"},
+      {label:"Step 4: New interest rate",formula:"i* = 0.4·(660) − 250 = 264 − 250",result:"New i* = <b>14%</b>"},
+      {label:"Step 5: Government spending multiplier",formula:"dY/dG = ΔY/ΔG = (660−650)/(200−180) = 10/20",result:"dY/dG = <b>0.5</b>"},
+      {label:"Step 6: Crowding out chain",formula:"G↑ → Y↑ → L^T↑ → i↑ (10%→14%) → I↓ → partial crowding out",result:"<b>Interest rate rose 4pp. Investment fell: I = 100−4×14 = 44 (was 60). Crowding out = −16 in investment.</b>"},
+    ]
+  },
+  {
+    title:"Problem 6 — IS-LM: Full Calculation with Budget Balance",
+    desc:"Y=C+I+G, C=60+0.8·Yv, I=100−4i, G=180, T=50+0.25Y, U=0, MS=500, k=0.8, h=2.<br>Find Y*, i*, then I, T, Yv, C, S, B.",
+    steps:[
+      {label:"Step 1: Equilibrium (from Problem 4)",formula:"Y* = 650, i* = 10%",result:"Y* = <b>650</b>, i* = <b>10%</b>"},
+      {label:"Step 2: Investment I",formula:"I = 100 − 4×10 = 100 − 40",result:"I = <b>60</b>"},
+      {label:"Step 3: Tax revenues T",formula:"T = 50 + 0.25×650 = 50 + 162.5",result:"T = <b>212.5</b>"},
+      {label:"Step 4: Disposable income Yv",formula:"Yv = 650 − 212.5 + 0",result:"Yv = <b>437.5</b>"},
+      {label:"Step 5: Consumption C",formula:"C = 60 + 0.8×437.5 = 60 + 350",result:"C = <b>410</b>"},
+      {label:"Step 6: Savings S and Budget Balance B",formula:"S = Yv − C = 437.5 − 410 = 27.5. B = T − G − U = 212.5 − 180 − 0",result:"S = <b>27.5</b> · B = <b>32.5</b> (surplus)"},
+    ]
+  },
+  {
+    title:"Problem 7 — Bond Price & Interest Rate",
+    desc:"A bond has a future cash flow CF = €110.<br>(a) Calculate bond price at i = 10%. (b) Calculate bond price at i = 25%. (c) What happens when ECB buys bonds?",
+    steps:[
+      {label:"(a) Bond price at i = 10%",formula:"P^B = CF/(1+i) = 110/(1+0.10) = 110/1.10",result:"P^B = <b>€100</b>"},
+      {label:"(b) Bond price at i = 25%",formula:"P^B = 110/(1+0.25) = 110/1.25",result:"P^B = <b>€88</b>"},
+      {label:"(c) ECB buys bonds — what happens?",formula:"More demand for bonds → bond prices↑ → using P^B = CF/(1+i): if P^B↑ then (1+i) must fall",result:"Bond prices ↑ → interest rate <b>falls</b>"},
+      {label:"The inverse relationship",formula:"P^B = 110/(1+i) → higher i → lower P^B. Always inverse — no exceptions.",result:"<b>i↑ → P^B↓ · i↓ → P^B↑. This is the foundation of monetary policy transmission.</b>"},
+    ]
+  },
+];
 const calcProblemsByPrefix_placeholder=null; // moved below
 let calcCurrentPrefix='ch3';
-function getCalcProblems(prefix){return({ch2:calcProblemsCh2,ch3:calcProblems,ps1:calcProblemsPS1,ps2:calcProblemsPS2,lec1:calcProblemsLec1,lec2:calcProblemsLec2})[prefix]||calcProblems;}
+function getCalcProblems(prefix){return({ch2:calcProblemsCh2,ch3:calcProblems,ps1:calcProblemsPS1,ps2:calcProblemsPS2,lec1:calcProblemsLec1,lec2:calcProblemsLec2,lec3:calcProblemsLec3})[prefix]||calcProblems;}
 function initCalcFor(prefix){calcCurrentPrefix=prefix;calcIdx=0;calcStep=0;calcRevealed=false;renderCalcFor(prefix);}
 function renderCalcFor(prefix){
   const problems=getCalcProblems(prefix);
