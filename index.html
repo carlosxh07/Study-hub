@@ -44,6 +44,19 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
 .nav-sub:hover{background:var(--surface2);color:var(--text2)}
 .nav-sub.active{color:var(--text);font-weight:500}
 
+/* ── Exam Prep Flyout ── */
+.nav-exam-toggle{display:flex;align-items:center;gap:8px;width:100%;padding:6px 10px 6px 28px;border:none;background:none;cursor:pointer;font-family:var(--sans);font-size:12.5px;color:var(--macro);font-weight:500;text-align:left;transition:all .15s}
+.nav-exam-toggle:hover{background:var(--macro-l)}
+.nav-exam-toggle.active{background:var(--macro-l)}
+.exam-flyout{display:none;flex-direction:column;background:var(--surface2);border-top:1px solid var(--border);padding:6px 0}
+.exam-flyout.open{display:flex}
+.exam-flyout-section{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text3);padding:8px 14px 3px}
+.exam-flyout-btn{display:flex;align-items:center;gap:8px;width:100%;padding:5px 14px 5px 22px;border:none;background:none;cursor:pointer;font-family:var(--sans);font-size:12px;color:var(--text2);text-align:left;transition:background .12s}
+.exam-flyout-btn:hover{background:var(--border);color:var(--text)}
+.exam-flyout-btn.active{color:var(--macro);font-weight:500;background:var(--macro-l)}
+.exam-flyout-dot{width:6px;height:6px;border-radius:50%;background:var(--border2);flex-shrink:0}
+.exam-flyout-btn.active .exam-flyout-dot{background:var(--macro)}
+
 /* ── Main ── */
 .main{flex:1;overflow-y:auto}
 .page{display:none;padding:44px 52px;max-width:920px}
@@ -416,12 +429,20 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
     <button class="nav-sub" onclick="showLecture('micro','ps1',this)">PS1: Individual Choice</button>
     <button class="nav-sub" onclick="showLecture('micro','ps2',this)">PS2: Risky Choice</button>
     <button class="nav-sub" onclick="showLecture('micro','ch3',this)">Chapter 3: Risky Choice</button>
+    <button class="nav-sub" onclick="showLecture('micro','ps3',this)">PS3: Intertemporal Choice</button>
     <button class="nav-sub" style="opacity:.5;cursor:default;pointer-events:none">+ More coming</button>
     <div class="nav-label">Macroeconomics</div>
     <button class="nav-btn" data-color="macro" onclick="showPage('macro-overview',this)"><span class="nav-dot" style="background:var(--macro)"></span>All Chapters</button>
     <button class="nav-sub" onclick="showLecture('macro','lec1',this)">Lec 1: Economic Growth</button>
     <button class="nav-sub" onclick="showLecture('macro','lec2',this)">Lec 2: Goods Market &amp; Business Cycle</button>
     <button class="nav-sub" onclick="showLecture('macro','lec3',this)">Lec 3: Money, Interest Rates &amp; ECB</button>
+    <button class="nav-exam-toggle" id="nav-exam-toggle" onclick="toggleExamFlyout()">📝 Exam Prep <span id="exam-toggle-arrow">▸</span></button>
+    <div class="exam-flyout" id="exam-flyout-macro">
+      <div class="exam-flyout-section">Past Exams — Macroeconomics</div>
+      <button class="exam-flyout-btn" id="efb-2018-q1" onclick="showMacroExam('2018','q1',this)"><span class="exam-flyout-dot"></span>2018 · Q1 — IS/LM Model</button>
+      <button class="exam-flyout-btn" id="efb-2018-q3" onclick="showMacroExam('2018','q3',this)"><span class="exam-flyout-dot"></span>2018 · Q3 — Monetary Policy</button>
+      <button class="exam-flyout-btn" id="efb-2018-q4" onclick="showMacroExam('2018','q4',this)"><span class="exam-flyout-dot"></span>2018 · Q4 — Foreign Exchange</button>
+    </div>
     <div class="nav-label">Intl. Business Trade</div>
     <button class="nav-btn" data-color="ibt" onclick="showPage('ibt-overview',this)"><span class="nav-dot" style="background:var(--ibt)"></span>All Sessions</button>
     <button class="nav-sub" onclick="showLecture('ibt','s1',this)">Session 1: International Trade</button>
@@ -2780,6 +2801,464 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
   </div>
 </div>
 
+<!-- ══ MACRO EXAM PREP 2018 Q1 ══ -->
+<div id="page-macro-exam-2018-q1" class="page">
+  <div class="page-eyebrow" style="color:var(--macro)">Macroeconomics · Exam Prep</div>
+  <div class="page-title">Exam 2018 — Question 1: The IS/LM Model</div>
+  <div class="page-desc">30 points · 3 sub-tasks · Prof. Dr. Jan-Christoph Rülke</div>
+
+  <div class="sum-card" style="margin-bottom:14px">
+    <div class="sum-title"><span class="badge b-amber">Given Model</span></div>
+    <div style="font-family:monospace;font-size:13px;line-height:2;color:var(--text2);background:var(--surface2);padding:12px 16px;border-radius:var(--radius-sm);margin-top:8px">
+      Y = C + I + G &nbsp;·&nbsp; C = 50 + 0.9·Y<sup>V</sup> &nbsp;·&nbsp; Y<sup>V</sup> = Y − T<br>
+      I = 100 − 2i &nbsp;·&nbsp; T = 100 + 0.2Y &nbsp;·&nbsp; L<sup>D</sup> = 0.8Y − 2i &nbsp;·&nbsp; M<sup>S</sup> = L<sup>D</sup>
+    </div>
+  </div>
+
+  <!-- Task tabs -->
+  <div class="study-tabs" id="macro-exam-tabs-2018q1">
+    <button class="study-tab active" onclick="examTab('2018q1','1a',this)">1a — Equilibrium (12 pts)</button>
+    <button class="study-tab" onclick="examTab('2018q1','1b',this)">1b — Fiscal Policy (10 pts)</button>
+    <button class="study-tab" onclick="examTab('2018q1','1c',this)">1c — Liquidity Trap (8 pts)</button>
+  </div>
+
+  <!-- TASK 1a -->
+  <div id="exam-panel-2018q1-1a" class="study-panel active">
+    <div class="sum-card" style="margin-bottom:12px">
+      <div class="sum-title"><span class="badge b-amber">Task 1a · 12 points</span></div>
+      <p style="margin-top:8px;font-size:13.5px;color:var(--text2)">
+        Assume <strong>M<sup>S</sup> = 380</strong> and <strong>G = 100</strong>. Determine the equilibrium income <strong>Y</strong> and interest rate <strong>i</strong> (expressed in %; e.g. i = 10 means 10%). Then calculate: investments <strong>I</strong>, tax revenues <strong>T</strong>, disposable income <strong>Y<sup>V</sup></strong>, consumption <strong>C</strong>, private savings <strong>S<sub>pri</sub></strong>, and budget balance <strong>B</strong>.
+      </p>
+    </div>
+
+    <!-- Answer input -->
+    <div class="sum-card" style="margin-bottom:12px">
+      <div class="sum-title" style="font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--text3)">Your answer</div>
+      <div style="display:flex;gap:8px;align-items:flex-start;margin-top:8px">
+        <textarea id="ans-2018q1-1a" placeholder="Y = ..., i = ..., I = ..., T = ..., Y^V = ..., C = ..., S_pri = ..., B = ..." style="flex:1;padding:9px 12px;border:1px solid var(--border2);border-radius:var(--radius-sm);font-family:var(--sans);font-size:13px;color:var(--text);background:var(--surface);resize:vertical;min-height:68px;outline:none"></textarea>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <button onclick="examCheck('2018q1','1a','partial')" style="padding:8px 14px;background:none;color:var(--macro);border:1.5px solid var(--macro);border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check so far</button>
+          <button onclick="examCheck('2018q1','1a','full')" style="padding:8px 14px;background:var(--macro);color:#fff;border:none;border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check full</button>
+        </div>
+      </div>
+      <div id="fb-2018q1-1a" style="display:none;margin-top:10px;padding:10px 14px;border-radius:var(--radius-sm);font-size:13px;line-height:1.6"></div>
+    </div>
+
+    <!-- Action row -->
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px">
+      <button onclick="examHint('2018q1','1a')" id="hint-btn-2018q1-1a" style="padding:7px 14px;border:1px solid var(--macro-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--macro)">+ Next hint</button>
+      <button onclick="examSolution('2018q1','1a')" style="padding:7px 14px;border:1px solid #9fddcc;border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">Show solution</button>
+      <button onclick="examTab('2018q1','1b',document.querySelector('#macro-exam-tabs-2018q1 .study-tab:nth-child(2)'))" style="padding:7px 14px;border:1px solid var(--border2);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--text2);margin-left:auto">Next task →</button>
+    </div>
+
+    <!-- Solution block -->
+    <div id="sol-2018q1-1a" class="sum-card" style="display:none;border-left:3px solid var(--micro)">
+      <div class="sum-title" style="color:var(--micro);font-size:10px;text-transform:uppercase;letter-spacing:.08em">Full Solution</div>
+      <table style="width:100%;font-size:13px;margin-top:8px;border-collapse:collapse">
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2);width:55%">IS: Y = 250 + 0.9Y − 90 − 0.18Y − 2i</td><td style="color:var(--text);padding:4px 0">→ <strong>i = 80 − 0.14Y</strong></td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">LM: 380 = 0.8Y − 2i</td><td style="color:var(--text);padding:4px 0">→ <strong>i = 0.4Y − 190</strong></td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">Equate: 80 − 0.14Y = 0.4Y − 190</td><td style="color:var(--text);padding:4px 0">→ <strong>Y = 500</strong></td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">i = 80 − 0.14 × 500</td><td style="color:var(--text);padding:4px 0">→ <strong>i = 10 (10%)</strong></td></tr>
+        <tr><td colspan="2"><hr style="border:none;border-top:1px solid var(--border);margin:6px 0"></td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">I = 100 − 2 × 10</td><td style="color:var(--text);padding:4px 0">→ <strong>I = 80</strong></td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">T = 100 + 0.2 × 500</td><td style="color:var(--text);padding:4px 0">→ <strong>T = 200</strong></td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">Y<sup>V</sup> = 500 − 200</td><td style="color:var(--text);padding:4px 0">→ <strong>Y<sup>V</sup> = 300</strong></td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">C = 50 + 0.9 × 300</td><td style="color:var(--text);padding:4px 0">→ <strong>C = 320</strong></td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">S<sub>pri</sub> = Y<sup>V</sup> − C = 300 − 320</td><td style="color:var(--text);padding:4px 0">→ <strong>S<sub>pri</sub> = −20</strong></td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">B = T − G = 200 − 100</td><td style="color:var(--text);padding:4px 0">→ <strong>B = 100 ✓</strong> (= I = 80 + B = 80… overall S = −20 + 100 = 80 = I ✓)</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- TASK 1b -->
+  <div id="exam-panel-2018q1-1b" class="study-panel">
+    <div class="sum-card" style="margin-bottom:12px">
+      <div class="sum-title"><span class="badge b-amber">Task 1b · 10 points</span></div>
+      <p style="margin-top:8px;font-size:13.5px;color:var(--text2)">
+        Government spending increases from G = 100 to <strong>G = 127</strong> (∆G = 27), while M<sup>S</sup> = 380 remains constant. Calculate the new equilibrium income <strong>Y</strong>. Explain via IS/LM diagram, show crowding out, and interpret the government expenditure multiplier ∆Y/∆G.
+      </p>
+    </div>
+    <div class="sum-card" style="margin-bottom:12px">
+      <div class="sum-title" style="font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--text3)">Your answer</div>
+      <div style="display:flex;gap:8px;align-items:flex-start;margin-top:8px">
+        <textarea id="ans-2018q1-1b" placeholder="Y = ..., i = ..., multiplier = ..., crowding out = ..." style="flex:1;padding:9px 12px;border:1px solid var(--border2);border-radius:var(--radius-sm);font-family:var(--sans);font-size:13px;color:var(--text);background:var(--surface);resize:vertical;min-height:68px;outline:none"></textarea>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <button onclick="examCheck('2018q1','1b','partial')" style="padding:8px 14px;background:none;color:var(--macro);border:1.5px solid var(--macro);border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check so far</button>
+          <button onclick="examCheck('2018q1','1b','full')" style="padding:8px 14px;background:var(--macro);color:#fff;border:none;border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check full</button>
+        </div>
+      </div>
+      <div id="fb-2018q1-1b" style="display:none;margin-top:10px;padding:10px 14px;border-radius:var(--radius-sm);font-size:13px;line-height:1.6"></div>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px">
+      <button onclick="examHint('2018q1','1b')" id="hint-btn-2018q1-1b" style="padding:7px 14px;border:1px solid var(--macro-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--macro)">+ Next hint</button>
+      <button onclick="examSolution('2018q1','1b')" style="padding:7px 14px;border:1px solid #9fddcc;border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">Show solution</button>
+      <button onclick="examTab('2018q1','1c',document.querySelector('#macro-exam-tabs-2018q1 .study-tab:nth-child(3)'))" style="padding:7px 14px;border:1px solid var(--border2);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--text2);margin-left:auto">Next task →</button>
+    </div>
+    <div id="sol-2018q1-1b" class="sum-card" style="display:none;border-left:3px solid var(--micro)">
+      <div class="sum-title" style="color:var(--micro);font-size:10px;text-transform:uppercase;letter-spacing:.08em">Full Solution</div>
+      <table style="width:100%;font-size:13px;margin-top:8px;border-collapse:collapse">
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2);width:55%">New IS (G=127): i = 93.5 − 0.14Y</td><td style="padding:4px 0;color:var(--text2)">(shifted up by 13.5 vs old IS)</td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">LM unchanged: i = 0.4Y − 190</td><td style="padding:4px 0;color:var(--text2)">same as before</td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">93.5 − 0.14Y = 0.4Y − 190</td><td style="color:var(--text);padding:4px 0">→ <strong>Y = 525</strong></td></tr>
+        <tr><td colspan="2"><hr style="border:none;border-top:1px solid var(--border);margin:6px 0"></td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">∆Y = 525 − 500 = 25</td><td style="color:var(--text);padding:4px 0">→ <strong>Multiplier = 25/27 ≈ 0.93</strong></td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">Crowding out: ∆G = 27, but ∆Y = 25</td><td style="color:var(--text);padding:4px 0">→ <strong>2 units crowded out</strong> via i↑ → I↓</td></tr>
+      </table>
+      <div class="note-box" style="border-left-color:var(--macro-m);background:var(--macro-l);color:var(--macro);margin-top:10px">
+        <strong>Diagram reasoning:</strong> G↑ → IS shifts right to IS₂. At old equilibrium, money demand exceeds supply → i rises. Higher i reduces I partially → new equilibrium at Y=525, i=12% (check: 0.4×525−190=20, and 93.5−0.14×525=20 ✓). Crowding out visible as ∆I = 2×(12−10) = −4 → ∆Y crowded out = 4×0.5 ≈ 2.
+      </div>
+    </div>
+  </div>
+
+  <!-- TASK 1c -->
+  <div id="exam-panel-2018q1-1c" class="study-panel">
+    <div class="sum-card" style="margin-bottom:12px">
+      <div class="sum-title"><span class="badge b-amber">Task 1c · 8 points</span></div>
+      <p style="margin-top:8px;font-size:13.5px;color:var(--text2)">
+        Now assume the economy is in a <strong>liquidity trap</strong>. What are the effects of expansionary fiscal policy on income and the interest rate (no calculations required)? Show and explain crowding out graphically and with economic reasoning.
+      </p>
+    </div>
+    <div class="sum-card" style="margin-bottom:12px">
+      <div class="sum-title" style="font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--text3)">Your answer</div>
+      <div style="display:flex;gap:8px;align-items:flex-start;margin-top:8px">
+        <textarea id="ans-2018q1-1c" placeholder="LM shape, effect on Y, effect on i, crowding out = ..." style="flex:1;padding:9px 12px;border:1px solid var(--border2);border-radius:var(--radius-sm);font-family:var(--sans);font-size:13px;color:var(--text);background:var(--surface);resize:vertical;min-height:80px;outline:none"></textarea>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <button onclick="examCheck('2018q1','1c','partial')" style="padding:8px 14px;background:none;color:var(--macro);border:1.5px solid var(--macro);border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check so far</button>
+          <button onclick="examCheck('2018q1','1c','full')" style="padding:8px 14px;background:var(--macro);color:#fff;border:none;border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check full</button>
+        </div>
+      </div>
+      <div id="fb-2018q1-1c" style="display:none;margin-top:10px;padding:10px 14px;border-radius:var(--radius-sm);font-size:13px;line-height:1.6"></div>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px">
+      <button onclick="examHint('2018q1','1c')" id="hint-btn-2018q1-1c" style="padding:7px 14px;border:1px solid var(--macro-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--macro)">+ Next hint</button>
+      <button onclick="examSolution('2018q1','1c')" style="padding:7px 14px;border:1px solid #9fddcc;border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">Show solution</button>
+    </div>
+    <div id="sol-2018q1-1c" class="sum-card" style="display:none;border-left:3px solid var(--micro)">
+      <div class="sum-title" style="color:var(--micro);font-size:10px;text-transform:uppercase;letter-spacing:.08em">Full Solution</div>
+      <table style="width:100%;font-size:13px;margin-top:8px;border-collapse:collapse">
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2);width:55%">LM horizontal at i<sub>min</sub></td><td style="color:var(--text);padding:4px 0">→ interest rate <strong>cannot fall further</strong> (h = ∞)</td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">IS shifts right (G↑)</td><td style="color:var(--text);padding:4px 0">→ <strong>Y increases fully</strong>, i <strong>stays constant</strong></td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">Crowding out</td><td style="color:var(--text);padding:4px 0">→ <strong>ZERO</strong> — i unchanged, so I unchanged</td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">Multiplier effect</td><td style="color:var(--text);padding:4px 0">→ <strong>fully effective</strong> — no interest rate feedback</td></tr>
+      </table>
+      <div class="note-box" style="border-left-color:var(--macro-m);background:var(--macro-l);color:var(--macro);margin-top:10px">
+        <strong>Key insight:</strong> In the liquidity trap, everyone holds cash rather than bonds (h→∞) → LM is horizontal → any extra money demand from higher Y is accommodated without a rate increase → no crowding out. Fiscal policy is maximally effective here.
+      </div>
+    </div>
+  </div>
+
+  <!-- Variables cheatsheet -->
+  <details style="margin-top:20px">
+    <summary style="cursor:pointer;font-size:12px;font-weight:600;color:var(--text3);letter-spacing:.07em;text-transform:uppercase;padding:8px 0;border-top:1px solid var(--border);user-select:none">Variables &amp; Key Equations ▸</summary>
+    <div class="sum-card" style="margin-top:10px">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0">
+        <div>
+          <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--text3);margin-bottom:6px">Goods Market</div>
+          <table style="width:100%;font-size:12px;border-collapse:collapse">
+            <tr><td style="font-family:monospace;padding:3px 8px 3px 0">b = 0.9</td><td style="color:var(--text3)">MPC</td></tr>
+            <tr><td style="font-family:monospace;padding:3px 8px 3px 0">t = 0.2</td><td style="color:var(--text3)">income tax rate</td></tr>
+            <tr><td style="font-family:monospace;padding:3px 8px 3px 0">g = 2</td><td style="color:var(--text3)">invest. sensitivity to i</td></tr>
+            <tr><td style="font-family:monospace;padding:3px 8px 3px 0">Y<sup>V</sup> = Y − T</td><td style="color:var(--text3)">disposable income</td></tr>
+          </table>
+        </div>
+        <div>
+          <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--text3);margin-bottom:6px">Money Market</div>
+          <table style="width:100%;font-size:12px;border-collapse:collapse">
+            <tr><td style="font-family:monospace;padding:3px 8px 3px 0">k = 0.8</td><td style="color:var(--text3)">income sens. L<sup>D</sup></td></tr>
+            <tr><td style="font-family:monospace;padding:3px 8px 3px 0">h = 2</td><td style="color:var(--text3)">interest sens. L<sup>D</sup></td></tr>
+          </table>
+        </div>
+      </div>
+      <hr style="border:none;border-top:1px solid var(--border);margin:10px 0">
+      <div style="font-family:monospace;font-size:12px;line-height:2;color:var(--text2)">
+        IS: i = 80 − 0.14Y (G=100) &nbsp;|&nbsp; LM: i = 0.4Y − 190<br>
+        S<sub>pri</sub> = Y<sup>V</sup> − C &nbsp;|&nbsp; B = T − G &nbsp;|&nbsp; S = S<sub>pri</sub> + B = I<br>
+        μ = ∆Y/∆G = 1 / (1−b(1−t) + gk/h)
+      </div>
+    </div>
+  </details>
+</div>
+
+<!-- 2018 Q3 -->
+<div id="page-macro-exam-2018-q3" class="page">
+  <div class="page-eyebrow" style="color:var(--macro)">Macro · Exam 2018</div>
+  <div class="page-title">Q3 — Monetary Policy & Theory <span style="font-size:14px;font-weight:400;color:var(--text3)">(30 pts)</span></div>
+  <div class="page-desc">ECB instruments · central bank balance sheet · quantity equation</div>
+
+  <div class="study-tabs" id="macro-exam-tabs-2018q3" style="margin-top:18px">
+    <button class="study-tab active" onclick="examTab('2018q3','3a',this)">3a — ECB / MRO (10 pts)</button>
+    <button class="study-tab" onclick="examTab('2018q3','3b',this)">3b — Balance Sheet (10 pts)</button>
+    <button class="study-tab" onclick="examTab('2018q3','3c',this)">3c — Quantity Equation (10 pts)</button>
+  </div>
+
+  <!-- 3a -->
+  <div id="exam-panel-2018q3-3a" class="study-panel active">
+    <div class="sum-card" style="margin-bottom:12px">
+      <div class="sum-title">Question</div>
+      <p style="font-size:13.5px;line-height:1.7">Explain how the ECB conducts monetary policy by means of the <strong>main refinancing operations (MRO)</strong>. Describe the characteristics of the MRO and name two other instruments used by the ECB. <em>(10 points)</em></p>
+    </div>
+    <div class="sum-card" style="margin-bottom:12px">
+      <div class="sum-title" style="font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--text3)">Your answer</div>
+      <div style="display:flex;gap:8px;align-items:flex-start;margin-top:8px">
+        <textarea id="ans-2018q3-3a" placeholder="MRO characteristics ..., two other instruments ..." style="flex:1;padding:9px 12px;border:1px solid var(--border2);border-radius:var(--radius-sm);font-family:var(--sans);font-size:13px;color:var(--text);background:var(--surface);resize:vertical;min-height:80px;outline:none"></textarea>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <button onclick="examCheck('2018q3','3a','partial')" style="padding:8px 14px;background:none;color:var(--macro);border:1.5px solid var(--macro);border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check so far</button>
+          <button onclick="examCheck('2018q3','3a','full')" style="padding:8px 14px;background:var(--macro);color:#fff;border:none;border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check full</button>
+        </div>
+      </div>
+      <div id="fb-2018q3-3a" style="display:none;margin-top:10px;padding:10px 14px;border-radius:var(--radius-sm);font-size:13px;line-height:1.6"></div>
+    </div>
+    <div style="display:flex;gap:8px;margin-top:4px">
+      <button onclick="examHint('2018q3','3a')" id="hint-btn-2018q3-3a" style="padding:7px 14px;border:1px solid var(--macro-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--macro)">+ Next hint</button>
+      <button onclick="examSolution('2018q3','3a')" style="padding:7px 14px;border:1px solid #9fddcc;border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">Show solution</button>
+    </div>
+    <div id="sol-2018q3-3a" style="display:none;margin-top:14px">
+      <div class="sum-card">
+        <div class="sum-title">Solution — 3a</div>
+        <table style="width:100%;border-collapse:collapse;font-size:13px;margin-top:8px">
+          <tr style="background:var(--surface2)"><th style="padding:6px 10px;text-align:left;border-bottom:2px solid var(--border2)">Feature</th><th style="padding:6px 10px;text-align:left;border-bottom:2px solid var(--border2)">Detail</th></tr>
+          <tr><td style="padding:5px 10px;border-bottom:1px solid var(--border);font-weight:500">Purpose</td><td style="padding:5px 10px;border-bottom:1px solid var(--border)">Most important instrument — provides bulk of liquidity; steers interest rates</td></tr>
+          <tr><td style="padding:5px 10px;border-bottom:1px solid var(--border);font-weight:500">Frequency & Maturity</td><td style="padding:5px 10px;border-bottom:1px solid var(--border)">Weekly, 1-week maturity</td></tr>
+          <tr><td style="padding:5px 10px;border-bottom:1px solid var(--border);font-weight:500">Organisation</td><td style="padding:5px 10px;border-bottom:1px solid var(--border)">Decentralised via National Central Banks (NCBs)</td></tr>
+          <tr><td style="padding:5px 10px;border-bottom:1px solid var(--border);font-weight:500">Tender type</td><td style="padding:5px 10px;border-bottom:1px solid var(--border)">Fixed-rate tender with full allotment (since Oct. 2008 crisis); formerly variable tenders</td></tr>
+          <tr><td style="padding:5px 10px;border-bottom:1px solid var(--border);font-weight:500">Collateral</td><td style="padding:5px 10px;border-bottom:1px solid var(--border)">Repurchase agreement; eligible collateral must meet quality standards</td></tr>
+          <tr><td style="padding:5px 10px;font-weight:500">Other instruments (any 2)</td><td style="padding:5px 10px">Longer-term refinancing operations (LTRO) · Minimum reserve requirements · Marginal lending facility · Deposit facility</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3b -->
+  <div id="exam-panel-2018q3-3b" class="study-panel">
+    <div class="sum-card" style="margin-bottom:12px">
+      <div class="sum-title">Question</div>
+      <p style="font-size:13.5px;line-height:1.7">How does the <strong>balance sheet of a central bank</strong> look like? How does an increase in money supply (expansionary monetary policy) affect the balance sheet? <em>(10 points)</em></p>
+    </div>
+    <div class="sum-card" style="margin-bottom:12px">
+      <div class="sum-title" style="font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--text3)">Your answer</div>
+      <div style="display:flex;gap:8px;align-items:flex-start;margin-top:8px">
+        <textarea id="ans-2018q3-3b" placeholder="Assets side ..., Liabilities side ..., effect of M↑ on balance sheet ..." style="flex:1;padding:9px 12px;border:1px solid var(--border2);border-radius:var(--radius-sm);font-family:var(--sans);font-size:13px;color:var(--text);background:var(--surface);resize:vertical;min-height:80px;outline:none"></textarea>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <button onclick="examCheck('2018q3','3b','partial')" style="padding:8px 14px;background:none;color:var(--macro);border:1.5px solid var(--macro);border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check so far</button>
+          <button onclick="examCheck('2018q3','3b','full')" style="padding:8px 14px;background:var(--macro);color:#fff;border:none;border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check full</button>
+        </div>
+      </div>
+      <div id="fb-2018q3-3b" style="display:none;margin-top:10px;padding:10px 14px;border-radius:var(--radius-sm);font-size:13px;line-height:1.6"></div>
+    </div>
+    <div style="display:flex;gap:8px;margin-top:4px">
+      <button onclick="examHint('2018q3','3b')" id="hint-btn-2018q3-3b" style="padding:7px 14px;border:1px solid var(--macro-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--macro)">+ Next hint</button>
+      <button onclick="examSolution('2018q3','3b')" style="padding:7px 14px;border:1px solid #9fddcc;border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">Show solution</button>
+    </div>
+    <div id="sol-2018q3-3b" style="display:none;margin-top:14px">
+      <div class="sum-card">
+        <div class="sum-title">Solution — 3b</div>
+        <table style="width:100%;border-collapse:collapse;font-size:13px;margin-top:8px">
+          <tr style="background:var(--surface2)">
+            <th style="padding:6px 10px;text-align:left;border-bottom:2px solid var(--border2);width:50%">Assets (↑ with M↑)</th>
+            <th style="padding:6px 10px;text-align:left;border-bottom:2px solid var(--border2)">Liabilities (↑ with M↑)</th>
+          </tr>
+          <tr><td style="padding:5px 10px;border-bottom:1px solid var(--border)">Government bonds ⇑</td><td style="padding:5px 10px;border-bottom:1px solid var(--border)">Currency in circulation ⇑</td></tr>
+          <tr><td style="padding:5px 10px;border-bottom:1px solid var(--border)">Net holdings of foreign reserves</td><td style="padding:5px 10px;border-bottom:1px solid var(--border)">Deposits of banking sector ⇑ <em>(Monetary Base)</em></td></tr>
+          <tr><td style="padding:5px 10px;border-bottom:1px solid var(--border)">Credits to the government</td><td style="padding:5px 10px;border-bottom:1px solid var(--border)">Liabilities of the government</td></tr>
+          <tr><td style="padding:5px 10px">Other assets</td><td style="padding:5px 10px">Other liabilities</td></tr>
+        </table>
+        <p style="font-size:12.5px;margin-top:8px;color:var(--text2)">M↑ typically via purchase of gov. bonds (asset side ⇑) → currency in circulation and bank deposits rise (liability side ⇑) → Monetary Base expands.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3c -->
+  <div id="exam-panel-2018q3-3c" class="study-panel">
+    <div class="sum-card" style="margin-bottom:12px">
+      <div class="sum-title">Question</div>
+      <p style="font-size:13.5px;line-height:1.7">Use the <strong>quantity equation of money</strong> to describe the effects of M↑ on real growth and inflation. Under which condition does M↑ cause <em>only</em> a price increase but no income change? Argue graphically and provide an economic reasoning. <em>(10 points)</em></p>
+    </div>
+    <div class="sum-card" style="margin-bottom:12px">
+      <div class="sum-title" style="font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--text3)">Your answer</div>
+      <div style="display:flex;gap:8px;align-items:flex-start;margin-top:8px">
+        <textarea id="ans-2018q3-3c" placeholder="Quantity equation M·v = P·Y, condition for only prices rising, graph description ..." style="flex:1;padding:9px 12px;border:1px solid var(--border2);border-radius:var(--radius-sm);font-family:var(--sans);font-size:13px;color:var(--text);background:var(--surface);resize:vertical;min-height:80px;outline:none"></textarea>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <button onclick="examCheck('2018q3','3c','partial')" style="padding:8px 14px;background:none;color:var(--macro);border:1.5px solid var(--macro);border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check so far</button>
+          <button onclick="examCheck('2018q3','3c','full')" style="padding:8px 14px;background:var(--macro);color:#fff;border:none;border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check full</button>
+        </div>
+      </div>
+      <div id="fb-2018q3-3c" style="display:none;margin-top:10px;padding:10px 14px;border-radius:var(--radius-sm);font-size:13px;line-height:1.6"></div>
+    </div>
+    <div style="display:flex;gap:8px;margin-top:4px">
+      <button onclick="examHint('2018q3','3c')" id="hint-btn-2018q3-3c" style="padding:7px 14px;border:1px solid var(--macro-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--macro)">+ Next hint</button>
+      <button onclick="examSolution('2018q3','3c')" style="padding:7px 14px;border:1px solid #9fddcc;border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">Show solution</button>
+    </div>
+    <div id="sol-2018q3-3c" style="display:none;margin-top:14px">
+      <div class="sum-card">
+        <div class="sum-title">Solution — 3c</div>
+        <table style="width:100%;border-collapse:collapse;font-size:13px;margin-top:8px">
+          <tr style="background:var(--surface2)"><th style="padding:6px 10px;text-align:left;border-bottom:2px solid var(--border2)">Concept</th><th style="padding:6px 10px;text-align:left;border-bottom:2px solid var(--border2)">Detail</th></tr>
+          <tr><td style="padding:5px 10px;border-bottom:1px solid var(--border);font-weight:500">Quantity equation</td><td style="padding:5px 10px;border-bottom:1px solid var(--border)">M · v = P · Y<sup>R</sup> (v = velocity, assumed constant)</td></tr>
+          <tr><td style="padding:5px 10px;border-bottom:1px solid var(--border);font-weight:500">General effect of M↑</td><td style="padding:5px 10px;border-bottom:1px solid var(--border)">M↑ → P↑ and/or Y<sup>R</sup>↑</td></tr>
+          <tr><td style="padding:5px 10px;border-bottom:1px solid var(--border);font-weight:500">Only prices rise when…</td><td style="padding:5px 10px;border-bottom:1px solid var(--border)">Economy is at <strong>capacity limit (boom)</strong> — supply curve is vertical (perfectly price-inelastic, η = 0)</td></tr>
+          <tr><td style="padding:5px 10px;border-bottom:1px solid var(--border);font-weight:500">Graph (boom)</td><td style="padding:5px 10px;border-bottom:1px solid var(--border)">Vertical supply curve; AD↑ shifts demand right → P↑, Y unchanged</td></tr>
+          <tr><td style="padding:5px 10px;font-weight:500">Contrast (recession)</td><td style="padding:5px 10px">Horizontal supply curve → AD↑ → Y↑, P unchanged (prices elastic)</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 2018 Q4 -->
+<div id="page-macro-exam-2018-q4" class="page">
+  <div class="page-eyebrow" style="color:var(--macro)">Macro · Exam 2018</div>
+  <div class="page-title">Q4 — Foreign Exchange Market <span style="font-size:14px;font-weight:400;color:var(--text3)">(30 pts)</span></div>
+  <div class="page-desc">FX market diagram · Trilemma · Covered interest rate parity · Real exchange rate</div>
+
+  <div class="study-tabs" id="macro-exam-tabs-2018q4" style="margin-top:18px">
+    <button class="study-tab active" onclick="examTab('2018q4','4a',this)">4a — FX Market (10 pts)</button>
+    <button class="study-tab" onclick="examTab('2018q4','4b',this)">4b — Trilemma (7 pts)</button>
+    <button class="study-tab" onclick="examTab('2018q4','4c',this)">4c — CIP (7 pts)</button>
+    <button class="study-tab" onclick="examTab('2018q4','4d',this)">4d — Real XR (6 pts)</button>
+  </div>
+
+  <!-- 4a -->
+  <div id="exam-panel-2018q4-4a" class="study-panel active">
+    <div class="sum-card" style="margin-bottom:12px">
+      <div class="sum-title">Question</div>
+      <p style="font-size:13.5px;line-height:1.7">Show the foreign exchange market in a diagram. Which transactions are reflected in the supply curve of foreign exchange? Why is the supply curve upward sloping? What is the impact on BOP, income, and prices if the central bank fixes the exchange rate <em>above</em> the equilibrium? <em>(10 points)</em></p>
+    </div>
+    <div class="sum-card" style="margin-bottom:12px">
+      <div class="sum-title" style="font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--text3)">Your answer</div>
+      <div style="display:flex;gap:8px;align-items:flex-start;margin-top:8px">
+        <textarea id="ans-2018q4-4a" placeholder="Supply curve = ..., slope reason ..., E above equilibrium → BOP ..., M effect ..." style="flex:1;padding:9px 12px;border:1px solid var(--border2);border-radius:var(--radius-sm);font-family:var(--sans);font-size:13px;color:var(--text);background:var(--surface);resize:vertical;min-height:80px;outline:none"></textarea>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <button onclick="examCheck('2018q4','4a','partial')" style="padding:8px 14px;background:none;color:var(--macro);border:1.5px solid var(--macro);border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check so far</button>
+          <button onclick="examCheck('2018q4','4a','full')" style="padding:8px 14px;background:var(--macro);color:#fff;border:none;border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check full</button>
+        </div>
+      </div>
+      <div id="fb-2018q4-4a" style="display:none;margin-top:10px;padding:10px 14px;border-radius:var(--radius-sm);font-size:13px;line-height:1.6"></div>
+    </div>
+    <div style="display:flex;gap:8px;margin-top:4px">
+      <button onclick="examHint('2018q4','4a')" id="hint-btn-2018q4-4a" style="padding:7px 14px;border:1px solid var(--macro-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--macro)">+ Next hint</button>
+      <button onclick="examSolution('2018q4','4a')" style="padding:7px 14px;border:1px solid #9fddcc;border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">Show solution</button>
+    </div>
+    <div id="sol-2018q4-4a" style="display:none;margin-top:14px">
+      <div class="sum-card">
+        <div class="sum-title">Solution — 4a</div>
+        <table style="width:100%;border-collapse:collapse;font-size:13px;margin-top:8px">
+          <tr style="background:var(--surface2)"><th style="padding:6px 10px;text-align:left;border-bottom:2px solid var(--border2)">Point</th><th style="padding:6px 10px;text-align:left;border-bottom:2px solid var(--border2)">Detail</th></tr>
+          <tr><td style="padding:5px 10px;border-bottom:1px solid var(--border);font-weight:500">Supply curve</td><td style="padding:5px 10px;border-bottom:1px solid var(--border)">Reflects credit-side transactions: goods exports + capital imports → foreign currency inflows</td></tr>
+          <tr><td style="padding:5px 10px;border-bottom:1px solid var(--border);font-weight:500">Supply upward sloping</td><td style="padding:5px 10px;border-bottom:1px solid var(--border)">E↑ (€/$) → domestic goods cheaper for foreigners → exports↑ → $ supply↑</td></tr>
+          <tr><td style="padding:5px 10px;border-bottom:1px solid var(--border);font-weight:500">Demand curve</td><td style="padding:5px 10px;border-bottom:1px solid var(--border)">Debit-side: goods imports + capital exports; downward sloping (E↑ → imports cheaper → IM↑)</td></tr>
+          <tr><td style="padding:5px 10px;border-bottom:1px solid var(--border);font-weight:500">E fixed above equilibrium</td><td style="padding:5px 10px;border-bottom:1px solid var(--border)">xS > xD → BOP surplus → CB buys foreign reserves → M↑ → M·v = P↑·Y (inflation)</td></tr>
+          <tr><td style="padding:5px 10px;font-weight:500">CB response</td><td style="padding:5px 10px">Can fight inflation by: (a) abandon fixed XR, or (b) sterilise by reducing M</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4b -->
+  <div id="exam-panel-2018q4-4b" class="study-panel">
+    <div class="sum-card" style="margin-bottom:12px">
+      <div class="sum-title">Question</div>
+      <p style="font-size:13.5px;line-height:1.7">What is the <strong>open economy trilemma</strong> and what choices do central banks have? Provide an example for each side of the triangle. <em>(7 points)</em></p>
+    </div>
+    <div class="sum-card" style="margin-bottom:12px">
+      <div class="sum-title" style="font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--text3)">Your answer</div>
+      <div style="display:flex;gap:8px;align-items:flex-start;margin-top:8px">
+        <textarea id="ans-2018q4-4b" placeholder="Three goals ..., can only choose two ..., example for each side ..." style="flex:1;padding:9px 12px;border:1px solid var(--border2);border-radius:var(--radius-sm);font-family:var(--sans);font-size:13px;color:var(--text);background:var(--surface);resize:vertical;min-height:80px;outline:none"></textarea>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <button onclick="examCheck('2018q4','4b','partial')" style="padding:8px 14px;background:none;color:var(--macro);border:1.5px solid var(--macro);border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check so far</button>
+          <button onclick="examCheck('2018q4','4b','full')" style="padding:8px 14px;background:var(--macro);color:#fff;border:none;border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check full</button>
+        </div>
+      </div>
+      <div id="fb-2018q4-4b" style="display:none;margin-top:10px;padding:10px 14px;border-radius:var(--radius-sm);font-size:13px;line-height:1.6"></div>
+    </div>
+    <div style="display:flex;gap:8px;margin-top:4px">
+      <button onclick="examHint('2018q4','4b')" id="hint-btn-2018q4-4b" style="padding:7px 14px;border:1px solid var(--macro-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--macro)">+ Next hint</button>
+      <button onclick="examSolution('2018q4','4b')" style="padding:7px 14px;border:1px solid #9fddcc;border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">Show solution</button>
+    </div>
+    <div id="sol-2018q4-4b" style="display:none;margin-top:14px">
+      <div class="sum-card">
+        <div class="sum-title">Solution — 4b</div>
+        <table style="width:100%;border-collapse:collapse;font-size:13px;margin-top:8px">
+          <tr style="background:var(--surface2)"><th style="padding:6px 10px;text-align:left;border-bottom:2px solid var(--border2)">Goal</th><th style="padding:6px 10px;text-align:left;border-bottom:2px solid var(--border2)">Example</th></tr>
+          <tr><td style="padding:5px 10px;border-bottom:1px solid var(--border);font-weight:500">Fixed XR + Convertibility</td><td style="padding:5px 10px;border-bottom:1px solid var(--border)">China (historically) — fixed XR + open capital account → no autonomous MP</td></tr>
+          <tr><td style="padding:5px 10px;border-bottom:1px solid var(--border);font-weight:500">Fixed XR + Autonomous MP</td><td style="padding:5px 10px;border-bottom:1px solid var(--border)">Capital controls + fixed XR → restrict convertibility</td></tr>
+          <tr><td style="padding:5px 10px;font-weight:500">Convertibility + Autonomous MP</td><td style="padding:5px 10px">USA — flexible XR + open capital + independent Fed</td></tr>
+        </table>
+        <p style="font-size:12.5px;margin-top:8px;color:var(--text2)">CB has only 2 instruments (MP + XR policy) → can pursue only 2 of 3 goals simultaneously.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4c -->
+  <div id="exam-panel-2018q4-4c" class="study-panel">
+    <div class="sum-card" style="margin-bottom:12px">
+      <div class="sum-title">Question</div>
+      <p style="font-size:13.5px;line-height:1.7">What is the <strong>covered interest rate parity (CIP)</strong> (no derivation required)? What happens to the exchange rate if the foreign interest rate i* increases while all other variables remain constant? <em>(7 points)</em></p>
+    </div>
+    <div class="sum-card" style="margin-bottom:12px">
+      <div class="sum-title" style="font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--text3)">Your answer</div>
+      <div style="display:flex;gap:8px;align-items:flex-start;margin-top:8px">
+        <textarea id="ans-2018q4-4c" placeholder="CIP formula ..., what it means ..., effect of i*↑ on E ..." style="flex:1;padding:9px 12px;border:1px solid var(--border2);border-radius:var(--radius-sm);font-family:var(--sans);font-size:13px;color:var(--text);background:var(--surface);resize:vertical;min-height:80px;outline:none"></textarea>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <button onclick="examCheck('2018q4','4c','partial')" style="padding:8px 14px;background:none;color:var(--macro);border:1.5px solid var(--macro);border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check so far</button>
+          <button onclick="examCheck('2018q4','4c','full')" style="padding:8px 14px;background:var(--macro);color:#fff;border:none;border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check full</button>
+        </div>
+      </div>
+      <div id="fb-2018q4-4c" style="display:none;margin-top:10px;padding:10px 14px;border-radius:var(--radius-sm);font-size:13px;line-height:1.6"></div>
+    </div>
+    <div style="display:flex;gap:8px;margin-top:4px">
+      <button onclick="examHint('2018q4','4c')" id="hint-btn-2018q4-4c" style="padding:7px 14px;border:1px solid var(--macro-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--macro)">+ Next hint</button>
+      <button onclick="examSolution('2018q4','4c')" style="padding:7px 14px;border:1px solid #9fddcc;border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">Show solution</button>
+    </div>
+    <div id="sol-2018q4-4c" style="display:none;margin-top:14px">
+      <div class="sum-card">
+        <div class="sum-title">Solution — 4c</div>
+        <table style="width:100%;border-collapse:collapse;font-size:13px;margin-top:8px">
+          <tr style="background:var(--surface2)"><th style="padding:6px 10px;text-align:left;border-bottom:2px solid var(--border2)">Concept</th><th style="padding:6px 10px;text-align:left;border-bottom:2px solid var(--border2)">Detail</th></tr>
+          <tr><td style="padding:5px 10px;border-bottom:1px solid var(--border);font-weight:500">CIP formula</td><td style="padding:5px 10px;border-bottom:1px solid var(--border)">i − i* = (F − E) / E, where F = forward rate, E = spot rate</td></tr>
+          <tr><td style="padding:5px 10px;border-bottom:1px solid var(--border);font-weight:500">Meaning</td><td style="padding:5px 10px;border-bottom:1px solid var(--border)">Interest rate advantage at home = exchange rate disadvantage (depreciation). No arbitrage.</td></tr>
+          <tr><td style="padding:5px 10px;border-bottom:1px solid var(--border);font-weight:500">If i*↑, equilibrium restored by…</td><td style="padding:5px 10px;border-bottom:1px solid var(--border)">i↑ (domestic rate rises), or F↓ (forward rate falls), or <strong>E↑</strong> (spot depreciates)</td></tr>
+          <tr><td style="padding:5px 10px;font-weight:500">Conclusion</td><td style="padding:5px 10px">i*↑ → domestic currency depreciates (E↑) to restore parity</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4d -->
+  <div id="exam-panel-2018q4-4d" class="study-panel">
+    <div class="sum-card" style="margin-bottom:12px">
+      <div class="sum-title">Question</div>
+      <p style="font-size:13.5px;line-height:1.7">What is the <strong>real exchange rate</strong> and how is it related to the competitiveness of an economy? Argue by referring to a real depreciation. <em>(6 points)</em></p>
+    </div>
+    <div class="sum-card" style="margin-bottom:12px">
+      <div class="sum-title" style="font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--text3)">Your answer</div>
+      <div style="display:flex;gap:8px;align-items:flex-start;margin-top:8px">
+        <textarea id="ans-2018q4-4d" placeholder="R = ..., real depreciation means ..., effect on competitiveness, exports, imports ..." style="flex:1;padding:9px 12px;border:1px solid var(--border2);border-radius:var(--radius-sm);font-family:var(--sans);font-size:13px;color:var(--text);background:var(--surface);resize:vertical;min-height:80px;outline:none"></textarea>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <button onclick="examCheck('2018q4','4d','partial')" style="padding:8px 14px;background:none;color:var(--macro);border:1.5px solid var(--macro);border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check so far</button>
+          <button onclick="examCheck('2018q4','4d','full')" style="padding:8px 14px;background:var(--macro);color:#fff;border:none;border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check full</button>
+        </div>
+      </div>
+      <div id="fb-2018q4-4d" style="display:none;margin-top:10px;padding:10px 14px;border-radius:var(--radius-sm);font-size:13px;line-height:1.6"></div>
+    </div>
+    <div style="display:flex;gap:8px;margin-top:4px">
+      <button onclick="examHint('2018q4','4d')" id="hint-btn-2018q4-4d" style="padding:7px 14px;border:1px solid var(--macro-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--macro)">+ Next hint</button>
+      <button onclick="examSolution('2018q4','4d')" style="padding:7px 14px;border:1px solid #9fddcc;border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">Show solution</button>
+    </div>
+    <div id="sol-2018q4-4d" style="display:none;margin-top:14px">
+      <div class="sum-card">
+        <div class="sum-title">Solution — 4d</div>
+        <table style="width:100%;border-collapse:collapse;font-size:13px;margin-top:8px">
+          <tr style="background:var(--surface2)"><th style="padding:6px 10px;text-align:left;border-bottom:2px solid var(--border2)">Concept</th><th style="padding:6px 10px;text-align:left;border-bottom:2px solid var(--border2)">Detail</th></tr>
+          <tr><td style="padding:5px 10px;border-bottom:1px solid var(--border);font-weight:500">Formula</td><td style="padding:5px 10px;border-bottom:1px solid var(--border)">R = E · P* / P (nominal XR × foreign prices / domestic prices)</td></tr>
+          <tr><td style="padding:5px 10px;border-bottom:1px solid var(--border);font-weight:500">Measures</td><td style="padding:5px 10px;border-bottom:1px solid var(--border)">Relative competitiveness of domestic goods vs. foreign goods</td></tr>
+          <tr><td style="padding:5px 10px;border-bottom:1px solid var(--border);font-weight:500">Real depreciation (R↑)</td><td style="padding:5px 10px;border-bottom:1px solid var(--border)">Caused by: P↓, P*↑, or E↑ → domestic goods relatively cheaper</td></tr>
+          <tr><td style="padding:5px 10px;font-weight:500">Effect</td><td style="padding:5px 10px">R↑ → competitiveness↑ → EX↑, IM↓ → BOP surplus</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- OTHER SUBJECTS -->
 <div id="page-micro-overview" class="page"><div class="page-eyebrow" style="color:var(--micro)">Microeconomics</div><div class="page-title">All Chapters</div><div class="page-desc">Select a session to access its summary, calculator, flashcards, and quiz.</div>
 <div class="lectures-list">
@@ -2787,6 +3266,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
   <div class="lec-card" onclick="showLecture('micro','ps1',null)"><div class="lec-num" style="background:var(--micro-l);color:var(--micro)">PS1</div><div class="lec-info"><div class="lec-title">Problem Set 1: Individual Choice</div><div class="lec-sub">Indifference Curves · MRS · Budget Line · Optimisation · Special Preferences</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Compare</span><span class="lec-badge has">Calculator</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span></div></div>
   <div class="lec-card" onclick="showLecture('micro','ps2',null)"><div class="lec-num" style="background:var(--micro-l);color:var(--micro)">PS2</div><div class="lec-info"><div class="lec-title">Problem Set 2: Risky Choice</div><div class="lec-sub">EV · EU · CE · Risk Premium · Insurance · MRS = MRT</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Compare</span><span class="lec-badge has">Calculator</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span></div></div>
   <div class="lec-card" onclick="showLecture('micro','ch3',null)"><div class="lec-num" style="background:var(--micro-l);color:var(--micro)">Ch3</div><div class="lec-info"><div class="lec-title">Chapter 3: Risky Choice</div><div class="lec-sub">Theory deep-dive · Lotteries · Expected Utility · Insurance demand</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Compare</span><span class="lec-badge has">Calculator</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span></div></div>
+  <div class="lec-card" onclick="showLecture('micro','ps3',null)"><div class="lec-num" style="background:var(--micro-l);color:var(--micro)">PS3</div><div class="lec-info"><div class="lec-title">Problem Set 3: Intertemporal Choice</div><div class="lec-sub">Budget Line · MRT · MRS · Discount Factor δ · Optimal Consumption · Borrowing</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Compare</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span></div></div>
   <div class="lec-card empty"><div class="lec-num" style="background:var(--micro-l);color:var(--micro)">Next</div><div class="lec-info"><div class="lec-title">More chapters coming</div><div class="lec-sub">Share your notes to add the next chapter</div></div><div class="lec-badges"><span class="lec-badge">Summary</span><span class="lec-badge">Cards</span><span class="lec-badge">Quiz</span></div></div>
 </div>
 </div>
@@ -3145,6 +3625,161 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
   <div id="mps2-quiz" class="study-panel">
     <div id="mqps2-wrap"><div class="quiz-prog"><div class="quiz-prog-fill" id="mqps2-pfill" style="width:0%"></div></div><div class="quiz-meta" id="mqps2-meta"></div><div class="quiz-q" id="mqps2-text"></div><div class="quiz-opts" id="mqps2-opts"></div><div class="quiz-fb" id="mqps2-fb"></div><div id="mqps2-next" style="display:none"><button class="btn btn-primary" onclick="nextMicroQ('ps2')">Next →</button></div></div>
     <div class="quiz-score-screen" id="mqps2-score"><div class="score-row"><div class="score-big" id="mqps2-big" style="color:var(--micro)"></div><div class="score-right"><div class="score-lbl">correct answers</div><div class="score-msg" id="mqps2-msg"></div></div></div><div class="weak-section" id="mqps2-weak"></div><div style="margin-top:20px;display:flex;gap:10px"><button class="btn btn-primary" onclick="restartMicroQuiz('ps2')">Try again</button><button class="btn" onclick="showMicroTab('calc',null,'ps2')">Practice calculator</button></div></div>
+  </div>
+</div>
+
+<!-- MICRO PS3 PAGE -->
+<div id="page-micro-ps3" class="page">
+  <div class="page-eyebrow" style="color:var(--micro)">Microeconomics · Problem Set 3</div>
+  <div class="page-title">Intertemporal Choice</div>
+  <div class="page-desc">Budget line across time · MRT vs MRS · Discount factor δ · Optimal borrowing &amp; saving · Comparative statics.</div>
+  <div class="study-tabs">
+    <button class="study-tab active" onclick="showMicroTab('summary',this,'ps3')">Summary</button>
+    <button class="study-tab" onclick="showMicroTab('compare',this,'ps3')">Compare</button>
+    <button class="study-tab" onclick="showMicroTab('flashcards',this,'ps3')">Flashcards</button>
+    <button class="study-tab" onclick="showMicroTab('quiz',this,'ps3')">Quiz</button>
+  </div>
+
+  <!-- SUMMARY -->
+  <div id="mps3-summary" class="study-panel active">
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-teal">A. Core Idea — Consumption Across Two Periods</span></div>
+      <p>Intertemporal choice = how to split income between <strong>period 1 (now)</strong> and <strong>period 2 (later)</strong>. The two tools are saving (consume less now, more later) and borrowing (consume more now, less later). Interest rate <em>r</em> links both periods.</p>
+      <div class="note-box">🔑 <strong>Same logic as standard consumer theory</strong> — just replace "good 1 / good 2" with "consumption today / consumption tomorrow". MRS = MRT at the optimum.</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-teal">B. The Intertemporal Budget Line</span></div>
+      <p>General form (present-value notation):</p>
+      <p style="margin:10px 0;font-family:monospace;background:var(--surface2);padding:10px 14px;border-radius:8px;font-size:13px">p₁c₁ + p₂/(1+r) · c₂ = m₁ + m₂/(1+r)</p>
+      <p>Rearranged to solve for c₂ (period 2 consumption):</p>
+      <p style="margin:10px 0;font-family:monospace;background:var(--surface2);padding:10px 14px;border-radius:8px;font-size:13px">c₂ = (1+r)m₁/p₂ + m₂/p₂ − (1+r)·p₁/p₂ · c₁</p>
+      <ul>
+        <li><strong>Slope = −(1+r)·p₁/p₂</strong> — the MRT (market trade-off rate)</li>
+        <li>If p₁ = p₂: slope simplifies to <strong>−(1+r)</strong></li>
+        <li>Every €1 not consumed in period 1 becomes <strong>€(1+r)</strong> in period 2</li>
+        <li>Every €1 borrowed today costs <strong>€(1+r)</strong> to repay tomorrow</li>
+      </ul>
+      <div class="note-box">⚠️ <strong>Exam step 1:</strong> Always plug in your specific m₁, m₂, r, p₁, p₂ to get the concrete budget line equation before doing anything else.</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-teal">C. MRT — Marginal Rate of Transformation</span></div>
+      <p>MRT = absolute value of the budget line's slope = <strong>(1+r)·p₁/p₂</strong>.</p>
+      <p style="margin-top:8px">It answers: <em>"How many units of period 2 consumption must I give up to get one more unit of period 1 consumption?"</em></p>
+      <ul>
+        <li>If r = 0 and p₁ = p₂: MRT = 1 (one-for-one exchange)</li>
+        <li>If r = 0.05 and p₁ = p₂: MRT = 1.05 (borrowing costs 5%)</li>
+        <li>MRT comes from the <strong>market</strong>, not preferences</li>
+      </ul>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-teal">D. Discount Factor δ and Total Utility</span></div>
+      <p>When a person discounts future utility, their total intertemporal utility is:</p>
+      <p style="margin:10px 0;font-family:monospace;background:var(--surface2);padding:10px 14px;border-radius:8px;font-size:13px">U(c₁, c₂) = u(c₁) + δ · u(c₂)</p>
+      <ul>
+        <li><strong>δ = 1</strong>: future valued equally to present (perfectly patient)</li>
+        <li><strong>δ &lt; 1</strong>: future valued less (impatient) — typical assumption</li>
+        <li><strong>Higher δ</strong> → more patient → saves more → consumes more in period 2</li>
+        <li>δ changes the MRS formula, not the budget line (MRT unchanged)</li>
+      </ul>
+      <div class="note-box">📌 <strong>Mnemonic:</strong> δ = "delay weight". The higher the delay weight, the more you value waiting.</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-teal">E. MRS — Marginal Rate of Substitution</span></div>
+      <p>MRS = MU₁ / MU₂ where MU₁ and MU₂ are the partial derivatives of U w.r.t. c₁ and c₂.</p>
+      <p style="margin-top:8px">It answers: <em>"How many units of c₂ am I willing to give up for one more unit of c₁?"</em></p>
+      <p style="margin-top:8px"><strong>Example with U = u(c₁) + δ·u(c₂), u(cₜ) = ½√cₜ:</strong></p>
+      <p style="margin:10px 0;font-family:monospace;background:var(--surface2);padding:10px 14px;border-radius:8px;font-size:13px">MU₁ = 1/(4√c₁) &nbsp;&nbsp; MU₂ = δ/(4√c₂)<br>MRS = MU₁/MU₂ = √c₂ / (δ·√c₁)</p>
+      <ul>
+        <li>MRS <strong>decreases</strong> as c₁ rises (diminishing marginal utility)</li>
+        <li>MRS <strong>increases</strong> as c₂ rises (c₂ becomes scarcer → more valued)</li>
+      </ul>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-teal">F. Optimality Condition &amp; Solution Steps</span></div>
+      <p>The optimal bundle always satisfies <strong>MRS = MRT</strong>. Here's the exam recipe:</p>
+      <ul>
+        <li><strong>Step 1:</strong> Write the budget line → get the concrete c₂ = f(c₁) equation</li>
+        <li><strong>Step 2:</strong> Derive MRS from the utility function (MU₁/MU₂)</li>
+        <li><strong>Step 3:</strong> Set MRS = MRT → solve for the ratio c₂/c₁ (or c₂ as a function of c₁)</li>
+        <li><strong>Step 4:</strong> Substitute back into the budget line → solve for c₁*, then c₂*</li>
+        <li><strong>Step 5:</strong> Calculate borrowing = p₁ × c₁* (if m₁ = 0) or saving = m₁ − c₁*</li>
+      </ul>
+      <div class="note-box">⚠️ <strong>Special preferences (Harvey type):</strong> When the preference is fixed (e.g. c₁ = c₂ always), skip the MRS = MRT step — just plug the preference directly into the budget line.</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title"><span class="badge b-teal">G. Comparative Statics — What Changes What</span></div>
+      <table class="comp-table">
+        <tr><th>Change</th><th>Effect on Budget Line</th><th>Effect on Optimum</th></tr>
+        <tr><td>↑ Interest rate r</td><td>Steeper slope (higher MRT)</td><td>Borrowers consume less in period 1; shift toward period 2</td></tr>
+        <tr><td>↑ Discount factor δ</td><td>No change</td><td>More patient → save more → less c₁, more c₂</td></tr>
+        <tr><td>↑ m₁ (more income now)</td><td>Parallel shift out</td><td>More of both periods (if normal good)</td></tr>
+        <tr><td>↑ m₂ (more income later)</td><td>Parallel shift out (present value)</td><td>Can borrow more today</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- COMPARE -->
+  <div id="mps3-compare" class="study-panel">
+    <div class="sum-card">
+      <div class="sum-title">MRT vs MRS — Side by Side</div>
+      <table class="comp-table">
+        <tr><th>Feature</th><th>MRT</th><th>MRS</th></tr>
+        <tr><td><strong>Full name</strong></td><td>Marginal Rate of Transformation</td><td>Marginal Rate of Substitution</td></tr>
+        <tr><td><strong>Source</strong></td><td>Market / budget constraint</td><td>Individual preferences / utility function</td></tr>
+        <tr><td><strong>Formula</strong></td><td>|(1+r)·p₁/p₂| = slope of budget line</td><td>MU₁/MU₂ = ratio of partial derivatives</td></tr>
+        <tr><td><strong>Meaning</strong></td><td>How much c₂ you <em>must</em> give up per unit c₁</td><td>How much c₂ you <em>want</em> to give up per unit c₁</td></tr>
+        <tr><td><strong>Affected by</strong></td><td>Interest rate, prices</td><td>Utility function, discount factor δ</td></tr>
+        <tr><td><strong>At optimum</strong></td><td colspan="2" style="text-align:center">MRS = MRT</td></tr>
+      </table>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">Jenny vs Maria (PS3.3e) — Effect of Patience</div>
+      <table class="comp-table">
+        <tr><th>Person</th><th>δ</th><th>c₁* (study phase)</th><th>c₂* (working phase)</th><th>Interpretation</th></tr>
+        <tr><td><strong>Jenny</strong></td><td>2/3 ≈ 0.67</td><td>64,935</td><td>31,818</td><td>Less patient → borrows more → more now</td></tr>
+        <tr><td><strong>Maria</strong></td><td>4/5 = 0.80</td><td>56,957</td><td>40,187</td><td>More patient → borrows less → more later</td></tr>
+      </table>
+      <div class="note-box">📌 Higher δ → higher MRS at any bundle → need higher c₂ relative to c₁ at optimum → shift toward future consumption.</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">Jenny r=0.05 vs r=0.20 — Effect of Interest Rate Rise</div>
+      <table class="comp-table">
+        <tr><th>Scenario</th><th>MRT</th><th>c₁*</th><th>c₂*</th><th>Borrowing</th></tr>
+        <tr><td><strong>r = 0.05</strong></td><td>1.05</td><td>64,935</td><td>31,818</td><td>€129,870</td></tr>
+        <tr><td><strong>r = 0.20</strong></td><td>1.20</td><td>54,348</td><td>34,783</td><td>€108,696</td></tr>
+      </table>
+      <div class="note-box">↑ r → steeper budget line → borrowing more expensive → consume less in period 1, slightly more in period 2. Borrowers are hurt by rising rates.</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-title">Special Preferences vs General Preferences</div>
+      <table class="comp-table">
+        <tr><th>Type</th><th>Example</th><th>Solution method</th></tr>
+        <tr><td><strong>Fixed-ratio (Leontief)</strong></td><td>Harvey: always c₁ = c₂</td><td>Substitute preference into budget line directly — no MRS needed</td></tr>
+        <tr><td><strong>General utility</strong></td><td>Patience: U = √c₁ + 2√c₂</td><td>Derive MRS, set MRS = MRT, then substitute into budget line</td></tr>
+        <tr><td><strong>Discounted utility</strong></td><td>Jenny: U = u(c₁) + δ·u(c₂)</td><td>Same as above; δ appears in MRS formula only</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- FLASHCARDS -->
+  <div id="mps3-flashcards" class="study-panel">
+    <div class="fc-controls"><button class="btn btn-sm" onclick="shuffleMicroFC('ps3')">Shuffle</button><button class="btn btn-sm" onclick="resetMicroFC('ps3')">Reset all</button><span style="font-size:12px;color:var(--text3);margin-left:4px">Rate each card — hard ones come back sooner</span></div>
+    <div class="fc-sr-bar" id="mps3-sr-bar"></div>
+    <div id="mps3-fc-wrap">
+      <div class="flashcard-wrap"><div class="flashcard" id="mps3-fc-card" onclick="flipMicroFC('ps3')">
+        <div class="fc-face fc-front" style="background:var(--surface)"><div class="fc-label">Question</div><div class="fc-question" id="mps3-fc-q"></div><div class="fc-hint">Click to reveal</div></div>
+        <div class="fc-face fc-back" style="background:var(--micro);transform:rotateY(180deg)"><div class="fc-label">Answer</div><div class="fc-answer" id="mps3-fc-a"></div><div class="fc-src" id="mps3-fc-src"></div></div>
+      </div></div>
+      <div class="sr-btns"><button class="sr-btn sr-btn-hard" onclick="rateMicroFC('ps3',0)">😬 Still learning</button><button class="sr-btn sr-btn-ok" onclick="rateMicroFC('ps3',1)">🤔 Almost</button><button class="sr-btn sr-btn-easy" onclick="rateMicroFC('ps3',2)">✓ Got it</button></div>
+      <div class="sr-mode-note">Card <span id="mps3-fc-counter">1</span> of <span id="mps3-fc-total">20</span></div>
+    </div>
+    <div class="fc-sr-done" id="mps3-fc-done" style="display:none"><h3>Session complete! 🎉</h3><p id="mps3-done-msg"></p><div style="display:flex;gap:10px;justify-content:center;margin-top:16px"><button class="btn btn-primary" onclick="reviewMicroWeak('ps3')">Review weak cards</button><button class="btn" onclick="resetMicroFC('ps3')">Start over</button></div></div>
+  </div>
+
+  <!-- QUIZ -->
+  <div id="mps3-quiz" class="study-panel">
+    <div id="mqps3-wrap"><div class="quiz-prog"><div class="quiz-prog-fill" id="mqps3-pfill" style="width:0%"></div></div><div class="quiz-meta" id="mqps3-meta"></div><div class="quiz-q" id="mqps3-text"></div><div class="quiz-opts" id="mqps3-opts"></div><div class="quiz-fb" id="mqps3-fb"></div><div id="mqps3-next" style="display:none"><button class="btn btn-primary" onclick="nextMicroQ('ps3')">Next →</button></div></div>
+    <div class="quiz-score-screen" id="mqps3-score"><div class="score-row"><div class="score-big" id="mqps3-big" style="color:var(--micro)"></div><div class="score-right"><div class="score-lbl">correct answers</div><div class="score-msg" id="mqps3-msg"></div></div></div><div class="weak-section" id="mqps3-weak"></div><div style="margin-top:20px;display:flex;gap:10px"><button class="btn btn-primary" onclick="restartMicroQuiz('ps3')">Try again</button><button class="btn" onclick="showMicroTab('summary',null,'ps3')">Back to summary</button></div></div>
   </div>
 </div>
 
@@ -4704,7 +5339,37 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
   </div>
 
   <div id="ibts1-flashcards" class="study-panel">
-    <div id="ibts1-fc-wrap"></div>
+    <div id="ibts1-fc-wrap">
+  <div class="fc-header">
+    <span class="fc-counter"><span id="ibts1-fc-idx">1</span> / <span id="ibts1-fc-total">?</span></span>
+    <div id="ibts1-sr-bar" class="fc-sr-bar"></div>
+  </div>
+  <div class="flashcard-wrap">
+    <div class="flashcard" id="ibts1-fc-card" onclick="ibts1FlipCard()">
+      <div class="fc-face fc-front">
+        <div class="fc-label">Question</div>
+        <div class="fc-question" id="ibts1-fc-q"></div>
+        <div class="fc-hint">Click to reveal answer</div>
+      </div>
+      <div class="fc-face fc-back" style="background:var(--ibt)">
+        <div class="fc-label">Answer</div>
+        <div class="fc-answer" id="ibts1-fc-a"></div>
+        <div class="fc-src" id="ibts1-fc-src"></div>
+      </div>
+    </div>
+  </div>
+  <div class="sr-btns" id="ibts1-sr-btns" style="display:none">
+    <button class="sr-btn sr-btn-hard" onclick="ibts1FcRate('review')">⚠️ Still learning</button>
+    <button class="sr-btn sr-btn-ok"   onclick="ibts1FcRate('ok')">→ Next</button>
+    <button class="sr-btn sr-btn-easy" onclick="ibts1FcRate('know')">✓ Got it</button>
+  </div>
+  <p class="sr-mode-note" id="ibts1-sr-note">Click card to flip · Rate yourself after</p>
+  <div id="ibts1-fc-done" style="display:none" class="fc-sr-done">
+    <h3>Session complete!</h3>
+    <p id="ibts1-fc-done-msg"></p>
+    <button class="btn btn-primary" onclick="ibts1FcRestart()">Restart</button>
+  </div>
+</div>
   </div>
   <div id="ibts1-quiz" class="study-panel">
     <div id="ibts1-quiz-wrap"></div>
@@ -4811,7 +5476,37 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
     </div>
   </div>
 
-  <div id="ibts2-flashcards" class="study-panel"><div id="ibts2-fc-wrap"></div></div>
+  <div id="ibts2-flashcards" class="study-panel"><div id="ibts2-fc-wrap">
+  <div class="fc-header">
+    <span class="fc-counter"><span id="ibts2-fc-idx">1</span> / <span id="ibts2-fc-total">?</span></span>
+    <div id="ibts2-sr-bar" class="fc-sr-bar"></div>
+  </div>
+  <div class="flashcard-wrap">
+    <div class="flashcard" id="ibts2-fc-card" onclick="ibts2FlipCard()">
+      <div class="fc-face fc-front">
+        <div class="fc-label">Question</div>
+        <div class="fc-question" id="ibts2-fc-q"></div>
+        <div class="fc-hint">Click to reveal answer</div>
+      </div>
+      <div class="fc-face fc-back" style="background:var(--ibt)">
+        <div class="fc-label">Answer</div>
+        <div class="fc-answer" id="ibts2-fc-a"></div>
+        <div class="fc-src" id="ibts2-fc-src"></div>
+      </div>
+    </div>
+  </div>
+  <div class="sr-btns" id="ibts2-sr-btns" style="display:none">
+    <button class="sr-btn sr-btn-hard" onclick="ibts2FcRate('review')">⚠️ Still learning</button>
+    <button class="sr-btn sr-btn-ok"   onclick="ibts2FcRate('ok')">→ Next</button>
+    <button class="sr-btn sr-btn-easy" onclick="ibts2FcRate('know')">✓ Got it</button>
+  </div>
+  <p class="sr-mode-note" id="ibts2-sr-note">Click card to flip · Rate yourself after</p>
+  <div id="ibts2-fc-done" style="display:none" class="fc-sr-done">
+    <h3>Session complete!</h3>
+    <p id="ibts2-fc-done-msg"></p>
+    <button class="btn btn-primary" onclick="ibts2FcRestart()">Restart</button>
+  </div>
+</div></div>
   <div id="ibts2-quiz" class="study-panel"><div id="ibts2-quiz-wrap"></div></div>
 </div>
 
@@ -4912,7 +5607,37 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
     </div>
   </div>
 
-  <div id="ibts3-flashcards" class="study-panel"><div id="ibts3-fc-wrap"></div></div>
+  <div id="ibts3-flashcards" class="study-panel"><div id="ibts3-fc-wrap">
+  <div class="fc-header">
+    <span class="fc-counter"><span id="ibts3-fc-idx">1</span> / <span id="ibts3-fc-total">?</span></span>
+    <div id="ibts3-sr-bar" class="fc-sr-bar"></div>
+  </div>
+  <div class="flashcard-wrap">
+    <div class="flashcard" id="ibts3-fc-card" onclick="ibts3FlipCard()">
+      <div class="fc-face fc-front">
+        <div class="fc-label">Question</div>
+        <div class="fc-question" id="ibts3-fc-q"></div>
+        <div class="fc-hint">Click to reveal answer</div>
+      </div>
+      <div class="fc-face fc-back" style="background:var(--ibt)">
+        <div class="fc-label">Answer</div>
+        <div class="fc-answer" id="ibts3-fc-a"></div>
+        <div class="fc-src" id="ibts3-fc-src"></div>
+      </div>
+    </div>
+  </div>
+  <div class="sr-btns" id="ibts3-sr-btns" style="display:none">
+    <button class="sr-btn sr-btn-hard" onclick="ibts3FcRate('review')">⚠️ Still learning</button>
+    <button class="sr-btn sr-btn-ok"   onclick="ibts3FcRate('ok')">→ Next</button>
+    <button class="sr-btn sr-btn-easy" onclick="ibts3FcRate('know')">✓ Got it</button>
+  </div>
+  <p class="sr-mode-note" id="ibts3-sr-note">Click card to flip · Rate yourself after</p>
+  <div id="ibts3-fc-done" style="display:none" class="fc-sr-done">
+    <h3>Session complete!</h3>
+    <p id="ibts3-fc-done-msg"></p>
+    <button class="btn btn-primary" onclick="ibts3FcRestart()">Restart</button>
+  </div>
+</div></div>
   <div id="ibts3-quiz" class="study-panel"><div id="ibts3-quiz-wrap"></div></div>
 </div>
 
@@ -4998,7 +5723,37 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
     </div>
   </div>
 
-  <div id="ibts4-flashcards" class="study-panel"><div id="ibts4-fc-wrap"></div></div>
+  <div id="ibts4-flashcards" class="study-panel"><div id="ibts4-fc-wrap">
+  <div class="fc-header">
+    <span class="fc-counter"><span id="ibts4-fc-idx">1</span> / <span id="ibts4-fc-total">?</span></span>
+    <div id="ibts4-sr-bar" class="fc-sr-bar"></div>
+  </div>
+  <div class="flashcard-wrap">
+    <div class="flashcard" id="ibts4-fc-card" onclick="ibts4FlipCard()">
+      <div class="fc-face fc-front">
+        <div class="fc-label">Question</div>
+        <div class="fc-question" id="ibts4-fc-q"></div>
+        <div class="fc-hint">Click to reveal answer</div>
+      </div>
+      <div class="fc-face fc-back" style="background:var(--ibt)">
+        <div class="fc-label">Answer</div>
+        <div class="fc-answer" id="ibts4-fc-a"></div>
+        <div class="fc-src" id="ibts4-fc-src"></div>
+      </div>
+    </div>
+  </div>
+  <div class="sr-btns" id="ibts4-sr-btns" style="display:none">
+    <button class="sr-btn sr-btn-hard" onclick="ibts4FcRate('review')">⚠️ Still learning</button>
+    <button class="sr-btn sr-btn-ok"   onclick="ibts4FcRate('ok')">→ Next</button>
+    <button class="sr-btn sr-btn-easy" onclick="ibts4FcRate('know')">✓ Got it</button>
+  </div>
+  <p class="sr-mode-note" id="ibts4-sr-note">Click card to flip · Rate yourself after</p>
+  <div id="ibts4-fc-done" style="display:none" class="fc-sr-done">
+    <h3>Session complete!</h3>
+    <p id="ibts4-fc-done-msg"></p>
+    <button class="btn btn-primary" onclick="ibts4FcRestart()">Restart</button>
+  </div>
+</div></div>
   <div id="ibts4-quiz" class="study-panel"><div id="ibts4-quiz-wrap"></div></div>
 </div>
 
@@ -5104,7 +5859,37 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
     </div>
   </div>
 
-  <div id="ibts5-flashcards" class="study-panel"><div id="ibts5-fc-wrap"></div></div>
+  <div id="ibts5-flashcards" class="study-panel"><div id="ibts5-fc-wrap">
+  <div class="fc-header">
+    <span class="fc-counter"><span id="ibts5-fc-idx">1</span> / <span id="ibts5-fc-total">?</span></span>
+    <div id="ibts5-sr-bar" class="fc-sr-bar"></div>
+  </div>
+  <div class="flashcard-wrap">
+    <div class="flashcard" id="ibts5-fc-card" onclick="ibts5FlipCard()">
+      <div class="fc-face fc-front">
+        <div class="fc-label">Question</div>
+        <div class="fc-question" id="ibts5-fc-q"></div>
+        <div class="fc-hint">Click to reveal answer</div>
+      </div>
+      <div class="fc-face fc-back" style="background:var(--ibt)">
+        <div class="fc-label">Answer</div>
+        <div class="fc-answer" id="ibts5-fc-a"></div>
+        <div class="fc-src" id="ibts5-fc-src"></div>
+      </div>
+    </div>
+  </div>
+  <div class="sr-btns" id="ibts5-sr-btns" style="display:none">
+    <button class="sr-btn sr-btn-hard" onclick="ibts5FcRate('review')">⚠️ Still learning</button>
+    <button class="sr-btn sr-btn-ok"   onclick="ibts5FcRate('ok')">→ Next</button>
+    <button class="sr-btn sr-btn-easy" onclick="ibts5FcRate('know')">✓ Got it</button>
+  </div>
+  <p class="sr-mode-note" id="ibts5-sr-note">Click card to flip · Rate yourself after</p>
+  <div id="ibts5-fc-done" style="display:none" class="fc-sr-done">
+    <h3>Session complete!</h3>
+    <p id="ibts5-fc-done-msg"></p>
+    <button class="btn btn-primary" onclick="ibts5FcRestart()">Restart</button>
+  </div>
+</div></div>
   <div id="ibts5-quiz" class="study-panel"><div id="ibts5-quiz-wrap"></div></div>
 </div>
 <div id="page-ic-overview" class="page">
@@ -5137,7 +5922,37 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
     <div class="sum-card"><div class="sum-title">📊 2E — Cultural Frameworks</div><p><strong>Kluckhohn &amp; Strodtbeck (1961)</strong> — 5 universal societal problems, each with 3 solution orientations: Human Nature (Evil/Mixed/Good), Relationship to Nature (Mastery/Harmony/Submission), Time (Past/Present/Future), Activity (Being/Becoming/Doing), Space (Public/Mixed/Private).</p><p style="margin-top:8px"><strong>Hofstede</strong> — Analysed IBM data 1967–73 across 70+ countries → 5 statistical dimensions (Power Distance, Individualism/Collectivism, Uncertainty Avoidance, Masculinity/Femininity, Long-Term Orientation).</p><p style="margin-top:8px"><strong>Schwartz</strong> — 70+ countries, 10 universal values arranged in a circular spectrum where adjacent values are compatible and opposite values conflict: Power · Achievement · Hedonism · Stimulation · Self-direction · Universalism · Benevolence · Tradition · Conformity · Security. Two conflict axes: Self-Enhancement ↔ Self-Transcendence; Conservation ↔ Openness to Change.</p></div>
     <div class="sum-card"><div class="sum-title">⚠️ 2F — Limitations of Country Culture Research</div><p>Country averages mask individual variation; countries contain major subcultures; samples are often small. Research provides a "first rough approximation" — useful for prediction but not deterministic. Managers must never stereotype individuals based on national scores.</p><div class="note-box">🪤 <strong>Common traps:</strong> Confusing K&amp;S's "past-focused time" with Schwartz's "Tradition" value — two different frameworks, similar words. "Shared" ≠ unanimous. Hofstede's data is 1967–73 — not recent.</div></div>
   </div>
-  <div id="ic-s1-flashcards" class="study-panel"><div id="ic-s1-fc-wrap"></div></div>
+  <div id="ic-s1-flashcards" class="study-panel"><div id="ic-s1-fc-wrap">
+  <div class="fc-header">
+    <span class="fc-counter"><span id="ic-s1-fc-idx">1</span> / <span id="ic-s1-fc-total">?</span></span>
+    <div id="ic-s1-sr-bar" class="fc-sr-bar"></div>
+  </div>
+  <div class="flashcard-wrap">
+    <div class="flashcard" id="ic-s1-fc-card" onclick="ic_s1FlipCard()">
+      <div class="fc-face fc-front">
+        <div class="fc-label">Question</div>
+        <div class="fc-question" id="ic-s1-fc-q"></div>
+        <div class="fc-hint">Click to reveal answer</div>
+      </div>
+      <div class="fc-face fc-back" style="background:var(--ic)">
+        <div class="fc-label">Answer</div>
+        <div class="fc-answer" id="ic-s1-fc-a"></div>
+        <div class="fc-src" id="ic-s1-fc-src"></div>
+      </div>
+    </div>
+  </div>
+  <div class="sr-btns" id="ic-s1-sr-btns" style="display:none">
+    <button class="sr-btn sr-btn-hard" onclick="ic_s1FcRate('review')">⚠️ Still learning</button>
+    <button class="sr-btn sr-btn-ok"   onclick="ic_s1FcRate('ok')">→ Next</button>
+    <button class="sr-btn sr-btn-easy" onclick="ic_s1FcRate('know')">✓ Got it</button>
+  </div>
+  <p class="sr-mode-note" id="ic-s1-sr-note">Click card to flip · Rate yourself after</p>
+  <div id="ic-s1-fc-done" style="display:none" class="fc-sr-done">
+    <h3>Session complete!</h3>
+    <p id="ic-s1-fc-done-msg"></p>
+    <button class="btn btn-primary" onclick="ic_s1FcRestart()">Restart</button>
+  </div>
+</div></div>
   <div id="ic-s1-quiz" class="study-panel"><div id="ic-s1-quiz-wrap"></div></div>
 </div>
 
@@ -5157,7 +5972,37 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
     <div class="sum-card"><div class="sum-title">⚙️ Behavioural Approach — Ohio State Studies</div><p>Two independent dimensions (Judge, Piccolo &amp; Ilies, 2004):<br><strong>Initiating Structure</strong> (task-oriented) — structuring the environment for goal attainment: assigning deadlines, designing tasks.<br><strong>Consideration</strong> (relationship-oriented) — building trust, respect, and regard for employees' feelings.<br>These are orthogonal — a leader can be high or low on each simultaneously.</p></div>
     <div class="sum-card"><div class="sum-title">🔄 Modern Definition &amp; Three Universal Principles</div><p><strong>Fischer, Dietz &amp; Antonakis (2017)</strong>: "The process of influencing others toward the achievement of a goal." Shift: Leader → Follower (unidirectional) became Leader ↔ Follower (mutual, relational).</p><p style="margin-top:8px"><strong>Principle 1 — Balance Constraints &amp; Freedom:</strong> Constraints = directive leadership, goal-setting, vision, rules. Freedom = authenticity, creativity, diversity, empowerment. Calibrate the balance.</p><p style="margin-top:8px"><strong>Principle 2 — Create a Shared Identity (SIT):</strong> Five SIT propositions: (1) defined by similarities/differences; (2) shared identity enables social action; (3) in-group favouritism + out-group bias; (4) depersonalisation — individuals adopt group-prototypical traits when group identity is salient; (5) salience — not all identities active simultaneously. Tactics: "we" language, team-based rewards, shared values, shared vision, shared "enemy."</p><p style="margin-top:8px"><strong>Principle 3 — Foster Closeness &amp; Openness:</strong> Mutual vulnerability → closeness → trust. Key pattern: sustained, escalating, reciprocal, personal self-disclosure (Aron's intimacy research).</p><div class="note-box">🪤 Traits explain only 15–28% of leadership. Depersonalisation in SIT is <em>not</em> negative — it is how group identity generates collective action. Initiating Structure and Consideration are independent dimensions, not a trade-off.</div></div>
   </div>
-  <div id="ic-s2-flashcards" class="study-panel"><div id="ic-s2-fc-wrap"></div></div>
+  <div id="ic-s2-flashcards" class="study-panel"><div id="ic-s2-fc-wrap">
+  <div class="fc-header">
+    <span class="fc-counter"><span id="ic-s2-fc-idx">1</span> / <span id="ic-s2-fc-total">?</span></span>
+    <div id="ic-s2-sr-bar" class="fc-sr-bar"></div>
+  </div>
+  <div class="flashcard-wrap">
+    <div class="flashcard" id="ic-s2-fc-card" onclick="ic_s2FlipCard()">
+      <div class="fc-face fc-front">
+        <div class="fc-label">Question</div>
+        <div class="fc-question" id="ic-s2-fc-q"></div>
+        <div class="fc-hint">Click to reveal answer</div>
+      </div>
+      <div class="fc-face fc-back" style="background:var(--ic)">
+        <div class="fc-label">Answer</div>
+        <div class="fc-answer" id="ic-s2-fc-a"></div>
+        <div class="fc-src" id="ic-s2-fc-src"></div>
+      </div>
+    </div>
+  </div>
+  <div class="sr-btns" id="ic-s2-sr-btns" style="display:none">
+    <button class="sr-btn sr-btn-hard" onclick="ic_s2FcRate('review')">⚠️ Still learning</button>
+    <button class="sr-btn sr-btn-ok"   onclick="ic_s2FcRate('ok')">→ Next</button>
+    <button class="sr-btn sr-btn-easy" onclick="ic_s2FcRate('know')">✓ Got it</button>
+  </div>
+  <p class="sr-mode-note" id="ic-s2-sr-note">Click card to flip · Rate yourself after</p>
+  <div id="ic-s2-fc-done" style="display:none" class="fc-sr-done">
+    <h3>Session complete!</h3>
+    <p id="ic-s2-fc-done-msg"></p>
+    <button class="btn btn-primary" onclick="ic_s2FcRestart()">Restart</button>
+  </div>
+</div></div>
   <div id="ic-s2-quiz" class="study-panel"><div id="ic-s2-quiz-wrap"></div></div>
 </div>
 
@@ -5178,7 +6023,37 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
     <div class="sum-card"><div class="sum-title">💼 Rule 3 — Appear Powerful</div><p><strong>Blankfein vs. Hayward (2010 Congress)</strong>: Blankfein (Goldman Sachs) — confrontational, open posture, direct eye contact, declarations, unapologetic → appeared powerful. Hayward (BP) — apologetic, hunched, read prepared statement → appeared weak.</p><p style="margin-top:6px"><strong>Anger vs. Apology (Tiedens)</strong>: Anger → more promotions, higher salary, less likable. Apology → warm, remorseful, lower status. Apology is only useful when separated from personal responsibility.</p><p style="margin-top:6px"><strong>Body language (Carney, 2020 meta-analysis — cross-culturally valid)</strong>: More gestures, open posture, less interpersonal distance, louder voice, more speaking time, longer gaze, controlled gestures, declarations not questions, successful interruptions, repeating ideas.</p></div>
     <div class="sum-card"><div class="sum-title">🕸 Rule 4 — Network Relentlessly</div><p>Networking is the most robust predictor of career success. Resistance reasons: not enjoyable, moral objections, reluctance to use friendships instrumentally.</p><p style="margin-top:6px"><strong>Ties</strong>: Strong ties = deep, intimate (family, close co-workers). Weak ties = infrequent (acquaintances) → non-redundant information from different social circles → better for finding jobs (Granovetter, N=282).</p><p style="margin-top:6px"><strong>Network roles</strong>: Hub (most connections, central), Broker (bridges isolated communities — unique social capital), Peripheral (fewest connections, niche expertise).</p><p style="margin-top:6px"><strong>Three networking principles</strong>: (1) Pursue weak ties — they tap different circles. (2) Become a broker — connect isolated parties, generate social capital. (3) Provide value — triggers norm of reciprocity.</p><div class="note-box">🪤 Warmth is NOT simply good — it costs competence perceptions. Hub ≠ Broker. Lower-class individuals resist political strategies for psychological, not circumstantial, reasons.</div></div>
   </div>
-  <div id="ic-s3-flashcards" class="study-panel"><div id="ic-s3-fc-wrap"></div></div>
+  <div id="ic-s3-flashcards" class="study-panel"><div id="ic-s3-fc-wrap">
+  <div class="fc-header">
+    <span class="fc-counter"><span id="ic-s3-fc-idx">1</span> / <span id="ic-s3-fc-total">?</span></span>
+    <div id="ic-s3-sr-bar" class="fc-sr-bar"></div>
+  </div>
+  <div class="flashcard-wrap">
+    <div class="flashcard" id="ic-s3-fc-card" onclick="ic_s3FlipCard()">
+      <div class="fc-face fc-front">
+        <div class="fc-label">Question</div>
+        <div class="fc-question" id="ic-s3-fc-q"></div>
+        <div class="fc-hint">Click to reveal answer</div>
+      </div>
+      <div class="fc-face fc-back" style="background:var(--ic)">
+        <div class="fc-label">Answer</div>
+        <div class="fc-answer" id="ic-s3-fc-a"></div>
+        <div class="fc-src" id="ic-s3-fc-src"></div>
+      </div>
+    </div>
+  </div>
+  <div class="sr-btns" id="ic-s3-sr-btns" style="display:none">
+    <button class="sr-btn sr-btn-hard" onclick="ic_s3FcRate('review')">⚠️ Still learning</button>
+    <button class="sr-btn sr-btn-ok"   onclick="ic_s3FcRate('ok')">→ Next</button>
+    <button class="sr-btn sr-btn-easy" onclick="ic_s3FcRate('know')">✓ Got it</button>
+  </div>
+  <p class="sr-mode-note" id="ic-s3-sr-note">Click card to flip · Rate yourself after</p>
+  <div id="ic-s3-fc-done" style="display:none" class="fc-sr-done">
+    <h3>Session complete!</h3>
+    <p id="ic-s3-fc-done-msg"></p>
+    <button class="btn btn-primary" onclick="ic_s3FcRestart()">Restart</button>
+  </div>
+</div></div>
   <div id="ic-s3-quiz" class="study-panel"><div id="ic-s3-quiz-wrap"></div></div>
 </div>
 
@@ -5199,7 +6074,37 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
     <div class="sum-card"><div class="sum-title">⚙️ Moderators: What Determines Whether Diversity Helps?</div><p><strong>Task complexity (Wegge et al., 2008 — 4,538 tax employees, 222 work units)</strong>: High age diversity + complex tasks → better performance, fewer health symptoms. High age diversity + routine tasks → worse performance, more symptoms. Elaboration pays off when the task actually requires multiple perspectives.</p><p style="margin-top:6px"><strong>Diversity beliefs (Homan et al., 2008)</strong>: Teams whose members view diversity as a resource (not a threat) are more likely to engage in information elaboration. Positive diversity beliefs are a key moderator.</p></div>
     <div class="sum-card"><div class="sum-title">🎯 Three Leader Goals for Diverse Teams</div><p><strong>Goal 1 — Increase Information Elaboration</strong>: Create psychological safety (Edmondson, 1999 — beliefs that it is safe to take interpersonal risks). Assign complex tasks. Ensure roughly equal participation (Woolley et al., 2010). Plan collaboration in advance (Fisher et al., 2014).</p><p style="margin-top:6px"><strong>Goal 2 — Create Shared Understanding (Team Charter)</strong>: Agree on objectives, leadership structure, meeting norms, values and rules, anticipated difficulties, conflict handling, monitoring, and breakdown protocols.</p><p style="margin-top:6px"><strong>Goal 3 — Create Shared Identity</strong>: Make team identity more salient than sub-group identities. Use same SIT tactics from Leadership session: "we" language, team-based rewards, shared vision, shared values, identify external challenges.</p><div class="note-box">🪤 Diverse teams are NOT automatically better — they are more often negative without management. Psychological safety ≠ comfort — it is safety to take interpersonal risks (disagreement, voicing concerns). Elaboration is an active process, not simply having diverse members.</div></div>
   </div>
-  <div id="ic-s4-flashcards" class="study-panel"><div id="ic-s4-fc-wrap"></div></div>
+  <div id="ic-s4-flashcards" class="study-panel"><div id="ic-s4-fc-wrap">
+  <div class="fc-header">
+    <span class="fc-counter"><span id="ic-s4-fc-idx">1</span> / <span id="ic-s4-fc-total">?</span></span>
+    <div id="ic-s4-sr-bar" class="fc-sr-bar"></div>
+  </div>
+  <div class="flashcard-wrap">
+    <div class="flashcard" id="ic-s4-fc-card" onclick="ic_s4FlipCard()">
+      <div class="fc-face fc-front">
+        <div class="fc-label">Question</div>
+        <div class="fc-question" id="ic-s4-fc-q"></div>
+        <div class="fc-hint">Click to reveal answer</div>
+      </div>
+      <div class="fc-face fc-back" style="background:var(--ic)">
+        <div class="fc-label">Answer</div>
+        <div class="fc-answer" id="ic-s4-fc-a"></div>
+        <div class="fc-src" id="ic-s4-fc-src"></div>
+      </div>
+    </div>
+  </div>
+  <div class="sr-btns" id="ic-s4-sr-btns" style="display:none">
+    <button class="sr-btn sr-btn-hard" onclick="ic_s4FcRate('review')">⚠️ Still learning</button>
+    <button class="sr-btn sr-btn-ok"   onclick="ic_s4FcRate('ok')">→ Next</button>
+    <button class="sr-btn sr-btn-easy" onclick="ic_s4FcRate('know')">✓ Got it</button>
+  </div>
+  <p class="sr-mode-note" id="ic-s4-sr-note">Click card to flip · Rate yourself after</p>
+  <div id="ic-s4-fc-done" style="display:none" class="fc-sr-done">
+    <h3>Session complete!</h3>
+    <p id="ic-s4-fc-done-msg"></p>
+    <button class="btn btn-primary" onclick="ic_s4FcRestart()">Restart</button>
+  </div>
+</div></div>
   <div id="ic-s4-quiz" class="study-panel"><div id="ic-s4-quiz-wrap"></div></div>
 </div>
 
@@ -5363,7 +6268,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
 // ── Navigation ──
 function showPage(id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));document.getElementById('page-'+id).classList.add('active');if(btn)btn.classList.add('active')}
 function showLecture(subject,id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-sub').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');const el=document.getElementById('page-'+subject+'-'+id);if(el){el.classList.add('active');if(subject==='eu'&&id==='i'){initFC('si');initQuiz('si')}if(subject==='eu'&&id==='ii'){initFC('sii');initQuiz('sii')}if(subject==='eu'&&id==='iii'){initFC('siii');initQuiz('siii');initSiiiTimeline()}if(subject==='eu'&&id==='iv'){initFC('siv');initQuiz('siv');initSivTimeline()}if(subject==='eu'&&id==='v'){initFC('sv');initQuiz('sv')}if(subject==='eu'&&id==='vi'){initFC('svi');initQuiz('svi');loadScenario(0,document.querySelector('.scenario-btn'))}if(subject==='eu'&&id==='vii'){initFC('svii');initQuiz('svii');initSviiTimeline()}if(subject==='eu'&&id==='viii'){initFC('sviii');initQuiz('sviii');initSviiiTimeline()}if(subject==='eu'&&id==='ix'){initFC('six');initQuiz('six')}if(subject==='micro'&&id==='ch2'){initMicroFC('ch2');initMicroQuiz('ch2');initCalcFor('ch2')}
-if(subject==='micro'&&id==='ch3'){initMicroFC('ch3');initMicroQuiz('ch3');initCalc()}if(subject==='micro'&&id==='ps1'){initMicroFC('ps1');initMicroQuiz('ps1');initCalcFor('ps1')}if(subject==='micro'&&id==='ps2'){initMicroFC('ps2');initMicroQuiz('ps2');initCalcFor('ps2')}if(subject==='macro'&&id==='lec1'){initMacroFC('lec1');initMacroQuiz('lec1');initCalcFor('lec1')}if(subject==='macro'&&id==='lec2'){initMacroFC('lec2');initMacroQuiz('lec2');initCalcFor('lec2')}if(subject==='macro'&&id==='lec3'){initMacroFC('lec3');initMacroQuiz('lec3');initCalcFor('lec3')}
+if(subject==='micro'&&id==='ch3'){initMicroFC('ch3');initMicroQuiz('ch3');initCalc()}if(subject==='micro'&&id==='ps1'){initMicroFC('ps1');initMicroQuiz('ps1');initCalcFor('ps1')}if(subject==='micro'&&id==='ps2'){initMicroFC('ps2');initMicroQuiz('ps2');initCalcFor('ps2')}if(subject==='micro'&&id==='ps3'){initMicroFC('ps3');initMicroQuiz('ps3')}if(subject==='macro'&&id==='lec1'){initMacroFC('lec1');initMacroQuiz('lec1');initCalcFor('lec1')}if(subject==='macro'&&id==='lec2'){initMacroFC('lec2');initMacroQuiz('lec2');initCalcFor('lec2')}if(subject==='macro'&&id==='lec3'){initMacroFC('lec3');initMacroQuiz('lec3');initCalcFor('lec3')}
 if(subject==='ic'&&id==='s1'){icInitFC('s1');icInitQuiz('s1')}
 if(subject==='ic'&&id==='s2'){icInitFC('s2');icInitQuiz('s2')}
 if(subject==='ic'&&id==='s3'){icInitFC('s3');icInitQuiz('s3')}
@@ -6440,6 +7345,43 @@ microQData['ps2']=[
   {q:"Why is risk-averse p_min below EV?",opts:["They misunderstand probabilities","CE<EV — certainty valued higher per euro than risk","Asset overpriced","Irrational"],ans:1,exp:"Risk aversion means CE<EV. Certain equivalent below monetary average → willing to sell for less than EV.",topic:"Applications"},
   {q:"Why does √c_good appear in MRS numerator?",opts:["Good state has higher probability","c_good is bad state","Pure algebra — dividing fractions moves √c_good to numerator","Utility is convex"],ans:2,exp:"Dividing p/√c_bad by (1−p)/√c_good is pure algebra that moves √c_good to the top. Bad state is still conceptually in numerator.",topic:"Insurance"},
   {q:"γ=1/3, p=0.2. Fair or unfair?",opts:["Fair — 1/3≈0.2","Unfair — γ>p, insurer profits","Unfair — γ<p","Cannot determine"],ans:1,exp:"γ=1/3≈0.33>p=0.2 → unfair insurance → partial insurance optimal.",topic:"Insurance"},
+];
+microFcData['ps3']=[
+  {q:"What is the general intertemporal budget equation?",a:"p₁c₁ + p₂/(1+r)·c₂ = m₁ + m₂/(1+r). Present value of consumption = present value of income. Every extra euro consumed today has an opportunity cost of (1+r) tomorrow.",src:"PS3 — Budget Line",topic:"Budget"},
+  {q:"What does the slope of the intertemporal budget line represent?",a:"Slope = −(1+r)·p₁/p₂ = the MRT. It is the opportunity cost of period 1 consumption in terms of period 2 consumption. If p₁=p₂, slope = −(1+r).",src:"PS3 — Budget Line",topic:"Budget"},
+  {q:"What is the MRT in an intertemporal context?",a:"MRT = |(1+r)·p₁/p₂|. The rate at which the market forces you to exchange period 2 consumption for period 1. Borrowers pay MRT; savers receive it. Comes from the budget, not preferences.",src:"PS3 — MRT",topic:"MRT"},
+  {q:"What does a zero interest rate (r=0) imply about the MRT?",a:"If r=0 and p₁=p₂, MRT=1. You exchange consumption one-for-one across periods — no financial gain or cost from shifting consumption over time.",src:"PS3 — MRT",topic:"MRT"},
+  {q:"What is the discount factor δ and what does it capture?",a:"δ ∈ (0,1] measures how much the person values future utility. Total utility: U = u(c₁) + δ·u(c₂). δ=1 = perfectly patient; δ<1 = impatient (typical). Higher δ = more patience = more future consumption at optimum.",src:"PS3 — Discount Factor",topic:"Discount Factor"},
+  {q:"How does δ appear in the MRS formula?",a:"MRS = MU₁/MU₂. Since MU₂ is scaled by δ in total utility U = u(c₁)+δ·u(c₂), MRS = u′(c₁)/(δ·u′(c₂)). Higher δ lowers MRS — less eager to trade future for present.",src:"PS3 — MRS",topic:"MRS"},
+  {q:"What is the optimality condition for intertemporal choice?",a:"MRS = MRT. Set the ratio of marginal utilities equal to the budget line slope. From this get c₂ as a function of c₁, then substitute into the budget line.",src:"PS3 — Optimum",topic:"Optimality"},
+  {q:"What happens to optimal consumption when δ rises (more patient)?",a:"MRS changes → MRT=MRS gives higher c₂/c₁ ratio → person consumes less now and more later. Budget line unchanged. Patience shifts consumption toward the future.",src:"PS3 — Comparative Statics",topic:"Comparative Statics"},
+  {q:"What happens to optimal consumption when r rises (for a borrower)?",a:"Budget line becomes steeper (MRT increases). Borrowing more expensive → person borrows less → c₁ falls, c₂ rises slightly. Borrowers are hurt by higher interest rates.",src:"PS3 — Comparative Statics",topic:"Comparative Statics"},
+  {q:"How do you calculate borrowing in period 1?",a:"Borrowing = p₁ × c₁* (when m₁=0). The person has no income and must borrow the full price of their period 1 consumption. They repay (1+r)×borrowing from m₂.",src:"PS3 — Borrowing",topic:"Borrowing"},
+  {q:"How do you calculate saving in period 1?",a:"Saving = m₁ − p₁·c₁* (when m₁ > p₁·c₁*). The person earns more than they consume, puts the rest in savings. They receive (1+r)×saving in period 2.",src:"PS3 — Saving",topic:"Saving"},
+  {q:"Harvey earns 189 in P1, 63 in P2, r=10%, always wants c₁=c₂. How much does he save?",a:"Budget: c₂ = 270.9 − 1.1c₁. Set c₁=c₂: 2.1c₁=270.9 → c₁*=129. Saving = 189−129 = 60. Check: 63+1.1×60=129=c₂ ✓",src:"PS3 — Problem 3.1",topic:"Application"},
+  {q:"What method replaces MRS=MRT when preferences are Leontief (fixed ratio)?",a:"Substitute the preference directly into the budget line. E.g. if always c₁=c₂, replace c₂ with c₁ in budget and solve. No derivative needed — the preference is the binding constraint.",src:"PS3 — Special Preferences",topic:"Method"},
+  {q:"Patience: U=√c₁+2√c₂, r=0, p₁=p₂=1. What is her MRS at (100,100)?",a:"MRS = MU₁/MU₂ = (1/2√c₁)/(1/√c₂) = √c₂/(2√c₁). At (100,100): MRS = 10/20 = 1/2. She gives up only half a unit tomorrow to get one unit today — she strongly values the future.",src:"PS3 — Problem 3.2",topic:"Application"},
+  {q:"Patience (r=0): what is the optimal ratio c₂*/c₁*?",a:"MRS=MRT: √c₂/(2√c₁)=1 → c₂=4c₁. She consumes 4x more in period 2 than period 1, because her utility weights future consumption double (the '2' in 2√c₂).",src:"PS3 — Problem 3.2",topic:"Application"},
+  {q:"Jenny: u(c)=½√c, δ=2/3, m₁=0, m₂=200k, r=0.05, p₁=p₂=2. What is MRS?",a:"MU₁=1/(4√c₁), MU₂=(2/3)·(1/(4√c₂)). MRS=MU₁/MU₂ = 3√c₂/(2√c₁).",src:"PS3 — Problem 3.3",topic:"Application"},
+  {q:"Jenny's MRS at (10000, 160000) vs (90000, 40000). Which is higher and why?",a:"Bundle 1: MRS=3·400/(2·100)=6. Bundle 2: MRS=3·200/(2·300)=1. MRS is higher when c₁ is low — scarcity of period 1 consumption makes her value it intensely. Diminishing marginal utility across time.",src:"PS3 — Problem 3.3c",topic:"Application"},
+  {q:"Jenny's optimal c₁* and c₂* (r=0.05, δ=2/3)?",a:"MRS=MRT: 3√c₂/(2√c₁)=1.05 → c₂=0.49c₁. Budget: 0.49c₁=100000−1.05c₁ → c₁*=64,935. c₂*=0.49×64,935=31,818. Borrow: 2×64,935=€129,870.",src:"PS3 — Problem 3.3d",topic:"Application"},
+  {q:"Maria (δ=4/5) vs Jenny (δ=2/3): who consumes more in period 1?",a:"Jenny consumes more (c₁≈64,935 vs Maria≈56,957). Maria is more patient (higher δ) → values future more → borrows less → less period 1 consumption.",src:"PS3 — Problem 3.3e",topic:"Comparative Statics"},
+  {q:"Jenny at r=0.20: how does her c₁ change vs r=0.05?",a:"r=0.20: MRT=1.2. MRS=MRT: c₂=0.64c₁. Budget: c₁*=54,348. Falls from 64,935. Higher borrowing cost → she borrows less → consumes less now, slightly more later.",src:"PS3 — Problem 3.3f",topic:"Comparative Statics"},
+  {q:"What sanity check works for every intertemporal problem?",a:"Plug c₁* and c₂* back into the budget line — the equation must hold exactly. Also check: if borrower, c₁*>m₁/p₁. If saver, c₁*<m₁/p₁.",src:"PS3 — Exam Tips",topic:"Exam Tips"},
+];
+microQData['ps3']=[
+  {q:"Harvey always wants c₁=c₂, earns 189 in P1, 63 in P2, r=10%. How much does he save?",opts:["Save 126","Save 60","Borrow 60","Save 189"],ans:1,exp:"Budget: c₂=270.9−1.1c₁. Set c₁=c₂: c₁*=129. Save 189−129=60.",topic:"Problem 3.1"},
+  {q:"What determines the slope of the intertemporal budget line?",opts:["The discount factor δ","−(1+r)·p₁/p₂ = MRT","The ratio c₂/c₁","Income in period 2"],ans:1,exp:"Slope = −(1+r)·p₁/p₂. Absolute value is MRT — the opportunity cost of period 1 consumption.",topic:"Budget Line"},
+  {q:"Patience: U=√c₁+2√c₂, r=0, p₁=p₂=1. What is her MRT?",opts:["2","0.5","1","0"],ans:2,exp:"r=0, p₁=p₂=1 → MRT=|(1+0)·1/1|=1. One-for-one exchange.",topic:"Problem 3.2"},
+  {q:"Patience's MRS at (100,100) is ½. What does this mean?",opts:["She values period 1 twice as much as period 2","She gives up only ½ unit tomorrow for 1 unit today","She is indifferent","She borrows"],ans:1,exp:"MRS=½ means to get 1 more unit of c₁, she sacrifices only ½ unit of c₂. She strongly values the future — reluctant to trade it away.",topic:"Problem 3.2"},
+  {q:"Patience optimal ratio c₂*/c₁*?",opts:["½","2","4","1"],ans:2,exp:"MRS=MRT: √c₂/(2√c₁)=1 → c₂=4c₁. Future consumption is 4x present. The '2' weight on future utility drives this.",topic:"Problem 3.2"},
+  {q:"What does a higher discount factor δ imply about optimal consumption?",opts:["More consumption in period 1","Less consumption in period 2","Less c₁ and more c₂ at optimum","No effect"],ans:2,exp:"Higher δ = more patience = values future more → MRS shifts → optimal bundle has less c₁ and more c₂.",topic:"Discount Factor"},
+  {q:"Jenny's MRS at (10,000; 160,000) is 6. At (90,000; 40,000) it is 1. Why the difference?",opts:["Higher income changes preferences","At bundle 1 period-1 consumption is scarce → high marginal value","Different interest rates","MRS should be constant"],ans:1,exp:"Diminishing marginal utility: when c₁=10,000 is very low, each extra unit is precious → willing to sacrifice 6 units of c₂ for 1 more unit of c₁.",topic:"Problem 3.3"},
+  {q:"Jenny (m₁=0, p₁=2) finds c₁*=64,935. How much does she borrow?",opts:["€64,935","€32,467","€129,870","€100,000"],ans:2,exp:"Borrowing = p₁ × c₁* = 2 × 64,935 = €129,870. She pays this back with interest from her period 2 income.",topic:"Problem 3.3"},
+  {q:"When the interest rate rises from 5% to 20%, what happens to a borrower's period 1 consumption?",opts:["It rises","It falls","It is unaffected","It rises then falls"],ans:1,exp:"Higher r makes borrowing more expensive → MRT steeper → optimal c₁ falls. Borrowers are worse off with higher interest rates.",topic:"Comparative Statics"},
+  {q:"Maria (δ=4/5) vs Jenny (δ=2/3): same budget, same utility structure. Who borrows more?",opts:["Maria","Jenny","They borrow equally","Cannot determine"],ans:1,exp:"Jenny is less patient (lower δ) → values present more → borrows more → higher c₁. Maria is more patient → saves more → lower c₁.",topic:"Comparative Statics"},
+  {q:"When should you use the 'plug preference into budget' method instead of MRS=MRT?",opts:["Always","When preferences are Leontief/fixed-ratio (e.g. c₁=c₂ always)","When r=0","When m₁=0"],ans:1,exp:"Fixed-ratio preferences (like Harvey's) pin down the c₁/c₂ ratio directly. There's no meaningful MRS to compute — just substitute the preference into the budget line.",topic:"Methods"},
+  {q:"What is the final sanity check for any intertemporal optimisation?",opts:["Check MRS<MRT","Plug c₁* and c₂* back into the budget line","Check δ<1","Verify c₁*=c₂*"],ans:1,exp:"Always verify the budget line holds: p₁c₁* + p₂/(1+r)·c₂* = m₁ + m₂/(1+r). A small algebra error will show up here.",topic:"Exam Tips"},
 ];
 // ── Macro Flashcard & Quiz Data ──
 const macroFcData={
@@ -8416,77 +9358,109 @@ const ibtFcState = {};
 const ibtQState = {};
 
 function initIbtFC(session) {
-  ibtFcState[session] = { cards: [...IBT_FLASHCARDS[session]], idx: 0, flipped: false, know: [], review: [] };
+  ibtFcState[session] = { cards: [...IBT_FLASHCARDS[session]], idx: 0, know: [], review: [] };
   renderIbtFC(session);
 }
 
 function renderIbtFC(session) {
-  const num = session.replace('s','');
-  const wrap = document.getElementById('ibts' + num + '-fc-wrap');
-  if (!wrap) return;
+  const prefix = 'ibts' + session.replace('s','');
   const st = ibtFcState[session];
   if (!st) return;
-  const card = st.cards[st.idx];
-  const total = st.cards.length;
-  const knowN = st.know.length, revN = st.review.length;
-  wrap.innerHTML = `
-    <div class="fc-header">
-      <span class="fc-counter">${st.idx + 1} / ${total}</span>
-      <div class="fc-sr-bar">
-        ${st.cards.map((_,i) => `<div class="sr-pip ${st.know.includes(i)?'know':st.review.includes(i)?'review':''}"></div>`).join('')}
-      </div>
-    </div>
-    <div class="flashcard-wrap">
-      <div class="flashcard ${st.flipped ? 'flipped' : ''}" onclick="ibtFlipCard('${session}')">
-        <div class="fc-face fc-front">
-          <div class="fc-label">Question</div>
-          <div class="fc-question">${card.q}</div>
-          <div class="fc-hint">Click to reveal answer</div>
-        </div>
-        <div class="fc-face fc-back" style="background:var(--ibt)">
-          <div class="fc-label">Answer</div>
-          <div class="fc-answer">${card.a}</div>
-          <div class="fc-src">${card.src}</div>
-        </div>
-      </div>
-    </div>
-    ${st.flipped ? `
-    <div class="sr-btns">
-      <button class="sr-btn sr-btn-hard" onclick="ibtFcNext('${session}','review')">⚠️ Still learning</button>
-      <button class="sr-btn sr-btn-ok" onclick="ibtFcNext('${session}','ok')">→ Next</button>
-      <button class="sr-btn sr-btn-easy" onclick="ibtFcNext('${session}','know')">✓ Got it</button>
-    </div>` : `<p class="sr-mode-note">Click card to flip · Rate yourself after</p>`}
-    <div style="margin-top:12px;font-size:12px;color:var(--text3);text-align:center">✓ Know: ${knowN} · ⚠ Review: ${revN} · Remaining: ${total - knowN - revN}</div>
-  `;
-}
 
-function ibtFlipCard(session) {
-  const st = ibtFcState[session];
-  if (!st) return;
-  st.flipped = !st.flipped;
-  renderIbtFC(session);
-}
-
-function ibtFcNext(session, rating) {
-  const st = ibtFcState[session];
-  if (!st) return;
-  if (rating === 'know') st.know.push(st.idx);
-  if (rating === 'review') st.review.push(st.idx);
-  st.flipped = false;
-  st.idx++;
+  // If done
   if (st.idx >= st.cards.length) {
-    const num = session.replace('s','');
-    const wrap = document.getElementById('ibts' + num + '-fc-wrap');
-    if (wrap) wrap.innerHTML = `<div class="fc-sr-done"><h3>Session complete!</h3><p>${st.know.length} known · ${st.review.length} to review · ${st.cards.length - st.know.length - st.review.length} skipped</p><button class="btn btn-primary" onclick="ibtFcRestart('${session}')">Restart</button></div>`;
+    const wrap = document.getElementById(prefix + '-fc-wrap');
+    const done = document.getElementById(prefix + '-fc-done');
+    const msg  = document.getElementById(prefix + '-fc-done-msg');
+    if (wrap) wrap.querySelector('.flashcard-wrap').style.display = 'none';
+    if (done) done.style.display = 'block';
+    if (msg)  msg.textContent = st.know.length + ' known · ' + st.review.length + ' to review · ' + (st.cards.length - st.know.length - st.review.length) + ' skipped';
     return;
   }
+
+  const card = st.cards[st.idx];
+  const el = {
+    q:    document.getElementById(prefix + '-fc-q'),
+    a:    document.getElementById(prefix + '-fc-a'),
+    src:  document.getElementById(prefix + '-fc-src'),
+    idx:  document.getElementById(prefix + '-fc-idx'),
+    tot:  document.getElementById(prefix + '-fc-total'),
+    fc:   document.getElementById(prefix + '-fc-card'),
+    btns: document.getElementById(prefix + '-sr-btns'),
+    note: document.getElementById(prefix + '-sr-note'),
+    done: document.getElementById(prefix + '-fc-done'),
+    bar:  document.getElementById(prefix + '-sr-bar'),
+    wrap: document.getElementById(prefix + '-fc-wrap'),
+  };
+  if (!el.q) return;
+
+  if (el.q)   el.q.textContent   = card.q;
+  if (el.a)   el.a.textContent   = card.a;
+  if (el.src) el.src.textContent = card.src || '';
+  if (el.idx) el.idx.textContent = st.idx + 1;
+  if (el.tot) el.tot.textContent = st.cards.length;
+  if (el.fc)  el.fc.classList.remove('flipped');
+  if (el.btns) el.btns.style.display = 'none';
+  if (el.note) el.note.style.display = 'block';
+  if (el.done) el.done.style.display = 'none';
+  if (el.wrap) { const fw = el.wrap.querySelector('.flashcard-wrap'); if (fw) fw.style.display = ''; }
+
+  // Progress pips
+  if (el.bar) {
+    el.bar.innerHTML = '<span style="font-size:12px;color:var(--text3);margin-right:6px">Progress:</span>';
+    st.cards.forEach((_, i) => {
+      const pip = document.createElement('span');
+      pip.className = 'sr-pip' + (st.know.includes(i) ? ' know' : st.review.includes(i) ? ' review' : '');
+      el.bar.appendChild(pip);
+    });
+  }
+}
+
+function ibts1FlipCard() { ibtFlipCard('s1'); }
+function ibts2FlipCard() { ibtFlipCard('s2'); }
+function ibts3FlipCard() { ibtFlipCard('s3'); }
+function ibts4FlipCard() { ibtFlipCard('s4'); }
+function ibts5FlipCard() { ibtFlipCard('s5'); }
+
+function ibtFlipCard(session) {
+  const prefix = 'ibts' + session.replace('s','');
+  const fc   = document.getElementById(prefix + '-fc-card');
+  const btns = document.getElementById(prefix + '-sr-btns');
+  const note = document.getElementById(prefix + '-sr-note');
+  if (!fc) return;
+  fc.classList.toggle('flipped');
+  const flipped = fc.classList.contains('flipped');
+  if (btns) btns.style.display = flipped ? 'flex' : 'none';
+  if (note) note.style.display = flipped ? 'none' : 'block';
+}
+
+function ibts1FcRate(r) { ibtFcRate('s1', r); }
+function ibts2FcRate(r) { ibtFcRate('s2', r); }
+function ibts3FcRate(r) { ibtFcRate('s3', r); }
+function ibts4FcRate(r) { ibtFcRate('s4', r); }
+function ibts5FcRate(r) { ibtFcRate('s5', r); }
+
+function ibtFcRate(session, rating) {
+  const st = ibtFcState[session]; if (!st) return;
+  if (rating === 'know')   st.know.push(st.idx);
+  if (rating === 'review') st.review.push(st.idx);
+  st.idx++;
   renderIbtFC(session);
 }
 
+function ibts1FcRestart() { ibtFcRestart('s1'); }
+function ibts2FcRestart() { ibtFcRestart('s2'); }
+function ibts3FcRestart() { ibtFcRestart('s3'); }
+function ibts4FcRestart() { ibtFcRestart('s4'); }
+function ibts5FcRestart() { ibtFcRestart('s5'); }
+
 function ibtFcRestart(session) {
-  ibtFcState[session] = { cards: [...IBT_FLASHCARDS[session]], idx: 0, flipped: false, know: [], review: [] };
+  ibtFcState[session] = { cards: [...IBT_FLASHCARDS[session]], idx: 0, know: [], review: [] };
   renderIbtFC(session);
 }
+
+// Legacy aliases (called from ibtShowTab)
+function ibtFcNext(session, rating) { ibtFcRate(session, rating); }
 
 // ── IBT Quiz ──
 function initIbtQuiz(session) {
@@ -8721,63 +9695,91 @@ function icInitFC(session) {
   icRenderFC(session);
 }
 function icRenderFC(session) {
-  const wrap = document.getElementById('ic-' + session + '-fc-wrap');
-  if (!wrap) return;
+  const prefix = 'ic-' + session;
   const st = icFcState[session];
-  if (!st || !st.cards.length) return;
+  if (!st) return;
+
   if (st.idx >= st.cards.length) {
-    const knowN = st.know.length; const revN = st.review.length;
-    wrap.innerHTML = `<div class="fc-sr-done"><h3>Session complete!</h3><p>${knowN} known · ${revN} to review · ${st.cards.length - knowN - revN} skipped</p><button class="btn btn-primary" onclick="icFcRestart('${session}')">Restart</button></div>`;
+    const done = document.getElementById(prefix + '-fc-done');
+    const msg  = document.getElementById(prefix + '-fc-done-msg');
+    const fw   = document.getElementById(prefix + '-fc-wrap') && document.getElementById(prefix + '-fc-wrap').querySelector('.flashcard-wrap');
+    if (fw)   fw.style.display = 'none';
+    if (done) done.style.display = 'block';
+    if (msg)  msg.textContent = st.know.length + ' known · ' + st.review.length + ' to review · ' + (st.cards.length - st.know.length - st.review.length) + ' skipped';
     return;
   }
+
   const card = st.cards[st.idx];
-  const knowN = st.know.length; const revN = st.review.length; const total = st.cards.length;
-  // Use the same flashcard-wrap / flashcard / fc-face pattern as the rest of the app
-  wrap.innerHTML = `
-    <div style="font-size:12px;color:var(--text3);margin-bottom:8px;text-align:center">Card ${st.idx+1} of ${total} &nbsp;·&nbsp; ✓ ${knowN} &nbsp;·&nbsp; ⚠ ${revN}</div>
-    <div class="flashcard-wrap">
-      <div class="flashcard" id="ic-${session}-card" onclick="icFlipCard('${session}')">
-        <div class="fc-face fc-front">
-          <div class="fc-label">Question</div>
-          <div class="fc-question">${card.q}</div>
-          <div class="fc-hint">Click to reveal answer</div>
-        </div>
-        <div class="fc-face fc-back" style="background:var(--ic)">
-          <div class="fc-label">Answer</div>
-          <div class="fc-answer">${card.a}</div>
-          <div class="fc-src">${card.src}</div>
-        </div>
-      </div>
-    </div>
-    <div class="sr-btns" id="ic-${session}-sr-btns" style="display:none">
-      <button class="sr-btn sr-btn-hard" onclick="icFcNext('${session}','review')">⚠️ Still learning</button>
-      <button class="sr-btn sr-btn-ok" onclick="icFcNext('${session}','ok')">→ Next</button>
-      <button class="sr-btn sr-btn-easy" onclick="icFcNext('${session}','know')">✓ Got it</button>
-    </div>
-    <p class="sr-mode-note" id="ic-${session}-sr-note">Click card to flip · Rate yourself after</p>
-  `;
+  const el = {
+    q:    document.getElementById(prefix + '-fc-q'),
+    a:    document.getElementById(prefix + '-fc-a'),
+    src:  document.getElementById(prefix + '-fc-src'),
+    idx:  document.getElementById(prefix + '-fc-idx'),
+    tot:  document.getElementById(prefix + '-fc-total'),
+    fc:   document.getElementById(prefix + '-fc-card'),
+    btns: document.getElementById(prefix + '-sr-btns'),
+    note: document.getElementById(prefix + '-sr-note'),
+    done: document.getElementById(prefix + '-fc-done'),
+    bar:  document.getElementById(prefix + '-sr-bar'),
+  };
+  if (!el.q) return;
+
+  el.q.textContent   = card.q;
+  el.a.textContent   = card.a;
+  if (el.src) el.src.textContent = card.src || '';
+  if (el.idx) el.idx.textContent = st.idx + 1;
+  if (el.tot) el.tot.textContent = st.cards.length;
+  el.fc.classList.remove('flipped');
+  el.btns.style.display = 'none';
+  el.note.style.display = 'block';
+  if (el.done) el.done.style.display = 'none';
+
+  // Progress pips
+  if (el.bar) {
+    el.bar.innerHTML = '<span style="font-size:12px;color:var(--text3);margin-right:6px">Progress:</span>';
+    st.cards.forEach((_, i) => {
+      const pip = document.createElement('span');
+      pip.className = 'sr-pip' + (st.know.includes(i) ? ' know' : st.review.includes(i) ? ' review' : '');
+      el.bar.appendChild(pip);
+    });
+  }
 }
+function ic_s1FlipCard() { icFlipCard('s1'); }
+function ic_s2FlipCard() { icFlipCard('s2'); }
+function ic_s3FlipCard() { icFlipCard('s3'); }
+function ic_s4FlipCard() { icFlipCard('s4'); }
 function icFlipCard(session) {
-  const card = document.getElementById('ic-' + session + '-card');
-  if (!card) return;
-  card.classList.toggle('flipped');
-  const btns = document.getElementById('ic-' + session + '-sr-btns');
-  const note = document.getElementById('ic-' + session + '-sr-note');
-  const isFlipped = card.classList.contains('flipped');
-  if (btns) btns.style.display = isFlipped ? 'flex' : 'none';
-  if (note) note.style.display = isFlipped ? 'none' : 'block';
+  const prefix = 'ic-' + session;
+  const fc   = document.getElementById(prefix + '-fc-card');
+  const btns = document.getElementById(prefix + '-sr-btns');
+  const note = document.getElementById(prefix + '-sr-note');
+  if (!fc) return;
+  fc.classList.toggle('flipped');
+  const flipped = fc.classList.contains('flipped');
+  if (btns) btns.style.display = flipped ? 'flex' : 'none';
+  if (note) note.style.display = flipped ? 'none' : 'block';
 }
-function icFcNext(session, rating) {
+function ic_s1FcRate(r) { icFcRate('s1', r); }
+function ic_s2FcRate(r) { icFcRate('s2', r); }
+function ic_s3FcRate(r) { icFcRate('s3', r); }
+function ic_s4FcRate(r) { icFcRate('s4', r); }
+function icFcRate(session, rating) {
   const st = icFcState[session]; if (!st) return;
-  if (rating === 'know') st.know.push(st.idx);
+  if (rating === 'know')   st.know.push(st.idx);
   if (rating === 'review') st.review.push(st.idx);
   st.idx++;
   icRenderFC(session);
 }
+function ic_s1FcRestart() { icFcRestart('s1'); }
+function ic_s2FcRestart() { icFcRestart('s2'); }
+function ic_s3FcRestart() { icFcRestart('s3'); }
+function ic_s4FcRestart() { icFcRestart('s4'); }
 function icFcRestart(session) {
   icFcState[session] = { cards: [...IC_FLASHCARDS[session]], idx: 0, know: [], review: [] };
   icRenderFC(session);
 }
+// Legacy alias
+function icFcNext(session, rating) { icFcRate(session, rating); }
 
 // ── IC Quiz Engine ──
 const icQState = {};
@@ -8873,6 +9875,286 @@ function icQuizNext(session) {
   };
 })();
 
+// ══════════════════════════════════════════
+// MACRO EXAM PREP ENGINE
+// ══════════════════════════════════════════
+function toggleExamFlyout() {
+  const flyout = document.getElementById('exam-flyout-macro');
+  const toggle = document.getElementById('nav-exam-toggle');
+  const arrow = document.getElementById('exam-toggle-arrow');
+  if (!flyout) return;
+  const isOpen = flyout.classList.toggle('open');
+  if (toggle) toggle.classList.toggle('active', isOpen);
+  if (arrow) arrow.textContent = isOpen ? '▾' : '▸';
+}
+
+function showMacroExam(year, q, btn) {
+  // Hide all pages
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  // Clear all regular nav buttons
+  document.querySelectorAll('.nav-btn, .nav-sub').forEach(b => b.classList.remove('active'));
+  // Clear other flyout buttons but keep flyout open and toggle active
+  document.querySelectorAll('.exam-flyout-btn').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  // Keep the Exam Prep toggle visually active
+  const toggle = document.getElementById('nav-exam-toggle');
+  if (toggle) toggle.classList.add('active');
+  // Show the exam page
+  const page = document.getElementById('page-macro-exam-' + year + '-' + q);
+  if (page) page.classList.add('active');
+}
+
+function examTab(examId, task, btn) {
+  const prefix = 'exam-panel-' + examId + '-';
+  document.querySelectorAll('[id^="' + prefix + '"]').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('#macro-exam-tabs-' + examId + ' .study-tab').forEach(b => b.classList.remove('active'));
+  const panel = document.getElementById(prefix + task);
+  if (panel) panel.classList.add('active');
+  if (btn) btn.classList.add('active');
+}
+
+// ── Exam check helpers ──────────────────────────────────────────────────────
+// hasNum(text, value, tol): true if the text contains `value` within ±tol
+// hasTerm(text, ...words): true if the text contains at least one of the words
+// normalise: strip spaces, replace , with . for European decimal notation
+function _norm(s){ return s.replace(/\s/g,'').replace(/,/g,'.').toLowerCase(); }
+function _hasNum(text, val, tol){
+  tol = tol || 0;
+  const n = _norm(text);
+  // Match val ± tol with up to 2 decimal places
+  for(let v = val - tol; v <= val + tol + 0.001; v += 0.01){
+    const rounded = Math.round(v * 100) / 100;
+    // Look for the number with optional sign, possibly followed by non-digit
+    const re = new RegExp('(?<![\\d.])' + String(rounded).replace('.','[.,]').replace('-','[-−]') + '(?![\\d])');
+    if(re.test(n)) return true;
+    // Also accept truncated e.g. 0.93 written as .93
+    if(String(rounded).startsWith('0.')){
+      const alt = new RegExp('(?<![\\d.])' + String(rounded).slice(1).replace('.','[.,]') + '(?![\\d])');
+      if(alt.test(n)) return true;
+    }
+  }
+  return false;
+}
+function _hasTerm(text, ...words){
+  const n = _norm(text);
+  return words.some(w => n.includes(_norm(w)));
+}
+
+// ── Structured check definitions ────────────────────────────────────────────
+// Each check: { label, test(text)→bool, miss: string shown if wrong }
+const EXAM_CHECKS = {
+  '2018q1-1a': [
+    { name:'Y',       label:'Y = 500',       sol:'Y = 500',                          test: t => _hasNum(t,500),          miss:'Equilibrium income Y not found. Equate IS and LM and solve.' },
+    { name:'i',       label:'i = 10 (10%)',  sol:'i = 10 (10%)',                     test: t => _hasNum(t,10),           miss:'Interest rate i not found. Substitute Y=500 back into IS or LM.' },
+    { name:'IS equation', label:'IS equation', sol:'IS: i = 80 − 0.14·Y',           test: t => _hasTerm(t,'80−0.14','80-0.14','i=80','i =80','80 −'),
+                                                                                      miss:'IS equation not stated. Derive: collect Y terms after substituting C, T, I, G.' },
+    { name:'LM equation', label:'LM equation', sol:'LM: i = 0.4·Y − 190',           test: t => _hasTerm(t,'0.4y','0.4y−190','0.4y -190','i=0.4','i =0.4'),
+                                                                                      miss:'LM equation not stated. Set M^S = L^D = 380 and solve for i.' },
+    { name:'I',       label:'I = 80',        sol:'I = 100 − 2·10 = 80',             test: t => _hasNum(t,80),           miss:'Investment I not found. Use I = 100 − 2·10.' },
+    { name:'T',       label:'T = 200',       sol:'T = 100 + 0.2·500 = 200',         test: t => _hasNum(t,200),          miss:'Tax revenue T not found. Use T = 100 + 0.2·500.' },
+    { name:'Y\u1D20', label:'Y^V = 300',     sol:'Y\u1D20 = 500 − 200 = 300',       test: t => _hasNum(t,300),          miss:'Disposable income Y^V not found. Y^V = Y − T = 500 − 200.' },
+    { name:'C',       label:'C = 320',       sol:'C = 50 + 0.9·300 = 320',          test: t => _hasNum(t,320),          miss:'Consumption C not found. C = 50 + 0.9·300.' },
+    { name:'S_pri',   label:'S_pri = −20',   sol:'S\u209A\u1D3F\u1D35 = 300 − 320 = −20', test: t => _hasNum(t,-20,1), miss:'Private savings S_pri not found. S_pri = Y^V − C = 300 − 320.' },
+    { name:'B',       label:'B = 100',       sol:'B = T − G = 200 − 100 = 100',     test: t => _hasNum(t,100),          miss:'Budget balance B not found. B = T − G = 200 − 100.' },
+  ],
+  '2018q1-1b': [
+    { name:'Y',              label:'Y = 525',            sol:'Y = 525',                                   test: t => _hasNum(t,525),          miss:'New equilibrium Y not found. Derive the new IS with G=127, keep LM unchanged, and equate.' },
+    { name:'i',              label:'New i = 20%',        sol:'i = 0.4·525 − 190 = 20 (20%)',             test: t => _hasNum(t,20,1)||_hasNum(t,12,1)||_hasTerm(t,'i rises','i↑','i steigt','interest rises'),
+                                                                                                           miss:'New interest rate not found/discussed. Substitute Y=525 into LM to get i.' },
+    { name:'Multiplier',     label:'Multiplier ≈ 0.93',  sol:'∆Y/∆G = 25/27 ≈ 0.93 < 1',               test: t => _hasNum(t,0.93,0.05)||_hasTerm(t,'25/27','25 / 27','<1','less than 1','kleiner als 1'),
+                                                                                                           miss:'Multiplier not found. ∆Y/∆G = 25/27 ≈ 0.93 — less than 1 because of crowding out.' },
+    { name:'Crowding out',   label:'Crowding out',       sol:'G↑ → Y↑ → L\u1D30↑ → i↑ → I↓ (2 units)', test: t => _hasTerm(t,'crowd','verdrängung','i↑','i rises','i steigt','investment falls','i↑→i','→i↓'),
+                                                                                                           miss:'Crowding out mechanism not explained. G↑ → Y↑ → money demand↑ → i↑ → I↓.' },
+    { name:'IS shift',       label:'IS shifts right',    sol:'IS₁ shifts right to IS₂ (G↑)',             test: t => _hasTerm(t,'is shift','is₂','is2','is kurve','rechts','right','shifts'),
+                                                                                                           miss:'IS shift not mentioned. G↑ shifts IS rightward to IS₂.' },
+  ],
+  '2018q1-1c': [
+    { name:'LM shape',       label:'LM horizontal',     sol:'LM is horizontal (h → ∞)',                  test: t => _hasTerm(t,'horizontal','waagerecht','flat','h=∞','h→∞','h=inf','unendlich'),
+                                                                                                           miss:'LM curve shape not described. In the liquidity trap h→∞ → LM is horizontal.' },
+    { name:'Effect on Y',    label:'Y increases fully', sol:'IS shifts right → Y rises fully',           test: t => _hasTerm(t,'y steigt','y rises','y↑','y increases','income rises','higher y','höheres y','fully effective','voll wirksam'),
+                                                                                                           miss:'Effect on Y not stated. IS shifts right → Y rises fully (full multiplier effect).' },
+    { name:'Effect on i',    label:'i unchanged',       sol:'i stays constant (flat LM)',                test: t => _hasTerm(t,'i unchanged','i unverändert','i stays','i bleibt','i constant','i=const','zins unverändert','interest unchanged','i does not','i nicht'),
+                                                                                                           miss:'Effect on i not stated. Horizontal LM means i cannot rise — it stays fixed.' },
+    { name:'Crowding out',   label:'Zero crowding out', sol:'Crowding out = 0 (i unchanged → I unchanged)', test: t => _hasTerm(t,'zero','null','kein','no crowd','0%','vollständig','full','maximally','keine verdrängung','crowding out = 0','kein crowding'),
+                                                                                                           miss:'Crowding out conclusion not stated. Because i doesn\'t rise, I doesn\'t fall → zero crowding out.' },
+  ],
+  '2018q3-3a': [
+    { name:'Most important instrument', label:'MRO = most important instrument', test: t => _hasTerm(t,'most important','wichtigste','bulk','main','haupt','primary'),  miss:'Role of MRO not stated. It is the most important instrument providing the bulk of liquidity.' },
+    { name:'Weekly / 1-week maturity',  label:'Weekly, 1-week maturity',          test: t => _hasTerm(t,'week','woche','weekly','wöchentlich','7 day','7-day','one week'),miss:'Frequency not stated. MRO is conducted weekly with 1-week maturity.' },
+    { name:'Fixed-rate tender',         label:'Fixed-rate tender with full allotment', test: t => _hasTerm(t,'fixed rate','festzins','full allot','vollzuteil','tender'), miss:'Tender type not stated. Since 2008: fixed-rate tender with full allotment.' },
+    { name:'Repurchase / collateral',   label:'Repurchase agreement + collateral', test: t => _hasTerm(t,'repurchas','repo','collateral','sicherheit','pfand','eligible'),miss:'Collateral requirement not mentioned. MRO is based on a repurchase agreement with eligible collateral.' },
+    { name:'Two other instruments',     label:'Two other ECB instruments',         test: t => _hasTerm(t,'ltro','longer-term','longer term','deposit facilit','einlagefaz','marginal lend','spitzenrefinanz','minimum reserv','mindestreserv'),miss:'Other instruments not named. Any two of: LTRO, minimum reserve requirements, marginal lending facility, deposit facility.' },
+  ],
+  '2018q3-3b': [
+    { name:'Assets side',              label:'Assets side (bonds, FX reserves)', test: t => _hasTerm(t,'asset','aktiva','bond','anleihe','foreign reserv','devisenreserv','kredit'), miss:'Assets side not described. Assets: government bonds, foreign reserves, credits.' },
+    { name:'Liabilities side',         label:'Liabilities (currency, deposits)', test: t => _hasTerm(t,'liabilit','passiva','currency','bargeld','umlauf','deposit','einlage','monetary base','geldbasis'), miss:'Liabilities side not described. Liabilities: currency in circulation + bank deposits = Monetary Base.' },
+    { name:'M↑ → assets↑',            label:'M↑ → asset side expands',         test: t => _hasTerm(t,'bond','anleihe','buy','kauf','purchase','asset') && _hasTerm(t,'increase','steigt','↑','expand'), miss:'Effect on asset side not shown. M↑ → CB buys bonds → assets↑.' },
+    { name:'M↑ → monetary base↑',     label:'M↑ → monetary base expands',      test: t => _hasTerm(t,'monetary base','geldbasis','currency in circ','einlage','liabilit','passiva') && _hasTerm(t,'increase','steigt','↑','expand'), miss:'Effect on liability side not shown. M↑ → currency + bank deposits↑ → Monetary Base expands.' },
+  ],
+  '2018q3-3c': [
+    { name:'Quantity equation',        label:'M·v = P·Y (quantity equation)',    test: t => _hasTerm(t,'m·v','m*v','mv =','mv=','quantity equat','quantitätsgleich','m = p','m·v = p'), miss:'Quantity equation not stated. M · v = P · Y^R (v = velocity, constant).' },
+    { name:'General effect of M↑',    label:'M↑ → P↑ and/or Y^R↑',            test: t => _hasTerm(t,'p↑','prices rise','inflation','y↑','y steigt','income rises','real growth'),   miss:'General effect not stated. M↑ → P↑ and/or Y^R↑.' },
+    { name:'Condition: vertical supply', label:'Condition: vertical supply (boom)', test: t => _hasTerm(t,'vertical','senkrecht','boom','capacity','kapazität','full employ','price inelast','η = 0','elasticity 0'), miss:'Condition not stated. Only prices rise when supply curve is vertical (economy at capacity limit).' },
+    { name:'Contrast: recession',      label:'Contrast: recession → Y↑, P unchanged', test: t => _hasTerm(t,'recession','rezession','horizontal','flat','p constant','p unchanged','p gleich','output rises'), miss:'Contrast not given. In recession (horizontal supply): M↑ → Y↑, P unchanged.' },
+  ],
+  '2018q4-4a': [
+    { name:'Supply = credit side',     label:'Supply = exports + capital imports', test: t => _hasTerm(t,'export','credit side','kreditseite','capital import','supply curve','angebotskurv'), miss:'Supply curve composition not stated. Supply = goods exports + capital imports (credit side).' },
+    { name:'Supply upward sloping',    label:'Supply upward sloping (E↑ → EX↑)',  test: t => _hasTerm(t,'upward','aufwärts','positiv','e↑','export steigt','cheaper'),                   miss:'Slope not explained. E↑ → domestic goods cheaper for foreigners → EX↑ → $ supply↑.' },
+    { name:'E above eq. → BOP surplus', label:'E above eq. → BOP surplus',       test: t => _hasTerm(t,'surplus','überschuss','bop surplus','xS > xD','supply > demand','cb buy'),        miss:'BOP effect not stated. E above equilibrium → xS > xD → BOP surplus → CB buys reserves.' },
+    { name:'M↑ → inflation',           label:'M↑ → inflation (quantity eq.)',    test: t => _hasTerm(t,'m↑','m steigt','inflation','p↑','preis','quantity','m·v'),                        miss:'Inflation link not stated. CB buying reserves → M↑ → M·v = P↑·Y → inflation.' },
+  ],
+  '2018q4-4b': [
+    { name:'Three goals',              label:'Three goals: Fixed XR, Convertibility, Autonomous MP', test: t => _hasTerm(t,'fixed','konvertib','autonom','three','drei','trilemma'),      miss:'Three goals not named: Fixed XR, Convertibility, Autonomous Monetary Policy.' },
+    { name:'Only 2 of 3',             label:'Only 2 of 3 achievable',            test: t => _hasTerm(t,'two','zwei','only 2','nur zwei','cannot','can\'t','nicht alle','trade-off'),      miss:'Core constraint not stated. CB can achieve only 2 of 3 (has only 2 instruments).' },
+    { name:'Example each side',        label:'Example for each side of triangle', test: t => _hasTerm(t,'china','usa','us ','dollar','example','beispiel','eurozone','currency board'),   miss:'Examples not given. e.g. USA = convertibility + autonomous MP; China = fixed XR + convertibility.' },
+  ],
+  '2018q4-4c': [
+    { name:'CIP formula',              label:'CIP: i − i* = (F−E)/E',            test: t => _hasTerm(t,'i − i*','i-i*','i* ','forward','f − e','f-e','(f-e)/e','covered interest'),       miss:'CIP formula not stated. i − i* = (F − E) / E, where F = forward rate, E = spot rate.' },
+    { name:'No arbitrage meaning',     label:'No arbitrage / risk-free profits',  test: t => _hasTerm(t,'arbitrage','risk-free','risikolos','no profit','kein gewinn','covered','gedeckt'),miss:'Economic meaning not stated. CIP ensures no risk-free arbitrage between domestic and foreign returns.' },
+    { name:'i*↑ → E↑',               label:'i*↑ → domestic currency depreciates (E↑)', test: t => _hasTerm(t,'e↑','e steigt','depreciat','abwertung','exchange rate rises','e increases'),miss:'Effect on E not stated. i*↑ → equilibrium restored by E↑ (domestic currency depreciates).' },
+  ],
+  '2018q4-4d': [
+    { name:'Formula R = E·P*/P',       label:'R = E · P* / P',                   test: t => _hasTerm(t,'r = e','r=e','e·p','e*p','e * p','real exchange','realer wechselkurs'),           miss:'Formula not stated. R = E · P* / P.' },
+    { name:'R measures competitiveness', label:'R measures competitiveness',      test: t => _hasTerm(t,'competitiv','wettbewerb','wettbewerbsfähig','relative price','relative preise'),  miss:'What R measures not stated. R reflects relative competitiveness of domestic vs. foreign goods.' },
+    { name:'Real depreciation R↑',     label:'Real depreciation: causes (P↓, P*↑, E↑)', test: t => _hasTerm(t,'r↑','r steigt','real depreciat','reale abwertung','p↓','p* ↑','e↑') && _hasTerm(t,'cheap','günstig','less expens'), miss:'Real depreciation mechanism not described. R↑ via P↓, P*↑, or E↑ → domestic goods cheaper.' },
+    { name:'EX↑, IM↓ → BOP surplus',  label:'EX↑, IM↓ → BOP surplus',           test: t => _hasTerm(t,'export','ex↑','im↓','bop','surplus','überschuss','competitiv'),                   miss:'Trade effect not stated. R↑ → competitiveness↑ → EX↑, IM↓ → BOP surplus.' },
+  ],
+};
+
+const EXAM_HINTS = {
+  '2018q1-1a': [
+    'Start with the goods market. Substitute C, T, I, G into Y = C + I + G. Note Y<sup>V</sup> = Y − T = Y − (100 + 0.2Y) = 0.8Y − 100. Collect all Y terms on the left to get the IS equation in the form <em>i = a − b·Y</em>.',
+    'For LM: set M<sup>S</sup> = L<sup>D</sup> → 380 = 0.8Y − 2i → solve for i. Then equate both expressions for i → solve for Y. Once you have Y and i, calculate I, T, Y<sup>V</sup>, C, S<sub>pri</sub> = Y<sup>V</sup> − C, B = T − G in that order.'
+  ],
+  '2018q1-1b': [
+    'Only G changes from 100 to 127 (ΔG = 27). Redo the IS derivation with G = 127 — every other equation stays the same. The LM is unchanged.',
+    'After finding Y = 525: multiplier = ΔY/ΔG = 25/27 ≈ 0.93. Crowding out = ΔG − ΔY = 27 − 25 = 2. For the diagram: IS shifts right to IS₂, but i rises → investment partially falls → Y doesn\'t rise by the full multiplier.'
+  ],
+  '2018q1-1c': [
+    'In the liquidity trap, the interest sensitivity of money demand h → ∞. Rethink what that does to the LM equation: i = (k/h)·Y − M<sup>S</sup>/h. What happens to the slope and intercept as h → ∞?',
+    'LM becomes horizontal at i<sub>min</sub>. IS shifts right (G↑) → the intersection moves right but i stays flat. Since i doesn\'t change, I doesn\'t change → no crowding out whatsoever → ΔY = full multiplier × ΔG.'
+  ],
+  '2018q3-3a': [
+    'Think about the MRO\'s role in the ECB\'s operational framework: why is it called the "main" operation? What distinguishes it from, say, longer-term refinancing (LTRO)? Focus on frequency, maturity, and how liquidity is allocated.',
+    'Post-2008 change: the ECB switched from variable-rate tenders (banks bid competitively) to fixed-rate tenders with full allotment (banks get as much as they want at the policy rate). For the two other instruments, think about the ECB\'s standing facilities and reserve requirements.'
+  ],
+  '2018q3-3b': [
+    'Draw the T-account. Assets = what the CB owns (bonds, FX reserves, credits to government). Liabilities = what the CB owes (currency in circulation, bank deposits at the CB). The sum of liabilities = Monetary Base.',
+    'When the CB buys government bonds (open market purchase), the asset side grows. Payment goes to commercial banks → their deposits at CB increase → liability side grows equally. Net effect: Monetary Base expands by the same amount.'
+  ],
+  '2018q3-3c': [
+    'Write down M · v = P · Y<sup>R</sup>. v is assumed constant. So if M↑, the right-hand side must increase. Under what supply-side condition does all the adjustment fall on P rather than Y<sup>R</sup>?',
+    'Think of the AS-AD model. When the economy is at capacity (boom): supply is vertical — output cannot increase. So AD↑ (from M↑) → only P rises. In recession: supply is horizontal → output rises, prices unchanged. Sketch both and label them.'
+  ],
+  '2018q4-4a': [
+    'Think about who supplies foreign exchange (e.g. dollars). It\'s anyone earning dollars: exporters who convert their $ revenue, and foreign investors bringing capital in. Why does a higher E (more €/$) make exporting more attractive?',
+    'For the CB pegging E above equilibrium: at E<sub>1</sub> > E<sup>eq</sup>, supply of $ > demand for $ → BOP surplus. CB must absorb the excess $ (buys them) → foreign reserves↑ → M↑. Now use the quantity equation: M↑ · v = P↑ · Y to show the inflationary consequence.'
+  ],
+  '2018q4-4b': [
+    'The trilemma says a central bank has 2 instruments but faces 3 goals. List all three goals first. Then ask: which pair of goals does each major economy/regime actually pursue?',
+    'Examples: USA = floating XR (gives up fixed XR) → gets convertibility + autonomous MP. Eurozone members = fixed XR internally + convertibility → gave up national autonomous MP. Currency board (e.g. Hong Kong) = fixed XR + convertibility → no autonomous MP.'
+  ],
+  '2018q4-4c': [
+    'CIP says: if you invest domestically at rate i, vs. investing abroad at i* and locking in the forward rate F, you should earn the same. The "swap rate" (F−E)/E covers the exchange rate risk. Write this equality down.',
+    'Now suppose i* rises. The right side i* − (F−E)/E is now larger. For equality to be restored, either: (a) domestic i rises to match, (b) F falls (forward rate drops), or (c) E rises (spot depreciates now, making the forward premium smaller). Typically: E↑.'
+  ],
+  '2018q4-4d': [
+    'R = E · P*/P. Think of it as: how many units of foreign goods do I get per unit of domestic goods? If R is high, domestic goods are cheap relative to foreign → we are competitive.',
+    'A real depreciation = R↑. It can come from: E↑ (nominal depreciation), P↓ (domestic deflation), or P*↑ (foreign inflation). Trace the effect: R↑ → domestic goods relatively cheaper → foreigners buy more (EX↑) → we import less (IM↓) → trade balance improves.'
+  ],
+};
+let _hintIdx = {};  // tracks per-task hint index
+
+function examCheck(examId, task, mode) {
+  const val = (document.getElementById('ans-' + examId + '-' + task) || {}).value || '';
+  const checks = EXAM_CHECKS[examId + '-' + task];
+  const fb = document.getElementById('fb-' + examId + '-' + task);
+  if (!checks || !fb) return;
+
+  if (val.trim().length < 3) {
+    fb.style.display = 'block'; fb.style.background = 'var(--surface2)'; fb.style.borderLeft = '3px solid var(--border2)';
+    fb.innerHTML = '<em style="color:var(--text3)">Write your answer above, then click Check.</em>';
+    return;
+  }
+
+  const results = checks.map(c => ({ name: c.name, label: c.label, ok: c.test(val), miss: c.miss }));
+  const nOk = results.filter(r => r.ok).length;
+  const nTotal = results.length;
+  const ratio = nOk / nTotal;
+
+  let html = '';
+
+  if (mode === 'partial') {
+    // "Check so far" — just show which variables were found, nothing else
+    const found = results.filter(r => r.ok);
+    const missing = results.filter(r => !r.ok);
+    html = `<div style="margin-bottom:6px;font-size:12.5px;color:var(--text2)">
+              <strong>${nOk} / ${nTotal} variables found so far.</strong>
+              ${missing.length > 0 ? ' Still missing:' : ' All found — click <em>Check full</em> to see detailed feedback.'}
+            </div>`;
+    if (found.length > 0 && missing.length > 0) {
+      html += found.map(r =>
+        `<div style="padding:2px 0;font-size:12.5px;color:var(--text2)">✅ ${r.name}</div>`
+      ).join('');
+      html += `<div style="height:6px"></div>`;
+    }
+    if (missing.length > 0) {
+      html += missing.map(r =>
+        `<div style="padding:2px 0;font-size:12.5px;color:var(--text2)">❌ ${r.name} = ?</div>`
+      ).join('');
+    }
+    fb.style.display = 'block';
+    fb.style.background = 'var(--surface2)';
+    fb.style.borderLeft = '3px solid var(--border2)';
+    fb.innerHTML = html;
+
+  } else {
+    // "Check full" — full ✅/❌ breakdown with miss messages
+    let header, headerColor, bg, border;
+    if (ratio === 1) {
+      header = 'All checks passed ✓'; headerColor = 'var(--micro)'; bg = '#edfaf4'; border = 'var(--micro)';
+    } else if (ratio >= 0.6) {
+      header = `${nOk} / ${nTotal} checks passed — almost there`; headerColor = 'var(--macro)'; bg = 'var(--macro-l)'; border = 'var(--macro)';
+    } else if (ratio > 0) {
+      header = `${nOk} / ${nTotal} checks passed — keep going`; headerColor = 'var(--eu)'; bg = 'var(--eu-l)'; border = 'var(--eu)';
+    } else {
+      header = 'No checks passed yet'; headerColor = 'var(--ic)'; bg = 'var(--ic-l)'; border = 'var(--ic)';
+    }
+    const rows = results.map(r =>
+      `<div style="display:flex;align-items:baseline;gap:8px;padding:3px 0;border-bottom:1px solid var(--border)">
+         <span style="flex-shrink:0;font-size:15px">${r.ok ? '✅' : '❌'}</span>
+         <span style="font-size:12.5px;min-width:130px;font-weight:${r.ok ? '500' : '400'};color:${r.ok ? 'var(--text)' : 'var(--text2)'}">${r.label}</span>
+         ${!r.ok ? `<span style="font-size:12px;color:var(--text3)">${r.miss}</span>` : ''}
+       </div>`
+    ).join('');
+    fb.style.display = 'block'; fb.style.background = bg; fb.style.borderLeft = '3px solid ' + border;
+    fb.innerHTML = `<strong style="color:${headerColor};display:block;margin-bottom:8px">${header}</strong>${rows}`;
+  }
+}
+
+function examHint(examId, task) {
+  const key = examId + '-' + task;
+  const hints = EXAM_HINTS[key];
+  if (!hints) return;
+  if (!_hintIdx[key]) _hintIdx[key] = 0;
+  const idx = _hintIdx[key];
+  if (idx >= hints.length) return;
+  _hintIdx[key]++;
+  const fb = document.getElementById('fb-' + examId + '-' + task);
+  if (!fb) return;
+  fb.style.display = 'block';
+  fb.style.background = 'var(--eu-l)'; fb.style.borderLeft = '3px solid var(--eu)';
+  fb.innerHTML = '<strong style="color:var(--eu)">Hint ' + (idx+1) + ' of ' + hints.length + '</strong><br>' + hints[idx];
+  if (_hintIdx[key] >= hints.length) {
+    const btn = document.getElementById('hint-btn-' + examId + '-' + task);
+    if (btn) { btn.disabled = true; btn.style.opacity = '.4'; }
+  }
+}
+
+function examSolution(examId, task) {
+  const sol = document.getElementById('sol-' + examId + '-' + task);
+  if (sol) sol.style.display = 'block';
+}
 </script>
 </body>
 </html>
