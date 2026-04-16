@@ -3645,7 +3645,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
   <div class="lec-card" onclick="showLecture('micro','ps1',null)"><div class="lec-num" style="background:var(--micro-l);color:var(--micro)">PS1</div><div class="lec-info"><div class="lec-title">Problem Set 1: Individual Choice</div><div class="lec-sub">Indifference Curves · MRS · Budget Line · Optimisation · Special Preferences</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Compare</span><span class="lec-badge has">Calculator</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span></div></div>
   <div class="lec-card" onclick="showLecture('micro','ps2',null)"><div class="lec-num" style="background:var(--micro-l);color:var(--micro)">PS2</div><div class="lec-info"><div class="lec-title">Problem Set 2: Risky Choice</div><div class="lec-sub">EV · EU · CE · Risk Premium · Insurance · MRS = MRT</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Compare</span><span class="lec-badge has">Calculator</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span></div></div>
   <div class="lec-card" onclick="showLecture('micro','ch3',null)"><div class="lec-num" style="background:var(--micro-l);color:var(--micro)">Ch3</div><div class="lec-info"><div class="lec-title">Chapter 3: Risky Choice</div><div class="lec-sub">Theory deep-dive · Lotteries · Expected Utility · Insurance demand</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Compare</span><span class="lec-badge has">Calculator</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span></div></div>
-  <div class="lec-card" onclick="showLecture('micro','ps3',null)"><div class="lec-num" style="background:var(--micro-l);color:var(--micro)">PS3</div><div class="lec-info"><div class="lec-title">Problem Set 3: Intertemporal Choice</div><div class="lec-sub">Budget Line · MRT · MRS · Discount Factor δ · Optimal Consumption · Borrowing</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Compare</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span></div></div>
+  <div class="lec-card" onclick="showLecture('micro','ps3',null)"><div class="lec-num" style="background:var(--micro-l);color:var(--micro)">PS3</div><div class="lec-info"><div class="lec-title">Problem Set 3: Intertemporal Choice</div><div class="lec-sub">Budget Line · MRT · MRS · Discount Factor δ · Optimal Consumption · Borrowing</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Compare</span><span class="lec-badge has">Calculator</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span></div></div>
   <div class="lec-card empty"><div class="lec-num" style="background:var(--micro-l);color:var(--micro)">Next</div><div class="lec-info"><div class="lec-title">More chapters coming</div><div class="lec-sub">Share your notes to add the next chapter</div></div><div class="lec-badges"><span class="lec-badge">Summary</span><span class="lec-badge">Cards</span><span class="lec-badge">Quiz</span></div></div>
 </div>
 </div>
@@ -4015,6 +4015,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
   <div class="study-tabs">
     <button class="study-tab active" onclick="showMicroTab('summary',this,'ps3')">Summary</button>
     <button class="study-tab" onclick="showMicroTab('compare',this,'ps3')">Compare</button>
+    <button class="study-tab" onclick="showMicroTab('calc',this,'ps3')">Calculator</button>
     <button class="study-tab" onclick="showMicroTab('flashcards',this,'ps3')">Flashcards</button>
     <button class="study-tab" onclick="showMicroTab('quiz',this,'ps3')">Quiz</button>
   </div>
@@ -4141,7 +4142,15 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
   </div>
 
   <!-- FLASHCARDS -->
-  <div id="mps3-flashcards" class="study-panel">
+  <!-- CALCULATOR -->
+  <div id="mps3-calc" class="study-panel">
+    <div class="calc-header"><div><div id="ps3-calc-title" style="font-family:var(--serif);font-size:20px;color:var(--text)"></div><div class="calc-pick-label" id="ps3-calc-pick-label"></div></div><div class="calc-nav"><button class="btn btn-sm" onclick="calcPrevFor('ps3')">← Prev</button><button class="btn btn-sm" onclick="calcNextFor('ps3')">Next →</button></div></div>
+    <div class="calc-desc-box" id="ps3-calc-desc"></div>
+    <div id="ps3-calc-steps"></div>
+    <div class="calc-footer"><button class="btn btn-primary btn-sm" id="ps3-calc-next" onclick="calcNextStepFor('ps3')">Next step →</button><button class="btn btn-sm" id="ps3-calc-reveal"></button></div>
+  </div>
+
+  <!-- FLASHCARDS PS3 -->
     <div class="fc-controls"><button class="btn btn-sm" onclick="shuffleMicroFC('ps3')">Shuffle</button><button class="btn btn-sm" onclick="resetMicroFC('ps3')">Reset all</button><span style="font-size:12px;color:var(--text3);margin-left:4px">Rate each card — hard ones come back sooner</span></div>
     <div class="fc-sr-bar" id="mps3-sr-bar"></div>
     <div id="mps3-fc-wrap">
@@ -6647,7 +6656,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
 // ── Navigation ──
 function showPage(id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));document.getElementById('page-'+id).classList.add('active');if(btn)btn.classList.add('active')}
 function showLecture(subject,id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-sub').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');const el=document.getElementById('page-'+subject+'-'+id);if(el){el.classList.add('active');if(subject==='eu'&&id==='i'){initFC('si');initQuiz('si')}if(subject==='eu'&&id==='ii'){initFC('sii');initQuiz('sii')}if(subject==='eu'&&id==='iii'){initFC('siii');initQuiz('siii');initSiiiTimeline()}if(subject==='eu'&&id==='iv'){initFC('siv');initQuiz('siv');initSivTimeline()}if(subject==='eu'&&id==='v'){initFC('sv');initQuiz('sv')}if(subject==='eu'&&id==='vi'){initFC('svi');initQuiz('svi');loadScenario(0,document.querySelector('.scenario-btn'))}if(subject==='eu'&&id==='vii'){initFC('svii');initQuiz('svii');initSviiTimeline()}if(subject==='eu'&&id==='viii'){initFC('sviii');initQuiz('sviii');initSviiiTimeline()}if(subject==='eu'&&id==='ix'){initFC('six');initQuiz('six')}if(subject==='micro'&&id==='ch2'){initMicroFC('ch2');initMicroQuiz('ch2');initCalcFor('ch2')}
-if(subject==='micro'&&id==='ch3'){initMicroFC('ch3');initMicroQuiz('ch3');initCalc()}if(subject==='micro'&&id==='ps1'){initMicroFC('ps1');initMicroQuiz('ps1');initCalcFor('ps1')}if(subject==='micro'&&id==='ps2'){initMicroFC('ps2');initMicroQuiz('ps2');initCalcFor('ps2')}if(subject==='micro'&&id==='ps3'){initMicroFC('ps3');initMicroQuiz('ps3')}if(subject==='macro'&&id==='lec1'){initMacroFC('lec1');initMacroQuiz('lec1');initCalcFor('lec1')}if(subject==='macro'&&id==='lec2'){initMacroFC('lec2');initMacroQuiz('lec2');initCalcFor('lec2')}if(subject==='macro'&&id==='lec3'){initMacroFC('lec3');initMacroQuiz('lec3');initCalcFor('lec3')}
+if(subject==='micro'&&id==='ch3'){initMicroFC('ch3');initMicroQuiz('ch3');initCalc()}if(subject==='micro'&&id==='ps1'){initMicroFC('ps1');initMicroQuiz('ps1');initCalcFor('ps1')}if(subject==='micro'&&id==='ps2'){initMicroFC('ps2');initMicroQuiz('ps2');initCalcFor('ps2')}if(subject==='micro'&&id==='ps3'){initMicroFC('ps3');initMicroQuiz('ps3');initCalcFor('ps3')}if(subject==='macro'&&id==='lec1'){initMacroFC('lec1');initMacroQuiz('lec1');initCalcFor('lec1')}if(subject==='macro'&&id==='lec2'){initMacroFC('lec2');initMacroQuiz('lec2');initCalcFor('lec2')}if(subject==='macro'&&id==='lec3'){initMacroFC('lec3');initMacroQuiz('lec3');initCalcFor('lec3')}
 if(subject==='ic'&&id==='s1'){icInitFC('s1');icInitQuiz('s1')}
 if(subject==='ic'&&id==='s2'){icInitFC('s2');icInitQuiz('s2')}
 if(subject==='ic'&&id==='s3'){icInitFC('s3');icInitQuiz('s3')}
@@ -8366,7 +8375,118 @@ const calcProblemsLec3=[
 ];
 const calcProblemsByPrefix_placeholder=null; // moved below
 let calcCurrentPrefix='ch3';
-function getCalcProblems(prefix){return({ch2:calcProblemsCh2,ch3:calcProblems,ps1:calcProblemsPS1,ps2:calcProblemsPS2,lec1:calcProblemsLec1,lec2:calcProblemsLec2,lec3:calcProblemsLec3})[prefix]||calcProblems;}
+const calcProblemsPS3=[
+  {
+    title:"Problem 3.1 — Harvey's Saving",
+    desc:"Harvey earns <b>189€ in period 1</b> and <b>63€ in period 2</b>. Interest rate <b>r = 10%</b>. He always wants <b>c₁ = c₂</b>. How much does he save in period 1?",
+    steps:[
+      {label:"Step 1: Build the budget line",formula:"c₂ = m₂ + (1+r)·(m₁ − c₁) = 63 + 1.1·(189 − c₁)",result:"c₂ = <b>270.9 − 1.1c₁</b>"},
+      {label:"Step 2: Apply Harvey's preference",formula:"He always wants c₁ = c₂ → substitute c₁ for c₂",result:"c₁ = 270.9 − 1.1c₁"},
+      {label:"Step 3: Solve for c₁*",formula:"c₁ + 1.1c₁ = 270.9 → 2.1c₁ = 270.9",result:"c₁* = <b>129€</b>"},
+      {label:"Step 4: Calculate saving",formula:"Saving = m₁ − c₁* = 189 − 129",result:"Saving = <b>60€</b>"},
+      {label:"Sanity check",formula:"c₂ = 63 + 1.1 × 60 = 63 + 66",result:"c₂ = <b>129 = c₁ ✓</b>"},
+      {label:"Key insight",formula:"Budget line = what's feasible. Preference (c₁=c₂) = where on it Harvey lands.",result:"<b>No MRS=MRT needed for fixed-ratio preferences — substitute directly.</b>"},
+    ]
+  },
+  {
+    title:"Problem 3.2a — Patience's Budget & MRT",
+    desc:"Patience: <b>U(c₁,c₂) = √c₁ + 2√c₂</b>. Income: <b>m₁ = m₂ = 100</b>. Interest rate: <b>r = 0</b>. Prices: <b>p₁ = p₂ = 1</b>. Write the budget equation and find MRT.",
+    steps:[
+      {label:"Step 1: General budget equation",formula:"p₁c₁ + p₂/(1+r)·c₂ = m₁ + m₂/(1+r)",result:"With r=0, p₁=p₂=1: c₁ + c₂ = 100 + 100"},
+      {label:"Step 2: Rearrange",formula:"c₂ = 200 − c₁",result:"Budget line: <b>c₂ = 200 − c₁</b>"},
+      {label:"Step 3: MRT = |slope|",formula:"Slope = −1, so MRT = 1",result:"<b>MRT = 1</b>"},
+      {label:"Interpretation",formula:"r = 0 and equal prices → one-for-one exchange across time",result:"<b>Every 1€ saved today buys exactly 1€ tomorrow — no interest gain.</b>"},
+    ]
+  },
+  {
+    title:"Problem 3.2b — MRS at (100, 100)",
+    desc:"Patience: <b>U = √c₁ + 2√c₂</b>. If she neither borrows nor lends she consumes (100, 100). What is her MRS?",
+    steps:[
+      {label:"Step 1: Compute MU₁",formula:"MU₁ = ∂U/∂c₁ = 1/(2√c₁)",result:"At c₁=100: MU₁ = 1/(2·10) = 1/20"},
+      {label:"Step 2: Compute MU₂",formula:"MU₂ = ∂U/∂c₂ = 2·(1/(2√c₂)) = 1/√c₂",result:"At c₂=100: MU₂ = 1/10"},
+      {label:"Step 3: MRS = MU₁/MU₂",formula:"MRS = (1/20) / (1/10) = (1/20)·10",result:"<b>MRS = 1/2</b>"},
+      {label:"Interpretation",formula:"She values future consumption double (weight '2' on √c₂)",result:"<b>To get 1€ today she only sacrifices ½€ tomorrow — she strongly prefers the future.</b>"},
+    ]
+  },
+  {
+    title:"Problem 3.2c — Optimal Ratio c₂*/c₁*",
+    desc:"Patience: <b>U = √c₁ + 2√c₂</b>, r=0, p₁=p₂=1. Find the optimal ratio c₂*/c₁*.",
+    steps:[
+      {label:"MRS formula (general)",formula:"MRS = MU₁/MU₂ = (1/2√c₁) / (1/√c₂) = √c₂ / (2√c₁)",result:"MRS = √c₂ / (2√c₁)"},
+      {label:"Set MRS = MRT",formula:"√c₂ / (2√c₁) = 1",result:"√c₂ = 2√c₁"},
+      {label:"Square both sides",formula:"c₂ = 4c₁",result:"Ratio: <b>c₂*/c₁* = 4</b>"},
+      {label:"Intuition",formula:"U = √c₁ + 2√c₂: double weight on future → saves aggressively",result:"<b>She consumes 4× more in period 2 than in period 1, even with r=0.</b>"},
+      {label:"Key trap",formula:"This only gives the RATIO — you still need to solve with budget line for actual values.",result:"<b>Plug c₂ = 4c₁ into c₁ + c₂ = 200 → c₁*=40, c₂*=160.</b>"},
+    ]
+  },
+  {
+    title:"Problem 3.3a — Jenny's Budget Line",
+    desc:"Jenny: <b>m₁ = 0, m₂ = 200,000</b>, <b>r = 0.05</b>, <b>p₁ = p₂ = 2</b>. Find the feasible set (budget line).",
+    steps:[
+      {label:"Step 1: General budget equation",formula:"p₁c₁ + p₂/(1+r)·c₂ = m₁ + m₂/(1+r)",result:"2c₁ + (2/1.05)c₂ = 0 + 200,000/1.05"},
+      {label:"Step 2: Multiply through by 1.05/2",formula:"1.05c₁ + c₂ = 100,000",result:"c₂ = 100,000 − 1.05c₁"},
+      {label:"Budget line",formula:"c₂ = 100,000 − 1.05c₁",result:"<b>Feasible set: all (c₁, c₂) ≥ 0 satisfying c₂ = 100,000 − 1.05c₁</b>"},
+      {label:"Intercepts",formula:"c₁=0: c₂=100,000 | c₂=0: c₁=100,000/1.05 ≈ 95,238",result:"Slope = −1.05, MRT = 1.05"},
+    ]
+  },
+  {
+    title:"Problem 3.3b — Slope Interpretation",
+    desc:"Jenny's budget line: <b>c₂ = 100,000 − 1.05c₁</b>. Give an intuitive interpretation of the slope.",
+    steps:[
+      {label:"Slope = −1.05",formula:"MRT = |slope| = 1.05",result:"For every €1 spent on c₁, Jenny gives up €1.05 of c₂"},
+      {label:"Why 1.05?",formula:"She borrows in period 1 → repays with 5% interest in period 2",result:"Borrowing 1€ today costs 1.05€ tomorrow — the interest rate is the price of consuming early."},
+      {label:"Key distinction",formula:"MRT comes from the market (budget). MRS comes from preferences.",result:"<b>MRT = 1.05 is the cost of consuming now. Jenny has to compare this to her MRS.</b>"},
+    ]
+  },
+  {
+    title:"Problem 3.3c — MRS at Two Bundles",
+    desc:"Jenny: U = ½√c₁ + (2/3)·½√c₂. Derive MRS at bundles (10,000; 160,000) and (90,000; 40,000).",
+    steps:[
+      {label:"Step 1: MU₁",formula:"MU₁ = ∂U/∂c₁ = 1/(4√c₁)",result:"MU₁ = 1/(4√c₁)"},
+      {label:"Step 2: MU₂",formula:"MU₂ = (2/3)·(1/(4√c₂)) = 1/(6√c₂)",result:"MU₂ = 1/(6√c₂)"},
+      {label:"Step 3: MRS formula",formula:"MRS = MU₁/MU₂ = (1/4√c₁) / (1/6√c₂) = 6√c₂ / (4√c₁)",result:"<b>MRS = 3√c₂ / (2√c₁)</b>"},
+      {label:"Bundle 1: (10,000; 160,000)",formula:"MRS = 3·√160,000 / (2·√10,000) = 3·400 / (2·100) = 1,200/200",result:"MRS₁ = <b>6</b>"},
+      {label:"Bundle 2: (90,000; 40,000)",formula:"MRS = 3·√40,000 / (2·√90,000) = 3·200 / (2·300) = 600/600",result:"MRS₂ = <b>1</b>"},
+      {label:"Intuition",formula:"Bundle 1: very low c₁ → scarce → each unit precious → MRS=6 (needs 6€ compensation tomorrow for 1€ less today). Bundle 2: high c₁ → MRS=1.",result:"<b>Diminishing MU: the scarcer period-1 consumption is, the higher its marginal value.</b>"},
+    ]
+  },
+  {
+    title:"Problem 3.3d — Jenny's Optimal Bundle & Borrowing",
+    desc:"Jenny: MRS = 3√c₂/(2√c₁), MRT = 1.05, budget: c₂ = 100,000 − 1.05c₁. Find optimal (c₁*, c₂*) and borrowing.",
+    steps:[
+      {label:"Step 1: Set MRS = MRT",formula:"3√c₂ / (2√c₁) = 1.05",result:"3√c₂ = 2.1√c₁ → √c₂ = 0.7√c₁"},
+      {label:"Step 2: Square both sides",formula:"c₂ = 0.49c₁",result:"Ratio condition: <b>c₂ = 0.49c₁</b>"},
+      {label:"Step 3: Substitute into budget line",formula:"0.49c₁ = 100,000 − 1.05c₁ → 1.54c₁ = 100,000",result:"c₁* = <b>64,935</b>"},
+      {label:"Step 4: Find c₂*",formula:"c₂* = 0.49 × 64,935",result:"c₂* = <b>31,818</b>"},
+      {label:"Step 5: Calculate borrowing",formula:"Borrowing = p₁ × c₁* = 2 × 64,935 (m₁=0, all consumption is borrowed)",result:"Borrowing = <b>€129,870</b>"},
+      {label:"Sanity check",formula:"c₂ = 100,000 − 1.05×64,935 = 100,000 − 68,182 ≈ 31,818 ✓",result:"<b>Budget equation holds.</b>"},
+    ]
+  },
+  {
+    title:"Problem 3.3e — Maria's Bundle (δ = 4/5)",
+    desc:"Maria has same situation as Jenny but <b>δ = 4/5</b> (more patient). Find her optimal bundle.",
+    steps:[
+      {label:"Step 1: Maria's MRS",formula:"MU₂ = (4/5)·(1/(4√c₂)) = 1/(5√c₂). MRS = (1/4√c₁)/(1/5√c₂)",result:"<b>MRS = 5√c₂ / (4√c₁)</b>"},
+      {label:"Step 2: Set MRS = MRT",formula:"5√c₂ / (4√c₁) = 1.05 → √c₂ = 4·1.05/5 · √c₁ = 0.84√c₁",result:"c₂ = 0.7056c₁"},
+      {label:"Step 3: Substitute into budget line",formula:"0.7056c₁ = 100,000 − 1.05c₁ → 1.7556c₁ = 100,000",result:"c₁* = <b>56,957</b>"},
+      {label:"Step 4: Find c₂*",formula:"c₂* = 0.7056 × 56,957",result:"c₂* = <b>40,187</b>"},
+      {label:"Compare Jenny vs Maria",formula:"Jenny (δ=2/3): c₁=64,935, c₂=31,818 | Maria (δ=4/5): c₁=56,957, c₂=40,187",result:"<b>Maria is more patient → borrows less → less c₁, more c₂.</b>"},
+    ]
+  },
+  {
+    title:"Problem 3.3f — Jenny with r = 0.20",
+    desc:"Jenny's interest rate rises to <b>r = 0.20</b>. How does her optimal bundle change?",
+    steps:[
+      {label:"Step 1: New budget line",formula:"c₂ = m₂/p₂ − (1+r)·(p₁/p₂)·c₁ = 100,000 − 1.2c₁",result:"New MRT = <b>1.2</b>"},
+      {label:"Step 2: MRS unchanged",formula:"MRS = 3√c₂ / (2√c₁) — preferences don't change with interest rate",result:"Same MRS formula as before"},
+      {label:"Step 3: Set MRS = new MRT",formula:"3√c₂ / (2√c₁) = 1.2 → √c₂ = 0.8√c₁",result:"c₂ = 0.64c₁"},
+      {label:"Step 4: Substitute into new budget line",formula:"0.64c₁ = 100,000 − 1.2c₁ → 1.84c₁ = 100,000",result:"c₁* = <b>54,348</b>"},
+      {label:"Step 5: Find c₂*",formula:"c₂* = 0.64 × 54,348",result:"c₂* = <b>34,783</b>"},
+      {label:"Comparison & intuition",formula:"r=0.05: c₁=64,935 | r=0.20: c₁=54,348",result:"<b>Higher r → borrowing more expensive → Jenny borrows less → lower c₁, slightly higher c₂.</b>"},
+    ]
+  },
+];
+function getCalcProblems(prefix){return({ch2:calcProblemsCh2,ch3:calcProblems,ps1:calcProblemsPS1,ps2:calcProblemsPS2,ps3:calcProblemsPS3,lec1:calcProblemsLec1,lec2:calcProblemsLec2,lec3:calcProblemsLec3})[prefix]||calcProblems;}
 function initCalcFor(prefix){calcCurrentPrefix=prefix;calcIdx=0;calcStep=0;calcRevealed=false;renderCalcFor(prefix);}
 function renderCalcFor(prefix){
   const problems=getCalcProblems(prefix);
