@@ -444,6 +444,9 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
       <div class="exam-flyout-section">Retake 2018</div>
       <button class="exam-flyout-btn" id="efb-2018r-q3" onclick="showMacroExam('2018r','q3',this)"><span class="exam-flyout-dot"></span>Retake 2018 · Q3 — Money Market</button>
       <button class="exam-flyout-btn" id="efb-2018r-q4" onclick="showMacroExam('2018r','q4',this)"><span class="exam-flyout-dot"></span>Retake 2018 · Q4 — Circular Flow</button>
+      <div class="exam-flyout-section">2019</div>
+      <button class="exam-flyout-btn" id="efb-2019-q1" onclick="showMacroExam('2019','q1',this)"><span class="exam-flyout-dot"></span>2019 · Q1 — IS/LM Model</button>
+      <button class="exam-flyout-btn" id="efb-2019-q4" onclick="showMacroExam('2019','q4',this)"><span class="exam-flyout-dot"></span>2019 · Q4 — Business Cycle &amp; Fiscal Policy</button>
       <div class="exam-flyout-section">2025</div>
       <button class="exam-flyout-btn" id="efb-2025-q3" onclick="showMacroExam('2025','q3',this)"><span class="exam-flyout-dot"></span>2025 · Q3 — Monetary Policy</button>
       <button class="exam-flyout-btn" id="efb-2025-q4" onclick="showMacroExam('2025','q4',this)"><span class="exam-flyout-dot"></span>2025 · Q4 — Business Cycle &amp; Fiscal Policy</button>
@@ -4366,6 +4369,346 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
         <button class="btn btn-primary" onclick="restartMicroQuiz('ch3')">Try again</button>
         <button class="btn" onclick="showMicroTab('calc',null)">Practice calculator</button>
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- 2019 Q1 -->
+<div id="page-macro-exam-2019-q1" class="page">
+  <div class="page-eyebrow" style="color:var(--macro)">Macroeconomics · Exam Prep</div>
+  <div class="page-title">Exam 2019 — Question 1: The IS/LM Model</div>
+  <div class="page-desc">30 points · 4 sub-tasks · Prof. Dr. Jan-Christoph Rülke</div>
+
+  <div class="sum-card" style="margin-bottom:14px">
+    <div class="sum-title"><span class="badge b-amber">Given Model</span></div>
+    <div style="font-family:monospace;font-size:13px;line-height:2;color:var(--text2);background:var(--surface2);padding:12px 16px;border-radius:var(--radius-sm);margin-top:8px">
+      Y = C + I + G &nbsp;·&nbsp; C = 200 + 0.8·Y<sup>V</sup> &nbsp;·&nbsp; Y<sup>V</sup> = Y − T<br>
+      I = 400 − 5i &nbsp;·&nbsp; T = 100 + 0.25Y &nbsp;·&nbsp; L<sup>D</sup> = 0.3Y − 15i &nbsp;·&nbsp; M<sup>S</sup> = L<sup>D</sup>
+    </div>
+  </div>
+
+  <div class="study-tabs" id="macro-exam-tabs-2019q1">
+    <button class="study-tab active" onclick="examTab('2019q1','1a',this)">1a — Consumption Function (4 pts)</button>
+    <button class="study-tab" onclick="examTab('2019q1','1b',this)">1b — Equilibrium (12 pts)</button>
+    <button class="study-tab" onclick="examTab('2019q1','1c',this)">1c — Fiscal Policy (7 pts)</button>
+    <button class="study-tab" onclick="examTab('2019q1','1d',this)">1d — Neoclassical Area (7 pts)</button>
+  </div>
+
+  <!-- TASK 1a -->
+  <div id="exam-panel-2019q1-1a" class="study-panel active">
+    <div class="sum-card" style="margin-bottom:12px">
+      <div class="sum-title"><span class="badge b-amber">Task 1a · 4 points</span></div>
+      <p style="margin-top:8px;font-size:13.5px;color:var(--text2)">
+        Interpret the values of <strong>"200"</strong> and <strong>"0.8"</strong> in the consumption function C = 200 + 0.8·Y<sup>V</sup> and give an economic reasoning. Derive the <strong>savings function</strong> analytically.
+      </p>
+    </div>
+    <div class="sum-card" style="margin-bottom:12px">
+      <div class="sum-title" style="font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--text3)">Your answer</div>
+      <div style="display:flex;gap:8px;align-items:flex-start;margin-top:8px">
+        <textarea id="ans-2019q1-1a" placeholder="200 = ..., 0.8 = ..., S = ..." style="flex:1;padding:9px 12px;border:1px solid var(--border2);border-radius:var(--radius-sm);font-family:var(--sans);font-size:13px;color:var(--text);background:var(--surface);resize:vertical;min-height:68px;outline:none"></textarea>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <button onclick="examCheck('2019q1','1a','partial')" style="padding:8px 14px;background:none;color:var(--macro);border:1.5px solid var(--macro);border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check so far</button>
+          <button onclick="examCheck('2019q1','1a','full')" style="padding:8px 14px;background:var(--macro);color:#fff;border:none;border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check full</button>
+        </div>
+      </div>
+      <div id="fb-2019q1-1a" style="display:none;margin-top:10px;padding:10px 14px;border-radius:var(--radius-sm);font-size:13px;line-height:1.6"></div>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px">
+      <button onclick="examHint('2019q1','1a')" id="hint-btn-2019q1-1a" style="padding:7px 14px;border:1px solid var(--macro-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--macro)">+ Next hint</button>
+      <button onclick="examSolution('2019q1','1a')" style="padding:7px 14px;border:1px solid #9fddcc;border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">Show solution</button>
+      <button onclick="examTab('2019q1','1b',document.querySelector('#macro-exam-tabs-2019q1 .study-tab:nth-child(2)'))" style="padding:7px 14px;border:1px solid var(--border2);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--text2);margin-left:auto">Next task →</button>
+    </div>
+    <div id="sol-2019q1-1a" class="sum-card" style="display:none;border-left:3px solid var(--micro)">
+      <div class="sum-title" style="color:var(--micro);font-size:10px;text-transform:uppercase;letter-spacing:.08em">Full Solution</div>
+      <table style="width:100%;font-size:13px;margin-top:8px;border-collapse:collapse">
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2);width:55%">C = <u>200</u> + 0.8·Y<sup>V</sup></td><td style="color:var(--text);padding:4px 0">→ <strong>200 = subsistence level</strong> (autonomous consumption when Y<sup>V</sup>=0)</td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">C = 200 + <u>0.8</u>·Y<sup>V</sup></td><td style="color:var(--text);padding:4px 0">→ <strong>0.8 = MPC</strong>: for each €1 of disposable income, €0.80 is consumed</td></tr>
+        <tr><td colspan="2"><hr style="border:none;border-top:1px solid var(--border);margin:6px 0"></td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">S = Y<sup>V</sup> − C = Y<sup>V</sup> − 200 − 0.8·Y<sup>V</sup></td><td style="color:var(--text);padding:4px 0">→ <strong>S = −200 + 0.2·Y<sup>V</sup></strong></td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">MPS = 1 − MPC = 0.2</td><td style="color:var(--text2);padding:4px 0">→ €0.20 saved per €1 of disposable income</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- TASK 1b -->
+  <div id="exam-panel-2019q1-1b" class="study-panel">
+    <div class="sum-card" style="margin-bottom:12px">
+      <div class="sum-title"><span class="badge b-amber">Task 1b · 12 points</span></div>
+      <p style="margin-top:8px;font-size:13.5px;color:var(--text2)">
+        Assume <strong>M<sup>S</sup> = 390</strong> and <strong>G = 300</strong>. Find equilibrium <strong>Y</strong> and <strong>i</strong>. Then calculate: <strong>I, T, Y<sup>V</sup>, C, S<sub>pri</sub>, B</strong>.
+      </p>
+    </div>
+    <div class="sum-card" style="margin-bottom:12px">
+      <div class="sum-title" style="font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--text3)">Your answer</div>
+      <div style="display:flex;gap:8px;align-items:flex-start;margin-top:8px">
+        <textarea id="ans-2019q1-1b" placeholder="Y = ..., i = ..., I = ..., T = ..., Y^V = ..., C = ..., S_pri = ..., B = ..." style="flex:1;padding:9px 12px;border:1px solid var(--border2);border-radius:var(--radius-sm);font-family:var(--sans);font-size:13px;color:var(--text);background:var(--surface);resize:vertical;min-height:68px;outline:none"></textarea>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <button onclick="examCheck('2019q1','1b','partial')" style="padding:8px 14px;background:none;color:var(--macro);border:1.5px solid var(--macro);border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check so far</button>
+          <button onclick="examCheck('2019q1','1b','full')" style="padding:8px 14px;background:var(--macro);color:#fff;border:none;border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check full</button>
+        </div>
+      </div>
+      <div id="fb-2019q1-1b" style="display:none;margin-top:10px;padding:10px 14px;border-radius:var(--radius-sm);font-size:13px;line-height:1.6"></div>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px">
+      <button onclick="examHint('2019q1','1b')" id="hint-btn-2019q1-1b" style="padding:7px 14px;border:1px solid var(--macro-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--macro)">+ Next hint</button>
+      <button onclick="examSolution('2019q1','1b')" style="padding:7px 14px;border:1px solid #9fddcc;border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">Show solution</button>
+      <button onclick="examTab('2019q1','1c',document.querySelector('#macro-exam-tabs-2019q1 .study-tab:nth-child(3)'))" style="padding:7px 14px;border:1px solid var(--border2);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--text2);margin-left:auto">Next task →</button>
+    </div>
+    <div id="sol-2019q1-1b" class="sum-card" style="display:none;border-left:3px solid var(--micro)">
+      <div class="sum-title" style="color:var(--micro);font-size:10px;text-transform:uppercase;letter-spacing:.08em">Full Solution</div>
+      <table style="width:100%;font-size:13px;margin-top:8px;border-collapse:collapse">
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2);width:58%">IS: 0.4Y = 820 − 5i → Y = 2050 − 12.5i</td><td style="color:var(--text);padding:4px 0">→ <strong>IS equation</strong></td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">LM: 390 = 0.3Y − 15i → i = 0.02Y − 26</td><td style="color:var(--text);padding:4px 0">→ <strong>LM equation</strong></td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">Substitute LM into IS: 1.25Y = 2375</td><td style="color:var(--text);padding:4px 0">→ <strong>Y = 1,900</strong></td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">i = 0.02 × 1900 − 26</td><td style="color:var(--text);padding:4px 0">→ <strong>i = 12 (12%)</strong></td></tr>
+        <tr><td colspan="2"><hr style="border:none;border-top:1px solid var(--border);margin:6px 0"></td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">I = 400 − 5 × 12</td><td style="color:var(--text);padding:4px 0">→ <strong>I = 340</strong></td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">T = 100 + 0.25 × 1900</td><td style="color:var(--text);padding:4px 0">→ <strong>T = 575</strong></td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">Y<sup>V</sup> = 1900 − 575</td><td style="color:var(--text);padding:4px 0">→ <strong>Y<sup>V</sup> = 1,325</strong></td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">C = 200 + 0.8 × 1325</td><td style="color:var(--text);padding:4px 0">→ <strong>C = 1,260</strong></td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">S<sub>pri</sub> = 1325 − 1260</td><td style="color:var(--text);padding:4px 0">→ <strong>S<sub>pri</sub> = 65</strong></td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">B = T − G = 575 − 300</td><td style="color:var(--text);padding:4px 0">→ <strong>B = 275</strong> ✓ (S = 65+275 = 340 = I)</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- TASK 1c -->
+  <div id="exam-panel-2019q1-1c" class="study-panel">
+    <div class="sum-card" style="margin-bottom:12px">
+      <div class="sum-title"><span class="badge b-amber">Task 1c · 7 points</span></div>
+      <p style="margin-top:8px;font-size:13.5px;color:var(--text2)">
+        G increases from 300 to <strong>G = 325</strong> (∆G = 25), M<sup>S</sup> = 390 unchanged. Find new <strong>Y</strong>. Explain via IS/LM diagram, show crowding out. What is the <strong>leakage effect</strong>?
+      </p>
+    </div>
+    <div class="sum-card" style="margin-bottom:12px">
+      <div class="sum-title" style="font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--text3)">Your answer</div>
+      <div style="display:flex;gap:8px;align-items:flex-start;margin-top:8px">
+        <textarea id="ans-2019q1-1c" placeholder="Y = ..., i = ..., multiplier = ..., crowding out, leakage effect = ..." style="flex:1;padding:9px 12px;border:1px solid var(--border2);border-radius:var(--radius-sm);font-family:var(--sans);font-size:13px;color:var(--text);background:var(--surface);resize:vertical;min-height:80px;outline:none"></textarea>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <button onclick="examCheck('2019q1','1c','partial')" style="padding:8px 14px;background:none;color:var(--macro);border:1.5px solid var(--macro);border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check so far</button>
+          <button onclick="examCheck('2019q1','1c','full')" style="padding:8px 14px;background:var(--macro);color:#fff;border:none;border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check full</button>
+        </div>
+      </div>
+      <div id="fb-2019q1-1c" style="display:none;margin-top:10px;padding:10px 14px;border-radius:var(--radius-sm);font-size:13px;line-height:1.6"></div>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px">
+      <button onclick="examHint('2019q1','1c')" id="hint-btn-2019q1-1c" style="padding:7px 14px;border:1px solid var(--macro-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--macro)">+ Next hint</button>
+      <button onclick="examSolution('2019q1','1c')" style="padding:7px 14px;border:1px solid #9fddcc;border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">Show solution</button>
+      <button onclick="examTab('2019q1','1d',document.querySelector('#macro-exam-tabs-2019q1 .study-tab:nth-child(4)'))" style="padding:7px 14px;border:1px solid var(--border2);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--text2);margin-left:auto">Next task →</button>
+    </div>
+    <div id="sol-2019q1-1c" class="sum-card" style="display:none;border-left:3px solid var(--micro)">
+      <div class="sum-title" style="color:var(--micro);font-size:10px;text-transform:uppercase;letter-spacing:.08em">Full Solution</div>
+      <table style="width:100%;font-size:13px;margin-top:8px;border-collapse:collapse">
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2);width:58%">New IS (G=325): Y = 2112.5 − 12.5i</td><td style="color:var(--text2);padding:4px 0">(IS shifts right)</td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">LM unchanged: i = 0.02Y − 26</td><td style="color:var(--text2);padding:4px 0">same as before</td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">1.25Y = 2437.5</td><td style="color:var(--text);padding:4px 0">→ <strong>Y = 1,950</strong></td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">i = 0.02 × 1950 − 26</td><td style="color:var(--text);padding:4px 0">→ <strong>i = 12.5%</strong></td></tr>
+        <tr><td colspan="2"><hr style="border:none;border-top:1px solid var(--border);margin:6px 0"></td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">∆Y = 1950 − 1900 = 50; ∆G = 25</td><td style="color:var(--text);padding:4px 0">→ <strong>Multiplier = ∆Y/∆G = 2</strong></td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">Crowding out: i↑ → I↓</td><td style="color:var(--text);padding:4px 0">→ i rises 12%→12.5%, I falls by 2.5</td></tr>
+        <tr><td colspan="2" style="padding:6px 0;font-size:12.5px;color:var(--text2)"><strong>Leakage effect:</strong> as Y↑, taxes T↑ automatically (T = 100 + 0.25Y), reducing Y<sup>V</sup> and dampening the multiplier. Part of the fiscal impulse "leaks out" via higher taxes before it can stimulate further consumption.</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- TASK 1d -->
+  <div id="exam-panel-2019q1-1d" class="study-panel">
+    <div class="sum-card" style="margin-bottom:12px">
+      <div class="sum-title"><span class="badge b-amber">Task 1d · 7 points</span></div>
+      <p style="margin-top:8px;font-size:13.5px;color:var(--text2)">
+        Now assume the economy is in the <strong>neoclassical area</strong>. What are the effects of expansionary fiscal policy on income and the interest rate (no calculations)? Show crowding out graphically and provide an economic reasoning.
+      </p>
+    </div>
+    <div class="sum-card" style="margin-bottom:12px">
+      <div class="sum-title" style="font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--text3)">Your answer</div>
+      <div style="display:flex;gap:8px;align-items:flex-start;margin-top:8px">
+        <textarea id="ans-2019q1-1d" placeholder="LM shape, effect on Y, effect on i, crowding out = ..." style="flex:1;padding:9px 12px;border:1px solid var(--border2);border-radius:var(--radius-sm);font-family:var(--sans);font-size:13px;color:var(--text);background:var(--surface);resize:vertical;min-height:80px;outline:none"></textarea>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <button onclick="examCheck('2019q1','1d','partial')" style="padding:8px 14px;background:none;color:var(--macro);border:1.5px solid var(--macro);border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check so far</button>
+          <button onclick="examCheck('2019q1','1d','full')" style="padding:8px 14px;background:var(--macro);color:#fff;border:none;border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check full</button>
+        </div>
+      </div>
+      <div id="fb-2019q1-1d" style="display:none;margin-top:10px;padding:10px 14px;border-radius:var(--radius-sm);font-size:13px;line-height:1.6"></div>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px">
+      <button onclick="examHint('2019q1','1d')" id="hint-btn-2019q1-1d" style="padding:7px 14px;border:1px solid var(--macro-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--macro)">+ Next hint</button>
+      <button onclick="examSolution('2019q1','1d')" style="padding:7px 14px;border:1px solid #9fddcc;border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">Show solution</button>
+    </div>
+    <div id="sol-2019q1-1d" class="sum-card" style="display:none;border-left:3px solid var(--micro)">
+      <div class="sum-title" style="color:var(--micro);font-size:10px;text-transform:uppercase;letter-spacing:.08em">Full Solution</div>
+      <table style="width:100%;font-size:13px;margin-top:8px;border-collapse:collapse">
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2);width:55%">LM shape in neoclassical area</td><td style="color:var(--text);padding:4px 0">→ <strong>vertical</strong> (di/dY = k/h = ∞)</td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">Effect on Y</td><td style="color:var(--text);padding:4px 0">→ <strong>Y unchanged (ΔY = 0)</strong></td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">Effect on i</td><td style="color:var(--text);padding:4px 0">→ <strong>i rises sharply</strong> (i₁ → i₂)</td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">Crowding out</td><td style="color:var(--text);padding:4px 0">→ <strong>perfect / complete</strong>: ΔI = −ΔG</td></tr>
+        <tr><td colspan="2" style="padding:6px 0;font-size:12.5px;color:var(--text2)"><strong>Economic reasoning:</strong> G↑ raises money demand for transactions (L<sup>T</sup>↑). With fixed M<sup>S</sup> and vertical LM, i rises until I falls by exactly ΔG. Net effect on Y = 0. Fiscal policy is completely ineffective in the neoclassical area.</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <details style="margin-top:20px">
+    <summary style="cursor:pointer;font-size:12px;font-weight:600;color:var(--text3);letter-spacing:.07em;text-transform:uppercase;padding:8px 0;border-top:1px solid var(--border);user-select:none">Variables &amp; Key Equations ▸</summary>
+    <div class="sum-card" style="margin-top:10px">
+      <div style="font-family:monospace;font-size:12px;line-height:2;color:var(--text2)">
+        IS: Y = 2050 − 12.5i (G=300) &nbsp;|&nbsp; LM: i = 0.02Y − 26<br>
+        b=0.8 (MPC) &nbsp;·&nbsp; t=0.25 &nbsp;·&nbsp; investment sensitivity=5 &nbsp;·&nbsp; k=0.3 &nbsp;·&nbsp; h=15<br>
+        S<sub>pri</sub> = Y<sup>V</sup> − C &nbsp;|&nbsp; B = T − G &nbsp;|&nbsp; S<sub>pri</sub> + B = I ✓
+      </div>
+    </div>
+  </details>
+</div>
+
+<!-- 2019 Q4 -->
+<div id="page-macro-exam-2019-q4" class="page">
+  <div class="page-eyebrow" style="color:var(--macro)">Macroeconomics · Exam Prep</div>
+  <div class="page-title">Exam 2019 — Question 4: Business Cycle &amp; Fiscal Policy</div>
+  <div class="page-desc">30 points · 4 sub-tasks · Prof. Dr. Jan-Christoph Rülke</div>
+
+  <div class="study-tabs" id="macro-exam-tabs-2019q4">
+    <button class="study-tab active" onclick="examTab('2019q4','4a',this)">4a — Goods Market (10 pts)</button>
+    <button class="study-tab" onclick="examTab('2019q4','4b',this)">4b — Haavelmo Theorem (9 pts)</button>
+    <button class="study-tab" onclick="examTab('2019q4','4c',this)">4c — Anti-cyclical Policy (7 pts)</button>
+    <button class="study-tab" onclick="examTab('2019q4','4d',this)">4d — Two Criticisms (4 pts)</button>
+  </div>
+
+  <!-- TASK 4a -->
+  <div id="exam-panel-2019q4-4a" class="study-panel active">
+    <div class="sum-card" style="margin-bottom:12px">
+      <div class="sum-title"><span class="badge b-amber">Task 4a · 10 points</span></div>
+      <p style="margin-top:8px;font-size:13.5px;color:var(--text2)">
+        Show the <strong>short-run equilibrium goods market</strong> in a graph. What determines equilibrium income in the short-run? Assume aggregate demand increases (e.g. increase in autonomous investment I<sup>aut</sup>) and show the adjustment process in the graph. Elaborate on the <strong>multiplier process</strong>.
+      </p>
+    </div>
+    <div class="sum-card" style="margin-bottom:12px">
+      <div class="sum-title" style="font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--text3)">Your answer</div>
+      <div style="display:flex;gap:8px;align-items:flex-start;margin-top:8px">
+        <textarea id="ans-2019q4-4a" placeholder="Equilibrium condition, short-run assumption, multiplier process, diagram description..." style="flex:1;padding:9px 12px;border:1px solid var(--border2);border-radius:var(--radius-sm);font-family:var(--sans);font-size:13px;color:var(--text);background:var(--surface);resize:vertical;min-height:90px;outline:none"></textarea>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <button onclick="examCheck('2019q4','4a','partial')" style="padding:8px 14px;background:none;color:var(--macro);border:1.5px solid var(--macro);border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check so far</button>
+          <button onclick="examCheck('2019q4','4a','full')" style="padding:8px 14px;background:var(--macro);color:#fff;border:none;border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check full</button>
+        </div>
+      </div>
+      <div id="fb-2019q4-4a" style="display:none;margin-top:10px;padding:10px 14px;border-radius:var(--radius-sm);font-size:13px;line-height:1.6"></div>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px">
+      <button onclick="examHint('2019q4','4a')" id="hint-btn-2019q4-4a" style="padding:7px 14px;border:1px solid var(--macro-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--macro)">+ Next hint</button>
+      <button onclick="examSolution('2019q4','4a')" style="padding:7px 14px;border:1px solid #9fddcc;border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">Show solution</button>
+      <button onclick="examTab('2019q4','4b',document.querySelector('#macro-exam-tabs-2019q4 .study-tab:nth-child(2)'))" style="padding:7px 14px;border:1px solid var(--border2);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--text2);margin-left:auto">Next task →</button>
+    </div>
+    <div id="sol-2019q4-4a" class="sum-card" style="display:none;border-left:3px solid var(--micro)">
+      <div class="sum-title" style="color:var(--micro);font-size:10px;text-transform:uppercase;letter-spacing:.08em">Full Solution</div>
+      <table style="width:100%;font-size:13px;margin-top:8px;border-collapse:collapse">
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2);width:55%">Equilibrium: Y = C + I + G + EX − IM</td><td style="color:var(--text);padding:4px 0">→ production = demand (45° line)</td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">Short-run assumption</td><td style="color:var(--text);padding:4px 0">→ prices sticky → <strong>quantities</strong> adjust</td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">Multiplier: ΔY = 1/(1−c) · ΔI<sup>aut</sup></td><td style="color:var(--text);padding:4px 0">→ c = MPC, multiplier > 1</td></tr>
+        <tr><td colspan="2" style="padding:6px 0;font-size:12.5px;color:var(--text2)"><strong>Multiplier process:</strong> I↑ → Y↑ → C↑ (S↑) → Y↑ → C↑ (S↑) → Y↑ → ... converges because c &lt; 1.<br><strong>Diagram:</strong> 45° line, C+I₁ shifts up to C+I₂, new equilibrium Y₂ &gt; Y₁. Distance Y₂−Y₁ &gt; ΔI due to multiplier.</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- TASK 4b -->
+  <div id="exam-panel-2019q4-4b" class="study-panel">
+    <div class="sum-card" style="margin-bottom:12px">
+      <div class="sum-title"><span class="badge b-amber">Task 4b · 9 points</span></div>
+      <p style="margin-top:8px;font-size:13.5px;color:var(--text2)">
+        Explain the <strong>Haavelmo Theorem</strong> verbally and interpret the economic reasoning. What is the reason for the Haavelmo effect?
+      </p>
+    </div>
+    <div class="sum-card" style="margin-bottom:12px">
+      <div class="sum-title" style="font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--text3)">Your answer</div>
+      <div style="display:flex;gap:8px;align-items:flex-start;margin-top:8px">
+        <textarea id="ans-2019q4-4b" placeholder="If ΔG = ΔT then ΔY = ..., because c_gov = ..., reasoning ..." style="flex:1;padding:9px 12px;border:1px solid var(--border2);border-radius:var(--radius-sm);font-family:var(--sans);font-size:13px;color:var(--text);background:var(--surface);resize:vertical;min-height:80px;outline:none"></textarea>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <button onclick="examCheck('2019q4','4b','partial')" style="padding:8px 14px;background:none;color:var(--macro);border:1.5px solid var(--macro);border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check so far</button>
+          <button onclick="examCheck('2019q4','4b','full')" style="padding:8px 14px;background:var(--macro);color:#fff;border:none;border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check full</button>
+        </div>
+      </div>
+      <div id="fb-2019q4-4b" style="display:none;margin-top:10px;padding:10px 14px;border-radius:var(--radius-sm);font-size:13px;line-height:1.6"></div>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px">
+      <button onclick="examHint('2019q4','4b')" id="hint-btn-2019q4-4b" style="padding:7px 14px;border:1px solid var(--macro-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--macro)">+ Next hint</button>
+      <button onclick="examSolution('2019q4','4b')" style="padding:7px 14px;border:1px solid #9fddcc;border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">Show solution</button>
+      <button onclick="examTab('2019q4','4c',document.querySelector('#macro-exam-tabs-2019q4 .study-tab:nth-child(3)'))" style="padding:7px 14px;border:1px solid var(--border2);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--text2);margin-left:auto">Next task →</button>
+    </div>
+    <div id="sol-2019q4-4b" class="sum-card" style="display:none;border-left:3px solid var(--micro)">
+      <div class="sum-title" style="color:var(--micro);font-size:10px;text-transform:uppercase;letter-spacing:.08em">Full Solution</div>
+      <table style="width:100%;font-size:13px;margin-top:8px;border-collapse:collapse">
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2);width:55%">Haavelmo: ΔG = ΔT (balanced budget)</td><td style="color:var(--text);padding:4px 0">→ <strong>ΔY = ΔG</strong> (multiplier = 1)</td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">G multiplier: 1/(1−c)</td><td style="color:var(--text2);padding:4px 0">increases Y</td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">T multiplier: −c/(1−c)</td><td style="color:var(--text2);padding:4px 0">decreases Y</td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">Net = 1/(1−c) − c/(1−c) = 1</td><td style="color:var(--text);padding:4px 0">→ net multiplier = <strong>1</strong></td></tr>
+        <tr><td colspan="2" style="padding:6px 0;font-size:12.5px;color:var(--text2)"><strong>Reason:</strong> Households save part of income (MPS = 1−c &gt; 0), but the government fully spends tax revenues (c<sub>gov</sub> = 1). So the tax increase removes less demand than G adds → net demand rises by ΔG.</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- TASK 4c -->
+  <div id="exam-panel-2019q4-4c" class="study-panel">
+    <div class="sum-card" style="margin-bottom:12px">
+      <div class="sum-title"><span class="badge b-amber">Task 4c · 7 points</span></div>
+      <p style="margin-top:8px;font-size:13.5px;color:var(--text2)">
+        Explain <strong>anti-cyclical fiscal policy</strong> verbally and graphically.
+      </p>
+    </div>
+    <div class="sum-card" style="margin-bottom:12px">
+      <div class="sum-title" style="font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--text3)">Your answer</div>
+      <div style="display:flex;gap:8px;align-items:flex-start;margin-top:8px">
+        <textarea id="ans-2019q4-4c" placeholder="Boom → ..., Recession → ..., budget over the cycle = ..., diagram ..." style="flex:1;padding:9px 12px;border:1px solid var(--border2);border-radius:var(--radius-sm);font-family:var(--sans);font-size:13px;color:var(--text);background:var(--surface);resize:vertical;min-height:80px;outline:none"></textarea>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <button onclick="examCheck('2019q4','4c','partial')" style="padding:8px 14px;background:none;color:var(--macro);border:1.5px solid var(--macro);border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check so far</button>
+          <button onclick="examCheck('2019q4','4c','full')" style="padding:8px 14px;background:var(--macro);color:#fff;border:none;border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check full</button>
+        </div>
+      </div>
+      <div id="fb-2019q4-4c" style="display:none;margin-top:10px;padding:10px 14px;border-radius:var(--radius-sm);font-size:13px;line-height:1.6"></div>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px">
+      <button onclick="examHint('2019q4','4c')" id="hint-btn-2019q4-4c" style="padding:7px 14px;border:1px solid var(--macro-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--macro)">+ Next hint</button>
+      <button onclick="examSolution('2019q4','4c')" style="padding:7px 14px;border:1px solid #9fddcc;border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">Show solution</button>
+      <button onclick="examTab('2019q4','4d',document.querySelector('#macro-exam-tabs-2019q4 .study-tab:nth-child(4)'))" style="padding:7px 14px;border:1px solid var(--border2);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--text2);margin-left:auto">Next task →</button>
+    </div>
+    <div id="sol-2019q4-4c" class="sum-card" style="display:none;border-left:3px solid var(--micro)">
+      <div class="sum-title" style="color:var(--micro);font-size:10px;text-transform:uppercase;letter-spacing:.08em">Full Solution</div>
+      <table style="width:100%;font-size:13px;margin-top:8px;border-collapse:collapse">
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2);width:50%">Boom (inflation↑)</td><td style="color:var(--text);padding:4px 0">→ <strong>Restrictive policy</strong>: T↑, G↓, U↓ → budget surplus</td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">Recession (unemployment↑)</td><td style="color:var(--text);padding:4px 0">→ <strong>Expansionary policy</strong>: T↓, G↑, U↑ → budget deficit</td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">Over the full cycle</td><td style="color:var(--text);padding:4px 0">→ <strong>budget balanced</strong> on average</td></tr>
+        <tr><td colspan="2" style="padding:6px 0;font-size:12.5px;color:var(--text2)"><strong>Diagram:</strong> Two panels — (1) GDP over time: anti-cyclical policy smooths the fluctuations vs. state-independent policy. (2) Budget balance over time: oscillates around zero with anti-cyclical policy.</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- TASK 4d -->
+  <div id="exam-panel-2019q4-4d" class="study-panel">
+    <div class="sum-card" style="margin-bottom:12px">
+      <div class="sum-title"><span class="badge b-amber">Task 4d · 4 points</span></div>
+      <p style="margin-top:8px;font-size:13.5px;color:var(--text2)">
+        Address and explain <strong>two concerns</strong> which criticize anti-cyclical fiscal policy.
+      </p>
+    </div>
+    <div class="sum-card" style="margin-bottom:12px">
+      <div class="sum-title" style="font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--text3)">Your answer</div>
+      <div style="display:flex;gap:8px;align-items:flex-start;margin-top:8px">
+        <textarea id="ans-2019q4-4d" placeholder="1. ... 2. ..." style="flex:1;padding:9px 12px;border:1px solid var(--border2);border-radius:var(--radius-sm);font-family:var(--sans);font-size:13px;color:var(--text);background:var(--surface);resize:vertical;min-height:68px;outline:none"></textarea>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <button onclick="examCheck('2019q4','4d','partial')" style="padding:8px 14px;background:none;color:var(--macro);border:1.5px solid var(--macro);border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check so far</button>
+          <button onclick="examCheck('2019q4','4d','full')" style="padding:8px 14px;background:var(--macro);color:#fff;border:none;border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check full</button>
+        </div>
+      </div>
+      <div id="fb-2019q4-4d" style="display:none;margin-top:10px;padding:10px 14px;border-radius:var(--radius-sm);font-size:13px;line-height:1.6"></div>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px">
+      <button onclick="examHint('2019q4','4d')" id="hint-btn-2019q4-4d" style="padding:7px 14px;border:1px solid var(--macro-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--macro)">+ Next hint</button>
+      <button onclick="examSolution('2019q4','4d')" style="padding:7px 14px;border:1px solid #9fddcc;border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">Show solution</button>
+    </div>
+    <div id="sol-2019q4-4d" class="sum-card" style="display:none;border-left:3px solid var(--micro)">
+      <div class="sum-title" style="color:var(--micro);font-size:10px;text-transform:uppercase;letter-spacing:.08em">Full Solution — any 2 of these earn full marks</div>
+      <table style="width:100%;font-size:13px;margin-top:8px;border-collapse:collapse">
+        <tr><td style="padding:4px 8px 4px 0;color:var(--text2);vertical-align:top;width:30%"><strong>Time lags</strong></td><td style="color:var(--text2);padding:4px 0">Information lag → decision lag → action lag → policy lag → effectiveness lag. By the time policy acts, the cycle may have already turned.</td></tr>
+        <tr><td style="padding:4px 8px 4px 0;color:var(--text2);vertical-align:top"><strong>Crowding out</strong></td><td style="color:var(--text2);padding:4px 0">Expansionary G↑ raises interest rate → I↓, partially offsetting the stimulus.</td></tr>
+        <tr><td style="padding:4px 8px 4px 0;color:var(--text2);vertical-align:top"><strong>Asymmetric behavior</strong></td><td style="color:var(--text2);padding:4px 0">Governments cut taxes / raise spending in recession but fail to reverse in booms → structural deficit builds up over time.</td></tr>
+        <tr><td style="padding:4px 8px 4px 0;color:var(--text2);vertical-align:top"><strong>Political incentives</strong></td><td style="color:var(--text2);padding:4px 0">Governments give "campaign goodies" regardless of the cycle (spending in boom, unwilling to cut before elections).</td></tr>
+        <tr><td style="padding:4px 8px 4px 0;color:var(--text2);vertical-align:top"><strong>Wage inflation</strong></td><td style="color:var(--text2);padding:4px 0">Expansionary spending may induce wage claims → higher wages → inflation instead of real growth.</td></tr>
+      </table>
     </div>
   </div>
 </div>
@@ -10450,6 +10793,70 @@ const EXAM_CHECKS = {
     { name:'Adjustment 2: S↓',    label:'Adjustment 2: unplanned savings fall (S↓)', test: t => _hasTerm(t,'unplanned sav','ungeplante ersparnis','s falls','s↓','households reduce'), miss:'Adjustment 2 not described. Households reduce unplanned savings → S falls ex-post.' },
     { name:'Ex-ante vs ex-post',   label:'Ex-ante vs ex-post distinction',    test: t => _hasTerm(t,'ex-ante','ex-post','ex ante','ex post','planned','unplanned','geplant','ungeplant'),  miss:'Ex-ante/ex-post distinction not made. Ex-ante = planned; ex-post = realised (always equal).' },
   ],
+  // ── 2019 Q1 ──
+  '2019q1-1a': [
+    { name:'200 = subsistence', label:'200 = subsistence level / autonomous consumption', test: t => _hasTerm(t,'subsistence','autonomous','survival','zero income','überleben','autonom'), miss:'200 not interpreted. 200 = subsistence level: autonomous consumption when disposable income = 0.' },
+    { name:'0.8 = MPC',        label:'0.8 = MPC (marginal propensity to consume)',       test: t => _hasTerm(t,'mpc','marginal propensity','grenzneigung','0.8 of','80%','80 cent','80 cents'), miss:'0.8 not interpreted. 0.8 = MPC: for each €1 of disposable income, €0.80 is consumed.' },
+    { name:'S = −200 + 0.2Y',  label:'S = −200 + 0.2·Y^V',                              test: t => _hasTerm(t,'−200','- 200','0.2y','s = −','s=−','savings function'), miss:'Savings function not derived. S = Y^V − C = Y^V − 200 − 0.8Y^V = −200 + 0.2Y^V.' },
+  ],
+  '2019q1-1b': [
+    { name:'Y',       label:'Y = 1,900',       test: t => _hasNum(t,1900),       miss:'Equilibrium Y not found. Substitute LM into IS: 1.25Y = 2375 → Y = 1900.' },
+    { name:'i',       label:'i = 12 (12%)',    test: t => _hasNum(t,12),         miss:'Interest rate i not found. i = 0.02 × 1900 − 26 = 12.' },
+    { name:'IS eq',   label:'IS equation',     test: t => _hasTerm(t,'2050','12.5i','12.5·i','y = 2050'), miss:'IS not stated. Derive: 0.4Y = 820 − 5i → Y = 2050 − 12.5i.' },
+    { name:'LM eq',   label:'LM equation',     test: t => _hasTerm(t,'0.02y','0.02·y','i = 0.02','26'), miss:'LM not stated. 390 = 0.3Y − 15i → i = 0.02Y − 26.' },
+    { name:'I',       label:'I = 340',         test: t => _hasNum(t,340),        miss:'I not found. I = 400 − 5×12 = 340.' },
+    { name:'T',       label:'T = 575',         test: t => _hasNum(t,575),        miss:'T not found. T = 100 + 0.25×1900 = 575.' },
+    { name:'YV',      label:'Y^V = 1,325',     test: t => _hasNum(t,1325),       miss:'Y^V not found. Y^V = 1900 − 575 = 1325.' },
+    { name:'C',       label:'C = 1,260',       test: t => _hasNum(t,1260),       miss:'C not found. C = 200 + 0.8×1325 = 1260.' },
+    { name:'S_pri',   label:'S_pri = 65',      test: t => _hasNum(t,65),         miss:'S_pri not found. S_pri = 1325 − 1260 = 65.' },
+    { name:'B',       label:'B = 275',         test: t => _hasNum(t,275),        miss:'B not found. B = T − G = 575 − 300 = 275. Check: 65+275 = 340 = I ✓.' },
+  ],
+  '2019q1-1c': [
+    { name:'Y new',        label:'New Y = 1,950',          test: t => _hasNum(t,1950),   miss:'New Y not found. New IS: 1.25Y = 2437.5 → Y = 1950.' },
+    { name:'i new',        label:'New i = 12.5%',          test: t => _hasNum(t,12.5,0.1), miss:'New i not found. i = 0.02×1950 − 26 = 12.5.' },
+    { name:'Multiplier',   label:'Multiplier = 2',         test: t => _hasNum(t,2,0.05)||_hasTerm(t,'∆y/∆g','dy/dg','multiplier'), miss:'Multiplier not stated. ΔY/ΔG = 50/25 = 2.' },
+    { name:'Crowding out', label:'Crowding out explained', test: t => _hasTerm(t,'crowd','i↑','i rises','i steigt','invest','verdrängung'), miss:'Crowding out not explained. i rises 12%→12.5% → I falls → partial offset.' },
+    { name:'IS shift',     label:'IS shifts right',        test: t => _hasTerm(t,'is shift','is₂','is2','right','rechts','shifts'), miss:'IS shift not mentioned. G↑ shifts IS rightward.' },
+    { name:'Leakage',      label:'Leakage effect explained', test: t => _hasTerm(t,'leakage','leckage','tax','steuer','t↑','taxes rise'), miss:'Leakage not explained. As Y↑, T rises automatically (T = 100+0.25Y), dampening the multiplier.' },
+  ],
+  '2019q1-1d': [
+    { name:'LM vertical',    label:'LM vertical in neoclassical area', test: t => _hasTerm(t,'vertical','senkrecht','steep','steil','k/h','∞'), miss:'LM shape not described. In neoclassical area, money demand is interest-inelastic → LM is vertical.' },
+    { name:'Y unchanged',    label:'Y unchanged (ΔY = 0)',             test: t => _hasTerm(t,'y unchanged','y unverändert','y = 0','∆y = 0','dy = 0','no effect','keine wirkung','ineffective'), miss:'Effect on Y not stated. Vertical LM → Y cannot rise → ΔY = 0.' },
+    { name:'i rises',        label:'i rises sharply',                  test: t => _hasTerm(t,'i rises','i↑','i steigt','sharp','stark','interest rises'), miss:'Effect on i not stated. IS shifts right but LM is vertical → only i rises.' },
+    { name:'Perfect crowding', label:'Perfect/complete crowding out',  test: t => _hasTerm(t,'perfect','complete','vollständig','100%','∆i = ∆g','i↑→i↓'), miss:'Crowding out conclusion not stated. Because i rises fully, I falls by exactly ΔG → complete crowding out.' },
+  ],
+  // ── 2019 Q4 ──
+  '2019q4-4a': [
+    { name:'Equilibrium condition', label:'Y = C+I+G+EX−IM', test: t => _hasTerm(t,'y = c','y=c','c + i + g','c+i+g','equilibrium','gleichgewicht'), miss:'Equilibrium condition not stated. Y = C + I + G + EX − IM (production = demand).' },
+    { name:'Short-run: quantities', label:'Short-run: quantities adjust (prices sticky)', test: t => _hasTerm(t,'quantit','mengen','price.*not','preise.*nicht','short-run','kurzfrist','quantities adjust','sticky'), miss:'Short-run assumption not stated. Prices are sticky → quantities adjust.' },
+    { name:'Multiplier formula',    label:'Multiplier ΔY = 1/(1−c)·ΔI', test: t => _hasTerm(t,'multipli','1−c','1-c','1/(1','multiplier process','multiplikator'), miss:'Multiplier not stated. ΔY = 1/(1−c) · ΔI^aut. Process: I↑ → Y↑ → C↑ → ...' },
+    { name:'Multiplier process',    label:'I↑ → Y↑ → C↑ → Y↑ → ...',  test: t => _hasTerm(t,'i↑','invest','y↑','c↑','process','prozess','round','runde'), miss:'Multiplier process not described. I↑ → Y↑ → C↑ (S↑) → Y↑ → ... converges because c < 1.' },
+  ],
+  '2019q4-4b': [
+    { name:'Haavelmo: ΔY = ΔG',   label:'ΔG = ΔT → ΔY = ΔG',           test: t => _hasTerm(t,'haavelmo')||(_hasTerm(t,'∆y = ∆g','∆y=∆g','dy = dg','dy=dg','y steigt um g') && _hasTerm(t,'budget','balanced','ausgeglichen')), miss:'Haavelmo result not stated. ΔG = ΔT (balanced budget) → ΔY = ΔG.' },
+    { name:'c_gov = 1',            label:'c_gov = 1 (government fully consumes)', test: t => _hasTerm(t,'fully consum','vollständig','c_gov','cgov','government.*consum','fully spend','100%'), miss:'Reason not given. Government fully consumes tax revenues (c_gov=1) → net demand rises despite tax increase.' },
+    { name:'Net multiplier = 1',   label:'Net multiplier = 1',           test: t => _hasNum(t,1)&&_hasTerm(t,'net','multipli')||_hasTerm(t,'1/(1-c)','1/(1−c)','c/(1-c)','c/(1−c)'), miss:'Net multiplier not shown. 1/(1−c) − c/(1−c) = 1.' },
+  ],
+  '2019q4-4c': [
+    { name:'Boom → restrictive',    label:'Boom → restrictive (T↑, G↓)', test: t => _hasTerm(t,'boom','inflation')&&_hasTerm(t,'restrict','contractionary','restriktiv','t↑','g↓','t steigt','g sinkt'), miss:'Boom response not stated. Boom → restrictive policy: T↑, G↓, U↓ → budget surplus.' },
+    { name:'Recession → expansionary', label:'Recession → expansionary (T↓, G↑)', test: t => _hasTerm(t,'recession','rezession','unemploy','arbeitslos')&&_hasTerm(t,'expansion','t↓','g↑','t sinkt','g steigt'), miss:'Recession response not stated. Recession → expansionary: T↓, G↑, U↑ → budget deficit.' },
+    { name:'Budget balanced over cycle', label:'Budget balanced over full cycle', test: t => _hasTerm(t,'balanced','ausgeglichen','over.*cycle','über.*zyklus','on average','im durchschnitt','stabilise','stabilisier'), miss:'Long-run balance not stated. Over the full cycle, the budget balances out.' },
+  ],
+  '2019q4-4d': [
+    { name:'Criticism 1', label:'First valid criticism stated', test: t => _hasTerm(t,'lag','time','asymmetr','crowd','politic','wage','debt','campaign'), miss:'No criticism found. Options: time lags, crowding out, asymmetric behavior, political incentives, wage inflation, government debt build-up.' },
+    { name:'Criticism 2', label:'Second distinct criticism stated', test: t => {
+      const n = _norm(t);
+      const matches = [
+        _hasTerm(t,'lag','time'),
+        _hasTerm(t,'asymmetr'),
+        _hasTerm(t,'crowd','verdrängung'),
+        _hasTerm(t,'politic','campaign','election'),
+        _hasTerm(t,'wage','lohn'),
+        _hasTerm(t,'debt','schulden'),
+      ].filter(Boolean);
+      return matches.length >= 2;
+    }, miss:'Only one criticism found — provide a second distinct criticism.' },
+  ],
   // ── 2025 Q3 ──
   '2025q3-3a': [
     { name:'Two criteria named',     label:'Two Maastricht criteria named',      test: t => _hasTerm(t,'inflation','interest rate','zinssatz','public balance','budget','government debt','staatsschuld','exchange rate','wechselkurs','maastricht','convergence'), miss:'At least two convergence criteria not named. Any two of: inflation rate, long-run interest rate, public balance (≤−3%), government debt (≤60%), exchange rate stability.' },
@@ -10547,6 +10954,38 @@ const EXAM_HINTS = {
   '2018rq4-4b': [
     'Write the identity: S + T + IM = I + G + EX. Assume ex-ante: S=15, I=10, T=G, EX=IM → leakages(15) > injections(10). Something must adjust to restore ex-post equality.',
     'Two adjustments: (1) Unplanned inventory accumulation → I rises 10→15. (2) Unplanned savings reduction → S falls 15→10. Key: ex-ante = planned (may diverge); ex-post = realised (always equal by identity).'
+  ],
+  '2019q1-1a': [
+    'For "200": ask yourself, what happens to consumption when disposable income Y^V = 0? For "0.8": if Y^V rises by €1, by how much does C rise?',
+    'Savings function: S = Y^V − C. Substitute the C formula and simplify. You should get S = −200 + 0.2·Y^V, where MPS = 1 − MPC = 0.2.'
+  ],
+  '2019q1-1b': [
+    'Goods market: substitute C, T, I, G into Y = C + I + G. Note Y^V = Y − (100 + 0.25Y) = 0.75Y − 100. Collect all Y terms → 0.4Y = 820 − 5i → IS: Y = 2050 − 12.5i.',
+    'LM: 390 = 0.3Y − 15i → i = 0.02Y − 26. Substitute into IS, solve for Y = 1900, then i = 12. Then calculate I, T, Y^V, C, S_pri = Y^V − C, B = T − G.'
+  ],
+  '2019q1-1c': [
+    'Only G changes from 300 to 325 (ΔG = 25). Re-derive IS with G = 325. LM unchanged. New Y = 1950, i = 12.5%.',
+    'Multiplier = ΔY/ΔG = 50/25 = 2. Leakage: as Y↑, T rises automatically (T = 100 + 0.25Y) → part of fiscal impulse leaks out via taxes before stimulating consumption.'
+  ],
+  '2019q1-1d': [
+    'The neoclassical area is where the LM curve is nearly vertical — money demand is very interest-inelastic. Think: if LM is vertical, what happens to Y when IS shifts right?',
+    'Vertical LM → IS shift only raises i, not Y. G↑ → L^T↑ → i↑ → I↓ by exactly ΔG → ΔY = 0. Perfect crowding out. Draw: IS₁ → IS₂, vertical LM, same Y, higher i.'
+  ],
+  '2019q4-4a': [
+    'Short-run assumption is key: prices are sticky → quantities adjust. State this first. Then: equilibrium = 45° line (Y^D = Y^S).',
+    'Multiplier process: I↑ → Y↑ → C↑ (= c·ΔY) → Y↑ again → ... converges because c < 1. Total ΔY = 1/(1−c) × ΔI. Draw the 45° diagram showing C+I₁ shifting to C+I₂.'
+  ],
+  '2019q4-4b': [
+    'Haavelmo: ΔG = ΔT. G multiplier = 1/(1−c). T multiplier = −c/(1−c). Sum them. What net multiplier do you get?',
+    'Net = 1/(1−c) − c/(1−c) = 1. Why? Households save part of income, but the government spends ALL of tax revenue (c_gov = 1). Asymmetry → net demand still rises by ΔG.'
+  ],
+  '2019q4-4c': [
+    'Anti-cyclical = acting AGAINST the cycle. Boom → restrict (T↑, G↓) → surplus. Recession → expand (T↓, G↑) → deficit. What happens to the budget over a full cycle?',
+    'Draw two panels: (1) GDP over time — anti-cyclical smooths fluctuations. (2) Budget balance — oscillates around zero with anti-cyclical policy.'
+  ],
+  '2019q4-4d': [
+    'Think about timing: recognition lag → decision lag → implementation lag → effectiveness lag. By the time policy acts, the cycle may have turned.',
+    'Think about political incentives: do governments symmetrically raise taxes in booms? What happens to debt over multiple cycles if governments only expand, never contract?'
   ],
   '2025q3-3a': [
     'The Maastricht Treaty has 5 criteria for joining the Eurozone. Think about: which economic variables did policymakers want to converge? Hint: inflation, interest rates, budget, debt, exchange rate.',
