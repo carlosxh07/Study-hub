@@ -458,6 +458,15 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
     <button class="nav-sub" onclick="showLecture('ibt','s3',this)">Session 3: Integration &amp; WTO</button>
     <button class="nav-sub" onclick="showLecture('ibt','s4',this)">Session 4: Exchange Rates</button>
     <button class="nav-sub" onclick="showLecture('ibt','s5',this)">Session 5: Money &amp; Prices</button>
+    <button class="nav-exam-toggle" id="nav-ibt-exam-toggle" onclick="toggleIBTExamFlyout()" style="color:var(--ibt)">📝 Exam Prep <span id="ibt-exam-toggle-arrow">▸</span></button>
+    <div class="exam-flyout" id="exam-flyout-ibt">
+      <div class="exam-flyout-section">Past Exams — IBT</div>
+      <button class="exam-flyout-btn" id="efb-ibt-2025-q1" onclick="showIBTExam('2025','q1',this)"><span class="exam-flyout-dot"></span>2025 · Q1 — Comparative Advantage</button>
+      <button class="exam-flyout-btn" id="efb-ibt-2025-q2" onclick="showIBTExam('2025','q2',this)"><span class="exam-flyout-dot"></span>2025 · Q2 — Import Tariff</button>
+      <button class="exam-flyout-btn" id="efb-ibt-2025-q3" onclick="showIBTExam('2025','q3',this)"><span class="exam-flyout-dot"></span>2025 · Q3 — Balance of Payments &amp; UIP</button>
+      <button class="exam-flyout-btn" id="efb-ibt-2025-q4" onclick="showIBTExam('2025','q4',this)"><span class="exam-flyout-dot"></span>2025 · Q4 — Monetary Model</button>
+      <button class="exam-flyout-btn" id="efb-ibt-2025-q5" onclick="showIBTExam('2025','q5',this)"><span class="exam-flyout-dot"></span>2025 · Q5 — Consumer Preferences</button>
+    </div>
     <div class="nav-label">Intercultural Comp.</div>
     <button class="nav-btn" data-color="ic" onclick="showPage('ic-overview',this)"><span class="nav-dot" style="background:var(--ic)"></span>All Chapters</button>
     <button class="nav-sub" onclick="showLecture('ic','s1',this)">Session 1: Global Manager &amp; Culture</button>
@@ -5797,6 +5806,424 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
 
 </div>
 
+<!-- IBT 2025 EXAM PAGES -->
+<div id="page-ibt-exam-2025-q1" class="page">
+  <div class="page-eyebrow" style="color:var(--ibt)">IBT · Exam Prep</div>
+  <div class="page-title">Exam 2025 — Q1: Comparative Advantage &amp; Trade</div>
+  <div class="page-desc">25 points · Prof. Dr. Jan-Christoph Rülke · Answer all questions</div>
+
+  <div class="sum-card" style="margin-bottom:14px">
+    <div class="sum-title"><span class="badge b-purple">Given Data</span></div>
+    <div style="font-family:monospace;font-size:13px;line-height:2;color:var(--text2);background:var(--surface2);padding:12px 16px;border-radius:var(--radius-sm);margin-top:8px">
+      L = 480 for both countries &nbsp;·&nbsp; Germany: 4h/car, 8h/banana &nbsp;·&nbsp; Zimbabwe: 6h/car, 2h/banana<br>
+      Trade: Germany exports 60 cars → imports 150 bananas from Zimbabwe
+    </div>
+  </div>
+
+  <div class="study-tabs" id="ibt-exam-tabs-2025q1">
+    <button class="study-tab active" onclick="ibtExamTab('2025q1','a',this)">Production Frontier &amp; Autarky</button>
+    <button class="study-tab" onclick="ibtExamTab('2025q1','b',this)">Trade &amp; Comparative Advantage</button>
+    <button class="study-tab" onclick="ibtExamTab('2025q1','c',this)">Terms of Trade</button>
+  </div>
+
+  <!-- Part A -->
+  <div id="ibt-exam-panel-2025q1-a" class="study-panel active">
+    <div class="sum-card" style="margin-bottom:12px">
+      <div class="sum-title"><span class="badge b-purple">Part A</span></div>
+      <p style="margin-top:8px;font-size:13.5px;color:var(--text2)">
+        Draw the <strong>production frontier</strong> for both countries. What determines its slope? What do points on/below/above it represent? Show the <strong>autarky consumption points</strong> for Germany (prefers bananas) and Zimbabwe (prefers cars).
+      </p>
+    </div>
+    <div class="sum-card" style="margin-bottom:12px">
+      <div class="sum-title" style="font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--text3)">Your answer</div>
+      <div style="display:flex;gap:8px;align-items:flex-start;margin-top:8px">
+        <textarea id="ibt-ans-2025q1-a" placeholder="Germany PPF: max cars = ..., max bananas = ..., slope = ...&#10;Zimbabwe PPF: max cars = ..., max bananas = ..., slope = ...&#10;Points on frontier = ..., below = ..., above = ..." style="flex:1;padding:9px 12px;border:1px solid var(--border2);border-radius:var(--radius-sm);font-family:var(--sans);font-size:13px;color:var(--text);background:var(--surface);resize:vertical;min-height:90px;outline:none"></textarea>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <button onclick="ibtExamCheck('2025q1','a','partial')" style="padding:8px 14px;background:none;color:var(--ibt);border:1.5px solid var(--ibt);border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check so far</button>
+          <button onclick="ibtExamCheck('2025q1','a','full')" style="padding:8px 14px;background:var(--ibt);color:#fff;border:none;border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check full</button>
+        </div>
+      </div>
+      <div id="ibt-fb-2025q1-a" style="display:none;margin-top:10px;padding:10px 14px;border-radius:var(--radius-sm);font-size:13px;line-height:1.6"></div>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px">
+      <button onclick="ibtExamHint('2025q1','a')" id="ibt-hint-btn-2025q1-a" style="padding:7px 14px;border:1px solid var(--ibt-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--ibt)">+ Next hint</button>
+      <button onclick="ibtExamSolution('2025q1','a')" style="padding:7px 14px;border:1px solid #9fddcc;border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">Show solution</button>
+      <button onclick="ibtExamTab('2025q1','b',document.querySelector('#ibt-exam-tabs-2025q1 .study-tab:nth-child(2)'))" style="padding:7px 14px;border:1px solid var(--border2);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--text2);margin-left:auto">Next →</button>
+    </div>
+    <div id="ibt-sol-2025q1-a" class="sum-card" style="display:none;border-left:3px solid var(--micro)">
+      <div class="sum-title" style="color:var(--micro);font-size:10px;text-transform:uppercase;letter-spacing:.08em">Full Solution</div>
+      <table style="width:100%;font-size:13px;margin-top:8px;border-collapse:collapse">
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2);width:52%">Germany: max cars = 480/4 = 120</td><td style="color:var(--text);padding:4px 0">max bananas = 480/8 = <strong>60</strong> → wait, 480/8 = 60? No: <strong>60 cars, 60 bananas</strong>… Actually max cars = L/a_C = 480/4 = <strong>120</strong>, max bananas = 480/8 = <strong>60</strong></td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">Slope of Germany's PPF</td><td style="color:var(--text);padding:4px 0">= −a_C/a_B = −4/8 = <strong>−0.5</strong> (opportunity cost of 1 car = 0.5 bananas)</td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">Zimbabwe: max cars = 480/6 = 80</td><td style="color:var(--text);padding:4px 0">max bananas = 480/2 = <strong>240</strong></td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">Slope of Zimbabwe's PPF</td><td style="color:var(--text);padding:4px 0">= −6/2 = <strong>−3</strong> (opportunity cost of 1 car = 3 bananas)</td></tr>
+        <tr><td colspan="2"><hr style="border:none;border-top:1px solid var(--border);margin:6px 0"></td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">On frontier</td><td style="color:var(--text);padding:4px 0">→ <strong>efficient</strong> production</td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">Below frontier</td><td style="color:var(--text);padding:4px 0">→ <strong>inefficient</strong> (unused resources)</td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">Above frontier</td><td style="color:var(--text);padding:4px 0">→ <strong>not feasible</strong></td></tr>
+        <tr><td colspan="2" style="padding:6px 0;font-size:12.5px;color:var(--text2)"><strong>Autarky:</strong> Germany consumes e.g. 20 cars + 50 bananas (prefers bananas → point below diagonal, toward banana axis). Zimbabwe consumes e.g. 70 cars + 30 bananas (prefers cars → toward car axis).</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- Part B -->
+  <div id="ibt-exam-panel-2025q1-b" class="study-panel">
+    <div class="sum-card" style="margin-bottom:12px">
+      <div class="sum-title"><span class="badge b-purple">Part B</span></div>
+      <p style="margin-top:8px;font-size:13.5px;color:var(--text2)">
+        With trade: Germany specializes and exports 60 cars, imports 150 bananas. Show the <strong>trade lines</strong> and <strong>welfare gains</strong> graphically. Explain <strong>absolute</strong> and <strong>comparative advantage</strong>. What does the slope of the trade line represent?
+      </p>
+    </div>
+    <div class="sum-card" style="margin-bottom:12px">
+      <div class="sum-title" style="font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--text3)">Your answer</div>
+      <div style="display:flex;gap:8px;align-items:flex-start;margin-top:8px">
+        <textarea id="ibt-ans-2025q1-b" placeholder="Germany specializes in ... , Zimbabwe in ...&#10;Trade: 60 cars for 150 bananas → Germany consumes (cars, bananas) = ...&#10;Absolute advantage = ..., Comparative advantage = ...&#10;Slope of trade line = ..." style="flex:1;padding:9px 12px;border:1px solid var(--border2);border-radius:var(--radius-sm);font-family:var(--sans);font-size:13px;color:var(--text);background:var(--surface);resize:vertical;min-height:90px;outline:none"></textarea>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <button onclick="ibtExamCheck('2025q1','b','partial')" style="padding:8px 14px;background:none;color:var(--ibt);border:1.5px solid var(--ibt);border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check so far</button>
+          <button onclick="ibtExamCheck('2025q1','b','full')" style="padding:8px 14px;background:var(--ibt);color:#fff;border:none;border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check full</button>
+        </div>
+      </div>
+      <div id="ibt-fb-2025q1-b" style="display:none;margin-top:10px;padding:10px 14px;border-radius:var(--radius-sm);font-size:13px;line-height:1.6"></div>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px">
+      <button onclick="ibtExamHint('2025q1','b')" id="ibt-hint-btn-2025q1-b" style="padding:7px 14px;border:1px solid var(--ibt-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--ibt)">+ Next hint</button>
+      <button onclick="ibtExamSolution('2025q1','b')" style="padding:7px 14px;border:1px solid #9fddcc;border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">Show solution</button>
+      <button onclick="ibtExamTab('2025q1','c',document.querySelector('#ibt-exam-tabs-2025q1 .study-tab:nth-child(3)'))" style="padding:7px 14px;border:1px solid var(--border2);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--text2);margin-left:auto">Next →</button>
+    </div>
+    <div id="ibt-sol-2025q1-b" class="sum-card" style="display:none;border-left:3px solid var(--micro)">
+      <div class="sum-title" style="color:var(--micro);font-size:10px;text-transform:uppercase;letter-spacing:.08em">Full Solution</div>
+      <table style="width:100%;font-size:13px;margin-top:8px;border-collapse:collapse">
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2);width:50%">Specialization: Germany → only cars (120)</td><td style="color:var(--text);padding:4px 0">Zimbabwe → only bananas (240)</td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">Germany: exports 60 cars, imports 150 bananas</td><td style="color:var(--text);padding:4px 0">consumes <strong>60 cars + 150 bananas</strong> (welfare gain vs autarky 20+50)</td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">Zimbabwe: exports 150 bananas, imports 60 cars</td><td style="color:var(--text);padding:4px 0">consumes <strong>60 cars + 90 bananas</strong> (gain vs autarky 70+30)</td></tr>
+        <tr><td colspan="2"><hr style="border:none;border-top:1px solid var(--border);margin:6px 0"></td></tr>
+        <tr><td style="padding:4px 8px 4px 0;color:var(--text2)"><strong>Absolute advantage</strong></td><td style="color:var(--text2);padding:4px 0">Country produces a good using fewer inputs than the other. Germany: abs. adv. in cars (4 &lt; 6). Zimbabwe: abs. adv. in bananas (2 &lt; 8).</td></tr>
+        <tr><td style="padding:4px 8px 4px 0;color:var(--text2)"><strong>Comparative advantage</strong></td><td style="color:var(--text2);padding:4px 0">Country has comp. adv. where its relative efficiency is highest. Germany: opp. cost of car = 0.5 bananas (vs Zimbabwe's 3) → Germany has comp. adv. in cars. Zimbabwe: opp. cost of banana = 1/3 car → comp. adv. in bananas.</td></tr>
+        <tr><td style="padding:4px 8px 4px 0;color:var(--text2)"><strong>Slope of trade line</strong></td><td style="color:var(--text2);padding:4px 0">= terms of trade = 150/60 = 2.5 bananas per car (real exchange rate: P<sup>Zim</sup><sub>B</sub> / P<sup>Ger</sup><sub>C</sub>)</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- Part C -->
+  <div id="ibt-exam-panel-2025q1-c" class="study-panel">
+    <div class="sum-card" style="margin-bottom:12px">
+      <div class="sum-title"><span class="badge b-purple">Part C</span></div>
+      <p style="margin-top:8px;font-size:13.5px;color:var(--text2)">
+        Elaborate on <strong>two determinants of the terms of trade</strong>.
+      </p>
+    </div>
+    <div class="sum-card" style="margin-bottom:12px">
+      <div class="sum-title" style="font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--text3)">Your answer</div>
+      <div style="display:flex;gap:8px;align-items:flex-start;margin-top:8px">
+        <textarea id="ibt-ans-2025q1-c" placeholder="1. ... 2. ..." style="flex:1;padding:9px 12px;border:1px solid var(--border2);border-radius:var(--radius-sm);font-family:var(--sans);font-size:13px;color:var(--text);background:var(--surface);resize:vertical;min-height:68px;outline:none"></textarea>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <button onclick="ibtExamCheck('2025q1','c','partial')" style="padding:8px 14px;background:none;color:var(--ibt);border:1.5px solid var(--ibt);border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check so far</button>
+          <button onclick="ibtExamCheck('2025q1','c','full')" style="padding:8px 14px;background:var(--ibt);color:#fff;border:none;border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check full</button>
+        </div>
+      </div>
+      <div id="ibt-fb-2025q1-c" style="display:none;margin-top:10px;padding:10px 14px;border-radius:var(--radius-sm);font-size:13px;line-height:1.6"></div>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px">
+      <button onclick="ibtExamHint('2025q1','c')" id="ibt-hint-btn-2025q1-c" style="padding:7px 14px;border:1px solid var(--ibt-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--ibt)">+ Next hint</button>
+      <button onclick="ibtExamSolution('2025q1','c')" style="padding:7px 14px;border:1px solid #9fddcc;border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">Show solution</button>
+    </div>
+    <div id="ibt-sol-2025q1-c" class="sum-card" style="display:none;border-left:3px solid var(--micro)">
+      <div class="sum-title" style="color:var(--micro);font-size:10px;text-transform:uppercase;letter-spacing:.08em">Full Solution — any 2 earn full marks</div>
+      <table style="width:100%;font-size:13px;margin-top:8px;border-collapse:collapse">
+        <tr><td style="padding:4px 8px 4px 0;color:var(--text2);width:35%;vertical-align:top"><strong>Competitiveness</strong></td><td style="color:var(--text2);padding:4px 0">Higher productivity → more favorable ToT → larger welfare gain from trade.</td></tr>
+        <tr><td style="padding:4px 8px 4px 0;color:var(--text2);vertical-align:top"><strong>Factor endowments</strong></td><td style="color:var(--text2);padding:4px 0">Relative abundance of labor/capital shapes what a country can produce cheaply, shifting the ToT.</td></tr>
+        <tr><td style="padding:4px 8px 4px 0;color:var(--text2);vertical-align:top"><strong>Market power</strong></td><td style="color:var(--text2);padding:4px 0">Large countries or multinational firms can negotiate terms — ToT improve if you can set prices.</td></tr>
+        <tr><td style="padding:4px 8px 4px 0;color:var(--text2);vertical-align:top"><strong>Consumer preferences</strong></td><td style="color:var(--text2);padding:4px 0">Strong demand for a country's export goods raises the price of those goods → favorable ToT.</td></tr>
+        <tr><td style="padding:4px 8px 4px 0;color:var(--text2);vertical-align:top"><strong>Tariffs &amp; trade barriers</strong></td><td style="color:var(--text2);padding:4px 0">Can worsen ToT by reducing trade volume and inviting retaliation.</td></tr>
+        <tr><td style="padding:4px 8px 4px 0;color:var(--text2);vertical-align:top"><strong>Exchange rates</strong></td><td style="color:var(--text2);padding:4px 0">Currency appreciation/depreciation directly affects relative prices and hence ToT.</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- IBT 2025 Q2 -->
+<div id="page-ibt-exam-2025-q2" class="page">
+  <div class="page-eyebrow" style="color:var(--ibt)">IBT · Exam Prep</div>
+  <div class="page-title">Exam 2025 — Q2: Effects of an Import Tariff</div>
+  <div class="page-desc">20 points · Prof. Dr. Jan-Christoph Rülke</div>
+
+  <div class="study-tabs" id="ibt-exam-tabs-2025q2">
+    <button class="study-tab active" onclick="ibtExamTab('2025q2','a',this)">Small Open Economy</button>
+    <button class="study-tab" onclick="ibtExamTab('2025q2','b',this)">Large Open Economy</button>
+  </div>
+
+  <div id="ibt-exam-panel-2025q2-a" class="study-panel active">
+    <div class="sum-card" style="margin-bottom:12px">
+      <div class="sum-title"><span class="badge b-purple">Part A</span></div>
+      <p style="margin-top:8px;font-size:13.5px;color:var(--text2)">
+        Explain graphically and verbally the <strong>welfare effects of an import tariff in a small open economy</strong>. Name the key effects.
+      </p>
+    </div>
+    <div class="sum-card" style="margin-bottom:12px">
+      <div class="sum-title" style="font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--text3)">Your answer</div>
+      <div style="display:flex;gap:8px;align-items:flex-start;margin-top:8px">
+        <textarea id="ibt-ans-2025q2-a" placeholder="1. Consumption effect: ... 2. Protection effect: ... 3. Trade effect: ...&#10;4. BOP effect: ... 5. Tariff revenue: ... 6. Net welfare = ..." style="flex:1;padding:9px 12px;border:1px solid var(--border2);border-radius:var(--radius-sm);font-family:var(--sans);font-size:13px;color:var(--text);background:var(--surface);resize:vertical;min-height:100px;outline:none"></textarea>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <button onclick="ibtExamCheck('2025q2','a','partial')" style="padding:8px 14px;background:none;color:var(--ibt);border:1.5px solid var(--ibt);border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check so far</button>
+          <button onclick="ibtExamCheck('2025q2','a','full')" style="padding:8px 14px;background:var(--ibt);color:#fff;border:none;border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check full</button>
+        </div>
+      </div>
+      <div id="ibt-fb-2025q2-a" style="display:none;margin-top:10px;padding:10px 14px;border-radius:var(--radius-sm);font-size:13px;line-height:1.6"></div>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px">
+      <button onclick="ibtExamHint('2025q2','a')" id="ibt-hint-btn-2025q2-a" style="padding:7px 14px;border:1px solid var(--ibt-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--ibt)">+ Next hint</button>
+      <button onclick="ibtExamSolution('2025q2','a')" style="padding:7px 14px;border:1px solid #9fddcc;border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">Show solution</button>
+      <button onclick="ibtExamTab('2025q2','b',document.querySelector('#ibt-exam-tabs-2025q2 .study-tab:nth-child(2)'))" style="padding:7px 14px;border:1px solid var(--border2);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--text2);margin-left:auto">Next →</button>
+    </div>
+    <div id="ibt-sol-2025q2-a" class="sum-card" style="display:none;border-left:3px solid var(--micro)">
+      <div class="sum-title" style="color:var(--micro);font-size:10px;text-transform:uppercase;letter-spacing:.08em">Full Solution</div>
+      <table style="width:100%;font-size:13px;margin-top:8px;border-collapse:collapse">
+        <tr><td style="padding:4px 8px 4px 0;color:var(--text2);width:40%;vertical-align:top"><strong>1. Consumption effect</strong></td><td style="color:var(--text2);padding:4px 0">Domestic price rises P<sub>w</sub> → P<sub>w</sub>+t → domestic consumers demand less (q<sup>D</sup><sub>1</sub> → q<sup>D</sup><sub>2</sub>). CS↓.</td></tr>
+        <tr><td style="padding:4px 8px 4px 0;color:var(--text2);vertical-align:top"><strong>2. Protection effect</strong></td><td style="color:var(--text2);padding:4px 0">Higher domestic price → domestic producers supply more (q<sup>S</sup><sub>1</sub> → q<sup>S</sup><sub>2</sub>). PS↑.</td></tr>
+        <tr><td style="padding:4px 8px 4px 0;color:var(--text2);vertical-align:top"><strong>3. Trade effect</strong></td><td style="color:var(--text2);padding:4px 0">Import volume falls (q<sup>D</sup><sub>1</sub>−q<sup>S</sup><sub>1</sub> → q<sup>D</sup><sub>2</sub>−q<sup>S</sup><sub>2</sub>). International trade reduces.</td></tr>
+        <tr><td style="padding:4px 8px 4px 0;color:var(--text2);vertical-align:top"><strong>4. BOP effect</strong></td><td style="color:var(--text2);padding:4px 0">Lower imports improve the balance of payments.</td></tr>
+        <tr><td style="padding:4px 8px 4px 0;color:var(--text2);vertical-align:top"><strong>5. Tariff revenue</strong></td><td style="color:var(--text2);padding:4px 0">Government collects tariff = area FGHI in diagram. This is a transfer, not a net loss.</td></tr>
+        <tr><td style="padding:4px 8px 4px 0;color:var(--text2);vertical-align:top"><strong>6. Net welfare effect</strong></td><td style="color:var(--text2);padding:4px 0"><strong>Negative</strong>: deadweight loss triangles EGH + DFI. Welfare<sup>Autarky</sup> ≤ Welfare<sup>Tariff</sup> ≤ Welfare<sup>Free Trade</sup>. Foreign economy suffers all negative effects.</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div id="ibt-exam-panel-2025q2-b" class="study-panel">
+    <div class="sum-card" style="margin-bottom:12px">
+      <div class="sum-title"><span class="badge b-purple">Part B</span></div>
+      <p style="margin-top:8px;font-size:13.5px;color:var(--text2)">
+        What changes when you consider a <strong>large open economy</strong>? Argue graphically and provide an economic reasoning.
+      </p>
+    </div>
+    <div class="sum-card" style="margin-bottom:12px">
+      <div class="sum-title" style="font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--text3)">Your answer</div>
+      <div style="display:flex;gap:8px;align-items:flex-start;margin-top:8px">
+        <textarea id="ibt-ans-2025q2-b" placeholder="World price effect: ..., CS/PS domestic: ..., foreign welfare: ..., beggar-my-neighbour: ..." style="flex:1;padding:9px 12px;border:1px solid var(--border2);border-radius:var(--radius-sm);font-family:var(--sans);font-size:13px;color:var(--text);background:var(--surface);resize:vertical;min-height:80px;outline:none"></textarea>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <button onclick="ibtExamCheck('2025q2','b','partial')" style="padding:8px 14px;background:none;color:var(--ibt);border:1.5px solid var(--ibt);border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check so far</button>
+          <button onclick="ibtExamCheck('2025q2','b','full')" style="padding:8px 14px;background:var(--ibt);color:#fff;border:none;border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check full</button>
+        </div>
+      </div>
+      <div id="ibt-fb-2025q2-b" style="display:none;margin-top:10px;padding:10px 14px;border-radius:var(--radius-sm);font-size:13px;line-height:1.6"></div>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px">
+      <button onclick="ibtExamHint('2025q2','b')" id="ibt-hint-btn-2025q2-b" style="padding:7px 14px;border:1px solid var(--ibt-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--ibt)">+ Next hint</button>
+      <button onclick="ibtExamSolution('2025q2','b')" style="padding:7px 14px;border:1px solid #9fddcc;border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">Show solution</button>
+    </div>
+    <div id="ibt-sol-2025q2-b" class="sum-card" style="display:none;border-left:3px solid var(--micro)">
+      <div class="sum-title" style="color:var(--micro);font-size:10px;text-transform:uppercase;letter-spacing:.08em">Full Solution</div>
+      <table style="width:100%;font-size:13px;margin-top:8px;border-collapse:collapse">
+        <tr><td style="padding:4px 8px 4px 0;color:var(--text2);width:45%;vertical-align:top"><strong>World price falls</strong></td><td style="color:var(--text2);padding:4px 0">A large economy's reduced imports lower world (and foreign) price level p<sup>W</sup>↓ — unlike a small economy where P<sub>w</sub> is fixed.</td></tr>
+        <tr><td style="padding:4px 8px 4px 0;color:var(--text2);vertical-align:top"><strong>Domestic welfare: ambiguous</strong></td><td style="color:var(--text2);padding:4px 0">CS↓, PS↑, tariff revenue↑. The terms-of-trade improvement may partly offset deadweight loss → net welfare effect is <strong>ambiguous</strong> (possibly positive).</td></tr>
+        <tr><td style="padding:4px 8px 4px 0;color:var(--text2);vertical-align:top"><strong>Foreign welfare: negative</strong></td><td style="color:var(--text2);padding:4px 0">Foreign CS↑ but PS↓↓ (lower export prices hurt producers) — foreign net welfare is negative.</td></tr>
+        <tr><td style="padding:4px 8px 4px 0;color:var(--text2);vertical-align:top"><strong>Beggar-my-neighbour</strong></td><td style="color:var(--text2);padding:4px 0">The larger the domestic economy, the greater the price effect on foreign exporters — the domestic country gains at the expense of trading partners.</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- IBT 2025 Q3 -->
+<div id="page-ibt-exam-2025-q3" class="page">
+  <div class="page-eyebrow" style="color:var(--ibt)">IBT · Exam Prep</div>
+  <div class="page-title">Exam 2025 — Q3: Balance of Payments &amp; UIP</div>
+  <div class="page-desc">20 points · Prof. Dr. Jan-Christoph Rülke</div>
+
+  <div class="study-tabs" id="ibt-exam-tabs-2025q3">
+    <button class="study-tab active" onclick="ibtExamTab('2025q3','a',this)">3a — BOP Structure (10 pts)</button>
+    <button class="study-tab" onclick="ibtExamTab('2025q3','b',this)">3b — UIP Calculation (10 pts)</button>
+  </div>
+
+  <div id="ibt-exam-panel-2025q3-a" class="study-panel active">
+    <div class="sum-card" style="margin-bottom:12px">
+      <div class="sum-title"><span class="badge b-purple">Task 3a · 10 points</span></div>
+      <p style="margin-top:8px;font-size:13.5px;color:var(--text2)">
+        How is the <strong>balance of payments structured</strong>? Why is it always balanced? What is a <strong>BOP surplus</strong>? Relate your answer to the real exchange rate.
+      </p>
+    </div>
+    <div class="sum-card" style="margin-bottom:12px">
+      <div class="sum-title" style="font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--text3)">Your answer</div>
+      <div style="display:flex;gap:8px;align-items:flex-start;margin-top:8px">
+        <textarea id="ibt-ans-2025q3-a" placeholder="BOP = CA + FA + FX reserve changes&#10;Always balanced because: ...&#10;BOP surplus = ..., relation to real exchange rate R = ..." style="flex:1;padding:9px 12px;border:1px solid var(--border2);border-radius:var(--radius-sm);font-family:var(--sans);font-size:13px;color:var(--text);background:var(--surface);resize:vertical;min-height:90px;outline:none"></textarea>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <button onclick="ibtExamCheck('2025q3','a','partial')" style="padding:8px 14px;background:none;color:var(--ibt);border:1.5px solid var(--ibt);border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check so far</button>
+          <button onclick="ibtExamCheck('2025q3','a','full')" style="padding:8px 14px;background:var(--ibt);color:#fff;border:none;border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check full</button>
+        </div>
+      </div>
+      <div id="ibt-fb-2025q3-a" style="display:none;margin-top:10px;padding:10px 14px;border-radius:var(--radius-sm);font-size:13px;line-height:1.6"></div>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px">
+      <button onclick="ibtExamHint('2025q3','a')" id="ibt-hint-btn-2025q3-a" style="padding:7px 14px;border:1px solid var(--ibt-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--ibt)">+ Next hint</button>
+      <button onclick="ibtExamSolution('2025q3','a')" style="padding:7px 14px;border:1px solid #9fddcc;border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">Show solution</button>
+      <button onclick="ibtExamTab('2025q3','b',document.querySelector('#ibt-exam-tabs-2025q3 .study-tab:nth-child(2)'))" style="padding:7px 14px;border:1px solid var(--border2);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--text2);margin-left:auto">Next →</button>
+    </div>
+    <div id="ibt-sol-2025q3-a" class="sum-card" style="display:none;border-left:3px solid var(--micro)">
+      <div class="sum-title" style="color:var(--micro);font-size:10px;text-transform:uppercase;letter-spacing:.08em">Full Solution</div>
+      <table style="width:100%;font-size:13px;margin-top:8px;border-collapse:collapse">
+        <tr><td style="padding:4px 8px 4px 0;color:var(--text2);width:40%;vertical-align:top"><strong>Current Account (CA)</strong></td><td style="color:var(--text2);padding:4px 0">Goods exports/imports + services exports/imports + unilateral transfers.</td></tr>
+        <tr><td style="padding:4px 8px 4px 0;color:var(--text2);vertical-align:top"><strong>Financial Account (FA)</strong></td><td style="color:var(--text2);padding:4px 0">Capital inflows (↓ assets held abroad) and outflows (↑ assets held abroad).</td></tr>
+        <tr><td style="padding:4px 8px 4px 0;color:var(--text2);vertical-align:top"><strong>FX Reserve Changes</strong></td><td style="color:var(--text2);padding:4px 0">Decline/increase in official foreign exchange reserves.</td></tr>
+        <tr><td style="padding:4px 8px 4px 0;color:var(--text2);vertical-align:top"><strong>Why always balanced</strong></td><td style="color:var(--text2);padding:4px 0">Double-entry accounting: every transaction is recorded on both credit and debit sides simultaneously.</td></tr>
+        <tr><td style="padding:4px 8px 4px 0;color:var(--text2);vertical-align:top"><strong>BOP surplus</strong></td><td style="color:var(--text2);padding:4px 0">CA + FA &gt; 0 → increase in official FX reserves. Indicates a country is earning more from abroad than it is spending abroad.</td></tr>
+        <tr><td style="padding:4px 8px 4px 0;color:var(--text2);vertical-align:top"><strong>Real exchange rate</strong></td><td style="color:var(--text2);padding:4px 0">R = E·P*/P. If R↓ (domestic prices fall or currency depreciates) → competitiveness↑ → EX↑, IM↓ → BOP surplus. A BOP surplus reflects improved competitiveness.</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div id="ibt-exam-panel-2025q3-b" class="study-panel">
+    <div class="sum-card" style="margin-bottom:12px">
+      <div class="sum-title"><span class="badge b-purple">Task 3b · 10 points</span></div>
+      <p style="margin-top:8px;font-size:13.5px;color:var(--text2)">
+        Explain the <strong>UIP</strong>: i = i* + (E<sup>exp</sup>−E)/E. Explain the graphical exposition. Given <strong>i = 1%, i* = 11%, E = 1.2</strong>, calculate E<sup>exp</sup> and interpret.
+      </p>
+    </div>
+    <div class="sum-card" style="margin-bottom:12px">
+      <div class="sum-title" style="font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--text3)">Your answer</div>
+      <div style="display:flex;gap:8px;align-items:flex-start;margin-top:8px">
+        <textarea id="ibt-ans-2025q3-b" placeholder="UIP reasoning: ...&#10;Calculation: i − i* = (E^exp − E)/E → ... → E^exp = ...&#10;Interpretation: domestic currency expected to ..." style="flex:1;padding:9px 12px;border:1px solid var(--border2);border-radius:var(--radius-sm);font-family:var(--sans);font-size:13px;color:var(--text);background:var(--surface);resize:vertical;min-height:90px;outline:none"></textarea>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <button onclick="ibtExamCheck('2025q3','b','partial')" style="padding:8px 14px;background:none;color:var(--ibt);border:1.5px solid var(--ibt);border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check so far</button>
+          <button onclick="ibtExamCheck('2025q3','b','full')" style="padding:8px 14px;background:var(--ibt);color:#fff;border:none;border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check full</button>
+        </div>
+      </div>
+      <div id="ibt-fb-2025q3-b" style="display:none;margin-top:10px;padding:10px 14px;border-radius:var(--radius-sm);font-size:13px;line-height:1.6"></div>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px">
+      <button onclick="ibtExamHint('2025q3','b')" id="ibt-hint-btn-2025q3-b" style="padding:7px 14px;border:1px solid var(--ibt-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--ibt)">+ Next hint</button>
+      <button onclick="ibtExamSolution('2025q3','b')" style="padding:7px 14px;border:1px solid #9fddcc;border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">Show solution</button>
+    </div>
+    <div id="ibt-sol-2025q3-b" class="sum-card" style="display:none;border-left:3px solid var(--micro)">
+      <div class="sum-title" style="color:var(--micro);font-size:10px;text-transform:uppercase;letter-spacing:.08em">Full Solution</div>
+      <table style="width:100%;font-size:13px;margin-top:8px;border-collapse:collapse">
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2);width:55%">UIP: i = i* + (E<sup>exp</sup>−E)/E</td><td style="color:var(--text2);padding:4px 0">A risk-neutral investor is indifferent between investing at home or abroad.</td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">i − i* = (E<sup>exp</sup>−E)/E</td><td style="color:var(--text2);padding:4px 0">Interest rate differential = expected exchange rate change (swap rate).</td></tr>
+        <tr><td colspan="2"><hr style="border:none;border-top:1px solid var(--border);margin:6px 0"></td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">1% − 11% = (E<sup>exp</sup> − 1.2) / 1.2</td><td style="color:var(--text);padding:4px 0">→ −0.1 × 1.2 = E<sup>exp</sup> − 1.2</td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">−0.12 = E<sup>exp</sup> − 1.2</td><td style="color:var(--text);padding:4px 0">→ <strong>E<sup>exp</sup> = 1.08</strong></td></tr>
+        <tr><td colspan="2" style="padding:6px 0;font-size:12.5px;color:var(--text2)"><strong>Interpretation:</strong> The domestic currency is expected to <strong>appreciate</strong> (E falls from 1.2 to 1.08 in €/$ price notation → fewer € per $). This appreciation advantage on the FX market offsets the lower domestic interest rate. Higher i* abroad is compensated by expected domestic currency appreciation — no arbitrage opportunity exists.</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- IBT 2025 Q4 -->
+<div id="page-ibt-exam-2025-q4" class="page">
+  <div class="page-eyebrow" style="color:var(--ibt)">IBT · Exam Prep</div>
+  <div class="page-title">Exam 2025 — Q4: Monetary Model &amp; Exchange Rates</div>
+  <div class="page-desc">15 points · Prof. Dr. Jan-Christoph Rülke</div>
+
+  <div class="study-tabs" id="ibt-exam-tabs-2025q4">
+    <button class="study-tab active" onclick="ibtExamTab('2025q4','a',this)">4a — Flexible Rates (10 pts)</button>
+    <button class="study-tab" onclick="ibtExamTab('2025q4','b',this)">4b — Fixed Rates (5 pts)</button>
+  </div>
+
+  <div id="ibt-exam-panel-2025q4-a" class="study-panel active">
+    <div class="sum-card" style="margin-bottom:12px">
+      <div class="sum-title"><span class="badge b-purple">Task 4a · 10 points</span></div>
+      <p style="margin-top:8px;font-size:13.5px;color:var(--text2)">
+        Using the <strong>monetary model</strong> (based on PPP + quantity equation), explain the effects of <strong>expansionary monetary policy (M<sup>S</sup>↑)</strong> under <strong>flexible exchange rates</strong> in a small open economy. Relate to the real exchange rate.
+      </p>
+    </div>
+    <div class="sum-card" style="margin-bottom:12px">
+      <div class="sum-title" style="font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--text3)">Your answer</div>
+      <div style="display:flex;gap:8px;align-items:flex-start;margin-top:8px">
+        <textarea id="ibt-ans-2025q4-a" placeholder="M↑ → P↑ → E↑ → real exchange rate R = E·P*/P = ..." style="flex:1;padding:9px 12px;border:1px solid var(--border2);border-radius:var(--radius-sm);font-family:var(--sans);font-size:13px;color:var(--text);background:var(--surface);resize:vertical;min-height:80px;outline:none"></textarea>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <button onclick="ibtExamCheck('2025q4','a','partial')" style="padding:8px 14px;background:none;color:var(--ibt);border:1.5px solid var(--ibt);border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check so far</button>
+          <button onclick="ibtExamCheck('2025q4','a','full')" style="padding:8px 14px;background:var(--ibt);color:#fff;border:none;border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check full</button>
+        </div>
+      </div>
+      <div id="ibt-fb-2025q4-a" style="display:none;margin-top:10px;padding:10px 14px;border-radius:var(--radius-sm);font-size:13px;line-height:1.6"></div>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px">
+      <button onclick="ibtExamHint('2025q4','a')" id="ibt-hint-btn-2025q4-a" style="padding:7px 14px;border:1px solid var(--ibt-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--ibt)">+ Next hint</button>
+      <button onclick="ibtExamSolution('2025q4','a')" style="padding:7px 14px;border:1px solid #9fddcc;border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">Show solution</button>
+      <button onclick="ibtExamTab('2025q4','b',document.querySelector('#ibt-exam-tabs-2025q4 .study-tab:nth-child(2)'))" style="padding:7px 14px;border:1px solid var(--border2);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--text2);margin-left:auto">Next →</button>
+    </div>
+    <div id="ibt-sol-2025q4-a" class="sum-card" style="display:none;border-left:3px solid var(--micro)">
+      <div class="sum-title" style="color:var(--micro);font-size:10px;text-transform:uppercase;letter-spacing:.08em">Full Solution</div>
+      <table style="width:100%;font-size:13px;margin-top:8px;border-collapse:collapse">
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2);width:50%">Model foundation</td><td style="color:var(--text2);padding:4px 0">PPP: E = P/P* &nbsp;·&nbsp; Quantity equation: M·v = P·Y</td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">M<sup>S</sup>↑ → P↑ (long-run)</td><td style="color:var(--text2);padding:4px 0">Higher money supply raises domestic price level via quantity equation.</td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">P↑ → E↑ (depreciation)</td><td style="color:var(--text2);padding:4px 0">Via PPP: if domestic P rises, the nominal exchange rate (€/$) rises — domestic currency depreciates.</td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">Real exchange rate R = E↑·P*/(P↑)</td><td style="color:var(--text);padding:4px 0">→ <strong>R = constant</strong> (E and P move proportionally). Competitiveness unchanged.</td></tr>
+        <tr><td colspan="2" style="padding:6px 0;font-size:12.5px;color:var(--text2)"><strong>Chain:</strong> M<sup>S</sup>↑ → P↑ → E↑ → R = constant. The monetary model predicts that in the long run, monetary expansion only affects nominal variables (P, E), not real competitiveness.</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div id="ibt-exam-panel-2025q4-b" class="study-panel">
+    <div class="sum-card" style="margin-bottom:12px">
+      <div class="sum-title"><span class="badge b-purple">Task 4b · 5 points</span></div>
+      <p style="margin-top:8px;font-size:13.5px;color:var(--text2)">
+        Same setup, but now under <strong>fixed exchange rates</strong>. What happens?
+      </p>
+    </div>
+    <div class="sum-card" style="margin-bottom:12px">
+      <div class="sum-title" style="font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--text3)">Your answer</div>
+      <div style="display:flex;gap:8px;align-items:flex-start;margin-top:8px">
+        <textarea id="ibt-ans-2025q4-b" placeholder="M↑ → P↑ → undercompetitive → BOP deficit → central bank ... → M ultimately ..." style="flex:1;padding:9px 12px;border:1px solid var(--border2);border-radius:var(--radius-sm);font-family:var(--sans);font-size:13px;color:var(--text);background:var(--surface);resize:vertical;min-height:68px;outline:none"></textarea>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <button onclick="ibtExamCheck('2025q4','b','partial')" style="padding:8px 14px;background:none;color:var(--ibt);border:1.5px solid var(--ibt);border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check so far</button>
+          <button onclick="ibtExamCheck('2025q4','b','full')" style="padding:8px 14px;background:var(--ibt);color:#fff;border:none;border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check full</button>
+        </div>
+      </div>
+      <div id="ibt-fb-2025q4-b" style="display:none;margin-top:10px;padding:10px 14px;border-radius:var(--radius-sm);font-size:13px;line-height:1.6"></div>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px">
+      <button onclick="ibtExamHint('2025q4','b')" id="ibt-hint-btn-2025q4-b" style="padding:7px 14px;border:1px solid var(--ibt-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--ibt)">+ Next hint</button>
+      <button onclick="ibtExamSolution('2025q4','b')" style="padding:7px 14px;border:1px solid #9fddcc;border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">Show solution</button>
+    </div>
+    <div id="ibt-sol-2025q4-b" class="sum-card" style="display:none;border-left:3px solid var(--micro)">
+      <div class="sum-title" style="color:var(--micro);font-size:10px;text-transform:uppercase;letter-spacing:.08em">Full Solution</div>
+      <table style="width:100%;font-size:13px;margin-top:8px;border-collapse:collapse">
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2);width:50%">M<sup>S</sup>↑ → P↑ (initial)</td><td style="color:var(--text2);padding:4px 0">Price rises → economy becomes undercompetitive (R = E·P*/P↑ &gt; 1).</td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">Undercompetitive → BOP deficit</td><td style="color:var(--text2);padding:4px 0">EX↓, IM↑ → current account worsens → BOP deficit.</td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">CB must sell FX reserves</td><td style="color:var(--text2);padding:4px 0">To defend the fixed E, the central bank sells foreign currency → M<sup>S</sup>↓.</td></tr>
+        <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">M<sup>S</sup>↓ → P↓ → back to equilibrium</td><td style="color:var(--text);padding:4px 0">→ <strong>R = constant</strong> again. Monetary expansion is self-defeating.</td></tr>
+        <tr><td colspan="2" style="padding:6px 0;font-size:12.5px;color:var(--text2)"><strong>Key conclusion:</strong> Under fixed exchange rates, the central bank loses monetary policy autonomy — any expansion is automatically reversed by reserve sales. This is the core of the <em>impossible trinity</em>.</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- IBT 2025 Q5 -->
+<div id="page-ibt-exam-2025-q5" class="page">
+  <div class="page-eyebrow" style="color:var(--ibt)">IBT · Exam Prep</div>
+  <div class="page-title">Exam 2025 — Q5: Consumer Preferences &amp; Trade</div>
+  <div class="page-desc">10 points · Prof. Dr. Jan-Christoph Rülke</div>
+
+  <div class="sum-card" style="margin-bottom:12px">
+    <div class="sum-title"><span class="badge b-purple">Question</span></div>
+    <p style="margin-top:8px;font-size:13.5px;color:var(--text2)">
+      Explain graphically and verbally how <strong>consumer preferences (high- vs. low-quality goods)</strong> determine international trade. What type of trade (intra- or inter-industrial) is explained by <strong>price differentials</strong>?
+    </p>
+  </div>
+  <div class="sum-card" style="margin-bottom:12px">
+    <div class="sum-title" style="font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--text3)">Your answer</div>
+    <div style="display:flex;gap:8px;align-items:flex-start;margin-top:8px">
+      <textarea id="ibt-ans-2025q5" placeholder="High-income countries specialize in ... goods, low-income in ...&#10;Intraindustry trade arises because ...&#10;Price differentials explain ... trade" style="flex:1;padding:9px 12px;border:1px solid var(--border2);border-radius:var(--radius-sm);font-family:var(--sans);font-size:13px;color:var(--text);background:var(--surface);resize:vertical;min-height:90px;outline:none"></textarea>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <button onclick="ibtExamCheck('2025q5','q','partial')" style="padding:8px 14px;background:none;color:var(--ibt);border:1.5px solid var(--ibt);border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check so far</button>
+        <button onclick="ibtExamCheck('2025q5','q','full')" style="padding:8px 14px;background:var(--ibt);color:#fff;border:none;border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer;white-space:nowrap">Check full</button>
+      </div>
+    </div>
+    <div id="ibt-fb-2025q5-q" style="display:none;margin-top:10px;padding:10px 14px;border-radius:var(--radius-sm);font-size:13px;line-height:1.6"></div>
+  </div>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px">
+    <button onclick="ibtExamHint('2025q5','q')" id="ibt-hint-btn-2025q5-q" style="padding:7px 14px;border:1px solid var(--ibt-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--ibt)">+ Next hint</button>
+    <button onclick="ibtExamSolution('2025q5','q')" style="padding:7px 14px;border:1px solid #9fddcc;border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">Show solution</button>
+  </div>
+  <div id="ibt-sol-2025q5-q" class="sum-card" style="display:none;border-left:3px solid var(--micro)">
+    <div class="sum-title" style="color:var(--micro);font-size:10px;text-transform:uppercase;letter-spacing:.08em">Full Solution</div>
+    <table style="width:100%;font-size:13px;margin-top:8px;border-collapse:collapse">
+      <tr><td style="padding:4px 8px 4px 0;color:var(--text2);width:40%;vertical-align:top"><strong>Income = Product Quality</strong></td><td style="color:var(--text2);padding:4px 0">High-income countries specialize in <strong>high-quality goods</strong> (e.g. Mercedes-Benz); low-income countries produce <strong>low-quality goods</strong> (e.g. Lada). Income level ≈ product quality.</td></tr>
+      <tr><td style="padding:4px 8px 4px 0;color:var(--text2);vertical-align:top"><strong>Intraindustry trade</strong></td><td style="color:var(--text2);padding:4px 0">Within the same industry (e.g. cars), both high-income and low-income countries import from each other because of quality differentiation and overlapping demand ranges (middle-income households buy both Lada and Mercedes).</td></tr>
+      <tr><td style="padding:4px 8px 4px 0;color:var(--text2);vertical-align:top"><strong>Price differentials → Interindustry trade</strong></td><td style="color:var(--text2);padding:4px 0">Price differences (comparative cost advantages) explain <strong>interindustry trade</strong> — countries specialize in different industries based on factor endowments and costs (e.g. Germany exports cars, Zimbabwe exports bananas).</td></tr>
+      <tr><td style="padding:4px 8px 4px 0;color:var(--text2);vertical-align:top"><strong>Diagram</strong></td><td style="color:var(--text2);padding:4px 0">Bell-curve of households by income. The overlap zone (middle income) creates intraindustry trade — households in that range may buy from both high- and low-quality producers.</td></tr>
+    </table>
+  </div>
+</div>
+
 <div id="page-ibt-overview" class="page">
   <div class="page-eyebrow" style="color:var(--ibt)">International Business &amp; Trade</div>
   <div class="page-title">All Sessions</div>
@@ -11108,6 +11535,206 @@ function examSolution(examId, task) {
   const sol = document.getElementById('sol-' + examId + '-' + task);
   if (sol) sol.style.display = 'block';
 }
+function toggleIBTExamFlyout() {
+  const flyout = document.getElementById('exam-flyout-ibt');
+  const arrow = document.getElementById('ibt-exam-toggle-arrow');
+  const toggle = document.getElementById('nav-ibt-exam-toggle');
+  flyout.classList.toggle('open');
+  arrow.textContent = flyout.classList.contains('open') ? '▾' : '▸';
+  toggle.classList.toggle('active', flyout.classList.contains('open'));
+}
+
+function showIBTExam(year, q, btn) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-btn, .nav-sub').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.exam-flyout-btn').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  const toggle = document.getElementById('nav-ibt-exam-toggle');
+  if (toggle) toggle.classList.add('active');
+  const page = document.getElementById('page-ibt-exam-' + year + '-' + q);
+  if (page) page.classList.add('active');
+}
+
+function ibtExamTab(examId, task, btn) {
+  const prefix = 'ibt-exam-panel-' + examId + '-';
+  document.querySelectorAll('[id^="' + prefix + '"]').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('#ibt-exam-tabs-' + examId + ' .study-tab').forEach(b => b.classList.remove('active'));
+  const panel = document.getElementById(prefix + task);
+  if (panel) panel.classList.add('active');
+  if (btn) btn.classList.add('active');
+}
+
+const IBT_CHECKS = {
+  '2025q1-a': [
+    { name:'Germany max cars', label:'Germany max cars = 120', test: t => _hasNum(t,120), miss:'Germany max cars not found. L/a_C = 480/4 = 120.' },
+    { name:'Germany max bananas', label:'Germany max bananas = 60', test: t => _hasNum(t,60), miss:'Germany max bananas not found. L/a_B = 480/8 = 60.' },
+    { name:'Zimbabwe max cars', label:'Zimbabwe max cars = 80', test: t => _hasNum(t,80), miss:'Zimbabwe max cars not found. 480/6 = 80.' },
+    { name:'Zimbabwe max bananas', label:'Zimbabwe max bananas = 240', test: t => _hasNum(t,240), miss:'Zimbabwe max bananas not found. 480/2 = 240.' },
+    { name:'Slope Germany', label:'Slope Germany PPF = −0.5', test: t => _hasNum(t,0.5,0.05)||_hasTerm(t,'−0.5','- 0.5','0.5 banana','half banana'), miss:'Slope of Germany PPF not found. −a_C/a_B = −4/8 = −0.5.' },
+    { name:'On/below/above', label:'On=efficient, below=inefficient, above=infeasible', test: t => _hasTerm(t,'efficient','infeasible','inefficient','feasible'), miss:'PPF interpretation not stated. On = efficient, below = inefficient, above = not feasible.' },
+  ],
+  '2025q1-b': [
+    { name:'Germany specializes cars', label:'Germany specializes in cars', test: t => _hasTerm(t,'germany.*car','car.*germany','spezialisier.*auto','germany speciali'), miss:'Germany specialization not stated. Germany has comparative advantage in cars (opp. cost 0.5 < Zimbabwe 3).' },
+    { name:'Zimbabwe specializes bananas', label:'Zimbabwe specializes in bananas', test: t => _hasTerm(t,'zimbabwe.*banana','banana.*zimbabwe','spezialisier.*banana'), miss:'Zimbabwe specialization not stated. Zimbabwe has comparative advantage in bananas (opp. cost 1/3 < Germany 2).' },
+    { name:'Germany consumption', label:'Germany consumes 60 cars + 150 bananas', test: t => _hasNum(t,60)&&_hasNum(t,150), miss:'Germany post-trade consumption not stated. 120 − 60 = 60 cars; 0 + 150 = 150 bananas.' },
+    { name:'Absolute advantage def', label:'Absolute advantage defined', test: t => _hasTerm(t,'absolute','absolut'), miss:'Absolute advantage not defined. Producing a good with fewer inputs than the other country.' },
+    { name:'Comparative advantage def', label:'Comparative advantage defined', test: t => _hasTerm(t,'comparative','komparativ','opportunity cost','oportunit','grenzkosten'), miss:'Comparative advantage not defined. Lower opportunity cost relative to the other country.' },
+    { name:'Slope = ToT', label:'Slope of trade line = terms of trade', test: t => _hasTerm(t,'terms of trade','terms-of-trade','tot','real exchange','realer wechsel','slope.*trade','steigung'), miss:'Slope of trade line not identified. Slope = terms of trade = P_B^Zim / P_C^Ger.' },
+  ],
+  '2025q1-c': [
+    { name:'Determinant 1', label:'First determinant of ToT stated', test: t => _hasTerm(t,'competi','produktivit','factor','endow','market power','marktmacht','preference','tariff','exchange rate','wechselkurs'), miss:'No determinant found. Options: competitiveness, factor endowments, market power, consumer preferences, tariffs, exchange rates.' },
+    { name:'Determinant 2', label:'Second distinct determinant stated', test: t => {
+      const matches = [_hasTerm(t,'competi','produktivit'),_hasTerm(t,'factor','endow'),_hasTerm(t,'market power','marktmacht'),_hasTerm(t,'preference','nachfrage'),_hasTerm(t,'tariff','zoll'),_hasTerm(t,'exchange rate','wechselkurs')].filter(Boolean);
+      return matches.length >= 2;
+    }, miss:'Only one determinant found — state a second distinct one.' },
+  ],
+  '2025q2-a': [
+    { name:'Consumption effect', label:'Consumption effect (CS↓)', test: t => _hasTerm(t,'consumption','konsum','cs↓','consumer surplus','verbrauch'), miss:'Consumption effect not stated. Higher price → domestic consumers demand less → CS↓.' },
+    { name:'Protection effect', label:'Protection effect (PS↑)', test: t => _hasTerm(t,'protection','schutz','producer','produzent','ps↑','supply'), miss:'Protection effect not stated. Higher price → domestic producers supply more → PS↑.' },
+    { name:'Trade effect', label:'Trade effect (imports↓)', test: t => _hasTerm(t,'trade effect','import.*fall','import.*reduz','handel','imports'), miss:'Trade effect not stated. Import volume falls as domestic production rises and consumption falls.' },
+    { name:'Tariff revenue', label:'Tariff revenue = government gain', test: t => _hasTerm(t,'revenue','einnahmen','tariff.*tax','zoll.*steuer','fghi','government collect'), miss:'Tariff revenue not stated. Government collects tariff = area FGHI.' },
+    { name:'Net welfare negative', label:'Net welfare effect negative', test: t => _hasTerm(t,'negative','deadweight','egh','dfi','net.*loss','netto.*verlust'), miss:'Net welfare conclusion not stated. Deadweight loss triangles EGH + DFI → net welfare is negative.' },
+  ],
+  '2025q2-b': [
+    { name:'World price falls', label:'World price falls in large economy', test: t => _hasTerm(t,'world price','weltpreis','p_w','pw.*fall','pw↓','foreign price'), miss:'World price effect not stated. A large economy reduces world price when it cuts imports.' },
+    { name:'Domestic welfare ambiguous', label:'Domestic welfare effect ambiguous', test: t => _hasTerm(t,'ambiguous','ambig','unclear','unklar','may.*positive','möglicherweise'), miss:'Ambiguity not stated. Domestic net welfare is ambiguous because terms-of-trade improvement may offset deadweight loss.' },
+    { name:'Foreign welfare negative', label:'Foreign welfare negative', test: t => _hasTerm(t,'foreign.*negativ','ausland.*negativ','cs*↑.*ps*↓','negative.*foreign'), miss:'Foreign welfare effect not stated. Foreign welfare is negative (lower export prices hurt foreign producers).' },
+    { name:'Beggar-my-neighbour', label:'Beggar-my-neighbour effect', test: t => _hasTerm(t,'beggar','nachbar','neighbour','neighbor'), miss:'Beggar-my-neighbour effect not mentioned.' },
+  ],
+  '2025q3-a': [
+    { name:'CA defined', label:'Current Account defined', test: t => _hasTerm(t,'current account','leistungsbilanz','ca','goods','services','exports'), miss:'Current Account not defined. CA includes goods trade, services trade, and unilateral transfers.' },
+    { name:'FA defined', label:'Financial Account defined', test: t => _hasTerm(t,'financial account','kapitalbilanz','fa','capital','inflow','outflow'), miss:'Financial Account not defined. FA covers capital inflows/outflows (changes in assets held abroad).' },
+    { name:'Why balanced', label:'Double-entry accounting', test: t => _hasTerm(t,'double entry','double-entry','doppelt','both sides','both credit','debit'), miss:'Reason for balance not stated. Double-entry accounting ensures every transaction appears on both credit and debit sides.' },
+    { name:'BOP surplus', label:'BOP surplus = FX reserves increase', test: t => _hasTerm(t,'surplus','überschuss','reserve','fx.*increase','devisenreserv'), miss:'BOP surplus not defined. CA + FA > 0 → increase in official FX reserves.' },
+    { name:'Real exchange rate', label:'R = E·P*/P linked to BOP', test: t => _hasTerm(t,'real exchange','realer wechsel','r = e','r=e','e·p','competitiv'), miss:'Real exchange rate not linked. R = E·P*/P. If R↓ → competitiveness↑ → BOP surplus.' },
+  ],
+  '2025q3-b': [
+    { name:'UIP formula', label:'UIP: i = i* + (E^exp−E)/E', test: t => _hasTerm(t,'uip','uncovered','i = i*','i=i*','interest parity'), miss:'UIP formula not stated. i = i* + (E^exp−E)/E. Risk-neutral investor is indifferent between home and foreign investment.' },
+    { name:'E^exp = 1.08', label:'E^exp = 1.08', test: t => _hasNum(t,1.08,0.01), miss:'E^exp not calculated. i − i* = (E^exp−E)/E → 1%−11% = (E^exp−1.2)/1.2 → E^exp = 1.2 + (−0.1×1.2) = 1.08.' },
+    { name:'Appreciation', label:'Domestic currency expected to appreciate', test: t => _hasTerm(t,'appreciat','aufwert','e falls','e sinkt','e↓'), miss:'Interpretation not stated. E falls from 1.2 to 1.08 → domestic currency appreciates.' },
+    { name:'Reasoning', label:'Higher i* offset by appreciation', test: t => _hasTerm(t,'offset','arbitrage','indifferent','compensat','ausgleich'), miss:'Economic reasoning not given. Higher foreign interest rate is offset by expected domestic appreciation → no arbitrage.' },
+  ],
+  '2025q4-a': [
+    { name:'PPP basis', label:'Model based on PPP: E = P/P*', test: t => _hasTerm(t,'ppp','purchasing power','kaufkraft','e = p','e=p'), miss:'PPP basis not stated. Monetary model uses PPP: E = P/P*.' },
+    { name:'M↑ → P↑', label:'M↑ → P↑ via quantity equation', test: t => _hasTerm(t,'m↑','m.*up','money.*up','p↑','price.*up','quantity equation','quantitätsgleich'), miss:'M↑ → P↑ transmission not stated. Via quantity equation M·v = P·Y.' },
+    { name:'P↑ → E↑ depreciation', label:'P↑ → E↑ (depreciation)', test: t => _hasTerm(t,'e↑','e rises','e steigt','depreciat','abwert'), miss:'P↑ → E↑ not stated. Via PPP: if P rises, E (€/$) must rise → domestic currency depreciates.' },
+    { name:'R constant', label:'R = constant (competitiveness unchanged)', test: t => _hasTerm(t,'r = const','r=const','constant','unveränd','unchanged','r bleibt'), miss:'R = constant conclusion not stated. E and P move proportionally → R = E·P*/P remains unchanged.' },
+  ],
+  '2025q4-b': [
+    { name:'P↑ → undercompetitive', label:'M↑ → P↑ → undercompetitive', test: t => _hasTerm(t,'undercompeti','unterkonkurr','bop deficit','leistungsbilanz.*defizit','ex.*im'), miss:'Undercompetitiveness chain not stated. M↑ → P↑ → R > 1 → undercompetitive → BOP deficit.' },
+    { name:'CB sells reserves', label:'CB sells FX reserves to defend E', test: t => _hasTerm(t,'sell.*reserv','reserv.*verk','central bank.*sell','devisenreserv'), miss:'CB reserve sale not stated. To defend the fixed E, central bank sells foreign reserves → M↓.' },
+    { name:'M↓ → self-defeating', label:'Expansion self-defeating: M ultimately unchanged', test: t => _hasTerm(t,'self-defeat','wirkungslos','ineffective','unchanged','m sinkt','m↓'), miss:'Self-defeating conclusion not stated. Reserve sale contracts M back → monetary expansion is reversed.' },
+  ],
+  '2025q5-q': [
+    { name:'High-income → high quality', label:'High-income countries produce high-quality goods', test: t => _hasTerm(t,'high.*quality','hoch.*qualität','income.*quality','quality.*income'), miss:'Income-quality link not stated. High-income countries specialize in high-quality goods (e.g. Mercedes).' },
+    { name:'Intraindustry trade', label:'Intraindustry trade explained', test: t => _hasTerm(t,'intraindustry','intra-industry','intra industri','intraindustri'), miss:'Intraindustry trade not named. Both high- and low-income countries may import cars from each other (quality differentiation).' },
+    { name:'Price → interindustry', label:'Price differentials → interindustry trade', test: t => _hasTerm(t,'interindustry','inter-industry','inter industri','price.*differen','preis.*differen'), miss:'Interindustry trade not linked to price differentials. Price differences (comparative cost advantages) explain interindustry trade.' },
+  ],
+};
+
+const IBT_HINTS = {
+  '2025q1-a': [
+    'Production frontier: if a country puts ALL labor into one good, how much can it produce? Germany: 480/4 = 120 cars OR 480/8 = 60 bananas. The slope = opportunity cost = −a_C/a_B.',
+    'Slope interpretation: to produce one more car in Germany, you give up 4/8 = 0.5 bananas. In Zimbabwe: 6/2 = 3 bananas. This is the key number for comparative advantage. Points ON the frontier are efficient; below = wasted resources; above = impossible with current labor.'
+  ],
+  '2025q1-b': [
+    'Germany\'s comparative advantage: opp. cost of 1 car in Germany = 0.5 bananas, in Zimbabwe = 3 bananas. Germany should specialize in cars. Zimbabwe: opp. cost of 1 banana = 1/3 car vs Germany\'s 2 → Zimbabwe specializes in bananas.',
+    'After specialization: Germany produces 120 cars, exports 60, keeps 60 + receives 150 bananas. Zimbabwe produces 240 bananas, exports 150, keeps 90 + receives 60 cars. Both consume more than in autarky → welfare gain. Slope of trade line = 150/60 = 2.5 (terms of trade).'
+  ],
+  '2025q1-c': [
+    'Think about what determines the price at which countries trade. Productivity changes what you can produce. Factor endowments (labor, capital) affect your comparative costs.',
+    'Market power matters for large countries and multinationals. Consumer preferences in the importing country affect demand (and price) for your exports. Tariffs and exchange rates also shift the terms at which trade occurs.'
+  ],
+  '2025q2-a': [
+    'Draw supply and demand in the domestic market. Free trade price = P_w. Tariff raises it to P_w+t. Think about what happens to (1) domestic consumption, (2) domestic production, (3) import volume, (4) government revenue.',
+    'The net welfare effect: the tariff transfers money from consumers to producers (PS↑) and to the government (tax revenue). But there are two deadweight loss triangles — efficiency losses from too little consumption and too much protected domestic production. Net effect is negative for the domestic economy and also negative for the foreign exporter.'
+  ],
+  '2025q2-b': [
+    'Key difference from small economy: a large economy\'s import decision actually affects the world price. If a big country imports less (due to tariff), global demand for the good falls → world price falls.',
+    'The falling world price is actually good for the domestic importer — it\'s like the terms of trade improving. This terms-of-trade gain may offset the deadweight loss, making the domestic net welfare effect ambiguous. The foreign exporter, however, gets worse prices → definitely loses.'
+  ],
+  '2025q3-a': [
+    'The BOP has three main accounts: Current Account (goods + services + transfers), Financial Account (capital flows), and changes in official FX reserves. The sum always equals zero by double-entry accounting.',
+    'BOP surplus: CA + FA > 0, so FX reserves must increase. Real exchange rate: R = E·P*/P. If domestic prices fall or currency depreciates (E↑ in direct notation), R falls → the country becomes more competitive → exports rise, imports fall → BOP improves.'
+  ],
+  '2025q3-b': [
+    'UIP says: expected return on domestic asset = expected return on foreign asset. The extra return of the foreign asset (i* > i) must be exactly offset by expected exchange rate movement. Rearrange: (E^exp − E)/E = i − i*.',
+    'With i=1%, i*=11%, E=1.2: i − i* = 1% − 11% = −10% = −0.1. So (E^exp − 1.2)/1.2 = −0.1 → E^exp − 1.2 = −0.12 → E^exp = 1.08. Since E fell from 1.2 to 1.08, the domestic currency appreciated (fewer € per $).'
+  ],
+  '2025q4-a': [
+    'The monetary model has two building blocks: (1) Quantity equation M·v = P·Y → M↑ means P↑. (2) PPP: E = P/P* → P↑ means E↑ (nominal depreciation). What happens to the real exchange rate R = E·P*/P?',
+    'R = (E↑·P*) / P↑ = constant, because E and P rise proportionally. So expansionary monetary policy in the long run only causes nominal depreciation — real competitiveness is unchanged. This is the key "neutrality of money" result in the long run.'
+  ],
+  '2025q4-b': [
+    'Under fixed rates, E cannot move. So when M↑ → P↑, the economy becomes undercompetitive (R = E·P*/P rises above 1). This creates a BOP deficit — exports fall, imports rise.',
+    'To defend the fixed exchange rate, the central bank must intervene: sell FX reserves to buy domestic currency → M↓. This process continues until prices fall back and R = 1. The original monetary expansion is fully reversed — central bank loses monetary policy autonomy.'
+  ],
+  '2025q5-q': [
+    'Think about why Germany exports Mercedes and Russia exports Lada — both are cars, but targeted at different income groups. The income level of households determines which quality tier they demand.',
+    'Intraindustry trade: Germany and another country both make cars, but exchange them because of quality differences. Middle-income households have overlapping demand — they might buy a Lada OR a cheap Mercedes. Price differentials (comparative cost advantages from different factor endowments) explain interindustry trade — why Germany exports cars and Zimbabwe exports bananas.'
+  ],
+};
+
+function ibtExamCheck(examId, task, mode) {
+  const key = examId + '-' + task;
+  const inputId = 'ibt-ans-' + examId + '-' + task;
+  const fbId = 'ibt-fb-' + examId + '-' + task;
+  const val = (document.getElementById(inputId) || {}).value || '';
+  const checks = IBT_CHECKS[key];
+  const fb = document.getElementById(fbId);
+  if (!checks || !fb) return;
+  if (val.trim().length < 3) {
+    fb.style.display = 'block'; fb.style.background = 'var(--surface2)'; fb.style.borderLeft = '3px solid var(--border2)';
+    fb.innerHTML = '<em style="color:var(--text3)">Write your answer above, then click Check.</em>';
+    return;
+  }
+  const results = checks.map(c => ({ name: c.name, label: c.label, ok: c.test(val), miss: c.miss }));
+  const nOk = results.filter(r => r.ok).length;
+  const nTotal = results.length;
+  const ratio = nOk / nTotal;
+  let html = '';
+  if (mode === 'partial') {
+    const found = results.filter(r => r.ok);
+    const missing = results.filter(r => !r.ok);
+    html = `<div style="margin-bottom:6px;font-size:12.5px;color:var(--text2)"><strong>${nOk} / ${nTotal} points found so far.</strong>${missing.length > 0 ? ' Still missing:' : ' All found — try Check full.'}</div>`;
+    if (found.length && missing.length) html += found.map(r => `<div style="padding:2px 0;font-size:12.5px;color:var(--text2)">✅ ${r.name}</div>`).join('');
+    if (missing.length) { html += '<div style="height:6px"></div>'; html += missing.map(r => `<div style="padding:2px 0;font-size:12.5px;color:var(--text2)">❌ ${r.name}</div>`).join(''); }
+    fb.style.display = 'block'; fb.style.background = 'var(--surface2)'; fb.style.borderLeft = '3px solid var(--border2)';
+    fb.innerHTML = html;
+  } else {
+    let header, headerColor, bg, border;
+    if (ratio === 1) { header = 'All checks passed ✓'; headerColor = 'var(--micro)'; bg = '#edfaf4'; border = 'var(--micro)'; }
+    else if (ratio >= 0.6) { header = `${nOk} / ${nTotal} checks passed — almost there`; headerColor = 'var(--macro)'; bg = 'var(--macro-l)'; border = 'var(--macro)'; }
+    else if (ratio > 0) { header = `${nOk} / ${nTotal} checks passed — keep going`; headerColor = 'var(--ibt)'; bg = 'var(--ibt-l)'; border = 'var(--ibt)'; }
+    else { header = 'No checks passed yet'; headerColor = 'var(--ic)'; bg = 'var(--ic-l)'; border = 'var(--ic)'; }
+    const rows = results.map(r => `<div style="display:flex;align-items:baseline;gap:8px;padding:3px 0;border-bottom:1px solid var(--border)"><span style="flex-shrink:0;font-size:15px">${r.ok ? '✅' : '❌'}</span><span style="font-size:12.5px;min-width:130px;font-weight:${r.ok ? '500' : '400'};color:${r.ok ? 'var(--text)' : 'var(--text2)'}">${r.label}</span>${!r.ok ? `<span style="font-size:12px;color:var(--text3)">${r.miss}</span>` : ''}</div>`).join('');
+    fb.style.display = 'block'; fb.style.background = bg; fb.style.borderLeft = '3px solid ' + border;
+    fb.innerHTML = `<strong style="color:${headerColor};display:block;margin-bottom:8px">${header}</strong>${rows}`;
+  }
+}
+
+let _ibtHintIdx = {};
+function ibtExamHint(examId, task) {
+  const key = examId + '-' + task;
+  const hints = IBT_HINTS[key];
+  if (!hints) return;
+  if (!_ibtHintIdx[key]) _ibtHintIdx[key] = 0;
+  const idx = _ibtHintIdx[key];
+  if (idx >= hints.length) return;
+  _ibtHintIdx[key]++;
+  const fb = document.getElementById('ibt-fb-' + examId + '-' + task);
+  if (!fb) return;
+  fb.style.display = 'block'; fb.style.background = 'var(--ibt-l)'; fb.style.borderLeft = '3px solid var(--ibt)';
+  fb.innerHTML = '<strong style="color:var(--ibt)">Hint ' + (idx+1) + ' of ' + hints.length + '</strong><br>' + hints[idx];
+  if (_ibtHintIdx[key] >= hints.length) {
+    const btn = document.getElementById('ibt-hint-btn-' + examId + '-' + task);
+    if (btn) { btn.disabled = true; btn.style.opacity = '.4'; }
+  }
+}
+
+function ibtExamSolution(examId, task) {
+  const sol = document.getElementById('ibt-sol-' + examId + '-' + task);
+  if (sol) sol.style.display = 'block';
+}
 </script>
-</body>
 </html>
