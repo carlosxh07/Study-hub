@@ -339,6 +339,27 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
 .ep-search:focus{border-color:var(--eu)}
 .ep-search-ico{position:absolute;left:11px;top:50%;transform:translateY(-50%);font-size:13px;color:var(--text3)}
 
+/* ── Case Library ── */
+.case-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:12px;overflow:hidden;box-shadow:var(--shadow)}
+.case-header{padding:16px 18px;cursor:pointer;transition:background .15s}
+.case-header:hover{background:var(--surface2)}
+.case-meta{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.case-badge{font-size:10.5px;font-weight:600;color:#fff;padding:2px 9px;border-radius:99px;letter-spacing:.03em}
+.case-year{font-size:11px;color:var(--text3);font-family:var(--mono)}
+.case-name{font-family:var(--serif);font-size:19px;color:var(--text);font-weight:600;margin-bottom:4px}
+.case-principle{font-size:13px;color:var(--text2);line-height:1.55}
+.case-toggle{font-size:12px;color:var(--eu);margin-top:8px;font-weight:500}
+.case-body{padding:0 18px 18px;border-top:1px solid var(--border)}
+.case-facts{font-size:13px;color:var(--text2);line-height:1.6;margin:14px 0 8px;padding:10px 14px;background:var(--surface2);border-radius:8px;border-left:3px solid var(--border2)}
+.case-holding{font-size:13px;color:var(--text2);line-height:1.6;margin-bottom:14px;padding:10px 14px;background:var(--eu-l);border-radius:8px;border-left:3px solid var(--eu)}
+.case-qs{display:flex;flex-direction:column;gap:6px}
+.case-q-item{border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.case-q-label{padding:10px 14px;font-size:13px;font-weight:500;color:var(--text);cursor:pointer;background:var(--surface);transition:background .12s;display:flex;align-items:center;gap:8px}
+.case-q-label::before{content:'▸';font-size:10px;color:var(--eu);flex-shrink:0;transition:transform .2s}
+.case-q-label.open::before{transform:rotate(90deg)}
+.case-q-label:hover{background:var(--surface2)}
+.case-q-ans{padding:10px 14px 12px;font-size:13px;color:var(--text2);line-height:1.6;background:var(--eu-l);border-top:1px solid var(--eu-m)}
+
 
 /* ── Enlargement Game ── */
 .epg-tabs{display:flex;gap:6px;margin-bottom:20px}
@@ -7459,6 +7480,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
   <div class="ep-mode-row">
     <button class="ep-mode-btn active" id="ep-btn-flash" onclick="epSetMode('flash')">⟳ Flashcards</button>
     <button class="ep-mode-btn" id="ep-btn-browse" onclick="epSetMode('browse')">☰ Browse All</button>
+    <button class="ep-mode-btn" id="ep-btn-cases" onclick="epSetMode('cases')">⚖️ Case Library</button>
     <button class="ep-mode-btn" id="ep-btn-game" onclick="epSetMode('game')">🗺️ Enlargement Game</button>
     <button class="ep-shuffle" onclick="epShuffle()">⇄ Shuffle</button>
   </div>
@@ -7501,6 +7523,321 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
     </div>
     <div id="ep-browse-content"></div>
   </div>
+
+  <!-- CASE LIBRARY VIEW -->
+  <div id="ep-cases-view" style="display:none">
+    <p style="font-size:13px;color:var(--text2);margin-bottom:20px;line-height:1.6">Every ECJ and GFCC case from the 200+ exam questions — with its facts, holding, and all related questions. Click a question to reveal the answer.</p>
+
+    <!-- Van Gend en Loos -->
+    <div class="case-card">
+      <div class="case-header" onclick="toggleCase('vgl')">
+        <div class="case-meta"><span class="case-badge" style="background:var(--eu)">Direct Effect</span><span class="case-year">1963 · Case 26/62</span></div>
+        <div class="case-name">Van Gend en Loos</div>
+        <div class="case-principle">Individuals can invoke EU law directly before national courts — if the provision is clear, precise and unconditional.</div>
+        <div class="case-toggle" id="case-toggle-vgl">▸ Show questions</div>
+      </div>
+      <div class="case-body" id="case-body-vgl" style="display:none">
+        <div class="case-facts"><strong>Facts:</strong> Dutch transport company imported ureaformaldehyde from Germany. Dutch customs imposed a higher duty than at Treaty entry into force — violating the EEC standstill clause. Van Gend argued this created an individually enforceable right.</div>
+        <div class="case-holding"><strong>Holding:</strong> The EEC constitutes a "new legal order" creating rights for individuals which national courts must protect. Art. 12 EEC (now Art. 30 TFEU) had direct effect: clear, precise, unconditional. Foundation of the entire EU legal order.</div>
+        <div class="case-qs">
+          <div class="case-q-item"><div class="case-q-label" onclick="toggleCaseQ(this)">Q116 — What were the facts of Van Gend &amp; Loos?</div><div class="case-q-ans" style="display:none">Van Gend &amp; Loos, a Dutch transport company, imported ureaformaldehyde from Germany into the Netherlands. Dutch customs imposed a higher duty than existed when the EEC Treaty entered into force — arguably breaching the treaty's standstill clause. Van Gend argued the treaty provision created rights enforceable by individuals before a Dutch tribunal.</div></div>
+          <div class="case-q-item"><div class="case-q-label" onclick="toggleCaseQ(this)">Q117 — What is meant by the doctrine of direct applicability?</div><div class="case-q-ans" style="display:none">EU legislation (especially regulations) enters into force and becomes part of Member States' national law automatically, without any implementing measure by national authorities. It applies by its own force.</div></div>
+          <div class="case-q-item"><div class="case-q-label" onclick="toggleCaseQ(this)">Q118 — What is meant by the doctrine of direct effect?</div><div class="case-q-ans" style="display:none">EU law endows individuals with rights directly enforceable before their domestic courts, without national implementing measures. Established in Van Gend en Loos: provisions that are clear, precise and unconditional create directly enforceable individual rights.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Costa v ENEL -->
+    <div class="case-card">
+      <div class="case-header" onclick="toggleCase('costa')">
+        <div class="case-meta"><span class="case-badge" style="background:var(--eu)">Primacy</span><span class="case-year">1964 · Case 6/64</span></div>
+        <div class="case-name">Costa v. ENEL</div>
+        <div class="case-principle">EU law prevails over all conflicting national law — including legislation enacted after the EU rule. MS permanently limited their sovereign rights.</div>
+        <div class="case-toggle" id="case-toggle-costa">▸ Show questions</div>
+      </div>
+      <div class="case-body" id="case-body-costa" style="display:none">
+        <div class="case-facts"><strong>Facts:</strong> Italy nationalised its electricity industry, creating Enel. Flaminio Costa refused to pay his Enel bill, arguing the nationalisation law was incompatible with EEC Treaty provisions. The Italian Constitutional Court had already ruled the later Italian law prevailed.</div>
+        <div class="case-holding"><strong>Holding:</strong> EU law is integral to national legal systems and takes precedence. A later national law cannot override an earlier EU rule (rejecting <em>lex posterior</em>). MS permanently limited their sovereign rights on joining. Without primacy, EU law would be meaningless.</div>
+        <div class="case-qs">
+          <div class="case-q-item"><div class="case-q-label" onclick="toggleCaseQ(this)">Q119 — What were the facts of Costa v. ENEL?</div><div class="case-q-ans" style="display:none">Italy nationalised its electricity industry, creating Enel. Flaminio Costa, a customer and shareholder of an affected company, refused to pay his Enel bill and argued the nationalisation law was incompatible with EEC Treaty provisions, raising the question before an Italian court.</div></div>
+          <div class="case-q-item"><div class="case-q-label" onclick="toggleCaseQ(this)">Q120 — Which concept did the ECJ reject in Costa v. ENEL?</div><div class="case-q-ans" style="display:none">Dualism — the theory that national and international/EU law are separate orders requiring domestic transformation before EU law applies. The ECJ held Community law became an integral part of national legal systems automatically.</div></div>
+          <div class="case-q-item"><div class="case-q-label" onclick="toggleCaseQ(this)">Q121 — How did the ECJ justify rejecting dualism?</div><div class="case-q-ans" style="display:none">Community law "became an integral part" of national legal systems upon entry into force. The EEC created its own legal order in which Member States permanently limited their sovereign rights.</div></div>
+          <div class="case-q-item"><div class="case-q-label" onclick="toggleCaseQ(this)">Q122 — What nature of Community law did the ECJ emphasise?</div><div class="case-q-ans" style="display:none">The autonomous nature — Community law has its own institutional framework, legal personality and capacity (including in international law), making it binding not only on Member States but directly on individuals.</div></div>
+          <div class="case-q-item"><div class="case-q-label" onclick="toggleCaseQ(this)">Q123 — Which legal principle did the ECJ reject regarding conflicts of norms?</div><div class="case-q-ans" style="display:none">Lex posterior derogat legi priori — the ECJ rejected that a later national law could override an earlier EC rule. EU law takes precedence regardless of chronological order.</div></div>
+          <div class="case-q-item"><div class="case-q-label" onclick="toggleCaseQ(this)">Q124 — Why is Costa v. ENEL considered a legal revolution?</div><div class="case-q-ans" style="display:none">It established the doctrine of supremacy (primacy) of Community law — EC law prevails over conflicting national law before national courts, creating a hierarchy with EU law at the apex within its scope.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Simmenthal -->
+    <div class="case-card">
+      <div class="case-header" onclick="toggleCase('simm')">
+        <div class="case-meta"><span class="case-badge" style="background:var(--macro)">Immediate Effect</span><span class="case-year">1978 · Case 106/77</span></div>
+        <div class="case-name">Simmenthal</div>
+        <div class="case-principle">Every national court must immediately disapply conflicting national law — no waiting for a constitutional court, legislature, or the ECJ.</div>
+        <div class="case-toggle" id="case-toggle-simm">▸ Show questions</div>
+      </div>
+      <div class="case-body" id="case-body-simm" style="display:none">
+        <div class="case-facts"><strong>Facts:</strong> Italian authorities required Simmenthal to pay inspection fees incompatible with EU free movement of goods rules. Italy argued its national law prevailed.</div>
+        <div class="case-holding"><strong>Holding:</strong> Every national court — including lower courts — must apply EU law in its entirety and immediately set aside any conflicting national provision. No need to wait for a constitutional court ruling or parliamentary repeal. MS cannot enact new conflicting laws. Operationalises primacy from Costa.</div>
+        <div class="case-qs">
+          <div class="case-q-item"><div class="case-q-label" onclick="toggleCaseQ(this)">Q125 — How is primacy of EU law understood from a German perspective?</div><div class="case-q-ans" style="display:none">As "precedence of application" (Anwendungsvorrang) rather than "precedence of validity" (Geltungsvorrang). Conflicting national law is set aside in the specific case but remains formally valid — it does not cease to exist.</div></div>
+          <div class="case-q-item"><div class="case-q-label" onclick="toggleCaseQ(this)">Q126 — What does "precedence of application" mean?</div><div class="case-q-ans" style="display:none">A national court sets aside the conflicting national rule in the specific case and applies EU law instead. The national rule remains formally on the books but is simply not applied.</div></div>
+          <div class="case-q-item"><div class="case-q-label" onclick="toggleCaseQ(this)">Q127 — How does precedence of application differ from precedence of validity?</div><div class="case-q-ans" style="display:none">Precedence of validity (Geltungsvorrang): the higher norm renders the lower norm invalid — it ceases to exist. Precedence of application (Anwendungsvorrang): the lower norm remains formally valid but is inapplicable whenever it conflicts with EU law.</div></div>
+          <div class="case-q-item"><div class="case-q-label" onclick="toggleCaseQ(this)">Q128 — What was the main finding of Simmenthal?</div><div class="case-q-ans" style="display:none">Every national court — including lower courts — must apply EU law immediately and fully, setting aside any conflicting national provision, without waiting for a constitutional court ruling or parliamentary repeal. National constitutional rules restricting this power cannot limit this duty.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Internationale Handelsgesellschaft -->
+    <div class="case-card">
+      <div class="case-header" onclick="toggleCase('intl')">
+        <div class="case-meta"><span class="case-badge" style="background:var(--ibt)">Primacy over Constitutions · Fundamental Rights</span><span class="case-year">1970 · Case 11/70</span></div>
+        <div class="case-name">Internationale Handelsgesellschaft</div>
+        <div class="case-principle">EU law prevails even over national constitutions — but fundamental rights exist as general principles of EU law, drawn from MS constitutional traditions.</div>
+        <div class="case-toggle" id="case-toggle-intl">▸ Show questions</div>
+      </div>
+      <div class="case-body" id="case-body-intl" style="display:none">
+        <div class="case-facts"><strong>Facts:</strong> German company faced forfeiture of its export licence deposit under an EU regulation. German court argued this violated the German Basic Law (Art. 2(1) general freedom of action, Art. 14 GG property rights).</div>
+        <div class="case-holding"><strong>Holding:</strong> (1) EU law cannot be reviewed against national constitutional law — only EU law is the yardstick. Only the ECJ can declare EU law invalid. (2) BUT fundamental rights form an integral part of the general principles of EU law, drawn from MS constitutional traditions and the ECHR. This led directly to Solange I and eventually the Charter.</div>
+        <div class="case-qs">
+          <div class="case-q-item"><div class="case-q-label" onclick="toggleCaseQ(this)">Q135 — In which case did the ECJ claim to protect fundamental rights even though not explicitly mentioned in primary law?</div><div class="case-q-ans" style="display:none">Internationale Handelsgesellschaft (ECJ, 17 December 1970, Case 11/70). The ECJ held that respect for fundamental rights forms an integral part of the general principles of law protected by the Court.</div></div>
+          <div class="case-q-item"><div class="case-q-label" onclick="toggleCaseQ(this)">Q136 — To which FCC ruling did Internationale Handelsgesellschaft lead?</div><div class="case-q-ans" style="display:none">Solange I (BVerfG, 29 May 1974, BvL 52/71) — the FCC's landmark ruling reserving fundamental rights review jurisdiction over EC law as long as the EC lacked an equivalent fundamental rights catalogue.</div></div>
+          <div class="case-q-item"><div class="case-q-label" onclick="toggleCaseQ(this)">Q137 — What were the main findings of Internationale Handelsgesellschaft (ECJ)?</div><div class="case-q-ans" style="display:none">(1) Respect for fundamental rights is an integral part of the general principles of law protected by the ECJ. (2) The supremacy of EU law is unconditional — EU acts cannot be assessed in light of national law, including national constitutional provisions on fundamental rights.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Francovich -->
+    <div class="case-card">
+      <div class="case-header" onclick="toggleCase('franc')">
+        <div class="case-meta"><span class="case-badge" style="background:var(--ic)">State Liability</span><span class="case-year">1991 · C-6/90 &amp; C-9/90</span></div>
+        <div class="case-name">Francovich &amp; Bonifaci</div>
+        <div class="case-principle">Member States must compensate individuals for damage caused by their failure to implement EU directives. Three conditions apply.</div>
+        <div class="case-toggle" id="case-toggle-franc">▸ Show questions</div>
+      </div>
+      <div class="case-body" id="case-body-franc" style="display:none">
+        <div class="case-facts"><strong>Facts:</strong> Italy failed to implement the Insolvency Directive (80/987/EEC) requiring guarantee funds protecting employees' wages in employer insolvency. Workers Francovich and Bonifaci could not recover wages when their employers went bankrupt.</div>
+        <div class="case-holding"><strong>Holding:</strong> MS are liable to compensate individuals for damage caused by failure to implement EU law. Three conditions: (1) directive grants rights to individuals, (2) content identifiable from directive's text, (3) causal link between MS's breach and damage suffered. Implementation deadline must also have elapsed.</div>
+        <div class="case-qs">
+          <div class="case-q-item"><div class="case-q-label" onclick="toggleCaseQ(this)">Q132 — What were the facts of the Francovich case?</div><div class="case-q-ans" style="display:none">Italy failed to implement the Insolvency Directive (80/987/EEC) requiring guarantee funds protecting employees' wages in employer insolvency. When their employers went bankrupt, workers Francovich and Bonifaci could not recover wages and sued Italy for compensation.</div></div>
+          <div class="case-q-item"><div class="case-q-label" onclick="toggleCaseQ(this)">Q133 — What was the main finding of Francovich?</div><div class="case-q-ans" style="display:none">EU Member States can be held liable to pay compensation to individuals who have suffered loss as a result of the Member State's failure to transpose an EU directive within the required period.</div></div>
+          <div class="case-q-item"><div class="case-q-label" onclick="toggleCaseQ(this)">Q134 — What were the exact conditions for a compensation claim under Francovich?</div><div class="case-q-ans" style="display:none">(1) The directive must confer rights on individuals; (2) the contents of those rights must be identifiable from the wording of the directive; (3) there must be a causal link between the Member State's failure to implement and the damage suffered.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ratti -->
+    <div class="case-card">
+      <div class="case-header" onclick="toggleCase('ratti')">
+        <div class="case-meta"><span class="case-badge" style="background:var(--eu)">Estoppel / Directives</span><span class="case-year">1979 · Case 148/78</span></div>
+        <div class="case-name">Ratti</div>
+        <div class="case-principle">After a directive's implementation deadline, a MS cannot apply incompatible national law against someone who complied with the directive — the MS is estopped by its own failure.</div>
+        <div class="case-toggle" id="case-toggle-ratti">▸ Show questions</div>
+      </div>
+      <div class="case-body" id="case-body-ratti" style="display:none">
+        <div class="case-facts"><strong>Facts:</strong> Italian solvent producer Ratti complied with EU labelling directives but not stricter pre-existing Italian law. Italy prosecuted him after the directive's implementation deadline had passed.</div>
+        <div class="case-holding"><strong>Holding:</strong> After expiry of the implementation deadline, a MS may not apply its unadapted national law against a person who complied with the directive. The MS is "estopped" from relying on its own failure to implement.</div>
+        <div class="case-qs">
+          <div class="case-q-item"><div class="case-q-label" onclick="toggleCaseQ(this)">Q138 — What were the facts of the Ratti case?</div><div class="case-q-ans" style="display:none">Mr Tullio Ratti, an Italian solvent producer, complied with EU labelling directives but not with stricter pre-existing Italian law. Italy prosecuted him for non-compliance with Italian law after the directives' implementation deadline had passed.</div></div>
+          <div class="case-q-item"><div class="case-q-label" onclick="toggleCaseQ(this)">Q139 — What did the ECJ decide in Ratti?</div><div class="case-q-ans" style="display:none">After expiry of the implementation deadline of a directive, a Member State may not apply its unadapted internal law against a person who has complied with the directive. The Member State is "estopped" from relying on its own failure to implement.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Faccini Dori -->
+    <div class="case-card">
+      <div class="case-header" onclick="toggleCase('dori')">
+        <div class="case-meta"><span class="case-badge" style="background:var(--eu)">No Horizontal Direct Effect</span><span class="case-year">1994 · C-91/92</span></div>
+        <div class="case-name">Faccini Dori</div>
+        <div class="case-principle">Directives cannot be relied upon against private parties (no horizontal direct effect) — only against the state and state bodies (vertical direct effect).</div>
+        <div class="case-toggle" id="case-toggle-dori">▸ Show questions</div>
+      </div>
+      <div class="case-body" id="case-body-dori" style="display:none">
+        <div class="case-facts"><strong>Facts:</strong> Miss Dori concluded a contract for an Italian language course at Milan railway station and tried to cancel it under a Directive granting consumers a cooling-off period — but Italy had not yet implemented the Directive. She tried to invoke the Directive against the private company.</div>
+        <div class="case-holding"><strong>Holding:</strong> A directive cannot be relied upon against another private party in the absence of national implementing measures. Only vertical direct effect (against the state) is permitted. Remedy: Francovich state liability against Italy for non-implementation.</div>
+        <div class="case-qs">
+          <div class="case-q-item"><div class="case-q-label" onclick="toggleCaseQ(this)">Q140 — What forms of direct effect of a directive must be distinguished?</div><div class="case-q-ans" style="display:none">Vertical direct effect: individuals can invoke an unimplemented directive against the state and state bodies (permitted). Horizontal direct effect: invoking a directive against another private party (not permitted — Faccini Dori).</div></div>
+          <div class="case-q-item"><div class="case-q-label" onclick="toggleCaseQ(this)">Q141 — What are the conditions for direct effect of a directive?</div><div class="case-q-ans" style="display:none">(1) The directive's provisions must be unconditional and sufficiently clear and precise; (2) the Member State must have failed to implement the directive by the deadline; (3) the provision must confer rights on individuals.</div></div>
+          <div class="case-q-item"><div class="case-q-label" onclick="toggleCaseQ(this)">Q142 — Is inverse vertical direct effect possible?</div><div class="case-q-ans" style="display:none">No — Kolpinghuis Nijmegen (ECJ, 8 October 1987, Case 80/86). A Member State cannot rely on an unimplemented directive against an individual. The state cannot benefit from its own failure to implement.</div></div>
+          <div class="case-q-item"><div class="case-q-label" onclick="toggleCaseQ(this)">Q143 — Is horizontal direct effect of a directive possible?</div><div class="case-q-ans" style="display:none">No — Faccini Dori (ECJ, 14 July 1994, C-91/92): a directive cannot be relied upon against another private party in the absence of national implementing measures. Remedy: Francovich state liability.</div></div>
+          <div class="case-q-item"><div class="case-q-label" onclick="toggleCaseQ(this)">Q144 — What were the facts of Faccini Dori?</div><div class="case-q-ans" style="display:none">Miss Dori concluded a contract for an Italian language course at Milan railway station and tried to cancel it under the Doorstep Selling Directive granting consumers a cooling-off period. Italy had not implemented the Directive, so she tried to invoke it directly against the private company.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rewe-Zentralfinanz -->
+    <div class="case-card">
+      <div class="case-header" onclick="toggleCase('rewe')">
+        <div class="case-meta"><span class="case-badge" style="background:var(--macro)">Procedural Autonomy</span><span class="case-year">1976 · Case 33/76</span></div>
+        <div class="case-name">Rewe-Zentralfinanz</div>
+        <div class="case-principle">MS may set their own procedural rules for EU law claims, but these must satisfy equivalence (no worse than domestic claims) and effectiveness (must not make enforcement practically impossible).</div>
+        <div class="case-toggle" id="case-toggle-rewe">▸ Show questions</div>
+      </div>
+      <div class="case-body" id="case-body-rewe" style="display:none">
+        <div class="case-facts"><strong>Facts:</strong> German importers (Rewe) had paid inspection charges on imported apples found contrary to Art. 13 EEC Treaty (now Art. 30 TFEU). They sought reimbursement but German limitation periods blocked their claim.</div>
+        <div class="case-holding"><strong>Holding:</strong> In the absence of EU procedural rules, MS may apply their own — but national rules must not make enforcement of EU rights practically impossible (effectiveness) and must be no less favourable than for similar domestic claims (equivalence).</div>
+        <div class="case-qs">
+          <div class="case-q-item"><div class="case-q-label" onclick="toggleCaseQ(this)">Q154 — What is the Rewe-Zentralfinanz case about?</div><div class="case-q-ans" style="display:none">German importers (Rewe) had paid inspection charges on imported apples found contrary to Art. 13 EEC Treaty (now Art. 30 TFEU). They sought reimbursement but German limitation periods blocked their claim, raising the question of national procedural autonomy limits.</div></div>
+          <div class="case-q-item"><div class="case-q-label" onclick="toggleCaseQ(this)">Q155 — What did the ECJ decide in Rewe-Zentralfinanz?</div><div class="case-q-ans" style="display:none">The case established the principle of national procedural autonomy — Member States may determine their own procedural rules for enforcing EU rights — subject to two limits: equivalence and effectiveness.</div></div>
+          <div class="case-q-item"><div class="case-q-label" onclick="toggleCaseQ(this)">Q156 — What is the principle of effectiveness?</div><div class="case-q-ans" style="display:none">National procedural rules governing actions to protect EU law rights must not make it in practice impossible or excessively difficult to enforce those rights.</div></div>
+          <div class="case-q-item"><div class="case-q-label" onclick="toggleCaseQ(this)">Q157 — What is the principle of equivalence?</div><div class="case-q-ans" style="display:none">National procedural rules for EU law-based claims must not be less favourable than those applying to similar claims based on domestic law.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tanja Kreil -->
+    <div class="case-card">
+      <div class="case-header" onclick="toggleCase('kreil')">
+        <div class="case-meta"><span class="case-badge" style="background:var(--eu)">Equal Treatment · Armed Forces</span><span class="case-year">2000 · C-285/98</span></div>
+        <div class="case-name">Tanja Kreil</div>
+        <div class="case-principle">The Equal Treatment Directive applies to public sector employment including the armed forces. A blanket exclusion of women from combat roles violates EU law.</div>
+        <div class="case-toggle" id="case-toggle-kreil">▸ Show questions</div>
+      </div>
+      <div class="case-body" id="case-body-kreil" style="display:none">
+        <div class="case-facts"><strong>Facts:</strong> In 1996 Miss Kreil applied for a voluntary post in the Bundeswehr in weapons electronic maintenance. Her application was rejected because German law banned women from all armed service involving the use of weapons. Germany argued national security was a MS competence.</div>
+        <div class="case-holding"><strong>Holding:</strong> The Equal Treatment Directive applies to public sector employment including the armed forces. Germany's blanket exclusion of women from virtually all armed service exceeded any permissible derogation. Germany was required to amend its Basic Law (Art. 12a GG).</div>
+        <div class="case-qs">
+          <div class="case-q-item"><div class="case-q-label" onclick="toggleCaseQ(this)">Q159 — What were the facts of Tanja Kreil?</div><div class="case-q-ans" style="display:none">In 1996 Miss Kreil applied for a voluntary post in the Bundeswehr in weapons electronic maintenance. Her application was rejected because German law banned women from all armed service involving the use of weapons. She argued this violated the Equal Treatment Directive (76/207/EEC).</div></div>
+          <div class="case-q-item"><div class="case-q-label" onclick="toggleCaseQ(this)">Q161 — What did the ECJ decide in Tanja Kreil?</div><div class="case-q-ans" style="display:none">The Equal Treatment Directive applies to public sector employment including the armed forces. Germany's blanket exclusion of women from virtually all armed service exceeded any permissible derogation and violated EU law. Germany had to amend Art. 12a of its Basic Law.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dassonville -->
+    <div class="case-card">
+      <div class="case-header" onclick="toggleCase('dass')">
+        <div class="case-meta"><span class="case-badge" style="background:var(--micro)">Free Movement of Goods · MEQRs</span><span class="case-year">1974 · Case 8/74</span></div>
+        <div class="case-name">Dassonville</div>
+        <div class="case-principle">Any trading rule capable of hindering — directly or indirectly, actually or potentially — intra-Community trade is an MEQR prohibited under Art. 34 TFEU.</div>
+        <div class="case-toggle" id="case-toggle-dass">▸ Show questions</div>
+      </div>
+      <div class="case-body" id="case-body-dass" style="display:none">
+        <div class="case-facts"><strong>Facts:</strong> Dassonville (father and son) imported Scotch whisky into Belgium from France. French wholesalers had affixed a "British Customs Certificate of Origin" label that did not satisfy Belgian requirements. The Belgian Public Prosecutor charged Dassonville with forgery.</div>
+        <div class="case-holding"><strong>Holding:</strong> The Dassonville formula — all trading rules enacted by MS which are capable of hindering, directly or indirectly, actually or potentially, intra-Community trade are MEQRs prohibited under Art. 34 TFEU. A very broad definition catching virtually any national trading rule.</div>
+        <div class="case-qs">
+          <div class="case-q-item"><div class="case-q-label" onclick="toggleCaseQ(this)">Q163 — What were the facts of Dassonville?</div><div class="case-q-ans" style="display:none">Dassonville (father and son) imported Scotch whisky into Belgium from France. French wholesalers had affixed a "British Customs Certificate of Origin" label that did not satisfy Belgian requirements. The Belgian Public Prosecutor charged Dassonville with forgery.</div></div>
+          <div class="case-q-item"><div class="case-q-label" onclick="toggleCaseQ(this)">Q164 — What is the Dassonville formula?</div><div class="case-q-ans" style="display:none">All trading rules enacted by Member States which are capable of hindering, directly or indirectly, actually or potentially, intra-Community trade are to be considered as MEQRs — prohibited under Art. 34 TFEU.</div></div>
+          <div class="case-q-item"><div class="case-q-label" onclick="toggleCaseQ(this)">Q165 — Why is Dassonville a landmark case?</div><div class="case-q-ans" style="display:none">It provided the foundational broad definition of a MEQR — catching virtually any national trading rule capable of impeding imports, regardless of whether it discriminates or applies equally to domestic and imported goods.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cassis de Dijon -->
+    <div class="case-card">
+      <div class="case-header" onclick="toggleCase('cassis')">
+        <div class="case-meta"><span class="case-badge" style="background:var(--micro)">Mutual Recognition · Mandatory Requirements</span><span class="case-year">1979 · Case 120/78</span></div>
+        <div class="case-name">Cassis de Dijon</div>
+        <div class="case-principle">A product lawfully marketed in one MS must in principle be admitted to all others. Restrictions only permitted for proportionate mandatory requirements (consumer protection, public health, fair trading).</div>
+        <div class="case-toggle" id="case-toggle-cassis">▸ Show questions</div>
+      </div>
+      <div class="case-body" id="case-body-cassis" style="display:none">
+        <div class="case-facts"><strong>Facts:</strong> German authorities refused to allow the sale of French Cassis de Dijon liqueur because it did not meet Germany's minimum alcohol content requirement for fruit liqueurs (25%), while Cassis contained only 15–20%.</div>
+        <div class="case-holding"><strong>Holding:</strong> The principle of mutual recognition — any product legally manufactured and marketed in one MS must in principle be admitted to any other. Barriers only justified on proportionate grounds of mandatory requirements (consumer protection, public health, fair trading, environmental protection). Developed Dassonville by adding justifications.</div>
+        <div class="case-qs">
+          <div class="case-q-item"><div class="case-q-label" onclick="toggleCaseQ(this)">Q166 — In which case did the Court further develop its Dassonville reasoning?</div><div class="case-q-ans" style="display:none">Cassis de Dijon (Rewe-Zentral AG v Federal Monopoly Administration, ECJ, 20 February 1979, Case 120/78) — establishing mutual recognition and the "mandatory requirements" justification for indistinctly applicable measures.</div></div>
+          <div class="case-q-item"><div class="case-q-label" onclick="toggleCaseQ(this)">Q167 — What is the Cassis de Dijon principle?</div><div class="case-q-ans" style="display:none">Any product legally manufactured and marketed in one Member State must in principle be admitted to any other Member State's market. Imports may only be restricted on proportionate grounds of mandatory requirements (e.g. consumer protection, public health, fair trading).</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Keck -->
+    <div class="case-card">
+      <div class="case-header" onclick="toggleCase('keck')">
+        <div class="case-meta"><span class="case-badge" style="background:var(--micro)">Selling Arrangements Exception</span><span class="case-year">1993 · C-267 &amp; 268/91</span></div>
+        <div class="case-name">Keck &amp; Mithouard</div>
+        <div class="case-principle">National rules on selling arrangements — not product requirements — fall outside Art. 34 TFEU entirely, provided they apply equally in law and in fact to all traders.</div>
+        <div class="case-toggle" id="case-toggle-keck">▸ Show questions</div>
+      </div>
+      <div class="case-body" id="case-body-keck" style="display:none">
+        <div class="case-facts"><strong>Facts:</strong> Keck and Mithouard were prosecuted under French law for reselling alcohol below purchase price (loss-leader selling ban). They argued this violated the free movement of goods. The Court took the opportunity to clarify and limit Dassonville.</div>
+        <div class="case-holding"><strong>Holding:</strong> National measures fall into two categories: (1) Product-bound measures (product requirements) — always caught by Dassonville/Art. 34. (2) Selling arrangements — fall outside Art. 34 entirely IF they apply without discrimination in law and in fact to all traders. The French loss-leader ban was a selling arrangement → not caught.</div>
+        <div class="case-qs">
+          <div class="case-q-item"><div class="case-q-label" onclick="toggleCaseQ(this)">Q168 — What were the facts of Keck?</div><div class="case-q-ans" style="display:none">Mr Keck and Mr Mithouard were prosecuted under French law for reselling alcohol below purchase price (loss-leader selling ban). They argued this violated the free movement of goods under Art. 34 TFEU. The ECJ used the case to limit the Dassonville formula.</div></div>
+          <div class="case-q-item"><div class="case-q-label" onclick="toggleCaseQ(this)">Q169 — What is the Keck formula?</div><div class="case-q-ans" style="display:none">National measures fall into two categories: (1) Product-bound measures — rules on the product itself (composition, labelling, packaging) — always caught by Art. 34. (2) Selling arrangements — rules on how/where/when products are sold — fall outside Art. 34 if they apply equally in law and in fact to all traders and do not prevent access to the market.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Solange I & II -->
+    <div class="case-card">
+      <div class="case-header" onclick="toggleCase('solange')">
+        <div class="case-meta"><span class="case-badge" style="background:#7c3aed">GFCC · Constitutional Identity</span><span class="case-year">1974 &amp; 1986 · BVerfG</span></div>
+        <div class="case-name">Solange I &amp; II (GFCC)</div>
+        <div class="case-principle">Solange I: GFCC reserves right to review EU law against German fundamental rights "as long as" Community law lacks equivalent protection. Solange II: withdraws review — ECJ now provides sufficient protection.</div>
+        <div class="case-toggle" id="case-toggle-solange">▸ Show questions</div>
+      </div>
+      <div class="case-body" id="case-body-solange" style="display:none">
+        <div class="case-facts"><strong>Facts:</strong> Solange I arose from the Internationale Handelsgesellschaft case — the German Federal Constitutional Court (GFCC/BVerfG) refused to simply defer to the ECJ on fundamental rights, finding the Community lacked sufficient protection at the time.</div>
+        <div class="case-holding"><strong>Solange I (1974):</strong> As long as (Solange) the EC lacked a democratically legitimised parliament and a fundamental rights catalogue equivalent to the Basic Law, the GFCC reserved the right to review EC law against German fundamental rights.<br><strong>Solange II (1986):</strong> Since ECJ case law now guarantees fundamental rights protection essentially equivalent to the Basic Law, the GFCC will no longer exercise review jurisdiction over EC secondary law — a cooperative reversal.</div>
+        <div class="case-qs">
+          <div class="case-q-item"><div class="case-q-label" onclick="toggleCaseQ(this)">Q65 — What was the finding of Solange I (BVerfG, 29 May 1974)?</div><div class="case-q-ans" style="display:none">As long as (Solange) the EC had not developed a democratically legitimised parliament and a catalogue of fundamental rights equivalent to the Basic Law, the Federal Constitutional Court reserved the right to review EC secondary law for compatibility with German fundamental rights.</div></div>
+          <div class="case-q-item"><div class="case-q-label" onclick="toggleCaseQ(this)">Q66 — Which company was the plaintiff in the proceedings leading to Solange I?</div><div class="case-q-ans" style="display:none">Internationale Handelsgesellschaft mbH.</div></div>
+          <div class="case-q-item"><div class="case-q-label" onclick="toggleCaseQ(this)">Q67 — Did the FCC in Solange I decide on the validity of EC secondary law's compatibility with EC primary law?</div><div class="case-q-ans" style="display:none">No. The FCC reviewed compatibility of EC secondary law with German fundamental rights (the Basic Law) — not whether EC secondary law was compatible with EC primary law, which is the ECJ's domain.</div></div>
+          <div class="case-q-item"><div class="case-q-label" onclick="toggleCaseQ(this)">Q68 — What did the EC still lack at the time of Solange I (1974)?</div><div class="case-q-ans" style="display:none">A democratically elected European Parliament (it was only appointed at the time) and a codified catalogue of fundamental rights — the FCC's prerequisites for ceding fundamental rights review to the ECJ.</div></div>
+          <div class="case-q-item"><div class="case-q-label" onclick="toggleCaseQ(this)">Q69 — In which case did the FCC revise its Solange I approach?</div><div class="case-q-ans" style="display:none">Solange II (BVerfG, 22 October 1986). The FCC held that as long as ECJ case law guaranteed fundamental rights protection essentially equivalent to the Basic Law, the FCC would no longer exercise review jurisdiction over EC secondary law.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Maastricht Ruling -->
+    <div class="case-card">
+      <div class="case-header" onclick="toggleCase('maas')">
+        <div class="case-meta"><span class="case-badge" style="background:#7c3aed">GFCC · Ultra Vires</span><span class="case-year">1993 · BVerfG</span></div>
+        <div class="case-name">Maastricht Ruling (GFCC)</div>
+        <div class="case-principle">Confirms constitutionality of the Maastricht Treaty; introduces ultra vires review; sets limits on sovereignty transfer; emphasises the Bundestag's democratic role.</div>
+        <div class="case-toggle" id="case-toggle-maas">▸ Show questions</div>
+      </div>
+      <div class="case-body" id="case-body-maas" style="display:none">
+        <div class="case-facts"><strong>Facts:</strong> Constitutional complaints were filed against Germany's ratification of the Maastricht Treaty — primarily arguing it violated the democratic principle under Art. 38(1) Basic Law and ceded too much sovereignty.</div>
+        <div class="case-holding"><strong>Holding:</strong> Complaints inadmissible or unfounded, except one warranting attention. The EU remains an association of sovereign states (Staatenverbund). The GFCC may review whether EU institutions exceed their conferred powers (ultra vires review). The Bundestag must retain essential decision-making powers. EU citizenship is subsidiary to national citizenship.</div>
+        <div class="case-qs">
+          <div class="case-q-item"><div class="case-q-label" onclick="toggleCaseQ(this)">Q71 — What were the main features of the Treaty of Maastricht?</div><div class="case-q-ans" style="display:none">(1) Monetary union and the euro, (2) EU citizenship, (3) Common Foreign and Security Policy (CFSP), (4) Close cooperation in justice and home affairs (3rd pillar), (5) Principle of subsidiarity, (6) Creation of the Committee of the Regions.</div></div>
+          <div class="case-q-item"><div class="case-q-label" onclick="toggleCaseQ(this)">Q73 — Did the Maastricht Treaty empower the EU to acquire by itself financial or other means it deemed necessary?</div><div class="case-q-ans" style="display:none">No. The Maastricht Treaty preserved the principle of conferral — the EU could only act within the competences conferred by MS. The GFCC stressed this in its Maastricht ruling: EU may not "Kompetenz-Kompetenz" — it cannot decide its own competences.</div></div>
+          <div class="case-q-item"><div class="case-q-label" onclick="toggleCaseQ(this)">Q74 — Were the constitutional complaints against the Maastricht Treaty successful?</div><div class="case-q-ans" style="display:none">The FCC dismissed all complaints as inadmissible except one — the potential infringement of the democratic principle (Art. 38(1) GG). The treaty was found compatible with the Basic Law, but the GFCC introduced important conditions and introduced ultra vires review.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lisbon Ruling -->
+    <div class="case-card">
+      <div class="case-header" onclick="toggleCase('lisbon')">
+        <div class="case-meta"><span class="case-badge" style="background:#7c3aed">GFCC · Staatenverbund · Identity Review</span><span class="case-year">2009 · BVerfG</span></div>
+        <div class="case-name">Lisbon Ruling (GFCC)</div>
+        <div class="case-principle">EU is a Staatenverbund — not a federal state. Defines the "eternity clause" core that can never be transferred. Introduces identity review alongside ultra vires review.</div>
+        <div class="case-toggle" id="case-toggle-lisbon">▸ Show questions</div>
+      </div>
+      <div class="case-body" id="case-body-lisbon" style="display:none">
+        <div class="case-facts"><strong>Facts:</strong> Constitutional complaints against Germany's ratification of the Treaty of Lisbon and the accompanying Act Extending and Strengthening the Rights of the Bundestag and Bundesrat in EU Affairs.</div>
+        <div class="case-holding"><strong>Holding:</strong> The EU remains a Staatenverbund — a close association of states, not a federal state. An inalienable list of state rights can never be transferred to the EU (eternity clause: Art. 79(3) GG). The GFCC introduces identity review: it may review whether EU law violates Germany's constitutional identity. The Bundestag must retain sufficient powers. The GFCC will not allow a "silent slide" into a European federal state.</div>
+        <div class="case-qs">
+          <div class="case-q-item"><div class="case-q-label" onclick="toggleCaseQ(this)">Q75 — What was the main finding of the Lisbon judgment?</div><div class="case-q-ans" style="display:none">Under the Treaty of Lisbon, the EU remains an association of sovereign states (Staatenverbund) subject to the principle of conferral. The GFCC introduced identity review (alongside ultra vires review) and confirmed that an inalienable core of state powers protected by Art. 79(3) GG can never be transferred to the EU.</div></div>
+          <div class="case-q-item"><div class="case-q-label" onclick="toggleCaseQ(this)">Q76 — How did the FCC define the EU in the Lisbon judgment?</div><div class="case-q-ans" style="display:none">As a Staatenverbund — a "close association of states" falling short of a confederation and far short of a federal state. Member States remain the "Masters of the Treaties" (Herren der Verträge).</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PSPP -->
+    <div class="case-card">
+      <div class="case-header" onclick="toggleCase('pspp')">
+        <div class="case-meta"><span class="case-badge" style="background:#dc2626">GFCC · First Ultra Vires Finding</span><span class="case-year">2020 · BVerfG</span></div>
+        <div class="case-name">PSPP Decision (GFCC)</div>
+        <div class="case-principle">First time any national constitutional court found an ECJ ruling to be ultra vires. The GFCC ruled the ECJ's proportionality review of the ECB bond purchase programme was "methodologically not tenable."</div>
+        <div class="case-toggle" id="case-toggle-pspp">▸ Show questions</div>
+      </div>
+      <div class="case-body" id="case-body-pspp" style="display:none">
+        <div class="case-facts"><strong>Facts:</strong> The ECB's Public Sector Purchase Programme (PSPP) — a quantitative easing bond-buying programme worth billions — was challenged before the GFCC. The GFCC had previously referred to the ECJ (Weiss), but found the ECJ's response inadequate.</div>
+        <div class="case-holding"><strong>Holding:</strong> The ECJ's proportionality review of the PSPP was "methodologically not tenable" and constituted a "manifestly deficient examination" — the ECJ exceeded its powers under Art. 19(1) TEU. This caused a "structurally significant shift" in the competence order to the detriment of MS. First time any national court directly ruled an ECJ judgment ultra vires.</div>
+        <div class="case-qs">
+          <div class="case-q-item"><div class="case-q-label" onclick="toggleCaseQ(this)">Q83 — What does PSPP stand for?</div><div class="case-q-ans" style="display:none">Public Sector Purchase Programme — the ECB's programme of purchasing government bonds and public sector securities of eurozone Member States.</div></div>
+          <div class="case-q-item"><div class="case-q-label" onclick="toggleCaseQ(this)">Q84 — What was the idea behind the PSPP?</div><div class="case-q-ans" style="display:none">To stimulate consumption and investment by injecting liquidity, and to raise the eurozone inflation rate toward just under 2% (the ECB's price stability target).</div></div>
+          <div class="case-q-item"><div class="case-q-label" onclick="toggleCaseQ(this)">Q85 — What did the FCC accuse the ECJ of in the PSPP decision?</div><div class="case-q-ans" style="display:none">Conducting an "essentially subpar review" (manifestly deficient examination) — the ECJ's proportionality review of the PSPP did not satisfy the requirements of a comprehensible review of whether the ESCB/ECB had observed the limits of their monetary policy mandate.</div></div>
+          <div class="case-q-item"><div class="case-q-label" onclick="toggleCaseQ(this)">Q86 — What did the FCC assert regarding the ECJ's competence in the PSPP case?</div><div class="case-q-ans" style="display:none">The ECJ's findings "manifestly exceed the judicial mandate conferred upon the CJEU in Art. 19(1) TEU", causing "a structurally significant shift in the order of competences to the detriment of the Member States" — i.e. ultra vires action by the ECJ itself.</div></div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end ep-cases-view -->
 
   <!-- DONE SCREEN -->
   <div id="ep-done" class="ep-done" style="display:none">
@@ -10379,15 +10716,40 @@ function epSetMode(mode){
   epMode = mode;
   const bf = document.getElementById('ep-btn-flash');
   const bb2 = document.getElementById('ep-btn-browse');
+  const bc = document.getElementById('ep-btn-cases');
+  const bg = document.getElementById('ep-btn-game');
   const fv = document.getElementById('ep-flash-view');
   const bv = document.getElementById('ep-browse-view');
+  const cv = document.getElementById('ep-cases-view');
+  const gv = document.getElementById('ep-game-view');
   const dn = document.getElementById('ep-done');
   if(bf) bf.classList.toggle('active', mode==='flash');
   if(bb2) bb2.classList.toggle('active', mode==='browse');
+  if(bc) bc.classList.toggle('active', mode==='cases');
+  if(bg) bg.classList.toggle('active', mode==='game');
   if(fv) fv.style.display = mode==='flash' ? 'block' : 'none';
   if(bv) bv.style.display = mode==='browse' ? 'block' : 'none';
+  if(cv) cv.style.display = mode==='cases' ? 'block' : 'none';
+  if(gv) gv.style.display = mode==='game' ? 'block' : 'none';
   if(dn) dn.style.display = 'none';
   if(mode === 'browse') epRenderBrowse();
+}
+
+function toggleCase(id){
+  const body = document.getElementById('case-body-' + id);
+  const toggle = document.getElementById('case-toggle-' + id);
+  if(!body) return;
+  const isOpen = body.style.display !== 'none';
+  body.style.display = isOpen ? 'none' : 'block';
+  if(toggle) toggle.textContent = isOpen ? '▸ Show questions' : '▾ Hide questions';
+}
+
+function toggleCaseQ(el){
+  const ans = el.nextElementSibling;
+  if(!ans) return;
+  const isOpen = ans.style.display !== 'none';
+  ans.style.display = isOpen ? 'none' : 'block';
+  el.classList.toggle('open', !isOpen);
 }
 
 function epShuffle(){
@@ -11461,13 +11823,13 @@ function icQuizNext(session) {
     const bg = document.getElementById('ep-btn-game');
     if(mode === 'game') {
       // Hide all other EP views
-      ['ep-flash-view','ep-browse-view','ep-done'].forEach(id => {
+      ['ep-flash-view','ep-browse-view','ep-cases-view','ep-done'].forEach(id => {
         const el = document.getElementById(id);
         if(el) el.style.display = 'none';
       });
       if(gv) gv.style.display = 'block';
       // Update mode buttons
-      ['ep-btn-flash','ep-btn-browse','ep-btn-game'].forEach(id => {
+      ['ep-btn-flash','ep-btn-browse','ep-btn-cases','ep-btn-game'].forEach(id => {
         const el = document.getElementById(id);
         if(el) el.classList.toggle('active', id === 'ep-btn-game');
       });
