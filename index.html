@@ -430,7 +430,9 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
     <button class="nav-sub" onclick="showLecture('micro','ps2',this)">PS2: Risky Choice</button>
     <button class="nav-sub" onclick="showLecture('micro','ch3',this)">Chapter 3: Risky Choice</button>
     <button class="nav-sub" onclick="showLecture('micro','ps3',this)">PS3: Intertemporal Choice</button>
-    <button class="nav-sub" style="opacity:.5;cursor:default;pointer-events:none">+ More coming</button>
+    <button class="nav-sub" onclick="showLecture('micro','ch4',this)">Chapter 4: Intertemporal Choice</button>
+    <button class="nav-sub" onclick="showLecture('micro','ch5',this)">Chapter 5: Behavioural Econ</button>
+    <button class="nav-sub" onclick="showLecture('micro','ch6',this)">Chapter 6: Time Inconsistency</button>
     <div class="nav-label">Macroeconomics</div>
     <button class="nav-btn" data-color="macro" onclick="showPage('macro-overview',this)"><span class="nav-dot" style="background:var(--macro)"></span>All Chapters</button>
     <button class="nav-sub" onclick="showLecture('macro','lec1',this)">Lec 1: Economic Growth</button>
@@ -3658,7 +3660,9 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
   <div class="lec-card" onclick="showLecture('micro','ps2',null)"><div class="lec-num" style="background:var(--micro-l);color:var(--micro)">PS2</div><div class="lec-info"><div class="lec-title">Problem Set 2: Risky Choice</div><div class="lec-sub">EV · EU · CE · Risk Premium · Insurance · MRS = MRT</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Compare</span><span class="lec-badge has">Calculator</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span></div></div>
   <div class="lec-card" onclick="showLecture('micro','ch3',null)"><div class="lec-num" style="background:var(--micro-l);color:var(--micro)">Ch3</div><div class="lec-info"><div class="lec-title">Chapter 3: Risky Choice</div><div class="lec-sub">Theory deep-dive · Lotteries · Expected Utility · Insurance demand</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Compare</span><span class="lec-badge has">Calculator</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span></div></div>
   <div class="lec-card" onclick="showLecture('micro','ps3',null)"><div class="lec-num" style="background:var(--micro-l);color:var(--micro)">PS3</div><div class="lec-info"><div class="lec-title">Problem Set 3: Intertemporal Choice</div><div class="lec-sub">Budget Line · MRT · MRS · Discount Factor δ · Optimal Consumption · Borrowing</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Compare</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span></div></div>
-  <div class="lec-card empty"><div class="lec-num" style="background:var(--micro-l);color:var(--micro)">Next</div><div class="lec-info"><div class="lec-title">More chapters coming</div><div class="lec-sub">Share your notes to add the next chapter</div></div><div class="lec-badges"><span class="lec-badge">Summary</span><span class="lec-badge">Cards</span><span class="lec-badge">Quiz</span></div></div>
+  <div class="lec-card" onclick="showLecture('micro','ch4',null)"><div class="lec-num" style="background:var(--micro-l);color:var(--micro)">Ch4</div><div class="lec-info"><div class="lec-title">Chapter 4: Intertemporal Choice</div><div class="lec-sub">Time Value · Budget Line · MRT with Inflation · MRS=MRT · Optimal Saving / Borrowing</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Compare</span><span class="lec-badge has">Calculator</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span></div></div>
+  <div class="lec-card" onclick="showLecture('micro','ch5',null)"><div class="lec-num" style="background:var(--micro-l);color:var(--micro)">Ch5</div><div class="lec-info"><div class="lec-title">Chapter 5: Behavioural Economics Intro</div><div class="lec-sub">3 Departures · Loss Aversion · Overconfidence · Gambler's Fallacy · Satisficing</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Compare</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span></div></div>
+  <div class="lec-card" onclick="showLecture('micro','ch6',null)"><div class="lec-num" style="background:var(--micro-l);color:var(--micro)">Ch6</div><div class="lec-info"><div class="lec-title">Chapter 6: Time Inconsistency</div><div class="lec-sub">β-δ Model · Present Bias · TC vs Naif vs Sophisticate · Procrastination · Commitment Devices</div></div><div class="lec-badges"><span class="lec-badge has">Summary</span><span class="lec-badge has">Compare</span><span class="lec-badge has">Cards</span><span class="lec-badge has">Quiz</span></div></div>
 </div>
 </div>
 <!-- MICRO CH2 PAGE -->
@@ -7572,13 +7576,165 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
   </div>
 </div>
 
+<!-- ══ MICRO CH4 ══ -->
+<div id="page-micro-ch4" class="page">
+  <div class="page-eyebrow" style="color:var(--micro)">Microeconomics · Chapter 4</div>
+  <div class="page-title">Intertemporal Choice</div>
+  <div class="page-desc">Time Value of Money · Budget Line · MRT with Inflation · MRS = MRT · Optimal Consumption over Two Periods</div>
+  <div class="study-tabs">
+    <button class="study-tab active" onclick="showMicroTab('summary',this,'ch4')">Summary</button>
+    <button class="study-tab" onclick="showMicroTab('compare',this,'ch4')">Compare</button>
+    <button class="study-tab" onclick="showMicroTab('calc',this,'ch4')">Calculator</button>
+    <button class="study-tab" onclick="showMicroTab('flashcards',this,'ch4')">Flashcards</button>
+    <button class="study-tab" onclick="showMicroTab('quiz',this,'ch4')">Quiz</button>
+  </div>
+  <div id="mch4-summary" class="study-panel active">
+    <div class="sum-card"><div class="sum-title"><span class="badge b-teal">A. Why Intertemporal Choice?</span></div><p>Intertemporal choices involve costs and benefits in <strong>different time periods</strong>: retirement savings, education, health. Core insight: <strong>€1 today ≠ €1 tomorrow</strong> because money today can earn interest.</p><div class="note-box">⚠️ <strong>Exam focus:</strong> Set up the budget line, compute MRT, derive MRS, and solve for c₁* and c₂* in both inflation and no-inflation cases.</div></div>
+    <div class="sum-card"><div class="sum-title"><span class="badge b-teal">B. Time Value of Money</span></div><ul><li><strong>Future Value:</strong> FV = m(1 + r) — what m today is worth tomorrow</li><li><strong>Present Value:</strong> PV = m / (1 + r) — what m tomorrow is worth today</li><li>When choosing income streams: always pick the one with the <strong>highest present value</strong> — regardless of preferences, higher PV expands the budget set (→ NPV principle).</li></ul></div>
+    <div class="sum-card"><div class="sum-title"><span class="badge b-teal">C. Setup &amp; Lifetime Utility</span></div><p>Two periods (t=1,2). Consumer chooses c₁ and c₂. Can save or borrow at rate r.</p><p style="margin-top:8px"><strong>U = u(c₁) + δ · u(c₂)</strong> where δ = discount factor (0 &lt; δ ≤ 1): δ=1 perfectly patient; δ → 0 completely present-focused. δ is subjective; r is objective — never confuse them.</p></div>
+    <div class="sum-card"><div class="sum-title"><span class="badge b-teal">D. Intertemporal Budget Constraint</span></div><p><strong>Key equation (no inflation):</strong> c₁ + c₂/(1+r) = m₁ + m₂/(1+r) &nbsp;→&nbsp; PV of consumption = PV of income</p><ul><li><strong>Endowment:</strong> (c₁,c₂) = (m₁,m₂) — no saving or borrowing</li><li><strong>Max saving (c₁=0):</strong> c₂ = m₂ + (1+r)m₁</li><li><strong>Max borrowing (c₂=0):</strong> c₁ = m₁ + m₂/(1+r)</li><li><strong>Slope = −(1+r) = MRT:</strong> giving up €1 today yields €(1+r) tomorrow</li></ul></div>
+    <div class="sum-card"><div class="sum-title"><span class="badge b-teal">E. MRT with Inflation</span></div><p><strong>General MRT:</strong> MRT = (1+r) × (p₁/p₂)</p><ul><li>No inflation (p₁=p₂=1): MRT = (1+r). Budget line slope = −(1+r).</li><li>Inflation (p₂ &gt; p₁): MRT decreases → budget line becomes <strong>flatter</strong></li><li>Effect: savings buy fewer real goods in the future → consumption tilts toward the present</li></ul><div class="note-box">Peter example with p₂=2: retirement consumption drops ~70% vs. no-inflation case.</div></div>
+    <div class="sum-card"><div class="sum-title"><span class="badge b-teal">F. MRS and Optimal Choice</span></div><p><strong>MRS = MU_c₁ / MU_c₂</strong> — subjective trade-off. Remember: MU_c₂ includes δ from U = u(c₁) + δ·u(c₂). <strong>Optimality: MRS = MRT.</strong></p><ul><li>Saver: c₁* &lt; m₁ (patient, high δ). Borrower: c₁* &gt; m₁ (impatient, low δ).</li><li>Steeper IC → more impatient. Flatter IC → more patient.</li></ul></div>
+    <div class="sum-card"><div class="sum-title"><span class="badge b-amber">G. The Peter Example — 7-Step Method <span class="badge b-eu" style="margin-left:6px">Exam Critical</span></span></div><p>m₁=€100,000 · m₂=€20,000 · u(c)=√c · δ=3/4 · r=0.2</p><ul><li><strong>Step 1:</strong> Identify m₁, m₂, r, p₁, p₂, δ, u(c)</li><li><strong>Step 2:</strong> MRT = (1+r)(p₁/p₂)</li><li><strong>Step 3:</strong> Budget line — slope + endowment → write c₂ = n − MRT·c₁</li><li><strong>Step 4:</strong> MRS = MU_c₁/MU_c₂ (include δ in MU_c₂!)</li><li><strong>Step 5:</strong> MRS = MRT → express c₂ as f(c₁)</li><li><strong>Step 6:</strong> Substitute into budget → solve c₁*</li><li><strong>Step 7:</strong> Compute c₂*, check saver vs borrower</li></ul><table class="comp-table" style="margin-top:10px"><tr><th>Case</th><th>MRT</th><th>c₁*</th><th>c₂*</th></tr><tr><td>No inflation (p₂=1)</td><td>1.2</td><td>69,651</td><td>56,418</td></tr><tr><td>Inflation (p₂=2)</td><td>0.6</td><td>87,227</td><td>17,664</td></tr></table></div>
+  </div>
+  <div id="mch4-compare" class="study-panel">
+    <div class="sum-card"><div class="sum-title">Saver vs. Borrower</div><table class="comp-table"><tr><th>Feature</th><th>Saver</th><th>Borrower</th></tr><tr><td>c₁* vs m₁</td><td>c₁* &lt; m₁</td><td>c₁* &gt; m₁</td></tr><tr><td>IC at endowment</td><td>MRS &lt; MRT (flatter than BL)</td><td>MRS &gt; MRT (steeper than BL)</td></tr><tr><td>Patience</td><td>High δ</td><td>Low δ</td></tr></table></div>
+    <div class="sum-card"><div class="sum-title">No Inflation vs. Inflation — Peter Example</div><table class="comp-table"><tr><th>Feature</th><th>No Inflation (p₂=1)</th><th>With Inflation (p₂=2)</th></tr><tr><td>MRT</td><td>(1+r) = 1.2</td><td>(1+r)(p₁/p₂) = 0.6</td></tr><tr><td>Budget slope</td><td>−1.2</td><td>−0.6 (flatter)</td></tr><tr><td>y-intercept</td><td>140,000</td><td>70,000</td></tr><tr><td>c₁*</td><td>69,651</td><td>87,227</td></tr><tr><td>c₂*</td><td>56,418</td><td>17,664 (−70%!)</td></tr></table></div>
+    <div class="sum-card"><div class="sum-title">MRS vs. MRT</div><table class="comp-table"><tr><th></th><th>MRS</th><th>MRT</th></tr><tr><td>Measures</td><td>Subjective preference trade-off</td><td>Objective market trade-off</td></tr><tr><td>Determined by</td><td>Utility function + δ</td><td>r + price levels p₁, p₂</td></tr><tr><td>Formula (no inflation)</td><td>MU_c₁/MU_c₂</td><td>(1+r)</td></tr><tr><td>Graphical</td><td>Slope of IC</td><td>Slope of budget line (abs. value)</td></tr><tr><td>Optimum</td><td colspan="2">MRS = MRT</td></tr></table></div>
+  </div>
+  <div id="mch4-calc" class="study-panel">
+    <div class="sum-card"><div class="sum-title">🔢 Intertemporal Choice Calculator</div><p style="font-size:13px;color:var(--text2);margin-bottom:16px">Enter parameters (assumes u(c)=√c) to compute the optimal plan using the 7-step method.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px">
+      <div><label style="font-size:12px;color:var(--text3);display:block;margin-bottom:4px">m₁ (Period 1 income)</label><input id="ch4-m1" type="number" value="100000" style="width:100%;padding:8px 12px;border:1px solid var(--border);border-radius:8px;font-family:var(--sans);font-size:14px;background:var(--surface)"></div>
+      <div><label style="font-size:12px;color:var(--text3);display:block;margin-bottom:4px">m₂ (Period 2 income)</label><input id="ch4-m2" type="number" value="20000" style="width:100%;padding:8px 12px;border:1px solid var(--border);border-radius:8px;font-family:var(--sans);font-size:14px;background:var(--surface)"></div>
+      <div><label style="font-size:12px;color:var(--text3);display:block;margin-bottom:4px">r (interest rate, e.g. 0.2)</label><input id="ch4-r" type="number" step="0.01" value="0.2" style="width:100%;padding:8px 12px;border:1px solid var(--border);border-radius:8px;font-family:var(--sans);font-size:14px;background:var(--surface)"></div>
+      <div><label style="font-size:12px;color:var(--text3);display:block;margin-bottom:4px">δ (discount factor, 0–1)</label><input id="ch4-delta" type="number" step="0.01" value="0.75" style="width:100%;padding:8px 12px;border:1px solid var(--border);border-radius:8px;font-family:var(--sans);font-size:14px;background:var(--surface)"></div>
+      <div><label style="font-size:12px;color:var(--text3);display:block;margin-bottom:4px">p₁ (Period 1 price level)</label><input id="ch4-p1" type="number" value="1" style="width:100%;padding:8px 12px;border:1px solid var(--border);border-radius:8px;font-family:var(--sans);font-size:14px;background:var(--surface)"></div>
+      <div><label style="font-size:12px;color:var(--text3);display:block;margin-bottom:4px">p₂ (Period 2 price level)</label><input id="ch4-p2" type="number" value="1" style="width:100%;padding:8px 12px;border:1px solid var(--border);border-radius:8px;font-family:var(--sans);font-size:14px;background:var(--surface)"></div>
+    </div>
+    <button class="btn btn-primary" onclick="ch4Calc()">Calculate Optimal Plan</button>
+    <div id="ch4-result" style="margin-top:16px;display:none"></div></div>
+  </div>
+  <!-- FLASHCARDS -->
+  <div id="mch4-flashcards" class="study-panel">
+    <div class="fc-controls"><button class="btn btn-sm" onclick="shuffleMicroFC('ch4')">Shuffle</button><button class="btn btn-sm" onclick="resetMicroFC('ch4')">Reset all</button><span style="font-size:12px;color:var(--text3);margin-left:4px">Rate each card — hard ones come back sooner</span></div>
+    <div class="fc-sr-bar" id="mch4-sr-bar"></div>
+    <div id="mch4-fc-wrap">
+      <div class="flashcard-wrap"><div class="flashcard" id="mch4-fc-card" onclick="flipMicroFC('ch4')">
+        <div class="fc-face fc-front" style="background:var(--surface)"><div class="fc-label">Question</div><div class="fc-question" id="mch4-fc-q"></div><div class="fc-hint">Click to reveal</div></div>
+        <div class="fc-face fc-back" style="background:var(--micro);transform:rotateY(180deg)"><div class="fc-label">Answer</div><div class="fc-answer" id="mch4-fc-a"></div><div class="fc-src" id="mch4-fc-src"></div></div>
+      </div></div>
+      <div class="sr-btns"><button class="sr-btn sr-btn-hard" onclick="rateMicroFC('ch4',0)">😬 Still learning</button><button class="sr-btn sr-btn-ok" onclick="rateMicroFC('ch4',1)">🤔 Almost</button><button class="sr-btn sr-btn-easy" onclick="rateMicroFC('ch4',2)">✓ Got it</button></div>
+      <div class="sr-mode-note">Card <span id="mch4-fc-counter">1</span> of <span id="mch4-fc-total"></span></div>
+    </div>
+    <div class="fc-sr-done" id="mch4-fc-done" style="display:none"><h3>Session complete! 🎉</h3><p id="mch4-done-msg"></p><div style="display:flex;gap:10px;justify-content:center;margin-top:16px"><button class="btn btn-primary" onclick="reviewMicroWeak('ch4')">Review weak cards</button><button class="btn" onclick="resetMicroFC('ch4')">Start over</button></div></div>
+  </div>
+
+  <!-- QUIZ -->
+  <div id="mch4-quiz" class="study-panel">
+    <div id="mqch4-wrap"><div class="quiz-prog"><div class="quiz-prog-fill" id="mqch4-pfill" style="width:0%"></div></div><div class="quiz-meta" id="mqch4-meta"></div><div class="quiz-q" id="mqch4-text"></div><div class="quiz-opts" id="mqch4-opts"></div><div class="quiz-fb" id="mqch4-fb"></div><div id="mqch4-next" style="display:none"><button class="btn btn-primary" onclick="nextMicroQ('ch4')">Next →</button></div></div>
+    <div class="quiz-score-screen" id="mqch4-score"><div class="score-row"><div class="score-big" id="mqch4-big" style="color:var(--micro)"></div><div class="score-right"><div class="score-lbl">correct answers</div><div class="score-msg" id="mqch4-msg"></div></div></div><div class="weak-section" id="mqch4-weak"></div><div style="margin-top:20px;display:flex;gap:10px"><button class="btn btn-primary" onclick="restartMicroQuiz('ch4')">Try again</button><button class="btn" onclick="showMicroTab('summary',null,'ch4')">Back to summary</button></div></div>
+  </div>
+</div>
+
+<!-- ══ MICRO CH5 ══ -->
+<div id="page-micro-ch5" class="page">
+  <div class="page-eyebrow" style="color:var(--micro)">Microeconomics · Chapter 5</div>
+  <div class="page-title">Behavioural Economics — Introduction</div>
+  <div class="page-desc">Homo Oeconomicus · Three Departures · Non-Standard Preferences · Beliefs · Decision-Making · Loss Aversion</div>
+  <div class="study-tabs">
+    <button class="study-tab active" onclick="showMicroTab('summary',this,'ch5')">Summary</button>
+    <button class="study-tab" onclick="showMicroTab('compare',this,'ch5')">Compare</button>
+    <button class="study-tab" onclick="showMicroTab('flashcards',this,'ch5')">Flashcards</button>
+    <button class="study-tab" onclick="showMicroTab('quiz',this,'ch5')">Quiz</button>
+  </div>
+  <div id="mch5-summary" class="study-panel active">
+    <div class="sum-card"><div class="sum-title"><span class="badge b-teal">A. The Standard Model</span></div><p>Classical agent maximises: <strong>max Σ π(s)·U(xᵢ|s)</strong>. For intertemporal choice: U = Σ δᵗuₜ (exponential discounting → time-consistent). The standard model generates valid predictions but fails systematically in others.</p></div>
+    <div class="sum-card"><div class="sum-title"><span class="badge b-teal">B. The Homo Oeconomicus — 5 Properties</span></div><ul><li><strong>Exponentially discounts</strong> → time-consistent (plans always followed)</li><li><strong>Self-interested</strong> → purely selfish</li><li><strong>Preferences over final outcomes</strong>, not changes → path-independent</li><li><strong>Bayesian information processor</strong> → rational, correctly updated beliefs</li><li><strong>Maximises expected utility</strong> → evaluates all options, picks highest</li></ul><div class="note-box">Behavioral economics modifies these assumptions selectively where evidence shows systematic failure. It is rigorous and generates testable predictions — NOT a rejection of economics.</div></div>
+    <div class="sum-card"><div class="sum-title"><span class="badge b-teal">C. First Departure: Non-Standard Preferences (U)</span></div><p><strong>Time preferences:</strong> People procrastinate and change plans (present bias) → covered in Ch6.</p><p style="margin-top:8px"><strong>Reference-dependent preferences / Loss aversion:</strong> People value owned objects more (endowment effect). Buy insurance (risk-averse) AND lottery (risk-seeking) simultaneously — contradictory under standard EU. Explained by <strong>loss aversion</strong>: losses hurt more than equivalent gains please.</p><p style="margin-top:8px"><strong>Social preferences:</strong> People donate to charity, care about fairness. Explained by altruism, fairness concerns, inequity aversion.</p></div>
+    <div class="sum-card"><div class="sum-title"><span class="badge b-teal">D. Second Departure: Non-Standard Beliefs (π)</span></div><ul><li><strong>Overconfidence:</strong> People overestimate own ability, self-control, precision of information (especially men).</li><li><strong>Gambler's fallacy:</strong> After a streak of heads, expect tails — caused by the <strong>representativeness heuristic</strong>: short sequences expected to match the long-run distribution.</li></ul></div>
+    <div class="sum-card"><div class="sum-title"><span class="badge b-teal">E. Third Departure: Non-Standard Decision-Making (max)</span></div><ul><li><strong>Framing effects:</strong> Presentation (not substance) changes choices. "90% survival" vs "10% death rate" → different decisions.</li><li><strong>Satisficing:</strong> Stop when option is "good enough" — not optimal over all options.</li><li><strong>Limited attention:</strong> Focus on salient attributes (sticker price), neglect taxes, shipping, add-ons.</li></ul></div>
+  </div>
+  <div id="mch5-compare" class="study-panel">
+    <div class="sum-card"><div class="sum-title">Three Departures — Mapped to Standard Model</div><table class="comp-table"><tr><th>Departure</th><th>Standard Assumption</th><th>Behavioral Reality</th><th>Explaining Concept</th></tr><tr><td>Preferences — Time</td><td>Exponential → time-consistent</td><td>Procrastination; plans not followed</td><td>Present bias (β-δ model)</td></tr><tr><td>Preferences — Risk</td><td>Stable risk preferences over final outcomes</td><td>Endowment effect; insurance + lottery</td><td>Loss aversion / Reference dependence</td></tr><tr><td>Preferences — Social</td><td>Pure self-interest</td><td>Charity; fairness concerns</td><td>Altruism; inequity aversion</td></tr><tr><td>Beliefs</td><td>Rational, Bayesian</td><td>Overconfidence; gambler's fallacy</td><td>Representativeness heuristic</td></tr><tr><td>Decision-Making</td><td>Full optimisation</td><td>Framing effects; satisficing</td><td>Satisficing; limited attention</td></tr></table></div>
+    <div class="sum-card"><div class="sum-title">Homo Oeconomicus vs. Behavioral Agent</div><table class="comp-table"><tr><th>Property</th><th>Standard</th><th>Behavioral</th></tr><tr><td>Time discounting</td><td>Exponential (δᵗ)</td><td>Quasi-hyperbolic / β-δ</td></tr><tr><td>Social orientation</td><td>Pure self-interest</td><td>Altruism; fairness concerns</td></tr><tr><td>Outcome evaluation</td><td>Final levels</td><td>Changes relative to reference point</td></tr><tr><td>Belief formation</td><td>Bayesian, unbiased</td><td>Overconfident; representativeness heuristic</td></tr><tr><td>Decision process</td><td>Full maximisation</td><td>Satisficing; limited attention; framing</td></tr><tr><td>Plans</td><td>Always followed</td><td>Changed when present arrives</td></tr></table></div>
+  </div>
+  <!-- FLASHCARDS -->
+  <div id="mch5-flashcards" class="study-panel">
+    <div class="fc-controls"><button class="btn btn-sm" onclick="shuffleMicroFC('ch5')">Shuffle</button><button class="btn btn-sm" onclick="resetMicroFC('ch5')">Reset all</button><span style="font-size:12px;color:var(--text3);margin-left:4px">Rate each card — hard ones come back sooner</span></div>
+    <div class="fc-sr-bar" id="mch5-sr-bar"></div>
+    <div id="mch5-fc-wrap">
+      <div class="flashcard-wrap"><div class="flashcard" id="mch5-fc-card" onclick="flipMicroFC('ch5')">
+        <div class="fc-face fc-front" style="background:var(--surface)"><div class="fc-label">Question</div><div class="fc-question" id="mch5-fc-q"></div><div class="fc-hint">Click to reveal</div></div>
+        <div class="fc-face fc-back" style="background:var(--micro);transform:rotateY(180deg)"><div class="fc-label">Answer</div><div class="fc-answer" id="mch5-fc-a"></div><div class="fc-src" id="mch5-fc-src"></div></div>
+      </div></div>
+      <div class="sr-btns"><button class="sr-btn sr-btn-hard" onclick="rateMicroFC('ch5',0)">😬 Still learning</button><button class="sr-btn sr-btn-ok" onclick="rateMicroFC('ch5',1)">🤔 Almost</button><button class="sr-btn sr-btn-easy" onclick="rateMicroFC('ch5',2)">✓ Got it</button></div>
+      <div class="sr-mode-note">Card <span id="mch5-fc-counter">1</span> of <span id="mch5-fc-total"></span></div>
+    </div>
+    <div class="fc-sr-done" id="mch5-fc-done" style="display:none"><h3>Session complete! 🎉</h3><p id="mch5-done-msg"></p><div style="display:flex;gap:10px;justify-content:center;margin-top:16px"><button class="btn btn-primary" onclick="reviewMicroWeak('ch5')">Review weak cards</button><button class="btn" onclick="resetMicroFC('ch5')">Start over</button></div></div>
+  </div>
+
+  <!-- QUIZ -->
+  <div id="mch5-quiz" class="study-panel">
+    <div id="mqch5-wrap"><div class="quiz-prog"><div class="quiz-prog-fill" id="mqch5-pfill" style="width:0%"></div></div><div class="quiz-meta" id="mqch5-meta"></div><div class="quiz-q" id="mqch5-text"></div><div class="quiz-opts" id="mqch5-opts"></div><div class="quiz-fb" id="mqch5-fb"></div><div id="mqch5-next" style="display:none"><button class="btn btn-primary" onclick="nextMicroQ('ch5')">Next →</button></div></div>
+    <div class="quiz-score-screen" id="mqch5-score"><div class="score-row"><div class="score-big" id="mqch5-big" style="color:var(--micro)"></div><div class="score-right"><div class="score-lbl">correct answers</div><div class="score-msg" id="mqch5-msg"></div></div></div><div class="weak-section" id="mqch5-weak"></div><div style="margin-top:20px;display:flex;gap:10px"><button class="btn btn-primary" onclick="restartMicroQuiz('ch5')">Try again</button><button class="btn" onclick="showMicroTab('summary',null,'ch5')">Back to summary</button></div></div>
+  </div>
+</div>
+
+<!-- ══ MICRO CH6 ══ -->
+<div id="page-micro-ch6" class="page">
+  <div class="page-eyebrow" style="color:var(--micro)">Microeconomics · Chapter 6</div>
+  <div class="page-title">Time Inconsistency</div>
+  <div class="page-desc">β-δ Model · Present Bias · TC vs Naif vs Sophisticate · Procrastination · Preproperation · Real-World Evidence</div>
+  <div class="study-tabs">
+    <button class="study-tab active" onclick="showMicroTab('summary',this,'ch6')">Summary</button>
+    <button class="study-tab" onclick="showMicroTab('compare',this,'ch6')">Compare</button>
+    <button class="study-tab" onclick="showMicroTab('flashcards',this,'ch6')">Flashcards</button>
+    <button class="study-tab" onclick="showMicroTab('quiz',this,'ch6')">Quiz</button>
+  </div>
+  <div id="mch6-summary" class="study-panel active">
+    <div class="sum-card"><div class="sum-title"><span class="badge b-teal">A. Time Inconsistency — Core Idea</span></div><p><strong>Time inconsistency</strong> = making a plan and deviating when the moment arrives. "I'll study next week" → "I'll start tomorrow."</p><p style="margin-top:8px"><strong>Exponential (benchmark):</strong> D^t(τ) = δ^(τ−t). Relative weight constant over time → no preference reversals → <strong>time-consistent</strong>. Plans always followed.<br><strong>Hyperbolic:</strong> D^t(τ) = [1+α(τ−t)]^(−γ/α). Weight on t=45 relative to t=40 decreases as t approaches 40 → preference reversals → <strong>time-inconsistent</strong>.</p></div>
+    <div class="sum-card"><div class="sum-title"><span class="badge b-teal">B. Empirical Evidence</span></div><ul><li><strong>McClure 2007 (juice):</strong> 60% choose 2ml now vs 3ml in 5 min; only 30% when same 5-min gap is fully in the future. "Now vs. not-now" drives impatience.</li><li><strong>Read 1999 (movies):</strong> 56%/37%/29% choose lowbrow movie for today/1wk/2wks. Future choices are more virtuous.</li><li><strong>Read &amp; van Leeuwen 1998 (snacks):</strong> 70% choose chocolate for today but only 24% for next week.</li></ul><p style="margin-top:8px"><strong>Commitment devices</strong> (alarms, app limits, contracts) are indirect "smoking-gun" evidence — TC agents would never need them.</p></div>
+    <div class="sum-card"><div class="sum-title"><span class="badge b-amber">C. The β-δ Model <span class="badge b-eu" style="margin-left:6px">Exam Critical</span></span></div><p>D^t(τ) = 1 if τ=t &nbsp;|&nbsp; βδ^(τ−t) if τ&gt;t</p><p style="font-family:monospace;background:var(--surface2);padding:8px 12px;border-radius:8px;margin:8px 0;font-size:13px">U^t = u_t + β · Σ(τ=t+1 to T) δ^(τ−t) · u_τ</p><ul><li><strong>δ</strong> = long-run per-period discount factor</li><li><strong>β &lt; 1</strong> = present bias — all future utility discounted by extra β on top of δ</li><li><strong>β = 1</strong> → no present bias → exponential → time-consistent (TC)</li></ul></div>
+    <div class="sum-card"><div class="sum-title"><span class="badge b-teal">D. Immediate Costs vs. Immediate Rewards</span></div><p>Assume δ=1. Delayed costs/rewards materialise at T+1.</p><p style="margin-top:8px"><strong>Immediate costs</strong> (studying, filing taxes, gym):</p><p style="font-family:monospace;background:var(--surface2);padding:6px 12px;border-radius:8px;margin:4px 0;font-size:12.5px">U^t(τ=t) = βv_τ − c_τ &nbsp;|&nbsp; U^t(τ&gt;t) = β(v_τ − c_τ)</p><p style="font-size:13px;color:var(--text2)">Cost not discounted by β when doing it now → feels extra large → <strong>procrastination</strong></p><p style="margin-top:10px"><strong>Immediate rewards</strong> (junk food, credit card spending):</p><p style="font-family:monospace;background:var(--surface2);padding:6px 12px;border-radius:8px;margin:4px 0;font-size:12.5px">U^t(τ=t) = v_τ − βc_τ &nbsp;|&nbsp; U^t(τ&gt;t) = β(v_τ − c_τ)</p><p style="font-size:13px;color:var(--text2)">Reward not discounted by β when doing it now → feels extra large → <strong>preproperation</strong></p></div>
+    <div class="sum-card"><div class="sum-title"><span class="badge b-amber">E. Three Types <span class="badge b-eu" style="margin-left:6px">Exam Critical</span></span></div><table class="comp-table"><tr><th>Type</th><th>β</th><th>β̂ (believes)</th><th>Behavior</th></tr><tr><td><strong>TC</strong></td><td>β=1</td><td>β̂=1</td><td>Stable preferences. Acts optimally.</td></tr><tr><td><strong>Naif</strong></td><td>β&lt;1</td><td>β̂=1 (wrong!)</td><td>Has bias but thinks future self is disciplined. Procrastinates / preproperates.</td></tr><tr><td><strong>Sophisticate</strong></td><td>β&lt;1</td><td>β̂=β (correct)</td><td>Anticipates own bias. Uses commitment devices.</td></tr></table></div>
+    <div class="sum-card"><div class="sum-title"><span class="badge b-amber">F. Present Bias &amp; Sophistication Effects <span class="badge b-eu" style="margin-left:6px">Exam Critical</span></span></div><p><strong>Present Bias Effect:</strong> Costs immediate → τ_n ≥ τ_tc (Naif procrastinates). Rewards immediate → τ_n ≤ τ_tc (Naif preproperates).</p><p style="margin-top:8px"><strong>Sophistication Effect:</strong> τ_s ≤ τ_n always. Immediate costs: mitigates procrastination. Immediate rewards: exacerbates preproperation.</p><p style="margin-top:8px"><strong>Orderings:</strong> Immediate rewards: τ_s ≤ τ_n ≤ τ_tc | Immediate costs: τ_tc ≤ τ_s ≤ τ_n</p></div>
+    <div class="sum-card"><div class="sum-title"><span class="badge b-teal">G. Examples &amp; Real-World</span></div><p><strong>Voucher (immediate rewards):</strong> v=(3,5,8,13), c=0, β=½, T=4 → TC: τ=4 | Naif: τ=3 | Sophisticate: τ=1</p><p style="margin-top:8px"><strong>Report (immediate costs):</strong> v=v̄, c=(3,5,8,13), β=½, T=4 → TC: τ=1 | Naif: τ=4 | Sophisticate: τ=2</p><p style="margin-top:8px"><strong>Credit cards (Meier &amp; Sprenger 2010):</strong> Immediate reward (consumption) + delayed costs (interest). Present-biased individuals more likely to carry debt and borrow more. Correlation with experimentally measured β.</p></div>
+  </div>
+  <div id="mch6-compare" class="study-panel">
+    <div class="sum-card"><div class="sum-title">Three Types — Full Comparison</div><table class="comp-table"><tr><th>Property</th><th>TC</th><th>Naif</th><th>Sophisticate</th></tr><tr><td>Present bias β</td><td>β=1</td><td>β&lt;1</td><td>β&lt;1</td></tr><tr><td>Belief β̂</td><td>β̂=1</td><td>β̂=1 (wrong)</td><td>β̂=β (correct)</td></tr><tr><td>Anticipates future bias?</td><td>N/A</td><td>No</td><td>Yes</td></tr><tr><td>Immediate costs (report)</td><td>Acts earliest (τ_tc)</td><td>Procrastinates most</td><td>In between</td></tr><tr><td>Immediate rewards (voucher)</td><td>Acts latest (τ_tc)</td><td>Preproperates (τ_n &lt; τ_tc)</td><td>Preproperates most (τ_s &lt; τ_n)</td></tr><tr><td>Commitment devices?</td><td>No need</td><td>No (doesn't think needed)</td><td>Yes — anticipates self-control issues</td></tr></table></div>
+    <div class="sum-card"><div class="sum-title">Immediate Costs vs. Immediate Rewards</div><table class="comp-table"><tr><th>Feature</th><th>Immediate Costs</th><th>Immediate Rewards</th></tr><tr><td>Examples</td><td>Studying, taxes, gym</td><td>Junk food, credit cards</td></tr><tr><td>U^t(τ=t)</td><td>βv_τ − c_τ</td><td>v_τ − βc_τ</td></tr><tr><td>Present bias causes</td><td>Procrastination</td><td>Preproperation</td></tr><tr><td>Naif vs TC</td><td>τ_n ≥ τ_tc</td><td>τ_n ≤ τ_tc</td></tr><tr><td>Sophistication effect</td><td>Mitigates procrastination</td><td>Exacerbates preproperation</td></tr><tr><td>Type ordering</td><td>τ_tc ≤ τ_s ≤ τ_n</td><td>τ_s ≤ τ_n ≤ τ_tc</td></tr></table></div>
+    <div class="sum-card"><div class="sum-title">Discounting Models</div><table class="comp-table"><tr><th>Model</th><th>Formula</th><th>Pref. Reversals?</th><th>Time-Consistent?</th></tr><tr><td>Exponential</td><td>δ^(τ−t)</td><td>No</td><td>Yes</td></tr><tr><td>Hyperbolic</td><td>[1+α(τ−t)]^(−γ/α)</td><td>Yes</td><td>No</td></tr><tr><td>β-δ (quasi-hyperbolic)</td><td>1 now; βδ^(τ−t) future</td><td>Yes (if β&lt;1)</td><td>Only if β=1</td></tr></table></div>
+  </div>
+  <!-- FLASHCARDS -->
+  <div id="mch6-flashcards" class="study-panel">
+    <div class="fc-controls"><button class="btn btn-sm" onclick="shuffleMicroFC('ch6')">Shuffle</button><button class="btn btn-sm" onclick="resetMicroFC('ch6')">Reset all</button><span style="font-size:12px;color:var(--text3);margin-left:4px">Rate each card — hard ones come back sooner</span></div>
+    <div class="fc-sr-bar" id="mch6-sr-bar"></div>
+    <div id="mch6-fc-wrap">
+      <div class="flashcard-wrap"><div class="flashcard" id="mch6-fc-card" onclick="flipMicroFC('ch6')">
+        <div class="fc-face fc-front" style="background:var(--surface)"><div class="fc-label">Question</div><div class="fc-question" id="mch6-fc-q"></div><div class="fc-hint">Click to reveal</div></div>
+        <div class="fc-face fc-back" style="background:var(--micro);transform:rotateY(180deg)"><div class="fc-label">Answer</div><div class="fc-answer" id="mch6-fc-a"></div><div class="fc-src" id="mch6-fc-src"></div></div>
+      </div></div>
+      <div class="sr-btns"><button class="sr-btn sr-btn-hard" onclick="rateMicroFC('ch6',0)">😬 Still learning</button><button class="sr-btn sr-btn-ok" onclick="rateMicroFC('ch6',1)">🤔 Almost</button><button class="sr-btn sr-btn-easy" onclick="rateMicroFC('ch6',2)">✓ Got it</button></div>
+      <div class="sr-mode-note">Card <span id="mch6-fc-counter">1</span> of <span id="mch6-fc-total"></span></div>
+    </div>
+    <div class="fc-sr-done" id="mch6-fc-done" style="display:none"><h3>Session complete! 🎉</h3><p id="mch6-done-msg"></p><div style="display:flex;gap:10px;justify-content:center;margin-top:16px"><button class="btn btn-primary" onclick="reviewMicroWeak('ch6')">Review weak cards</button><button class="btn" onclick="resetMicroFC('ch6')">Start over</button></div></div>
+  </div>
+
+  <!-- QUIZ -->
+  <div id="mch6-quiz" class="study-panel">
+    <div id="mqch6-wrap"><div class="quiz-prog"><div class="quiz-prog-fill" id="mqch6-pfill" style="width:0%"></div></div><div class="quiz-meta" id="mqch6-meta"></div><div class="quiz-q" id="mqch6-text"></div><div class="quiz-opts" id="mqch6-opts"></div><div class="quiz-fb" id="mqch6-fb"></div><div id="mqch6-next" style="display:none"><button class="btn btn-primary" onclick="nextMicroQ('ch6')">Next →</button></div></div>
+    <div class="quiz-score-screen" id="mqch6-score"><div class="score-row"><div class="score-big" id="mqch6-big" style="color:var(--micro)"></div><div class="score-right"><div class="score-lbl">correct answers</div><div class="score-msg" id="mqch6-msg"></div></div></div><div class="weak-section" id="mqch6-weak"></div><div style="margin-top:20px;display:flex;gap:10px"><button class="btn btn-primary" onclick="restartMicroQuiz('ch6')">Try again</button><button class="btn" onclick="showMicroTab('summary',null,'ch6')">Back to summary</button></div></div>
+  </div>
+</div>
+
 </main>
 </div>
 <script>
 // ── Navigation ──
 function showPage(id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));document.getElementById('page-'+id).classList.add('active');if(btn)btn.classList.add('active')}
 function showLecture(subject,id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-sub').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');const el=document.getElementById('page-'+subject+'-'+id);if(el){el.classList.add('active');if(subject==='eu'&&id==='i'){initFC('si');initQuiz('si')}if(subject==='eu'&&id==='ii'){initFC('sii');initQuiz('sii')}if(subject==='eu'&&id==='iii'){initFC('siii');initQuiz('siii');initSiiiTimeline()}if(subject==='eu'&&id==='iv'){initFC('siv');initQuiz('siv');initSivTimeline()}if(subject==='eu'&&id==='v'){initFC('sv');initQuiz('sv')}if(subject==='eu'&&id==='vi'){initFC('svi');initQuiz('svi');loadScenario(0,document.querySelector('.scenario-btn'))}if(subject==='eu'&&id==='vii'){initFC('svii');initQuiz('svii');initSviiTimeline()}if(subject==='eu'&&id==='viii'){initFC('sviii');initQuiz('sviii');initSviiiTimeline()}if(subject==='eu'&&id==='ix'){initFC('six');initQuiz('six')}if(subject==='micro'&&id==='ch2'){initMicroFC('ch2');initMicroQuiz('ch2');initCalcFor('ch2')}
-if(subject==='micro'&&id==='ch3'){initMicroFC('ch3');initMicroQuiz('ch3');initCalc()}if(subject==='micro'&&id==='ps1'){initMicroFC('ps1');initMicroQuiz('ps1');initCalcFor('ps1')}if(subject==='micro'&&id==='ps2'){initMicroFC('ps2');initMicroQuiz('ps2');initCalcFor('ps2')}if(subject==='micro'&&id==='ps3'){initMicroFC('ps3');initMicroQuiz('ps3')}if(subject==='macro'&&id==='lec1'){initMacroFC('lec1');initMacroQuiz('lec1');initCalcFor('lec1')}if(subject==='macro'&&id==='lec2'){initMacroFC('lec2');initMacroQuiz('lec2');initCalcFor('lec2')}if(subject==='macro'&&id==='lec3'){initMacroFC('lec3');initMacroQuiz('lec3');initCalcFor('lec3')}
+if(subject==='micro'&&id==='ch3'){initMicroFC('ch3');initMicroQuiz('ch3');initCalc()}if(subject==='micro'&&id==='ps1'){initMicroFC('ps1');initMicroQuiz('ps1');initCalcFor('ps1')}if(subject==='micro'&&id==='ps2'){initMicroFC('ps2');initMicroQuiz('ps2');initCalcFor('ps2')}if(subject==='micro'&&id==='ps3'){initMicroFC('ps3');initMicroQuiz('ps3')}if(subject==='micro'&&id==='ch4'){initMicroFC('ch4');initMicroQuiz('ch4')}if(subject==='micro'&&id==='ch5'){initMicroFC('ch5');initMicroQuiz('ch5')}if(subject==='micro'&&id==='ch6'){initMicroFC('ch6');initMicroQuiz('ch6')}if(subject==='macro'&&id==='lec1'){initMacroFC('lec1');initMacroQuiz('lec1');initCalcFor('lec1')}if(subject==='macro'&&id==='lec2'){initMacroFC('lec2');initMacroQuiz('lec2');initCalcFor('lec2')}if(subject==='macro'&&id==='lec3'){initMacroFC('lec3');initMacroQuiz('lec3');initCalcFor('lec3')}
 if(subject==='ic'&&id==='s1'){icInitFC('s1');icInitQuiz('s1')}
 if(subject==='ic'&&id==='s2'){icInitFC('s2');icInitQuiz('s2')}
 if(subject==='ic'&&id==='s3'){icInitFC('s3');icInitQuiz('s3')}
@@ -7603,7 +7759,7 @@ function showMicroTab(tab,btn,prefix){
   const panel=document.getElementById('m'+prefix+'-'+tab);
   if(panel)panel.classList.add('active');
   if(btn)btn.classList.add('active');
-  if(tab==='calc'){if(prefix==='ch3')initCalc();else initCalcFor(prefix);}
+  if(tab==='calc'){if(prefix==='ch3')initCalc();else if(prefix!=='ch4')initCalcFor(prefix);}
   if(tab==='flashcards'&&!microFcState[prefix])initMicroFC(prefix);
   if(tab==='quiz'&&!microQState[prefix])initMicroQuiz(prefix);
 }
@@ -8692,6 +8848,109 @@ microQData['ps3']=[
   {q:"Maria (δ=4/5) vs Jenny (δ=2/3): same budget, same utility structure. Who borrows more?",opts:["Maria","Jenny","They borrow equally","Cannot determine"],ans:1,exp:"Jenny is less patient (lower δ) → values present more → borrows more → higher c₁. Maria is more patient → saves more → lower c₁.",topic:"Comparative Statics"},
   {q:"When should you use the 'plug preference into budget' method instead of MRS=MRT?",opts:["Always","When preferences are Leontief/fixed-ratio (e.g. c₁=c₂ always)","When r=0","When m₁=0"],ans:1,exp:"Fixed-ratio preferences (like Harvey's) pin down the c₁/c₂ ratio directly. There's no meaningful MRS to compute — just substitute the preference into the budget line.",topic:"Methods"},
   {q:"What is the final sanity check for any intertemporal optimisation?",opts:["Check MRS<MRT","Plug c₁* and c₂* back into the budget line","Check δ<1","Verify c₁*=c₂*"],ans:1,exp:"Always verify the budget line holds: p₁c₁* + p₂/(1+r)·c₂* = m₁ + m₂/(1+r). A small algebra error will show up here.",topic:"Exam Tips"},
+];
+// ── Micro Ch4/Ch5/Ch6 Flashcard & Quiz Data ──
+microFcData['ch4']=[
+  {q:"What is an intertemporal choice?",a:"A decision where costs and benefits fall in different time periods — e.g. retirement savings, education, health investment. Core insight: €1 today ≠ €1 tomorrow.",src:"Ch4 Introduction",topic:"Intertemporal Choice"},
+  {q:"Formula for Future Value (FV) of m today?",a:"FV = m(1 + r). Save m today at interest rate r → receive m(1+r) tomorrow.",src:"Ch4 — Time Value",topic:"Time Value"},
+  {q:"Formula for Present Value (PV) of m received tomorrow?",a:"PV = m / (1 + r). Discount future amounts to compare with present.",src:"Ch4 — Time Value",topic:"Time Value"},
+  {q:"What is the endowment point?",a:"The bundle (c₁, c₂) = (m₁, m₂) — what the consumer gets if she neither saves nor borrows. Always lies on the budget line.",src:"Ch4 — Budget Constraint",topic:"Budget Line"},
+  {q:"What is the intertemporal budget line equation (no inflation)?",a:"c₁ + c₂/(1+r) = m₁ + m₂/(1+r). Read as: PV of consumption = PV of income.",src:"Ch4 — Budget Line",topic:"Budget Line"},
+  {q:"What is the slope of the intertemporal budget line (no inflation)?",a:"Slope = −(1+r). Giving up €1 today yields €(1+r) tomorrow. This is the MRT.",src:"Ch4 — MRT",topic:"MRT"},
+  {q:"General MRT formula with prices p₁ and p₂?",a:"MRT = (1+r) × (p₁/p₂). The rate at which the market allows you to trade present for future consumption.",src:"Ch4 — MRT with Inflation",topic:"MRT"},
+  {q:"What happens to the budget line when inflation occurs (p₂ > p₁)?",a:"MRT decreases — budget line becomes flatter. Your savings buy fewer goods in the future → optimal consumption tilts toward the present.",src:"Ch4 — Inflation",topic:"Inflation"},
+  {q:"What does the discount factor δ measure?",a:"How much future utility counts relative to present. δ=1: perfectly patient. δ<1: impatient. Smaller δ = stronger preference for present.",src:"Ch4 — Preferences",topic:"Discount Factor"},
+  {q:"What is the optimality condition in intertemporal choice?",a:"MRS = MRT. Subjective preference trade-off = objective market trade-off. Same principle as static consumer theory.",src:"Ch4 — Optimal Choice",topic:"Optimality"},
+  {q:"What is the MRS in intertemporal choice?",a:"MRS = MU_c₁ / MU_c₂. Note: MU_c₂ includes δ from the utility function U = u(c₁) + δ·u(c₂).",src:"Ch4 — MRS",topic:"MRS"},
+  {q:"How do you identify a saver vs a borrower?",a:"Saver: c₁* < m₁ (patient, high δ). Borrower: c₁* > m₁ (impatient, low δ). Check by comparing optimal c₁* to period-1 income.",src:"Ch4 — Saver/Borrower",topic:"Saver vs Borrower"},
+  {q:"When does a steeper indifference curve appear and what does it mean?",a:"Steeper curve → more impatient consumer (values present consumption heavily). Flatter curve → more patient.",src:"Ch4 — Preferences",topic:"Preferences"},
+  {q:"Why should you always choose the highest PV income stream?",a:"With a capital market, higher PV income expands your budget set — you can reach higher indifference curves regardless of your patience level.",src:"Ch4 — NPV Principle",topic:"NPV"},
+  {q:"In the Peter example (no inflation): budget line, optimal c₁*, c₂*?",a:"Budget: c₂ = 140,000 − 1.2c₁. MRS = MRT gives c₂ = 0.81c₁. Solution: c₁* ≈ 69,651; c₂* ≈ 56,418. Peter saves.",src:"Ch4 — Peter Example",topic:"Peter Example"},
+  {q:"In the Peter example with inflation (p₂=2): MRT and c₁*, c₂*?",a:"MRT = 0.6 (halved). Budget: c₂ = 70,000 − 0.6c₁. c₁* ≈ 87,227; c₂* ≈ 17,664. Retirement consumption drops ~70%.",src:"Ch4 — Peter Inflation",topic:"Peter Example"},
+  {q:"What does the y-intercept of the budget line represent?",a:"Maximum future consumption = m₂ + (1+r)m₁. Consumer saves all period-1 income and earns interest.",src:"Ch4 — Budget Line",topic:"Budget Line"},
+  {q:"Common trap: what does MU_c₂ look like for U = √c₁ + δ√c₂?",a:"MU_c₂ = δ · (1/2√c₂). The δ is part of MU_c₂ — forgetting it is the #1 exam error in MRS calculations.",src:"Ch4 — MRS Derivation",topic:"MRS"},
+];
+microQData['ch4']=[
+  {q:"What does the slope −(1+r) of the budget line mean?",opts:["You can borrow at rate r","Giving up €1 today yields €(1+r) tomorrow","Future income is discounted by (1+r)","You prefer future consumption"],ans:1,exp:"Slope = MRT = −(1+r): for each unit of c₁ you sacrifice, you gain exactly (1+r) units of c₂. This is the objective market trade-off.",topic:"MRT"},
+  {q:"m₁=100, m₂=0, r=0.25. Maximum c₂?",opts:["100","125","80","0"],ans:1,exp:"Max c₂ = m₂ + (1+r)m₁ = 0 + 1.25×100 = 125. Save all period-1 income and earn interest.",topic:"Budget Line"},
+  {q:"PV of €120 received next period at r=0.20?",opts:["€144","€120","€100","€96"],ans:2,exp:"PV = 120/(1+0.20) = 100. Discounting converts future amounts to today-euros.",topic:"Time Value"},
+  {q:"What happens to the budget line when p₂ doubles (p₂=2p₁)?",opts:["Shifts up parallel","Steeper","Flatter","Unchanged"],ans:2,exp:"MRT = (1+r)(p₁/p₂). Higher p₂ reduces p₁/p₂ → slope smaller → flatter. Savings buy fewer goods.",topic:"Inflation"},
+  {q:"What is the optimality condition in intertemporal choice?",opts:["MRS = δ","MU_c₁ = MU_c₂","MRS = MRT","PV of consumption > PV of income"],ans:2,exp:"As in all constrained optimization: MRS = MRT. Subjective trade-off equals market trade-off.",topic:"Optimality"},
+  {q:"A consumer with low δ (close to 0) is best described as:",opts:["Very patient — saves a lot","Very impatient — likely borrows","Indifferent between periods","Time-consistent"],ans:1,exp:"Low δ = strong preference for present → likely borrows (c₁* > m₁).",topic:"Discount Factor"},
+  {q:"Peter's c₁* ≈ 69,651 is less than m₁=100,000. This means:",opts:["He borrows","He saves — consumes less than income","He is at the endowment","Budget line slopes upward"],ans:1,exp:"c₁* < m₁ → saves the difference for retirement.",topic:"Peter Example"},
+  {q:"Why always choose the income stream with highest PV?",opts:["Higher PV → higher income always","Higher PV strictly expands the budget set, reaching higher ICs regardless of preferences","People always prefer present","Budget constraint irrelevant"],ans:1,exp:"With a capital market, higher PV income shifts the budget line outward — any consumer can reach a higher indifference curve.",topic:"NPV"},
+  {q:"In Peter's case with p₂=2, MRT=?",opts:["1.2","0.6","2.4","0.3"],ans:1,exp:"MRT = (1+r)(p₁/p₂) = 1.2×(1/2) = 0.6. Inflation halves the real return to saving.",topic:"MRT with Inflation"},
+  {q:"The general solution procedure requires setting:",opts:["δ equal to r","MRS = MRT then substitute into budget line","MU_c₁ = 0","Present income = future income"],ans:1,exp:"Step 1: MRS=MRT → express c₂ as function of c₁. Step 2: substitute into budget line → solve for c₁*, then c₂*.",topic:"Solution Procedure"},
+  {q:"What is the y-intercept of the budget line?",opts:["m₂ alone","Max current consumption if borrowing fully","Max future consumption: m₂+(1+r)m₁","The endowment point"],ans:2,exp:"c₁=0 → c₂ = m₂ + (1+r)m₁. This is the saving maximum.",topic:"Budget Line"},
+  {q:"If a consumer is at the endowment point, she is:",opts:["Saving half her income","Neither saving nor borrowing","At maximum borrowing","At utility maximum"],ans:1,exp:"Endowment = (m₁, m₂): just consumes her income each period. It lies on the budget line but is optimal only if MRS=MRT holds there.",topic:"Endowment"},
+  {q:"Inflation makes retirement saving:",opts:["More attractive — higher prices","Less attractive — future purchasing power reduced","Irrelevant — only nominal amounts matter","More attractive — interest rates auto-rise"],ans:1,exp:"Higher p₂ means savings buy fewer real goods in retirement. Budget line flattens, real future consumption shrinks.",topic:"Inflation"},
+  {q:"For U=√c₁+δ√c₂, what is MU_c₂?",opts:["1/2√c₂","δ/2√c₂","δ·√c₂","1/√c₂"],ans:1,exp:"MU_c₂ = ∂/∂c₂[δ√c₂] = δ/(2√c₂). The δ multiplier is essential — forgetting it is the most common exam error.",topic:"MRS Derivation"},
+  {q:"Period-2 budget line intercept with p₁=p₂=1, m₁=80k, m₂=10k, r=0.25 is:",opts:["90,000","110,000","100,000","80,000"],ans:1,exp:"Max c₂ = m₂ + (1+r)m₁ = 10,000 + 1.25×80,000 = 110,000.",topic:"Budget Line Calculation"},
+];
+microFcData['ch5']=[
+  {q:"What are the 3 departures from the standard model in behavioral economics?",a:"(1) Non-standard preferences (U), (2) Non-standard beliefs (π), (3) Non-standard decision-making (max process).",src:"Ch5 — Structure",topic:"Overview"},
+  {q:"What are the 5 properties of the homo oeconomicus?",a:"1. Exponential discounting → time-consistent. 2. Self-interested → selfish. 3. Preferences over final outcomes → path-independent. 4. Bayesian beliefs → rational updating. 5. Maximises expected utility → optimal decisions.",src:"Ch5 — Homo Oeconomicus",topic:"Standard Model"},
+  {q:"What is the endowment effect and which behavioral concept explains it?",a:"People value an object more after acquiring it than before. Explained by loss aversion / reference dependence: giving it up feels like a loss, weighted more heavily than an equivalent gain.",src:"Ch5 — Loss Aversion",topic:"Reference Dependence"},
+  {q:"What is loss aversion?",a:"Losses hurt more than equivalent gains please. A loss of €X causes more discomfort than a gain of €X causes pleasure. Leads to reference-dependent preferences.",src:"Ch5 — Loss Aversion",topic:"Reference Dependence"},
+  {q:"What is overconfidence in behavioral economics?",a:"People systematically overestimate their own ability, self-control, or precision of their information. Especially documented in men. A form of non-standard beliefs.",src:"Ch5 — Non-Standard Beliefs",topic:"Beliefs"},
+  {q:"What is the gambler's fallacy and what causes it?",a:"After a streak of heads, people expect tails. Caused by the representativeness heuristic: short sequences expected to look like the long-run distribution.",src:"Ch5 — Gambler's Fallacy",topic:"Beliefs"},
+  {q:"What is satisficing?",a:"Stopping search when an option meets a minimum threshold ('good enough'), rather than optimising over all options. A non-standard decision-making process.",src:"Ch5 — Non-Standard Decision-Making",topic:"Decision-Making"},
+  {q:"Why does buying insurance AND playing the lottery contradict the standard model?",a:"Insurance = risk-averse (concave utility); lottery = risk-seeking (convex utility). Standard EU theory needs consistent risk preferences — both simultaneously require contradictory utility function shapes.",src:"Ch5 — Reference Dependence",topic:"Reference Dependence"},
+  {q:"What is a framing effect?",a:"Changing the presentation of an option (not its substance) changes the choice. '90% survival rate' vs '10% death rate' produce different decisions despite being identical.",src:"Ch5 — Non-Standard Decision-Making",topic:"Decision-Making"},
+  {q:"What is the representativeness heuristic?",a:"Assessing probability by how much something resembles a typical case. Causes gambler's fallacy — short sequences expected to match the long-run distribution.",src:"Ch5 — Beliefs",topic:"Beliefs"},
+  {q:"What is limited attention in behavioral economics?",a:"People focus on salient attributes (sticker price) and neglect others (taxes, shipping, add-ons). A non-standard decision-making phenomenon.",src:"Ch5 — Decision-Making",topic:"Decision-Making"},
+  {q:"Is behavioral economics a rejection of the standard model?",a:"No. It selectively modifies failing assumptions while retaining mathematical rigour. It identifies where and how the standard model fails, and generates testable predictions.",src:"Ch5 — Overview",topic:"Overview"},
+  {q:"What are social preferences?",a:"Preferences where well-being is affected by others' outcomes. Types: altruism (caring positively about others), fairness concerns, inequity aversion (disliking large outcome gaps).",src:"Ch5 — Social Preferences",topic:"Social Preferences"},
+  {q:"What is Bayesian belief updating?",a:"When new information arrives, the agent correctly updates prior beliefs using Bayes' rule to form an optimal posterior. Behavioral agents deviate via overconfidence or representativeness heuristic.",src:"Ch5 — Standard Model",topic:"Beliefs"},
+  {q:"What is the standard intertemporal utility function (homo oeconomicus)?",a:"U = Σ δᵗuₜ (summed t=0 to T). Each period's utility discounted by δᵗ — exponential discounting. Implies time-consistent behavior.",src:"Ch5 — Standard Model",topic:"Standard Model"},
+];
+microQData['ch5']=[
+  {q:"Which is NOT one of the 3 departures identified by behavioral economics?",opts:["Non-standard preferences","Non-standard beliefs","Non-standard income levels","Non-standard decision-making"],ans:2,exp:"The three departures map to U, π, and the max process. Income levels are not a behavioral category.",topic:"Overview"},
+  {q:"Valuing your coffee mug at €10 after owning it, but only willing to pay €5 to buy it, illustrates:",opts:["Overconfidence","Gambler's fallacy","Endowment effect / loss aversion","Satisficing"],ans:2,exp:"Endowment effect: valuing an owned object more than you'd pay to acquire it. Explained by loss aversion.",topic:"Reference Dependence"},
+  {q:"Exponential discounting in the standard model implies:",opts:["Present bias and procrastination","Time-inconsistent behavior","Time-consistent behavior — plans always followed","Full impatience"],ans:2,exp:"With constant per-period discounting (δᵗ), relative weight between any two future periods stays constant → no preference reversals → time-consistent.",topic:"Standard Model"},
+  {q:"The gambler's fallacy is caused by:",opts:["Bayesian updating","Loss aversion","Representativeness heuristic","Satisficing"],ans:2,exp:"Gambler's fallacy arises from expecting short sequences to look like the long-run distribution (representativeness heuristic). Bayesian updating would recognize each draw as independent.",topic:"Beliefs"},
+  {q:"Which is an example of non-standard decision-making?",opts:["Preferring present over future consumption","Updating beliefs too slowly after new information","Stopping search once you find something 'good enough'","Donating to charity"],ans:2,exp:"Stopping when 'good enough' is satisficing — a non-standard decision-making process. A is a preference. B is a belief. D is a social preference.",topic:"Decision-Making"},
+  {q:"In the standard model, π(s) refers to:",opts:["Utility from state s","Subjective probability beliefs about state s","The price in state s","Social preference weight"],ans:1,exp:"π(s) are subjective probability beliefs over states of the world. Can be known probabilities or Bayesian updates.",topic:"Standard Model"},
+  {q:"Buying insurance AND lottery tickets simultaneously contradicts standard EU theory because:",opts:["Insurance and lotteries are for different people","Standard model says people should be risk-neutral","Insurance requires risk aversion, lottery requires risk-seeking — contradictory under one utility function","Standard model doesn't include financial decisions"],ans:2,exp:"Standard EU needs consistent risk preferences. Concave (insurance) and convex (lottery) cannot coexist under standard assumptions. Loss aversion can reconcile both.",topic:"Reference Dependence"},
+  {q:"Overconfidence is classified as a failure of:",opts:["Preferences","Decision-making","Beliefs","Budget constraints"],ans:2,exp:"Overconfidence is a biased belief — inflated assessment of own ability/information. Belongs to the π(s) component.",topic:"Beliefs"},
+  {q:"Limited attention means consumers:",opts:["Have limited income","Focus on salient attributes and neglect others like taxes or shipping","Are altruistic","Always satisfice"],ans:1,exp:"Limited attention: people focus on headline price, neglect add-ons, taxes, shipping. Non-standard decision-making.",topic:"Decision-Making"},
+  {q:"Which standard model prediction does behavioral economics NOT dispute?",opts:["Preferences are stable and consistent over time","Demand typically falls when price rises","People always choose highest-utility option","People update beliefs without systematic bias"],ans:1,exp:"Demand falling when price rises is a robust empirical prediction. The others are precisely where behavioral anomalies arise.",topic:"Overview"},
+];
+microFcData['ch6']=[
+  {q:"What is time inconsistency?",a:"Making a plan at one point and deviating from it when the moment arrives. E.g. 'I'll study next week' → next week: 'I'll start tomorrow.'",src:"Ch6 — Core Concept",topic:"Time Inconsistency"},
+  {q:"What does exponential discounting imply about behavior?",a:"D^t(τ) = δ^(τ−t). Weight between any two future periods is constant over time → no preference reversals → time-consistent behavior. Plans are always followed.",src:"Ch6 — Exponential Discounting",topic:"Discounting Models"},
+  {q:"What does hyperbolic discounting generate?",a:"D^t(τ) = [1+α(τ−t)]^(−γ/α). Weight on t=45 relative to t=40 decreases as t approaches 40 → preference reversals → time-inconsistent behavior.",src:"Ch6 — Hyperbolic Discounting",topic:"Discounting Models"},
+  {q:"Write the β-δ discount function.",a:"D^t(τ) = 1 if τ=t (today gets full weight); βδ^(τ−t) if τ>t (future gets additional discount β).",src:"Ch6 — β-δ Model",topic:"β-δ Model"},
+  {q:"Write the β-δ intertemporal utility formula.",a:"U^t = u_t + β · Σ(τ=t+1 to T) δ^(τ−t) · u_τ. Current period undiscounted; all future utilities discounted by β (and δ for distance).",src:"Ch6 — β-δ Model",topic:"β-δ Model"},
+  {q:"What does β represent and when is β=1?",a:"β = present bias parameter. β<1: future discounted extra → present bias. β=1: no present bias → standard exponential discounting → time-consistent (TC).",src:"Ch6 — β-δ Model",topic:"β-δ Model"},
+  {q:"What is present bias?",a:"Overweighting the present relative to any future period. Even a small delay from 'now' to 'next period' disproportionately reduces attractiveness. Captured by β<1.",src:"Ch6 — Present Bias",topic:"Present Bias"},
+  {q:"Intertemporal utility formula: immediate costs (doing at τ=t vs τ>t)?",a:"U^t(τ=t) = βv_τ − c_τ (reward discounted, cost not). U^t(τ>t) = β(v_τ − c_τ) (both discounted). Present bias makes current cost feel extra large → procrastination.",src:"Ch6 — Immediate Costs",topic:"Cost/Reward Structure"},
+  {q:"Intertemporal utility formula: immediate rewards (doing at τ=t vs τ>t)?",a:"U^t(τ=t) = v_τ − βc_τ (reward full, cost discounted). U^t(τ>t) = β(v_τ − c_τ) (both discounted). Present bias makes reward feel extra large now → preproperation.",src:"Ch6 — Immediate Rewards",topic:"Cost/Reward Structure"},
+  {q:"What is a Naif (complete naif) in the β-δ model?",a:"Present-biased (β<1) but believes β̂=1 — mistakenly thinks future selves will be fully disciplined. Plans optimistically but fails to follow through.",src:"Ch6 — Types",topic:"TC/Naif/Sophisticate"},
+  {q:"What is a Sophisticate in the β-δ model?",a:"Present-biased (β<1) AND correctly anticipates β̂=β. Knows future selves will also be tempted. Uses commitment devices. Correctly predicts when future self will act.",src:"Ch6 — Types",topic:"TC/Naif/Sophisticate"},
+  {q:"State the Present Bias Effect formally.",a:"If costs are immediate: τ_n ≥ τ_tc (Naif procrastinates). If rewards are immediate: τ_n ≤ τ_tc (Naif preproperates).",src:"Ch6 — Present Bias Effect",topic:"Present Bias Effect"},
+  {q:"State the Sophistication Effect formally.",a:"For all cases, τ_s ≤ τ_n. Sophisticate acts no later than Naif. Immediate costs: mitigates procrastination. Immediate rewards: exacerbates preproperation.",src:"Ch6 — Sophistication Effect",topic:"Sophistication Effect"},
+  {q:"What is a commitment device and why is it behavioral evidence?",a:"A mechanism restricting future choices to follow through on plans (alarms, contracts, app limits). Time-consistent agents would never need them — voluntary use is 'smoking-gun' evidence of present bias.",src:"Ch6 — Commitment Devices",topic:"Commitment Devices"},
+  {q:"What did the juice experiment (McClure 2007) demonstrate?",a:"60% chose 2ml now vs 3ml in 5 min (Group 1); only 30% chose the earlier option when both were in the future (same 5-min gap). The 'now vs. not-now' distinction — not absolute delay — drives impatience.",src:"Ch6 — Evidence",topic:"Empirical Evidence"},
+  {q:"Type ordering for immediate-reward activities?",a:"τ_s ≤ τ_n ≤ τ_tc. Sophisticate acts earliest (preproperates most), TC acts latest (waits optimally).",src:"Ch6 — Voucher Example",topic:"Examples"},
+  {q:"Type ordering for immediate-cost activities?",a:"τ_tc ≤ τ_s ≤ τ_n. TC acts earliest (optimal), Naif procrastinates most (τ_n latest).",src:"Ch6 — Report Example",topic:"Examples"},
+  {q:"What is preproperation?",a:"Acting too early relative to the optimal time. Occurs with immediate-reward activities — present bias makes acting now extra attractive even when waiting yields a bigger reward.",src:"Ch6 — Preproperation",topic:"Preproperation"},
+  {q:"Voucher example (v=3,5,8,13; β=½; T=4): when does each type act?",a:"TC: τ=4 (films improve, always wait). Naif: τ=3 (expects TC behavior but present bias kicks in at t=3). Sophisticate: τ=1 (anticipates she'll grab early — acts immediately).",src:"Ch6 — Voucher Example",topic:"Examples"},
+  {q:"Meier & Sprenger (2010) credit card finding?",a:"Present-biased individuals (measured experimentally) are more likely to carry credit card debt and borrow more. Credit card = immediate reward (consumption) + delayed costs (interest).",src:"Ch6 — Real-World Application",topic:"Real-World"},
+];
+microQData['ch6']=[
+  {q:"Under exponential discounting, the relative weight between two future periods:",opts:["Decreases as the earlier period approaches","Increases as the earlier period approaches","Remains constant over time","Depends on β"],ans:2,exp:"Exponential discounting gives constant per-period factor δ. The relative weight between any two periods is always δ^(gap), regardless of when you evaluate. This is what makes it time-consistent.",topic:"Discounting Models"},
+  {q:"In β-δ model with β=0.5, δ=1, U^t from period t's perspective:",opts:["U^t = u_t + 0.5(u_{t+1} + u_{t+2} + ...)","U^t = u_t + u_{t+1} + u_{t+2} + ...","U^t = 0.5u_t + u_{t+1} + ...","U^t = 0.5(u_t + u_{t+1} + ...)"],ans:0,exp:"With δ=1: U^t = u_t + β·Σu_τ = u_t + 0.5(u_{t+1}+...). Current period gets full weight 1, all future gets β=0.5. Option B is exponential (β=1).",topic:"β-δ Model"},
+  {q:"Immediate costs, delayed rewards (studying). What does present bias predict for the Naif?",opts:["Completes earlier than TC","Completes at same time as TC","Completes later — procrastinates","Uses commitment devices"],ans:2,exp:"Present Bias Effect: if costs are immediate, τ_n ≥ τ_tc. Cost feels large right now, reward is discounted by β → Naif always delays.",topic:"Present Bias Effect"},
+  {q:"Voucher example (v=3,5,8,13; β=½; T=4). Sophisticate acts at:",opts:["t=4","t=3","t=2","t=1"],ans:3,exp:"Sophisticate anticipates she'll prefer acting at t=3 over t=4. This makes her want to act at t=2, then t=1 via backward induction. τ_s=1.",topic:"Examples"},
+  {q:"Commitment devices are 'smoking-gun' evidence because:",opts:["They make people time-consistent","Time-consistent agents would never need to restrict future choices voluntarily","They prove β=1","Only Naifs use them"],ans:1,exp:"TC agents follow their plans automatically. Voluntarily restricting future choices reveals anticipation of self-control problems.",topic:"Commitment Devices"},
+  {q:"A Naif has β=0.5. She decides to wait on a task with immediate costs. Why?",opts:["She is time-consistent","She correctly anticipates β=0.5 in the future","She mistakenly believes future self will be disciplined (β̂=1)","β>1 for future periods"],ans:2,exp:"Naif has β̂=1 — thinks future self is a TC. She doesn't realize future self faces the same present bias. This is the Naif's defining error.",topic:"TC/Naif/Sophisticate"},
+  {q:"Report example (immediate costs, increasing costs). Type ordering:",opts:["τ_tc ≤ τ_s ≤ τ_n","τ_n ≤ τ_s ≤ τ_tc","τ_s ≤ τ_n ≤ τ_tc","All act at same time"],ans:0,exp:"Immediate costs: TC=1 (acts immediately), Naif=4 (procrastinates), Sophisticate=2 (mitigates procrastination but not fully). τ_tc ≤ τ_s ≤ τ_n.",topic:"Examples"},
+  {q:"Key difference between Naif and Sophisticate:",opts:["Only Sophisticate has present bias (β<1)","Naif correctly anticipates future bias; Sophisticate does not","Sophisticate correctly anticipates β̂=β; Naif wrongly assumes β̂=1","Only Naif uses commitment devices"],ans:2,exp:"Both Naif and Sophisticate have identical β<1. They differ only in self-awareness: Sophisticate knows β̂=β, Naif wrongly assumes β̂=1.",topic:"TC/Naif/Sophisticate"},
+  {q:"In immediate-reward activity, sophistication effect:",opts:["Corrects preproperation — Sophisticate acts later","Exacerbates preproperation — Sophisticate acts even earlier","No effect on timing","Eliminates present bias"],ans:1,exp:"Sophistication Effect: τ_s ≤ τ_n always. For immediate rewards, both preproperate, but Sophisticate does so even more — anticipating future self will grab early, she grabs first.",topic:"Sophistication Effect"},
+  {q:"Meier & Sprenger (2010) found:",opts:["Present-biased people have lower debt (more careful)","Present-biased people more likely to carry credit card debt and borrow more","No correlation between time preferences and credit card behavior","Only sophisticated people accumulate debt"],ans:1,exp:"Credit card = immediate reward (consumption) + delayed costs (interest). Present bias predicts overborrowing. Study confirmed strong correlation with measured present bias.",topic:"Real-World"},
+  {q:"Setting δ=1 in the framework section means:",opts:["Future utility not discounted by long-run factor","People have no preferences over time","β must equal 1","Person values future more than present"],ans:0,exp:"δ=1 simplifies by removing long-run discounting. Isolates the β (present bias) effect on behavior.",topic:"β-δ Model"},
+  {q:"Why does the β-δ model create preference reversals?",opts:["β changes over time","δ is not constant","When a future period becomes 'now,' it gets weight 1 instead of βδ^(τ-t) — a jump in value","Naifs update their β̂ over time"],ans:2,exp:"The model creates a permanent 'now vs. not-now' gap. As calendar time advances, a future period becomes 'now' and jumps from discounted to undiscounted — this is the preference reversal mechanism.",topic:"β-δ Model"},
 ];
 // ── Macro Flashcard & Quiz Data ──
 const macroFcData={
@@ -11896,6 +12155,52 @@ function ibtExamHint(examId, task) {
 function ibtExamSolution(examId, task) {
   const sol = document.getElementById('ibt-sol-' + examId + '-' + task);
   if (sol) sol.style.display = 'block';
+}
+
+// ── Ch4 Intertemporal Choice Calculator ──
+function ch4Calc(){
+  const m1=parseFloat(document.getElementById('ch4-m1').value)||0;
+  const m2=parseFloat(document.getElementById('ch4-m2').value)||0;
+  const r=parseFloat(document.getElementById('ch4-r').value)||0;
+  const delta=parseFloat(document.getElementById('ch4-delta').value)||1;
+  const p1=parseFloat(document.getElementById('ch4-p1').value)||1;
+  const p2=parseFloat(document.getElementById('ch4-p2').value)||1;
+  const res=document.getElementById('ch4-result');
+  if(!res)return;
+  // MRT = (1+r)*(p1/p2)
+  const mrt=(1+r)*(p1/p2);
+  // Budget line: p1*c1 + p2*c2/(1+r) = m1 + m2/(1+r)
+  // In consumption units: c2 = intercept - mrt*c1 (if p1=p2=1)
+  // General: solve using MRS=MRT for u=sqrt(c): MU_c1=1/(2sqrt(c1)), MU_c2=delta/(2sqrt(c2))
+  // MRS = MU_c1/MU_c2 = sqrt(c2)/(delta*sqrt(c1)) = mrt
+  // => c2 = (delta*mrt)^2 * c1
+  const ratio=Math.pow(delta*mrt,2);
+  // Budget constraint: p1*c1 + p2*c2/(1+r) = m1 + m2/(1+r)
+  // p1*c1 + p2*ratio*c1/(1+r) = m1 + m2/(1+r)
+  // c1*(p1 + p2*ratio/(1+r)) = m1 + m2/(1+r)
+  const rhs=m1+m2/(1+r);
+  const coeff=p1+p2*ratio/(1+r);
+  const c1=rhs/coeff;
+  const c2=ratio*c1;
+  const endow_c2=m2/p2;
+  const pv_income=m1+m2/(1+r);
+  const max_save=m2/p2+(1+r)*m1/p1;
+  const max_borrow=m1/p1+m2/((1+r)*p2);
+  const saves=c1<m1/p1;
+  res.style.display='block';
+  res.innerHTML=`<div style="background:var(--micro-l);border:1px solid var(--micro-m);border-radius:var(--radius);padding:16px 20px;margin-top:4px">
+<div style="font-size:13px;font-weight:600;color:var(--micro);margin-bottom:10px">📊 Solution — Step by Step</div>
+<div style="font-size:13px;color:var(--text2);line-height:1.9">
+<b>Step 1 — MRT:</b> (1+r)·(p₁/p₂) = (1+${r})·(${p1}/${p2}) = <b>${mrt.toFixed(4)}</b><br>
+<b>Step 2 — PV of income:</b> m₁ + m₂/(1+r) = ${m1.toLocaleString()} + ${m2.toLocaleString()}/${(1+r).toFixed(2)} = <b>€${rhs.toFixed(0)}</b><br>
+<b>Step 3 — MRS = MRT:</b> √c₂/(δ·√c₁) = MRT → c₂ = (δ·MRT)²·c₁ = (${delta}×${mrt.toFixed(3)})²·c₁ ≈ <b>${ratio.toFixed(4)}·c₁</b><br>
+<b>Step 4 — Substitute into budget:</b> c₁ = PV/(p₁ + p₂·ratio/(1+r)) = ${rhs.toFixed(0)}/${coeff.toFixed(4)}<br>
+<b>c₁* = ${c1.toFixed(0)} &nbsp;|&nbsp; c₂* = ${c2.toFixed(0)}</b><br>
+<br>
+<b>Endowment point:</b> (c₁=m₁/p₁, c₂=m₂/p₂) = (${(m1/p1).toFixed(0)}, ${endow_c2.toFixed(0)})<br>
+<b>Max future (all saving):</b> ${max_save.toFixed(0)} | <b>Max present (all borrowing):</b> ${max_borrow.toFixed(0)}<br>
+<b>Decision:</b> ${saves ? `✅ <b>SAVER</b> — c₁* (${c1.toFixed(0)}) < m₁/p₁ (${(m1/p1).toFixed(0)}). Saves the difference.` : `⬅ <b>BORROWER</b> — c₁* (${c1.toFixed(0)}) > m₁/p₁ (${(m1/p1).toFixed(0)}). Borrows from period 2.`}
+</div></div>`;
 }
 </script>
 </html>
