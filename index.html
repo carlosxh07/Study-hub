@@ -10422,6 +10422,8 @@ const EP_PARTS = {
   '4a':{label:"Session IX · EU Institutions & Competences",color:"#7a2d6e",bg:"var(--ibt-l)"},
   '4b':{label:"Session VI · Primacy, Direct Effect & Enforcement",color:"#7a2d6e",bg:"var(--ibt-l)"},
   '4c':{label:"Session VII · Fundamental Freedoms",color:"#7a2d6e",bg:"var(--ibt-l)"},
+  '4c-a':{label:"Session VII · Goods & Workers",color:"#7a2d6e",bg:"var(--ibt-l)"},
+  '4c-b':{label:"Session VII · Establishment, Services & Capital",color:"#7a2d6e",bg:"var(--ibt-l)"},
   5: {label:"Session VII · External Relations",color:"#9c3520",bg:"var(--ic-l)"}
 };
 
@@ -10687,12 +10689,12 @@ function epRenderCard(){
   if(!epDeck.length) return;
   if(epIdx >= epDeck.length){ epShowDone(); return; }
   const card = epDeck[epIdx];
-  const part = EP_PARTS[card.p];
+  const part = EP_PARTS[card.p] || {label:'Session',color:'var(--eu)',bg:'var(--eu-l)'};
   const inner = document.getElementById('ep-inner');
   if(inner) inner.classList.remove('flipped');
   epFlipped = false;
 
-  const badgeMap = {'1':'S·I','2a':'S·III','2b':'S·IV','2c':'S·II','3':'S·VIII','4a':'S·IX','4b':'S·VI','4c':'S·VII','5':'S·VII'};
+  const badgeMap = {'1':'S·I','2a':'S·III','2b':'S·IV','2c':'S·II','3':'S·VIII','4a':'S·IX','4b':'S·VI','4c':'S·VII','4c-a':'S·VII','4c-b':'S·VII','5':'S·VII'};
   const badgeText = badgeMap[String(card.p)] || 'S·?';
 
   const bf = document.getElementById('ep-badge-f');
@@ -10911,7 +10913,7 @@ function epRenderBrowse(filter){
       return card.q.toLowerCase().includes(qf) || card.a.toLowerCase().includes(qf);
     });
     if(!items.length) return;
-    const part = EP_PARTS[pNum];
+    const part = EP_PARTS[pNum] || {label:'Session '+pNum, color:'var(--eu)', bg:'var(--eu-l)'};
     const sec = document.createElement('div');
     sec.className = 'ep-part-section';
     const heading = document.createElement('div');
