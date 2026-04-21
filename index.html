@@ -54,6 +54,8 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
 .exam-flyout-btn{display:flex;align-items:center;gap:8px;width:100%;padding:5px 14px 5px 22px;border:none;background:none;cursor:pointer;font-family:var(--sans);font-size:12px;color:var(--text2);text-align:left;transition:background .12s}
 .exam-flyout-btn:hover{background:var(--border);color:var(--text)}
 .exam-flyout-btn.active{color:var(--macro);font-weight:500;background:var(--macro-l)}
+.exam-flyout-btn.micro-active{color:var(--micro)!important;font-weight:500;background:var(--micro-l)!important}
+.exam-flyout-btn.micro-active .exam-flyout-dot{background:var(--micro)!important}
 .exam-flyout-dot{width:6px;height:6px;border-radius:50%;background:var(--border2);flex-shrink:0}
 .exam-flyout-btn.active .exam-flyout-dot{background:var(--macro)}
 
@@ -454,6 +456,20 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
     <button class="nav-sub" onclick="showLecture('micro','ch4',this)">Chapter 4: Intertemporal Choice</button>
     <button class="nav-sub" onclick="showLecture('micro','ch5',this)">Chapter 5: Behavioural Econ</button>
     <button class="nav-sub" onclick="showLecture('micro','ch6',this)">Chapter 6: Time Inconsistency</button>
+    <button class="nav-exam-toggle" id="nav-micro-exam-toggle" onclick="toggleMicroExamFlyout()" style="color:var(--micro)">📝 Exam Prep <span id="micro-exam-toggle-arrow">▸</span></button>
+    <div class="exam-flyout" id="exam-flyout-micro">
+      <div class="exam-flyout-section">Past Exams — Microeconomics</div>
+      <div class="exam-flyout-section" style="margin-top:2px">ST 2024</div>
+      <button class="exam-flyout-btn" id="efb-micro-st24-q1" onclick="showMicroExam('st24','q1',this)" style="--ef-active:var(--micro)"><span class="exam-flyout-dot"></span>ST24 · P1 — Consumer Choice</button>
+      <button class="exam-flyout-btn" id="efb-micro-st24-q2" onclick="showMicroExam('st24','q2',this)"><span class="exam-flyout-dot"></span>ST24 · P2 — Insurance (Risky Choice)</button>
+      <button class="exam-flyout-btn" id="efb-micro-st24-q3" onclick="showMicroExam('st24','q3',this)"><span class="exam-flyout-dot"></span>ST24 · P3 — Present Bias</button>
+      <button class="exam-flyout-btn" id="efb-micro-st24-q4" onclick="showMicroExam('st24','q4',this)"><span class="exam-flyout-dot"></span>ST24 · P4 — Loss Aversion</button>
+      <div class="exam-flyout-section">Resit ST 2024</div>
+      <button class="exam-flyout-btn" id="efb-micro-rs24-q1" onclick="showMicroExam('rs24','q1',this)"><span class="exam-flyout-dot"></span>RS24 · P1 — Consumer Choice</button>
+      <button class="exam-flyout-btn" id="efb-micro-rs24-q2" onclick="showMicroExam('rs24','q2',this)"><span class="exam-flyout-dot"></span>RS24 · P2 — Principal-Agent</button>
+      <button class="exam-flyout-btn" id="efb-micro-rs24-q3" onclick="showMicroExam('rs24','q3',this)"><span class="exam-flyout-dot"></span>RS24 · P3 — Present Bias</button>
+      <button class="exam-flyout-btn" id="efb-micro-rs24-q4" onclick="showMicroExam('rs24','q4',this)"><span class="exam-flyout-dot"></span>RS24 · P4 — Budget Line Slope</button>
+    </div>
     <div class="nav-label">Macroeconomics</div>
     <button class="nav-btn" data-color="macro" onclick="showPage('macro-overview',this)"><span class="nav-dot" style="background:var(--macro)"></span>All Chapters</button>
     <button class="nav-sub" onclick="showLecture('macro','lec1',this)">Lec 1: Economic Growth</button>
@@ -8460,6 +8476,616 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
   </div>
 </div>
 
+
+<!-- ═══════════════════════════════════════════════════════════
+     MICROECONOMICS EXAM PREP — ST 2024
+     ═══════════════════════════════════════════════════════════ -->
+
+<!-- ST24 · Problem 1 — Consumer Choice -->
+<div id="page-micro-exam-st24-q1" class="page">
+  <div class="page-eyebrow" style="color:var(--micro)">Microeconomics · Exam Prep · ST 2024</div>
+  <div class="page-title">Problem 1 — Consumer Choice <span style="font-size:16px;color:var(--text3);font-family:var(--sans);font-weight:400">(20 pts)</span></div>
+  <div class="page-desc">u(x₁,x₂) = 12x₁x₂ · p₁ = 4, p₂ = 2, m = 200</div>
+  <div class="ep-stats">
+    <div class="ep-chip"><strong>20</strong>Points</div>
+    <div class="ep-chip"><strong>Ch. 2</strong>Topic</div>
+    <div class="ep-chip"><strong>3</strong>Sub-parts</div>
+  </div>
+  <div class="study-tabs" id="micro-exam-tabs-st24q1">
+    <button class="study-tab active" onclick="microExamTab('st24q1','a',this)">1a — Budget Line (5 pts)</button>
+    <button class="study-tab" onclick="microExamTab('st24q1','b',this)">1b — MRS Comparison (8 pts)</button>
+    <button class="study-tab" onclick="microExamTab('st24q1','c',this)">1c — Optimal Bundle (7 pts)</button>
+  </div>
+  <div id="micro-exam-panel-st24q1-a" class="study-panel active">
+    <div class="sum-card" style="margin-bottom:14px"><div class="sum-title">Question 1a <span class="badge b-teal" style="margin-left:8px">5 pts</span></div><p>Derive the consumer's budget line and give an intuitive explanation of its slope.</p></div>
+    <div class="sum-card" style="margin-bottom:14px"><div class="sum-title">Your Answer</div>
+      <textarea id="micro-ans-st24q1-a" style="width:100%;min-height:100px;border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;font-family:var(--sans);font-size:13.5px;color:var(--text);resize:vertical;background:var(--surface);outline:none" placeholder="Write your solution here…"></textarea>
+      <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap">
+        <button onclick="microExamCheck('st24q1','a','partial')" style="padding:8px 14px;background:none;color:var(--micro);border:1.5px solid var(--micro);border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer">Check so far</button>
+        <button onclick="microExamCheck('st24q1','a','full')" style="padding:8px 14px;background:var(--micro);color:#fff;border:none;border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer">Check full</button>
+      </div>
+      <div id="micro-fb-st24q1-a" style="display:none;margin-top:10px;padding:12px 14px;border-radius:var(--radius-sm);font-size:13px;line-height:1.6"></div>
+    </div>
+    <div style="display:flex;gap:8px;margin-top:4px;flex-wrap:wrap">
+      <button onclick="microExamHint('st24q1','a')" id="micro-hint-btn-st24q1-a" style="padding:7px 14px;border:1px solid var(--micro-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">+ Next hint</button>
+      <button onclick="microExamSolution('st24q1','a')" style="padding:7px 14px;border:1px solid var(--micro-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">Show solution</button>
+      <button onclick="microExamTab('st24q1','b',document.querySelector('#micro-exam-tabs-st24q1 .study-tab:nth-child(2)'))" style="padding:7px 14px;border:1px solid var(--border2);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--text2);margin-left:auto">Next →</button>
+    </div>
+    <div id="micro-sol-st24q1-a" style="display:none;margin-top:14px">
+      <div class="sum-card" style="border-left:3px solid var(--micro)"><div class="sum-title" style="color:var(--micro)">Official Solution — 1a</div>
+        <p>Budget equation: <strong>4x₁ + 2x₂ = 200</strong>, rearranges to <strong>x₂ = 100 − 2x₁</strong>.</p>
+        <p style="margin-top:8px">Slope = −2 = −p₁/p₂. To buy one more unit of x₁ (price 4), the consumer must give up 2 units of x₂ (price 2). This is the opportunity cost of x₁.</p>
+      </div>
+    </div>
+  </div>
+  <div id="micro-exam-panel-st24q1-b" class="study-panel">
+    <div class="sum-card" style="margin-bottom:14px"><div class="sum-title">Question 1b <span class="badge b-teal" style="margin-left:8px">8 pts</span></div><p>Derive the MRS for bundles (1, 3) and (3, 1). Explain the different results intuitively.</p></div>
+    <div class="sum-card" style="margin-bottom:14px"><div class="sum-title">Your Answer</div>
+      <textarea id="micro-ans-st24q1-b" style="width:100%;min-height:110px;border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;font-family:var(--sans);font-size:13.5px;color:var(--text);resize:vertical;background:var(--surface);outline:none" placeholder="MRS = MU₁/MU₂, evaluate at each bundle…"></textarea>
+      <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap">
+        <button onclick="microExamCheck('st24q1','b','partial')" style="padding:8px 14px;background:none;color:var(--micro);border:1.5px solid var(--micro);border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer">Check so far</button>
+        <button onclick="microExamCheck('st24q1','b','full')" style="padding:8px 14px;background:var(--micro);color:#fff;border:none;border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer">Check full</button>
+      </div>
+      <div id="micro-fb-st24q1-b" style="display:none;margin-top:10px;padding:12px 14px;border-radius:var(--radius-sm);font-size:13px;line-height:1.6"></div>
+    </div>
+    <div style="display:flex;gap:8px;margin-top:4px;flex-wrap:wrap">
+      <button onclick="microExamHint('st24q1','b')" id="micro-hint-btn-st24q1-b" style="padding:7px 14px;border:1px solid var(--micro-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">+ Next hint</button>
+      <button onclick="microExamSolution('st24q1','b')" style="padding:7px 14px;border:1px solid var(--micro-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">Show solution</button>
+      <button onclick="microExamTab('st24q1','c',document.querySelector('#micro-exam-tabs-st24q1 .study-tab:nth-child(3)'))" style="padding:7px 14px;border:1px solid var(--border2);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--text2);margin-left:auto">Next →</button>
+    </div>
+    <div id="micro-sol-st24q1-b" style="display:none;margin-top:14px">
+      <div class="sum-card" style="border-left:3px solid var(--micro)"><div class="sum-title" style="color:var(--micro)">Official Solution — 1b</div>
+        <p>MU₁ = 12x₂, MU₂ = 12x₁ → <strong>MRS = x₂/x₁</strong>.</p>
+        <p style="margin-top:8px">MRS(1,3) = 3/1 = <strong>3</strong>. MRS(3,1) = 1/3 = <strong>1/3</strong>.</p>
+        <p style="margin-top:8px">At (1,3): x₁ is scarce, marginal utility of x₁ is high → willing to give up 3 units of x₂ for 1 more x₁. At (3,1): x₁ abundant, x₂ scarce → compensation requirement drops to just 1/3 unit of x₂.</p>
+      </div>
+    </div>
+  </div>
+  <div id="micro-exam-panel-st24q1-c" class="study-panel">
+    <div class="sum-card" style="margin-bottom:14px"><div class="sum-title">Question 1c <span class="badge b-teal" style="margin-left:8px">7 pts</span></div><p>Derive the optimal consumption bundle (x₁*, x₂*) formally.</p></div>
+    <div class="sum-card" style="margin-bottom:14px"><div class="sum-title">Your Answer</div>
+      <textarea id="micro-ans-st24q1-c" style="width:100%;min-height:110px;border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;font-family:var(--sans);font-size:13.5px;color:var(--text);resize:vertical;background:var(--surface);outline:none" placeholder="Set MRS = p₁/p₂, substitute into budget constraint…"></textarea>
+      <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap">
+        <button onclick="microExamCheck('st24q1','c','partial')" style="padding:8px 14px;background:none;color:var(--micro);border:1.5px solid var(--micro);border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer">Check so far</button>
+        <button onclick="microExamCheck('st24q1','c','full')" style="padding:8px 14px;background:var(--micro);color:#fff;border:none;border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer">Check full</button>
+      </div>
+      <div id="micro-fb-st24q1-c" style="display:none;margin-top:10px;padding:12px 14px;border-radius:var(--radius-sm);font-size:13px;line-height:1.6"></div>
+    </div>
+    <div style="display:flex;gap:8px;margin-top:4px;flex-wrap:wrap">
+      <button onclick="microExamHint('st24q1','c')" id="micro-hint-btn-st24q1-c" style="padding:7px 14px;border:1px solid var(--micro-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">+ Next hint</button>
+      <button onclick="microExamSolution('st24q1','c')" style="padding:7px 14px;border:1px solid var(--micro-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">Show solution</button>
+    </div>
+    <div id="micro-sol-st24q1-c" style="display:none;margin-top:14px">
+      <div class="sum-card" style="border-left:3px solid var(--micro)"><div class="sum-title" style="color:var(--micro)">Official Solution — 1c</div>
+        <p>MRS = p₁/p₂: x₂/x₁ = 2 → <strong>x₂ = 2x₁</strong>. Into budget: 4x₁ + 2(2x₁) = 200 → 8x₁ = 200 → x₁* = <strong>25</strong>. x₂* = <strong>50</strong>. Optimal: <strong>(25, 50)</strong>.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ST24 · Problem 2 — Insurance -->
+<div id="page-micro-exam-st24-q2" class="page">
+  <div class="page-eyebrow" style="color:var(--micro)">Microeconomics · Exam Prep · ST 2024</div>
+  <div class="page-title">Problem 2 — Insurance &amp; Risky Choice <span style="font-size:16px;color:var(--text3);font-family:var(--sans);font-weight:400">(30 pts)</span></div>
+  <div class="page-desc">Rita's ski resort · u(c) = √c · P(avalanche) = 25% · premium γ = 1/3</div>
+  <div class="ep-stats">
+    <div class="ep-chip"><strong>30</strong>Points</div>
+    <div class="ep-chip"><strong>Ch. 3</strong>Topic</div>
+    <div class="ep-chip"><strong>4</strong>Sub-parts</div>
+  </div>
+  <div class="study-tabs" id="micro-exam-tabs-st24q2">
+    <button class="study-tab active" onclick="microExamTab('st24q2','a',this)">2a — Budget Line (6 pts)</button>
+    <button class="study-tab" onclick="microExamTab('st24q2','b',this)">2b — Exp. Utility (6 pts)</button>
+    <button class="study-tab" onclick="microExamTab('st24q2','c',this)">2c — Optimal Bundle (14 pts)</button>
+    <button class="study-tab" onclick="microExamTab('st24q2','d',this)">2d — Insurance Level (4 pts)</button>
+  </div>
+  <div id="micro-exam-panel-st24q2-a" class="study-panel active">
+    <div class="sum-card" style="margin-bottom:14px"><div class="sum-title">Question 2a <span class="badge b-teal" style="margin-left:8px">6 pts</span></div>
+      <p>Endowment: c_g = 2,200,000 (no avalanche), c_b = 0 (avalanche). Insurance premium γ = 1/3. Derive the budget line c_g = f(c_b).</p></div>
+    <div class="sum-card" style="margin-bottom:14px"><div class="sum-title">Your Answer</div>
+      <textarea id="micro-ans-st24q2-a" style="width:100%;min-height:100px;border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;font-family:var(--sans);font-size:13.5px;color:var(--text);resize:vertical;background:var(--surface);outline:none" placeholder="Slope m = −γ/(1−γ). Plug in endowment point to find intercept…"></textarea>
+      <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap">
+        <button onclick="microExamCheck('st24q2','a','partial')" style="padding:8px 14px;background:none;color:var(--micro);border:1.5px solid var(--micro);border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer">Check so far</button>
+        <button onclick="microExamCheck('st24q2','a','full')" style="padding:8px 14px;background:var(--micro);color:#fff;border:none;border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer">Check full</button>
+      </div>
+      <div id="micro-fb-st24q2-a" style="display:none;margin-top:10px;padding:12px 14px;border-radius:var(--radius-sm);font-size:13px;line-height:1.6"></div>
+    </div>
+    <div style="display:flex;gap:8px;margin-top:4px;flex-wrap:wrap">
+      <button onclick="microExamHint('st24q2','a')" id="micro-hint-btn-st24q2-a" style="padding:7px 14px;border:1px solid var(--micro-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">+ Next hint</button>
+      <button onclick="microExamSolution('st24q2','a')" style="padding:7px 14px;border:1px solid var(--micro-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">Show solution</button>
+      <button onclick="microExamTab('st24q2','b',document.querySelector('#micro-exam-tabs-st24q2 .study-tab:nth-child(2)'))" style="padding:7px 14px;border:1px solid var(--border2);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--text2);margin-left:auto">Next →</button>
+    </div>
+    <div id="micro-sol-st24q2-a" style="display:none;margin-top:14px">
+      <div class="sum-card" style="border-left:3px solid var(--micro)"><div class="sum-title" style="color:var(--micro)">Official Solution — 2a</div>
+        <p>Slope: m = −γ/(1−γ) = −(1/3)/(2/3) = <strong>−1/2</strong>. Endowment (2,200,000; 0) on line: 2,200,000 = n. <strong>c_g = 2,200,000 − ½c_b</strong>.</p>
+      </div>
+    </div>
+  </div>
+  <div id="micro-exam-panel-st24q2-b" class="study-panel">
+    <div class="sum-card" style="margin-bottom:14px"><div class="sum-title">Question 2b <span class="badge b-teal" style="margin-left:8px">6 pts</span></div>
+      <p>Write Rita's expected utility for a general bundle (c_g, c_b). Explain the components intuitively.</p></div>
+    <div class="sum-card" style="margin-bottom:14px"><div class="sum-title">Your Answer</div>
+      <textarea id="micro-ans-st24q2-b" style="width:100%;min-height:90px;border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;font-family:var(--sans);font-size:13.5px;color:var(--text);resize:vertical;background:var(--surface);outline:none" placeholder="EU = probability-weighted utility across states…"></textarea>
+      <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap">
+        <button onclick="microExamCheck('st24q2','b','partial')" style="padding:8px 14px;background:none;color:var(--micro);border:1.5px solid var(--micro);border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer">Check so far</button>
+        <button onclick="microExamCheck('st24q2','b','full')" style="padding:8px 14px;background:var(--micro);color:#fff;border:none;border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer">Check full</button>
+      </div>
+      <div id="micro-fb-st24q2-b" style="display:none;margin-top:10px;padding:12px 14px;border-radius:var(--radius-sm);font-size:13px;line-height:1.6"></div>
+    </div>
+    <div style="display:flex;gap:8px;margin-top:4px;flex-wrap:wrap">
+      <button onclick="microExamHint('st24q2','b')" id="micro-hint-btn-st24q2-b" style="padding:7px 14px;border:1px solid var(--micro-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">+ Next hint</button>
+      <button onclick="microExamSolution('st24q2','b')" style="padding:7px 14px;border:1px solid var(--micro-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">Show solution</button>
+      <button onclick="microExamTab('st24q2','c',document.querySelector('#micro-exam-tabs-st24q2 .study-tab:nth-child(3)'))" style="padding:7px 14px;border:1px solid var(--border2);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--text2);margin-left:auto">Next →</button>
+    </div>
+    <div id="micro-sol-st24q2-b" style="display:none;margin-top:14px">
+      <div class="sum-card" style="border-left:3px solid var(--micro)"><div class="sum-title" style="color:var(--micro)">Official Solution — 2b</div>
+        <p><strong>U = 0.75√c_g + 0.25√c_b</strong>. Each term is probability × utility in that state. 0.75 = P(good state), 0.25 = P(avalanche). Rita's EU sums the utility in each scenario, weighted by its likelihood.</p>
+      </div>
+    </div>
+  </div>
+  <div id="micro-exam-panel-st24q2-c" class="study-panel">
+    <div class="sum-card" style="margin-bottom:14px"><div class="sum-title">Question 2c <span class="badge b-teal" style="margin-left:8px">14 pts</span></div>
+      <p>Derive the optimal bundle (c_g*, c_b*) using MRS = MRT.</p></div>
+    <div class="sum-card" style="margin-bottom:14px"><div class="sum-title">Your Answer</div>
+      <textarea id="micro-ans-st24q2-c" style="width:100%;min-height:130px;border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;font-family:var(--sans);font-size:13.5px;color:var(--text);resize:vertical;background:var(--surface);outline:none" placeholder="Compute MU_cb/MU_cg = MRT = 1/2, solve system with budget line…"></textarea>
+      <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap">
+        <button onclick="microExamCheck('st24q2','c','partial')" style="padding:8px 14px;background:none;color:var(--micro);border:1.5px solid var(--micro);border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer">Check so far</button>
+        <button onclick="microExamCheck('st24q2','c','full')" style="padding:8px 14px;background:var(--micro);color:#fff;border:none;border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer">Check full</button>
+      </div>
+      <div id="micro-fb-st24q2-c" style="display:none;margin-top:10px;padding:12px 14px;border-radius:var(--radius-sm);font-size:13px;line-height:1.6"></div>
+    </div>
+    <div style="display:flex;gap:8px;margin-top:4px;flex-wrap:wrap">
+      <button onclick="microExamHint('st24q2','c')" id="micro-hint-btn-st24q2-c" style="padding:7px 14px;border:1px solid var(--micro-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">+ Next hint</button>
+      <button onclick="microExamSolution('st24q2','c')" style="padding:7px 14px;border:1px solid var(--micro-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">Show solution</button>
+      <button onclick="microExamTab('st24q2','d',document.querySelector('#micro-exam-tabs-st24q2 .study-tab:nth-child(4)'))" style="padding:7px 14px;border:1px solid var(--border2);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--text2);margin-left:auto">Next →</button>
+    </div>
+    <div id="micro-sol-st24q2-c" style="display:none;margin-top:14px">
+      <div class="sum-card" style="border-left:3px solid var(--micro)"><div class="sum-title" style="color:var(--micro)">Official Solution — 2c</div>
+        <p>MU_cg = 0.75/(2√c_g), MU_cb = 0.25/(2√c_b). MRS = MU_cb/MU_cg = (1/3)·√c_g/√c_b.</p>
+        <p style="margin-top:8px">Set MRS = MRT = 1/2: (1/3)·√c_g/√c_b = 1/2 → c_g = (3/2)²·c_b = <strong>2.25c_b</strong>.</p>
+        <p style="margin-top:8px">Into budget line: 2.25c_b = 2,200,000 − 0.5c_b → 2.75c_b = 2,200,000 → <strong>c_b* = 800,000</strong>. <strong>c_g* = 1,800,000</strong>.</p>
+      </div>
+    </div>
+  </div>
+  <div id="micro-exam-panel-st24q2-d" class="study-panel">
+    <div class="sum-card" style="margin-bottom:14px"><div class="sum-title">Question 2d <span class="badge b-teal" style="margin-left:8px">4 pts</span></div>
+      <p>Given the optimal bundle, what is the optimal insurance level x*?</p></div>
+    <div class="sum-card" style="margin-bottom:14px"><div class="sum-title">Your Answer</div>
+      <textarea id="micro-ans-st24q2-d" style="width:100%;min-height:80px;border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;font-family:var(--sans);font-size:13.5px;color:var(--text);resize:vertical;background:var(--surface);outline:none" placeholder="c_b = (1−γ)x → x = c_b/(1−γ)…"></textarea>
+      <button onclick="microExamSolution('st24q2','d')" style="margin-top:8px;padding:8px 14px;background:var(--micro);color:#fff;border:none;border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer">Show solution</button>
+    </div>
+    <div id="micro-sol-st24q2-d" style="display:none;margin-top:14px">
+      <div class="sum-card" style="border-left:3px solid var(--micro)"><div class="sum-title" style="color:var(--micro)">Official Solution — 2d</div>
+        <p>c_b = (1−γ)·x → 800,000 = (2/3)·x → <strong>x* = 1,200,000</strong>.</p>
+        <div class="note-box" style="margin-top:8px;border-left-color:var(--micro-m);background:var(--micro-l)">Rita buys partial insurance (€1.2M coverage, not €2.2M full coverage) because the premium γ = 1/3 exceeds the actuarially fair rate (25%), making full coverage too expensive relative to her MRS.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ST24 · Problem 3 — Present Bias (Peter / Presentation) -->
+<div id="page-micro-exam-st24-q3" class="page">
+  <div class="page-eyebrow" style="color:var(--micro)">Microeconomics · Exam Prep · ST 2024</div>
+  <div class="page-title">Problem 3 — Present Bias &amp; Time Inconsistency <span style="font-size:16px;color:var(--text3);font-family:var(--sans);font-weight:400">(30 pts)</span></div>
+  <div class="page-desc">Peter · v = (56, 84, 100) · c = (40, 64, 100) · β = 3/4 · δ = 1 · Immediate costs</div>
+  <div class="ep-stats">
+    <div class="ep-chip"><strong>30</strong>Points</div>
+    <div class="ep-chip"><strong>Ch. 6</strong>Topic</div>
+    <div class="ep-chip"><strong>4</strong>Sub-parts</div>
+  </div>
+  <div class="study-tabs" id="micro-exam-tabs-st24q3">
+    <button class="study-tab active" onclick="microExamTab('st24q3','a',this)">3a — TC (5 pts)</button>
+    <button class="study-tab" onclick="microExamTab('st24q3','b',this)">3b — Naif (10 pts)</button>
+    <button class="study-tab" onclick="microExamTab('st24q3','c',this)">3c — Sophisticate (10 pts)</button>
+    <button class="study-tab" onclick="microExamTab('st24q3','d',this)">3d — PB Effect (5 pts)</button>
+  </div>
+  <div id="micro-exam-panel-st24q3-a" class="study-panel active">
+    <div class="sum-card" style="margin-bottom:14px"><div class="sum-title">Question 3a <span class="badge b-teal" style="margin-left:8px">5 pts</span></div>
+      <p>Derive τ_tc (TC, no present bias). Explain intuitively. This is an immediate-costs activity: cost now, reward later.</p></div>
+    <div class="sum-card" style="margin-bottom:14px"><div class="sum-title">Your Answer</div>
+      <textarea id="micro-ans-st24q3-a" style="width:100%;min-height:90px;border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;font-family:var(--sans);font-size:13.5px;color:var(--text);resize:vertical;background:var(--surface);outline:none" placeholder="Compute U(t) = v_t − c_t for t=1,2,3. Which is highest?"></textarea>
+      <div style="display:flex;gap:8px;margin-top:8px">
+        <button onclick="microExamSolution('st24q3','a')" style="padding:8px 14px;background:var(--micro);color:#fff;border:none;border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer">Show solution</button>
+        <button onclick="microExamTab('st24q3','b',document.querySelector('#micro-exam-tabs-st24q3 .study-tab:nth-child(2)'))" style="padding:7px 14px;border:1px solid var(--border2);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--text2);margin-left:auto">Next →</button>
+      </div>
+    </div>
+    <div id="micro-sol-st24q3-a" style="display:none;margin-top:14px">
+      <div class="sum-card" style="border-left:3px solid var(--micro)"><div class="sum-title" style="color:var(--micro)">Official Solution — 3a</div>
+        <p>U(1) = 56−40 = <strong>16</strong>, U(2) = 84−64 = <strong>20</strong>, U(3) = 100−100 = <strong>0</strong>.</p>
+        <p style="margin-top:8px">Since U(2) is highest: <strong>τ_tc = 2</strong>. TC compares net utilities equally across time and picks the peak.</p>
+      </div>
+    </div>
+  </div>
+  <div id="micro-exam-panel-st24q3-b" class="study-panel">
+    <div class="sum-card" style="margin-bottom:14px"><div class="sum-title">Question 3b <span class="badge b-teal" style="margin-left:8px">10 pts</span></div>
+      <p>Derive τ_n for the Naif (β = 3/4, δ = 1, immediate costs). Explain.</p>
+      <div class="note-box" style="margin-top:8px">Immediate costs: U^t(now) = β·v_t − c_t. Waiting: U^t(τ>t) = β(v_τ − c_τ). Naif believes β̂ = 1 from next period.</div></div>
+    <div class="sum-card" style="margin-bottom:14px"><div class="sum-title">Your Answer</div>
+      <textarea id="micro-ans-st24q3-b" style="width:100%;min-height:120px;border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;font-family:var(--sans);font-size:13.5px;color:var(--text);resize:vertical;background:var(--surface);outline:none" placeholder="At t=1: compare acting now vs waiting (Naif expects t=2 next best)…"></textarea>
+      <div style="display:flex;gap:8px;margin-top:8px">
+        <button onclick="microExamHint('st24q3','b')" id="micro-hint-btn-st24q3-b" style="padding:7px 14px;border:1px solid var(--micro-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">+ Next hint</button>
+        <button onclick="microExamSolution('st24q3','b')" style="padding:7px 14px;border:1px solid var(--micro-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">Show solution</button>
+        <button onclick="microExamTab('st24q3','c',document.querySelector('#micro-exam-tabs-st24q3 .study-tab:nth-child(3)'))" style="padding:7px 14px;border:1px solid var(--border2);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--text2);margin-left:auto">Next →</button>
+      </div>
+    </div>
+    <div id="micro-sol-st24q3-b" style="display:none;margin-top:14px">
+      <div class="sum-card" style="border-left:3px solid var(--micro)"><div class="sum-title" style="color:var(--micro)">Official Solution — 3b</div>
+        <p><strong>t=1:</strong> Now: (3/4)56−40 = 2. Wait (expects t=2 best): (3/4)·20 = 15. 2 &lt; 15 → s₁ⁿ = N.</p>
+        <p><strong>t=2:</strong> Now: (3/4)84−64 = −1. Wait (expects t=3): (3/4)·0 = 0. −1 &lt; 0 → s₂ⁿ = N. Procrastinates again.</p>
+        <p><strong>t=3:</strong> Must present. <strong>τ_n = 3</strong>.</p>
+        <p style="margin-top:8px">Intuition: Immediate costs feel extra large (not discounted by β when incurring now). The Naif keeps postponing, believing future self will finally act optimally — but it doesn't. Ends up in worst period with net utility 0.</p>
+      </div>
+    </div>
+  </div>
+  <div id="micro-exam-panel-st24q3-c" class="study-panel">
+    <div class="sum-card" style="margin-bottom:14px"><div class="sum-title">Question 3c <span class="badge b-teal" style="margin-left:8px">10 pts</span></div>
+      <p>Derive τ_s for the Sophisticate (β = 3/4, δ = 1). Use backward induction.</p></div>
+    <div class="sum-card" style="margin-bottom:14px"><div class="sum-title">Your Answer</div>
+      <textarea id="micro-ans-st24q3-c" style="width:100%;min-height:120px;border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;font-family:var(--sans);font-size:13.5px;color:var(--text);resize:vertical;background:var(--surface);outline:none" placeholder="Start at t=3 (Y). Then t=2: compare now vs knowing t=3 will present. Then t=1…"></textarea>
+      <div style="display:flex;gap:8px;margin-top:8px">
+        <button onclick="microExamHint('st24q3','c')" id="micro-hint-btn-st24q3-c" style="padding:7px 14px;border:1px solid var(--micro-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">+ Next hint</button>
+        <button onclick="microExamSolution('st24q3','c')" style="padding:7px 14px;border:1px solid var(--micro-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">Show solution</button>
+        <button onclick="microExamTab('st24q3','d',document.querySelector('#micro-exam-tabs-st24q3 .study-tab:nth-child(4)'))" style="padding:7px 14px;border:1px solid var(--border2);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--text2);margin-left:auto">Next →</button>
+      </div>
+    </div>
+    <div id="micro-sol-st24q3-c" style="display:none;margin-top:14px">
+      <div class="sum-card" style="border-left:3px solid var(--micro)"><div class="sum-title" style="color:var(--micro)">Official Solution — 3c</div>
+        <p><strong>t=3:</strong> s₃ˢ = Y. <strong>t=2:</strong> Now: (3/4)84−64 = −1. Wait (t=3 presents): (3/4)·0 = 0. −1 &lt; 0 → s₂ˢ = N.</p>
+        <p><strong>t=1:</strong> Knows t=2 waits → t=3 presents. Now: (3/4)56−40 = 2. Wait → t=3: (3/4)·0 = 0. 2 &gt; 0 → s₁ˢ = Y. <strong>τ_s = 1</strong>.</p>
+        <div class="note-box" style="margin-top:8px;border-left-color:var(--micro-m);background:var(--micro-l)">⚠️ Ordering check (immediate costs): τ_tc ≤ τ_s ≤ τ_n → 2 ≤ 1? Wait — here τ_s = 1 &lt; τ_tc = 2 &lt; τ_n = 3. ✓ Sophistication mitigates procrastination — Sophisticate acts earliest of all.</div>
+      </div>
+    </div>
+  </div>
+  <div id="micro-exam-panel-st24q3-d" class="study-panel">
+    <div class="sum-card" style="margin-bottom:14px"><div class="sum-title">Question 3d <span class="badge b-teal" style="margin-left:8px">5 pts</span></div>
+      <p>Explain differences between TC and Naif using the Present-Bias Effect.</p></div>
+    <div class="sum-card" style="margin-bottom:14px"><div class="sum-title">Your Answer</div>
+      <textarea id="micro-ans-st24q3-d" style="width:100%;min-height:100px;border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;font-family:var(--sans);font-size:13.5px;color:var(--text);resize:vertical;background:var(--surface);outline:none" placeholder="Both expect same future behavior. How does β &lt; 1 distort the Naif's current decision?"></textarea>
+      <button onclick="microExamSolution('st24q3','d')" style="margin-top:8px;padding:8px 14px;background:var(--micro);color:#fff;border:none;border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer">Show solution</button>
+    </div>
+    <div id="micro-sol-st24q3-d" style="display:none;margin-top:14px">
+      <div class="sum-card" style="border-left:3px solid var(--micro)"><div class="sum-title" style="color:var(--micro)">Official Solution — 3d</div>
+        <p>TC and Naif have identical expectations about the future (both expect t=2 to be best). They only differ in current preferences: TC weighs all periods identically (β=1); Naif discounts all future net utilities by β=3/4. With immediate costs, the cost is not discounted when bearing it now, making the "act now" option feel worse for the Naif. The <strong>Present-Bias Effect</strong> (immediate costs: τ_n ≥ τ_tc) causes the Naif to delay — she ends up in t=3 while the TC would have presented in t=2.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ST24 · Problem 4 — Loss Aversion -->
+<div id="page-micro-exam-st24-q4" class="page">
+  <div class="page-eyebrow" style="color:var(--micro)">Microeconomics · Exam Prep · ST 2024</div>
+  <div class="page-title">Problem 4 — Loss Aversion &amp; Work Incentives <span style="font-size:16px;color:var(--text3);font-family:var(--sans);font-weight:400">(10 pts)</span></div>
+  <div class="page-desc">Loss aversion · Reference points · Incentive effects · Essay question</div>
+  <div class="ep-stats">
+    <div class="ep-chip"><strong>10</strong>Points</div>
+    <div class="ep-chip"><strong>Ch. 5</strong>Topic</div>
+    <div class="ep-chip"><strong>Essay</strong>Format</div>
+  </div>
+  <div class="sum-card" style="margin-bottom:14px"><div class="sum-title">Question</div>
+    <p>Explain intuitively why loss aversion can increase incentives to work. Consider two loss-averse individuals — one with a low reference point, one with a high reference point. Who has stronger work incentives? Explain.</p></div>
+  <div class="sum-card" style="margin-bottom:14px"><div class="sum-title">Your Answer</div>
+    <textarea id="micro-ans-st24q4-x" style="width:100%;min-height:150px;border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;font-family:var(--sans);font-size:13.5px;color:var(--text);resize:vertical;background:var(--surface);outline:none" placeholder="Losses loom larger than gains. What does a high reference point mean for how much of your income is in the loss domain?"></textarea>
+    <div style="display:flex;gap:8px;margin-top:8px">
+      <button onclick="microExamHint('st24q4','x')" id="micro-hint-btn-st24q4-x" style="padding:7px 14px;border:1px solid var(--micro-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">+ Next hint</button>
+      <button onclick="microExamSolution('st24q4','x')" style="padding:7px 14px;border:1px solid var(--micro-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">Show solution</button>
+    </div>
+    <div id="micro-fb-st24q4-x" style="display:none;margin-top:10px;padding:12px 14px;border-radius:var(--radius-sm);font-size:13px;line-height:1.6"></div>
+  </div>
+  <div id="micro-sol-st24q4-x" style="display:none;margin-top:14px">
+    <div class="sum-card" style="border-left:3px solid var(--micro)"><div class="sum-title" style="color:var(--micro)">Official Solution — Problem 4</div>
+      <p>Due to loss aversion, losses loom larger than equal-sized gains. Therefore it is more valuable to increase effort to <em>avoid a loss</em> than to secure an equal gain — incentives to work are stronger in the loss domain than in the gain domain.</p>
+      <p style="margin-top:8px">The higher the reference point, the longer a person remains in the loss domain and thus the stronger her incentives to work hard. A person with a <strong>low reference point</strong> can avoid a loss with relatively moderate effort. A person with a <strong>high reference point</strong> must exert substantially more effort to reach the reference income and escape the painful loss feeling. Therefore, the individual with the <strong>higher reference point has stronger work incentives</strong>.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     MICROECONOMICS EXAM PREP — RESIT ST 2024
+     ═══════════════════════════════════════════════════════════ -->
+
+<!-- RS24 · Problem 1 — Consumer Choice -->
+<div id="page-micro-exam-rs24-q1" class="page">
+  <div class="page-eyebrow" style="color:var(--micro)">Microeconomics · Exam Prep · Resit ST 2024</div>
+  <div class="page-title">Problem 1 — Consumer Choice <span style="font-size:16px;color:var(--text3);font-family:var(--sans);font-weight:400">(22 pts)</span></div>
+  <div class="page-desc">u(x₁,x₂) = 10x₁x₂ · p₁ = 1, p₂ = 5, m = 100</div>
+  <div class="ep-stats">
+    <div class="ep-chip"><strong>22</strong>Points</div>
+    <div class="ep-chip"><strong>Ch. 2</strong>Topic</div>
+    <div class="ep-chip"><strong>3</strong>Sub-parts</div>
+  </div>
+  <div class="study-tabs" id="micro-exam-tabs-rs24q1">
+    <button class="study-tab active" onclick="microExamTab('rs24q1','a',this)">1a — Budget Line (7 pts)</button>
+    <button class="study-tab" onclick="microExamTab('rs24q1','b',this)">1b — MRS Comparison (8 pts)</button>
+    <button class="study-tab" onclick="microExamTab('rs24q1','c',this)">1c — Optimal Bundle (7 pts)</button>
+  </div>
+  <div id="micro-exam-panel-rs24q1-a" class="study-panel active">
+    <div class="sum-card" style="margin-bottom:14px"><div class="sum-title">Question 1a <span class="badge b-teal" style="margin-left:8px">7 pts</span></div>
+      <p>Derive the consumer's budget line and give an intuitive explanation of its slope.</p></div>
+    <div class="sum-card" style="margin-bottom:14px"><div class="sum-title">Your Answer</div>
+      <textarea id="micro-ans-rs24q1-a" style="width:100%;min-height:100px;border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;font-family:var(--sans);font-size:13.5px;color:var(--text);resize:vertical;background:var(--surface);outline:none" placeholder="Budget equation: p₁x₁ + p₂x₂ = m. Slope = −p₁/p₂…"></textarea>
+      <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap">
+        <button onclick="microExamCheck('rs24q1','a','partial')" style="padding:8px 14px;background:none;color:var(--micro);border:1.5px solid var(--micro);border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer">Check so far</button>
+        <button onclick="microExamCheck('rs24q1','a','full')" style="padding:8px 14px;background:var(--micro);color:#fff;border:none;border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer">Check full</button>
+      </div>
+      <div id="micro-fb-rs24q1-a" style="display:none;margin-top:10px;padding:12px 14px;border-radius:var(--radius-sm);font-size:13px;line-height:1.6"></div>
+    </div>
+    <div style="display:flex;gap:8px;margin-top:4px;flex-wrap:wrap">
+      <button onclick="microExamHint('rs24q1','a')" id="micro-hint-btn-rs24q1-a" style="padding:7px 14px;border:1px solid var(--micro-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">+ Next hint</button>
+      <button onclick="microExamSolution('rs24q1','a')" style="padding:7px 14px;border:1px solid var(--micro-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">Show solution</button>
+      <button onclick="microExamTab('rs24q1','b',document.querySelector('#micro-exam-tabs-rs24q1 .study-tab:nth-child(2)'))" style="padding:7px 14px;border:1px solid var(--border2);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--text2);margin-left:auto">Next →</button>
+    </div>
+    <div id="micro-sol-rs24q1-a" style="display:none;margin-top:14px">
+      <div class="sum-card" style="border-left:3px solid var(--micro)"><div class="sum-title" style="color:var(--micro)">Official Solution — 1a</div>
+        <p>Budget equation: <strong>x₁ + 5x₂ = 100</strong>, rearranges to <strong>x₂ = 20 − 0.2x₁</strong>.</p>
+        <p style="margin-top:8px">Slope = −0.2 = −p₁/p₂ = −1/5. To buy one more unit of x₁ (price 1), the consumer gives up 0.2 units of x₂ (price 5) — this is the opportunity cost of x₁ in terms of x₂.</p>
+      </div>
+    </div>
+  </div>
+  <div id="micro-exam-panel-rs24q1-b" class="study-panel">
+    <div class="sum-card" style="margin-bottom:14px"><div class="sum-title">Question 1b <span class="badge b-teal" style="margin-left:8px">8 pts</span></div>
+      <p>Derive the MRS for bundles (1, 5) and (10, 2). Explain the difference intuitively.</p></div>
+    <div class="sum-card" style="margin-bottom:14px"><div class="sum-title">Your Answer</div>
+      <textarea id="micro-ans-rs24q1-b" style="width:100%;min-height:110px;border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;font-family:var(--sans);font-size:13.5px;color:var(--text);resize:vertical;background:var(--surface);outline:none" placeholder="MRS = MU₁/MU₂. Compute MU₁ and MU₂ from u = 10x₁x₂…"></textarea>
+      <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap">
+        <button onclick="microExamCheck('rs24q1','b','partial')" style="padding:8px 14px;background:none;color:var(--micro);border:1.5px solid var(--micro);border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer">Check so far</button>
+        <button onclick="microExamCheck('rs24q1','b','full')" style="padding:8px 14px;background:var(--micro);color:#fff;border:none;border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer">Check full</button>
+      </div>
+      <div id="micro-fb-rs24q1-b" style="display:none;margin-top:10px;padding:12px 14px;border-radius:var(--radius-sm);font-size:13px;line-height:1.6"></div>
+    </div>
+    <div style="display:flex;gap:8px;margin-top:4px;flex-wrap:wrap">
+      <button onclick="microExamHint('rs24q1','b')" id="micro-hint-btn-rs24q1-b" style="padding:7px 14px;border:1px solid var(--micro-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">+ Next hint</button>
+      <button onclick="microExamSolution('rs24q1','b')" style="padding:7px 14px;border:1px solid var(--micro-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">Show solution</button>
+      <button onclick="microExamTab('rs24q1','c',document.querySelector('#micro-exam-tabs-rs24q1 .study-tab:nth-child(3)'))" style="padding:7px 14px;border:1px solid var(--border2);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--text2);margin-left:auto">Next →</button>
+    </div>
+    <div id="micro-sol-rs24q1-b" style="display:none;margin-top:14px">
+      <div class="sum-card" style="border-left:3px solid var(--micro)"><div class="sum-title" style="color:var(--micro)">Official Solution — 1b</div>
+        <p>MU₁ = 10x₂, MU₂ = 10x₁ → <strong>MRS = x₂/x₁</strong>.</p>
+        <p style="margin-top:8px">MRS(1,5) = 5/1 = <strong>5</strong>. MRS(10,2) = 2/10 = <strong>1/5</strong>.</p>
+        <p style="margin-top:8px">At (1,5): x₁ scarce, high marginal value → willing to give up 5 units of x₂ for 1 more x₁. At (10,2): x₁ abundant, x₂ scarce → only sacrifices 1/5 unit of x₂ per extra x₁.</p>
+      </div>
+    </div>
+  </div>
+  <div id="micro-exam-panel-rs24q1-c" class="study-panel">
+    <div class="sum-card" style="margin-bottom:14px"><div class="sum-title">Question 1c <span class="badge b-teal" style="margin-left:8px">7 pts</span></div>
+      <p>Derive the optimal consumption bundle (x₁*, x₂*) formally.</p></div>
+    <div class="sum-card" style="margin-bottom:14px"><div class="sum-title">Your Answer</div>
+      <textarea id="micro-ans-rs24q1-c" style="width:100%;min-height:100px;border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;font-family:var(--sans);font-size:13.5px;color:var(--text);resize:vertical;background:var(--surface);outline:none" placeholder="MRS = p₁/p₂ → x₂/x₁ = 1/5 → x₁ = 5x₂. Substitute into budget…"></textarea>
+      <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap">
+        <button onclick="microExamCheck('rs24q1','c','partial')" style="padding:8px 14px;background:none;color:var(--micro);border:1.5px solid var(--micro);border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer">Check so far</button>
+        <button onclick="microExamCheck('rs24q1','c','full')" style="padding:8px 14px;background:var(--micro);color:#fff;border:none;border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer">Check full</button>
+      </div>
+      <div id="micro-fb-rs24q1-c" style="display:none;margin-top:10px;padding:12px 14px;border-radius:var(--radius-sm);font-size:13px;line-height:1.6"></div>
+    </div>
+    <div style="display:flex;gap:8px;margin-top:4px">
+      <button onclick="microExamHint('rs24q1','c')" id="micro-hint-btn-rs24q1-c" style="padding:7px 14px;border:1px solid var(--micro-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">+ Next hint</button>
+      <button onclick="microExamSolution('rs24q1','c')" style="padding:7px 14px;border:1px solid var(--micro-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">Show solution</button>
+    </div>
+    <div id="micro-sol-rs24q1-c" style="display:none;margin-top:14px">
+      <div class="sum-card" style="border-left:3px solid var(--micro)"><div class="sum-title" style="color:var(--micro)">Official Solution — 1c</div>
+        <p>MRS = p₁/p₂: x₂/x₁ = 1/5 → x₁ = 5x₂. Into budget: 5x₂ + 5x₂ = 100 → x₂* = <strong>10</strong>, x₁* = <strong>50</strong>. Optimal: <strong>(50, 10)</strong>.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RS24 · Problem 2 — Principal-Agent -->
+<div id="page-micro-exam-rs24-q2" class="page">
+  <div class="page-eyebrow" style="color:var(--micro)">Microeconomics · Exam Prep · Resit ST 2024</div>
+  <div class="page-title">Problem 2 — Principal-Agent &amp; Reference-Dependent Utility <span style="font-size:16px;color:var(--text3);font-family:var(--sans);font-weight:400">(26 pts)</span></div>
+  <div class="page-desc">Wage 10/unit · c(e) = ½e² · Δ = 10e − r · λ = 4 · r = 160 · η = ½</div>
+  <div class="ep-stats">
+    <div class="ep-chip"><strong>26</strong>Points</div>
+    <div class="ep-chip"><strong>Ch. 5</strong>Topic</div>
+    <div class="ep-chip"><strong>4</strong>Sub-parts</div>
+  </div>
+  <div class="study-tabs" id="micro-exam-tabs-rs24q2">
+    <button class="study-tab active" onclick="microExamTab('rs24q2','a',this)">2a — Reference Point (4 pts)</button>
+    <button class="study-tab" onclick="microExamTab('rs24q2','b',this)">2b — Neutral Effort (4 pts)</button>
+    <button class="study-tab" onclick="microExamTab('rs24q2','c',this)">2c — Optimal Effort (14 pts)</button>
+    <button class="study-tab" onclick="microExamTab('rs24q2','d',this)">2d — Replace Agent (4 pts)</button>
+  </div>
+  <div id="micro-exam-panel-rs24q2-a" class="study-panel active">
+    <div class="sum-card" style="margin-bottom:14px"><div class="sum-title">Question 2a <span class="badge b-teal" style="margin-left:8px">4 pts</span></div>
+      <p>Intuitively explain the meaning of the parameter r.</p></div>
+    <div class="sum-card" style="margin-bottom:14px"><div class="sum-title">Your Answer</div>
+      <textarea id="micro-ans-rs24q2-a" style="width:100%;min-height:80px;border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;font-family:var(--sans);font-size:13.5px;color:var(--text);resize:vertical;background:var(--surface);outline:none" placeholder="r is A's reference point. Δ = 10e − r. What happens when actual income exceeds r?"></textarea>
+      <div style="display:flex;gap:8px;margin-top:8px">
+        <button onclick="microExamSolution('rs24q2','a')" style="padding:8px 14px;background:var(--micro);color:#fff;border:none;border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer">Show solution</button>
+        <button onclick="microExamTab('rs24q2','b',document.querySelector('#micro-exam-tabs-rs24q2 .study-tab:nth-child(2)'))" style="padding:7px 14px;border:1px solid var(--border2);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--text2);margin-left:auto">Next →</button>
+      </div>
+    </div>
+    <div id="micro-sol-rs24q2-a" style="display:none;margin-top:14px">
+      <div class="sum-card" style="border-left:3px solid var(--micro)"><div class="sum-title" style="color:var(--micro)">Official Solution — 2a</div>
+        <p>r is A's <strong>reference income</strong> — the benchmark she uses to evaluate her actual earnings. If actual wage income (10e) exceeds r, she feels a <strong>gain</strong> (Δ &gt; 0). If it falls short, she suffers a <strong>loss</strong> (Δ &lt; 0).</p>
+      </div>
+    </div>
+  </div>
+  <div id="micro-exam-panel-rs24q2-b" class="study-panel">
+    <div class="sum-card" style="margin-bottom:14px"><div class="sum-title">Question 2b <span class="badge b-teal" style="margin-left:8px">4 pts</span></div>
+      <p>For which effort level does A experience neither gain nor loss?</p></div>
+    <div class="sum-card" style="margin-bottom:14px"><div class="sum-title">Your Answer</div>
+      <textarea id="micro-ans-rs24q2-b" style="width:100%;min-height:70px;border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;font-family:var(--sans);font-size:13.5px;color:var(--text);resize:vertical;background:var(--surface);outline:none" placeholder="Set Δ = 10e − r = 0, solve for e…"></textarea>
+      <div style="display:flex;gap:8px;margin-top:8px">
+        <button onclick="microExamSolution('rs24q2','b')" style="padding:8px 14px;background:var(--micro);color:#fff;border:none;border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer">Show solution</button>
+        <button onclick="microExamTab('rs24q2','c',document.querySelector('#micro-exam-tabs-rs24q2 .study-tab:nth-child(3)'))" style="padding:7px 14px;border:1px solid var(--border2);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--text2);margin-left:auto">Next →</button>
+      </div>
+    </div>
+    <div id="micro-sol-rs24q2-b" style="display:none;margin-top:14px">
+      <div class="sum-card" style="border-left:3px solid var(--micro)"><div class="sum-title" style="color:var(--micro)">Official Solution — 2b</div>
+        <p>Set Δ = 0: 10e = r → <strong>e = r/10</strong>. Effort must exactly generate income equal to the reference point.</p>
+      </div>
+    </div>
+  </div>
+  <div id="micro-exam-panel-rs24q2-c" class="study-panel">
+    <div class="sum-card" style="margin-bottom:14px"><div class="sum-title">Question 2c <span class="badge b-teal" style="margin-left:8px">14 pts</span></div>
+      <p>Let λ = 4, r = 160. Formally derive A's optimal effort choice.</p>
+      <div class="note-box" style="margin-top:8px">U = (10e − ½e²) + ½·μ(10e−160). Threshold e_ref = 16. Analyze loss domain (e &lt; 16) and gain domain (e ≥ 16) separately.</div></div>
+    <div class="sum-card" style="margin-bottom:14px"><div class="sum-title">Your Answer</div>
+      <textarea id="micro-ans-rs24q2-c" style="width:100%;min-height:140px;border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;font-family:var(--sans);font-size:13.5px;color:var(--text);resize:vertical;background:var(--surface);outline:none" placeholder="Write U_loss(e) and U_gain(e), differentiate, check FOC in each region…"></textarea>
+      <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap">
+        <button onclick="microExamHint('rs24q2','c')" id="micro-hint-btn-rs24q2-c" style="padding:7px 14px;border:1px solid var(--micro-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">+ Next hint</button>
+        <button onclick="microExamSolution('rs24q2','c')" style="padding:7px 14px;border:1px solid var(--micro-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">Show solution</button>
+        <button onclick="microExamTab('rs24q2','d',document.querySelector('#micro-exam-tabs-rs24q2 .study-tab:nth-child(4)'))" style="padding:7px 14px;border:1px solid var(--border2);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--text2);margin-left:auto">Next →</button>
+      </div>
+    </div>
+    <div id="micro-sol-rs24q2-c" style="display:none;margin-top:14px">
+      <div class="sum-card" style="border-left:3px solid var(--micro)"><div class="sum-title" style="color:var(--micro)">Official Solution — 2c</div>
+        <p>e_ref = r/10 = 16. Two cases:</p>
+        <p style="margin-top:8px"><strong>Loss (e &lt; 16):</strong> U_loss = 10e − ½e² + ½·4·(10e−160) = 30e − ½e² − 320. U'_loss = 30 − e &gt; 14 &gt; 0 for all e &lt; 16 → always increasing → push e up to 16.</p>
+        <p style="margin-top:8px"><strong>Gain (e ≥ 16):</strong> U_gain = 10e − ½e² + ½·(10e−160) = 15e − ½e² − 80. U'_gain = 15 − e. FOC: e = 15 &lt; 16 → not feasible in gain domain. For e &gt; 16: U'_gain &lt; 0 → decreasing → optimal is e = 16.</p>
+        <p style="margin-top:8px">Combining both: <strong>e* = 16</strong>. A optimally exerts effort exactly at the reference-point threshold — loss aversion creates a kink at e = 16.</p>
+      </div>
+    </div>
+  </div>
+  <div id="micro-exam-panel-rs24q2-d" class="study-panel">
+    <div class="sum-card" style="margin-bottom:14px"><div class="sum-title">Question 2d <span class="badge b-teal" style="margin-left:8px">4 pts</span></div>
+      <p>Suppose P can replace A with A₂ who has a lower reference point. Provide an intuition why P might not want to.</p></div>
+    <div class="sum-card" style="margin-bottom:14px"><div class="sum-title">Your Answer</div>
+      <textarea id="micro-ans-rs24q2-d" style="width:100%;min-height:90px;border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;font-family:var(--sans);font-size:13.5px;color:var(--text);resize:vertical;background:var(--surface);outline:none" placeholder="Lower r → lower threshold effort e* = r/10. What does this mean for P's output?"></textarea>
+      <button onclick="microExamSolution('rs24q2','d')" style="margin-top:8px;padding:8px 14px;background:var(--micro);color:#fff;border:none;border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer">Show solution</button>
+    </div>
+    <div id="micro-sol-rs24q2-d" style="display:none;margin-top:14px">
+      <div class="sum-card" style="border-left:3px solid var(--micro)"><div class="sum-title" style="color:var(--micro)">Official Solution — 2d</div>
+        <p>A₂'s optimal effort is e* = r₂/10 &lt; r/10 = 16. A₂ will choose lower effort, producing less output for P. A higher reference point generates stronger loss-aversion-driven work incentives. P would not benefit from switching to an agent with lower incentives to work hard.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RS24 · Problem 3 — Present Bias (Jordan / Stadium) -->
+<div id="page-micro-exam-rs24-q3" class="page">
+  <div class="page-eyebrow" style="color:var(--micro)">Microeconomics · Exam Prep · Resit ST 2024</div>
+  <div class="page-title">Problem 3 — Present Bias &amp; Time Inconsistency <span style="font-size:16px;color:var(--text3);font-family:var(--sans);font-weight:400">(34 pts)</span></div>
+  <div class="page-desc">Jordan · v = (75, 102, 138) · c = (18, 27, 36) · β = 2/3 · δ = 1 · Immediate rewards</div>
+  <div class="ep-stats">
+    <div class="ep-chip"><strong>34</strong>Points</div>
+    <div class="ep-chip"><strong>Ch. 6</strong>Topic</div>
+    <div class="ep-chip"><strong>5</strong>Sub-parts</div>
+  </div>
+  <div class="study-tabs" id="micro-exam-tabs-rs24q3">
+    <button class="study-tab active" onclick="microExamTab('rs24q3','a',this)">3a — Imm. Rewards? (4 pts)</button>
+    <button class="study-tab" onclick="microExamTab('rs24q3','b',this)">3b — TC (6 pts)</button>
+    <button class="study-tab" onclick="microExamTab('rs24q3','c',this)">3c — Naif (11 pts)</button>
+    <button class="study-tab" onclick="microExamTab('rs24q3','d',this)">3d — Sophisticate (7 pts)</button>
+    <button class="study-tab" onclick="microExamTab('rs24q3','e',this)">3e — PB Effect (6 pts)</button>
+  </div>
+  <div id="micro-exam-panel-rs24q3-a" class="study-panel active">
+    <div class="sum-card" style="margin-bottom:14px"><div class="sum-title">Question 3a <span class="badge b-teal" style="margin-left:8px">4 pts</span></div>
+      <p>Provide an intuitive explanation of why visiting New York is an activity with immediate rewards and delayed costs.</p></div>
+    <div class="sum-card" style="margin-bottom:14px"><div class="sum-title">Your Answer</div>
+      <textarea id="micro-ans-rs24q3-a" style="width:100%;min-height:90px;border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;font-family:var(--sans);font-size:13.5px;color:var(--text);resize:vertical;background:var(--surface);outline:none" placeholder="Which payoff is immediate? Which materialises later?"></textarea>
+      <div style="display:flex;gap:8px;margin-top:8px">
+        <button onclick="microExamSolution('rs24q3','a')" style="padding:8px 14px;background:var(--micro);color:#fff;border:none;border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer">Show solution</button>
+        <button onclick="microExamTab('rs24q3','b',document.querySelector('#micro-exam-tabs-rs24q3 .study-tab:nth-child(2)'))" style="padding:7px 14px;border:1px solid var(--border2);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--text2);margin-left:auto">Next →</button>
+      </div>
+    </div>
+    <div id="micro-sol-rs24q3-a" style="display:none;margin-top:14px">
+      <div class="sum-card" style="border-left:3px solid var(--micro)"><div class="sum-title" style="color:var(--micro)">Official Solution — 3a</div>
+        <p>The pleasure of watching the basketball game can be enjoyed immediately that weekend — <strong>reward is immediate</strong>. Not helping friends with the renovation impairs the shared apartment's living quality in the years that follow — <strong>cost is delayed</strong>.</p>
+      </div>
+    </div>
+  </div>
+  <div id="micro-exam-panel-rs24q3-b" class="study-panel">
+    <div class="sum-card" style="margin-bottom:14px"><div class="sum-title">Question 3b <span class="badge b-teal" style="margin-left:8px">6 pts</span></div>
+      <p>Derive τ_tc (TC, β=1, δ=1). Explain intuitively.</p>
+      <div class="note-box" style="margin-top:8px">For immediate rewards: U^t(t) = v_t − β·c_t with β=1 → U(t) = v_t − c_t.</div></div>
+    <div class="sum-card" style="margin-bottom:14px"><div class="sum-title">Your Answer</div>
+      <textarea id="micro-ans-rs24q3-b" style="width:100%;min-height:90px;border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;font-family:var(--sans);font-size:13.5px;color:var(--text);resize:vertical;background:var(--surface);outline:none" placeholder="Compute U(1), U(2), U(3) for TC. Do net utilities increase?"></textarea>
+      <div style="display:flex;gap:8px;margin-top:8px">
+        <button onclick="microExamSolution('rs24q3','b')" style="padding:8px 14px;background:var(--micro);color:#fff;border:none;border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer">Show solution</button>
+        <button onclick="microExamTab('rs24q3','c',document.querySelector('#micro-exam-tabs-rs24q3 .study-tab:nth-child(3)'))" style="padding:7px 14px;border:1px solid var(--border2);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--text2);margin-left:auto">Next →</button>
+      </div>
+    </div>
+    <div id="micro-sol-rs24q3-b" style="display:none;margin-top:14px">
+      <div class="sum-card" style="border-left:3px solid var(--micro)"><div class="sum-title" style="color:var(--micro)">Official Solution — 3b</div>
+        <p>U(1) = 75−18 = <strong>57</strong>, U(2) = 102−27 = <strong>75</strong>, U(3) = 138−36 = <strong>102</strong>.</p>
+        <p style="margin-top:8px">Strictly increasing: <strong>τ_tc = 3</strong>. TC waits for the best outcome — period 3 has the highest net utility. TC always compares and picks the global maximum.</p>
+      </div>
+    </div>
+  </div>
+  <div id="micro-exam-panel-rs24q3-c" class="study-panel">
+    <div class="sum-card" style="margin-bottom:14px"><div class="sum-title">Question 3c <span class="badge b-teal" style="margin-left:8px">11 pts</span></div>
+      <p>Derive τ_n for the Naif (β = 2/3, δ = 1, immediate rewards). Explain.</p>
+      <div class="note-box" style="margin-top:8px">Immediate rewards: U^t(now at t) = v_t − β·c_t. Waiting: U^t(τ>t) = β(v_τ − c_τ). Naif believes β̂=1 from next period.</div></div>
+    <div class="sum-card" style="margin-bottom:14px"><div class="sum-title">Your Answer</div>
+      <textarea id="micro-ans-rs24q3-c" style="width:100%;min-height:130px;border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;font-family:var(--sans);font-size:13.5px;color:var(--text);resize:vertical;background:var(--surface);outline:none" placeholder="At t=1: going now vs waiting. Naif expects future self (β̂=1) to wait until t=3…"></textarea>
+      <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap">
+        <button onclick="microExamHint('rs24q3','c')" id="micro-hint-btn-rs24q3-c" style="padding:7px 14px;border:1px solid var(--micro-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">+ Next hint</button>
+        <button onclick="microExamSolution('rs24q3','c')" style="padding:7px 14px;border:1px solid var(--micro-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">Show solution</button>
+        <button onclick="microExamTab('rs24q3','d',document.querySelector('#micro-exam-tabs-rs24q3 .study-tab:nth-child(4)'))" style="padding:7px 14px;border:1px solid var(--border2);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--text2);margin-left:auto">Next →</button>
+      </div>
+    </div>
+    <div id="micro-sol-rs24q3-c" style="display:none;margin-top:14px">
+      <div class="sum-card" style="border-left:3px solid var(--micro)"><div class="sum-title" style="color:var(--micro)">Official Solution — 3c</div>
+        <p><strong>t=1:</strong> Now: 75 − (2/3)·18 = 75−12 = <strong>63</strong>. Wait → t=3 (Naif expects β̂=1 so best is t=3): (2/3)·102 = <strong>68</strong>. 63 &lt; 68 → s₁ⁿ = N.</p>
+        <p><strong>t=2:</strong> Now: 102 − (2/3)·27 = 102−18 = <strong>84</strong>. Wait → t=3: (2/3)·102 = <strong>68</strong>. 84 &gt; 68 → s₂ⁿ = Y. <strong>τ_n = 2</strong>.</p>
+        <p style="margin-top:8px">Intuition: The immediate reward (v_t not discounted by β) feels disproportionately large at t=2 vs the discounted future (68). The Naif preproperates — acts before the TC's optimal t=3. The present bias makes immediate rewards feel irresistible sooner than they should.</p>
+      </div>
+    </div>
+  </div>
+  <div id="micro-exam-panel-rs24q3-d" class="study-panel">
+    <div class="sum-card" style="margin-bottom:14px"><div class="sum-title">Question 3d <span class="badge b-teal" style="margin-left:8px">7 pts</span></div>
+      <p>Derive τ_s for the Sophisticate (β = 2/3, δ = 1). Explain.</p></div>
+    <div class="sum-card" style="margin-bottom:14px"><div class="sum-title">Your Answer</div>
+      <textarea id="micro-ans-rs24q3-d" style="width:100%;min-height:120px;border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;font-family:var(--sans);font-size:13.5px;color:var(--text);resize:vertical;background:var(--surface);outline:none" placeholder="Backward induction. t=3: Y. t=2: same comparison as (c) → Y. At t=1, knows t=2 will go. Compare going now vs waiting for t=2…"></textarea>
+      <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap">
+        <button onclick="microExamHint('rs24q3','d')" id="micro-hint-btn-rs24q3-d" style="padding:7px 14px;border:1px solid var(--micro-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">+ Next hint</button>
+        <button onclick="microExamSolution('rs24q3','d')" style="padding:7px 14px;border:1px solid var(--micro-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">Show solution</button>
+        <button onclick="microExamTab('rs24q3','e',document.querySelector('#micro-exam-tabs-rs24q3 .study-tab:nth-child(5)'))" style="padding:7px 14px;border:1px solid var(--border2);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--text2);margin-left:auto">Next →</button>
+      </div>
+    </div>
+    <div id="micro-sol-rs24q3-d" style="display:none;margin-top:14px">
+      <div class="sum-card" style="border-left:3px solid var(--micro)"><div class="sum-title" style="color:var(--micro)">Official Solution — 3d</div>
+        <p><strong>t=3:</strong> s₃ˢ = Y. <strong>t=2:</strong> Identical to Naif: 84 &gt; 68 → s₂ˢ = Y.</p>
+        <p><strong>t=1:</strong> Knows t=2 will go. Going now: 63. Waiting → t=2 will go: (2/3)·(102−27) = (2/3)·75 = <strong>50</strong>. 63 &gt; 50 → s₁ˢ = Y. <strong>τ_s = 1</strong>.</p>
+        <p style="margin-top:8px">Knowing the t=2 self will visit (not t=3), waiting is less attractive than the Naif imagined. The Sophisticate goes right away in t=1.</p>
+        <div class="note-box" style="margin-top:8px;border-left-color:var(--amber);background:var(--amber-l)">⚠️ Ordering (immediate rewards): τ_s ≤ τ_n ≤ τ_tc → 1 ≤ 2 ≤ 3. ✓ Sophistication exacerbates preproperation.</div>
+      </div>
+    </div>
+  </div>
+  <div id="micro-exam-panel-rs24q3-e" class="study-panel">
+    <div class="sum-card" style="margin-bottom:14px"><div class="sum-title">Question 3e <span class="badge b-teal" style="margin-left:8px">6 pts</span></div>
+      <p>Explain differences between TC and Naif using the Present-Bias Effect.</p></div>
+    <div class="sum-card" style="margin-bottom:14px"><div class="sum-title">Your Answer</div>
+      <textarea id="micro-ans-rs24q3-e" style="width:100%;min-height:110px;border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;font-family:var(--sans);font-size:13.5px;color:var(--text);resize:vertical;background:var(--surface);outline:none" placeholder="Both expect to wait until t=3 initially. How does present bias change the Naif's decision at t=2 vs TC?"></textarea>
+      <button onclick="microExamSolution('rs24q3','e')" style="margin-top:8px;padding:8px 14px;background:var(--micro);color:#fff;border:none;border-radius:var(--radius-sm);font-family:var(--sans);font-size:12.5px;font-weight:500;cursor:pointer">Show solution</button>
+    </div>
+    <div id="micro-sol-rs24q3-e" style="display:none;margin-top:14px">
+      <div class="sum-card" style="border-left:3px solid var(--micro)"><div class="sum-title" style="color:var(--micro)">Official Solution — 3e</div>
+        <p>TC and Naif both expect to wait until t=3 (both anticipate the future self will act rationally). They only differ in current preferences: with immediate rewards, the current reward (v_t) is not discounted by β, while waiting costs (β·c_τ) are. The Naif thus perceives the current reward as disproportionately attractive.</p>
+        <p style="margin-top:8px">The <strong>Present-Bias Effect</strong> (immediate rewards: τ_n ≤ τ_tc): In t=1, both wait (the future is still more attractive). In t=2 the TC still waits (net utility 75 at t=3 > 75 − 27 now, when computed equally), but the Naif visits New York because the present-biased comparison makes 84 irresistibly large relative to the discounted 68. This is in line with the Present-Bias Effect: with immediate rewards, the Naif acts earlier than the TC.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RS24 · Problem 4 — Budget Line Slope -->
+<div id="page-micro-exam-rs24-q4" class="page">
+  <div class="page-eyebrow" style="color:var(--micro)">Microeconomics · Exam Prep · Resit ST 2024</div>
+  <div class="page-title">Problem 4 — Budget Line: Opportunity Cost &amp; Independence <span style="font-size:16px;color:var(--text3);font-family:var(--sans);font-weight:400">(8 pts)</span></div>
+  <div class="page-desc">Conceptual essay · Budget constraint · Price ratio · Opportunity cost</div>
+  <div class="ep-stats">
+    <div class="ep-chip"><strong>8</strong>Points</div>
+    <div class="ep-chip"><strong>Ch. 2</strong>Topic</div>
+    <div class="ep-chip"><strong>Essay</strong>Format</div>
+  </div>
+  <div class="sum-card" style="margin-bottom:14px"><div class="sum-title">Question</div>
+    <p>Explain intuitively why the slope of the budget line measures the consumer's opportunity cost. Why is it independent of the consumer's budget?</p></div>
+  <div class="sum-card" style="margin-bottom:14px"><div class="sum-title">Your Answer</div>
+    <textarea id="micro-ans-rs24q4-x" style="width:100%;min-height:150px;border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;font-family:var(--sans);font-size:13.5px;color:var(--text);resize:vertical;background:var(--surface);outline:none" placeholder="The slope is −p₁/p₂. Why is this the opportunity cost of x₁? Why does m not appear in the slope?"></textarea>
+    <div style="display:flex;gap:8px;margin-top:8px">
+      <button onclick="microExamHint('rs24q4','x')" id="micro-hint-btn-rs24q4-x" style="padding:7px 14px;border:1px solid var(--micro-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">+ Next hint</button>
+      <button onclick="microExamSolution('rs24q4','x')" style="padding:7px 14px;border:1px solid var(--micro-m);border-radius:var(--radius-sm);background:none;font-family:var(--sans);font-size:12.5px;cursor:pointer;color:var(--micro)">Show solution</button>
+    </div>
+    <div id="micro-fb-rs24q4-x" style="display:none;margin-top:10px;padding:12px 14px;border-radius:var(--radius-sm);font-size:13px;line-height:1.6"></div>
+  </div>
+  <div id="micro-sol-rs24q4-x" style="display:none;margin-top:14px">
+    <div class="sum-card" style="border-left:3px solid var(--micro)"><div class="sum-title" style="color:var(--micro)">Official Solution — Problem 4</div>
+      <p>The absolute value of the slope is p₁/p₂ — it reveals how many units of good 2 must be sacrificed to buy one additional unit of good 1. This foregone consumption of good 2 is exactly the opportunity cost of purchasing good 1.</p>
+      <p style="margin-top:8px">The slope is <strong>independent of budget m</strong> because it depends only on prices p₁ and p₂, which are the same for all consumers regardless of their wealth. A higher m shifts the budget line outward (parallel shift) without altering its slope. Richer and poorer consumers face identical relative prices and thus the same trade-off rate. This is why the slope is a property of the market (prices), not of the individual (income).</p>
+    </div>
+  </div>
+</div>
 </main>
 </div>
 <script>
@@ -12993,6 +13619,221 @@ function ch4Calc(){
 <b>Max future (all saving):</b> ${max_save.toFixed(0)} | <b>Max present (all borrowing):</b> ${max_borrow.toFixed(0)}<br>
 <b>Decision:</b> ${saves ? `✅ <b>SAVER</b> — c₁* (${c1.toFixed(0)}) < m₁/p₁ (${(m1/p1).toFixed(0)}). Saves the difference.` : `⬅ <b>BORROWER</b> — c₁* (${c1.toFixed(0)}) > m₁/p₁ (${(m1/p1).toFixed(0)}). Borrows from period 2.`}
 </div></div>`;
+}
+
+// ── Micro Exam Prep Functions ──
+function toggleMicroExamFlyout() {
+  const flyout = document.getElementById('exam-flyout-micro');
+  const toggle = document.getElementById('nav-micro-exam-toggle');
+  const arrow = document.getElementById('micro-exam-toggle-arrow');
+  const isOpen = flyout.classList.contains('open');
+  flyout.classList.toggle('open', !isOpen);
+  toggle.classList.toggle('active', !isOpen);
+  arrow.textContent = isOpen ? '▸' : '▾';
+}
+
+function showMicroExam(examId, qId, btn) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.exam-flyout-btn').forEach(b => { b.classList.remove('active','micro-active'); });
+  if (btn) { btn.classList.add('micro-active'); }
+  const el = document.getElementById('page-micro-exam-' + examId + '-' + qId);
+  if (el) el.classList.add('active');
+  if (!document.getElementById('exam-flyout-micro').classList.contains('open')) toggleMicroExamFlyout();
+}
+
+function microExamTab(examId, sub, btn) {
+  const prefix = 'micro-exam-panel-' + examId + '-';
+  document.querySelectorAll('[id^="' + prefix + '"]').forEach(p => p.classList.remove('active'));
+  const tabsId = 'micro-exam-tabs-' + examId;
+  document.querySelectorAll('#' + tabsId + ' .study-tab').forEach(t => { t.classList.remove('active'); t.style.borderBottomColor = ''; t.style.color = ''; });
+  document.getElementById(prefix + sub).classList.add('active');
+  if (btn) { btn.classList.add('active'); btn.style.borderBottomColor = 'var(--micro)'; btn.style.color = 'var(--micro)'; }
+}
+
+const MICRO_CHECKS = {
+  'st24q1-a': [
+    { name: 'Budget equation', label: '4x₁ + 2x₂ = 200', test: v => /4x.?1.*2x.?2.*200|200.*4x.?1.*2x.?2/i.test(v), miss: 'Write 4x₁ + 2x₂ = 200' },
+    { name: 'Slope = −2', label: 'slope is −2 (or p₁/p₂ = 2)', test: v => /slope.*-?2|−2|minus 2|−p.?p|opportunity cost/i.test(v), miss: 'State slope = −p₁/p₂ = −2' },
+    { name: 'Rearranged form', label: 'x₂ = 100 − 2x₁', test: v => /x.?2\s*=\s*100|100\s*[-−]\s*2x.?1/i.test(v), miss: 'Rearrange: x₂ = 100 − 2x₁' }
+  ],
+  'st24q1-b': [
+    { name: 'MRS formula', label: 'MRS = MU₁/MU₂ = x₂/x₁', test: v => /MRS\s*=\s*x.?2.*x.?1|x2\/x1|x₂.*x₁/i.test(v), miss: 'Derive MRS = x₂/x₁' },
+    { name: 'MRS at (1,3)', label: 'MRS(1,3) = 3', test: v => /\(1,3\).*3|3\/1|mrs.*=.*3/i.test(v), miss: 'Compute MRS(1,3) = 3/1 = 3' },
+    { name: 'MRS at (3,1)', label: 'MRS(3,1) = 1/3', test: v => /\(3,1\).*1.?\/?.?3|1\/3|mrs.*=.*1\/3/i.test(v), miss: 'Compute MRS(3,1) = 1/3' },
+    { name: 'Intuition', label: 'scarcity intuition', test: v => /scarc|abundant|low.*x1|high.*x2|more.*x2|few.*x1/i.test(v), miss: 'Explain: x₁ is scarce at (1,3), so high willingness to give up x₂' }
+  ],
+  'st24q1-c': [
+    { name: 'Tangency condition', label: 'MRS = p₁/p₂', test: v => /mrs\s*=\s*p.?1.*p.?2|tangenc|mrt/i.test(v), miss: 'Set MRS = p₁/p₂ = 2' },
+    { name: 'Relationship x₂ = 2x₁', label: 'x₂ = 2x₁', test: v => /x.?2\s*=\s*2\s*x.?1|2x.?1\s*=\s*x.?2/i.test(v), miss: 'Derive x₂ = 2x₁ from MRS = 2' },
+    { name: 'x₁* = 25', label: 'x₁* = 25', test: v => /x.?1\*?\s*=?\s*25|25.*optimal/i.test(v), miss: 'Compute x₁* = 25' },
+    { name: 'x₂* = 50', label: 'x₂* = 50', test: v => /x.?2\*?\s*=?\s*50|50.*optimal/i.test(v), miss: 'Compute x₂* = 50' }
+  ],
+  'st24q2-a': [
+    { name: 'Slope formula', label: 'slope = −γ/(1−γ) = −1/2', test: v => /γ.*1-γ|gamma.*1.gamma|slope.*-?1.?2|−½|−1\/2/i.test(v), miss: 'Slope m = −γ/(1−γ) = −1/2' },
+    { name: 'Budget line equation', label: 'c_g = 2,200,000 − ½c_b', test: v => /2.?200.?000|2200000|c_g.*c_b|cg.*cb/i.test(v), miss: 'Write: c_g = 2,200,000 − ½c_b' }
+  ],
+  'st24q2-b': [
+    { name: 'Probability weighting', label: 'U = 0.75√c_g + 0.25√c_b', test: v => /0\.75|0\.25|75%|25%|probability|prob/i.test(v), miss: 'EU = prob(good)·u(c_g) + prob(bad)·u(c_b)' },
+    { name: 'Utility function', label: '√c_g and √c_b terms', test: v => /sqrt|√|root/i.test(v), miss: 'Use u(c) = √c in each state' }
+  ],
+  'st24q2-c': [
+    { name: 'MRS derived', label: 'MRS = (1/3)·√c_g/√c_b', test: v => /mrs|mrt|1\/3|one.third/i.test(v), miss: 'Compute MRS = MU_cb/MU_cg = (1/3)√c_g/√c_b' },
+    { name: 'c_g = 2.25c_b', label: 'c_g = 2.25c_b (from MRS=MRT)', test: v => /2\.25|9\/4|2,25|c_g.*2.*c_b/i.test(v), miss: 'Set MRS=MRT=1/2: get c_g = 2.25c_b' },
+    { name: 'c_b* = 800,000', label: 'c_b* = 800,000', test: v => /800.?000|800k/i.test(v), miss: 'Solve: c_b* = 800,000' },
+    { name: 'c_g* = 1,800,000', label: 'c_g* = 1,800,000', test: v => /1.?800.?000|1800k/i.test(v), miss: 'c_g* = 2.25×800,000 = 1,800,000' }
+  ],
+  'rs24q1-a': [
+    { name: 'Budget equation', label: 'x₁ + 5x₂ = 100', test: v => /x.?1.*5x.?2.*100|100.*x.?1.*5x.?2/i.test(v), miss: 'Write x₁ + 5x₂ = 100' },
+    { name: 'Slope = −0.2', label: 'slope = −0.2 = −1/5', test: v => /slope.*-?0\.2|−0\.2|−1.?\/5|minus.*0\.2/i.test(v), miss: 'State slope = −p₁/p₂ = −1/5 = −0.2' },
+    { name: 'Rearranged form', label: 'x₂ = 20 − 0.2x₁', test: v => /x.?2\s*=\s*20|20\s*[-−]\s*0\.2x/i.test(v), miss: 'Rearrange: x₂ = 20 − 0.2x₁' }
+  ],
+  'rs24q1-b': [
+    { name: 'MRS formula', label: 'MRS = x₂/x₁', test: v => /MRS\s*=\s*x.?2.*x.?1|x2\/x1|x₂.*x₁/i.test(v), miss: 'Derive MRS = x₂/x₁' },
+    { name: 'MRS at (1,5)', label: 'MRS(1,5) = 5', test: v => /\(1,5\).*5|5\/1|mrs.*=.*5/i.test(v), miss: 'Compute MRS(1,5) = 5' },
+    { name: 'MRS at (10,2)', label: 'MRS(10,2) = 1/5', test: v => /\(10,2\).*1.?\/?.?5|2\/10|mrs.*=.*1\/5|0\.2/i.test(v), miss: 'Compute MRS(10,2) = 2/10 = 1/5' },
+    { name: 'Intuition', label: 'scarcity intuition', test: v => /scarc|abundant|few|lot.*x|x.*lot|high.*value|low.*value/i.test(v), miss: 'Explain relative scarcity effect' }
+  ],
+  'rs24q1-c': [
+    { name: 'Tangency condition', label: 'MRS = p₁/p₂ = 1/5', test: v => /mrs\s*=\s*1.?\/5|mrs.*=.*p.?1.*p.?2|tangenc/i.test(v), miss: 'Set MRS = p₁/p₂ = 1/5' },
+    { name: 'x₁ = 5x₂', label: 'x₁ = 5x₂', test: v => /x.?1\s*=\s*5\s*x.?2|5x.?2\s*=\s*x.?1/i.test(v), miss: 'From MRS = 1/5: x₁ = 5x₂' },
+    { name: 'x₂* = 10', label: 'x₂* = 10', test: v => /x.?2\*?\s*=?\s*10\b/i.test(v), miss: 'Compute x₂* = 10' },
+    { name: 'x₁* = 50', label: 'x₁* = 50', test: v => /x.?1\*?\s*=?\s*50\b/i.test(v), miss: 'Compute x₁* = 50' }
+  ],
+  'rs24q2-c': [
+    { name: 'Threshold e=16', label: 'threshold e = r/10 = 16', test: v => /e\s*=\s*16|e.*=.*r.?\/10|16.*threshold/i.test(v), miss: 'Find threshold: e = r/10 = 160/10 = 16' },
+    { name: 'U_loss derived', label: 'U_loss = 30e − ½e² − 320', test: v => /30e|u.loss|loss.*domain|e\s*<\s*16/i.test(v), miss: 'Derive U_loss for e < 16' },
+    { name: 'U_gain derived', label: 'U_gain = 15e − ½e² − 80', test: v => /15e|u.gain|gain.*domain|e\s*>\s*=?\s*16/i.test(v), miss: 'Derive U_gain for e ≥ 16' },
+    { name: 'e* = 16', label: 'e* = 16', test: v => /e\*?\s*=\s*16/i.test(v), miss: 'Conclude: e* = 16' }
+  ]
+};
+
+const MICRO_HINTS = {
+  'st24q1-a': [
+    'Start with the budget equation: p₁x₁ + p₂x₂ = m. Plug in p₁=4, p₂=2, m=200.',
+    'Rearrange for x₂: x₂ = (m − p₁x₁)/p₂. Slope = −p₁/p₂. Interpret: how many units of x₂ must you give up to afford one more x₁?'
+  ],
+  'st24q1-b': [
+    'For u = 12x₁x₂: MU₁ = ∂u/∂x₁ = 12x₂. MU₂ = ∂u/∂x₂ = 12x₁. So MRS = MU₁/MU₂ = x₂/x₁.',
+    'Evaluate at each bundle. MRS(1,3) = 3/1 = 3. MRS(3,1) = 1/3. Then explain: why is the consumer willing to give up more x₂ at (1,3) than at (3,1)?'
+  ],
+  'st24q1-c': [
+    'At the optimum, MRS = p₁/p₂. MRS = x₂/x₁ = 4/2 = 2 → x₂ = 2x₁.',
+    'Insert x₂ = 2x₁ into the budget line: 4x₁ + 2(2x₁) = 200 → 8x₁ = 200 → x₁* = 25. Then x₂* = 2×25 = 50.'
+  ],
+  'st24q2-a': [
+    'The insurance budget line has slope m = −γ/(1−γ). Here γ = 1/3, so m = −(1/3)/(2/3) = −1/2.',
+    'The endowment point (c_g=2,200,000; c_b=0) is always feasible (zero insurance). Plug it in: 2,200,000 = −½·0 + n → n = 2,200,000. Budget line: c_g = 2,200,000 − ½c_b.'
+  ],
+  'st24q2-b': [
+    'Expected utility = sum over states of (probability × utility in that state). P(good) = 0.75, P(bad) = 0.25, u(c) = √c.',
+    'U = 0.75·√c_g + 0.25·√c_b. The first term: no avalanche (probability 75%), utility √c_g. Second: avalanche (25%), utility √c_b.'
+  ],
+  'st24q2-c': [
+    'Compute marginal utilities: MU_cg = 0.75/(2√c_g), MU_cb = 0.25/(2√c_b). MRS = MU_cb/MU_cg = (1/3)·√c_g/√c_b. MRT = |slope| = 1/2.',
+    'Set MRS = MRT: (1/3)√c_g/√c_b = 1/2 → √c_g/√c_b = 3/2 → c_g/c_b = 9/4 = 2.25 → c_g = 2.25c_b. Insert into budget line and solve.'
+  ],
+  'st24q3-b': [
+    'Immediate costs formula: U^t(now) = β·v_t − c_t. At t=1: U¹(1) = (3/4)·56 − 40 = 42−40 = 2. Waiting → Naif believes future self acts as TC → best future period is t=2: U¹(2) = β·(v₂−c₂) = (3/4)·20 = 15.',
+    'Since 2 < 15, Naif waits at t=1. At t=2: U²(2) = (3/4)·84 − 64 = 63−64 = −1. If wait, must do t=3: U²(3) = (3/4)·0 = 0. Since −1 < 0, Naif waits again. Ends up at t=3.'
+  ],
+  'st24q3-c': [
+    'Backward induction — start at t=3: s₃ˢ = Y (no choice). Now check t=2: is it better to present now or wait knowing t=3 self will present?',
+    't=2: Now = (3/4)·84−64 = −1. Wait (t=3 will act): (3/4)·0 = 0. −1 < 0 → s₂ˢ = N. At t=1: Sophisticate knows t=2 waits → t=3 presents. Now: 2. Wait (→ t=3): (3/4)·0 = 0. 2 > 0 → s₁ˢ = Y.'
+  ],
+  'rs24q1-a': [
+    'Budget equation: p₁x₁ + p₂x₂ = m → 1·x₁ + 5·x₂ = 100. Rearrange for x₂: x₂ = (100−x₁)/5 = 20 − 0.2x₁.',
+    'Slope = −p₁/p₂ = −1/5 = −0.2. Intuition: to buy 1 more unit of x₁ (price 1), you give up 0.2 units of x₂ (price 5). That 0.2 units of x₂ is the opportunity cost.'
+  ],
+  'rs24q1-b': [
+    'For u = 10x₁x₂: MU₁ = 10x₂, MU₂ = 10x₁ → MRS = x₂/x₁. Evaluate at (1,5) and (10,2).',
+    'MRS(1,5) = 5/1 = 5. MRS(10,2) = 2/10 = 1/5. Explain: at (1,5), x₁ is very scarce → high MU₁ → willing to give up 5 units x₂ for 1 more x₁. At (10,2) the situation reverses.'
+  ],
+  'rs24q1-c': [
+    'At the optimum, MRS = p₁/p₂: x₂/x₁ = 1/5 → x₁ = 5x₂.',
+    'Substitute into budget: x₁ + 5x₂ = 100 → 5x₂ + 5x₂ = 100 → 10x₂ = 100 → x₂* = 10. Then x₁* = 5×10 = 50.'
+  ],
+  'rs24q2-c': [
+    'First identify the threshold: e_ref = r/10 = 16. If e < 16, A is in loss domain (Δ < 0); if e ≥ 16, gain domain. Write separate utility functions for each region.',
+    'Loss: U_loss = 10e − ½e² + ½·λ(10e−r) = 10e − ½e² + 2(10e−160) = 30e − ½e² − 320. U\'_loss = 30−e. For e < 16, this is >14 > 0 always. Gain: U_gain = 15e − ½e² − 80. U\'_gain = 15−e. FOC gives e=15 < 16 → not in gain domain. Optimal: e* = 16.'
+  ],
+  'rs24q3-c': [
+    'Immediate rewards formula at current t: U^t(t) = v_t − β·c_t. Going now at t=1: 75 − (2/3)·18 = 75−12 = 63. Waiting → Naif expects TC-like future self to wait until t=3: U¹(3) = β·(v₃−c₃) = (2/3)·102 = 68.',
+    'Since 63 < 68, Naif waits at t=1. At t=2: going now = 102 − (2/3)·27 = 84. Waiting → t=3: (2/3)·102 = 68. 84 > 68 → Naif goes at t=2. τ_n = 2.'
+  ],
+  'rs24q3-d': [
+    'Backward induction. t=3: Y. t=2: same comparison as Naif (Sophisticate has same β) → U²(2)=84 vs U²(3)=68 → s₂ˢ = Y.',
+    't=1: Sophisticate knows t=2 self will go (not t=3!). Going now: 63. Waiting → t=2 will go: (2/3)·(102−27) = (2/3)·75 = 50. Since 63 > 50 → s₁ˢ = Y. τ_s = 1.'
+  ],
+  'st24q4-x': [
+    'Loss aversion: the utility loss from losing €1 is greater than the gain from winning €1. So to avoid a loss is more valuable than to secure an equal gain. This means incentives are stronger when you\'re in the loss domain.'
+  ],
+  'rs24q4-x': [
+    'The budget line is p₁x₁ + p₂x₂ = m. Its slope is −p₁/p₂. This tells you: to buy 1 more unit of x₁, you must give up p₁/p₂ units of x₂. That foregone x₂ is the opportunity cost of x₁.',
+    'Why independent of m? Look at the slope formula: −p₁/p₂. There is no m in it. Changing m shifts the line (parallel shift) but doesn\'t rotate it — prices p₁ and p₂ are market-determined and the same for all consumers.'
+  ]
+};
+
+function microExamCheck(examId, sub, mode) {
+  const key = examId + '-' + sub;
+  const inputId = 'micro-ans-' + examId + '-' + sub;
+  const fbId = 'micro-fb-' + examId + '-' + sub;
+  const val = (document.getElementById(inputId) || {}).value || '';
+  const checks = MICRO_CHECKS[key];
+  const fb = document.getElementById(fbId);
+  if (!checks || !fb) return;
+  if (val.trim().length < 3) {
+    fb.style.display = 'block'; fb.style.background = 'var(--surface2)'; fb.style.borderLeft = '3px solid var(--border2)';
+    fb.innerHTML = '<em style="color:var(--text3)">Write your answer above, then click Check.</em>';
+    return;
+  }
+  const results = checks.map(c => ({ name: c.name, label: c.label, ok: c.test(val), miss: c.miss }));
+  const nOk = results.filter(r => r.ok).length;
+  const nTotal = results.length;
+  const ratio = nOk / nTotal;
+  let html = '';
+  if (mode === 'partial') {
+    const found = results.filter(r => r.ok);
+    const missing = results.filter(r => !r.ok);
+    html = `<div style="margin-bottom:6px;font-size:12.5px;color:var(--text2)"><strong>${nOk} / ${nTotal} points found so far.</strong>${missing.length > 0 ? ' Still missing:' : ' All found — try Check full.'}</div>`;
+    if (found.length && missing.length) html += found.map(r => `<div style="padding:2px 0;font-size:12.5px;color:var(--text2)">✅ ${r.name}</div>`).join('');
+    if (missing.length) { html += '<div style="height:6px"></div>'; html += missing.map(r => `<div style="padding:2px 0;font-size:12.5px;color:var(--text2)">❌ ${r.name}</div>`).join(''); }
+    fb.style.display = 'block'; fb.style.background = 'var(--surface2)'; fb.style.borderLeft = '3px solid var(--border2)';
+    fb.innerHTML = html;
+  } else {
+    let header, headerColor, bg, border;
+    if (ratio === 1) { header = 'All checks passed ✓'; headerColor = 'var(--micro)'; bg = '#edfaf4'; border = 'var(--micro)'; }
+    else if (ratio >= 0.6) { header = `${nOk} / ${nTotal} checks passed — almost there`; headerColor = 'var(--macro)'; bg = 'var(--macro-l)'; border = 'var(--macro)'; }
+    else if (ratio > 0) { header = `${nOk} / ${nTotal} checks passed — keep going`; headerColor = 'var(--ibt)'; bg = 'var(--ibt-l)'; border = 'var(--ibt)'; }
+    else { header = 'No checks passed yet'; headerColor = 'var(--ic)'; bg = 'var(--ic-l)'; border = 'var(--ic)'; }
+    const rows = results.map(r => `<div style="display:flex;align-items:baseline;gap:8px;padding:3px 0;border-bottom:1px solid var(--border)"><span style="flex-shrink:0;font-size:15px">${r.ok ? '✅' : '❌'}</span><span style="font-size:12.5px;min-width:130px;font-weight:${r.ok ? '500' : '400'};color:${r.ok ? 'var(--text)' : 'var(--text2)'}">${r.label}</span>${!r.ok ? `<span style="font-size:12px;color:var(--text3)">${r.miss}</span>` : ''}</div>`).join('');
+    fb.style.display = 'block'; fb.style.background = bg; fb.style.borderLeft = '3px solid ' + border;
+    fb.innerHTML = `<strong style="color:${headerColor};display:block;margin-bottom:8px">${header}</strong>${rows}`;
+  }
+}
+
+let _microHintIdx = {};
+function microExamHint(examId, sub) {
+  const key = examId + '-' + sub;
+  const hints = MICRO_HINTS[key];
+  if (!hints) return;
+  if (!_microHintIdx[key]) _microHintIdx[key] = 0;
+  const idx = _microHintIdx[key];
+  if (idx >= hints.length) return;
+  _microHintIdx[key]++;
+  const fbId = 'micro-fb-' + examId + '-' + sub;
+  const fb = document.getElementById(fbId);
+  if (!fb) return;
+  fb.style.display = 'block'; fb.style.background = 'var(--micro-l)'; fb.style.borderLeft = '3px solid var(--micro)';
+  fb.innerHTML = '<strong style="color:var(--micro)">Hint ' + (idx+1) + ' of ' + hints.length + '</strong><br>' + hints[idx];
+  if (_microHintIdx[key] >= hints.length) {
+    const btn = document.getElementById('micro-hint-btn-' + examId + '-' + sub);
+    if (btn) { btn.disabled = true; btn.style.opacity = '.4'; }
+  }
+}
+
+function microExamSolution(examId, sub) {
+  const sol = document.getElementById('micro-sol-' + examId + '-' + sub);
+  if (sol) sol.style.display = 'block';
 }
 </script>
 </html>
