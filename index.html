@@ -5902,6 +5902,58 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
         <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">Above frontier</td><td style="color:var(--text);padding:4px 0">→ <strong>not feasible</strong></td></tr>
         <tr><td colspan="2" style="padding:6px 0;font-size:12.5px;color:var(--text2)"><strong>Autarky:</strong> Germany consumes e.g. 20 cars + 50 bananas (prefers bananas → point below diagonal, toward banana axis). Zimbabwe consumes e.g. 70 cars + 30 bananas (prefers cars → toward car axis).</td></tr>
       </table>
+      <div style="margin-top:14px">
+        <svg width="100%" viewBox="0 0 560 340" style="font-family:var(--sans)">
+          <defs><marker id="arr-q1a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round"/></marker></defs>
+          <!-- Axes -->
+          <line x1="50" y1="20" x2="50" y2="290" stroke="#888" stroke-width="1" marker-end="url(#arr-q1a)"/>
+          <line x1="50" y1="290" x2="420" y2="290" stroke="#888" stroke-width="1" marker-end="url(#arr-q1a)"/>
+          <text x="38" y="16" font-size="11" fill="#888" text-anchor="middle">B</text>
+          <text x="425" y="294" font-size="11" fill="#888">C</text>
+          <!-- Grid lines -->
+          <line x1="50" y1="230" x2="380" y2="230" stroke="#e8e4db" stroke-width="0.5"/>
+          <line x1="50" y1="170" x2="380" y2="170" stroke="#e8e4db" stroke-width="0.5"/>
+          <line x1="50" y1="110" x2="380" y2="110" stroke="#e8e4db" stroke-width="0.5"/>
+          <line x1="50" y1="50" x2="380" y2="50" stroke="#e8e4db" stroke-width="0.5"/>
+          <!-- Y labels: 60=230,120=170,180=110,240=50 -->
+          <text x="42" y="233" font-size="10" fill="#aaa" text-anchor="end">60</text>
+          <text x="42" y="173" font-size="10" fill="#aaa" text-anchor="end">120</text>
+          <text x="42" y="113" font-size="10" fill="#aaa" text-anchor="end">180</text>
+          <text x="42" y="53" font-size="10" fill="#aaa" text-anchor="end">240</text>
+          <!-- X labels: 40=130,80=210,120=290 -->
+          <text x="130" y="302" font-size="10" fill="#aaa" text-anchor="middle">40</text>
+          <text x="210" y="302" font-size="10" fill="#aaa" text-anchor="middle">80</text>
+          <text x="290" y="302" font-size="10" fill="#aaa" text-anchor="middle">120</text>
+          <!-- Germany PPF: (0;60)→(120;0) = x50,y230 → x290,y290 -->
+          <line x1="50" y1="230" x2="290" y2="290" stroke="#7a2d6e" stroke-width="2"/>
+          <circle cx="50" cy="230" r="3" fill="#7a2d6e"/>
+          <circle cx="290" cy="290" r="3" fill="#7a2d6e"/>
+          <text x="30" y="227" font-size="10" fill="#7a2d6e" text-anchor="end">(0;60)</text>
+          <text x="296" y="306" font-size="10" fill="#7a2d6e">(120;0)</text>
+          <text x="148" y="252" font-size="10" fill="#7a2d6e" transform="rotate(-14,148,252)">Germany PPF  slope=−0.5</text>
+          <!-- Zimbabwe PPF: (0;240)→(80;0) = x50,y50 → x210,y290 -->
+          <line x1="50" y1="50" x2="210" y2="290" stroke="#1a7a5e" stroke-width="2"/>
+          <circle cx="50" cy="50" r="3" fill="#1a7a5e"/>
+          <circle cx="210" cy="290" r="3" fill="#1a7a5e"/>
+          <text x="56" y="48" font-size="10" fill="#1a7a5e">(0;240)</text>
+          <text x="215" y="306" font-size="10" fill="#1a7a5e">(80;0)</text>
+          <text x="88" y="148" font-size="10" fill="#1a7a5e" transform="rotate(-55,88,148)">Zimbabwe PPF  slope=−3</text>
+          <!-- Germany autarky dot: 20 cars,50 bananas → x=50+20*2=90, y=290-(50/240)*240=230-(50*1)=165 approx. Scale: 1 banana=1px at 240=240px so y=290-50=240 but range is 50 to 290 = 240px for 240 bananas. So y=290-(50/240)*240=290-50=240 -->
+          <circle cx="90" cy="240" r="5" fill="#7a2d6e" opacity="0.8"/>
+          <text x="96" y="238" font-size="10" fill="#7a2d6e">Ger autarky ~(20;50)</text>
+          <!-- Zimbabwe autarky: 70 cars, 30 bananas → x=50+70*2=190, y=290-(30/240)*240=290-30=260 -->
+          <circle cx="190" cy="260" r="5" fill="#1a7a5e" opacity="0.8"/>
+          <text x="150" y="256" font-size="10" fill="#1a7a5e" text-anchor="end">Zim autarky ~(70;30)</text>
+          <!-- Legend -->
+          <rect x="310" y="30" width="230" height="70" rx="6" fill="white" stroke="#e8e4db" stroke-width="0.5"/>
+          <line x1="320" y1="50" x2="345" y2="50" stroke="#7a2d6e" stroke-width="2"/>
+          <text x="350" y="54" font-size="11" fill="#6b6760">Germany PPF (slope=−0.5)</text>
+          <line x1="320" y1="70" x2="345" y2="70" stroke="#1a7a5e" stroke-width="2"/>
+          <text x="350" y="74" font-size="11" fill="#6b6760">Zimbabwe PPF (slope=−3)</text>
+          <circle cx="332" cy="90" r="4" fill="#888"/>
+          <text x="350" y="94" font-size="11" fill="#6b6760">Autarky point</text>
+        </svg>
+      </div>
     </div>
   </div>
 
@@ -5940,6 +5992,50 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
         <tr><td style="padding:4px 8px 4px 0;color:var(--text2)"><strong>Comparative advantage</strong></td><td style="color:var(--text2);padding:4px 0">Country has comp. adv. where its relative efficiency is highest. Germany: opp. cost of car = 0.5 bananas (vs Zimbabwe's 3) → Germany has comp. adv. in cars. Zimbabwe: opp. cost of banana = 1/3 car → comp. adv. in bananas.</td></tr>
         <tr><td style="padding:4px 8px 4px 0;color:var(--text2)"><strong>Slope of trade line</strong></td><td style="color:var(--text2);padding:4px 0">= terms of trade = 150/60 = 2.5 bananas per car (real exchange rate: P<sup>Zim</sup><sub>B</sub> / P<sup>Ger</sup><sub>C</sub>)</td></tr>
       </table>
+      <div style="margin-top:14px">
+        <svg width="100%" viewBox="0 0 560 340" style="font-family:var(--sans)">
+          <defs><marker id="arr-q1b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round"/></marker></defs>
+          <line x1="50" y1="20" x2="50" y2="290" stroke="#888" stroke-width="1" marker-end="url(#arr-q1b)"/>
+          <line x1="50" y1="290" x2="420" y2="290" stroke="#888" stroke-width="1" marker-end="url(#arr-q1b)"/>
+          <text x="38" y="16" font-size="11" fill="#888" text-anchor="middle">B</text>
+          <text x="425" y="294" font-size="11" fill="#888">C</text>
+          <!-- Scale: x=50+cars*2, y=290-bananas*(240/240)=290-bananas -->
+          <!-- Germany PPF (0;60)→(120;0) = (50,230)→(290,290) -->
+          <line x1="50" y1="230" x2="290" y2="290" stroke="#7a2d6e" stroke-width="1.5" opacity="0.4"/>
+          <!-- Zimbabwe PPF (0;240)→(80;0) = (50,50)→(210,290) -->
+          <line x1="50" y1="50" x2="210" y2="290" stroke="#1a7a5e" stroke-width="1.5" opacity="0.4"/>
+          <!-- Germany trade line: from (120;0)=(290,290) through (60;150)=(170,140) -->
+          <line x1="290" y1="290" x2="90" y2="80" stroke="#7a2d6e" stroke-width="2" stroke-dasharray="6 3"/>
+          <!-- Zimbabwe trade line: from (0;240)=(50,50) through (60;90)=(170,200) -->
+          <line x1="50" y1="50" x2="240" y2="230" stroke="#1a7a5e" stroke-width="2" stroke-dasharray="6 3"/>
+          <!-- Specialisation points -->
+          <circle cx="290" cy="290" r="4" fill="#7a2d6e"/>
+          <text x="296" y="288" font-size="10" fill="#7a2d6e">(120;0) Ger spec.</text>
+          <circle cx="50" cy="50" r="4" fill="#1a7a5e"/>
+          <text x="56" y="48" font-size="10" fill="#1a7a5e">(0;240) Zim spec.</text>
+          <!-- Consumption points -->
+          <circle cx="170" cy="140" r="6" fill="#d85a30"/>
+          <text x="176" y="138" font-size="10" fill="#d85a30" font-weight="600">Ger (60;150) ✓</text>
+          <circle cx="170" cy="200" r="6" fill="#1a7a5e"/>
+          <text x="176" y="198" font-size="10" fill="#1a7a5e" font-weight="600">Zim (60;90) ✓</text>
+          <!-- Welfare gain arrows -->
+          <line x1="90" y1="240" x2="162" y2="148" stroke="#d85a30" stroke-width="0.8" stroke-dasharray="3 2" marker-end="url(#arr-q1b)"/>
+          <text x="86" y="244" font-size="9" fill="#d85a30">autarky</text>
+          <line x1="190" y1="260" x2="174" y2="208" stroke="#1a7a5e" stroke-width="0.8" stroke-dasharray="3 2" marker-end="url(#arr-q1b)"/>
+          <text x="196" y="264" font-size="9" fill="#1a7a5e">autarky</text>
+          <!-- Labels -->
+          <text x="310" y="30" font-size="10" fill="#7a2d6e">--- Germany trade line</text>
+          <text x="310" y="46" font-size="10" fill="#1a7a5e">--- Zimbabwe trade line</text>
+          <text x="310" y="62" font-size="10" fill="#d85a30">● Consumption after trade</text>
+          <text x="310" y="78" font-size="10" fill="#888">↑ Both outside own frontier = welfare gain</text>
+          <!-- Axis labels -->
+          <text x="42" y="233" font-size="10" fill="#aaa" text-anchor="end">60</text>
+          <text x="42" y="143" font-size="10" fill="#aaa" text-anchor="end">150</text>
+          <text x="42" y="53" font-size="10" fill="#aaa" text-anchor="end">240</text>
+          <text x="170" y="302" font-size="10" fill="#aaa" text-anchor="middle">60</text>
+          <text x="290" y="302" font-size="10" fill="#aaa" text-anchor="middle">120</text>
+        </svg>
+      </div>
     </div>
   </div>
 
@@ -6024,6 +6120,64 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
         <tr><td style="padding:4px 8px 4px 0;color:var(--text2);vertical-align:top"><strong>5. Tariff revenue</strong></td><td style="color:var(--text2);padding:4px 0">Government collects tariff = area FGHI in diagram. This is a transfer, not a net loss.</td></tr>
         <tr><td style="padding:4px 8px 4px 0;color:var(--text2);vertical-align:top"><strong>6. Net welfare effect</strong></td><td style="color:var(--text2);padding:4px 0"><strong>Negative</strong>: deadweight loss triangles EGH + DFI. Welfare<sup>Autarky</sup> ≤ Welfare<sup>Tariff</sup> ≤ Welfare<sup>Free Trade</sup>. Foreign economy suffers all negative effects.</td></tr>
       </table>
+      <div style="margin-top:14px">
+        <svg width="100%" viewBox="0 0 380 300" style="font-family:var(--sans)">
+          <defs><marker id="arr-q2a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round"/></marker></defs>
+          <!-- Axes -->
+          <line x1="50" y1="20" x2="50" y2="260" stroke="#888" stroke-width="1" marker-end="url(#arr-q2a)"/>
+          <line x1="50" y1="260" x2="360" y2="260" stroke="#888" stroke-width="1" marker-end="url(#arr-q2a)"/>
+          <text x="30" y="16" font-size="10" fill="#888">P</text>
+          <text x="362" y="264" font-size="10" fill="#888">q</text>
+          <!-- Supply upward, Demand downward -->
+          <line x1="60" y1="240" x2="300" y2="40" stroke="#1a7a5e" stroke-width="1.5"/>
+          <text x="304" y="38" font-size="10" fill="#1a7a5e">S</text>
+          <line x1="60" y1="60" x2="320" y2="240" stroke="#9c3520" stroke-width="1.5"/>
+          <text x="322" y="238" font-size="10" fill="#9c3520">D</text>
+          <!-- Paut approx at intersection = x180,y150 -->
+          <!-- Pw lower: y=190 -->
+          <!-- Pw+t: y=155 -->
+          <!-- At Pw(y=190): supply x=110(qS1), demand x=260(qD1) -->
+          <!-- At Pw+t(y=155): supply x=148(qS2), demand x=222(qD2) -->
+          <!-- Tariff revenue rectangle: qS2 to qD2, Pw to Pw+t -->
+          <rect x="148" y="155" width="74" height="35" fill="#1a7a5e" opacity="0.25"/>
+          <!-- DWL triangles -->
+          <polygon points="110,190 148,190 148,155" fill="#9c3520" opacity="0.35"/>
+          <polygon points="222,190 260,190 222,155" fill="#9c3520" opacity="0.35"/>
+          <!-- Price lines -->
+          <line x1="50" y1="190" x2="310" y2="190" stroke="#8a5c00" stroke-width="1" stroke-dasharray="4 2"/>
+          <line x1="50" y1="155" x2="280" y2="155" stroke="#8a5c00" stroke-width="1.5" stroke-dasharray="4 2"/>
+          <line x1="50" y1="100" x2="200" y2="100" stroke="#6b6760" stroke-width="0.5" stroke-dasharray="3 3"/>
+          <!-- Price labels -->
+          <text x="42" y="194" font-size="10" fill="#8a5c00" text-anchor="end">Pw</text>
+          <text x="42" y="159" font-size="10" fill="#8a5c00" text-anchor="end">Pw+t</text>
+          <text x="42" y="104" font-size="10" fill="#6b6760" text-anchor="end">Paut</text>
+          <!-- Quantity drop lines -->
+          <line x1="110" y1="190" x2="110" y2="260" stroke="#ccc" stroke-width="0.5" stroke-dasharray="2 2"/>
+          <line x1="148" y1="155" x2="148" y2="260" stroke="#ccc" stroke-width="0.5" stroke-dasharray="2 2"/>
+          <line x1="222" y1="155" x2="222" y2="260" stroke="#ccc" stroke-width="0.5" stroke-dasharray="2 2"/>
+          <line x1="260" y1="190" x2="260" y2="260" stroke="#ccc" stroke-width="0.5" stroke-dasharray="2 2"/>
+          <!-- Q labels -->
+          <text x="110" y="272" font-size="9" fill="#aaa" text-anchor="middle">q¹S</text>
+          <text x="148" y="272" font-size="9" fill="#aaa" text-anchor="middle">q²S</text>
+          <text x="222" y="272" font-size="9" fill="#aaa" text-anchor="middle">q²D</text>
+          <text x="260" y="272" font-size="9" fill="#aaa" text-anchor="middle">q¹D</text>
+          <!-- Area labels -->
+          <text x="185" y="178" font-size="9" fill="#1a7a5e" text-anchor="middle" font-weight="600">FGHI</text>
+          <text x="129" y="178" font-size="9" fill="#9c3520" text-anchor="middle">EGH</text>
+          <text x="241" y="178" font-size="9" fill="#9c3520" text-anchor="middle">DFI</text>
+          <!-- Import brace -->
+          <line x1="148" y1="253" x2="222" y2="253" stroke="#888" stroke-width="1"/>
+          <text x="185" y="248" font-size="9" fill="#888" text-anchor="middle">imports ↓</text>
+          <!-- Legend -->
+          <rect x="270" y="60" width="100" height="60" rx="4" fill="white" stroke="#e8e4db" stroke-width="0.5"/>
+          <rect x="278" y="70" width="12" height="10" fill="#1a7a5e" opacity="0.3"/>
+          <text x="294" y="79" font-size="9" fill="#6b6760">tariff revenue</text>
+          <rect x="278" y="86" width="12" height="10" fill="#9c3520" opacity="0.35"/>
+          <text x="294" y="95" font-size="9" fill="#6b6760">deadweight loss</text>
+          <text x="278" y="114" font-size="9" fill="#8a5c00">--- price levels</text>
+          <text x="140" y="38" font-size="10" fill="#6b6760" text-anchor="middle">Domestic market — small open economy</text>
+        </svg>
+      </div>
     </div>
   </div>
 
@@ -6140,6 +6294,45 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
         <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">−0.12 = E<sup>exp</sup> − 1.2</td><td style="color:var(--text);padding:4px 0">→ <strong>E<sup>exp</sup> = 1.08</strong></td></tr>
         <tr><td colspan="2" style="padding:6px 0;font-size:12.5px;color:var(--text2)"><strong>Interpretation:</strong> The domestic currency is expected to <strong>appreciate</strong> (E falls from 1.2 to 1.08 in €/$ price notation → fewer € per $). This appreciation advantage on the FX market offsets the lower domestic interest rate. Higher i* abroad is compensated by expected domestic currency appreciation — no arbitrage opportunity exists.</td></tr>
       </table>
+      <div style="margin-top:14px">
+        <svg width="100%" viewBox="0 0 420 280" style="font-family:var(--sans)">
+          <defs><marker id="arr-q3b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round"/></marker></defs>
+          <!-- Axes -->
+          <line x1="50" y1="20" x2="50" y2="250" stroke="#888" stroke-width="1" marker-end="url(#arr-q3b)"/>
+          <line x1="50" y1="250" x2="400" y2="250" stroke="#888" stroke-width="1" marker-end="url(#arr-q3b)"/>
+          <text x="34" y="18" font-size="11" fill="#888">E (€/$)</text>
+          <text x="390" y="262" font-size="10" fill="#888">return</text>
+          <!-- i€ domestic vertical line -->
+          <line x1="160" y1="30" x2="160" y2="245" stroke="#7a2d6e" stroke-width="1.5" stroke-dasharray="5 3"/>
+          <text x="155" y="26" font-size="10" fill="#7a2d6e" text-anchor="middle">i€=1%</text>
+          <!-- Foreign return curve (downward sloping) - original -->
+          <path d="M70 80 Q160 160 350 230" fill="none" stroke="#1a7a5e" stroke-width="2"/>
+          <text x="354" y="228" font-size="10" fill="#1a7a5e">i*+(Eexp-E)/E</text>
+          <!-- Equilibrium A -->
+          <circle cx="160" cy="163" r="5" fill="#d85a30"/>
+          <text x="168" y="161" font-size="10" fill="#d85a30" font-weight="600">A (equilibrium)</text>
+          <!-- E0 dashed -->
+          <line x1="50" y1="163" x2="160" y2="163" stroke="#aaa" stroke-width="0.8" stroke-dasharray="3 2"/>
+          <text x="42" y="167" font-size="10" fill="#aaa" text-anchor="end">E₀=1.2</text>
+          <!-- Shifted foreign curve (i* increases) -->
+          <path d="M100 60 Q190 140 370 210" fill="none" stroke="#1a7a5e" stroke-width="1.5" stroke-dasharray="5 3" opacity="0.5"/>
+          <text x="374" y="208" font-size="9" fill="#1a7a5e" opacity="0.6">i*↑ shifts →</text>
+          <!-- New equilibrium B -->
+          <circle cx="160" cy="140" r="4" fill="#d85a30" opacity="0.5"/>
+          <text x="168" y="138" font-size="10" fill="#d85a30" opacity="0.6">B: E↑ (depreciates)</text>
+          <line x1="50" y1="140" x2="160" y2="140" stroke="#aaa" stroke-width="0.5" stroke-dasharray="2 2" opacity="0.5"/>
+          <text x="42" y="144" font-size="9" fill="#aaa" text-anchor="end" opacity="0.5">E₁</text>
+          <!-- Calculation box -->
+          <rect x="240" y="30" width="165" height="80" rx="6" fill="white" stroke="#dcb0d6" stroke-width="1"/>
+          <text x="250" y="48" font-size="10" fill="#7a2d6e" font-weight="600">Calculation</text>
+          <text x="250" y="64" font-size="10" fill="#6b6760">Eexp = E·(1+i–i*)</text>
+          <text x="250" y="78" font-size="10" fill="#6b6760">= 1.2·(1+0.01–0.11)</text>
+          <text x="250" y="92" font-size="10" fill="#6b6760">= 1.2·0.90 = <tspan font-weight="600" fill="#7a2d6e">1.08</tspan></text>
+          <text x="250" y="106" font-size="9" fill="#9c3520">Eexp&lt;E → appreciates ✓</text>
+          <!-- Axis note -->
+          <text x="50" y="270" font-size="9" fill="#aaa">⚠ Don't forget +1 in bracket: (1+i–i*) not just (i–i*)</text>
+        </svg>
+      </div>
     </div>
   </div>
 </div>
@@ -6187,6 +6380,66 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
         <tr><td style="font-family:monospace;padding:4px 8px 4px 0;color:var(--text2)">Real exchange rate R = E↑·P*/(P↑)</td><td style="color:var(--text);padding:4px 0">→ <strong>R = constant</strong> (E and P move proportionally). Competitiveness unchanged.</td></tr>
         <tr><td colspan="2" style="padding:6px 0;font-size:12.5px;color:var(--text2)"><strong>Chain:</strong> M<sup>S</sup>↑ → P↑ → E↑ → R = constant. The monetary model predicts that in the long run, monetary expansion only affects nominal variables (P, E), not real competitiveness.</td></tr>
       </table>
+      <div style="margin-top:14px">
+        <svg width="100%" viewBox="0 0 520 260" style="font-family:var(--sans)">
+          <defs><marker id="arr-q4a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round"/></marker></defs>
+          <!-- LEFT PANEL: P vs E (PPP line) -->
+          <text x="120" y="18" font-size="11" fill="#6b6760" text-anchor="middle" font-weight="600">Left: P vs E (PPP)</text>
+          <line x1="40" y1="25" x2="40" y2="220" stroke="#888" stroke-width="1" marker-end="url(#arr-q4a)"/>
+          <line x1="40" y1="220" x2="230" y2="220" stroke="#888" stroke-width="1" marker-end="url(#arr-q4a)"/>
+          <text x="28" y="23" font-size="10" fill="#888">P</text>
+          <text x="232" y="224" font-size="10" fill="#888">E</text>
+          <!-- PPP line: P = E·P*, upward sloping -->
+          <line x1="50" y1="210" x2="210" y2="50" stroke="#8a5c00" stroke-width="2"/>
+          <text x="214" y="48" font-size="10" fill="#8a5c00">P=E·P*</text>
+          <!-- Point A: original equilibrium E0,P0 = (120,140) -->
+          <circle cx="120" cy="140" r="5" fill="#7a2d6e"/>
+          <text x="126" y="138" font-size="10" fill="#7a2d6e">A</text>
+          <!-- Point C: after MS↑, E↑,P↑ = (165,95) -->
+          <circle cx="165" cy="95" r="5" fill="#d85a30"/>
+          <text x="171" y="93" font-size="10" fill="#d85a30">C</text>
+          <!-- Arrow A→C -->
+          <line x1="127" y1="133" x2="158" y2="102" stroke="#d85a30" stroke-width="1" stroke-dasharray="3 2" marker-end="url(#arr-q4a)"/>
+          <!-- Dashed guides -->
+          <line x1="40" y1="140" x2="120" y2="140" stroke="#ddd" stroke-width="0.5" stroke-dasharray="2 2"/>
+          <line x1="120" y1="140" x2="120" y2="220" stroke="#ddd" stroke-width="0.5" stroke-dasharray="2 2"/>
+          <line x1="40" y1="95" x2="165" y2="95" stroke="#ddd" stroke-width="0.5" stroke-dasharray="2 2"/>
+          <line x1="165" y1="95" x2="165" y2="220" stroke="#ddd" stroke-width="0.5" stroke-dasharray="2 2"/>
+          <text x="32" y="143" font-size="9" fill="#aaa" text-anchor="end">P₀</text>
+          <text x="32" y="98" font-size="9" fill="#d85a30" text-anchor="end">P₁↑</text>
+          <text x="120" y="232" font-size="9" fill="#aaa" text-anchor="middle">E₀</text>
+          <text x="165" y="232" font-size="9" fill="#d85a30" text-anchor="middle">E₁↑</text>
+          <!-- Label MS↑ -->
+          <text x="60" y="180" font-size="9" fill="#d85a30">MS↑ → both rise</text>
+          <text x="60" y="193" font-size="9" fill="#1a7a5e">R = constant ✓</text>
+
+          <!-- RIGHT PANEL: P vs Y (quantity equation) -->
+          <text x="390" y="18" font-size="11" fill="#6b6760" text-anchor="middle" font-weight="600">Right: P vs Y (qty eq.)</text>
+          <line x1="270" y1="25" x2="270" y2="220" stroke="#888" stroke-width="1" marker-end="url(#arr-q4a)"/>
+          <line x1="270" y1="220" x2="500" y2="220" stroke="#888" stroke-width="1" marker-end="url(#arr-q4a)"/>
+          <text x="258" y="23" font-size="10" fill="#888">P</text>
+          <text x="502" y="224" font-size="10" fill="#888">Y</text>
+          <!-- Original qty line M1·v=P·Y: downward sloping -->
+          <line x1="280" y1="60" x2="490" y2="200" stroke="#7a2d6e" stroke-width="1.5"/>
+          <text x="492" y="198" font-size="9" fill="#7a2d6e">M₁·v=P·Y</text>
+          <!-- New qty line M2·v=P·Y: shifted up -->
+          <line x1="280" y1="35" x2="490" y2="175" stroke="#d85a30" stroke-width="1.5" stroke-dasharray="5 3"/>
+          <text x="492" y="173" font-size="9" fill="#d85a30">M₂·v=P·Y</text>
+          <!-- Arrow showing upward shift -->
+          <line x1="380" y1="125" x2="380" y2="97" stroke="#d85a30" stroke-width="1" marker-end="url(#arr-q4a)"/>
+          <text x="388" y="112" font-size="9" fill="#d85a30">MS↑</text>
+          <!-- Points -->
+          <circle cx="380" cy="130" r="4" fill="#7a2d6e"/>
+          <text x="386" y="128" font-size="9" fill="#7a2d6e">A</text>
+          <circle cx="380" cy="100" r="4" fill="#d85a30"/>
+          <text x="386" y="98" font-size="9" fill="#d85a30">C: P↑</text>
+          <!-- Horizontal guides -->
+          <line x1="270" y1="130" x2="380" y2="130" stroke="#ddd" stroke-width="0.5" stroke-dasharray="2 2"/>
+          <line x1="270" y1="100" x2="380" y2="100" stroke="#ddd" stroke-width="0.5" stroke-dasharray="2 2"/>
+          <text x="262" y="133" font-size="9" fill="#aaa" text-anchor="end">P₀</text>
+          <text x="262" y="103" font-size="9" fill="#d85a30" text-anchor="end">P₁</text>
+        </svg>
+      </div>
     </div>
   </div>
 
@@ -6260,6 +6513,32 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
       <tr><td style="padding:4px 8px 4px 0;color:var(--text2);vertical-align:top"><strong>Price differentials → Interindustry trade</strong></td><td style="color:var(--text2);padding:4px 0">Price differences (comparative cost advantages) explain <strong>interindustry trade</strong> — countries specialize in different industries based on factor endowments and costs (e.g. Germany exports cars, Zimbabwe exports bananas).</td></tr>
       <tr><td style="padding:4px 8px 4px 0;color:var(--text2);vertical-align:top"><strong>Diagram</strong></td><td style="color:var(--text2);padding:4px 0">Bell-curve of households by income. The overlap zone (middle income) creates intraindustry trade — households in that range may buy from both high- and low-quality producers.</td></tr>
     </table>
+      <div style="margin-top:14px">
+        <svg width="100%" viewBox="0 0 480 220" style="font-family:var(--sans)">
+          <line x1="40" y1="20" x2="40" y2="180" stroke="#888" stroke-width="1"/>
+          <line x1="40" y1="180" x2="450" y2="180" stroke="#888" stroke-width="1"/>
+          <text x="28" y="18" font-size="10" fill="#888">HH</text>
+          <text x="420" y="195" font-size="10" fill="#888">Income ≈ Quality</text>
+          <path d="M50,175 Q80,175 110,130 Q140,60 170,130 Q200,175 230,175" fill="#f6eaf4" stroke="#7a2d6e" stroke-width="1.5" fill-opacity="0.6"/>
+          <path d="M220,175 Q250,175 280,130 Q310,60 340,130 Q370,175 400,175" fill="#e4f4ef" stroke="#1a7a5e" stroke-width="1.5" fill-opacity="0.6"/>
+          <path d="M220,175 Q235,175 248,140 Q255,120 262,130 Q270,140 270,175" fill="#fdf3d9" stroke="none" fill-opacity="0.8"/>
+          <line x1="220" y1="185" x2="270" y2="185" stroke="#8a5c00" stroke-width="1.5"/>
+          <text x="245" y="200" font-size="10" fill="#8a5c00" text-anchor="middle" font-weight="600">Intraindustry</text>
+          <text x="245" y="212" font-size="10" fill="#8a5c00" text-anchor="middle" font-weight="600">Trade</text>
+          <line x1="220" y1="20" x2="220" y2="185" stroke="#8a5c00" stroke-width="0.8" stroke-dasharray="3 2"/>
+          <line x1="270" y1="20" x2="270" y2="185" stroke="#8a5c00" stroke-width="0.8" stroke-dasharray="3 2"/>
+          <text x="220" y="16" font-size="9" fill="#8a5c00" text-anchor="middle">€13,200</text>
+          <text x="270" y="16" font-size="9" fill="#8a5c00" text-anchor="middle">€34,500</text>
+          <text x="130" y="100" font-size="11" fill="#7a2d6e" text-anchor="middle" font-weight="600">Low income</text>
+          <text x="130" y="114" font-size="10" fill="#7a2d6e" text-anchor="middle">Low quality (e.g. Lada)</text>
+          <text x="320" y="100" font-size="11" fill="#1a7a5e" text-anchor="middle" font-weight="600">High income</text>
+          <text x="320" y="114" font-size="10" fill="#1a7a5e" text-anchor="middle">High quality (e.g. Mercedes)</text>
+          <text x="40" y="195" font-size="9" fill="#aaa">Low</text>
+          <text x="110" y="195" font-size="9" fill="#aaa">Middle</text>
+          <text x="360" y="195" font-size="9" fill="#aaa">High</text>
+          <text x="40" y="212" font-size="9" fill="#6b6760">Price differentials → interindustry trade  |  Preferences → intraindustry trade</text>
+        </svg>
+      </div>
   </div>
 </div>
 
