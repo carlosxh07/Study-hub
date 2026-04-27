@@ -420,6 +420,39 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
 .epgt-done-title{font-family:var(--serif);font-size:1.6rem;margin-bottom:6px}
 .epgt-done-sub{font-size:13.5px;color:var(--text2)}
 
+
+/* ── Membership Timeline ─────────────────────────────────── */
+.mtr-wrap{padding:4px 0 20px}
+.mtr-line{position:relative;padding-left:28px}
+.mtr-line::before{content:'';position:absolute;left:9px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--eu) 0%,var(--border2) 100%)}
+.mtr-node{position:relative;margin-bottom:6px}
+.mtr-node::before{content:'';position:absolute;left:-22px;top:14px;width:10px;height:10px;border-radius:50%;border:2px solid var(--eu);background:var(--surface);z-index:1}
+.mtr-node.brexit::before{border-color:#c0392b;background:#c0392b}
+.mtr-node.current::before{border-color:var(--eu);background:var(--eu)}
+.mtr-header{display:flex;align-items:center;gap:8px;cursor:pointer;padding:10px 14px;border-radius:var(--radius-sm);border:1px solid var(--border);background:var(--surface);transition:all .18s;user-select:none}
+.mtr-header:hover{border-color:var(--eu-m);background:var(--eu-l)}
+.mtr-node.brexit .mtr-header:hover{border-color:#f5b8a8;background:#fdeee9}
+.mtr-node.brexit .mtr-header{border-color:#f5b8a8}
+.mtr-year{font-family:var(--serif);font-size:1.15rem;color:var(--eu);min-width:48px}
+.mtr-node.brexit .mtr-year{color:#c0392b}
+.mtr-wave-name{font-weight:600;font-size:13px;color:var(--text);flex:1}
+.mtr-flags{font-size:16px;letter-spacing:2px}
+.mtr-chevron{font-size:11px;color:var(--text3);transition:transform .2s;margin-left:4px}
+.mtr-node.open .mtr-chevron{transform:rotate(180deg)}
+.mtr-body{display:none;padding:12px 14px 14px;border:1px solid var(--border);border-top:none;border-radius:0 0 var(--radius-sm) var(--radius-sm);background:var(--surface2);margin-top:-1px}
+.mtr-node.open .mtr-body{display:block}
+.mtr-countries{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.mtr-country-chip{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:5px;font-size:12px;font-weight:500;background:var(--eu-l);color:var(--eu);border:1px solid var(--eu-m)}
+.mtr-node.brexit .mtr-country-chip{background:#fdeee9;color:#c0392b;border-color:#f5b8a8}
+.mtr-facts{display:flex;flex-direction:column;gap:6px}
+.mtr-fact{font-size:12.5px;color:var(--text2);padding:7px 10px;border-radius:6px;background:var(--surface);border:1px solid var(--border);line-height:1.5}
+.mtr-fact strong{color:var(--text)}
+.mtr-fact.exam{border-left:3px solid var(--eu);background:var(--eu-l)}
+.mtr-node.brexit .mtr-fact.exam{border-left-color:#c0392b;background:#fdeee9}
+.mtr-fact.exam::before{content:'📌 ';font-size:11px}
+.mtr-art{display:inline-block;font-size:10.5px;font-weight:600;padding:2px 7px;border-radius:4px;background:var(--eu);color:#fff;margin-left:4px;vertical-align:middle}
+.mtr-node.brexit .mtr-art{background:#c0392b}
+
 </style>
 </head>
 <body>
@@ -4349,7 +4382,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
   <div id="mch3-calc" class="study-panel">
     <div class="sum-card" style="margin-bottom:16px">
       <div class="sum-title" style="color:var(--micro)">🧮 Step-by-Step Calculator</div>
-      <p style="font-size:13.5px;color:var(--text2)">Work through each problem step by step. Try to predict the next step before revealing it — that's how you learn to solve these in exams.</p>
+      <p style="font-size:13.5px;color:var(--text2)">Work through each problem step by step. Try to predict the next step before revealing it — that\'s how you learn to solve these in exams.</p>
     </div>
     <div class="calc-header">
       <div>
@@ -7460,7 +7493,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
     </div>
     <div class="sum-card" style="opacity:0.75">
       <div class="sum-title"><span class="badge" style="background:var(--surface2);color:var(--text3);border:1px solid var(--border2)">⚠️ Context only — low exam priority</span> <span class="badge b-purple">5.5 Balassa-Samuelson Effect</span></div>
-      <p>Why are prices lower in low-income countries? Labor productivity in <strong>tradables</strong> (cars) is lower in poor countries; in <strong>non-tradables</strong> (haircuts) it's similar everywhere. Low tradable productivity → low wages → low non-tradable costs → low overall price level.</p>
+      <p>Why are prices lower in low-income countries? Labor productivity in <strong>tradables</strong> (cars) is lower in poor countries; in <strong>non-tradables</strong> (haircuts) it\'s similar everywhere. Low tradable productivity → low wages → low non-tradable costs → low overall price level.</p>
       <p style="margin-top:8px">As catching-up economies develop: tradable productivity rises → wages rise → non-tradable prices rise → structural inflation.</p>
       <table class="comp-table" style="margin-top:8px">
         <tr><th>Country</th><th>Productivity gain</th><th>Extra B-S inflation</th></tr>
@@ -8269,6 +8302,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
     <div class="epg-tabs">
       <button class="epg-tab active" id="epg-tab-drag" onclick="epgSetTab('drag')">🧩 Drag to Timeline</button>
       <button class="epg-tab" id="epg-tab-type" onclick="epgSetTab('type')">⌨️ Type the Order</button>
+      <button class="epg-tab" id="epg-tab-timeline" onclick="epgSetTab('timeline')">🗓 Key Facts</button>
     </div>
 
     <!-- DRAG GAME -->
@@ -8319,6 +8353,14 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
         <div class="epgt-done-title">All waves complete!</div>
         <div class="epgt-done-sub" id="epgt-done-sub"></div>
         <button class="epg-reset-btn" onclick="epgtInit()" style="margin-top:12px">Play Again</button>
+      </div>
+    </div>
+
+    <!-- KEY FACTS TIMELINE -->
+    <div id="epg-timeline-facts" style="display:none">
+      <div class="epg-instructions">Click any wave to reveal key facts and exam tips. <strong>Brexit</strong> is included — the UK is the only country ever to leave the EU.</div>
+      <div class="mtr-wrap">
+        <div class="mtr-line" id="mtr-line"></div>
       </div>
     </div>
   </div>
@@ -9991,7 +10033,7 @@ const microFcData={
     {q:"What is marginal utility (MU)?",a:"MU₁ = ∂u/∂x₁ and MU₂ = ∂u/∂x₂ — the extra utility from one additional small unit of that good, holding everything else constant.",src:"Ch2 — Marginal Utility",topic:"Utility"},
     {q:"How do you derive MRS from a utility function?",a:"Compute MU₁ = ∂u/∂x₁ and MU₂ = ∂u/∂x₂. Then MRS = MU₁/MU₂. The numerator is always the good you are getting more of (good 1 on the horizontal axis).",src:"Ch2 — MRS via MU",topic:"MRS"},
     {q:"Derive MRS = MU₁/MU₂ from first principles.",a:"Along an IC utility is constant: dU=0. Total differential: MU₁·dx₁ + MU₂·dx₂ = 0. Rearrange: dx₂/dx₁ = −MU₁/MU₂. MRS = absolute value = MU₁/MU₂.",src:"Ch2 — MRS Derivation",topic:"MRS"},
-    {q:"What is diminishing MRS and why does it occur?",a:"As you move right along an IC (more good 1), the MRS falls — each additional unit of good 1 is worth less of good 2. Occurs because of convex preferences: when good 1 is scarce it's precious; when abundant, it's less valuable.",src:"Ch2 — Diminishing MRS",topic:"MRS"},
+    {q:"What is diminishing MRS and why does it occur?",a:"As you move right along an IC (more good 1), the MRS falls — each additional unit of good 1 is worth less of good 2. Occurs because of convex preferences: when good 1 is scarce it\'s precious; when abundant, it\'s less valuable.",src:"Ch2 — Diminishing MRS",topic:"MRS"},
     {q:"What are MUₜ and MU꜀ for Karim's utility function u(t,c) = (t−6)²(c−45)?",a:"MUₜ = ∂u/∂t = 2(t−6)(c−45). MU꜀ = ∂u/∂c = (t−6)². MRS = MUₜ/MU꜀ = 2(c−45)/(t−6).",src:"Ch2 — Karim MRS",topic:"MRS"},
     {q:"What do the constants −6 and −45 mean in Karim's utility u(t,c)=(t−6)²(c−45)?",a:"Karim needs at least 6 hours of free time AND at least €45 of consumption before he derives any satisfaction. Below these thresholds, utility is zero or negative.",src:"Ch2 — Karim Example",topic:"Utility"},
     {q:"What is Karim's MRS at bundle A (t=15, c=540)?",a:"MRS = 2(c−45)/(t−6) = 2(495)/9 = 110. At this bundle, Karim values one extra hour of leisure at €110 — very steep IC (leisure is relatively scarce).",src:"Ch2 — Karim MRS",topic:"MRS"},
@@ -10030,7 +10072,7 @@ const microFcData={
     {q:"What is unfair insurance? What does a risk-averse consumer do?",a:"Unfair insurance: γ > p (premium exceeds loss probability — realistic case). Optimality gives u′(cb) > u′(cg) → cb < cg. Consumer buys only partial insurance — some risk remains.",src:"Ch3 — Fair vs Unfair",topic:"Fair vs Unfair Insurance"},
     {q:"What is the full insurance line and why does it matter?",a:"The 45° line where cb = cg — zero risk. With fair insurance, the optimal bundle always lies on this line. With unfair insurance, the optimal lies below (cb < cg, partial coverage only).",src:"Ch3 — Fair vs Unfair",topic:"Fair vs Unfair Insurance"},
     {q:"How do you recover optimal coverage x* once you have cb*?",a:"Use cb* = (A−D) + (1−γ)x → solve for x* = [cb* − (A−D)] / (1−γ). Always use the cb equation, not the cg equation.",src:"Ch3 — Martina",topic:"Calculation Steps"},
-    {q:"In Martina's example (γ=0.5, p=0.4), why does she buy less than full insurance?",a:"Because insurance is unfair: γ=0.5 > p=0.4. The premium rate exceeds the loss probability, so full coverage (x=D=550k) costs more than it's worth. Optimal: x*=300k (partial).",src:"Ch3 — Martina",topic:"Calculation Steps"},
+    {q:"In Martina's example (γ=0.5, p=0.4), why does she buy less than full insurance?",a:"Because insurance is unfair: γ=0.5 > p=0.4. The premium rate exceeds the loss probability, so full coverage (x=D=550k) costs more than it\'s worth. Optimal: x*=300k (partial).",src:"Ch3 — Martina",topic:"Calculation Steps"},
     {q:"What does a risk-neutral consumer do under unfair insurance (γ > p)?",a:"Buys zero insurance. Linear u → ICs are straight lines with slope −p/(1−p). Since γ > p, the budget line is steeper, so the optimal point is the endowment (no coverage).",src:"Ch3 — Risk Attitudes",topic:"Risk Attitudes"},
     {q:"What are the three steps to find the Certainty Equivalent?",a:"(1) Compute EU(L) = Σpᵢu(xᵢ). (2) Set u(CE) = EU(L). (3) Invert the utility function to solve for CE. E.g. if u=√c and EU=9: √CE=9 → CE=81.",src:"Ch3 — Certainty Equivalent",topic:"CE & Risk Premium"},
     {q:"Why does the risk premium determine the maximum insurance premium someone would pay?",a:"The risk premium = EV − CE = maximum the person would pay to swap a lottery for its EV with certainty. Any insurance premium below RP is individually rational — the consumer is better off insured than uninsured.",src:"Ch3 — Certainty Equivalent",topic:"CE & Risk Premium"},
@@ -10574,7 +10616,7 @@ const calcProblemsPS2=[
       {label:"Step 3: Calculate EU",formula:"EU = (1/4)·√16 + (3/4)·√0 = (1/4)·4 + 0",result:"EU = <b>1</b>"},
       {label:"Step 4: Find CE = p_min",formula:"u(p_min) = EU → √p_min = 1 → p_min = 1²",result:"p_min = CE = <b>1€</b>"},
       {label:"Step 5: Risk premium",formula:"RP = EV − CE = 4 − 1",result:"RP = <b>3€</b>. She sells for just 1€ despite EV=4€."},
-      {label:"Key trap",formula:"Do NOT use EV=4€ as p_min — that's only correct for risk-neutral agents.",result:"<b>Always compute EU first, then invert u(·) to get CE.</b>"},
+      {label:"Key trap",formula:"Do NOT use EV=4€ as p_min — that\'s only correct for risk-neutral agents.",result:"<b>Always compute EU first, then invert u(·) to get CE.</b>"},
     ]
   },
   {
@@ -12644,7 +12686,7 @@ const IC_FLASHCARDS = {
 // ── IC Quiz Data ──
 const IC_QUIZ = {
   s1: [
-    {q:"Hofstede defines culture as:", opts:["A fixed set of national laws and customs","An innate biological predisposition","'The collective programming of the mind' — a shared, learned lens","An individual's personality traits"], correct:2, fb:"Hofstede's definition emphasises 'collective programming' — learned and group-specific. It is not biological (that's human nature) and not individual (that's personality)."},
+    {q:"Hofstede defines culture as:", opts:["A fixed set of national laws and customs","An innate biological predisposition","'The collective programming of the mind' — a shared, learned lens","An individual's personality traits"], correct:2, fb:"Hofstede's definition emphasises 'collective programming' — learned and group-specific. It is not biological (that\'s human nature) and not individual (that\'s personality)."},
     {q:"Which is NOT one of the three core principles of culture?", opts:["Culture is shared","Culture is learned","Culture is genetically transmitted","Culture influences attitudes and behaviour"], correct:2, fb:"Culture is explicitly learned — this distinguishes it from human nature (which is inherited). Genetic transmission is a property of human nature, not culture."},
     {q:"In the K&S framework, a society that believes in working cooperatively with nature falls under:", opts:["Mastery","Submission","Harmony","Universalism"], correct:2, fb:"Harmony = cooperative relationship with nature. Mastery = dominance. Submission = deference. Universalism is a Schwartz value, not a K&S category."},
     {q:"The Schwartz value of 'Conformity' is best described as:", opts:["Seeking pleasure above all things","Obedience to rules and structures for control","Respecting custom and preserving tradition","Seeking social justice for all"], correct:1, fb:"Conformity = obedience to rules for control. Tradition = respecting what has come before. Universalism = social justice. Hedonism = pleasure."},
@@ -13863,5 +13905,166 @@ document.addEventListener('keydown', function(e){
   }
 });
 // ──────────────────────────────────────────────────────────────
+
+// ── Membership Timeline Data ──────────────────────────────────────────────
+const MTR_DATA = [
+  {
+    year: '1957 / 1958', name: 'Founding Six', flags: '🇧🇪🇫🇷🇩🇪🇮🇹🇱🇺🇳🇱',
+    countries: ['Belgium','France','Germany','Italy','Luxembourg','Netherlands'],
+    facts: [
+      {text: 'EEC established by the <strong>Treaty of Rome</strong>, signed <strong>25 March 1957</strong>, in force <strong>1 January 1958</strong>.', exam: true},
+      {text: 'The six founders are also called the <strong>"Inner Six"</strong> — distinguished from the "Outer Seven" who formed EFTA instead.'},
+      {text: 'Germany joined despite being divided — only West Germany (BRD) was a founding member. East Germany was absorbed upon reunification in 1990.'},
+      {text: 'Treaty of Rome = Treaty establishing the EEC. Also called EEC Treaty. <span class="mtr-art">Art. 49 TEU</span> now governs accession.', exam: true},
+    ]
+  },
+  {
+    year: '1973', name: 'First Enlargement', flags: '🇩🇰🇮🇪🇬🇧',
+    countries: ['Denmark','Ireland','United Kingdom'],
+    facts: [
+      {text: '<strong>UK, Ireland, Denmark</strong> joined together — EC grew from 6 to 9 members ("EC-9").', exam: true},
+      {text: '<strong>Norway</strong> negotiated membership but rejected it in a <strong>1972 referendum</strong> (53.5% No) — the first of two Norwegian rejections.'},
+      {text: 'France under de Gaulle had twice vetoed UK membership (1963, 1967). Only after de Gaulle\'s resignation did the UK gain entry.'},
+      {text: 'UK accession was controversial domestically — confirmed only by a 1975 referendum (67% Yes). The UK had a troubled relationship with EU integration throughout.'},
+    ]
+  },
+  {
+    year: '1981', name: 'Southern Enlargement I', flags: '🇬🇷',
+    countries: ['Greece'],
+    facts: [
+      {text: 'Greece was a <strong>former dictatorship</strong> (military junta 1967–1974). Accession tied to democratic consolidation.', exam: true},
+      {text: 'Greece was the first country from Southern Europe — opening the EU\'s role as a democracy-anchor for transitioning states.'},
+      {text: 'Greece joined on <strong>1 January 1981</strong>, five years after applying. The accession process tested the EC\'s absorption capacity.'},
+    ]
+  },
+  {
+    year: '1986', name: 'Southern Enlargement II', flags: '🇵🇹🇪🇸',
+    countries: ['Portugal','Spain'],
+    facts: [
+      {text: 'Both were <strong>former dictatorships</strong> — Portugal (Salazar/Caetano regime until 1974 Carnation Revolution), Spain (Franco until 1975).', exam: true},
+      {text: 'Spain joined on <strong>1 January 1986</strong>, Portugal also on <strong>1 January 1986</strong>. EC grew to 12 members ("EC-12").'},
+      {text: '<strong>Single European Act</strong> also signed in 1986 — laying groundwork for the internal market and later Maastricht.'},
+      {text: 'All three Southern enlargements (Greece, Spain, Portugal) share a pattern: <strong>dictatorships → democracy → EU accession</strong>. Examiners love this!', exam: true},
+    ]
+  },
+  {
+    year: '1995', name: 'EFTA Enlargement', flags: '🇦🇹🇫🇮🇸🇪',
+    countries: ['Austria','Finland','Sweden'],
+    facts: [
+      {text: 'Former <strong>EFTA</strong> (European Free Trade Association) members joined — EU grew to 15 members ("EU-15").', exam: true},
+      {text: '<strong>Norway</strong> negotiated again but rejected membership in a second referendum in <strong>1994</strong> (52.2% No). Norway remains EFTA/EEA but not EU.', exam: true},
+      {text: '<strong>Switzerland</strong> did not apply — had rejected EEA membership in 1992 referendum. Switzerland remains EFTA but not EEA and not EU.'},
+      {text: 'Austria, Finland, Sweden were previously neutral Cold War states — their accession was possible only after the Cold War ended.'},
+    ]
+  },
+  {
+    year: '2004', name: 'Eastern Enlargement ("Big Bang")', flags: '🇨🇾🇨🇿🇪🇪🇭🇺🇱🇻🇱🇹🇲🇹🇵🇱🇸🇰🇸🇮',
+    countries: ['Cyprus','Czech Republic','Estonia','Hungary','Latvia','Lithuania','Malta','Poland','Slovakia','Slovenia'],
+    facts: [
+      {text: '<strong>Largest single expansion</strong> — 10 countries at once. EU grew from 15 to 25 members.', exam: true},
+      {text: '<strong>Visegrad Group (V4)</strong>: Czech Republic, Hungary, Poland, Slovakia — regional alliance founded 1991 originally for EU/NATO integration.', exam: true},
+      {text: 'Included <strong>Cyprus and Malta</strong> — making this geographically diverse, not purely "Eastern."'},
+      {text: 'Most 2004 members were former communist states from the Soviet bloc — accession represented a historic reunification of Europe after the Cold War.'},
+      {text: '<strong>Treaty of Nice</strong> (2001) was necessary to reform EU institutions to handle the larger membership — qualified majority rules adjusted.'},
+    ]
+  },
+  {
+    year: '2007', name: 'Further Eastern Enlargement', flags: '🇧🇬🇷🇴',
+    countries: ['Bulgaria','Romania'],
+    facts: [
+      {text: '<strong>Bulgaria and Romania</strong> joined on <strong>1 January 2007</strong> — completing post-communist Eastern European integration.', exam: true},
+      {text: '<strong>Romania</strong> introduced the Euro on <strong>1 January 2024</strong>. <strong>Bulgaria</strong> is scheduled to follow.', exam: true},
+      {text: 'Both joined with Cooperation and Verification Mechanisms (CVM) — special monitoring of judiciary and anti-corruption reforms, reflecting concerns at accession.'},
+    ]
+  },
+  {
+    year: '2013', name: 'Most Recent Accession', flags: '🇭🇷',
+    countries: ['Croatia'],
+    facts: [
+      {text: '<strong>Croatia</strong> joined on <strong>1 July 2013</strong> — currently the <strong>most recent and last</strong> country to accede.', exam: true},
+      {text: 'Croatia was part of Yugoslavia, which dissolved violently in the 1990s. Accession concluded a long stabilisation and association process.'},
+      {text: 'Croatia adopted the <strong>Euro in 2023</strong> — one of the faster Euro adoptions among newer members.'},
+    ]
+  },
+  {
+    year: '2020', name: 'Brexit — UK Departure', flags: '🇬🇧', brexit: true,
+    countries: ['United Kingdom (departed)'],
+    facts: [
+      {text: 'The UK is the <strong>only country ever to leave the EU</strong>. Withdrawal governed by <span class="mtr-art">Art. 50 TEU</span>.', exam: true},
+      {text: '<strong>Brexit referendum: 23 June 2016</strong> — 51.9% voted Leave, 48.1% Remain. Turnout: 72.2%.'},
+      {text: 'Formal withdrawal: <strong>31 January 2020</strong>. Transition period ended <strong>31 December 2020</strong>.', exam: true},
+      {text: 'The UK had joined in 1973 (First Enlargement) — meaning it was an EU/EEC member for <strong>47 years</strong>.'},
+      {text: '<span class="mtr-art">Art. 50 TEU</span> provides a 2-year negotiation window triggered by notification. The UK triggered Art. 50 on <strong>29 March 2017</strong>.', exam: true},
+      {text: 'Post-Brexit: the UK is no longer part of the single market or customs union. Relations governed by the <strong>Trade and Cooperation Agreement (TCA)</strong>.'},
+    ]
+  },
+  {
+    year: 'Candidates', name: 'Official EU Candidates', flags: '🌍', current: true,
+    countries: ['Albania','Bosnia-Herzegovina','Georgia','Moldova','Montenegro','North Macedonia','Serbia','Turkey','Ukraine'],
+    facts: [
+      {text: '<strong>9 official candidate countries</strong> as of course material. Candidacy ≠ guaranteed membership.', exam: true},
+      {text: '<strong>Turkey</strong> applied in 1987 — the longest-running candidate. Negotiations effectively stalled since 2016.'},
+      {text: '<strong>Ukraine and Moldova</strong> received candidate status in <strong>June 2022</strong> following Russia\'s invasion — fast-tracked for geopolitical reasons.', exam: true},
+      {text: 'Accession criteria: <span class="mtr-art">Art. 49 TEU</span> + <span class="mtr-art">Art. 2 TEU</span> values (Copenhagen Criteria: democracy, rule of law, human rights, market economy, ability to take on EU obligations).', exam: true},
+      {text: 'Morocco\'s 1987 application was <strong>rejected on geographic grounds</strong> — confirming that "European state" in Art. 49 TEU is a real requirement.'},
+    ]
+  },
+];
+
+function mtrBuild(){
+  const wrap = document.getElementById('mtr-line');
+  if(!wrap) return;
+  wrap.innerHTML = '';
+  MTR_DATA.forEach((wave, i) => {
+    const node = document.createElement('div');
+    node.className = 'mtr-node' + (wave.brexit ? ' brexit' : '') + (wave.current ? ' current' : '');
+    node.dataset.idx = i;
+
+    const chips = (wave.countries || []).map(cn =>
+      '<span class="mtr-country-chip">' + cn + '</span>'
+    ).join('');
+
+    const facts = (wave.facts || []).map(f =>
+      '<div class="mtr-fact' + (f.exam ? ' exam' : '') + '">' + f.text + '</div>'
+    ).join('');
+
+    node.innerHTML =
+      '<div class="mtr-header" onclick="mtrToggle(this)">' +
+        '<span class="mtr-year">' + wave.year + '</span>' +
+        '<span class="mtr-wave-name">' + wave.name + '</span>' +
+        '<span class="mtr-flags">' + (wave.flags||'') + '</span>' +
+        '<span class="mtr-chevron">▼</span>' +
+      '</div>' +
+      '<div class="mtr-body">' +
+        '<div class="mtr-countries">' + chips + '</div>' +
+        '<div class="mtr-facts">' + facts + '</div>' +
+      '</div>';
+
+    wrap.appendChild(node);
+  });
+}
+
+function mtrToggle(header){
+  const node = header.parentElement;
+  node.classList.toggle('open');
+}
+
+// patch epgSetTab to handle 'timeline'
+const _origSetTab = epgSetTab;
+function epgSetTab(tab){
+  ['drag','type','timeline'].forEach(t => {
+    const el = document.getElementById('epg-'+t);
+    if(el) el.style.display = t===tab ? 'block' : 'none';
+    const btn = document.getElementById('epg-tab-'+t);
+    if(btn) btn.classList.toggle('active', t===tab);
+  });
+  const tfl = document.getElementById('epg-timeline-facts');
+  if(tfl) tfl.style.display = tab==='timeline' ? 'block' : 'none';
+  if(tab==='drag') epgInitDrag();
+  if(tab==='type') epgtInit();
+  if(tab==='timeline') mtrBuild();
+}
+// ──────────────────────────────────────────────────────────────────────────
+
 </script>
 </html>
