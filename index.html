@@ -453,6 +453,161 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
 .mtr-art{display:inline-block;font-size:10.5px;font-weight:600;padding:2px 7px;border-radius:4px;background:var(--eu);color:#fff;margin-left:4px;vertical-align:middle}
 .mtr-node.brexit .mtr-art{background:#c0392b}
 
+
+/* ── Overview Toggle ──────────────────────────────────────── */
+.ep-view-toggle{display:flex;gap:6px;margin-bottom:16px;background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:4px}
+.ep-view-btn{flex:1;padding:7px 12px;border:none;border-radius:7px;font-size:12px;font-weight:600;cursor:pointer;background:transparent;color:var(--text3);transition:all .18s;font-family:var(--sans)}
+.ep-view-btn.active{background:var(--surface);color:var(--eu);box-shadow:0 1px 4px rgba(0,0,0,.08);border:1px solid var(--border)}
+
+/* ── PDF Structure Overview ───────────────────────────────── */
+#ep-pdf-overview{margin-bottom:20px}
+.pdf-part{margin-bottom:10px;border-radius:12px;overflow:hidden;border:1px solid var(--border)}
+.pdf-part-header{display:flex;align-items:center;gap:10px;padding:12px 16px;cursor:pointer;user-select:none;transition:background .15s}
+.pdf-part-header:hover{background:var(--surface2)}
+.pdf-part-num{font-family:var(--serif);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:5px;white-space:nowrap}
+.pdf-part-title{font-size:13px;font-weight:700;color:var(--text);flex:1}
+.pdf-part-range{font-size:11px;color:var(--text3);font-family:var(--sans)}
+.pdf-part-count{font-size:11px;font-weight:600;padding:2px 7px;border-radius:5px;margin-left:4px}
+.pdf-part-chevron{font-size:10px;color:var(--text3);transition:transform .2s;margin-left:6px}
+.pdf-part-study{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;color:#fff;border:none;border-radius:6px;padding:4px 11px;cursor:pointer;transition:all .15s;white-space:nowrap;font-family:var(--sans);letter-spacing:.01em;opacity:.92}
+.pdf-part-study:hover{opacity:1;transform:scale(1.03)}
+.pdf-part.open .pdf-part-chevron{transform:rotate(180deg)}
+.pdf-part-body{display:none;border-top:1px solid var(--border)}
+.pdf-part.open .pdf-part-body{display:block}
+
+.pdf-section{border-bottom:1px solid var(--border)}
+.pdf-section:last-child{border-bottom:none}
+.pdf-section-header{display:flex;align-items:center;gap:8px;padding:9px 16px 9px 36px;cursor:pointer;background:var(--surface2);user-select:none;transition:background .15s}
+.pdf-section-header:hover{background:var(--border)}
+.pdf-section-title{font-size:12px;font-weight:600;color:var(--text2);flex:1}
+.pdf-section-qs{font-size:10.5px;color:var(--text3);font-family:var(--sans)}
+.pdf-section-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.pdf-section-chevron{font-size:9px;color:var(--text3);transition:transform .18s;margin-left:4px}
+.pdf-section.sec-open .pdf-section-chevron{transform:rotate(180deg)}
+.pdf-section-body{display:none}
+.pdf-section.sec-open .pdf-section-body{display:block}
+
+.pdf-q-list{list-style:none;padding:0;margin:0}
+.pdf-q-item{display:flex;align-items:flex-start;gap:10px;padding:8px 16px 8px 48px;border-bottom:1px solid var(--border);cursor:pointer;transition:background .12s}
+.pdf-q-item:last-child{border-bottom:none}
+.pdf-q-item:hover{background:var(--eu-l)}
+.pdf-q-num{font-size:10px;font-weight:700;color:var(--text3);min-width:26px;padding-top:2px;font-family:var(--sans)}
+.pdf-q-text{font-size:12px;color:var(--text2);line-height:1.45;flex:1}
+.pdf-q-item:hover .pdf-q-text{color:var(--eu)}
+.pdf-q-item:hover .pdf-q-num{color:var(--eu)}
+
+/* ── Session Filter (existing, kept as-is + toggle wrapper) ── */
+#ep-session-overview{margin-bottom:0}
+
+/* Start button inside PDF overview */
+.pdf-section-start{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;color:var(--eu);background:var(--eu-l);border:1px solid var(--eu-m);border-radius:5px;padding:2px 8px;margin-left:auto;cursor:pointer;transition:all .15s;white-space:nowrap}
+.pdf-section-start:hover{background:var(--eu);color:#fff}
+
+
+/* ── Heatmap strip (inline on main page) ─────────────────── */
+.ep-heatmap-strip{margin:12px 0 4px;padding:12px 14px;background:var(--surface2);border:1px solid var(--border);border-radius:10px}
+.ep-heatmap-label{font-size:11px;font-weight:600;color:var(--text3);letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center}
+.ep-heatmap-label span:last-child{font-weight:400;font-size:10.5px;color:var(--text3)}
+.ep-heatmap-grid{display:flex;gap:3px;flex-wrap:wrap}
+.ep-hm-cell{width:14px;height:14px;border-radius:3px;background:var(--border);cursor:pointer;transition:transform .1s,opacity .1s;flex-shrink:0}
+.ep-hm-cell:hover{transform:scale(1.35);z-index:2;position:relative}
+.ep-hm-cell[data-r="good"]{background:#22c55e}
+.ep-hm-cell[data-r="hard"]{background:#f59e0b}
+.ep-hm-cell[data-r="again"]{background:#ef4444}
+.ep-hm-legend{display:flex;gap:10px;margin-top:7px;align-items:center}
+.ep-hm-leg-item{display:flex;align-items:center;gap:4px;font-size:10px;color:var(--text3)}
+.ep-hm-leg-dot{width:8px;height:8px;border-radius:2px}
+.ep-weak-btn{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:600;padding:5px 12px;border-radius:7px;border:1.5px solid #ef4444;color:#ef4444;background:transparent;cursor:pointer;transition:all .15s;font-family:var(--sans);margin-top:8px}
+.ep-weak-btn:hover{background:#ef4444;color:#fff}
+.ep-weak-btn.disabled{opacity:.4;pointer-events:none}
+.ep-weak-count{background:#ef4444;color:#fff;border-radius:4px;padding:0 5px;font-size:10px;font-weight:700}
+
+/* ── Tools panel ──────────────────────────────────────────── */
+#ep-tools-view{display:none}
+.tools-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:4px}
+@media(max-width:600px){.tools-grid{grid-template-columns:1fr}}
+.tool-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:18px;cursor:pointer;transition:all .18s;position:relative;overflow:hidden}
+.tool-card:hover{border-color:var(--eu-m);box-shadow:0 4px 16px rgba(45,90,158,.1);transform:translateY(-1px)}
+.tool-card-icon{font-size:28px;margin-bottom:10px;display:block}
+.tool-card-title{font-size:14px;font-weight:700;color:var(--text);margin-bottom:4px}
+.tool-card-desc{font-size:12px;color:var(--text3);line-height:1.5}
+.tool-card-badge{position:absolute;top:12px;right:12px;font-size:10px;font-weight:700;padding:2px 7px;border-radius:5px;letter-spacing:.04em}
+
+/* ── Weak Cards view ──────────────────────────────────────── */
+#ep-weak-view{display:none}
+.weak-empty{text-align:center;padding:40px 20px;color:var(--text3);font-size:13px}
+.weak-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.weak-header h3{font-size:15px;font-weight:700;color:var(--text);margin:0}
+.weak-start-all{font-size:12px;font-weight:600;padding:6px 14px;border-radius:7px;background:var(--eu);color:#fff;border:none;cursor:pointer;font-family:var(--sans);transition:opacity .15s}
+.weak-start-all:hover{opacity:.85}
+.weak-item{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border:1px solid var(--border);border-radius:8px;margin-bottom:6px;cursor:pointer;transition:background .12s}
+.weak-item:hover{background:var(--surface2)}
+.weak-item-badge{width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0;color:#fff}
+.weak-item-badge.again{background:#ef4444}
+.weak-item-badge.hard{background:#f59e0b}
+.weak-item-q{font-size:12px;color:var(--text2);line-height:1.4;flex:1}
+.weak-item-num{font-size:10.5px;color:var(--text3);font-weight:600;padding-top:2px}
+
+/* ── Exam Simulator ──────────────────────────────────────── */
+#ep-sim-view{display:none}
+.sim-setup{max-width:340px;margin:0 auto;text-align:center;padding:20px 0}
+.sim-setup h3{font-size:17px;font-weight:700;color:var(--text);margin-bottom:6px}
+.sim-setup p{font-size:13px;color:var(--text3);margin-bottom:20px}
+.sim-count-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
+.sim-count-btn{padding:8px 18px;border-radius:8px;border:1.5px solid var(--border);background:var(--surface);font-size:13px;font-weight:600;cursor:pointer;color:var(--text2);transition:all .15s;font-family:var(--sans)}
+.sim-count-btn.active,.sim-count-btn:hover{border-color:var(--eu);color:var(--eu);background:var(--eu-l)}
+.sim-source-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:22px}
+.sim-source-btn{padding:6px 14px;border-radius:7px;border:1.5px solid var(--border);background:var(--surface);font-size:12px;font-weight:600;cursor:pointer;color:var(--text2);transition:all .15s;font-family:var(--sans)}
+.sim-source-btn.active{border-color:var(--eu);color:var(--eu);background:var(--eu-l)}
+.sim-start-btn{display:inline-flex;align-items:center;gap:6px;padding:11px 28px;border-radius:9px;background:var(--eu);color:#fff;font-size:14px;font-weight:700;border:none;cursor:pointer;font-family:var(--sans);transition:opacity .15s}
+.sim-start-btn:hover{opacity:.88}
+.sim-running{display:none}
+.sim-progress-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.sim-prog-label{font-size:12px;color:var(--text3);font-weight:600}
+.sim-timer{font-size:18px;font-weight:700;color:var(--eu);font-family:var(--serif)}
+.sim-timer.warn{color:#ef4444}
+.sim-q-card{background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:14px;min-height:100px;display:flex;align-items:center;justify-content:center;text-align:center}
+.sim-q-text{font-size:14px;color:var(--text);line-height:1.55;font-weight:500}
+.sim-q-num-badge{font-size:11px;color:var(--text3);margin-bottom:8px}
+.sim-reveal-btn{width:100%;padding:10px;border-radius:8px;border:1.5px solid var(--eu);background:transparent;color:var(--eu);font-size:13px;font-weight:600;cursor:pointer;margin-bottom:10px;font-family:var(--sans);transition:all .15s}
+.sim-reveal-btn:hover{background:var(--eu);color:#fff}
+.sim-answer-box{background:var(--eu-l);border:1px solid var(--eu-m);border-radius:8px;padding:12px 14px;font-size:13px;color:var(--text2);line-height:1.5;margin-bottom:12px;display:none}
+.sim-rate-row{display:flex;gap:8px;display:none}
+.sim-rate-row button{flex:1;padding:9px;border-radius:8px;border:none;font-size:12px;font-weight:600;cursor:pointer;font-family:var(--sans);transition:opacity .15s}
+.sim-rate-row button:hover{opacity:.8}
+.sim-btn-again{background:#fef2f2;color:#ef4444}
+.sim-btn-hard{background:#fffbeb;color:#f59e0b}
+.sim-btn-good{background:#f0fdf4;color:#22c55e}
+.sim-results{display:none;text-align:center;padding:10px 0}
+.sim-score-ring{width:90px;height:90px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:22px;font-weight:800;font-family:var(--serif)}
+.sim-result-breakdown{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
+.sim-result-chip{padding:5px 14px;border-radius:7px;font-size:12px;font-weight:600}
+.sim-retry-btn{padding:9px 22px;border-radius:8px;background:var(--eu);color:#fff;border:none;cursor:pointer;font-size:13px;font-weight:600;font-family:var(--sans)}
+
+/* ── Concept Connector ───────────────────────────────────── */
+#ep-concept-view{display:none}
+.concept-filter-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.concept-filter-btn{padding:5px 11px;border-radius:6px;border:1px solid var(--border);background:var(--surface);font-size:11px;font-weight:600;cursor:pointer;color:var(--text3);transition:all .15s;font-family:var(--sans)}
+.concept-filter-btn.active{background:var(--eu);color:#fff;border-color:var(--eu)}
+.concept-chain{margin-bottom:18px}
+.concept-chain-title{font-size:12px;font-weight:700;color:var(--text3);letter-spacing:.05em;text-transform:uppercase;margin-bottom:10px;padding-left:4px}
+.concept-nodes{display:flex;flex-wrap:wrap;align-items:center;gap:0}
+.concept-node{background:var(--surface);border:1.5px solid var(--border);border-radius:10px;padding:8px 12px;cursor:pointer;transition:all .16s;position:relative}
+.concept-node:hover,.concept-node.cn-active{border-color:var(--eu);background:var(--eu-l)}
+.concept-node:hover .cn-title,.concept-node.cn-active .cn-title{color:var(--eu)}
+.cn-year{font-size:9.5px;color:var(--text3);font-weight:600;margin-bottom:2px;font-family:var(--sans)}
+.cn-title{font-size:12px;font-weight:700;color:var(--text);line-height:1.2}
+.cn-tag{font-size:9.5px;color:var(--text3);margin-top:2px}
+.concept-arrow{font-size:16px;color:var(--border);padding:0 4px;flex-shrink:0;align-self:center}
+.concept-detail{background:var(--eu-l);border:1px solid var(--eu-m);border-radius:10px;padding:14px 16px;margin-top:10px;display:none;animation:fadeIn .2s}
+.concept-detail.show{display:block}
+.concept-detail-title{font-size:13px;font-weight:700;color:var(--eu);margin-bottom:6px}
+.concept-detail-body{font-size:12.5px;color:var(--text2);line-height:1.55}
+.concept-detail-qs{margin-top:8px;display:flex;gap:6px;flex-wrap:wrap}
+.concept-detail-q{font-size:11px;padding:3px 8px;border-radius:5px;background:var(--eu);color:#fff;cursor:pointer;font-weight:600;transition:opacity .15s}
+.concept-detail-q:hover{opacity:.8}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+
 </style>
 </head>
 <body>
@@ -7809,18 +7964,50 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
     </div>
   </div>
 
+  <!-- Heatmap Strip -->
+  <div class="ep-heatmap-strip" id="ep-heatmap-strip">
+    <div class="ep-heatmap-label">
+      <span>Progress Heatmap — 230 questions</span>
+      <span id="ep-hm-pct">0% complete</span>
+    </div>
+    <div class="ep-heatmap-grid" id="ep-heatmap-grid"></div>
+    <div class="ep-hm-legend">
+      <div class="ep-hm-leg-item"><div class="ep-hm-leg-dot" style="background:var(--border)"></div>unseen</div>
+      <div class="ep-hm-leg-item"><div class="ep-hm-leg-dot" style="background:#22c55e"></div>got it</div>
+      <div class="ep-hm-leg-item"><div class="ep-hm-leg-dot" style="background:#f59e0b"></div>hard</div>
+      <div class="ep-hm-leg-item"><div class="ep-hm-leg-dot" style="background:#ef4444"></div>again</div>
+      <button class="ep-weak-btn disabled" id="ep-weak-launch" onclick="epLaunchWeak()">
+        <span>⚡ Review Weak Cards</span><span class="ep-weak-count" id="ep-weak-count">0</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- View Toggle -->
+  <div class="ep-view-toggle">
+    <button class="ep-view-btn active" id="ep-view-session" onclick="epSetView('session')">⊞ Session View</button>
+    <button class="ep-view-btn" id="ep-view-pdf" onclick="epSetView('pdf')">📋 PDF Structure</button>
+  </div>
+
+  <!-- PDF Structure Overview -->
+  <div id="ep-pdf-overview" style="display:none">
+    <div id="pdf-overview-wrap"></div>
+  </div>
+
+  <!-- Session View (original filter + cards) -->
+  <div id="ep-session-overview">
+
   <!-- Part Filter -->
   <div class="ep-filter-row">
     <button class="ep-filter-btn active" data-part="all" onclick="epSetPart('all',this)">All (230)</button>
     <button class="ep-filter-btn" data-part="1" onclick="epSetPart('1',this)">S·I · Tax (9)</button>
-    <button class="ep-filter-btn" data-part="2c" onclick="epSetPart('2c',this)">S·II · Basic Law (20)</button>
-    <button class="ep-filter-btn" data-part="2a" onclick="epSetPart('2a',this)">S·III · Roman (21)</button>
-    <button class="ep-filter-btn" data-part="2b" onclick="epSetPart('2b',this)">S·IV · HRE &amp; History (28)</button>
-    <button class="ep-filter-btn" data-part="4b" onclick="epSetPart('4b',this)">S·VI · Primacy &amp; Effect (40)</button>
-    <button class="ep-filter-btn" data-part="4c-a" onclick="epSetPart('4c-a',this)">S·VII · Goods &amp; Workers (25)</button>
+    <button class="ep-filter-btn" data-part="2c" onclick="epSetPart('2c',this)">S·II · Basic Law (22)</button>
+    <button class="ep-filter-btn" data-part="2a" onclick="epSetPart('2a',this)">S·III · Roman (24)</button>
+    <button class="ep-filter-btn" data-part="2b" onclick="epSetPart('2b',this)">S·IV · HRE &amp; History (24)</button>
+    <button class="ep-filter-btn" data-part="4b" onclick="epSetPart('4b',this)">S·VI · Primacy &amp; Effect (45)</button>
+    <button class="ep-filter-btn" data-part="4c-a" onclick="epSetPart('4c-a',this)">S·VII · Goods &amp; Workers (22)</button>
     <button class="ep-filter-btn" data-part="4c-b" onclick="epSetPart('4c-b',this)">S·VII · Establishment, Services &amp; Capital (16)</button>
-    <button class="ep-filter-btn" data-part="5" onclick="epSetPart('5',this)">S·VII · External (13)</button>
-    <button class="ep-filter-btn" data-part="3" onclick="epSetPart('3',this)">S·VIII · German Court (22)</button>
+    <button class="ep-filter-btn" data-part="5" onclick="epSetPart('5',this)">S·V · External (9)</button>
+    <button class="ep-filter-btn" data-part="3" onclick="epSetPart('3',this)">S·VIII · German Court (23)</button>
     <button class="ep-filter-btn" data-part="4a" onclick="epSetPart('4a',this)">S·IX · Institutions (36)</button>
   </div>
 
@@ -7830,6 +8017,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
     <button class="ep-mode-btn" id="ep-btn-browse" onclick="epSetMode('browse')">☰ Browse All</button>
     <button class="ep-mode-btn" id="ep-btn-cases" onclick="epSetMode('cases')">⚖️ Case Library</button>
     <button class="ep-mode-btn" id="ep-btn-game" onclick="epSetMode('game')">🗺️ Enlargement Game</button>
+    <button class="ep-mode-btn" id="ep-btn-tools" onclick="epSetMode('tools')">🛠 Study Tools</button>
     <button class="ep-shuffle" onclick="epShuffle()">⇄ Shuffle</button>
   </div>
 
@@ -7862,6 +8050,115 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
       <button class="ep-nav-btn" onclick="epNext()" id="ep-next">›</button>
     </div>
     <div class="ep-conf-hint">Flip the card, then rate your confidence</div>
+  </div>
+
+  </div><!-- /ep-session-overview -->
+
+  <!-- TOOLS VIEW -->
+  <div id="ep-tools-view" style="display:none">
+    <div style="margin-bottom:16px">
+      <div class="page-eyebrow" style="color:var(--eu);margin-bottom:4px">Study Tools</div>
+      <div style="font-size:13px;color:var(--text3)">Advanced tools to sharpen your exam prep. Pick a mode below.</div>
+    </div>
+    <div class="tools-grid">
+      <div class="tool-card" onclick="epSetMode('weak')">
+        <span class="tool-card-icon">⚡</span>
+        <div class="tool-card-title">Weak Cards</div>
+        <div class="tool-card-desc">Drill only your Again &amp; Hard rated cards, sorted by struggle count. Focus where it matters.</div>
+        <span class="tool-card-badge" style="background:#fef2f2;color:#ef4444" id="tools-weak-badge">0 cards</span>
+      </div>
+      <div class="tool-card" onclick="epSetMode('sim')">
+        <span class="tool-card-icon">⏱</span>
+        <div class="tool-card-title">Exam Simulator</div>
+        <div class="tool-card-desc">Timed mock exam — draw random questions, flip &amp; self-rate, get a score breakdown by Part.</div>
+        <span class="tool-card-badge" style="background:var(--eu-l);color:var(--eu)">NEW</span>
+      </div>
+      <div class="tool-card" onclick="epSetMode('concept')">
+        <span class="tool-card-icon">🔗</span>
+        <div class="tool-card-title">Concept Connector</div>
+        <div class="tool-card-desc">Visual chains showing how EU law doctrines build on each other. Click any node to study it.</div>
+        <span class="tool-card-badge" style="background:var(--eu-l);color:var(--eu)">NEW</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- WEAK CARDS VIEW -->
+  <div id="ep-weak-view" style="display:none">
+    <div class="weak-header">
+      <h3>⚡ Weak Cards</h3>
+      <button class="weak-start-all" onclick="epStartWeak()">Study all weak →</button>
+    </div>
+    <div id="ep-weak-list"></div>
+  </div>
+
+  <!-- EXAM SIMULATOR VIEW -->
+  <div id="ep-sim-view" style="display:none">
+    <div class="sim-setup" id="sim-setup">
+      <h3>⏱ Exam Simulator</h3>
+      <p>Choose how many questions and which part to draw from, then test yourself under time pressure.</p>
+      <div style="font-size:12px;font-weight:600;color:var(--text3);margin-bottom:8px;text-align:left">Number of questions</div>
+      <div class="sim-count-row">
+        <button class="sim-count-btn active" data-n="10" onclick="simSetCount(this)">10</button>
+        <button class="sim-count-btn" data-n="20" onclick="simSetCount(this)">20</button>
+        <button class="sim-count-btn" data-n="30" onclick="simSetCount(this)">30</button>
+        <button class="sim-count-btn" data-n="50" onclick="simSetCount(this)">50</button>
+      </div>
+      <div style="font-size:12px;font-weight:600;color:var(--text3);margin-bottom:8px;text-align:left">Draw from</div>
+      <div class="sim-source-row">
+        <button class="sim-source-btn active" data-src="all" onclick="simSetSrc(this)">All 230</button>
+        <button class="sim-source-btn" data-src="weak" onclick="simSetSrc(this)">Weak only</button>
+        <button class="sim-source-btn" data-src="1" onclick="simSetSrc(this)">Part I</button>
+        <button class="sim-source-btn" data-src="2" onclick="simSetSrc(this)">Part II</button>
+        <button class="sim-source-btn" data-src="3" onclick="simSetSrc(this)">Part III</button>
+        <button class="sim-source-btn" data-src="4" onclick="simSetSrc(this)">Part IV</button>
+        <button class="sim-source-btn" data-src="5" onclick="simSetSrc(this)">Part V</button>
+      </div>
+      <button class="sim-start-btn" onclick="simStart()">▶ Start Exam</button>
+    </div>
+    <div class="sim-running" id="sim-running">
+      <div class="sim-progress-row">
+        <span class="sim-prog-label">Question <span id="sim-cur">1</span> / <span id="sim-tot">10</span></span>
+        <span class="sim-timer" id="sim-timer">2:00</span>
+      </div>
+      <div style="background:var(--border);border-radius:3px;height:3px;margin-bottom:16px;overflow:hidden">
+        <div id="sim-prog-bar" style="height:100%;background:var(--eu);border-radius:3px;transition:width .3s;width:0%"></div>
+      </div>
+      <div class="sim-q-card">
+        <div>
+          <div class="sim-q-num-badge" id="sim-q-num"></div>
+          <div class="sim-q-text" id="sim-q-text"></div>
+        </div>
+      </div>
+      <button class="sim-reveal-btn" id="sim-reveal-btn" onclick="simReveal()">Reveal Answer</button>
+      <div class="sim-answer-box" id="sim-answer-box"></div>
+      <div class="sim-rate-row" id="sim-rate-row">
+        <button class="sim-btn-again" onclick="simRate('again')">✗ Again</button>
+        <button class="sim-btn-hard" onclick="simRate('hard')">~ Hard</button>
+        <button class="sim-btn-good" onclick="simRate('good')">✓ Got it</button>
+      </div>
+    </div>
+    <div class="sim-results" id="sim-results">
+      <div class="sim-score-ring" id="sim-score-ring"></div>
+      <div style="font-size:13px;color:var(--text3);margin-bottom:14px" id="sim-score-label"></div>
+      <div class="sim-result-breakdown" id="sim-result-breakdown"></div>
+      <button class="sim-retry-btn" onclick="simRetry()">Try Again</button>
+    </div>
+  </div>
+
+  <!-- CONCEPT CONNECTOR VIEW -->
+  <div id="ep-concept-view" style="display:none">
+    <div style="font-size:13px;color:var(--text3);margin-bottom:14px;line-height:1.6">
+      Click any doctrine node to see its core holding and linked exam questions. Use filters to focus on one chain.
+    </div>
+    <div class="concept-filter-row" id="concept-filter-row">
+      <button class="concept-filter-btn active" data-chain="all" onclick="conceptFilter(this)">All chains</button>
+      <button class="concept-filter-btn" data-chain="primacy" onclick="conceptFilter(this)">Primacy</button>
+      <button class="concept-filter-btn" data-chain="direct" onclick="conceptFilter(this)">Direct Effect</button>
+      <button class="concept-filter-btn" data-chain="rights" onclick="conceptFilter(this)">Fundamental Rights</button>
+      <button class="concept-filter-btn" data-chain="goods" onclick="conceptFilter(this)">Free Movement</button>
+      <button class="concept-filter-btn" data-chain="enforce" onclick="conceptFilter(this)">Enforcement</button>
+    </div>
+    <div id="concept-chains-wrap"></div>
   </div>
 
   <!-- BROWSE VIEW -->
@@ -11395,236 +11692,236 @@ const EP_PARTS = {
 };
 
 const EP_QA = [
-  {n:1,p:1,q:"Why does Amazon (incorporated in the USA, subsidiary in Luxembourg, conducting business in Germany) not pay taxes in Germany?",a:"No PE under the German-Luxembourg DTC → Art. 7 OECD MTC blocks German taxation entirely, even if a domestic PE exists.",r:"Art. 5(4) OECD MTC; Art. 7 OECD MTC"},
-  {n:2,p:1,q:"Does Amazon have a permanent establishment in the sense of the German fiscal court?",a:"A domestic PE may exist under German fiscal law, but this is irrelevant — the DTC must also recognise a PE, which it does not for warehouses.",r:"§ 12 AO; German-Luxembourg DTC"},
-  {n:3,p:1,q:"Does Amazon have a permanent establishment under the German-Luxembourg DTC?",a:"No — warehouses used only for storage/delivery are expressly excluded from the PE definition, so no DTC PE exists.",r:"Art. 5(4) OECD MTC; German-Luxembourg DTC"},
-  {n:4,p:'2a',q:"When was the Roman Empire divided into a western and eastern half?",a:"395 AD, upon the death of Emperor Theodosius I."},
-  {n:5,p:'2a',q:"What were the three phases of Roman history?",a:"(1) Royal Period: 753–509 BC. (2) Republic: 509–27 BC. (3) Imperial Period: 27 BC–476 AD."},
-  {n:6,p:'2a',q:"When was the Roman Empire founded?",a:"27 BC, when Octavian received the title 'Augustus' from the Senate."},
-  {n:7,p:'2a',q:"When did the Western Roman Empire collapse, and why?",a:"476 AD — Germanic chieftain Odoacer deposed Romulus Augustulus. Causes: military overextension, economic decline, political instability, migration pressure.",r:"Directive 2022/2523 (EU implementation)"},
-  {n:8,p:'2a',q:"When did the Eastern (Byzantine) Roman Empire collapse?",a:"1453 AD, when Ottoman Sultan Mehmed II conquered Constantinople."},
-  {n:9,p:'2a',q:"Which Roman Emperor chose Byzantium as his new capital ('New Rome')?",a:"Constantine I (330 AD), renaming it Constantinople.",r:"Directive 2022/2523"},
-  {n:10,p:'2a',q:"Which language gradually replaced Latin for official use in the Roman Empire?",a:"Greek — formally adopted in the Eastern Empire from the 7th century under Emperor Heraclius."},
-  {n:11,p:'2a',q:"Why did German emperors regard themselves as the true inheritors of Roman identity? Which other nations claimed Roman succession?",a:"Through translatio imperii — Carolingian and Ottonian coronations were seen as transfers of imperial power from Rome. Other claimants: Byzantium, Russia ('Third Rome'), Ottoman Empire."},
-  {n:12,p:'2a',q:"Which state conquered the Byzantine Empire? How did the Ottomans break with Greco-Roman legitimacy?",a:"The Ottoman Empire conquered Byzantium in 1453, then severed Greco-Roman continuity by replacing Roman law with Islamic law (Sharia)."},
-  {n:13,p:'2a',q:"What do the heraldic symbols of the Roman Empire, Germany, Russia, and Austria have in common?",a:"All use the eagle (double-headed: Rome, Russia, Austria; single-headed: Germany) — reflecting the claim to Roman imperial succession.",r:"Art. 20(1) GG"},
-  {n:14,p:'2a',q:"What is meant by translatio imperii?",a:"A medieval concept: the rule of a world empire is transferred to its successor, legitimising Charlemagne's coronation and the Holy Roman Empire.",r:"Art. 79(3) GG"},
-  {n:15,p:'2a',q:"What is the doctrine of four empires?",a:"Based on Daniel (interpreted by Jerome): four world empires (Babylon, Persia, Greece, Rome) succeed one another. Medieval rulers used this to present themselves as Rome's heirs."},
-  {n:16,p:'2a',q:"What was the idea behind Charlemagne's imperial coronation in 800 AD?",a:"Translatio imperii — imperial power passed from Rome to the Franks. Empress Irene's rule created a theoretical vacancy; Pope Leo III crowned Charlemagne in 800 AD as protector of Christianity."},
-  {n:17,p:'2a',q:"Why was the coronation of Otto I so important for the Holy Roman Empire?",a:"Otto I's 962 AD coronation transferred the translatio imperii to the German realm, establishing the Holy Roman Empire of the German Nation."},
-  {n:18,p:'2a',q:"Which three countries first adopted Christianity as a state religion?",a:"1. Armenia (301 AD — first ever). 2. Georgia (337 AD). 3. Roman Empire (380 AD, Edict of Thessalonica under Theodosius I)."},
-  {n:19,p:'2a',q:"From which term can the German 'Kaiser' and the Slavic 'Tsar' be traced back?",a:"Both derive from 'Caesar' — the Roman imperial title, reflecting the claim to Roman succession."},
-  {n:20,p:'2a',q:"What happened on the eve of the Battle of the Milvian Bridge (27 October 312)?",a:"Constantine I had a vision of the chi-rho symbol ('In hoc signo vinces'). He marked soldiers' shields with it, won, and attributed victory to the Christian God."},
-  {n:21,p:'2a',q:"What was the Edict of Milan (313)?",a:"Agreement between Constantine I and Licinius granting religious tolerance and freedom of worship throughout the Roman Empire."},
-  {n:22,p:'2a',q:"What did Constantine order on 3 March 321?",a:"He declared Sunday a mandatory day of rest — still reflected in German Sunday rest laws today."},
-  {n:23,p:'2a',q:"When was Constantinople founded?",a:"330 AD, by Emperor Constantine I, on the site of ancient Greek Byzantium."},
-  {n:24,p:'2b',q:"How did the Frankish Kingdom come into existence?",a:"The Franks were Germanic tribes united under Clovis I (481–511 AD), who converted to Christianity and founded the Merovingian dynasty."},
-  {n:25,p:'2b',q:"Which territories did the Frankish Kingdom encompass?",a:"At its height under Charlemagne: modern France, Belgium, Luxembourg, western Germany, Austria, Switzerland, northern Italy, Low Countries, and parts of Spain."},
-  {n:26,p:'2b',q:"Which two states eventually replaced the Frankish Kingdom?",a:"By the Treaty of Verdun (843 AD): West Francia (→ France) and East Francia (→ Germany / HRE). A Middle Kingdom also emerged."},
-  {n:27,p:'2b',q:"Who was Charlemagne (Carolus Magnus)? Where did he reside?",a:"King of the Franks (768–814) and first Holy Roman Emperor (800–814). Resided at Aachen."},
-  {n:28,p:'2b',q:"What was the official name of the Roman German empire that existed until 1806?",a:"The Holy Roman Empire of the German Nation (Heiliges Römisches Reich Deutscher Nation), the 'old empire.'"},
-  {n:29,p:'2b',q:"What is the concept of a nation state?",a:"A political entity defined by a shared language, culture, and ethnicity — model emerged strongly after the French Revolution."},
-  {n:30,p:'2b',q:"Was Scandinavia part of the Holy Roman Empire of the German Nation?",a:"No — Scandinavia lay outside the empire's borders."},
-  {n:31,p:'2b',q:"What is the 'Final Recess' (Reichsdeputationshauptschluss)?",a:"The Recess of 1803 — last major act of the Holy Roman Empire. It secularised Church lands, abolished many small states, and compensated princes who lost territory to France west of the Rhine."},
-  {n:32,p:'2b',q:"What public subsidies are guaranteed by Article 138 of the Weimar Constitution (now part of the Basic Law via Art. 140 GG)?",a:"Art. 138 WV guarantees ongoing state payments (Staatsleistungen) to religious societies, originating from the 1803 secularisation.",r:"Art. 138 WV via Art. 140 GG"},
-  {n:33,p:'2b',q:"Does Germany have a state church?",a:"No. Germany has a cooperative model — the state supports religious communities without formally establishing one.",r:"Art. 137 WV = Art. 140 GG: 'There shall be no state church.'"},
-  {n:34,p:'2b',q:"What did the previous SPD-FDP-Green coalition agreement include regarding public subsidies to religious societies?",a:"The SPD-FDP-Green coalition planned to replace perpetual Staatsleistungen with a one-time lump-sum settlement.",r:"Sonn- und Feiertagsgesetze der Länder"},
-  {n:35,p:'2b',q:"How did Hitler mainly consolidate his power in 1933 from a constitutional perspective?",a:"Through the Enabling Act (Ermächtigungsgesetz) of 23 March 1933 — transferring legislative power from the Reichstag to the government."},
-  {n:36,p:'2b',q:"What is the nature of the Enabling Act? Would it be possible under current German law?",a:"A constitutional amendment abolishing separation of powers — impossible today: the Eternity Clause prohibits such amendments.",r:"Art. 79(3) GG"},
-  {n:37,p:'2b',q:"What consequence of the Enabling Act is still visible in German lawmaking today?",a:"The principle of materiality (Wesentlichkeitsgrundsatz) — Parliament must itself decide all fundamental matters and cannot delegate essential decisions to the executive."},
-  {n:38,p:'2b',q:"What is the principle of materiality (Wesentlichkeitsgrundsatz)?",a:"Parliament must itself regulate all matters of substantial importance — especially fundamental rights — rather than delegating to the executive."},
-  {n:39,p:'2b',q:"Which party voted against the Enabling Act, and why could the Communist Party not do so?",a:"The SPD voted against. The KPD could not — its members had been arrested or driven underground after the Reichstag Fire Decree.",r:"Reichstag Fire Decree, 28 Feb 1933"},
-  {n:40,p:'2b',q:"Who are Erich Honecker, Walter Ulbricht, Vladimir Ilyich Lenin, and Montesquieu?",a:"Honecker: head of GDR 1971–89. Ulbricht: head of GDR 1950–71. Lenin: leader of Bolshevik Revolution 1917, founder of Soviet state. Montesquieu: French philosopher (1689–1755), developed trias politica in 'De l'esprit des lois' (1748)."},
-  {n:41,p:'2b',q:"The concept of separation of powers may be traced back to which person?",a:"Montesquieu (Charles-Louis de Secondat), 1748, 'De l'esprit des lois' — the trias politica: legislative, executive, judicial."},
-  {n:42,p:'2b',q:"What happens in a state of defense regarding the electoral term of the Bundestag?",a:"Electoral term automatically extended for the duration; elections postponed until six months after the state of defense ends.",r:"Art. 115h GG"},
-  {n:43,p:'2b',q:"If the Bundestag cannot convene in a state of defense, which body substitutes for it?",a:"The Joint Committee (Gemeinsamer Ausschuss) — two-thirds Bundestag, one-third Bundesrat — acts as substitute parliament with full legislative powers.",r:"Art. 53a, 115e GG"},
-  {n:44,p:'2b',q:"What is the consequence of a state of defense for the Federal Chancellor?",a:"Command over the Bundeswehr passes from the Minister of Defence to the Federal Chancellor.",r:"Art. 115b GG"},
-  {n:45,p:'2c',q:"What is the nature of private law in comparison to public law?",a:"Private law: relations between equals (Gleichordnung). Public law: state vs. private parties based on subordination (Überordnung).",r:"Art. 138 WV via Art. 140 GG"},
-  {n:46,p:'2c',q:"What are examples of private and public law?",a:"Private: contract, tort, property, family, company law (BGB, HGB). Public: constitutional, administrative, tax, criminal law (GG, AO, StGB).",r:"Art. 137 WV = Art. 140 GG: 'There shall be no state church.'"},
-  {n:47,p:'2c',q:"What are the main principles of public and private law with respect to citizens?",a:"Private law: Privatautonomie (parties agree freely within legal limits). Public law: Gesetzmässigkeit der Verwaltung (state may only act with legal basis)."},
-  {n:48,p:'2c',q:"What does the three-element doctrine require? Is the EU a state?",a:"Jellinek's three elements: (1) defined territory, (2) permanent population, (3) effective sovereign government. The EU lacks full sovereignty — not a state."},
-  {n:49,p:'2c',q:"What is the law of things (Sachenrecht) about?",a:"Governs rights over physical objects — who holds ownership, possession, and other real rights, and how they are created, transferred, and extinguished.",r:"Art. 79(3) GG"},
-  {n:50,p:'2c',q:"What must be done to transfer ownership in a sale under German law?",a:"Two separate legal acts: (1) obligatory agreement (sales contract); (2) real agreement + delivery for movables or land register entry for immovables.",r:"§ 929 BGB (movables)"},
-  {n:51,p:'2c',q:"What is meant by the principle of abstraction (Abstraktionsprinzip)?",a:"The validity of the ownership transfer is independent of the underlying contract — even a void contract does not automatically invalidate the transfer."},
-  {n:52,p:'2c',q:"What is meant by the principle of separation (Trennungsprinzip)?",a:"The obligatory transaction (contract creating the duty to transfer) and the real transaction (actual transfer) are legally distinct, separate acts.",r:"Reichstag Fire Decree, 28 Feb 1933"},
-  {n:53,p:'2c',q:"What is the difference between possession and ownership?",a:"Ownership (Eigentum): the legal right. Possession (Besitz): factual control. A thief possesses but does not own; an owner whose good is stolen owns but does not possess."},
-  {n:54,p:'2c',q:"Into how many zones was Germany divided after World War II?",a:"Four zones: American (south), British (northwest), French (southwest), Soviet (east). Berlin also divided into four sectors.",r:"Art. 115h GG"},
-  {n:55,p:'2c',q:"Of how many federal states does Germany consist?",a:"16 Bundesländer: 13 area states (Flächenländer) + 3 city-states (Berlin, Hamburg, Bremen).",r:"Art. 53a, 115e GG"},
-  {n:56,p:'2c',q:"What is the capital of the state of Hesse (Hessen)?",a:"Wiesbaden.",r:"Art. 115b GG"},
-  {n:57,p:'2c',q:"In which part of the Basic Law are the basic rights located, in contrast to the Weimar Constitution?",a:"At the very beginning (Arts. 1–19 GG) — signalling their priority and binding force. In the Weimar Constitution they appeared at the end.",r:"Arts. 1–19 GG"},
-  {n:58,p:'2c',q:"What is a task of the Federal President?",a:"Represents Germany internationally, ratifies laws, appoints the Federal Chancellor and ministers, accredits ambassadors, exercises the power of pardon."},
-  {n:59,p:'2c',q:"Who is considered the second highest-ranking person in the German constitutional order?",a:"The President of the Bundestag (Bundestagspräsident)."},
-  {n:60,p:'2c',q:"What are the five pillars of the German social insurance system and to what can they be traced back?",a:"(1) Health, (2) Accident, (3) Pension/Retirement, (4) Unemployment, (5) Long-term care insurance — all traced back to Bismarck's social reforms of the 1880s."},
-  {n:61,p:'2c',q:"What are the six principles of state under Article 20 of the Basic Law?",a:"(1) Democracy, (2) Federal state, (3) Social state, (4) Republic, (5) Rule of law, (6) Environmental protection (Art. 20a GG). The first five are protected by the Eternity Clause.",r:"Art. 20 GG; Art. 20a GG; Art. 79(3) GG"},
-  {n:62,p:'2c',q:"What are the five permanent constitutional bodies in Germany?",a:"(1) Bundestag, (2) Bundesrat, (3) Federal Government, (4) Federal President, (5) Federal Constitutional Court.",r:"§ 929 BGB (movables)"},
-  {n:63,p:'2c',q:"Which body elects the Federal President?",a:"The Federal Assembly (Bundesversammlung) — convened solely for this purpose."},
-  {n:64,p:'2c',q:"Who is a member of the Federal Assembly (Bundesversammlung)?",a:"The entire Bundestag + an equal number of state delegates elected by each Länder parliament, proportional to population."},
-  {n:65,p:3,q:"What was the finding of Solange I (BVerfG, 29 May 1974)?",a:"As long as the EC lacked a democratically legitimate parliament and a fundamental rights catalogue equivalent to the Basic Law, the FCC reserved the right to review EC secondary law against German fundamental rights.",r:"BVerfG, 29 May 1974, BvL 52/71"},
-  {n:66,p:3,q:"Which company was the plaintiff in the proceedings leading to Solange I?",a:"Internationale Handelsgesellschaft mbH."},
-  {n:67,p:3,q:"Did the FCC in Solange I decide on the validity of EC secondary law's compatibility with EC primary law?",a:"No — the FCC reviewed EC secondary law for compatibility with the Basic Law (German fundamental rights), not with EC primary law."},
-  {n:68,p:3,q:"What did the EC still lack at the time of Solange I (1974)?",a:"A democratically elected Parliament (it was only appointed then) and a codified catalogue of fundamental rights."},
-  {n:69,p:3,q:"In which case did the FCC revise its Solange I approach?",a:"Solange II (BVerfG, 22 October 1986) — FCC held it would no longer exercise review jurisdiction so long as ECJ fundamental rights protection was essentially equivalent to the Basic Law.",r:"BVerfG, 22 Oct 1986, 2 BvR 197/83"},
-  {n:70,p:3,q:"What is the nature of a fundamental right versus a fundamental freedom?",a:"Fundamental rights (Grundrechte): defensive rights against state encroachment. Fundamental freedoms (Grundfreiheiten): positive internal market rights (free movement of goods, workers, capital, services, establishment)."},
-  {n:71,p:3,q:"What were the main features of the Treaty of Maastricht?",a:"(1) Monetary union and the euro, (2) EU citizenship, (3) Common Foreign and Security Policy, (4) Justice and Home Affairs cooperation."},
-  {n:72,p:3,q:"With whom did the German Chancellor make a deal to get approval for reunification?",a:"Chancellor Helmut Kohl made a deal with French President Mitterrand — monetary union as a quid pro quo for French support for German reunification."},
-  {n:73,p:3,q:"Did the Maastricht Treaty empower the EU to acquire by itself financial or other means it deemed necessary?",a:"No — the principle of conferral was preserved; the EU could only act within conferred competences.",r:"Art. 20 GG; Art. 20a GG; Art. 79(3) GG"},
-  {n:74,p:3,q:"Were the constitutional complaints against the Maastricht Treaty successful? What caused significant attention?",a:"Complaints dismissed as inadmissible except one (democratic principle). The Court confirmed the ultra vires doctrine.",r:"Art. 38 GG"},
-  {n:75,p:3,q:"What was the main finding of the Lisbon judgment (BVerfG, 30 June 2009)?",a:"The EU remains a Staatenverbund subject to the principle of conferral. Germany cannot transfer sovereign statehood itself — certain core state functions are inalienable.",r:"BVerfG, 30 June 2009"},
-  {n:76,p:3,q:"How did the FCC define the EU in the Lisbon judgment?",a:"A Staatenverbund — a close association of states, falling short of a confederation and far short of a federal state."},
-  {n:77,p:3,q:"What forms part of the inalienable list of state rights that can never be transferred to European lawmaking?",a:"Criminal law, monopoly of force, fiscal sovereignty, core social decisions, cultural identity (education, media, family law), and fundamental electoral rights."},
-  {n:78,p:3,q:"Did the FCC allow Germany's accession to a potential European federal state?",a:"No — only the constituent power of the German people via a new constitutional act could authorise that step.",r:"Art. 146 GG"},
-  {n:79,p:3,q:"What were the facts of the EU Warrant case (BVerfG, 15 December 2015)?",a:"A US national convicted in absentia in Italy resisted extradition under the European Arrest Warrant, arguing Italian law gave him no remedy to challenge enforcement, violating his right to a fair trial.",r:"BVerfG, 15 Dec 2015, 2 BvR 2735/14"},
-  {n:80,p:3,q:"Which control did the FCC apply for the first time in the EU Warrant case?",a:"The identity control (Identitätskontrolle) — first time the FCC actually applied (not just announced) this control to a matter fully covered by EU law.",r:"Art. 79(3) GG"},
-  {n:81,p:3,q:"What was the consequence for the ECJ of the EU Warrant decision?",a:"Pressure on the ECJ to give greater attention to fundamental rights when interpreting the EAW Framework Decision."},
-  {n:82,p:3,q:"Was the FCC the only court to apply its own fundamental rights standard to EU law?",a:"No — Italy ('counter-limits') and Spain also apply their own constitutional limits to EU law."},
-  {n:83,p:3,q:"What does PSPP stand for?",a:"Public Sector Purchase Programme — the ECB's programme purchasing government bonds and public sector securities of eurozone MS."},
-  {n:84,p:3,q:"What was the idea behind the PSPP?",a:"To stimulate consumption and investment by injecting liquidity and raise eurozone inflation toward the ECB's 'just under 2%' price stability target.",r:"BVerfG, 22 Oct 1986, 2 BvR 197/83"},
-  {n:85,p:3,q:"What did the FCC accuse the ECJ of in the PSPP decision (2020)?",a:"That the ECJ conducted a 'manifestly deficient' proportionality review — failing to properly examine whether the ESCB/ECB stayed within its monetary policy mandate.",r:"BVerfG, 5 May 2020"},
-  {n:86,p:3,q:"What did the FCC assert regarding the ECJ's competence in the PSPP case?",a:"That the ECJ's findings 'manifestly exceed the judicial mandate' conferred in Art. 19(1) TEU — an ultra vires act by the ECJ itself.",r:"Art. 19(1) TEU"},
-  {n:87,p:'4a',q:"Which are the constitutional documents of the European Union?",a:"The TEU, the TFEU, and the Charter of Fundamental Rights — together constituting EU primary law."},
-  {n:88,p:'4a',q:"What happened with the Treaty establishing a Constitution for Europe?",a:"Rejected in referendums by France (54.7% No, May 2005) and the Netherlands (61.6% No, June 2005)."},
-  {n:89,p:'4a',q:"What was the result of the rejection of the EU Constitutional Treaty?",a:"The Treaty of Lisbon (2007, in force 2009) incorporated most reforms in amended treaty form, dropping constitutional language."},
-  {n:90,p:'4a',q:"How are the TEU, TFEU, and the Charter of Fundamental Rights collectively called?",a:"Primary law (Primärrecht) — the highest level of EU law, binding on all institutions and Member States.",r:"Art. 38 GG"},
-  {n:91,p:'4a',q:"What is the difference between the various legal acts of EU secondary law?",a:"Regulations: directly applicable, binding in entirety. Directives: binding as to result, MS choose method. Decisions: binding on those addressed. Recommendations/Opinions: non-binding.",r:"Art. 288 TFEU"},
-  {n:92,p:'4a',q:"What two forms of secondary law are distinguished under Art. 288 TFEU?",a:"Binding acts (Regulations, Directives, Decisions) and non-binding acts (Recommendations, Opinions).",r:"Art. 288 TFEU"},
-  {n:93,p:'4a',q:"What is meant by the principle of degressive proportionality?",a:"Larger MS receive more EP seats but proportionally fewer per citizen — smaller states are overrepresented to ensure meaningful representation for all."},
-  {n:94,p:'4a',q:"Which country is the smallest in the EU?",a:"Malta (both by area and population).",r:"Art. 146 GG"},
-  {n:95,p:'4a',q:"Is the EU a 'Christian club'?",a:"No — accession is open to Albania, Bosnia-Herzegovina, Turkey (all predominantly Muslim). Membership is based on democratic values, not religion.",r:"Art. 49 TEU; Art. 2 TEU"},
-  {n:96,p:'4a',q:"Can any country become an EU member?",a:"No — only European states can apply. Morocco's 1987 application was rejected on geographic grounds.",r:"Art. 49 TEU"},
-  {n:97,p:'4a',q:"Is it decisive to be geographically part of Europe for EU membership?",a:"Not strictly — Cyprus is geographically closer to Asia yet is an EU member. Geography is a factor but not the sole determinant.",r:"Art. 49 TEU"},
-  {n:98,p:'4a',q:"Where is it stipulated who can join the EU?",a:"Any European state respecting the values of Art. 2 TEU may apply.",r:"Art. 49 TEU; Art. 2 TEU"},
-  {n:99,p:'4a',q:"Which countries are official EU membership candidates?",a:"Albania, Bosnia-Herzegovina, Georgia, Moldova, Montenegro, North Macedonia, Serbia, Turkey, Ukraine."},
-  {n:100,p:'4a',q:"Who is the President of the EU Commission?",a:"Ursula von der Leyen (as of course material)."},
-  {n:101,p:'4a',q:"How is the Treaty of the European Economic Community also called?",a:"The Treaty of Rome (signed 25 March 1957).",r:"BVerfG, 5 May 2020"},
-  {n:102,p:'4a',q:"Which countries were the founding members of the EEC?",a:"Belgium, Netherlands, Luxembourg, France, Germany, Italy — the 'Inner Six.'",r:"Art. 19(1) TEU"},
-  {n:103,p:'4a',q:"Name two examples of exclusive EU competences.",a:"Any two of: customs union, competition rules for the internal market, monetary policy (eurozone), conservation of marine biological resources, common commercial policy.",r:"Art. 3 TFEU"},
-  {n:104,p:'4a',q:"What is the principle of subsidiarity?",a:"The EU shall act only if the objective cannot be sufficiently achieved by MS but can be better achieved at Union level by reason of scale or effects.",r:"Art. 5(3) TEU"},
-  {n:105,p:'4a',q:"What happens in case of breach of the principle of subsidiarity?",a:"National parliaments may issue yellow/orange card objections; MS or the Committee of the Regions may refer an adopted act to the CJEU.",r:"Protocol No. 2 TEU"},
-  {n:106,p:'4a',q:"Are there relevant documents dealing with the principle of subsidiarity?",a:"Protocol No. 1 (national parliaments receive legislative proposals for review) and Protocol No. 2 (subsidiarity compliance, objection rights, CJEU challenge).",r:"Protocol No. 1 & 2 TEU"},
-  {n:107,p:'4a',q:"To which other principle is subsidiarity closely linked?",a:"Proportionality (Art. 5(4) TEU) — EU action must not exceed what is necessary. Also linked to the principle of conferral (Art. 5(2) TEU).",r:"Art. 5(2), 5(4) TEU"},
-  {n:108,p:'4a',q:"What is the concept of qualified (double) majority in the Council?",a:"55% of MS (min. 15) representing at least 65% of EU population. Blocking minority: at least 4 MS representing 35%+ of population.",r:"Art. 288 TFEU"},
-  {n:109,p:'4a',q:"What is codecision (Ordinary Legislative Procedure)?",a:"The Ordinary Legislative Procedure (OLP) — legislation jointly adopted by the European Parliament and the Council on equal footing from a Commission proposal.",r:"Art. 294 TFEU"},
-  {n:110,p:'4a',q:"What is the main characteristic of the Ordinary Legislative Procedure?",a:"Equal co-legislation by Parliament and Council; up to three readings; conciliation committee possible if readings fail.",r:"Art. 294 TFEU"},
-  {n:111,p:'4a',q:"In which cases must the Council decide unanimously?",a:"CFSP; EU citizenship (new rights); EU membership; indirect tax harmonisation; EU own resources/MFF; certain JHA matters; social security harmonisation.",r:"Art. 49 TEU; Art. 2 TEU"},
-  {n:112,p:'4a',q:"Does the EU have powers to levy or collect taxes?",a:"No — tax powers rest with Member States. Harmonisation of direct taxes requires unanimity.",r:"Art. 115 TFEU"},
-  {n:113,p:'4a',q:"How many Council configurations exist?",a:"10 (e.g. General Affairs, Foreign Affairs, ECOFIN, JHA, Agriculture and Fisheries).",r:"Art. 49 TEU"},
-  {n:114,p:'4a',q:"Which institution holds the monopoly to initiate legislation in the EU?",a:"The European Commission.",r:"Art. 17(2) TEU"},
-  {n:115,p:'4a',q:"What can the European Parliament do to start a legislative process?",a:"The EP may request the Commission to submit a proposal. The Commission must state reasons if it declines but is not legally bound to comply.",r:"Art. 225 TFEU"},
-  {n:116,p:'4a',q:"What were the facts of Van Gend & Loos (ECJ, 5 February 1963)?",a:"Van Gend & Loos imported ureaformaldehyde from Germany into the Netherlands. Dutch customs imposed a higher duty than at EEC Treaty entry into force, arguably breaching the standstill clause.",r:"ECJ, 5 Feb 1963, Case 26/62"},
-  {n:117,p:'4a',q:"What is meant by the doctrine of direct applicability?",a:"EU legislation (especially regulations) automatically becomes part of national law without any domestic implementing legislation."},
-  {n:118,p:'4a',q:"What is meant by the doctrine of direct effect?",a:"EU law endows individuals with directly enforceable rights before domestic courts. Conditions: clear, precise, and unconditional."},
-  {n:119,p:'4a',q:"What were the facts of Costa v. ENEL (ECJ, 15 July 1964)?",a:"Italy nationalised its electricity industry (creating Enel). Flaminio Costa refused to pay his bill, arguing the nationalisation law was incompatible with the EEC Treaty.",r:"ECJ, 15 July 1964, Case 6/64"},
-  {n:120,p:'4a',q:"Which concept of the relationship between legal spheres did the ECJ reject in Costa v. ENEL?",a:"Dualism — the theory that national and EU law are separate orders requiring domestic transformation before EU law applies."},
-  {n:121,p:'4a',q:"How did the ECJ justify rejecting dualism in Costa v. ENEL?",a:"Community law 'became an integral part' of national legal systems upon entry into force; Member States permanently limited their sovereign rights."},
-  {n:122,p:'4a',q:"What nature of Community law did the ECJ emphasise in Costa v. ENEL?",a:"The autonomous nature — its own institutional framework, legal personality, and binding force not only on MS but directly on individuals."},
-  {n:123,p:'4b',q:"Which legal principle did the ECJ reject in Costa v. ENEL regarding conflicts of norms?",a:"Lex posterior derogat legi priori — a later national law cannot override an earlier EC rule; EU law prevails regardless of chronological order."},
-  {n:124,p:'4b',q:"Why is Costa v. ENEL considered a legal revolution?",a:"It established the doctrine of supremacy — EC law prevails over conflicting national law before national courts."},
-  {n:125,p:'4b',q:"How is primacy of EU law understood from a German perspective?",a:"As Anwendungsvorrang (precedence of application) — conflicting national law is not declared void, merely set aside in the specific case.",r:"Art. 3 TFEU"},
-  {n:126,p:'4b',q:"What does 'precedence of application' mean?",a:"National courts set aside the conflicting national rule in the specific case and apply EU law. The national provision retains formal validity outside EU law's scope.",r:"Art. 5(3) TEU"},
-  {n:127,p:'4b',q:"How does precedence of application differ from precedence of validity?",a:"Geltungsvorrang (validity): higher norm renders lower norm invalid (e.g. Art. 31 GG). Anwendungsvorrang (application): lower norm retains validity but is not applied in conflicts — EU primacy operates this way.",r:"Art. 31 GG"},
-  {n:128,p:'4b',q:"What was the main finding of Simmenthal (ECJ, 9 March 1978)?",a:"Every national court — including lower courts — must immediately set aside conflicting national law and apply EU law, without waiting for a constitutional court ruling or parliamentary repeal.",r:"ECJ, 9 Mar 1978, Case 106/77"},
-  {n:129,p:'4b',q:"What is the concept of supranationality?",a:"A form of international organisation where MS transfer sovereign powers to a common institution whose decisions are directly binding without each government's approval in the specific case.",r:"Art. 5(2), 5(4) TEU"},
-  {n:130,p:'4b',q:"What is meant by the idea of 'sacrifice and creation' in EU law?",a:"MS sacrifice (transfer) sovereign powers to EU level but in return create a new legal order benefiting all through the single market and collective problem-solving capacity."},
-  {n:131,p:'4b',q:"What is the principle of conferral?",a:"The EU may only act within the competences conferred by MS in the Treaties. Competences not conferred remain with MS. The EU has no Kompetenz-Kompetenz.",r:"Art. 5(2) TEU"},
-  {n:132,p:'4b',q:"What were the facts of the Francovich case (ECJ, 19 November 1991)?",a:"Italy failed to implement the Insolvency Directive (80/987/EEC). Workers Francovich and Bonifaci could not recover wages when employers went bankrupt and sued Italy for compensation.",r:"ECJ, 19 Nov 1991, C-6/90 & C-9/90"},
-  {n:133,p:'4b',q:"What was the main finding of the Francovich case?",a:"MS can be held liable to pay compensation to individuals who suffered loss due to the MS's failure to transpose an EU directive."},
-  {n:134,p:'4b',q:"What were the exact conditions for a compensation claim under Francovich?",a:"(1) Directive confers rights on individuals; (2) rights identifiable from the directive's wording; (3) causal link between the MS's failure to implement and the damage suffered.",r:"ECHR; CoE ≠ EU"},
-  {n:135,p:'4b',q:"In which case did the ECJ claim to protect fundamental rights even though not explicitly mentioned in primary law at the time?",a:"Internationale Handelsgesellschaft (ECJ, 17 December 1970, Case 11/70).",r:"ECJ, 17 Dec 1970, Case 11/70"},
-  {n:136,p:'4b',q:"To which FCC ruling did the Internationale Handelsgesellschaft case lead?",a:"Solange I (BVerfG, 29 May 1974, BvL 52/71).",r:"BVerfG, 29 May 1974, BvL 52/71"},
-  {n:137,p:'4b',q:"What were the main findings of Internationale Handelsgesellschaft (ECJ)?",a:"(1) Fundamental rights are an integral part of EU general principles of law. (2) EU supremacy is unconditional — EU acts cannot be assessed against national constitutional provisions.",r:"ECJ, Case 11/70"},
-  {n:138,p:'4b',q:"What were the facts of the Ratti case (ECJ, 5 April 1979)?",a:"Mr Ratti complied with EU labelling directives but not stricter Italian law. Italy prosecuted him after the directives' implementation deadline had passed.",r:"ECJ, 5 Apr 1979, Case 148/78"},
-  {n:139,p:'4b',q:"What did the ECJ decide in the Ratti case?",a:"After the implementation deadline, a MS cannot apply its unadapted national law against someone who complied with the directive — the MS is estopped by its own failure.",r:"ECJ, 5 Feb 1963, Case 26/62"},
-  {n:140,p:'4b',q:"What forms of direct effect of a directive must be distinguished?",a:"Vertical direct effect (individual vs. state — permitted). Horizontal direct effect (individual vs. private party — not permitted for directives)."},
-  {n:141,p:'4b',q:"What are the conditions for direct effect of a directive?",a:"(1) Provision must be unconditional and sufficiently clear and precise; (2) MS must have failed to transpose by the implementation deadline."},
-  {n:142,p:'4b',q:"Is inverse vertical direct effect possible (state invoking directive against individual)? Cite the case.",a:"No (Kolpinghuis Nijmegen) — a MS cannot rely on an unimplemented directive against an individual.",r:"ECJ, 8 Oct 1987, Case 80/86"},
-  {n:143,p:'4b',q:"Is horizontal direct effect of a directive possible? Cite the case.",a:"No (Faccini Dori) — a directive cannot be invoked against a private party in the absence of national implementing measures.",r:"ECJ, 14 July 1994, C-91/92"},
-  {n:144,p:'4b',q:"What were the facts of Faccini Dori?",a:"Miss Dori concluded a language course contract at Milan station and tried to cancel under the unimplemented Doorstep Selling Directive. The ECJ confirmed no horizontal direct effect — she could not invoke it against the private company.",r:"ECJ, C-91/92"},
-  {n:145,p:'4b',q:"What is the reason for the preliminary ruling procedure (Art. 267 TFEU)?",a:"To ensure uniform interpretation of EU law across all MS — national courts refer uncertain EU law questions to the CJEU for a binding ruling.",r:"Art. 267 TFEU"},
-  {n:146,p:'4b',q:"Who makes the request for a preliminary ruling?",a:"The national court or tribunal alone — parties cannot force a reference, though they may request one."},
-  {n:147,p:'4b',q:"What happens to the national proceedings during a preliminary ruling?",a:"National proceedings must be stayed until the ECJ gives its ruling, which the national court then applies."},
-  {n:148,p:'4b',q:"May a preliminary ruling reference concern national law?",a:"No — references must concern EU law interpretation or validity only. National law and factual issues remain for the national court."},
-  {n:149,p:'4b',q:"Which EU institution is the guardian of EU law?",a:"The European Commission.",r:"Art. 17 TEU"},
-  {n:150,p:'4b',q:"What happens if a Member State fails to comply with EU law?",a:"(1) Letter of formal notice; (2) reasoned opinion with compliance deadline; (3) if still non-compliant → CJEU. Financial penalties may follow.",r:"Art. 258 TFEU; Art. 260 TFEU"},
-  {n:151,p:'4b',q:"May an individual lodge a complaint about a Member State's breach of EU law?",a:"Yes — individuals may complain to the Commission. But only the Commission or another MS can bring formal proceedings before the CJEU.",r:"ECJ, 9 Mar 1978, Case 106/77"},
-  {n:152,p:'4b',q:"Which authority is mainly responsible for enforcing EU law at national level?",a:"National authorities — courts, prosecutors, and regulatory bodies. National courts are the primary enforcers for individuals."},
-  {n:153,p:'4b',q:"Where do you find the obligation of Member States to implement EU law?",a:"Art. 291 TFEU — MS shall adopt all measures necessary to implement legally binding EU acts.",r:"Art. 291 TFEU"},
-  {n:154,p:'4b',q:"What is the Rewe-Zentralfinanz case about?",a:"German importers paid inspection charges on imported apples contrary to EU law; the German limitation period to seek a refund had expired. Can national procedural rules block recovery of unlawfully levied charges?",r:"ECJ, 16 Dec 1976, Case 33/76"},
-  {n:155,p:'4b',q:"What did the ECJ decide in Rewe-Zentralfinanz?",a:"National procedural autonomy applies — MS may set their own procedural rules — subject to equivalence and effectiveness.",r:"ECJ, 19 Nov 1991, C-6/90 & C-9/90"},
-  {n:156,p:'4b',q:"What is the principle of effectiveness in EU enforcement?",a:"National rules must not make it in practice impossible or excessively difficult to exercise EU law rights."},
-  {n:157,p:'4b',q:"What is the principle of equivalence in EU enforcement?",a:"National procedural rules for EU-based claims must be no less favourable than those for comparable domestic claims."},
-  {n:158,p:'4b',q:"What is the Kühne & Heitz case about?",a:"An administrative body must — under certain conditions — reopen a final administrative decision to account for a subsequent ECJ interpretation of EU law.",r:"ECJ, 13 Jan 2004, C-453/00"},
-  {n:159,p:'4b',q:"What were the facts of Tanja Kreil (ECJ, 11 January 2000)?",a:"Miss Kreil applied for a Bundeswehr weapons electronics post in 1996; rejected because German law prohibited women from armed service positions.",r:"ECJ, 11 Jan 2000, C-285/98"},
-  {n:160,p:'4b',q:"What is the Employment Equality Directive (2000/78/EC) about?",a:"A general framework prohibiting discrimination in employment based on religion/belief, age, disability, and sexual orientation.",r:"Directive 2000/78/EC"},
-  {n:161,p:'4c-a',q:"What did the ECJ decide in Tanja Kreil?",a:"The Equal Treatment Directive applies to the armed forces. Germany's blanket ban on women in armed roles violated the directive — individual derogations are possible, a blanket ban is not.",r:"ECJ, 5 Apr 1979, Case 148/78"},
-  {n:162,p:'4c-a',q:"What is the free movement of goods about?",a:"Prohibition of customs duties, quantitative restrictions, and measures having equivalent effect (MEQRs) between MS.",r:"Arts. 28–37 TFEU; Art. 34 TFEU"},
-  {n:163,p:'4c-a',q:"What were the facts of the Dassonville case (ECJ, 11 July 1974)?",a:"Dassonville imported Scotch whisky into Belgium via France. Belgian customs prosecuted them because they lacked a certificate obtainable only in the UK.",r:"ECJ, 11 July 1974, Case 8/74"},
-  {n:164,p:'4c-a',q:"What is the Dassonville formula?",a:"All trading rules capable of hindering, directly or indirectly, actually or potentially, intra-Community trade are MEQRs prohibited under Art. 34 TFEU.",r:"Art. 34 TFEU"},
-  {n:165,p:'4c-a',q:"Why is Dassonville a landmark case?",a:"It provided the foundational broad definition of a MEQR — catching virtually any national trading rule capable of impeding imports, whether or not it discriminates.",r:"ECJ, 8 Oct 1987, Case 80/86"},
-  {n:166,p:'4c-a',q:"In which case did the Court further develop its Dassonville reasoning?",a:"Cassis de Dijon (Rewe-Zentral AG v Federal Monopoly Administration, ECJ, 20 Feb 1979, Case 120/78).",r:"ECJ, Case 120/78"},
-  {n:167,p:'4c-a',q:"What is the Cassis de Dijon principle?",a:"Any product legally manufactured and marketed in one MS must in principle be admitted in any other MS. Imports may only be restricted on proportionate grounds of mandatory requirements.",r:"ECJ, Case 120/78"},
-  {n:168,p:'4c-a',q:"What were the facts of the Keck case (ECJ, 24 November 1993)?",a:"Keck and Mithouard were prosecuted for reselling alcohol below purchase price under French law and argued this was a MEQR.",r:"ECJ, 24 Nov 1993, C-267/91"},
-  {n:169,p:'4c-a',q:"What is the Keck formula?",a:"Product-bound measures (rules on the product itself) are MEQRs. Selling arrangements (when/where/by whom goods are sold) fall outside Art. 34 TFEU — if they apply equally in law and fact and do not impede imports more than domestic goods.",r:"Art. 34 TFEU"},
-  {n:170,p:'4c-a',q:"What was the Buy-Irish initiative and why was it in breach of EU law?",a:"The Irish government funded a campaign promoting domestic goods. State-funded domestic promotion distorts intra-Community trade even without formal legal barriers — a MEQR.",r:"ECJ, Case 249/81"},
-  {n:171,p:'4c-a',q:"What is the concept of freedom of workers (Art. 45 TFEU)?",a:"Prohibits nationality discrimination in employment, remuneration, and working conditions. EU workers may move freely, accept offers, reside and remain in other MS.",r:"Art. 45 TFEU"},
-  {n:172,p:'4c-a',q:"Why do nationals of EFTA countries have the right to work within the EU with the same rights as EU workers?",a:"Through the EEA Agreement (Art. 28 EEA) for Norway, Iceland, Liechtenstein; and the bilateral Agreement on Free Movement of Persons for Switzerland.",r:"Art. 28 EEA Agreement"},
-  {n:173,p:'4c-a',q:"Which directive and regulation are important for free movement of workers?",a:"Directive 2004/38/EC (free movement and residence rights); Regulation 492/2011 (non-discriminatory access to employment and equal working conditions).",r:"Dir. 2004/38/EC; Reg. 492/2011"},
-  {n:174,p:'4c-a',q:"Which state is generally supposed to take personal circumstances (ability to pay) into account for tax purposes?",a:"The state of residence — it knows the taxpayer's full worldwide income and personal situation and can apply deductions and progressive rates.",r:"Art. 258 TFEU; Art. 260 TFEU"},
-  {n:175,p:'4c-a',q:"Why does Schumacker not pay taxes in Belgium?",a:"Almost all of Schumacker's income (97%+) came from Germany. Belgium had virtually no income to tax and could grant no personal deductions.",r:"ECJ, 14 Feb 1995, C-279/93"},
-  {n:176,p:'4c-a',q:"Why is it generally possible for a source state to treat non-residents differently for tax purposes?",a:"Non-residents and residents are not generally comparable — the source state taxes only local income and lacks the taxpayer's full personal circumstances."},
-  {n:177,p:'4c-a',q:"Why is Schumacker nonetheless comparable to a resident taxpayer?",a:"Because nearly all his income came from Germany, the source state (Germany) must treat him like a resident — otherwise he suffers discrimination contrary to Art. 45 TFEU."},
-  {n:178,p:'4c-a',q:"What was the finding of the de Groot case (ECJ, 12 December 2002)?",a:"Free movement of workers prohibits reducing personal tax advantages because a worker has foreign-source income. The state of residence must consider the worker's full situation.",r:"ECJ, 12 Dec 2002, C-385/00"},
-  {n:179,p:'4c-a',q:"What is the difference between a discriminatory measure and a restrictive measure in the context of free movement of workers?",a:"Discriminatory: treats non-nationals less favourably than nationals. Restrictive: applies equally but deters exercise of free movement rights. Both can breach Art. 45 TFEU.",r:"ECJ, 16 Dec 1976, Case 33/76"},
-  {n:180,p:'4c-a',q:"May an individual rely on fundamental freedoms against their own country?",a:"Yes — nationals returning after exercising free movement rights can invoke EU fundamental freedoms against their own MS. Purely internal situations are not covered."},
-  {n:181,p:'4c-b',q:"What is the idea of the fundamental freedoms for self-employed persons?",a:"Freedom of establishment (Art. 49 TFEU): permanent, stable activity in another MS. Freedom of services (Art. 56 TFEU): temporary provision across borders.",r:"Art. 49, 56 TFEU"},
-  {n:182,p:'4c-b',q:"What does freedom of establishment preclude?",a:"Any national measure liable to hinder or render less attractive the exercise of freedom of establishment, even if applicable without discrimination on grounds of nationality.",r:"Art. 49 TFEU"},
-  {n:183,p:'4c-b',q:"What is a 'restriction' for the purposes of Art. 49 TFEU?",a:"Any measure affecting market access for undertakings from other MS, including prior authorisation requirements — even non-discriminatory ones.",r:"Art. 49 TFEU"},
-  {n:184,p:'4c-b',q:"Is a requirement of prior authorisation a restriction on freedom of establishment?",a:"Yes — even non-discriminatory prior authorisation requirements are restrictions if they affect market access (confirmed in Spanish Hypermercados, C-400/08).",r:"C-400/08"},
-  {n:185,p:'4c-b',q:"Can a restriction on freedom of establishment be justified?",a:"Yes — by overriding reasons of general interest, if appropriate and proportionate.",r:"Directive 2000/78/EC"},
-  {n:186,p:'4c-b',q:"What are potential justification reasons for restrictions on establishment?",a:"Urban planning, environmental protection, consumer protection, protection of small retailers, public health, socioeconomic planning — all subject to proportionality."},
-  {n:187,p:'4c-b',q:"What is the difference between freedom of establishment and freedom to provide services?",a:"Establishment (Art. 49): permanent, stable presence in another MS. Services (Art. 56): temporary provision across borders. Temporariness assessed by duration, regularity, continuity.",r:"Art. 49, 56 TFEU"},
-  {n:188,p:'4c-b',q:"What did the ECJ decide in the Säger case (ECJ, 25 July 1991)?",a:"Any restrictions on freedom to provide services are prohibited unless justified by overriding public interest, applied non-discriminatorily, and proportionate.",r:"ECJ, 25 July 1991, C-76/90"},
-  {n:189,p:'4c-b',q:"Which scenarios are covered by the freedom of services?",a:"(1) Provider moves to MS. (2) Recipient moves to receive services. (3) Service crosses border without movement (e.g. broadcasting). (4) Both move to a third MS.",r:"Art. 56 TFEU"},
-  {n:190,p:'4c-b',q:"What is the Services Directive (2006/123/EC)?",a:"Aims to remove barriers to trade in services — simplifying procedures, enhancing consumer rights, fostering cooperation. Financial services, transport, gambling, notaries excluded.",r:"Directive 2006/123/EC"},
-  {n:191,p:'4c-b',q:"How can the term 'movement of capital' be understood?",a:"No Treaty definition, but Council Directive 88/361/EEC Annex I serves as reference: covers direct investment, portfolio investment, real estate, financial loans, and other capital movements.",r:"Dir. 88/361/EEC"},
-  {n:192,p:'4c-b',q:"What are 'golden shares'?",a:"Special rights retained by governments in privatised companies to block acquisitions or veto major decisions. The ECJ has found most golden share arrangements violate freedom of capital.",r:"ECJ, Commission v France, C-483/99"},
-  {n:193,p:'4c-b',q:"What is the particular feature of freedom of capital compared to other fundamental freedoms?",a:"It also applies to third countries (non-EU states) — unique among the four freedoms.",r:"Art. 63 TFEU"},
-  {n:194,p:'4c-b',q:"How are freedom of capital and freedom of establishment distinguished?",a:"If a shareholding enables decisive influence over a company → freedom of establishment. Portfolio investments (no decisive influence) → freedom of capital.",r:"Art. 34 TFEU"},
-  {n:195,p:'4c-a',q:"Name the ECJ cases: (1) Belgians importing Scotch whisky from France without proper certificate. (2) Prosecution for selling below wholesale price in France. (3) German firm wanting to import a French blackcurrant liqueur with lower ABV than German law required. (4) Government-backed campaign where trade fell 6% over 3 years.",a:"(1) Dassonville (C-8/74). (2) Keck (C-267/91). (3) Cassis de Dijon (C-120/78). (4) Commission v Ireland / Buy Irish (C-249/81).",r:"All: Art. 34 TFEU — MEQRs"},
-  {n:196,p:'4c-b',q:"What is the difference between a preliminary ruling (Art. 267 TFEU) and infringement procedures (Art. 258/259 TFEU)?",a:"Art. 267: national court refers EU law question to ECJ — cooperative. Art. 258: Commission v MS for breach — declaratory + potential fines. Art. 259: MS v MS — very rare; Commission gives opinion first.",r:"Art. 258, 259, 267 TFEU"},
-  {n:197,p:'4c-b',q:"Is it the rule or exception that a Member State sues another Member State (Art. 259 TFEU)?",a:"Very much the exception. The Commission's Art. 258 procedure is the primary route. Notable: Austria v Germany (C-591/17) on discriminatory motorway tolls.",r:"Art. 259 TFEU; C-591/17"},
-  {n:198,p:5,q:"Is Switzerland part of the EU or the EEA?",a:"Neither EU nor EEA. Switzerland participates through 120+ bilateral sectoral agreements and is a member of EFTA and the Schengen Area.",r:"Dir. 2004/38/EC; Reg. 492/2011"},
-  {n:199,p:5,q:"What is the nature of the German exit tax and why is it an infringement of free movement of persons?",a:"Germany taxes unrealised capital gains when individuals transfer tax residence abroad. The ECJ (Wächtler, C-581/17) held immediate taxation without deferral is disproportionate and infringes free movement of persons.",r:"§ 6 AStG; C-581/17; Art. 21/45 TFEU"},
-  {n:200,p:5,q:"What is the nature of a Free Trade Agreement (FTA) and a Deep and Comprehensive Free Trade Agreement (DCFTA)?",a:"FTA: removes tariffs/quotas; each party keeps its own external tariff. DCFTA: FTA + deep regulatory convergence (services, investment, standards, procurement).",r:"ECJ, 14 Feb 1995, C-279/93"},
-  {n:201,p:5,q:"With which countries did the EU conclude a DCFTA?",a:"Ukraine, Moldova, and Georgia — as part of their EU Association Agreements (signed 2014)."},
-  {n:202,p:5,q:"With which countries did the EU conclude a customs union?",a:"Turkey (1995, industrial goods), Andorra, San Marino, Monaco."},
-  {n:203,p:5,q:"What are the differences between an FTA, a DCFTA, and a customs union?",a:"FTA: reduced tariffs, parties keep own external tariff, can sign own third-country deals. DCFTA: FTA + regulatory harmonisation. Customs Union: common external tariff — parties cannot independently negotiate trade deals.",r:"ECJ, 12 Dec 2002, C-385/00"},
-  {n:204,p:'1',q:"How many countries are members of the OECD? What does OECD stand for? Where is it located?",a:"38 member countries. OECD = Organisation for Economic Co-operation and Development. Located in Paris (Château de la Muette)."},
-  {n:205,p:'1',q:"Is the OECD a supranational or an intergovernmental organization?",a:"Intergovernmental — no supranational authority, no binding legal acts, decisions by consensus."},
-  {n:206,p:'1',q:"How may the nature of the OECD be characterized? Does the OECD only cover economic topics?",a:"A forum for policy dialogue, research, and soft-law standard-setting. Work extends beyond economics to governance, education, health, and anti-corruption."},
-  {n:207,p:'1',q:"Please explain how Pillar 2 of the OECD works.",a:"15% global minimum corporate tax for MNEs above €750m revenue. Top-up tax levied by the parent state (IIR) or source state (UTPR) as backstop.",r:"Directive 2022/2523 (EU implementation)"},
-  {n:208,p:'1',q:"What does BEPS stand for?",a:"Base Erosion and Profit Shifting — OECD/G20 project (launched 2013, 15 Action Points 2015) targeting profit shifting to low/no-tax jurisdictions."},
-  {n:209,p:'1',q:"Are the BEPS Action Points and Pillar 1 and Pillar 2 provisions binding for OECD member states?",a:"No — soft law only. MS must implement through domestic legislation or treaties. Exception: Pillar 2 became binding in the EU via Directive 2022/2523.",r:"Directive 2022/2523"},
-  {n:210,p:'2b',q:"What particularity of the Holy Roman Empire has become a state principle in today\'s Germany?",a:"Federalism — the HRE was a loose confederation of semi-sovereign territories, reflected in Germany's federal structure today.",r:"Art. 20(1) GG"},
-  {n:211,p:'2b',q:"May the principle of federalism be changed in today\'s Germany?",a:"No — the Eternity Clause absolutely prohibits any amendment to Germany's federal structure.",r:"Art. 79(3) GG"},
-  {n:212,p:'2a',q:"Why is the Edict of Constantine of 3 March 321 AD still important today?",a:"It established Sunday as a mandatory day of rest — still reflected in German Sunday rest laws today, making it one of the oldest norms still in force.",r:"Sonn- und Feiertagsgesetze der Länder"},
-  {n:213,p:'2b',q:"What is the Final Recess (Reichsdeputationshauptschluss) also referred to as?",a:"Also called the Last Recess or Recess of 1803 — passed 25 February 1803, often called the last act of the Holy Roman Empire."},
-  {n:214,p:'2b',q:"What was the consequence of the Final Recess passed by the Imperial Deputation on 25 February 1803?",a:"Secularisation: Church lands west of the Rhine were redistributed; secular princes were compensated with Church property east of the Rhine — abolishing over 100 ecclesiastical principalities."},
-  {n:215,p:'2b',q:"What is the consequence of the Final Recess still relevant in Germany today?",a:"The Staatsleistungen — ongoing annual payments by German states to the major churches — originate from 1803 and remain constitutionally guaranteed today.",r:"Art. 138 WV = Art. 140 GG"},
-  {n:216,p:'2b',q:"Which economic problem in the 1920s was of key importance for German society and enshrined in German memory?",a:"Hyperinflation (1921–1923) — Reichsmark became worthless (4.2 trillion marks/USD by Nov 1923), wiping out savings and shaping Germany's post-war commitment to price stability."},
-  {n:217,p:'2b',q:"What national minorities are recognized in Germany, and which international organization provides a legal framework for their protection?",a:"Danes, Frisians, Sorbs, and Roma/Sinti. Protected under the Council of Europe's Framework Convention for the Protection of National Minorities (1995)."},
-  {n:218,p:'4b',q:"What is the nature of the Council of Europe? What is its focus, and which court belongs to it?",a:"Intergovernmental organisation (not EU), founded 1949, focused on human rights, democracy, rule of law — 46 member states. The ECtHR in Strasbourg belongs to it.",r:"ECHR; CoE ≠ EU"},
-  {n:219,p:'4b',q:"What are the three components of the CILFIT Doctrine (ECJ, 6 October 1982, Case 283/81)?",a:"No obligation to refer if: (1) Acte clair — answer obvious beyond reasonable doubt; (2) Acte éclairé — materially identical prior ECJ ruling exists; (3) answer irrelevant to the outcome.",r:"ECJ, 6 Oct 1982, Case 283/81"},
-  {n:220,p:'4c-a',q:"What are the names of the following ECJ cases? (1) Belgian nationals importing Scotch whisky from France without required certificate. (2) Prosecution under French law for selling products below wholesale prices. (3) German retailer importing French blackcurrant liqueur containing 15–20% ABV, below Germany's 25% minimum. (4) State-administered campaign by a company with government-appointed board, funded mainly by government — trade fell 6% over three years.",a:"(1) Dassonville (C-8/74). (2) Keck (C-267/91). (3) Cassis de Dijon (C-120/78). (4) Commission v Ireland / Buy Irish (C-249/81).",r:"All: Art. 34 TFEU — MEQRs"},
-  {n:221,p:'4c-a',q:"Which fundamental freedom was affected in all four cases (Dassonville, Keck, Cassis de Dijon, Buy Irish)?",a:"Free movement of goods — specifically the prohibition of MEQRs under Art. 34 TFEU.",r:"Art. 34 TFEU"},
-  {n:222,p:'4c-a',q:"What is the difference between a preliminary ruling procedure (Art. 267 TFEU) and infringement procedures (Art. 258/259 TFEU)?",a:"Art. 267: national court refers an EU law question to ECJ — cooperative. Art. 258: Commission v MS for breach — declaratory + potential fines. Art. 259: MS v MS — very rare; Commission gives opinion first.",r:"Art. 258, 259, 267 TFEU"},
-  {n:223,p:'4c-a',q:"Is it the rule or rather the exception that a Member State sues another Member State under Art. 259 TFEU?",a:"Very much the exception. The Commission's Art. 258 procedure is the primary route. Notable: Austria v Germany (C-591/17) on discriminatory motorway tolls.",r:"Art. 259 TFEU; C-591/17"},
-  {n:224,p:5,q:"Is Switzerland part of the EU or the EEA?",a:"Neither EU nor EEA. Switzerland participates through 120+ bilateral sectoral agreements and is a member of EFTA and the Schengen Area."},
-  {n:225,p:5,q:"Are all EEA countries also part of the EU? Please clarify.",a:"No. EEA = 27 EU MS + Norway, Iceland, Liechtenstein. Switzerland is EFTA but NOT EEA (rejected in 1992 referendum). All EU MS are EEA members, not all EEA members are EU MS."},
-  {n:226,p:5,q:"What is the nature of the German exit tax and why is it an infringement of the free movement of persons?",a:"Germany taxes unrealised capital gains when individuals transfer tax residence abroad. The ECJ (Wächtler, C-581/17) held immediate taxation without deferral is disproportionate and infringes free movement of persons.",r:"§ 6 AStG; C-581/17; Art. 21/45 TFEU"},
-  {n:227,p:5,q:"What is the nature of a Free Trade Agreement (FTA) and a Deep and Comprehensive Free Trade Agreement (DCFTA)?",a:"FTA: removes tariffs/quotas; each party keeps its own external tariff. DCFTA: FTA + deep regulatory convergence (services, investment, standards, procurement)."},
-  {n:228,p:5,q:"With which countries did the EU conclude a DCFTA?",a:"Ukraine, Moldova, and Georgia — as part of their EU Association Agreements (signed 2014)."},
-  {n:229,p:5,q:"With which countries did the EU conclude a customs union?",a:"Turkey (1995, industrial goods), Andorra, San Marino, Monaco."},
-  {n:230,p:5,q:"What are the differences between a Free Trade Agreement (FTA), a Deep and Comprehensive Free Trade Agreement (DCFTA), and a Customs Union (CU)?",a:"FTA: reduced tariffs, parties keep own external tariff, can sign own third-country deals. DCFTA: FTA + regulatory harmonisation. Customs Union: common external tariff — parties cannot independently negotiate trade deals."}
+  {n:1,p:'1',q:"Why does a well-known online trader (incorporated in the USA, subsidiary in Luxembourg, conducting business in Germany) not pay income taxes in Germany?",a:"The German-Luxembourg DTC applies: because no PE is recognised under the DTC, Germany has no taxing right. Art. 7 OECD MTC allocates business profits to the state of residence (Luxembourg) unless a PE exists in Germany.",r:"Art. 5, 7 OECD MTC; German-Luxembourg DTC"},
+  {n:2,p:'1',q:"Does the online trader have a permanent establishment in the sense of the German fiscal code?",a:"Possibly — § 12 AO defines a PE broadly (any fixed place of business). A large warehouse could qualify domestically. But domestic PE status is irrelevant if the DTC does not also recognise a PE.",r:"§ 12 AO"},
+  {n:3,p:'1',q:"Does the online trader have a permanent establishment in the sense of the German-Luxembourg double tax convention?",a:"No — Art. 5(4) OECD MTC (incorporated into the DTC) expressly excludes facilities used solely for storage, display, or delivery of goods. A fulfilment warehouse does not constitute a DTC PE.",r:"Art. 5(4) OECD MTC; German-Luxembourg DTC"},
+  {n:4,p:'1',q:"How many countries form part of the OECD? What does the abbreviation OECD stand for? Where is it located?",a:"38 member countries. OECD = Organisation for Economic Co-operation and Development. Located in Paris, France (Château de la Muette)."},
+  {n:5,p:'1',q:"Is the OECD a supranational or an intergovernmental organization?",a:"Intergovernmental — it has no supranational authority and cannot issue binding legal acts. Decisions require consensus and are not directly enforceable in domestic law."},
+  {n:6,p:'1',q:"How may the nature of the OECD be characterized? Does the OECD only cover economic topics?",a:"A forum for policy dialogue, research, and soft-law standard-setting among market democracies. Work extends beyond economics to governance, education, health, environment, and anti-corruption."},
+  {n:7,p:'1',q:"Please explain how Pillar 2 of the OECD works.",a:"Pillar 2 (GloBE) introduces a 15% global minimum corporate tax for MNEs with revenues above €750m. If effective tax rate falls below 15%, a top-up tax is levied by the parent state (Income Inclusion Rule) or source state (Undertaxed Profits Rule) as backstop.",r:"Directive 2022/2523 (EU implementation)"},
+  {n:8,p:'1',q:"What does BEPS stand for?",a:"Base Erosion and Profit Shifting — the OECD/G20 project (launched 2013, 15 Action Points 2015) targeting tax planning that exploits gaps and mismatches to shift profits to low/no-tax jurisdictions."},
+  {n:9,p:'1',q:"Are the BEPS Action Points and Pillar 1 and Pillar 2 provisions binding for OECD member states?",a:"No — they are soft law. Member states must implement through domestic legislation or bilateral treaties. Exception: in the EU, Pillar 2 became binding via Directive 2022/2523.",r:"Directive 2022/2523"},
+  {n:10,p:'2a',q:"When was the Roman Empire divided into a western and eastern half?",a:"395 AD, upon the death of Emperor Theodosius I."},
+  {n:11,p:'2a',q:"When was Rome founded?",a:"753 BC — the traditional founding date, attributed to Romulus according to Roman tradition."},
+  {n:12,p:'2a',q:"What were the three phases in Roman history?",a:"(1) Royal Period: 753–509 BC. (2) Republic: 509–27 BC. (3) Imperial Period: 27 BC–476 AD (West) / 1453 AD (East)."},
+  {n:13,p:'2b',q:"What is a particularity of the Holy Roman Empire that has become a state principle in today's Germany?",a:"Federalism — the HRE was never a unitary state but a loose confederation of semi-sovereign territories. This pluralistic structure is reflected in Germany's federal order today.",r:"Art. 20(1) GG"},
+  {n:14,p:'2b',q:"May the principle mentioned in the previous question be changed in today's Germany?",a:"No — Art. 79(3) GG (the Eternity Clause) absolutely prohibits any constitutional amendment affecting the federal structure of Germany, even by a two-thirds majority.",r:"Art. 79(3) GG"},
+  {n:15,p:'2a',q:"When was the Roman Empire founded?",a:"27 BC, when Octavian received the title 'Augustus' from the Senate, marking the transition from Republic to Empire."},
+  {n:16,p:'2a',q:"When did the West-Roman Empire collapse? Why did this happen?",a:"476 AD — Germanic chieftain Odoacer deposed the last emperor Romulus Augustulus. Causes: military overextension, economic decline, political instability, and barbarian migration pressure."},
+  {n:17,p:'2a',q:"When did the (Eastern) Roman Empire collapse?",a:"1453 AD, when Ottoman Sultan Mehmed II conquered Constantinople, ending the Byzantine Empire."},
+  {n:18,p:'2a',q:"Which was the capital of the Eastern Roman Empire?",a:"Constantinople (modern-day Istanbul), founded by Constantine I in 330 AD."},
+  {n:19,p:'2a',q:"Which Roman Emperor chose Byzantium as a new capital (New Rome)?",a:"Constantine I in 330 AD, renaming the city Constantinople after himself."},
+  {n:20,p:'2a',q:"Which language gradually replaced Latin for official use in the Roman Empire?",a:"Greek — formally adopted in the Eastern Empire from the 7th century under Emperor Heraclius, who abandoned Latin as the language of administration."},
+  {n:21,p:'2a',q:"Why did German emperors regard themselves as the true inheritors of Roman identity?",a:"Through translatio imperii — Carolingian and Ottonian coronations were seen as transfers of Roman imperial power. The HRE presented itself as the continuation of Rome, claiming the same universal Christian sovereignty."},
+  {n:22,p:'2a',q:"Which other nations claimed to be the successor of the Roman Empire?",a:"Byzantium (Eastern Roman Empire until 1453), Russia ('Third Rome' after 1453), and the Ottoman Empire (after conquering Constantinople) all claimed Roman succession."},
+  {n:23,p:'2a',q:"Which state conquered the Byzantine Empire? How did the Ottoman Empire break eventually with the Greco-Roman legitimacy?",a:"The Ottoman Empire conquered Byzantium in 1453. It severed Greco-Roman continuity by replacing Roman law with Islamic law (Sharia) and abandoning the Christian imperial tradition."},
+  {n:24,p:'2a',q:"What do the heraldic symbols of the Roman Empire and Germany, Russia, and Austria have in common?",a:"All use the eagle — double-headed (Rome, Russia, Austria) or single-headed (Germany) — reflecting the claim to Roman imperial succession (translatio imperii)."},
+  {n:25,p:'2a',q:"What is meant by translatio imperii?",a:"A medieval concept: the rule of a world empire is transferred (translated) to its successor, legitimising the successor's claim to universal authority — used to justify Charlemagne's coronation and the HRE."},
+  {n:26,p:'2a',q:"What is the doctrine of four empires?",a:"Based on the Book of Daniel (interpreted by Jerome): four world empires succeed one another (Babylon, Persia, Greece, Rome). Medieval rulers used this to present themselves as Rome's rightful heirs."},
+  {n:27,p:'2a',q:"What was the idea of Charlemagne (Carolus Magnus) to be coronated?",a:"Translatio imperii — the imperial title passed from Rome to the Franks. Empress Irene's rule in Byzantium was seen as creating a theoretical vacancy; Pope Leo III crowned Charlemagne in 800 AD as the new Roman emperor and protector of Christianity."},
+  {n:28,p:'2a',q:"Why was the coronation of Otto I so important for the Eastern Frankonian Empire (later the Holy Roman Empire of the German Nation)?",a:"Otto I's coronation in 962 AD transferred the translatio imperii to the German realm, establishing the Holy Roman Empire of the German Nation and anchoring the German monarch as the successor of Rome."},
+  {n:29,p:'2a',q:"Which three countries assumed first Christianity as state religion?",a:"1. Armenia (301 AD — first state ever). 2. Georgia (337 AD). 3. The Roman Empire (380 AD, Edict of Thessalonica under Theodosius I)."},
+  {n:30,p:'2a',q:"From which term may the German term Kaiser or the Slavic title Tsar be traced back?",a:"Both derive from 'Caesar' — the Roman imperial title, reflecting the claim of German and Slavic rulers to Roman imperial succession."},
+  {n:31,p:'2a',q:"What happened on the eve of the Milvian Battle (27 October 312)?",a:"Constantine I had a vision of the chi-rho symbol with the message 'In hoc signo vinces' (in this sign you shall conquer). He marked soldiers' shields with it, won the battle, and attributed victory to the Christian God."},
+  {n:32,p:'2a',q:"What was the Edict of Milan?",a:"A 313 AD agreement between Constantine I and Licinius granting religious tolerance and freedom of worship throughout the Roman Empire — the first time Christianity was legally protected."},
+  {n:33,p:'2a',q:"What did Constantine order on March 3rd, 321?",a:"He declared Sunday a mandatory day of rest throughout the Roman Empire — still reflected in German Sunday rest laws today.",r:"Sonn- und Feiertagsgesetze der Länder"},
+  {n:34,p:'2a',q:"When was Constantinople founded?",a:"330 AD, by Emperor Constantine I, on the site of the ancient Greek city of Byzantium."},
+  {n:35,p:'2a',q:"Why is the edict of Emperor Constantine the Great dating March 3rd, 321 AC still important today?",a:"It established Sunday as a mandatory day of rest — one of the oldest legal norms still shaping daily life in Germany through the Sonn- und Feiertagsgesetze of the Länder.",r:"Sonn- und Feiertagsgesetze der Länder"},
+  {n:36,p:'2b',q:"How did the Frankish Kingdom come into existence?",a:"The Franks were Germanic tribes united under Clovis I (481–511 AD), who converted to Christianity and founded the Merovingian dynasty, establishing the first major post-Roman kingdom in Western Europe."},
+  {n:37,p:'2b',q:"Which territories did the Frankish Kingdom encompass?",a:"At its height under Charlemagne: modern France, Belgium, Luxembourg, western Germany, Austria, Switzerland, northern Italy, the Low Countries, and parts of Spain."},
+  {n:38,p:'2b',q:"Which two states eventually replaced the Frankish Kingdom?",a:"By the Treaty of Verdun (843 AD): West Francia (→ France) and East Francia (→ Germany / HRE). A Middle Kingdom also emerged but was later divided."},
+  {n:39,p:'2b',q:"Who was Charlemagne (Carolus Magnus)? Where did he reside?",a:"King of the Franks (768–814) and first Holy Roman Emperor (crowned 800 AD). He resided primarily at his palace in Aachen (Aix-la-Chapelle)."},
+  {n:40,p:'2b',q:"What was the official name of the territories belonging to the Roman German empire that existed until 1806, also referred to as the old empire?",a:"The Holy Roman Empire of the German Nation (Heiliges Römisches Reich Deutscher Nation). It was dissolved in 1806 when Francis II abdicated following Napoleon's victory at Austerlitz."},
+  {n:41,p:'2b',q:"What is the concept of a nation state?",a:"A political entity in which a state and a nation coincide — defined by shared language, culture, history, and ethnicity. The model emerged strongly after the French Revolution."},
+  {n:42,p:'2b',q:"Was Scandinavia part of the Roman German Empire?",a:"No — Scandinavia lay outside the empire's borders. The HRE comprised mainly German, Italian, and Central European territories."},
+  {n:43,p:'2b',q:"What is the Final Recess also referred to as?",a:"The Reichsdeputationshauptschluss — also called the Last Recess or Recess of 1803, passed on 25 February 1803. Often called the last significant act of the Holy Roman Empire before its dissolution in 1806."},
+  {n:44,p:'2b',q:"What was the consequence of the Final Recess passed by the Imperial Diet on February 24/25, 1803?",a:"Secularisation: Church territories west of the Rhine had been ceded to France (Treaty of Lunéville 1801). The Recess compensated secular princes by redistributing Church property east of the Rhine — abolishing over 100 ecclesiastical principalities and dissolving most imperial free cities."},
+  {n:45,p:'2b',q:"What is the consequence thereof still today in Germany?",a:"The Staatsleistungen — ongoing annual payments by German federal states to the major churches — originate from the 1803 secularisation and remain constitutionally guaranteed today.",r:"Art. 138 WV = Art. 140 GG"},
+  {n:46,p:'2b',q:"What are the public subsidies guaranteed by Article 138 of the Constitution of Weimar (being part of the Basic Law)?",a:"Art. 138 WV (via Art. 140 GG) guarantees ongoing state payments (Staatsleistungen) to religious societies based on law, treaty, or special legal title — originating from the 1803 secularisation.",r:"Art. 138 WV; Art. 140 GG"},
+  {n:47,p:'2b',q:"Does Germany have a state church?",a:"No — Art. 137 WV (via Art. 140 GG) explicitly states 'there shall be no state church.' Germany operates a cooperative model where the state supports religious communities without formally establishing one.",r:"Art. 137 WV = Art. 140 GG"},
+  {n:48,p:'2b',q:"What did the formal coalition agreement of the previous governing parties (SPD, FDP, Greens) include with respect to the public subsidies paid to religious societies?",a:"The coalition planned to abolish the perpetual Staatsleistungen by replacing them with a one-time lump-sum settlement — ending a financial obligation that has existed since 1803."},
+  {n:49,p:'2b',q:"How did Hitler mainly consolidate his power in 1933 from a constitutional perspective?",a:"Through the Enabling Act (Ermächtigungsgesetz) of 23 March 1933 — a constitutional amendment that transferred full legislative power from the Reichstag to the government, giving Hitler dictatorial authority."},
+  {n:50,p:'2b',q:"What is the nature of the Enabling Law? Would it be possible under German law today?",a:"It was a constitutional amendment abolishing separation of powers. It would be impossible today — Art. 79(3) GG (Eternity Clause) prohibits any amendment affecting the separation of powers, federal structure, or human dignity.",r:"Art. 79(3) GG"},
+  {n:51,p:'2b',q:"What is the consequence of the Enabling Law still visible in German lawmaking today?",a:"The Wesentlichkeitsgrundsatz (principle of materiality) — Parliament must itself decide all fundamental matters and cannot delegate essential decisions to the executive, as a direct response to the Enabling Act's abuse."},
+  {n:52,p:'2b',q:"What is the principle of materiality (Wesentlichkeitsgrundsatz)?",a:"Parliament must itself regulate all matters of substantial importance — especially regarding fundamental rights — rather than delegating them to the executive. Derived from the Rechtsstaatsprinzip and Art. 20(3) GG.",r:"Art. 20(3) GG"},
+  {n:53,p:'2b',q:"Which party voted against the Enabling Law in the German Imperial Diet (Reichstag), and why could the Communist Party not do so?",a:"The SPD voted against. The KPD could not — its members had been arrested or driven underground following the Reichstag Fire Decree of 28 February 1933, which suspended civil liberties.",r:"Reichstag Fire Decree, 28 Feb 1933"},
+  {n:54,p:'2b',q:"The concept of separation of powers may be traced back to which person?",a:"Montesquieu (Charles-Louis de Secondat, Baron de Montesquieu), 1748, 'De l\\'esprit des lois' — the trias politica: legislative, executive, and judicial power must be separated."},
+  {n:55,p:'2b',q:"What happens in case of defense with the electoral term of the German Federal Parliament?",a:"The electoral term is automatically extended for the duration of the state of defense; elections are postponed until at least six months after the state of defense ends.",r:"Art. 115h GG"},
+  {n:56,p:'2b',q:"If the German Federal Parliament cannot convene, which institute substitutes for the Parliament?",a:"The Joint Committee (Gemeinsamer Ausschuss) — composed of two-thirds Bundestag members and one-third Bundesrat members — acts as a substitute parliament with full legislative powers.",r:"Art. 53a, 115e GG"},
+  {n:57,p:'2b',q:"What is the consequence of a state of defense for the Federal Chancellor?",a:"Command over the Bundeswehr passes from the Federal Minister of Defence to the Federal Chancellor, who becomes Supreme Commander.",r:"Art. 115b GG"},
+  {n:58,p:'2c',q:"What is the nature of private law in comparison to public law?",a:"Private law governs relations between equals (Gleichordnung) — parties negotiate freely. Public law governs relations between the state and private parties based on subordination (Überordnung) — the state acts with sovereign authority."},
+  {n:59,p:'2c',q:"What are examples of private and public law?",a:"Private: contract, tort, property, family, company law (BGB, HGB). Public: constitutional law (GG), administrative law, tax law (AO), criminal law (StGB)."},
+  {n:60,p:'2c',q:"What are the main principles of public and private law with respect to citizens?",a:"Private law: Privatautonomie — parties may agree freely within the limits the law sets. Public law: Gesetzmässigkeit der Verwaltung — the state may only act where it has a legal basis (rule of law principle).",r:"Art. 20(3) GG"},
+  {n:61,p:'2c',q:"What does the three-element doctrine require? Is the EU a state in accordance with that theory?",a:"Jellinek's three elements: (1) defined territory, (2) permanent population, (3) effective sovereign government. The EU lacks full external sovereignty and Kompetenz-Kompetenz — it is not a state."},
+  {n:62,p:'2c',q:"What is the law of things (Sachenrecht) about?",a:"Sachenrecht governs real rights over physical objects — who holds ownership, possession, and other limited real rights, and how these rights are created, transferred, and extinguished.",r:"BGB Book 3"},
+  {n:63,p:'2c',q:"What needs to be done to transfer ownership of a good in case of a sales and purchase agreement?",a:"Two separate legal acts: (1) the obligatory agreement (Kaufvertrag — creates the duty to transfer); (2) the real agreement (Einigung) + delivery (Übergabe) for movables, or land register entry for immovables.",r:"§ 929 BGB (movables)"},
+  {n:64,p:'2c',q:"What is meant by the principle of abstraction (Abstraktionsprinzip)?",a:"The validity of the real transaction (ownership transfer) is independent of the underlying obligatory contract — even a void sales contract does not automatically invalidate the transfer of ownership."},
+  {n:65,p:'2c',q:"What is meant by the principle of separation (Trennungsprinzip)?",a:"The obligatory transaction (creating the duty to transfer) and the real transaction (the actual transfer of ownership) are legally distinct and separate acts, each with its own requirements for validity."},
+  {n:66,p:'2c',q:"What is the difference between possession and ownership?",a:"Ownership (Eigentum) is the legal right — the fullest real right over a thing. Possession (Besitz) is mere factual control. A thief possesses but does not own; an owner whose goods are stolen owns but does not possess.",r:"§§ 854, 903 BGB"},
+  {n:67,p:'2c',q:"Into how many zones was Germany divided after the Second World War (so-called occupational zones)?",a:"Four occupational zones: American (south), British (northwest), French (southwest), and Soviet (east). Berlin was also divided into four corresponding sectors."},
+  {n:68,p:'2c',q:"How many federal states does Germany consist of?",a:"16 Bundesländer: 13 area states (Flächenländer) and 3 city-states (Berlin, Hamburg, Bremen)."},
+  {n:69,p:'2c',q:"What is the capital of the state of Hesse (Hessen)?",a:"Wiesbaden."},
+  {n:70,p:'2c',q:"In which part of the German constitution (Basic Law) are the basic rights, in contrast to the Weimar Constitution?",a:"At the very beginning — Arts. 1–19 GG — signalling their foundational priority and binding force on all state power. In the Weimar Constitution, basic rights appeared at the end.",r:"Arts. 1–19 GG"},
+  {n:71,p:'2c',q:"What is a task of the Federal President?",a:"Represents Germany internationally, signs and ratifies international treaties, appoints and dismisses the Federal Chancellor and ministers, accredits ambassadors, and exercises the power of pardon.",r:"Art. 59, 60 GG"},
+  {n:72,p:'2c',q:"Which person is considered — in accordance with protocol — to be the second highest-ranking person in the German constitutional order?",a:"The President of the Bundestag (Bundestagspräsident), after the Federal President."},
+  {n:73,p:'2c',q:"What are the five pillars of the German social insurance system? To what may it be traced back?",a:"(1) Health, (2) Accident, (3) Pension/Retirement, (4) Unemployment, (5) Long-term care insurance. All traced back to Bismarck's social reforms of the 1880s."},
+  {n:74,p:'2c',q:"What are the six principles of state in accordance with Article 20 of the Basic Law of Germany?",a:"(1) Democracy, (2) Federal state, (3) Social state, (4) Republic, (5) Rule of law (Rechtsstaat), (6) Environmental protection (Art. 20a GG). The first five are protected by the Eternity Clause.",r:"Art. 20 GG; Art. 20a GG; Art. 79(3) GG"},
+  {n:75,p:'2c',q:"What are the five permanent constitutional bodies in Germany?",a:"(1) Bundestag, (2) Bundesrat, (3) Federal Government, (4) Federal President, (5) Federal Constitutional Court (Bundesverfassungsgericht)."},
+  {n:76,p:'2c',q:"Which constitutional body elects the Federal President?",a:"The Federal Assembly (Bundesversammlung) — a special body convened solely for this purpose.",r:"Art. 54 GG"},
+  {n:77,p:'2c',q:"Who is a member of the Federal Assembly (Bundesversammlung)?",a:"The entire Bundestag plus an equal number of delegates elected by each Länder parliament, proportional to the state's population.",r:"Art. 54 GG"},
+  {n:78,p:'2c',q:"Which economic problem in the twenties of the 20th century was of key importance for German society and was enshrined into German memory?",a:"Hyperinflation (1921–1923) — the Reichsmark became worthless (4.2 trillion marks per USD by November 1923). It wiped out savings and the middle class, shaping Germany's deep commitment to price stability."},
+  {n:79,p:'2c',q:"What national minorities are recognized in Germany, and which international organization provides a legal framework for their protection?",a:"Danes, Frisians, Sorbs, and Roma/Sinti. The Council of Europe's Framework Convention for the Protection of National Minorities (1995) provides the key international legal framework.",r:"CoE Framework Convention 1995"},
+  {n:80,p:'3',q:"What was the finding of the Solange I decision of the German Federal Constitutional Court?",a:"As long as the EC lacked a democratically legitimate parliament and a codified fundamental rights catalogue equivalent to the Basic Law, the FCC reserved the right to review EC secondary law against German fundamental rights.",r:"BVerfG, 29 May 1974, BvL 52/71"},
+  {n:81,p:'3',q:"Which undertaking was the plaintiff in the proceedings which resulted in an ECJ decision and later in the Solange I decision?",a:"Internationale Handelsgesellschaft mbH — a German company challenging an EC regulation on import/export licences and deposit requirements for cereals.",r:"BVerfG, BvL 52/71; ECJ Case 11/70"},
+  {n:82,p:'3',q:"Did the German Federal Constitutional Court decide on the validity of secondary law with its compatibility with primary law?",a:"No — the FCC reviewed EC secondary law for compatibility with the German Basic Law (fundamental rights), not with EC primary law. Reviewing EC acts against EC primary law is the exclusive role of the ECJ."},
+  {n:83,p:'3',q:"What did the European Community still lack in those days?",a:"A democratically elected Parliament (the EP was only appointed at the time) and a codified catalogue of fundamental rights equivalent to the Basic Law."},
+  {n:84,p:'3',q:"In which court case did the German Federal Constitutional Court revise its approach?",a:"Solange II (BVerfG, 22 October 1986, 2 BvR 197/83) — the FCC would no longer exercise jurisdiction to review EC secondary law so long as the ECJ's protection of fundamental rights was essentially equivalent to the Basic Law standard.",r:"BVerfG, 22 Oct 1986, 2 BvR 197/83"},
+  {n:85,p:'3',q:"What is the ultra vires doctrine? How does the German Federal Constitutional Court exercise its power with respect to the ECJ?",a:"Ultra vires: EU acts exceeding conferred powers are inapplicable in Germany. The FCC reserves the right to review whether EU institutions act within their conferred competences — and will not automatically defer to the ECJ if they manifestly exceed those competences."},
+  {n:86,p:'3',q:"What is the nature of a fundamental right (in contrast to fundamental freedoms)?",a:"Fundamental rights (Grundrechte): individual defensive rights against state encroachment — guaranteed in Arts. 1–19 GG. Fundamental freedoms (Grundfreiheiten): positive market-access rights under EU law (free movement of goods, workers, services, establishment, capital).",r:"Arts. 1–19 GG; Arts. 34, 45, 49, 56, 63 TFEU"},
+  {n:87,p:'3',q:"What were the main features of the Treaty of Maastricht?",a:"(1) Monetary union and introduction of the euro, (2) creation of EU citizenship, (3) Common Foreign and Security Policy (CFSP), (4) cooperation in Justice and Home Affairs (JHA).",r:"Treaty of Maastricht 1992"},
+  {n:88,p:'3',q:"With whom did the German Chancellor make a deal in order to get approval for reunification?",a:"Chancellor Helmut Kohl made a deal with French President François Mitterrand — monetary union (euro) was accelerated as a quid pro quo for French support for German reunification."},
+  {n:89,p:'3',q:"Did the Maastricht Treaty empower the Union to acquire by itself the financial or other means it believes to be necessary?",a:"No — the principle of conferral was preserved. The EU could only act within explicitly conferred competences and had no autonomous power to expand its own resources (no Kompetenz-Kompetenz).",r:"Art. 5 TEU"},
+  {n:90,p:'3',q:"Were the constitutional complaints against the signing of the Maastricht Treaty justified (successful)? Which aspect however caused significant attention?",a:"Complaints dismissed as inadmissible except one (democratic principle, Art. 38 GG). The FCC caused attention by affirming the ultra vires doctrine and its right to review EU acts that manifestly exceed conferred powers.",r:"BVerfG, 12 Oct 1993; Art. 38 GG"},
+  {n:91,p:'3',q:"What was the main finding of the Lisbon judgment?",a:"The EU remains a Staatenverbund (association of sovereign states) subject to the principle of conferral. Germany cannot transfer sovereign statehood itself — certain core state functions are inalienable and can never be delegated to EU level.",r:"BVerfG, 30 June 2009, 2 BvE 2/08"},
+  {n:92,p:'3',q:"How did the German Federal Constitutional Court define the EU?",a:"A Staatenverbund — a close, treaty-based association of states that falls short of a confederation (Staatenbund) and far short of a federal state (Bundesstaat).",r:"BVerfG, 30 June 2009"},
+  {n:93,p:'3',q:"What forms part of the enumerative list of inalienable state rights which can never be transferred to European lawmaking if the constitutional identity and sovereignty of Member States is to be respected?",a:"Criminal law, monopoly of legitimate force (police/military), fiscal sovereignty, core social state decisions, cultural identity (education, media, family law), and fundamental electoral rights.",r:"BVerfG, 30 June 2009"},
+  {n:94,p:'3',q:"Did the Federal Constitutional Court allow the accession of the Federal Republic of Germany to an eventual European federal state?",a:"No — only the constituent power of the German people itself, through a new constitutional act under Art. 146 GG, could authorise such a fundamental transformation of statehood.",r:"Art. 146 GG"},
+  {n:95,p:'3',q:"What were the facts of the EU-Warrant case of the German Federal Constitutional Court?",a:"A US national had been convicted in absentia in Italy. He resisted extradition under the European Arrest Warrant, arguing Italian law gave him no effective remedy to challenge the conviction, violating his right to a fair trial under Art. 47 Charter.",r:"BVerfG, 15 Dec 2015, 2 BvR 2735/14"},
+  {n:96,p:'3',q:"Which control did the German Federal Constitutional Court apply for the first time to a case fully covered by EU law?",a:"The identity control (Identitätskontrolle) — for the first time the FCC actually applied (not merely announced) this control to a matter fully governed by EU law, finding a violation of Germany's constitutional identity.",r:"Art. 79(3) GG"},
+  {n:97,p:'3',q:"What is the consequence for the ECJ with respect to the outcome of the EU-Warrant decision?",a:"The decision put pressure on the ECJ to pay greater attention to fundamental rights (especially fair trial/Art. 47 Charter) when interpreting the EAW Framework Decision — signalling the FCC will not automatically defer to the ECJ."},
+  {n:98,p:'3',q:"Was the German court the only court to apply its own standard review with respect to fundamental rights?",a:"No — Italy applies the 'counter-limits' (controlimiti) doctrine, and Spain also applies its own constitutional limits to EU law. The FCC is the most prominent but not the only national court asserting such limits."},
+  {n:99,p:'3',q:"What does PSPP stand for?",a:"Public Sector Purchase Programme — the ECB programme under which the Eurosystem purchased government bonds and public sector securities of eurozone Member States."},
+  {n:100,p:'3',q:"What was the idea of that programme?",a:"To stimulate consumption and investment by injecting liquidity into the economy and to raise eurozone inflation toward the ECB's price stability target of 'just below 2%'."},
+  {n:101,p:'3',q:"What did the German Federal Constitutional Court accuse the ECJ of?",a:"Conducting a 'manifestly deficient' proportionality review — failing to properly examine whether the ECB/ESCB had stayed within its monetary policy mandate and had adequately weighed the programme's economic policy effects.",r:"BVerfG, 5 May 2020, 2 BvR 859/15"},
+  {n:102,p:'3',q:"What did the German Federal Constitutional Court assert with respect to the ECJ?",a:"That the ECJ's Gauweiler and Weiss judgments 'manifestly exceeded the judicial mandate' conferred in Art. 19(1) TEU — constituting an ultra vires act by the ECJ itself, not binding on German authorities.",r:"Art. 19(1) TEU; BVerfG, 5 May 2020"},
+  {n:103,p:'4a',q:"Which are the constitutional documents of the European Union?",a:"The TEU (Treaty on European Union), the TFEU (Treaty on the Functioning of the EU), and the Charter of Fundamental Rights — together constituting EU primary law."},
+  {n:104,p:'4a',q:"What happened with the Treaty establishing a Constitution for Europe?",a:"Rejected in referendums by France (54.7% No, May 2005) and the Netherlands (61.6% No, June 2005) — it never entered into force."},
+  {n:105,p:'4a',q:"What was the result of the rejection of the EU Constitution?",a:"The Treaty of Lisbon (signed 2007, in force 1 December 2009) incorporated most constitutional reforms in amended treaty form, dropping all constitutional language and symbols."},
+  {n:106,p:'4a',q:"How do you also call the TEU, TFEU, and the Charter of Fundamental Rights?",a:"Primary law (Primärrecht) — the highest tier of EU law, binding on all EU institutions and Member States, superior to all secondary law."},
+  {n:107,p:'4a',q:"What is the difference between the various legal acts of secondary law?",a:"Regulations: directly applicable, binding in entirety. Directives: binding as to result, MS choose method/form. Decisions: binding on those addressed. Recommendations and Opinions: non-binding.",r:"Art. 288 TFEU"},
+  {n:108,p:'4a',q:"What two forms of secondary law are distinguished?",a:"Binding acts (Regulations, Directives, Decisions) and non-binding acts (Recommendations, Opinions).",r:"Art. 288 TFEU"},
+  {n:109,p:'4a',q:"What is meant by the principle of degressive proportionality?",a:"Larger Member States receive more EP seats but proportionally fewer seats per citizen — smaller states are deliberately overrepresented to ensure meaningful democratic representation for all.",r:"Art. 14(2) TEU"},
+  {n:110,p:'4a',q:"Which country is the smallest country in the EU?",a:"Malta — both by area and by population (approx. 500,000 inhabitants)."},
+  {n:111,p:'4a',q:"Is the EU a Christian club?",a:"No — accession is based on Art. 2 TEU values, not religion. Current candidates include Albania, Bosnia-Herzegovina, and Turkey, all predominantly Muslim countries.",r:"Art. 49 TEU; Art. 2 TEU"},
+  {n:112,p:'4a',q:"Does any country may become an EU member?",a:"No — only European states respecting Art. 2 TEU values may apply under Art. 49 TEU. Morocco's 1987 application was rejected on geographic grounds.",r:"Art. 49 TEU"},
+  {n:113,p:'4a',q:"Is it decisive to be part of Europe in a geographic sense?",a:"Not strictly — Cyprus is geographically closer to Asia yet is an EU member. Geography is a factor but not the sole determinant; the political and value-based criteria of Art. 2 TEU are central.",r:"Art. 49 TEU"},
+  {n:114,p:'4a',q:"Where is stipulated who can join the EU?",a:"Art. 49 TEU — any European state that respects and is committed to the values of Art. 2 TEU (human dignity, freedom, democracy, rule of law, human rights) may apply for membership.",r:"Art. 49 TEU; Art. 2 TEU"},
+  {n:115,p:'4a',q:"Which countries are official candidates for EU membership?",a:"Albania, Bosnia-Herzegovina, Georgia, Moldova, Montenegro, North Macedonia, Serbia, Turkey, and Ukraine (as of course material).",r:"Art. 49 TEU"},
+  {n:116,p:'4a',q:"Who is the President of the EU Commission?",a:"Ursula von der Leyen (as of course material; re-elected for a second term in 2024).",r:"Art. 17 TEU"},
+  {n:117,p:'4a',q:"How is the Treaty of the European Economic Community also called?",a:"The Treaty of Rome — signed in Rome on 25 March 1957, entering into force on 1 January 1958."},
+  {n:118,p:'4a',q:"Which were the founding countries of the EEC?",a:"Belgium, Netherlands, Luxembourg, France, Germany, and Italy — the 'Inner Six,' signatories of the Treaty of Rome 1957."},
+  {n:119,p:'4a',q:"Which countries joined in 1973?",a:"The United Kingdom, Ireland, and Denmark — the First Enlargement, growing the EC from 6 to 9 members."},
+  {n:120,p:'4a',q:"Which former dictatorships joined the EEC in 1981 and 1986 respectively? Please indicate which country joined first.",a:"Greece joined first in 1981 (former military junta 1967–74). Spain and Portugal both joined in 1986 (Franco's dictatorship until 1975; Salazar/Caetano regime until 1974 Carnation Revolution)."},
+  {n:121,p:'4a',q:"Which former EFTA countries joined in 1995?",a:"Austria, Finland, and Sweden — all former EFTA members. Norway negotiated but again rejected membership in a 1994 referendum."},
+  {n:122,p:'4a',q:"Which countries joined in 2004? Which countries belong to the Visegrad club?",a:"Cyprus, Czech Republic, Estonia, Hungary, Latvia, Lithuania, Malta, Poland, Slovakia, Slovenia — 10 countries. The Visegrad Group (V4): Czech Republic, Hungary, Poland, Slovakia."},
+  {n:123,p:'4a',q:"Which countries joined in 2007? Which of them introduced the Euro in the meantime?",a:"Bulgaria and Romania. Romania introduced the Euro on 1 January 2024. Bulgaria is scheduled to follow."},
+  {n:124,p:'4a',q:"Which country joined in 2013?",a:"Croatia, on 1 July 2013 — the most recent and currently last country to accede to the EU."},
+  {n:125,p:'4a',q:"Please name two examples of exclusive competences of the EU.",a:"Any two of: customs union, competition rules for the internal market, monetary policy (eurozone MS), conservation of marine biological resources, common commercial policy.",r:"Art. 3 TFEU"},
+  {n:126,p:'4a',q:"What is the principle of subsidiarity?",a:"The EU shall act only if and insofar as the objective cannot be sufficiently achieved by Member States but can be better achieved at Union level by reason of scale or effects.",r:"Art. 5(3) TEU"},
+  {n:127,p:'4a',q:"What happens in case of breach of the principle of subsidiarity?",a:"National parliaments may issue reasoned opinions (yellow card: one-third of parliaments; orange card: simple majority). If the act is adopted, MS or the Committee of the Regions may refer it to the CJEU.",r:"Protocol No. 2 TEU"},
+  {n:128,p:'4a',q:"Are there any relevant documents dealing with the principle of subsidiarity?",a:"Yes — Protocol No. 1 TEU (national parliaments must receive legislative proposals for subsidiarity review) and Protocol No. 2 TEU (subsidiarity compliance, reasoned opinions, and CJEU challenge rights).",r:"Protocol No. 1 & 2 TEU"},
+  {n:129,p:'4a',q:"To which other principle is the principle of subsidiarity linked?",a:"Proportionality (Art. 5(4) TEU) — EU action must not exceed what is necessary to achieve the treaty objective. Also linked to the principle of conferral (Art. 5(2) TEU).",r:"Art. 5(2), 5(4) TEU"},
+  {n:130,p:'4a',q:"What is the concept of double or qualified majority?",a:"55% of Member States (minimum 15) representing at least 65% of total EU population must vote in favour. Blocking minority: at least 4 MS representing 35%+ of population.",r:"Art. 16(4) TEU"},
+  {n:131,p:'4a',q:"What is a co-decision?",a:"The Ordinary Legislative Procedure (OLP) under Art. 294 TFEU — legislation jointly adopted by the European Parliament and the Council on equal footing, initiated by a Commission proposal.",r:"Art. 294 TFEU"},
+  {n:132,p:'4a',q:"What is the main characteristic of co-decision?",a:"Equal co-legislation by Parliament and Council; up to three readings; a conciliation committee may be convened if the readings fail to produce agreement.",r:"Art. 294 TFEU"},
+  {n:133,p:'4a',q:"In which cases is it necessary for the Council to decide unanimously?",a:"CFSP decisions; granting new EU citizenship rights; EU accession of new members; indirect tax harmonisation; EU own resources/MFF; certain JHA matters; social security harmonisation.",r:"Art. 31 TEU; Art. 113, 311 TFEU"},
+  {n:134,p:'4a',q:"What is the nature of the Council of Europe? What is the focus of the organization and which court belongs to it?",a:"The Council of Europe (CoE) is a separate intergovernmental organisation — not an EU body. Founded 1949, focused on human rights, democracy, and rule of law. 46 member states (wider than EU). The European Court of Human Rights (ECtHR) in Strasbourg belongs to it.",r:"ECHR 1950; CoE ≠ EU"},
+  {n:135,p:'4a',q:"Does the EU have any powers to levy or collect taxes?",a:"No — tax powers rest with Member States. The EU has no direct taxing power. Harmonisation of indirect taxes requires unanimity in the Council.",r:"Art. 113, 115 TFEU"},
+  {n:136,p:'4a',q:"How many council configurations exist?",a:"10 Council configurations, e.g. General Affairs, Foreign Affairs, ECOFIN, Justice and Home Affairs, Agriculture and Fisheries, Competitiveness."},
+  {n:137,p:'4a',q:"Which institution is vested with the monopoly to initiate legislation?",a:"The European Commission — it alone can formally propose legislative acts under the ordinary and special legislative procedures.",r:"Art. 17(2) TEU"},
+  {n:138,p:'4a',q:"What can the EP do in order to start a legislative process?",a:"The European Parliament may request the Commission to submit a proposal (Art. 225 TFEU). The Commission must state reasons if it declines but is not legally obliged to comply.",r:"Art. 225 TFEU"},
+  {n:139,p:'4b',q:"What were the underlying facts of the Van Gend & Loos case?",a:"Van Gend & Loos imported ureaformaldehyde from Germany into the Netherlands. Dutch customs imposed a higher duty than at EEC Treaty entry into force, arguably breaching the standstill clause — Van Gend challenged this before a Dutch tribunal.",r:"ECJ, 5 Feb 1963, Case 26/62"},
+  {n:140,p:'4b',q:"What is meant by the doctrine of direct application?",a:"EU legislation (especially regulations) automatically becomes part of the domestic legal order of each Member State without any national implementing legislation — it applies as-is.",r:"Art. 288 TFEU"},
+  {n:141,p:'4b',q:"What is meant by the doctrine of direct effect (unmittelbare Wirkung)?",a:"EU law provisions that are clear, precise, and unconditional endow individuals with directly enforceable rights before national courts, without needing domestic implementation.",r:"ECJ, Case 26/62"},
+  {n:142,p:'4b',q:"What were the facts of the Costa v. ENEL case?",a:"Italy nationalised its electricity industry (creating ENEL). Flaminio Costa refused to pay his electricity bill, arguing the nationalisation law was incompatible with the EEC Treaty — he raised the question in an Italian arbitration.",r:"ECJ, 15 July 1964, Case 6/64"},
+  {n:143,p:'4b',q:"Which concept of legal spheres with respect to Union law did the ECJ reject?",a:"Dualism — the theory that international/EU law and national law are separate legal orders requiring domestic transformation or incorporation before EU law can take effect internally.",r:"ECJ, Case 6/64"},
+  {n:144,p:'4b',q:"How did the ECJ justify the rejection?",a:"Community law 'became an integral part' of the legal systems of Member States upon entry into force; MS permanently limited their sovereign rights and created a body of law binding on their nationals and themselves.",r:"ECJ, Case 6/64"},
+  {n:145,p:'4b',q:"What nature of the Community's law did the ECJ emphasise?",a:"Its autonomous nature — the EEC has its own legal personality, institutional framework, and binding force not only on Member States but directly on their nationals, independent of national law.",r:"ECJ, Case 6/64"},
+  {n:146,p:'4b',q:"Which legal principle did the ECJ also reject?",a:"Lex posterior derogat legi priori — the ECJ held that a later national law cannot override an earlier EC rule; EU law prevails regardless of the chronological order of enactment.",r:"ECJ, Case 6/64"},
+  {n:147,p:'4b',q:"Why is the Costa v. ENEL judgment considered to be a legal revolution?",a:"It established the doctrine of supremacy of EU law — EC law prevails over any conflicting national law before national courts, placing EU law at the apex of the legal order within its scope of application.",r:"ECJ, Case 6/64"},
+  {n:148,p:'4b',q:"How is primacy of EU law understood from a German perspective?",a:"As Anwendungsvorrang (precedence of application) — conflicting national law is not declared void or invalid, but merely set aside in the specific case. The national norm retains formal validity."},
+  {n:149,p:'4b',q:"What does precedence of application mean?",a:"National courts set aside the conflicting national rule in the specific case and apply EU law instead. The national provision retains its formal validity and continues to apply in contexts outside EU law's scope."},
+  {n:150,p:'4b',q:"How does precedence of application differ from precedence of validity? Please think about the competence-preserving nature of precedence of application and look at Art. 31 German Basic Law.",a:"Geltungsvorrang (validity): the higher norm renders the lower norm invalid (e.g. Art. 31 GG: Federal law breaks state law). Anwendungsvorrang (application): the lower norm retains validity but yields in conflict — EU primacy operates this way, preserving MS competence over areas not covered by EU law.",r:"Art. 31 GG"},
+  {n:151,p:'4b',q:"What was the main finding of the Simmenthal case?",a:"Every national court — including lower courts — must immediately set aside conflicting national law and apply EU law directly, without waiting for a constitutional court ruling or parliamentary repeal of the national norm.",r:"ECJ, 9 Mar 1978, Case 106/77"},
+  {n:152,p:'4b',q:"What is the concept of supranationality?",a:"A form of international organisation where Member States transfer sovereign powers to a common institution whose decisions are directly binding on MS and individuals without each government's specific approval in each case."},
+  {n:153,p:'4b',q:"What is meant by the idea of sacrifice and creation?",a:"MS sacrifice (transfer) sovereign powers to EU level — but in return they create a new legal order that benefits all through the single market, legal certainty, collective bargaining power, and shared problem-solving capacity."},
+  {n:154,p:'4b',q:"What is the principle of conferral?",a:"The EU may only act within the competences expressly conferred by the Member States in the Treaties. Competences not conferred remain with the MS. The EU has no Kompetenz-Kompetenz.",r:"Art. 5(2) TEU"},
+  {n:155,p:'4b',q:"What were the facts of the Francovich and Bonifaci case?",a:"Italy failed to transpose the Insolvency Directive (80/987/EEC) within the deadline. Workers Francovich and Bonifaci could not recover unpaid wages after their employers went bankrupt — they sued Italy directly for compensation.",r:"ECJ, 19 Nov 1991, C-6/90 & C-9/90"},
+  {n:156,p:'4b',q:"What was the main finding of that case?",a:"Member States are liable to pay compensation to individuals who have suffered loss as a result of the MS's failure to transpose an EU directive into national law within the required period.",r:"ECJ, C-6/90 & C-9/90"},
+  {n:157,p:'4b',q:"What were the exact conditions for a compensation claim?",a:"(1) The directive must confer rights on individuals; (2) those rights must be identifiable from the directive's content; (3) there must be a direct causal link between the MS's failure to implement and the damage suffered.",r:"ECJ, C-6/90 & C-9/90"},
+  {n:158,p:'4b',q:"In which case did the ECJ claim to protect also fundamental rights, even though they were at that time not explicitly mentioned in the primary law?",a:"Internationale Handelsgesellschaft (ECJ, 17 December 1970, Case 11/70) — the ECJ held that fundamental rights form an integral part of the general principles of EU law, drawn from the constitutional traditions common to MS.",r:"ECJ, 17 Dec 1970, Case 11/70"},
+  {n:159,p:'4b',q:"To which German Federal Constitutional Court ruling did the case in question lead?",a:"Solange I (BVerfG, 29 May 1974, BvL 52/71) — the FCC responded that as long as the EC lacked an equivalent fundamental rights guarantee, it would reserve review jurisdiction over EC secondary law.",r:"BVerfG, 29 May 1974, BvL 52/71"},
+  {n:160,p:'4b',q:"What were the main findings of Internationale Handelsgesellschaft (ECJ)?",a:"(1) Fundamental rights are an integral part of EU general principles of law — derived from common constitutional traditions of MS. (2) EU supremacy is unconditional — EU acts cannot be reviewed against national constitutional provisions, only against EU general principles.",r:"ECJ, Case 11/70"},
+  {n:161,p:'4b',q:"What were the underlying facts of the Ratti case?",a:"Mr Ratti, an Italian solvent manufacturer, complied with EU labelling directives but not stricter Italian law. Italy prosecuted him after the EU directives' implementation deadline had passed.",r:"ECJ, 5 Apr 1979, Case 148/78"},
+  {n:162,p:'4b',q:"What did the ECJ decide in the Ratti case?",a:"After the implementation deadline, a Member State cannot apply its unadapted stricter national law against someone who complied with the directive — the MS is estopped by its own failure to implement.",r:"ECJ, Case 148/78"},
+  {n:163,p:'4b',q:"What forms of direct effect of a directive need to be distinguished?",a:"Vertical direct effect (individual v. state — permitted after implementation deadline). Horizontal direct effect (individual v. private party — not permitted for directives, confirmed in Faccini Dori)."},
+  {n:164,p:'4b',q:"What are the conditions for direct effect of a directive?",a:"(1) The directive provision must be unconditional and sufficiently clear and precise; (2) the Member State must have failed to transpose the directive by the implementation deadline.",r:"ECJ, Cases 148/78, C-91/92"},
+  {n:165,p:'4b',q:"Is an inverse vertical direct effect possible?",a:"No — Kolpinghuis Nijmegen: a MS cannot rely on an unimplemented directive against an individual. Directives create rights for individuals against the state, not the reverse.",r:"ECJ, 8 Oct 1987, Case 80/86"},
+  {n:166,p:'4b',q:"Is a horizontal direct effect possible?",a:"No — Faccini Dori: a directive cannot be invoked by one private party against another in the absence of national implementing measures.",r:"ECJ, 14 July 1994, C-91/92"},
+  {n:167,p:'4b',q:"What were the facts of Faccini Dori?",a:"Miss Dori concluded a language course contract at Milan railway station with a private company and sought to cancel under the Doorstep Selling Directive (not yet implemented by Italy). The ECJ denied horizontal direct effect — she could not invoke it against the private company.",r:"ECJ, C-91/92"},
+  {n:168,p:'4b',q:"What is the reason for the preliminary ruling procedure?",a:"To ensure uniform interpretation and application of EU law throughout all Member States — national courts refer uncertain EU law questions to the CJEU for a binding ruling, which the national court then applies.",r:"Art. 267 TFEU"},
+  {n:169,p:'4b',q:"What are the three components of the CILFIT Doctrine?",a:"A national court of last instance is NOT obliged to refer if: (1) Acte clair — the correct application is so obvious that no reasonable doubt remains; (2) Acte éclairé — the question is materially identical to a prior ECJ ruling; (3) the answer is irrelevant to the outcome.",r:"ECJ, 6 Oct 1982, Case 283/81"},
+  {n:170,p:'4b',q:"Who makes the request for a preliminary ruling procedure?",a:"The national court or tribunal alone decides whether to refer and formulates the questions. Parties cannot force a reference, though they may request one.",r:"Art. 267 TFEU"},
+  {n:171,p:'4b',q:"What happens with the national proceedings in case the ECJ is involved?",a:"National proceedings must be stayed (suspended) until the ECJ delivers its preliminary ruling, which the referring national court then applies to resolve the dispute."},
+  {n:172,p:'4b',q:"May the referral concern EU or domestic law?",a:"EU law only — references must concern the interpretation or validity of EU law. The interpretation of national law and findings of fact remain exclusively for the national court.",r:"Art. 267 TFEU"},
+  {n:173,p:'4b',q:"Which EU institution is the guardian of EU law?",a:"The European Commission — it monitors compliance, investigates breaches, and initiates infringement proceedings against Member States under Art. 258 TFEU.",r:"Art. 17 TEU; Art. 258 TFEU"},
+  {n:174,p:'4b',q:"What happens if a Member State fails to comply with EU law?",a:"The Commission brings infringement proceedings: (1) letter of formal notice, (2) reasoned opinion with compliance deadline, (3) referral to the CJEU. Financial penalties (lump sum/penalty) may be imposed.",r:"Art. 258 TFEU; Art. 260 TFEU"},
+  {n:175,p:'4b',q:"May an individual also lodge a complaint?",a:"Yes — individuals may submit complaints to the Commission. However, only the Commission (Art. 258) or another MS (Art. 259) can bring formal infringement proceedings before the CJEU.",r:"Art. 258, 259 TFEU"},
+  {n:176,p:'4b',q:"Which authority is mainly responsible for enforcing EU law?",a:"National authorities — courts, prosecutors, and regulatory bodies. National courts are the primary enforcers of EU law rights for individuals through decentralised enforcement."},
+  {n:177,p:'4b',q:"What is meant by the principle of decentralised enforcement of law?",a:"Member States apply their own national procedural rules and institutions to enforce EU law rights — subject to the twin principles of equivalence and effectiveness."},
+  {n:178,p:'4b',q:"Where do you find the obligation of the Member States to implement EU law?",a:"Art. 291 TFEU — Member States shall adopt all measures of national law necessary to implement legally binding EU acts.",r:"Art. 291 TFEU"},
+  {n:179,p:'4b',q:"What is the Rewe-Zentralfinanz case about?",a:"German importers paid inspection charges on imported apples contrary to EU law; the German limitation period for seeking a refund had expired. Question: may national procedural rules block recovery of unlawfully levied charges?",r:"ECJ, 16 Dec 1976, Case 33/76"},
+  {n:180,p:'4b',q:"What did the ECJ decide in the Rewe-Zentralfinanz case?",a:"National procedural autonomy applies — MS may set their own procedural rules for enforcing EU law rights — subject to the principles of equivalence and effectiveness.",r:"ECJ, Case 33/76"},
+  {n:181,p:'4b',q:"What is meant by the principle of effectiveness?",a:"National procedural rules must not make it in practice impossible or excessively difficult to exercise rights conferred by EU law."},
+  {n:182,p:'4b',q:"What is meant by the principle of equivalence?",a:"National procedural rules for EU law-based claims must be no less favourable than those applicable to similar purely domestic claims."},
+  {n:183,p:'4b',q:"What is the Kühne & Heitz case about?",a:"Whether an administrative body must reopen a final administrative decision to account for a subsequent ECJ ruling that interpreted EU law differently. The ECJ held that — under certain conditions — it must.",r:"ECJ, 13 Jan 2004, C-453/00"},
+  {n:184,p:'4c-a',q:"What was the Tanja Kreil case about?",a:"Miss Kreil applied in 1996 for a Bundeswehr post in weapons electronics but was rejected because German law prohibited women from armed service roles. She argued this violated the Equal Treatment Directive.",r:"ECJ, 11 Jan 2000, C-285/98"},
+  {n:185,p:'4c-a',q:"What is the (nowadays called) Employment Equality Directive (Directive 2000/78/EC) about?",a:"A general EU framework prohibiting discrimination in employment and occupation based on religion or belief, disability, age, and sexual orientation.",r:"Directive 2000/78/EC"},
+  {n:186,p:'4c-a',q:"What did the ECJ decide in the Tanja Kreil case?",a:"The Equal Treatment Directive applies to the armed forces. Germany's blanket ban on women in armed roles violated the directive — individual derogations for specific posts on national security grounds are permissible; a general blanket ban is not.",r:"ECJ, C-285/98; Directive 76/207/EEC"},
+  {n:187,p:'4c-a',q:"What is the free movement of goods about?",a:"Arts. 28–37 TFEU prohibit customs duties, charges having equivalent effect, quantitative restrictions, and measures having equivalent effect (MEQRs) between Member States.",r:"Arts. 28–37 TFEU; Art. 34 TFEU"},
+  {n:188,p:'4c-a',q:"What were the facts of the Dassonville case?",a:"Belgian father and son Dassonville imported Scotch whisky into Belgium via France. Belgian customs prosecuted them because they lacked a certificate of authenticity obtainable only in the UK — the country of origin.",r:"ECJ, 11 July 1974, Case 8/74"},
+  {n:189,p:'4c-a',q:"What is the Dassonville principle?",a:"All trading rules of Member States capable of hindering, directly or indirectly, actually or potentially, intra-Community trade constitute MEQRs prohibited under Art. 34 TFEU.",r:"Art. 34 TFEU; ECJ, Case 8/74"},
+  {n:190,p:'4c-a',q:"Why is the Dassonville case a landmark case?",a:"It established the foundational broad definition of MEQRs — catching virtually any national trading rule capable of impeding imports, whether discriminatory or not, opening the way for internal market scrutiny."},
+  {n:191,p:'4c-a',q:"What is the key finding?",a:"Any national rule capable of hindering intra-Community trade — directly, indirectly, actually, or potentially — is a MEQR prohibited by Art. 34 TFEU.",r:"Art. 34 TFEU"},
+  {n:192,p:'4c-a',q:"In which court case did the Court further develop its Dassonville reasoning?",a:"Cassis de Dijon (Rewe-Zentral AG v. Bundesmonopolverwaltung für Branntwein, ECJ, 20 February 1979, Case 120/78) — introducing mutual recognition and the rule of reason.",r:"ECJ, Case 120/78"},
+  {n:193,p:'4c-a',q:"What were the facts of the Keck case?",a:"French retailers Keck and Mithouard were prosecuted for reselling goods below their purchase price under a French competition law. They argued this constituted a MEQR under Art. 34 TFEU.",r:"ECJ, 24 Nov 1993, C-267/91"},
+  {n:194,p:'4c-a',q:"What is the Keck formula?",a:"Product-bound rules (governing the product itself: composition, labelling, packaging) are MEQRs. Selling arrangements (governing how/when/where/by whom goods are sold) fall outside Art. 34 TFEU — provided they apply equally in law and fact and do not impede market access for imports more than for domestic goods.",r:"Art. 34 TFEU; ECJ, C-267/91"},
+  {n:195,p:'4c-a',q:"What was the Buy-Irish initiative and why was it in breach of EU law?",a:"The Irish government set up and largely funded a company to run a 'Buy Irish' campaign promoting domestic goods. State-funded promotion of domestic goods distorts intra-Community trade even without formal legal barriers — a MEQR under Art. 34 TFEU.",r:"ECJ, Case 249/81; Art. 34 TFEU"},
+  {n:196,p:'4c-a',q:"What is the concept of freedom of workers?",a:"Art. 45 TFEU prohibits nationality-based discrimination in employment, remuneration, and working conditions. EU workers may move freely, accept job offers, reside to work, and remain after employment ends.",r:"Art. 45 TFEU"},
+  {n:197,p:'4c-a',q:"Why do nationals of EFTA countries have the right to work within the EU with the same rights and obligations as EU workers?",a:"Norway, Iceland, and Liechtenstein are parties to the EEA Agreement (Art. 28 EEA mirrors Art. 45 TFEU). Switzerland has a bilateral Agreement on Free Movement of Persons with the EU.",r:"Art. 28 EEA Agreement"},
+  {n:198,p:'4c-a',q:"Which complementing directive is important for the free movement and residence, and which regulation ensures non-discriminatory work in the Member States?",a:"Directive 2004/38/EC governs the right of free movement and residence for EU citizens and their families. Regulation 492/2011 ensures equal access to employment and equal working conditions without nationality discrimination.",r:"Dir. 2004/38/EC; Reg. 492/2011"},
+  {n:199,p:'4c-a',q:"Which state is generally supposed to take into consideration the individual ability to pay?",a:"The state of residence — it has full knowledge of the taxpayer's worldwide income and personal/family circumstances, enabling it to apply deductions, allowances, and progressive rates fairly.",r:"ECJ, C-279/93"},
+  {n:200,p:'4c-a',q:"Why does Schumacker not pay any taxes in Belgium?",a:"Schumacker earned 97%+ of his income in Germany — Belgium had virtually no income base on which to levy tax and could grant no personal deductions. His residence state (Belgium) could not provide any tax relief.",r:"ECJ, 14 Feb 1995, C-279/93"},
+  {n:201,p:'4c-a',q:"Why is it generally possible for a state of source to have a different tax treatment with respect to a non-resident taxpayer?",a:"Non-residents and residents are objectively not in the same situation — the source state taxes only income earned within its territory and does not have access to the taxpayer's full personal and family circumstances.",r:"ECJ, C-279/93"},
+  {n:202,p:'4c-a',q:"Why is Schumacker still comparable to a resident taxpayer?",a:"Because 97%+ of his income came from Germany, his situation was exceptional — Belgium could grant no relief, and Germany held all the information needed to apply personal deductions. Refusing to do so was discrimination contrary to Art. 45 TFEU.",r:"ECJ, C-279/93"},
+  {n:203,p:'4c-a',q:"What was the finding of the de Groot case?",a:"Free movement of workers prohibits a MS from reducing personal tax advantages solely because part of a worker's income comes from another MS. The state of residence must consider the worker's full situation including foreign-source income.",r:"ECJ, 12 Dec 2002, C-385/00"},
+    {n:204,p:'4c-a',q:"What is the difference between a discriminatory and a restrictive measure?",a:"Discriminatory: treats non-nationals less favourably than nationals (direct or indirect nationality discrimination). Restrictive: applies equally to all but deters or hinders the exercise of free movement rights without formal nationality distinction.",r:"Art. 45, 49, 56 TFEU"},
+  {n:205,p:'4c-a',q:"May an individual rely on the fundamental freedoms also against his or her own country?",a:"Yes — nationals returning after exercising free movement rights can invoke EU fundamental freedoms against their own MS. Purely internal situations with no cross-border element are not covered by EU fundamental freedoms.",r:"Art. 45 TFEU"},
+  {n:206,p:'4c-b',q:"What is the idea of the fundamental freedoms for self-employed persons?",a:"Freedom of establishment (Art. 49 TFEU): self-employed persons and companies may set up and pursue economic activities on a permanent, stable basis in another MS. Freedom of services (Art. 56 TFEU): covers temporary cross-border provision.",r:"Art. 49, 56 TFEU"},
+  {n:207,p:'4c-b',q:"What does the freedom of establishment preclude?",a:"Any national measure liable to hinder or render less attractive the exercise by EU nationals of the freedom of establishment — including non-discriminatory measures that restrict market access.",r:"Art. 49 TFEU"},
+  {n:208,p:'4c-b',q:"What is a restriction in the sense of Art. 49 TFEU?",a:"Any measure that affects market access for economic operators from other MS — including prior authorisation requirements, geographic limitations, and other conditions — even if applied without nationality discrimination.",r:"Art. 49 TFEU"},
+  {n:209,p:'4c-b',q:"Is the necessity of a prior authorisation a restriction?",a:"Yes — even non-discriminatory prior authorisation schemes constitute restrictions on freedom of establishment if they affect market access (confirmed in Commission v. Spain, C-400/08).",r:"ECJ, C-400/08; Art. 49 TFEU"},
+  {n:210,p:'4c-b',q:"Is it possible to justify a restriction?",a:"Yes — restrictions can be justified by overriding reasons of general interest (rule of reason justifications), provided the measure is appropriate and proportionate to the objective pursued.",r:"Art. 49 TFEU"},
+  {n:211,p:'4c-b',q:"What are potential reasons for justification of a restriction on establishment?",a:"Urban and regional planning, environmental protection, consumer protection, protection of creditors, prevention of fraud, public health, social policy, cultural policy — all subject to proportionality.",r:""},
+  {n:212,p:'4c-b',q:"What is the difference between the freedom of establishment and services?",a:"Establishment (Art. 49): permanent, stable integration in the host MS economy. Services (Art. 56): temporary, occasional cross-border provision. Temporariness assessed by duration, regularity, periodicity, and continuity.",r:"Art. 49, 56 TFEU"},
+  {n:213,p:'4c-b',q:"What did the ECJ decide in the Säger case (ECJ, 25 July 1991, C-76/90)?",a:"Restrictions on the freedom to provide services are prohibited unless justified by overriding requirements in the general interest, applied without nationality discrimination, and proportionate.",r:"ECJ, 25 July 1991, C-76/90"},
+  {n:214,p:'4c-b',q:"Which scenarios are covered by the freedom of services?",a:"(1) Provider moves to the MS of the recipient. (2) Recipient moves to receive services. (3) Service crosses the border without movement (e.g. broadcasting). (4) Both provider and recipient move to a third MS.",r:"Art. 56 TFEU"},
+  {n:215,p:'4c-b',q:"What is the Services Directive (2006/123/EC)?",a:"The Bolkestein Directive — aims to remove barriers to trade in services by simplifying administrative procedures, strengthening consumer rights, and fostering regulatory cooperation. Excludes financial services, transport, healthcare, and gambling.",r:"Directive 2006/123/EC"},
+  {n:216,p:'4c-b',q:"How can the term movement of capital be understood?",a:"No exhaustive Treaty definition, but Council Directive 88/361/EEC Annex I serves as the reference list: covers direct investment, portfolio investment, real estate, financial loans, and other capital movements.",r:"Art. 63 TFEU; Dir. 88/361/EEC"},
+  {n:217,p:'4c-b',q:"What are golden shares?",a:"Special veto rights retained by governments in privatised companies — allowing the state to block takeovers or veto strategic decisions. The ECJ has consistently found most golden share arrangements violate freedom of capital.",r:"ECJ, Commission v. France, C-483/99; Art. 63 TFEU"},
+  {n:218,p:'4c-b',q:"What is the particularity of the freedom of capital?",a:"Unlike the other fundamental freedoms, freedom of capital also applies to third countries (non-EU states) — it is the only freedom with this external dimension.",r:"Art. 63 TFEU"},
+  {n:219,p:'4c-b',q:"How is it possible to distinguish the application of the freedom of capital and establishment?",a:"If a shareholding enables decisive influence over a company\'s decisions → freedom of establishment applies. Where there is no decisive influence (portfolio investment) → freedom of capital applies. The ECJ looks at the object of the national measure.",r:"Art. 49, 63 TFEU"},
+  {n:220,p:'4c-a',q:"What are the names of the following ECJ cases? (1) Belgians importing Scotch whisky from France without required certificate obtainable only in UK. (2) Prosecution under French law for selling below wholesale prices. (3) German retailer wanting to import French blackcurrant liqueur with 15–20% ABV below Germany\'s 25% minimum. (4) State-administered company with government-appointed board running a trade campaign — trade fell 6% over three years.",a:"(1) Dassonville (C-8/74). (2) Keck (C-267/91). (3) Cassis de Dijon (C-120/78). (4) Commission v. Ireland / Buy Irish (C-249/81).",r:"All: Art. 34 TFEU"},
+  {n:221,p:'4c-a',q:"Which fundamental freedom was affected in all cases?",a:"Free movement of goods — specifically the prohibition of measures having equivalent effect to quantitative restrictions (MEQRs) under Art. 34 TFEU.",r:"Art. 34 TFEU"},
+  {n:222,p:'4c-b',q:"What is the difference between a preliminary ruling procedure in the sense of Art. 267 TFEU and the procedures in Art. 258 TFEU and Art. 259 TFEU?",a:"Art. 267: cooperative reference from a national court seeking EU law interpretation — no party wins/loses at ECJ level. Art. 258: Commission brings infringement proceedings against a MS — adversarial, ends in declaration + possible fines. Art. 259: MS sues another MS — same as 258 but MS-initiated; Commission gives an opinion first.",r:"Art. 258, 259, 267 TFEU"},
+  {n:223,p:'4c-b',q:"Is it the rule or rather the exception that a Member State sues another Member State?",a:"Very much the exception — politically sensitive. The Commission\'s Art. 258 procedure is the standard enforcement route. Notable exception: Austria v. Germany (C-591/17) on discriminatory motorway tolls.",r:"Art. 259 TFEU; ECJ, C-591/17"},
+  {n:224,p:'5',q:"Is Switzerland part of the EU or of the EEA?",a:"Neither. Switzerland is a member of EFTA and the Schengen Area but not the EU or EEA (Swiss voters rejected EEA membership in a 1992 referendum). Relations with the EU are governed by 120+ bilateral sectoral agreements.",r:""},
+  {n:225,p:'5',q:"Are all EEA countries also part of the EU? Please clarify.",a:"No. The EEA includes the 27 EU Member States plus Norway, Iceland, and Liechtenstein. Switzerland is EFTA but NOT part of the EEA. All EU MS are EEA members, but not all EEA members are EU MS.",r:"EEA Agreement"},
+  {n:226,p:'5',q:"What is the nature of the German exit tax and why is it an infringement of the free movement of persons?",a:"§ 6 AStG imposes tax on unrealised capital gains when an individual transfers tax residence abroad. The ECJ (Wächtler, C-581/17) held that immediate taxation without deferral is disproportionate and infringes free movement of persons.",r:"§ 6 AStG; ECJ, C-581/17; Art. 21/45 TFEU"},
+  {n:227,p:'5',q:"What is the nature of a Free Trade Agreement and a Deep and Comprehensive Free Trade Agreement?",a:"FTA: removes tariffs and quotas on goods; each party retains its own external tariff and can negotiate independent trade deals. DCFTA: FTA + deep regulatory convergence covering services, investment, procurement, intellectual property, and standards.",r:""},
+  {n:228,p:'5',q:"With which countries did the EU conclude a DCFTA?",a:"Ukraine, Moldova, and Georgia — as part of their EU Association Agreements signed in 2014.",r:""},
+  {n:229,p:'5',q:"With which countries did the EU conclude a customs union?",a:"Turkey (customs union since 1995, covering industrial goods), Andorra, San Marino, and Monaco.",r:""},
+  {n:230,p:'5',q:"What are the differences between a free trade agreement (FTA), a deep and comprehensive free trade area (DCFTA), and a customs union (CU)?",a:"FTA: reduced tariffs, each party keeps own external tariff and can sign independent deals. DCFTA: FTA + regulatory harmonisation (services, investment, standards). CU: common external tariff — parties cannot independently negotiate trade deals with third countries.",r:""}
 ];
 
 let epDeck = [...EP_QA];
@@ -14065,6 +14362,541 @@ function epgSetTab(tab){
   if(tab==='timeline') mtrBuild();
 }
 // ──────────────────────────────────────────────────────────────────────────
+
+
+// ── PDF Structure for Overview ────────────────────────────────────────────
+const PDF_STRUCTURE = [
+  {
+    part: 'I', title: 'Tax Upfront', color: '#8a5c00', bg: '#fef3e2',
+    qs: [1,9],
+    sections: [
+      { title: 'Amazon / PE Analysis & OECD', qs: [[1,'Why does the online trader not pay income taxes in Germany?'],[2,'PE in the sense of the German fiscal code?'],[3,'PE under the German-Luxembourg DTC?'],[4,'OECD: members, abbreviation, location'],[5,'OECD: supranational or intergovernmental?'],[6,'Nature of the OECD — only economic topics?'],[7,'How does Pillar 2 work?'],[8,'What does BEPS stand for?'],[9,'Are BEPS / Pillar 1+2 binding for OECD members?']] }
+    ]
+  },
+  {
+    part: 'II', title: 'Historic Developments — Roman Empire', color: '#1a7a5e', bg: '#e6f4f0',
+    qs: [10,79],
+    sections: [
+      { title: 'Roman Empire', qs: [[10,'When was the Empire divided?'],[11,'When was Rome founded?'],[12,'Three phases of Roman history'],[13,'HRE particularity → state principle in Germany'],[14,'May that principle be changed today?'],[15,'When was the Roman Empire founded?'],[16,'West-Roman collapse — when & why?'],[17,'Eastern Roman Empire collapse'],[18,'Capital of the Eastern Roman Empire'],[19,'Which emperor chose Byzantium as New Rome?'],[20,'Language that replaced Latin'],[21,'Why German emperors as true Roman heirs?'],[22,'Other nations claiming Roman succession'],[23,'Ottoman conquest of Byzantium & break with Greco-Roman legitimacy'],[24,'Heraldic symbols: Rome, Germany, Russia, Austria'],[25,'What is translatio imperii?'],[26,'Doctrine of four empires'],[27,'Idea behind Charlemagne\'s coronation'],[28,'Why was Otto I\'s coronation so important?'],[29,'Three countries first adopting Christianity as state religion'],[30,'Kaiser / Tsar traced back to which term?'],[31,'Eve of the Milvian Battle (27 Oct 312)'],[32,'What was the Edict of Milan?'],[33,'What did Constantine order on 3 March 321?'],[34,'When was Constantinople founded?'],[35,'Why is the 321 edict still important today?']] },
+      { title: 'Kingdom of Franks', qs: [[36,'How did the Frankish Kingdom come into existence?'],[37,'Territories of the Frankish Kingdom'],[38,'Two states that replaced the Frankish Kingdom'],[39,'Who was Charlemagne? Where did he reside?']] },
+      { title: 'Holy Roman Empire of German Nation', qs: [[40,'Official name of the Roman German empire until 1806'],[41,'What is the concept of a nation state?'],[42,'Was Scandinavia part of the HRE?']] },
+      { title: 'Final Recess', qs: [[43,'What is the Final Recess also referred to as?'],[44,'Consequence of the Final Recess (1803)'],[45,'Consequence still relevant in Germany today'],[46,'Public subsidies — Art. 138 Weimar Constitution'],[47,'Does Germany have a state church?'],[48,'Coalition agreement re public subsidies']] },
+      { title: 'Enabling Law', qs: [[49,'How did Hitler consolidate power in 1933?'],[50,'Nature of the Enabling Law — possible today?'],[51,'Consequence of Enabling Law still visible today'],[52,'Principle of materiality (Wesentlichkeitsgrundsatz)'],[53,'Which party voted against? Why not KPD?']] },
+      { title: 'Separation of Powers / Case of Defense', qs: [[54,'Separation of powers traced back to whom?'],[55,'State of defense: electoral term of Bundestag'],[56,'If Bundestag cannot convene: substitute body?'],[57,'State of defense: consequence for Chancellor']] },
+      { title: 'Public vs Private Law & Law of Things', qs: [[58,'Nature of private vs public law'],[59,'Examples of private and public law'],[60,'Main principles re citizens'],[61,'Three-element doctrine — is EU a state?'],[62,'What is the law of things (Sachenrecht)?'],[63,'Transferring ownership in a sale'],[64,'Principle of abstraction'],[65,'Principle of separation'],[66,'Possession vs ownership']] },
+      { title: 'Germany — General Knowledge', qs: [[67,'Occupational zones after WWII'],[68,'How many federal states?'],[69,'Capital of Hesse'],[70,'Where are basic rights in the Basic Law?'],[71,'Task of the Federal President'],[72,'Second highest-ranking constitutional person'],[73,'Five pillars of social insurance'],[74,'Six principles of state — Art. 20 GG'],[75,'Five permanent constitutional bodies'],[76,'Which body elects the Federal President?'],[77,'Who is member of the Federal Assembly?'],[78,'Economic problem of the 1920s'],[79,'National minorities in Germany']] }
+    ]
+  },
+  {
+    part: 'III', title: 'German Federal Constitutional Court & EU', color: '#2d5a9e', bg: '#e8edf8',
+    qs: [80,102],
+    sections: [
+      { title: 'Solange I & II', qs: [[80,'Finding of Solange I'],[81,'Plaintiff in Solange I'],[82,'Did FCC decide on secondary vs primary law validity?'],[83,'What did EC still lack in 1974?'],[84,'In which case did FCC revise its approach?'],[85,'Ultra vires doctrine'],[86,'Fundamental right vs fundamental freedom']] },
+      { title: 'Maastricht', qs: [[87,'Main features of Treaty of Maastricht'],[88,'Deal for reunification approval'],[89,'Did Maastricht empower EU to acquire own means?'],[90,'Were complaints against Maastricht successful?']] },
+      { title: 'Lisbon', qs: [[91,'Main finding of Lisbon judgment'],[92,'How did FCC define the EU?'],[93,'Inalienable list of state rights'],[94,'Did FCC allow accession to European federal state?']] },
+      { title: 'EU-Warrant', qs: [[95,'Facts of EU-Warrant case'],[96,'Which control did FCC apply for first time?'],[97,'Consequence for ECJ of EU-Warrant decision'],[98,'Was FCC the only court to apply own standard?']] },
+      { title: 'PSPP', qs: [[99,'What does PSPP stand for?'],[100,'Idea behind the PSPP'],[101,'What did FCC accuse the ECJ of?'],[102,'What did FCC assert re ECJ competence?']] }
+    ]
+  },
+  {
+    part: 'IV', title: 'EU — Institutions, Law & Fundamental Freedoms', color: '#7a2d6e', bg: '#f4e8f4',
+    qs: [103,223],
+    sections: [
+      { title: 'Constitutional Order', qs: [[103,'Constitutional documents of the EU'],[104,'What happened with the EU Constitutional Treaty?'],[105,'Result of rejection of EU Constitution'],[106,'TEU, TFEU, Charter — collectively called?'],[107,'Difference between various secondary law acts'],[108,'Two forms of secondary law'],[109,'Principle of degressive proportionality'],[110,'Smallest country in the EU'],[111,'Is the EU a Christian club?'],[112,'Can any country become EU member?'],[113,'Is geographic location decisive?'],[114,'Where is stipulated who can join?'],[115,'Official EU membership candidates']] },
+      { title: 'Enlargement Waves', qs: [[116,'President of the EU Commission'],[117,'EEC Treaty also called?'],[118,'Founding countries of the EEC'],[119,'Countries joined 1973'],[120,'Former dictatorships joining 1981 & 1986'],[121,'Former EFTA countries joining 1995'],[122,'Countries joining 2004 / Visegrad club'],[123,'Countries joining 2007 / Euro introduction'],[124,'Country joining 2013']] },
+      { title: 'Subsidiarity & Proportionality', qs: [[125,'Two examples of exclusive EU competences'],[126,'Principle of subsidiarity'],[127,'Breach of subsidiarity — what happens?'],[128,'Relevant documents on subsidiarity'],[129,'Which principle is subsidiarity linked to?']] },
+      { title: 'Legislative Procedure', qs: [[130,'Qualified majority concept'],[131,'What is co-decision?'],[132,'Main characteristic of co-decision'],[133,'Cases requiring unanimity in Council'],[134,'Nature of the Council of Europe'],[135,'Does EU have powers to levy taxes?'],[136,'How many Council configurations?'],[137,'Institution with legislative initiative monopoly'],[138,'What can EP do to start a legislative process?']] },
+      { title: 'Direct Effect & Direct Applicability', qs: [[139,'Facts of Van Gend & Loos'],[140,'Doctrine of direct application'],[141,'Doctrine of direct effect']] },
+      { title: 'Doctrine of Primacy of EU Law', qs: [[142,'Facts of Costa v. ENEL'],[143,'Which concept did ECJ reject?'],[144,'How did ECJ justify the rejection?'],[145,'What nature of Community law did ECJ emphasise?'],[146,'Which legal principle did ECJ also reject?'],[147,'Why is Costa v. ENEL a legal revolution?'],[148,'Primacy from German perspective'],[149,'Precedence of application meaning'],[150,'Precedence of application vs precedence of validity']] },
+      { title: 'Simmenthal', qs: [[151,'Main finding of Simmenthal']] },
+      { title: 'Supranationality', qs: [[152,'Concept of supranationality'],[153,'Idea of sacrifice and creation'],[154,'Principle of conferral']] },
+      { title: 'Liability — Francovich', qs: [[155,'Facts of Francovich and Bonifaci'],[156,'Main finding of Francovich'],[157,'Exact conditions for compensation claim']] },
+      { title: 'Protection of Fundamental Rights', qs: [[158,'Which case: ECJ claimed to protect fundamental rights?'],[159,'Which FCC ruling did it lead to?'],[160,'Main findings of Internationale Handelsgesellschaft']] },
+      { title: 'Direct Effect of Directives', qs: [[161,'Facts of Ratti'],[162,'ECJ decision in Ratti'],[163,'Forms of direct effect of a directive'],[164,'Conditions for direct effect of a directive'],[165,'Inverse vertical direct effect possible?'],[166,'Horizontal direct effect possible?'],[167,'Facts of Faccini Dori']] },
+      { title: 'Preliminary Ruling Procedure', qs: [[168,'Reason for preliminary ruling procedure'],[169,'Three components of CILFIT Doctrine'],[170,'Who makes the request?'],[171,'National proceedings during ECJ involvement'],[172,'May referral concern domestic law?']] },
+      { title: 'Enforcement of Law', qs: [[173,'Guardian of EU law'],[174,'MS fails to comply — what happens?'],[175,'Can individual lodge complaint?'],[176,'Authority mainly responsible for enforcement'],[177,'Principle of decentralised enforcement'],[178,'Obligation of MS to implement EU law'],[179,'Rewe-Zentralfinanz — about?'],[180,'ECJ decision in Rewe-Zentralfinanz'],[181,'Principle of effectiveness'],[182,'Principle of equivalence'],[183,'Kühne & Heitz case']] },
+      { title: 'Equal Rights Directive', qs: [[184,'Tanja Kreil case'],[185,'Employment Equality Directive (2000/78/EC)'],[186,'ECJ decision in Tanja Kreil']] },
+      { title: 'Free Movement of Goods', qs: [[187,'Free movement of goods — about'],[188,'Facts of Dassonville'],[189,'Dassonville principle'],[190,'Why Dassonville is a landmark case'],[191,'Key finding of Dassonville'],[192,'Case further developing Dassonville reasoning'],[193,'Facts of Keck'],[194,'Keck formula'],[195,'Buy-Irish initiative — why breach of EU law?']] },
+      { title: 'Freedom of Workers', qs: [[196,'Concept of freedom of workers'],[197,'Why do EFTA nationals have right to work in EU?'],[198,'Directive + Regulation for free movement of workers'],[199,'Which state takes ability to pay into account?'],[200,'Why does Schumacker not pay taxes in Belgium?'],[201,'Source state treating non-residents differently'],[202,'Why is Schumacker comparable to a resident?'],[203,'Finding of de Groot case'],[204,'Discriminatory vs restrictive measure'],[205,'Individual rely on freedoms against own country?']] },
+      { title: 'Freedom of Establishment', qs: [[206,'Idea of fundamental freedoms for self-employed'],[207,'What does freedom of establishment preclude?'],[208,'Restriction in sense of Art. 49 TFEU'],[209,'Prior authorisation = restriction?'],[210,'Can a restriction be justified?'],[211,'Potential justification reasons'],[212,'Establishment vs services — difference']] },
+      { title: 'Freedom of Services', qs: [[213,'ECJ decision in Säger'],[214,'Scenarios covered by freedom of services'],[215,'Services Directive (2006/123/EC)']] },
+      { title: 'Freedom of Capital', qs: [[216,'Movement of capital — how understood?'],[217,'What are golden shares?'],[218,'Particularity of freedom of capital'],[219,'Distinguish freedom of capital and establishment']] },
+      { title: 'Mixed — Case Names', qs: [[220,'Name the four ECJ cases'],[221,'Which fundamental freedom affected in all cases?']] },
+      { title: 'Infringement Procedure', qs: [[222,'Art. 267 vs Art. 258/259 TFEU'],[223,'MS sues another MS — rule or exception?']] }
+    ]
+  },
+  {
+    part: 'V', title: 'Relationship with Other Countries', color: '#c0392b', bg: '#fdeee9',
+    qs: [224,230],
+    sections: [
+      { title: 'External Relations', qs: [[224,'Is Switzerland part of EU or EEA?'],[225,'Are all EEA countries also EU?'],[226,'German exit tax — nature & infringement'],[227,'Nature of FTA and DCFTA'],[228,'Countries: DCFTA with EU'],[229,'Countries: customs union with EU'],[230,'Differences FTA / DCFTA / Customs Union']] }
+    ]
+  }
+];
+
+function pdfOverviewBuild(){
+  const wrap = document.getElementById('pdf-overview-wrap');
+  if(!wrap || wrap.dataset.built) return;
+  wrap.dataset.built = '1';
+  wrap.innerHTML = '';
+  
+  PDF_STRUCTURE.forEach(part => {
+    const partEl = document.createElement('div');
+    partEl.className = 'pdf-part';
+    partEl.style.background = 'var(--surface)';
+    
+    const totalQs = part.qs[1] - part.qs[0] + 1;
+    
+    partEl.innerHTML = `
+      <div class="pdf-part-header" onclick="pdfTogglePart(this)">
+        <span class="pdf-part-num" style="background:${part.bg};color:${part.color}">Part ${part.part}</span>
+        <span class="pdf-part-title">${part.title}</span>
+        <span class="pdf-part-range" style="color:${part.color};opacity:.7">Q${part.qs[0]}–${part.qs[1]}</span>
+        <span class="pdf-part-count" style="background:${part.bg};color:${part.color}">${totalQs} Qs</span>
+        <button class="pdf-part-study" style="background:${part.color}" onclick="event.stopPropagation();pdfStartPart(${part.qs[0]},${part.qs[1]})">▶ Study Part</button>
+        <span class="pdf-part-chevron">▼</span>
+      </div>
+      <div class="pdf-part-body" id="pdf-body-${part.part}"></div>
+    `;
+    
+    wrap.appendChild(partEl);
+    
+    const body = partEl.querySelector('.pdf-part-body');
+    part.sections.forEach((sec, si) => {
+      const secEl = document.createElement('div');
+      secEl.className = 'pdf-section';
+      secEl.dataset.secId = `${part.part}-${si}`;
+      
+      const qNums = sec.qs.map(q => q[0]);
+      const qMin = Math.min(...qNums), qMax = Math.max(...qNums);
+      const rangeStr = qMin === qMax ? `Q${qMin}` : `Q${qMin}–${qMax}`;
+      
+      secEl.innerHTML = `
+        <div class="pdf-section-header" onclick="pdfToggleSec(this,'${part.part}-${si}')">
+          <span class="pdf-section-dot" style="background:${part.color}"></span>
+          <span class="pdf-section-title">${sec.title}</span>
+          <span class="pdf-section-qs">${rangeStr} · ${sec.qs.length} Qs</span>
+          <span class="pdf-section-start" onclick="event.stopPropagation();pdfStartSection(${JSON.stringify(qNums)})">▶ Study</span>
+          <span class="pdf-section-chevron">▼</span>
+        </div>
+        <div class="pdf-section-body" id="pdf-sec-${part.part}-${si}"></div>
+      `;
+      
+      body.appendChild(secEl);
+      
+      const secBody = secEl.querySelector('.pdf-section-body');
+      const ul = document.createElement('ul');
+      ul.className = 'pdf-q-list';
+      sec.qs.forEach(([num, label]) => {
+        const li = document.createElement('li');
+        li.className = 'pdf-q-item';
+        li.onclick = () => pdfGoToQ(num);
+        li.innerHTML = `<span class="pdf-q-num">Q${num}</span><span class="pdf-q-text">${label}</span>`;
+        ul.appendChild(li);
+      });
+      secBody.appendChild(ul);
+    });
+  });
+}
+
+function pdfTogglePart(header){
+  const part = header.parentElement;
+  part.classList.toggle('open');
+}
+
+function pdfToggleSec(header, id){
+  const sec = header.parentElement;
+  sec.classList.toggle('sec-open');
+}
+
+function pdfGoToQ(n){
+  // Switch to flashcard mode, set deck to filtered by that q number
+  epSetMode('flash');
+  epSetPart('all', document.querySelector('[data-part="all"]'));
+  // Find the index of this card in the deck
+  const idx = epDeck.findIndex(c => c.n === n);
+  if(idx >= 0){ epIdx = idx; epFlipped = false; epRenderCard(); }
+  // Switch view to session overview
+  epSetView('session');
+}
+
+function pdfStartPart(qMin, qMax){
+  epSetMode('flash');
+  epActivePart = 'all';
+  epDeck = EP_QA.filter(c => c.n >= qMin && c.n <= qMax);
+  epIdx = 0; epFlipped = false;
+  epRenderCard();
+  const total = document.getElementById('ep-card-total');
+  if(total) total.textContent = epDeck.length;
+  epSetView('session');
+}
+
+function pdfStartSection(qNums){
+  // Build a filtered deck from the q numbers in this section
+  epSetMode('flash');
+  epActivePart = 'all';
+  epDeck = EP_QA.filter(c => qNums.includes(c.n));
+  epIdx = 0; epFlipped = false;
+  epRenderCard();
+  const total = document.getElementById('ep-card-total');
+  if(total) total.textContent = epDeck.length;
+  epSetView('session');
+}
+
+function epSetView(view){
+  const pdfOv = document.getElementById('ep-pdf-overview');
+  const sesOv = document.getElementById('ep-session-overview');
+  const btnPdf = document.getElementById('ep-view-pdf');
+  const btnSes = document.getElementById('ep-view-session');
+  if(view === 'pdf'){
+    pdfOv.style.display = 'block';
+    sesOv.style.display = 'none';
+    btnPdf.classList.add('active');
+    btnSes.classList.remove('active');
+    pdfOverviewBuild();
+  } else {
+    pdfOv.style.display = 'none';
+    sesOv.style.display = 'block';
+    btnPdf.classList.remove('active');
+    btnSes.classList.add('active');
+  }
+}
+// ──────────────────────────────────────────────────────────────────────────
+
+
+
+
+
+// ════════════════════════════════════════════════════════════
+// HEATMAP
+// ════════════════════════════════════════════════════════════
+function epBuildHeatmap(){
+  const grid = document.getElementById('ep-heatmap-grid');
+  if(!grid) return;
+  grid.innerHTML = '';
+  let rated = 0;
+  EP_QA.forEach(card => {
+    const cell = document.createElement('div');
+    cell.className = 'ep-hm-cell';
+    const r = epRated[card.n];
+    if(r){ cell.dataset.r = r; rated++; }
+    cell.title = 'Q'+card.n+': '+card.q.slice(0,60)+'…';
+    cell.onclick = () => epGoToCard(card.n);
+    grid.appendChild(cell);
+  });
+  const pct = Math.round(rated / EP_QA.length * 100);
+  const pctEl = document.getElementById('ep-hm-pct');
+  if(pctEl) pctEl.textContent = pct + '% complete';
+  const weakN = EP_QA.filter(c => epRated[c.n]==='again'||epRated[c.n]==='hard').length;
+  const wb = document.getElementById('ep-weak-launch');
+  const wc = document.getElementById('ep-weak-count');
+  if(wb) wb.classList.toggle('disabled', weakN===0);
+  if(wc) wc.textContent = weakN;
+  const tb = document.getElementById('tools-weak-badge');
+  if(tb) tb.textContent = weakN + ' cards';
+}
+
+function epGoToCard(n){
+  epActivePart = 'all';
+  epDeck = [...EP_QA];
+  const i = EP_QA.findIndex(c => c.n === n);
+  epIdx = i >= 0 ? i : 0;
+  epFlipped = false;
+  epSwitchToMode('flash');
+}
+
+// Patch epUpdateStats to also refresh heatmap
+const _epUpdateStats_orig = epUpdateStats;
+epUpdateStats = function(){
+  _epUpdateStats_orig();
+  epBuildHeatmap();
+};
+
+// ════════════════════════════════════════════════════════════
+// UNIFIED epSetMode — handles all modes including tools
+// ════════════════════════════════════════════════════════════
+const ALL_MODES = ['flash','browse','cases','game','tools','weak','sim','concept'];
+const STANDARD_MODES = ['flash','browse','cases','game'];
+
+function epSwitchToMode(mode){
+  // Update mode state
+  epMode = mode;
+
+  // Show/hide session-overview wrapper (contains flash/browse/cases/game views)
+  const sesOv = document.getElementById('ep-session-overview');
+  if(sesOv) sesOv.style.display = STANDARD_MODES.includes(mode) ? 'block' : 'block';
+
+  // Standard mode views
+  const views = {
+    flash: 'ep-flash-view',
+    browse: 'ep-browse-view',
+    cases: 'ep-cases-view',
+    game: 'ep-game-view',
+    tools: 'ep-tools-view',
+    weak: 'ep-weak-view',
+    sim: 'ep-sim-view',
+    concept: 'ep-concept-view'
+  };
+  ALL_MODES.forEach(m => {
+    const el = document.getElementById(views[m]);
+    if(el) el.style.display = m === mode ? 'block' : 'none';
+  });
+
+  // Done panel always hidden on mode switch
+  const dn = document.getElementById('ep-done');
+  if(dn) dn.style.display = 'none';
+
+  // Button active states
+  const btnMap = {
+    flash:'ep-btn-flash', browse:'ep-btn-browse',
+    cases:'ep-btn-cases', game:'ep-btn-game', tools:'ep-btn-tools'
+  };
+  Object.entries(btnMap).forEach(([m, id]) => {
+    const b = document.getElementById(id);
+    if(b) b.classList.toggle('active', m === mode || (m==='tools' && ['tools','weak','sim','concept'].includes(mode)));
+  });
+
+  // Mode-specific init
+  if(mode === 'browse') epRenderBrowse();
+  if(mode === 'weak') epRenderWeakList();
+  if(mode === 'sim') simShowSetup();
+  if(mode === 'concept') conceptBuild();
+}
+
+// Override the original epSetMode to route through our unified handler
+epSetMode = epSwitchToMode;
+
+// ════════════════════════════════════════════════════════════
+// WEAK CARDS
+// ════════════════════════════════════════════════════════════
+function epLaunchWeak(){ epSwitchToMode('weak'); }
+
+function epRenderWeakList(){
+  const list = document.getElementById('ep-weak-list');
+  if(!list) return;
+  const weak = EP_QA.filter(c => epRated[c.n]==='again'||epRated[c.n]==='hard');
+  weak.sort((a,b) => {
+    const order = {again:0,hard:1};
+    const oa = order[epRated[a.n]]??2, ob = order[epRated[b.n]]??2;
+    return oa!==ob ? oa-ob : a.n-b.n;
+  });
+  if(weak.length === 0){
+    list.innerHTML = '<div class="weak-empty">🎉 No weak cards yet — rate some flashcards first.</div>';
+    return;
+  }
+  list.innerHTML = '';
+  weak.forEach(card => {
+    const rating = epRated[card.n];
+    const item = document.createElement('div');
+    item.className = 'weak-item';
+    item.onclick = () => epGoToCard(card.n);
+    item.innerHTML = '<div class="weak-item-badge '+rating+'">'+(rating==='again'?'✗':'~')+'</div>'
+      +'<div style="flex:1"><div class="weak-item-q">'+card.q+'</div></div>'
+      +'<div class="weak-item-num">Q'+card.n+'</div>';
+    list.appendChild(item);
+  });
+}
+
+function epStartWeak(){
+  const weak = EP_QA.filter(c => epRated[c.n]==='again'||epRated[c.n]==='hard');
+  weak.sort((a,b)=>{const o={again:0,hard:1};return (o[epRated[a.n]]??2)-(o[epRated[b.n]]??2);});
+  if(!weak.length) return;
+  epDeck = weak;
+  epIdx = 0; epFlipped = false;
+  epSwitchToMode('flash');
+  epRenderCard();
+  const tot = document.getElementById('ep-card-total');
+  if(tot) tot.textContent = epDeck.length;
+}
+
+// ════════════════════════════════════════════════════════════
+// EXAM SIMULATOR
+// ════════════════════════════════════════════════════════════
+let simCount = 10, simSrc = 'all', simDeck = [], simCurIdx = 0;
+let simResults = {good:0,hard:0,again:0};
+let simTimerInterval = null, simSecondsLeft = 0;
+
+function simSetCount(btn){
+  document.querySelectorAll('.sim-count-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  simCount = parseInt(btn.dataset.n);
+}
+function simSetSrc(btn){
+  document.querySelectorAll('.sim-source-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  simSrc = btn.dataset.src;
+}
+function simGetPool(){
+  if(simSrc==='all') return [...EP_QA];
+  if(simSrc==='weak') return EP_QA.filter(c=>epRated[c.n]==='again'||epRated[c.n]==='hard');
+  const ranges={'1':[1,9],'2':[10,79],'3':[80,102],'4':[103,223],'5':[224,230]};
+  const r=ranges[simSrc];
+  if(r) return EP_QA.filter(c=>c.n>=r[0]&&c.n<=r[1]);
+  return [...EP_QA];
+}
+function simShowSetup(){
+  document.getElementById('sim-setup').style.display='block';
+  document.getElementById('sim-running').style.display='none';
+  document.getElementById('sim-results').style.display='none';
+}
+function simStart(){
+  const pool=simGetPool();
+  if(!pool.length){alert('No cards in that pool.');return;}
+  simDeck=pool.sort(()=>Math.random()-.5).slice(0,Math.min(simCount,pool.length));
+  simCurIdx=0; simResults={good:0,hard:0,again:0};
+  document.getElementById('sim-setup').style.display='none';
+  document.getElementById('sim-running').style.display='block';
+  document.getElementById('sim-results').style.display='none';
+  document.getElementById('sim-tot').textContent=simDeck.length;
+  simShowQ();
+}
+function simShowQ(){
+  if(simCurIdx>=simDeck.length){simShowResults();return;}
+  const card=simDeck[simCurIdx];
+  document.getElementById('sim-cur').textContent=simCurIdx+1;
+  document.getElementById('sim-q-num').textContent='Q'+card.n;
+  document.getElementById('sim-q-text').textContent=card.q;
+  document.getElementById('sim-answer-box').style.display='none';
+  document.getElementById('sim-rate-row').style.display='none';
+  document.getElementById('sim-reveal-btn').style.display='block';
+  document.getElementById('sim-prog-bar').style.width=(simCurIdx/simDeck.length*100)+'%';
+  clearInterval(simTimerInterval);
+  simSecondsLeft=90; simUpdateTimer();
+  simTimerInterval=setInterval(()=>{simSecondsLeft--;simUpdateTimer();if(simSecondsLeft<=0){clearInterval(simTimerInterval);simReveal();}},1000);
+}
+function simUpdateTimer(){
+  const el=document.getElementById('sim-timer');
+  if(!el)return;
+  const m=Math.floor(simSecondsLeft/60),s=simSecondsLeft%60;
+  el.textContent=m+':'+(s<10?'0':'')+s;
+  el.classList.toggle('warn',simSecondsLeft<=15);
+}
+function simReveal(){
+  clearInterval(simTimerInterval);
+  const card=simDeck[simCurIdx];
+  const box=document.getElementById('sim-answer-box');
+  box.style.display='block';
+  box.innerHTML=card.a+(card.r?'<div style="margin-top:8px;font-size:11px;color:var(--eu);font-weight:600">'+card.r+'</div>':'');
+  document.getElementById('sim-reveal-btn').style.display='none';
+  document.getElementById('sim-rate-row').style.display='flex';
+}
+function simRate(r){
+  simResults[r]++;
+  epRated[simDeck[simCurIdx].n]=r;
+  simCurIdx++;
+  simShowQ();
+}
+function simShowResults(){
+  document.getElementById('sim-running').style.display='none';
+  document.getElementById('sim-results').style.display='block';
+  const total=simDeck.length;
+  const score=Math.round(simResults.good/total*100);
+  const ring=document.getElementById('sim-score-ring');
+  ring.textContent=score+'%';
+  const col=score>=70?'#22c55e':score>=40?'#f59e0b':'#ef4444';
+  ring.style.cssText='width:90px;height:90px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:22px;font-weight:800;font-family:var(--serif);background:'+col+'22;border:4px solid '+col+';color:'+col;
+  document.getElementById('sim-score-label').textContent=score>=80?'Excellent — exam ready! 🎉':score>=60?'Good — a few more sessions and you\'re there.':'Keep drilling — focus on your weak cards.';
+  document.getElementById('sim-result-breakdown').innerHTML=
+    '<div class="sim-result-chip" style="background:#f0fdf4;color:#22c55e">✓ Got it: '+simResults.good+'</div>'+
+    '<div class="sim-result-chip" style="background:#fffbeb;color:#f59e0b">~ Hard: '+simResults.hard+'</div>'+
+    '<div class="sim-result-chip" style="background:#fef2f2;color:#ef4444">✗ Again: '+simResults.again+'</div>';
+  epBuildHeatmap();
+}
+function simRetry(){simShowSetup();}
+
+// ════════════════════════════════════════════════════════════
+// CONCEPT CONNECTOR
+// ════════════════════════════════════════════════════════════
+const CONCEPT_CHAINS = [
+  {id:'primacy',title:'Doctrine of Primacy',nodes:[
+    {year:'1964',title:'Costa v. ENEL',tag:'Supremacy established',detail:'EC law is an integral part of MS legal orders. MS permanently limited sovereign rights. EU law prevails over conflicting national law.',qs:[142,143,144,145,146,147]},
+    {year:'1978',title:'Simmenthal',tag:'National courts act immediately',detail:'Every national court must immediately set aside conflicting national law — no need to wait for constitutional court or parliament.',qs:[151]},
+    {year:'German view',title:'Anwendungsvorrang',tag:'Precedence of application',detail:'Germany understands primacy as Anwendungsvorrang — national law is not void, merely set aside in the specific case. Art. 31 GG governs domestic validity.',qs:[148,149,150]},
+  ]},
+  {id:'direct',title:'Direct Effect',nodes:[
+    {year:'1963',title:'Van Gend & Loos',tag:'Direct effect born',detail:'EEC constitutes a new legal order. Individuals can invoke EU law before national courts — provisions must be clear, precise, unconditional.',qs:[139,140,141]},
+    {year:'1979',title:'Ratti',tag:'Directives after deadline',detail:'After implementation deadline, MS cannot apply unadapted national law against someone complying with a directive. Estoppel principle.',qs:[161,162]},
+    {year:'1987',title:'Kolpinghuis',tag:'No inverse vertical effect',detail:'MS cannot use unimplemented directive against individuals. Direct effect is a shield for individuals, not a sword for the state.',qs:[165]},
+    {year:'1994',title:'Faccini Dori',tag:'No horizontal effect',detail:'Directives cannot be invoked against private parties. No horizontal direct effect — only vertical (individual v. state).',qs:[166,167]},
+  ]},
+  {id:'rights',title:'Fundamental Rights Protection',nodes:[
+    {year:'1970',title:'Internationale Handelsgesellschaft',tag:'Rights as general principles',detail:'Fundamental rights are integral part of EU general principles, drawn from common constitutional traditions. EU acts cannot be assessed against national constitutions.',qs:[158,160]},
+    {year:'1974',title:'Solange I',tag:'FCC reserves review power',detail:'As long as EC lacked equivalent rights protection, FCC reserved the right to review EC secondary law against the Basic Law.',qs:[80,81,82,83,159]},
+    {year:'1986',title:'Solange II',tag:'FCC defers to ECJ',detail:'FCC would no longer exercise review jurisdiction so long as ECJ protection is essentially equivalent to Basic Law standard.',qs:[84]},
+    {year:'2015',title:'EU Warrant',tag:'Identity control applied',detail:'First time FCC actually applied the identity control to a matter fully covered by EU law, finding a violation of constitutional identity.',qs:[95,96,97,98]},
+  ]},
+  {id:'goods',title:'Free Movement of Goods',nodes:[
+    {year:'1974',title:'Dassonville',tag:'MEQR defined broadly',detail:'Any trading rule capable of hindering intra-Community trade — directly, indirectly, actually, or potentially — is a MEQR.',qs:[188,189,190,191]},
+    {year:'1979',title:'Cassis de Dijon',tag:'Mutual recognition + rule of reason',detail:'Products lawfully marketed in one MS must in principle be admitted in all. Restrictions only if proportionate mandatory requirements.',qs:[192]},
+    {year:'1993',title:'Keck',tag:'Selling arrangements excluded',detail:'Selling arrangements fall outside Art. 34 TFEU if they apply equally in law and fact and do not impede imports more than domestic goods.',qs:[193,194]},
+  ]},
+  {id:'enforce',title:'Enforcement & Liability',nodes:[
+    {year:'1976',title:'Rewe-Zentralfinanz',tag:'Procedural autonomy',detail:'MS may apply own procedural rules — subject to equivalence and effectiveness. Birth of the two procedural principles.',qs:[179,180,181,182]},
+    {year:'1991',title:'Francovich',tag:'State liability born',detail:'MS liable to individuals for loss caused by failure to transpose a directive — three conditions: conferred right, identifiable, causal link.',qs:[155,156,157]},
+    {year:'2004',title:'Kühne & Heitz',tag:'Reopen final decisions',detail:'Administrative bodies must reopen final decisions to account for subsequent ECJ interpretations under certain conditions.',qs:[183]},
+  ]},
+];
+let conceptActiveChain='all', conceptActiveNode=null;
+
+function conceptBuild(){
+  const wrap=document.getElementById('concept-chains-wrap');
+  if(!wrap)return;
+  wrap.innerHTML='';
+  const chains=conceptActiveChain==='all'?CONCEPT_CHAINS:CONCEPT_CHAINS.filter(ch=>ch.id===conceptActiveChain);
+  chains.forEach(chain=>{
+    const chainEl=document.createElement('div');
+    chainEl.className='concept-chain';
+    chainEl.dataset.chainId=chain.id;
+    let nodesHtml='';
+    chain.nodes.forEach((node,i)=>{
+      nodesHtml+='<div class="concept-node" data-nid="'+chain.id+'-'+i+'" onclick="conceptClickNode(\''+chain.id+'\','+i+')">'
+        +'<div class="cn-year">'+node.year+'</div>'
+        +'<div class="cn-title">'+node.title+'</div>'
+        +'<div class="cn-tag">'+node.tag+'</div></div>';
+      if(i<chain.nodes.length-1) nodesHtml+='<span class="concept-arrow">→</span>';
+    });
+    chainEl.innerHTML='<div class="concept-chain-title">'+chain.title+'</div>'
+      +'<div class="concept-nodes">'+nodesHtml+'</div>'
+      +'<div class="concept-detail" id="concept-detail-'+chain.id+'"></div>';
+    wrap.appendChild(chainEl);
+  });
+}
+function conceptClickNode(chainId,nodeIdx){
+  const chain=CONCEPT_CHAINS.find(c=>c.id===chainId);
+  if(!chain)return;
+  const node=chain.nodes[nodeIdx];
+  const detailEl=document.getElementById('concept-detail-'+chainId);
+  const isOpen=detailEl.classList.contains('show')&&conceptActiveNode===chainId+'-'+nodeIdx;
+  document.querySelectorAll('.concept-detail').forEach(d=>d.classList.remove('show'));
+  document.querySelectorAll('.concept-node').forEach(n=>n.classList.remove('cn-active'));
+  if(!isOpen){
+    conceptActiveNode=chainId+'-'+nodeIdx;
+    const qBtns=node.qs.map(n=>'<span class="concept-detail-q" onclick="conceptGoQ('+n+')">Q'+n+'</span>').join('');
+    detailEl.innerHTML='<div class="concept-detail-title">'+node.title+' — '+node.tag+'</div>'
+      +'<div class="concept-detail-body">'+node.detail+'</div>'
+      +'<div class="concept-detail-qs">'+qBtns+'</div>';
+    detailEl.classList.add('show');
+    const nodeEl=document.querySelector('[data-nid="'+chainId+'-'+nodeIdx+'"]');
+    if(nodeEl) nodeEl.classList.add('cn-active');
+  } else { conceptActiveNode=null; }
+}
+function conceptGoQ(n){ epGoToCard(n); }
+function conceptFilter(btn){
+  document.querySelectorAll('.concept-filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  conceptActiveChain=btn.dataset.chain;
+  conceptActiveNode=null;
+  conceptBuild();
+}
+
+// ════════════════════════════════════════════════════════════
+// PATCH epInit to also build heatmap
+// ════════════════════════════════════════════════════════════
+const _epInit_orig = epInit;
+epInit = function(){
+  _epInit_orig();
+  epBuildHeatmap();
+};
 
 </script>
 </html>
