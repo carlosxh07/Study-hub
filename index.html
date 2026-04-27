@@ -11942,7 +11942,13 @@ function epInit(){
   epIdx = 0;
   epFlipped = false;
   epStats = {seen:0,good:0,hard:0,again:0};
-  epRated = {};
+  // epRated is intentionally NOT reset here — ratings persist across session/filter changes
+  // Recount stats from existing ratings for cards in current deck
+  epDeck.forEach(card => {
+    const r = epRated[card.n];
+    if(r) epStats[r]++;
+    if(r) epStats.seen++;
+  });
   epUpdateStats();
   epRenderCard();
   document.getElementById('ep-done').style.display = 'none';
