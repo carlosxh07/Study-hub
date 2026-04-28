@@ -8019,6 +8019,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
     <button class="ep-mode-btn" id="ep-btn-game" onclick="epSetMode('game')">🗺️ Enlargement Game</button>
     <button class="ep-mode-btn" id="ep-btn-tools" onclick="epSetMode('tools')">🛠 Study Tools</button>
     <button class="ep-shuffle" onclick="epShuffle()">⇄ Shuffle</button>
+    <button class="ep-shuffle" onclick="epResetProgress()" style="background:transparent;border-color:#ef4444;color:#ef4444" title="Reset all progress">↺ Reset</button>
   </div>
 
   <!-- FLASHCARD VIEW -->
@@ -11937,18 +11938,21 @@ function epGetDeck(){
   return EP_QA.filter(q => String(q.p) === String(epActivePart));
 }
 
-function epInit(){
+function epInit(fullReset){
   epDeck = epGetDeck();
   epIdx = 0;
   epFlipped = false;
-  epStats = {seen:0,good:0,hard:0,again:0};
-  // epRated is intentionally NOT reset here — ratings persist across session/filter changes
-  // Recount stats from existing ratings for cards in current deck
-  epDeck.forEach(card => {
-    const r = epRated[card.n];
-    if(r) epStats[r]++;
-    if(r) epStats.seen++;
-  });
+  if(fullReset){
+    epRated = {};
+    epStats = {seen:0,good:0,hard:0,again:0};
+  } else {
+    // Preserve ratings — just recount stats for the current deck
+    epStats = {seen:0,good:0,hard:0,again:0};
+    epDeck.forEach(card => {
+      const r = epRated[card.n];
+      if(r){ epStats[r]++; epStats.seen++; }
+    });
+  }
   epUpdateStats();
   epRenderCard();
   document.getElementById('ep-done').style.display = 'none';
@@ -12105,14 +12109,14 @@ function epRestart(){
   const fv = document.getElementById('ep-flash-view');
   if(dn) dn.style.display = 'none';
   if(fv) fv.style.display = 'block';
-  epInit();
+  epInit(false);
 }
 
 function epSetPart(part, btn){
   epActivePart = part;
   document.querySelectorAll('.ep-filter-btn').forEach(b => b.classList.remove('active'));
   if(btn) btn.classList.add('active');
-  epInit();
+  epInit(false);
   if(epMode === 'browse') epRenderBrowse();
 }
 
@@ -12216,7 +12220,7 @@ function epSearch(){
 const _origShowPage = showPage;
 showPage = function(id, btn){
   _origShowPage(id, btn);
-  if(id === 'exam-prep') epInit();
+  if(id === 'exam-prep'){ if(!window._epVisited){ window._epVisited=true; epInit(true); } else { epInit(false); } }
 };
 
 
@@ -14904,5 +14908,19 @@ epInit = function(){
   epBuildHeatmap();
 };
 
+
+function epResetProgress(){
+  if(!confirm('Reset all ratings and progress? This cannot be undone.')) return;
+  epRated = {};
+  epStats = {seen:0,good:0,hard:0,again:0};
+  epDeck = epGetDeck();
+  epIdx = 0;
+  epFlipped = false;
+  epUpdateStats();
+  epRenderCard();
+  const dn = document.getElementById('ep-done');
+  if(dn) dn.style.display = 'none';
+  epBuildHeatmap();
+}
 </script>
 </html>
