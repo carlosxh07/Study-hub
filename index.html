@@ -508,7 +508,11 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
 .ep-heatmap-strip{margin:12px 0 4px;padding:12px 14px;background:var(--surface2);border:1px solid var(--border);border-radius:10px}
 .ep-heatmap-label{font-size:11px;font-weight:600;color:var(--text3);letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center}
 .ep-heatmap-label span:last-child{font-weight:400;font-size:10.5px;color:var(--text3)}
-.ep-heatmap-grid{display:flex;gap:3px;flex-wrap:wrap}
+.ep-heatmap-grid{display:flex;gap:3px;flex-wrap:wrap;align-items:flex-start}
+.ep-hm-section{display:flex;flex-direction:column;gap:3px;align-items:flex-start}
+.ep-hm-section-label{font-size:8.5px;font-weight:700;letter-spacing:.04em;white-space:nowrap;padding:0 2px;line-height:1.2;opacity:.55;font-family:var(--sans)}
+.ep-hm-section-cells{display:flex;gap:3px;flex-wrap:wrap}
+.ep-hm-divider{width:1px;background:var(--border);opacity:.6;margin:0 2px;align-self:stretch;min-height:14px}
 .ep-hm-cell{width:14px;height:14px;border-radius:3px;background:var(--border);cursor:pointer;transition:transform .1s,opacity .1s;flex-shrink:0}
 .ep-hm-cell:hover{transform:scale(1.35);z-index:2;position:relative}
 .ep-hm-cell[data-r="good"]{background:#22c55e}
@@ -8045,7 +8049,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
       <button class="ep-nav-btn" onclick="epPrev()" id="ep-prev">‹</button>
       <div class="ep-conf-row" id="ep-conf-row" style="opacity:.3;pointer-events:none">
         <button class="ep-conf-btn again" onclick="epRate('again')">Again</button>
-        <button class="ep-conf-btn hard" onclick="epRate('hard')">Hard</button>
+        <button class="ep-conf-btn hard" onclick="epRate('hard')">Partially</button>
         <button class="ep-conf-btn good" onclick="epRate('good')">Got it ✓</button>
       </div>
       <button class="ep-nav-btn" onclick="epNext()" id="ep-next">›</button>
@@ -8065,7 +8069,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
       <div class="tool-card" onclick="epSetMode('weak')">
         <span class="tool-card-icon">⚡</span>
         <div class="tool-card-title">Weak Cards</div>
-        <div class="tool-card-desc">Drill only your Again &amp; Hard rated cards, sorted by struggle count. Focus where it matters.</div>
+        <div class="tool-card-desc">Drill only your Again &amp; Partially rated cards, sorted by struggle count. Focus where it matters.</div>
         <span class="tool-card-badge" style="background:#fef2f2;color:#ef4444" id="tools-weak-badge">0 cards</span>
       </div>
       <div class="tool-card" onclick="epSetMode('sim')">
@@ -8134,7 +8138,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
       <div class="sim-answer-box" id="sim-answer-box"></div>
       <div class="sim-rate-row" id="sim-rate-row">
         <button class="sim-btn-again" onclick="simRate('again')">✗ Again</button>
-        <button class="sim-btn-hard" onclick="simRate('hard')">~ Hard</button>
+        <button class="sim-btn-hard" onclick="simRate('hard')">~ Partially</button>
         <button class="sim-btn-good" onclick="simRate('good')">✓ Got it</button>
       </div>
     </div>
@@ -14585,14 +14589,56 @@ function epBuildHeatmap(){
   if(!grid) return;
   grid.innerHTML = '';
   let rated = 0;
+
+  // PDF part boundaries for section labels
+  const PART_STARTS = {
+    1:  {label:'I · Tax',      color:'#8a5c00'},
+    10: {label:'II · History', color:'#1a7a5e'},
+    80: {label:'III · FCC',    color:'#2d5a9e'},
+    103:{label:'IV · EU',      color:'#7a2d6e'},
+    224:{label:'V',            color:'#c0392b'}
+  };
+
+  // Group cards into sections
+  let currentSection = null;
+  let sectionWrap = null;
+  let cellsWrap = null;
+
   EP_QA.forEach(card => {
+    // Check if this card starts a new section
+    if(PART_STARTS[card.n]){
+      // Add divider before new section (not before the first)
+      if(currentSection !== null){
+        const div = document.createElement('div');
+        div.className = 'ep-hm-divider';
+        grid.appendChild(div);
+      }
+      currentSection = card.n;
+      const part = PART_STARTS[card.n];
+
+      sectionWrap = document.createElement('div');
+      sectionWrap.className = 'ep-hm-section';
+
+      const lbl = document.createElement('div');
+      lbl.className = 'ep-hm-section-label';
+      lbl.textContent = part.label;
+      lbl.style.color = part.color;
+      sectionWrap.appendChild(lbl);
+
+      cellsWrap = document.createElement('div');
+      cellsWrap.className = 'ep-hm-section-cells';
+      sectionWrap.appendChild(cellsWrap);
+      grid.appendChild(sectionWrap);
+    }
+
     const cell = document.createElement('div');
     cell.className = 'ep-hm-cell';
     const r = epRated[card.n];
     if(r){ cell.dataset.r = r; rated++; }
-    cell.title = 'Q'+card.n+': '+card.q.slice(0,60)+'…';
+    cell.title = 'Q'+card.n+' · '+card.q.slice(0,55)+'…';
     cell.onclick = () => epGoToCard(card.n);
-    grid.appendChild(cell);
+    if(cellsWrap) cellsWrap.appendChild(cell);
+    else grid.appendChild(cell);
   });
   const pct = Math.round(rated / EP_QA.length * 100);
   const pctEl = document.getElementById('ep-hm-pct');
@@ -14613,6 +14659,11 @@ function epGoToCard(n){
   epIdx = i >= 0 ? i : 0;
   epFlipped = false;
   epSwitchToMode('flash');
+  epRenderCard();
+  // update filter UI to show "All"
+  document.querySelectorAll('.ep-filter-btn').forEach(b => b.classList.remove('active'));
+  const allBtn = document.querySelector('[data-part="all"]');
+  if(allBtn) allBtn.classList.add('active');
 }
 
 // Patch epUpdateStats to also refresh heatmap
