@@ -114,6 +114,60 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
 .ai-drill-btn{border:1px solid var(--border);background:var(--surface);color:var(--eu);padding:4px 10px;border-radius:6px;font-size:11px;cursor:pointer;font-family:var(--sans);white-space:nowrap}
 .ai-drill-btn:hover{border-color:var(--eu);background:var(--eu-l)}
 @media (max-width:700px){.ai-row{grid-template-columns:1fr;gap:4px}.ai-drill-btn{justify-self:start;margin-top:4px}}
+/* ── Schwachstellen-Radar ── */
+.radar-topic-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px;margin-top:16px}
+.radar-topic-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;cursor:pointer;transition:all .15s;box-shadow:var(--shadow)}
+.radar-topic-card:hover{border-color:var(--eu-m)}
+.radar-topic-card.active-filter{border-color:var(--eu);box-shadow:0 0 0 2px var(--eu-l)}
+.radar-topic-title{font-size:13.5px;font-weight:600;color:var(--text);line-height:1.35;margin-bottom:10px;min-height:36px}
+.radar-progress-bar{height:9px;border-radius:5px;background:var(--surface2);overflow:hidden;display:flex;margin-bottom:8px}
+.radar-seg{height:100%}
+.radar-seg-sure{background:var(--green)}
+.radar-seg-unsure{background:var(--amber)}
+.radar-seg-new{background:var(--border2)}
+.radar-topic-counts{display:flex;gap:10px;font-size:11px;color:var(--text3);flex-wrap:wrap}
+.radar-topic-counts span{display:inline-flex;align-items:center;gap:4px}
+.radar-dot{width:7px;height:7px;border-radius:50%;display:inline-block;flex-shrink:0}
+.radar-filter-row{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0 14px}
+.radar-filter-chip{padding:6px 14px;border-radius:20px;border:1px solid var(--border2);background:var(--surface);font-size:12.5px;font-weight:500;cursor:pointer;color:var(--text2);transition:all .15s}
+.radar-filter-chip:hover{background:var(--surface2)}
+.radar-filter-chip.active{background:var(--eu);color:#fff;border-color:var(--eu)}
+.radar-qlist{display:flex;flex-direction:column;gap:6px}
+.radar-qitem{display:flex;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 14px;font-size:13px}
+.radar-qitem-status{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.radar-qitem-text{flex:1;color:var(--text2);line-height:1.4}
+.radar-qitem-btn{border:1px solid var(--border2);background:var(--surface);color:var(--eu);padding:4px 12px;border-radius:6px;font-size:11.5px;cursor:pointer;white-space:nowrap;font-family:var(--sans)}
+.radar-qitem-btn:hover{border-color:var(--eu);background:var(--eu-l)}
+.radar-practice-wrap{max-width:640px}
+.radar-practice-progress{font-size:12px;color:var(--text3);margin-bottom:10px}
+.radar-practice-q{font-family:var(--serif);font-size:19px;line-height:1.5;color:var(--text);margin-bottom:16px}
+.radar-hint-actions{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.radar-hint-box{border-left:3px solid var(--amber);background:var(--amber-l);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:10px 14px;font-size:13px;color:var(--text2);line-height:1.6;margin-bottom:10px}
+.radar-solution-box{border-left:3px solid var(--green);background:var(--green-l);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:14px 16px;font-size:13.5px;color:var(--text);line-height:1.65;margin-bottom:16px}
+.radar-grade-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;padding-top:14px;border-top:1px solid var(--border)}
+.radar-grade-btn{flex:1;min-width:140px;padding:12px;border-radius:var(--radius-sm);border:1px solid var(--border2);background:var(--surface);cursor:pointer;font-family:var(--sans);font-size:13px;font-weight:500;transition:all .15s;text-align:center}
+.radar-grade-sure{color:var(--green)}.radar-grade-sure:hover{background:var(--green-l);border-color:var(--green)}
+.radar-grade-unsure{color:var(--amber)}.radar-grade-unsure:hover{background:var(--amber-l);border-color:var(--amber)}
+.radar-empty{color:var(--text3);font-size:13px;padding:24px;text-align:center}
+
+/* ── Wiederholungsplan ── */
+.rp-setup{display:flex;align-items:flex-end;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.rp-setup label{font-size:12.5px;color:var(--text2);display:block;margin-bottom:6px}
+.rp-setup input{width:100px;padding:8px 12px;border:1px solid var(--border2);border-radius:var(--radius-sm);font-family:var(--sans);font-size:14px;background:var(--surface);color:var(--text)}
+.rp-summary{display:flex;gap:16px;flex-wrap:wrap;margin:16px 0;font-size:12.5px;color:var(--text2)}
+.rp-summary strong{color:var(--text)}
+.rp-day-list{display:flex;flex-direction:column;gap:10px;margin-top:14px}
+.rp-day-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow)}
+.rp-day-card.rp-day-done{opacity:.55}
+.rp-day-header{display:flex;align-items:baseline;gap:10px;margin-bottom:10px;flex-wrap:wrap}
+.rp-day-num{font-family:var(--serif);font-size:16px;color:var(--eu)}
+.rp-day-meta{font-size:11px;color:var(--text3)}
+.rp-topic-row{display:flex;align-items:flex-start;gap:10px;padding:6px 0;font-size:13px}
+.rp-topic-row input[type=checkbox]{margin-top:3px;width:16px;height:16px;flex-shrink:0;accent-color:var(--eu);cursor:pointer}
+.rp-topic-label{cursor:pointer;color:var(--text2)}
+.rp-topic-label:hover{color:var(--eu);text-decoration:underline}
+.rp-topic-row.rp-checked .rp-topic-label{text-decoration:line-through;color:var(--text3)}
+.rp-topic-tag{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:6px;flex-shrink:0;position:relative;top:1px}
 .sum-title{font-size:14px;font-weight:600;color:var(--text);margin-bottom:8px;display:flex;align-items:center;gap:8px}
 .sum-card p{font-size:13.5px;color:var(--text2);line-height:1.7}
 .sum-card ul{font-size:13.5px;color:var(--text2);line-height:1.75;padding-left:18px;margin-top:6px}
@@ -669,6 +723,8 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
     <button class="nav-sub" onclick="showLecture('eu','ix',this)">Session IX</button>
     <button class="nav-sub active" id="nav-examprep-btn" onclick="showPage('exam-prep',this)" style="color:var(--eu);font-weight:500">🎯 Exam Prep</button>
     <button class="nav-sub" onclick="showPage('article-index',this)" style="color:var(--eu);font-weight:500">📚 Article Index</button>
+    <button class="nav-sub" onclick="showPage('radar',this); radarInit();" style="color:var(--eu);font-weight:500">🎯 Schwachstellen-Radar</button>
+    <button class="nav-sub" onclick="showPage('reviewplan',this)" style="color:var(--eu);font-weight:500">🗓️ Wiederholungsplan</button>
   </nav>
 </aside>
 
@@ -4105,6 +4161,77 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
     </div>
   </div>
 </div>
+<div id="page-radar" class="page">
+  <div class="page-eyebrow" style="color:var(--eu)">EU Law · Schwachstellen-Radar</div>
+  <div class="page-title">Schwachstellen-Radar</div>
+  <div class="page-desc">Status pro Thema, basierend auf deinen bisherigen Bewertungen (auch aus dem Exam-Prep-Flashcard-Modus). Übe gezielt nur das, was noch unsicher ist.</div>
+
+  <div class="sum-card" id="radar-hex-wrap">
+    <h4 style="margin-bottom:2px">Themen-Radar</h4>
+    <div style="font-size:12px;color:var(--text3);margin-bottom:8px">Wie bei FIFA-Spielerwerten — nur mit 10 Ecken statt 6, weil du 10 Themen hast. Je näher ein Punkt am äußeren Rand, desto sicherer beherrschst du das Thema.</div>
+    <div id="radar-hex-chart"></div>
+  </div>
+
+  <div class="radar-topic-grid" id="radar-topic-grid"></div>
+
+  <div class="radar-filter-row">
+    <button class="radar-filter-chip active" id="radar-f-all" onclick="radarSetFilter('all')">Alle Fragen</button>
+    <button class="radar-filter-chip" id="radar-f-unsure" onclick="radarSetFilter('unsure')">🟡 Nur unsicher üben</button>
+    <button class="radar-filter-chip" id="radar-f-new" onclick="radarSetFilter('new')">⚪ Nur ungeübt</button>
+    <button class="radar-filter-chip" id="radar-f-sure" onclick="radarSetFilter('sure')">🟢 Nur sicher</button>
+    <span style="flex:1"></span>
+    <button class="btn btn-primary btn-sm" id="radar-practice-all-btn" onclick="radarPracticeCurrentFilter()">▶ Übungssession starten</button>
+  </div>
+
+  <div id="radar-topic-context" style="font-size:12.5px;color:var(--text3);margin-bottom:8px;display:none"></div>
+  <div class="radar-qlist" id="radar-qlist"></div>
+
+  <div id="radar-practice-view" style="display:none">
+    <div class="radar-practice-wrap">
+      <div class="radar-practice-progress" id="radar-practice-progress"></div>
+      <div class="sum-card">
+        <div class="radar-practice-q" id="radar-practice-q"></div>
+        <div class="radar-hint-actions">
+          <button class="btn btn-sm" onclick="radarShowHint1()" id="radar-hint1-btn">💡 Hinweis 1</button>
+          <button class="btn btn-sm" onclick="radarShowHint2()" id="radar-hint2-btn">💡 Hinweis 2 (größer)</button>
+          <button class="btn btn-sm" onclick="radarShowSolution()" id="radar-sol-btn">✅ Lösung anzeigen</button>
+        </div>
+        <div id="radar-hint1-box" style="display:none"></div>
+        <div id="radar-hint2-box" style="display:none"></div>
+        <div id="radar-solution-box" style="display:none"></div>
+        <div class="radar-grade-row">
+          <button class="radar-grade-btn radar-grade-sure" onclick="radarGrade('sure')">✅ Sicher gewusst</button>
+          <button class="radar-grade-btn radar-grade-unsure" onclick="radarGrade('unsure')">🟡 Unsicher / falsch — nochmal üben</button>
+        </div>
+      </div>
+      <button class="btn btn-sm" style="margin-top:12px" onclick="radarExitPractice()">← Zurück zur Übersicht</button>
+    </div>
+  </div>
+</div>
+
+<div id="page-reviewplan" class="page">
+  <div class="page-eyebrow" style="color:var(--eu)">EU Law · Wiederholungsplan</div>
+  <div class="page-title">Wiederholungsplan</div>
+  <div class="page-desc">Ein Tagesplan bis zur Prüfung, gewichtet nach Themengröße, eingeschätzter Schwierigkeit und — falls vorhanden — deinem Status aus dem Schwachstellen-Radar.</div>
+
+  <div class="sum-card">
+    <div class="rp-setup">
+      <div>
+        <label for="rp-days-input">Tage bis zur Prüfung</label>
+        <input type="number" id="rp-days-input" min="1" max="90" placeholder="z. B. 14">
+      </div>
+      <button class="btn btn-primary" onclick="rpBuildPlan()">Plan erstellen</button>
+      <button class="btn btn-sm" onclick="rpResetPlan()" id="rp-reset-btn" style="display:none">↺ Neu erstellen</button>
+    </div>
+    <div class="note-box" id="rp-radar-note" style="display:none">Der Plan berücksichtigt deinen aktuellen Radar-Status: unsichere Themen kommen häufiger vor.</div>
+  </div>
+
+  <div id="rp-output" style="display:none">
+    <div class="rp-summary" id="rp-summary"></div>
+    <div class="rp-day-list" id="rp-day-list"></div>
+  </div>
+</div>
+
 
 
 <!-- CASE MATCH GAME -->
@@ -6581,6 +6708,7 @@ function epSwitchToMode(mode){
   if(mode === 'sim') simShowSetup();
   if(mode === 'concept') conceptBuild();
   if(mode === 'lawgame') lawGameInit();
+  if(mode === 'game' && !window._epgGameVisited){ window._epgGameVisited = true; epgInitDrag(); }
 }
 
 // Override the original epSetMode to route through our unified handler
@@ -6994,6 +7122,427 @@ function lawGameNextRound(){
 
 function lawGameReset(){
   lawGameInit();
+}
+
+
+const RADAR_TOPICS = [{"id": "t1", "label": "Steuerrecht & PE", "qnums": [1, 2, 3, 4, 5, 6, 7, 8, 9]}, {"id": "t2", "label": "Rechtssysteme & Grundgesetz", "qnums": [58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79]}, {"id": "t3", "label": "Römisches Recht & Antike", "qnums": [10, 11, 12, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35]}, {"id": "t4", "label": "Heiliges Römisches Reich & dt. Geschichte", "qnums": [13, 14, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57]}, {"id": "t5", "label": "EU-Außenbeziehungen", "qnums": [224, 225, 226, 227, 228, 229, 230]}, {"id": "t6", "label": "Vorrang, unmittelbare Wirkung & Staatshaftung", "qnums": [139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183]}, {"id": "t7", "label": "Warenverkehr & Arbeitnehmerfreizügigkeit", "qnums": [184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 220, 221]}, {"id": "t8", "label": "Niederlassung, Dienstleistung & Kapitalverkehr", "qnums": [206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 222, 223]}, {"id": "t9", "label": "BVerfG-Rechtsprechung (Solange–PSPP)", "qnums": [80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102]}, {"id": "t10", "label": "EU-Institutionen, Kompetenzen & Erweiterung", "qnums": [103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138]}];
+
+// ══════════════════════════════════════════
+// SCHWACHSTELLEN-RADAR
+// ══════════════════════════════════════════
+let radarFilter = 'all';
+let radarActiveTopic = null;
+let radarQueue = [];
+let radarQueueIdx = 0;
+
+function radarStatusOf(n){
+  const r = epRated[n];
+  if(r === 'good') return 'sure';
+  if(r === 'hard' || r === 'again') return 'unsure';
+  return 'new';
+}
+
+function radarApplyRating(n, rating){
+  const prev = epRated[n];
+  if(prev === 'good') epStats.good--;
+  else if(prev === 'hard') epStats.hard--;
+  else if(prev === 'again') epStats.again--;
+  epRated[n] = rating;
+  epStats[rating] = (epStats[rating]||0) + 1;
+  if(typeof epUpdateStats === 'function') epUpdateStats();
+}
+
+function radarCounts(qnums){
+  let sure=0, unsure=0, neu=0;
+  qnums.forEach(n=>{
+    const s = radarStatusOf(n);
+    if(s==='sure') sure++; else if(s==='unsure') unsure++; else neu++;
+  });
+  return {sure, unsure, neu, total: qnums.length};
+}
+
+const RADAR_LABEL_LINES = {
+  t1:['Steuerrecht','& PE'], t2:['Rechtssysteme &','Grundgesetz'], t3:['Römisches Recht','& Antike'],
+  t4:['HRE & dt.','Geschichte'], t5:['EU-Außen-','beziehungen'], t6:['Vorrang & un-','mittelb. Wirkung'],
+  t7:['Warenverkehr &','Arbeitnehmer-FZ'], t8:['Niederlassung,','Dienstl., Kapital'],
+  t9:['BVerfG (Solange','–PSPP)'], t10:['EU-Institutionen','& Kompetenzen']
+};
+
+function radarHexScore(topic){
+  const c = radarCounts(topic.qnums);
+  if(c.total === 0) return 0;
+  return (c.sure*100 + c.unsure*50) / c.total;
+}
+
+function radarRenderHexChart(){
+  const el = document.getElementById('radar-hex-chart');
+  if(!el) return;
+  const n = RADAR_TOPICS.length;
+  const cx = 300, cy = 300, R = 190, labelR = 240;
+
+  function pointAt(i, r){
+    const angle = (-90 + i*(360/n)) * Math.PI/180;
+    return [cx + r*Math.cos(angle), cy + r*Math.sin(angle)];
+  }
+
+  let gridPolys = '';
+  [0.25,0.5,0.75,1].forEach(frac=>{
+    const pts = RADAR_TOPICS.map((t,i)=>pointAt(i, R*frac).join(',')).join(' ');
+    gridPolys += `<polygon points="${pts}" fill="none" stroke="var(--border2)" stroke-width="1"/>`;
+  });
+
+  let axisLines = '';
+  RADAR_TOPICS.forEach((t,i)=>{
+    const [x,y] = pointAt(i, R);
+    axisLines += `<line x1="${cx}" y1="${cy}" x2="${x}" y2="${y}" stroke="var(--border2)" stroke-width="1"/>`;
+  });
+
+  const dataPts = RADAR_TOPICS.map((t,i)=>{
+    const score = radarHexScore(t);
+    return pointAt(i, R * (score/100));
+  });
+  const dataPtsStr = dataPts.map(p=>p.join(',')).join(' ');
+  const dataPolygon = `<polygon points="${dataPtsStr}" fill="var(--eu)" fill-opacity="0.18" stroke="var(--eu)" stroke-width="2"/>`;
+  const dataDots = dataPts.map((p,i)=>{
+    const score = radarHexScore(RADAR_TOPICS[i]);
+    const color = score>=75?'var(--green)': score>=40?'var(--amber)':'var(--red)';
+    return `<circle cx="${p[0]}" cy="${p[1]}" r="4.5" fill="${color}" stroke="var(--surface)" stroke-width="1.5"/>`;
+  }).join('');
+
+  let labelsSvg = '';
+  RADAR_TOPICS.forEach((t,i)=>{
+    const [x,y] = pointAt(i, labelR);
+    const angle = -90 + i*(360/n);
+    const rad = angle*Math.PI/180;
+    const cosv = Math.cos(rad);
+    let anchor = 'middle';
+    if(cosv > 0.15) anchor = 'start';
+    else if(cosv < -0.15) anchor = 'end';
+    const lines = RADAR_LABEL_LINES[t.id] || [t.label];
+    const tspans = lines.map((line,li)=>`<tspan x="${x}" dy="${li===0?-4:14}">${line}</tspan>`).join('');
+    labelsSvg += `<text x="${x}" y="${y}" text-anchor="${anchor}" font-size="11" fill="var(--text2)" font-family="var(--sans)">${tspans}</text>`;
+  });
+
+  el.innerHTML = `<svg viewBox="0 0 600 600" style="width:100%;height:auto;max-width:540px;display:block;margin:0 auto">
+    ${gridPolys}${axisLines}${dataPolygon}${dataDots}${labelsSvg}
+  </svg>`;
+}
+
+function radarRenderTopicGrid(){
+  radarRenderHexChart();
+  const grid = document.getElementById('radar-topic-grid');
+  if(!grid) return;
+  grid.innerHTML = RADAR_TOPICS.map(t=>{
+    const c = radarCounts(t.qnums);
+    const pSure = c.total ? (c.sure/c.total*100) : 0;
+    const pUnsure = c.total ? (c.unsure/c.total*100) : 0;
+    const pNew = c.total ? (c.neu/c.total*100) : 0;
+    const activeCls = radarActiveTopic === t.id ? ' active-filter' : '';
+    return `<div class="radar-topic-card${activeCls}" onclick="radarSelectTopic('${t.id}')">
+      <div class="radar-topic-title">${t.label}</div>
+      <div class="radar-progress-bar">
+        <div class="radar-seg radar-seg-sure" style="width:${pSure}%"></div>
+        <div class="radar-seg radar-seg-unsure" style="width:${pUnsure}%"></div>
+        <div class="radar-seg radar-seg-new" style="width:${pNew}%"></div>
+      </div>
+      <div class="radar-topic-counts">
+        <span><span class="radar-dot" style="background:var(--green)"></span>${c.sure} sicher</span>
+        <span><span class="radar-dot" style="background:var(--amber)"></span>${c.unsure} unsicher</span>
+        <span><span class="radar-dot" style="background:var(--border2)"></span>${c.neu} neu</span>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function radarSelectTopic(id){
+  radarActiveTopic = (radarActiveTopic === id) ? null : id;
+  const ctx = document.getElementById('radar-topic-context');
+  if(ctx){
+    if(radarActiveTopic){
+      const t = RADAR_TOPICS.find(x=>x.id===radarActiveTopic);
+      ctx.textContent = 'Gefiltert nach Thema: ' + (t?t.label:'');
+      ctx.style.display = 'block';
+    } else {
+      ctx.style.display = 'none';
+    }
+  }
+  radarRenderTopicGrid();
+  radarRenderQList();
+}
+
+function radarSetFilter(f){
+  radarFilter = f;
+  ['all','unsure','new','sure'].forEach(x=>{
+    const b = document.getElementById('radar-f-'+x);
+    if(b) b.classList.toggle('active', x===f);
+  });
+  radarRenderQList();
+}
+
+function radarGetFilteredQNums(){
+  let pool = radarActiveTopic ? RADAR_TOPICS.find(t=>t.id===radarActiveTopic).qnums : RADAR_TOPICS.flatMap(t=>t.qnums);
+  if(radarFilter === 'all') return pool;
+  return pool.filter(n => radarStatusOf(n) === radarFilter);
+}
+
+function radarRenderQList(){
+  const list = document.getElementById('radar-qlist');
+  if(!list) return;
+  const nums = radarGetFilteredQNums();
+  if(nums.length === 0){
+    list.innerHTML = '<div class="radar-empty">Keine Fragen in diesem Filter — gut so, oder Filter wechseln.</div>';
+    return;
+  }
+  const colors = {sure:'var(--green)', unsure:'var(--amber)', new:'var(--border2)'};
+  list.innerHTML = nums.map(n=>{
+    const q = EP_QA.find(c=>c.n===n);
+    const status = radarStatusOf(n);
+    return `<div class="radar-qitem">
+      <span class="radar-qitem-status" style="background:${colors[status]}"></span>
+      <span class="radar-qitem-text">#${n} — ${q.q.length>110 ? q.q.slice(0,110)+'…' : q.q}</span>
+      <button class="radar-qitem-btn" onclick="radarStartPractice([${n}])">Üben →</button>
+    </div>`;
+  }).join('');
+}
+
+function radarPracticeCurrentFilter(){
+  const nums = radarGetFilteredQNums();
+  if(nums.length === 0) return;
+  radarStartPractice(nums);
+}
+
+function radarStartPractice(qNums){
+  radarQueue = [...qNums];
+  radarQueueIdx = 0;
+  document.getElementById('radar-topic-grid').parentElement; // no-op guard
+  document.getElementById('radar-practice-view').style.display = 'block';
+  radarRenderPracticeQuestion();
+  document.getElementById('radar-practice-view').scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+function radarHint1For(q){
+  if(q.r) return '💡 Denk an: <strong>' + q.r + '</strong>';
+  const t = RADAR_TOPICS.find(x=>x.qnums.includes(q.n));
+  return '💡 Thema: <strong>' + (t?t.label:'—') + '</strong>';
+}
+
+function radarHint2For(q){
+  const words = q.a.split(' ');
+  const cut = Math.max(6, Math.ceil(words.length*0.4));
+  return '💡 Anfang der Antwort: „' + words.slice(0,cut).join(' ') + ' …"';
+}
+
+function radarRenderPracticeQuestion(){
+  const n = radarQueue[radarQueueIdx];
+  const q = EP_QA.find(c=>c.n===n);
+  const prog = document.getElementById('radar-practice-progress');
+  if(prog) prog.textContent = `Frage ${radarQueueIdx+1} von ${radarQueue.length}`;
+  const qEl = document.getElementById('radar-practice-q');
+  if(qEl) qEl.textContent = `#${n} — ${q.q}`;
+  document.getElementById('radar-hint1-box').style.display = 'none';
+  document.getElementById('radar-hint2-box').style.display = 'none';
+  document.getElementById('radar-solution-box').style.display = 'none';
+  document.getElementById('radar-hint1-box').innerHTML = '';
+  document.getElementById('radar-hint2-box').innerHTML = '';
+  document.getElementById('radar-solution-box').innerHTML = '';
+}
+
+function radarShowHint1(){
+  const q = EP_QA.find(c=>c.n===radarQueue[radarQueueIdx]);
+  const box = document.getElementById('radar-hint1-box');
+  box.className = 'radar-hint-box';
+  box.innerHTML = radarHint1For(q);
+  box.style.display = 'block';
+}
+function radarShowHint2(){
+  const q = EP_QA.find(c=>c.n===radarQueue[radarQueueIdx]);
+  const box = document.getElementById('radar-hint2-box');
+  box.className = 'radar-hint-box';
+  box.innerHTML = radarHint2For(q);
+  box.style.display = 'block';
+}
+function radarShowSolution(){
+  const q = EP_QA.find(c=>c.n===radarQueue[radarQueueIdx]);
+  const box = document.getElementById('radar-solution-box');
+  box.className = 'radar-solution-box';
+  box.innerHTML = q.a + (q.r ? '<br><span style="color:var(--text3);font-size:12px">' + q.r + '</span>' : '');
+  box.style.display = 'block';
+}
+
+function radarGrade(rating){
+  const n = radarQueue[radarQueueIdx];
+  radarApplyRating(n, rating === 'sure' ? 'good' : 'hard');
+  if(radarQueueIdx < radarQueue.length - 1){
+    radarQueueIdx++;
+    radarRenderPracticeQuestion();
+  } else {
+    radarExitPractice();
+  }
+}
+
+function radarExitPractice(){
+  document.getElementById('radar-practice-view').style.display = 'none';
+  radarRenderTopicGrid();
+  radarRenderQList();
+}
+
+function radarInit(){
+  radarRenderTopicGrid();
+  radarRenderQList();
+}
+
+// ══════════════════════════════════════════
+// WIEDERHOLUNGSPLAN
+// ══════════════════════════════════════════
+const RP_DIFFICULTY = {t1:0.9, t2:1.0, t3:1.0, t4:1.0, t5:0.85, t6:1.3, t7:1.25, t8:1.25, t9:1.15, t10:1.1};
+const RP_COLORS = ['#2d5a9e','#1a7a5e','#8a5c00','#7a2d6e','#9c3520','#0e7490','#a16207','#4d7c0f','#be185d','#475569'];
+let rpState = null;
+
+function rpComputeWeights(){
+  const anyRadarData = Object.keys(epRated).length > 0;
+  return RADAR_TOPICS.map(t=>{
+    const sizeScore = t.qnums.length / 23;
+    let uncertaintyMult = 1;
+    if(anyRadarData){
+      const c = radarCounts(t.qnums);
+      const uncertaintyRatio = c.total ? (c.unsure*2 + c.neu*1) / (c.total*2) : 0.5;
+      uncertaintyMult = 0.6 + uncertaintyRatio*1.2;
+    }
+    const weight = sizeScore * (RP_DIFFICULTY[t.id]||1) * uncertaintyMult;
+    return {id:t.id, label:t.label, weight};
+  });
+}
+
+function rpPlaceInDay(dayIdx, topicId, daysArr, dayFill, slotsPerDay, days){
+  let d = dayIdx;
+  let offset = 0;
+  while(dayFill[d] >= slotsPerDay[d]){
+    offset++;
+    const alt1 = dayIdx+offset, alt2 = dayIdx-offset;
+    if(alt1<days && dayFill[alt1]<slotsPerDay[alt1]){ d=alt1; break; }
+    if(alt2>=0 && dayFill[alt2]<slotsPerDay[alt2]){ d=alt2; break; }
+    if(offset>days){ break; }
+  }
+  daysArr[d].push(topicId);
+  dayFill[d]++;
+}
+
+function rpDistribute(days){
+  const weights = rpComputeWeights();
+  const totalWeight = weights.reduce((s,w)=>s+w.weight,0);
+  const avgWeight = totalWeight / weights.length;
+
+  const slotsPerDay = [];
+  for(let d=0; d<days; d++){
+    const frac = days>1 ? d/(days-1) : 1;
+    slotsPerDay.push(Math.max(1, Math.round(1 + frac*2)));
+  }
+  const totalSlots = slotsPerDay.reduce((a,b)=>a+b,0);
+
+  let reps = weights.map(w=>({...w, r: Math.max(1, Math.round(w.weight/avgWeight * (totalSlots/weights.length)))}));
+  let sumReps = reps.reduce((s,r)=>s+r.r,0);
+  let guard = 0;
+  while(sumReps > totalSlots + weights.length && guard < 100){
+    reps.sort((a,b)=>b.r-a.r);
+    if(reps[0].r>1){ reps[0].r--; sumReps--; }
+    guard++;
+  }
+
+  const daysArr = Array.from({length: days}, ()=>[]);
+  const dayFill = Array(days).fill(0);
+
+  const firstWindow = Math.max(1, Math.ceil(days*0.6));
+  const inOrder = [...reps];
+  inOrder.forEach((topic, i)=>{
+    const dayIdx = Math.min(firstWindow-1, Math.floor(i * firstWindow / inOrder.length));
+    rpPlaceInDay(dayIdx, topic.id, daysArr, dayFill, slotsPerDay, days);
+    topic.remaining = topic.r - 1;
+  });
+
+  const byWeight = [...inOrder].sort((a,b)=>b.weight-a.weight);
+  byWeight.forEach(topic=>{
+    for(let k=0;k<topic.remaining;k++){
+      let dayIdx = days-1, found = false;
+      for(let d = days-1; d>=Math.floor(days*0.3); d--){
+        if(dayFill[d] < slotsPerDay[d] && !daysArr[d].includes(topic.id)){ dayIdx = d; found = true; break; }
+      }
+      if(!found){
+        for(let d = days-1; d>=0; d--){
+          if(dayFill[d] < slotsPerDay[d]){ dayIdx = d; found = true; break; }
+        }
+      }
+      if(found) rpPlaceInDay(dayIdx, topic.id, daysArr, dayFill, slotsPerDay, days);
+    }
+  });
+
+  return daysArr;
+}
+
+function rpBuildPlan(){
+  const input = document.getElementById('rp-days-input');
+  const days = parseInt(input.value, 10);
+  if(!days || days<1){ input.focus(); input.style.borderColor='var(--red)'; return; }
+  input.style.borderColor='';
+  const daysArr = rpDistribute(days);
+  rpState = {days, plan: daysArr, done: {}};
+  document.getElementById('rp-radar-note').style.display = Object.keys(epRated).length>0 ? 'block':'none';
+  document.getElementById('rp-output').style.display = 'block';
+  document.getElementById('rp-reset-btn').style.display = 'inline-block';
+  rpRenderPlan();
+}
+
+function rpRenderPlan(){
+  const list = document.getElementById('rp-day-list');
+  if(!list || !rpState) return;
+  list.innerHTML = rpState.plan.map((topics, di)=>{
+    const rows = topics.map(tid=>{
+      const t = RADAR_TOPICS.find(x=>x.id===tid);
+      const key = di+'_'+tid;
+      const checked = rpState.done[key] ? 'checked' : '';
+      const rowCls = rpState.done[key] ? ' rp-checked' : '';
+      const colorIdx = RADAR_TOPICS.findIndex(x=>x.id===tid);
+      return `<div class="rp-topic-row${rowCls}">
+        <input type="checkbox" id="rp-cb-${key}" ${checked} onchange="rpToggleDone('${key}')">
+        <span class="rp-topic-tag" style="background:${RP_COLORS[colorIdx%RP_COLORS.length]}"></span><span class="rp-topic-label" onclick='articleDrill(${JSON.stringify(t.qnums)})' title="Zu den Flashcards für dieses Thema">${t.label}</span>
+      </div>`;
+    }).join('');
+    const daysLeft = rpState.days - di;
+    const allDone = topics.length>0 && topics.every(tid=>rpState.done[di+'_'+tid]);
+    return `<div class="rp-day-card${allDone?' rp-day-done':''}">
+      <div class="rp-day-header">
+        <span class="rp-day-num">Tag ${di+1}</span>
+        <span class="rp-day-meta">noch ${daysLeft} Tag${daysLeft===1?'':'e'} bis zur Prüfung</span>
+      </div>
+      ${rows || '<div style="color:var(--text3);font-size:12px">— frei —</div>'}
+    </div>`;
+  }).join('');
+  rpRenderSummary();
+}
+
+function rpRenderSummary(){
+  const summary = document.getElementById('rp-summary');
+  if(!summary || !rpState) return;
+  let totalSlots=0, doneSlots=0;
+  rpState.plan.forEach((topics,di)=>{
+    topics.forEach(tid=>{
+      totalSlots++;
+      if(rpState.done[di+'_'+tid]) doneSlots++;
+    });
+  });
+  summary.innerHTML = `<span><strong>${rpState.days}</strong> Tage</span><span><strong>${totalSlots}</strong> Wiederholungs-Slots insgesamt</span><span><strong>${doneSlots}</strong> erledigt</span>`;
+}
+
+function rpToggleDone(key){
+  if(!rpState) return;
+  rpState.done[key] = !rpState.done[key];
+  rpRenderPlan();
+}
+
+function rpResetPlan(){
+  rpState = null;
+  document.getElementById('rp-output').style.display = 'none';
+  document.getElementById('rp-reset-btn').style.display = 'none';
+  document.getElementById('rp-days-input').value = '';
 }
 
 
