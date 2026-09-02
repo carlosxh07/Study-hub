@@ -376,6 +376,8 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
 .ep-conf-btn.again:hover{background:var(--ic);color:#fff}
 .ep-conf-btn.hard{border-color:var(--macro);color:var(--macro);background:transparent}
 .ep-conf-btn.hard:hover{background:var(--macro);color:#fff}
+.ep-conf-btn.medium{border-color:var(--ibt);color:var(--ibt);background:transparent}
+.ep-conf-btn.medium:hover{background:var(--ibt);color:#fff}
 .ep-conf-btn.good{border-color:var(--micro);color:var(--micro);background:transparent}
 .ep-conf-btn.good:hover{background:var(--micro);color:#fff}
 .ep-conf-hint{font-size:11px;color:var(--text3);text-align:center;margin-top:8px}
@@ -3066,6 +3068,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
   <div class="ep-stats">
     <div class="ep-chip"><strong id="ep-stat-seen">0</strong>seen</div>
     <div class="ep-chip" style="color:var(--micro)"><strong id="ep-stat-good">0</strong>got it</div>
+    <div class="ep-chip" style="color:var(--ibt)"><strong id="ep-stat-medium">0</strong>mostly</div>
     <div class="ep-chip" style="color:var(--macro)"><strong id="ep-stat-hard">0</strong>hard</div>
     <div class="ep-chip" style="color:var(--ic)"><strong id="ep-stat-again">0</strong>again</div>
     <div class="ep-prog-wrap">
@@ -3161,6 +3164,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
       <div class="ep-conf-row" id="ep-conf-row" style="opacity:.3;pointer-events:none">
         <button class="ep-conf-btn again" onclick="epRate('again')">Again</button>
         <button class="ep-conf-btn hard" onclick="epRate('hard')">Partially</button>
+        <button class="ep-conf-btn medium" onclick="epRate('medium')">Mostly ✓</button>
         <button class="ep-conf-btn good" onclick="epRate('good')">Got it ✓</button>
       </div>
       <button class="ep-nav-btn" onclick="epNext()" id="ep-next">›</button>
@@ -3703,6 +3707,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
     <div class="ep-done-sub" id="ep-done-sub"></div>
     <div class="ep-done-scores">
       <div class="ep-done-chip"><div class="val" style="color:var(--micro)" id="ep-ds-good">0</div><div class="lbl">Got it</div></div>
+      <div class="ep-done-chip"><div class="val" style="color:var(--ibt)" id="ep-ds-medium">0</div><div class="lbl">Mostly</div></div>
       <div class="ep-done-chip"><div class="val" style="color:var(--macro)" id="ep-ds-hard">0</div><div class="lbl">Hard</div></div>
       <div class="ep-done-chip"><div class="val" style="color:var(--ic)" id="ep-ds-again">0</div><div class="lbl">Again</div></div>
     </div>
@@ -5457,7 +5462,7 @@ let epIdx = 0;
 let epFlipped = false;
 let epMode = 'flash';
 let epActivePart = 'all';
-let epStats = {seen:0, good:0, hard:0, again:0};
+let epStats = {seen:0, good:0, medium:0, hard:0, again:0};
 let epRated = {};
 
 function epGetDeck(){
@@ -5471,10 +5476,10 @@ function epInit(fullReset){
   epFlipped = false;
   if(fullReset){
     epRated = {};
-    epStats = {seen:0,good:0,hard:0,again:0};
+    epStats = {seen:0,good:0,medium:0,hard:0,again:0};
   } else {
     // Preserve ratings — just recount stats for the current deck
-    epStats = {seen:0,good:0,hard:0,again:0};
+    epStats = {seen:0,good:0,medium:0,hard:0,again:0};
     epDeck.forEach(card => {
       const r = epRated[card.n];
       if(r){ epStats[r]++; epStats.seen++; }
@@ -5557,24 +5562,28 @@ function epRate(rating){
   const card = epDeck[epIdx];
   const prev = epRated[card.n];
   if(prev === 'good') epStats.good--;
+  else if(prev === 'medium') epStats.medium--;
   else if(prev === 'hard') epStats.hard--;
   else if(prev === 'again') epStats.again--;
   epRated[card.n] = rating;
   epStats[rating]++;
   epUpdateStats();
+  epSaveRatedToStorage();
   setTimeout(()=>{ if(epIdx < epDeck.length-1){ epIdx++; epRenderCard(); } else { epShowDone(); } }, 180);
 }
 
 function epUpdateStats(){
   const ss = document.getElementById('ep-stat-seen');
   const sg = document.getElementById('ep-stat-good');
+  const sm = document.getElementById('ep-stat-medium');
   const sh = document.getElementById('ep-stat-hard');
   const sa = document.getElementById('ep-stat-again');
   if(ss) ss.textContent = epStats.seen;
   if(sg) sg.textContent = epStats.good;
+  if(sm) sm.textContent = epStats.medium;
   if(sh) sh.textContent = epStats.hard;
   if(sa) sa.textContent = epStats.again;
-  const rated = epStats.good + epStats.hard + epStats.again;
+  const rated = epStats.good + epStats.medium + epStats.hard + epStats.again;
   const total = epDeck.length;
   const pt = document.getElementById('ep-prog-text');
   const pf = document.getElementById('ep-prog-fill');
@@ -5588,12 +5597,14 @@ function epShowDone(){
   if(fv) fv.style.display = 'none';
   if(dn) dn.style.display = 'block';
   const dg = document.getElementById('ep-ds-good');
+  const dm = document.getElementById('ep-ds-medium');
   const dh = document.getElementById('ep-ds-hard');
   const da = document.getElementById('ep-ds-again');
   const ds = document.getElementById('ep-done-sub');
   const againBtn = document.getElementById('ep-review-again-btn');
   const againCount = Object.values(epRated).filter(v=>v==='again').length;
   if(dg) dg.textContent = epStats.good;
+  if(dm) dm.textContent = epStats.medium;
   if(dh) dh.textContent = epStats.hard;
   if(da) da.textContent = epStats.again;
   if(ds){
@@ -5626,6 +5637,7 @@ function epReviewAgain(){
   againCards.forEach(c => { epRated[c.n] = 'seen'; });
   epStats.seen = epDeck.length;
   epUpdateStats();
+  epSaveRatedToStorage();
   const dn = document.getElementById('ep-done');
   const fv = document.getElementById('ep-flash-view');
   if(dn) dn.style.display = 'none';
@@ -6831,6 +6843,7 @@ function simReveal(){
 function simRate(r){
   simResults[r]++;
   epRated[simDeck[simCurIdx].n]=r;
+  epSaveRatedToStorage();
   simCurIdx++;
   simShowQ();
 }
@@ -6946,7 +6959,8 @@ const _epInit_orig = epInit;
 function epResetProgress(){
   if(!confirm('Reset all ratings and progress? This cannot be undone.')) return;
   epRated = {};
-  epStats = {seen:0,good:0,hard:0,again:0};
+  epStats = {seen:0,good:0,medium:0,hard:0,again:0};
+  epSaveRatedToStorage();
   epDeck = epGetDeck();
   epIdx = 0;
   epFlipped = false;
@@ -6955,6 +6969,51 @@ function epResetProgress(){
   const dn = document.getElementById('ep-done');
   if(dn) dn.style.display = 'none';
   epBuildHeatmap();
+}
+
+// ════════════════════════════════════════════════════════════
+// RATING PROGRESS — persist in localStorage, survive reloads
+// ════════════════════════════════════════════════════════════
+const EP_RATED_KEY = 'ep_rated_progress_v1';
+
+function epLoadRatedFromStorage(){
+  try { return JSON.parse(localStorage.getItem(EP_RATED_KEY) || '{}'); }
+  catch(e){ return {}; }
+}
+function epSaveRatedToStorage(){
+  try { localStorage.setItem(EP_RATED_KEY, JSON.stringify(epRated)); }
+  catch(e){}
+}
+
+// ════════════════════════════════════════════════════════════
+// REVIEW PLAN — persist in localStorage, survive reloads
+// ════════════════════════════════════════════════════════════
+const RP_STATE_KEY = 'rp_plan_state_v1';
+
+function rpSaveState(){
+  try { localStorage.setItem(RP_STATE_KEY, JSON.stringify(rpState)); }
+  catch(e){}
+}
+function rpLoadState(){
+  try {
+    const raw = localStorage.getItem(RP_STATE_KEY);
+    return raw ? JSON.parse(raw) : null;
+  } catch(e){ return null; }
+}
+function rpRestoreIfSaved(){
+  const saved = rpLoadState();
+  if(saved && saved.plan && saved.days){
+    rpState = saved;
+    const input = document.getElementById('rp-days-input');
+    if(input) input.value = saved.days;
+    const note = document.getElementById('rp-radar-note');
+    if(note) note.style.display = Object.keys(epRated).length>0 ? 'block':'none';
+    const out = document.getElementById('rp-output');
+    if(out) out.style.display = 'block';
+    const resetBtn = document.getElementById('rp-reset-btn');
+    if(resetBtn) resetBtn.style.display = 'inline-block';
+    rpRenderPlan();
+  }
 }
 
 // ════════════════════════════════════════════════════════════
@@ -7138,18 +7197,20 @@ let radarQueueIdx = 0;
 function radarStatusOf(n){
   const r = epRated[n];
   if(r === 'good') return 'sure';
-  if(r === 'hard' || r === 'again') return 'unsure';
+  if(r === 'medium' || r === 'hard' || r === 'again') return 'unsure';
   return 'new';
 }
 
 function radarApplyRating(n, rating){
   const prev = epRated[n];
   if(prev === 'good') epStats.good--;
+  else if(prev === 'medium') epStats.medium--;
   else if(prev === 'hard') epStats.hard--;
   else if(prev === 'again') epStats.again--;
   epRated[n] = rating;
   epStats[rating] = (epStats[rating]||0) + 1;
   if(typeof epUpdateStats === 'function') epUpdateStats();
+  epSaveRatedToStorage();
 }
 
 function radarCounts(qnums){
@@ -7489,6 +7550,7 @@ function rpBuildPlan(){
   document.getElementById('rp-output').style.display = 'block';
   document.getElementById('rp-reset-btn').style.display = 'inline-block';
   rpRenderPlan();
+  rpSaveState();
 }
 
 function rpRenderPlan(){
@@ -7536,10 +7598,12 @@ function rpToggleDone(key){
   if(!rpState) return;
   rpState.done[key] = !rpState.done[key];
   rpRenderPlan();
+  rpSaveState();
 }
 
 function rpResetPlan(){
   rpState = null;
+  try { localStorage.removeItem(RP_STATE_KEY); } catch(e){}
   document.getElementById('rp-output').style.display = 'none';
   document.getElementById('rp-reset-btn').style.display = 'none';
   document.getElementById('rp-days-input').value = '';
@@ -7547,7 +7611,9 @@ function rpResetPlan(){
 
 
 document.addEventListener('DOMContentLoaded', function(){
-  if(!window._epVisited){ window._epVisited = true; epInit(true); }
+  epRated = epLoadRatedFromStorage();
+  if(!window._epVisited){ window._epVisited = true; epInit(false); }
+  rpRestoreIfSaved();
 });
 </script>
 </body>
