@@ -693,11 +693,15 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
 
 /* ── Card Notes ──────────────────────────────────────────── */
 .ep-note-wrap{margin-top:12px;border-top:1px solid var(--eu-m);padding-top:10px}
-.ep-note-lbl{font-size:9.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--eu);opacity:.7;margin-bottom:5px;display:flex;align-items:center;gap:5px}
+.ep-note-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px}
+.ep-note-lbl{font-size:9.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--eu);opacity:.7;margin-bottom:0;display:flex;align-items:center;gap:5px}
 .ep-note-lbl::before{content:'✏️';font-size:10px}
-.ep-note-ta{width:100%;min-height:54px;max-height:120px;border:1px solid var(--eu-m);border-radius:6px;background:rgba(255,255,255,.55);padding:7px 9px;font-size:12px;font-family:var(--sans);color:var(--text);resize:vertical;outline:none;transition:border-color .15s;box-sizing:border-box;line-height:1.5}
+.ep-note-toolbar{display:flex;gap:4px}
+.ep-note-fmt-btn{width:22px;height:22px;border:1px solid var(--eu-m);border-radius:4px;background:rgba(255,255,255,.55);color:var(--text2);font-size:11px;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;font-family:var(--sans);padding:0}
+.ep-note-fmt-btn:hover{background:var(--eu-l);border-color:var(--eu);color:var(--eu)}
+.ep-note-ta{width:100%;min-height:54px;max-height:120px;border:1px solid var(--eu-m);border-radius:6px;background:rgba(255,255,255,.55);padding:7px 9px;font-size:12px;font-family:var(--sans);color:var(--text);outline:none;transition:border-color .15s;box-sizing:border-box;line-height:1.5;white-space:pre-wrap;word-wrap:break-word;overflow-y:auto}
 .ep-note-ta:focus{border-color:var(--eu);background:rgba(255,255,255,.85)}
-.ep-note-ta::placeholder{color:var(--text3);font-style:italic}
+.ep-note-ta:empty:before{content:attr(data-placeholder);color:var(--text3);font-style:italic}
 
 </style>
 </head>
@@ -3155,8 +3159,14 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
           <div id="ep-ref-box" style="display:none;margin-top:10px;padding:5px 10px;background:var(--eu-l,#e8edf8);border-left:3px solid var(--eu,#2d5a9e);border-radius:4px;font-size:11px;color:var(--eu,#2d5a9e);font-family:'DM Sans',sans-serif;letter-spacing:.01em"></div>
           <div class="ep-a" id="ep-a"></div>
           <div class="ep-note-wrap">
-            <div class="ep-note-lbl">My Note</div>
-            <textarea class="ep-note-ta" id="ep-note-ta" placeholder="Add your own note for this card…" oninput="epSaveNote()" onclick="event.stopPropagation()" onmousedown="event.stopPropagation()"></textarea>
+            <div class="ep-note-header">
+              <div class="ep-note-lbl">My Note</div>
+              <div class="ep-note-toolbar">
+                <button type="button" class="ep-note-fmt-btn" onmousedown="event.preventDefault();event.stopPropagation()" onclick="event.stopPropagation();epNoteFormat('bold')" title="Bold"><b>B</b></button>
+                <button type="button" class="ep-note-fmt-btn" onmousedown="event.preventDefault();event.stopPropagation()" onclick="event.stopPropagation();epNoteFormat('underline')" title="Underline"><u>U</u></button>
+              </div>
+            </div>
+            <div class="ep-note-ta" id="ep-note-ta" contenteditable="true" data-placeholder="Add your own note for this card…" oninput="epSaveNote()" onclick="event.stopPropagation()" onmousedown="event.stopPropagation()"></div>
           </div>
         </div>
       </div>
@@ -7033,16 +7043,29 @@ function epSaveNote(){
   const card = epDeck[epIdx];
   if(!ta || !card) return;
   const notes = epLoadNotes();
-  if(ta.value.trim()) notes[card.n] = ta.value;
+  if(ta.textContent.trim()) notes[card.n] = ta.innerHTML;
   else delete notes[card.n];
   try { localStorage.setItem(EP_NOTES_KEY, JSON.stringify(notes)); } catch(e){}
+}
+
+function epNoteFormat(cmd){
+  const ta = document.getElementById('ep-note-ta');
+  if(!ta) return;
+  ta.focus();
+  document.execCommand(cmd, false, null);
+  epSaveNote();
 }
 
 function epLoadNoteForCard(n){
   const ta = document.getElementById('ep-note-ta');
   if(!ta) return;
   const notes = epLoadNotes();
-  ta.value = notes[n] || '';
+  let val = notes[n] || '';
+  if(val && !/<[a-z][\s\S]*>/i.test(val)){
+    // legacy plain-text note from before rich text — escape so it displays literally
+    val = val.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+  ta.innerHTML = val;
 }
 
 const LAW_CASES = [{"case": "Van Gend en Loos (1963)", "holding": "Individuals can invoke clear, precise, unconditional EU law directly before national courts (direct effect)."}, {"case": "Costa v. ENEL (1964)", "holding": "EU law prevails over conflicting national law, including later-enacted national legislation (primacy)."}, {"case": "Internationale Handelsgesellschaft (1970)", "holding": "Primacy extends even to national constitutional law; fundamental rights are protected as general principles of EU law."}, {"case": "Simmenthal (1978)", "holding": "Every national court, even a lower court, must immediately set aside conflicting national law without waiting for a constitutional court."}, {"case": "Francovich (1991)", "holding": "A Member State must compensate individuals for loss caused by its failure to implement a directive on time."}, {"case": "Ratti (1979)", "holding": "After the deadline passes, a state cannot enforce stricter national law against someone who complied with an unimplemented directive."}, {"case": "Faccini Dori (1994)", "holding": "A directive cannot be invoked by one private party against another — no horizontal direct effect."}, {"case": "Rewe-Zentralfinanz (1976)", "holding": "Member states set their own procedural rules for enforcing EU rights, limited by equivalence and effectiveness."}, {"case": "Kühne & Heitz (2004)", "holding": "An administrative body must, under certain conditions, reopen a final decision to reflect a later ECJ ruling."}, {"case": "Dassonville (1974)", "holding": "Any national trading rule capable of hindering intra-EU trade is a prohibited measure having equivalent effect (MEQR)."}, {"case": "Keck (1993)", "holding": "Selling arrangements fall outside Art. 34 TFEU if they apply equally in law and fact — unlike product-bound rules."}, {"case": "Commission v. Ireland — ‘Buy Irish’ (1982)", "holding": "State-funded promotion of domestic goods breaches EU law even without a formal legal barrier."}, {"case": "Schumacker (1995)", "holding": "A non-resident earning almost all income in the source state must get the same personal tax deductions as a resident."}, {"case": "de Groot (2002)", "holding": "The state of residence cannot cut personal tax relief just because part of a worker's income was earned abroad."}, {"case": "Tanja Kreil (2000)", "holding": "A blanket ban on women in armed-forces combat roles violates the Equal Treatment Directive."}, {"case": "Säger (1991)", "holding": "Restrictions on the freedom to provide services must be justified by the general interest and be proportionate."}, {"case": "Solange I (1974)", "holding": "The FCC reserved the right to review EC law against German fundamental rights, since the EC lacked equivalent protection."}, {"case": "Solange II (1986)", "holding": "The FCC withdrew that review once the ECJ's own fundamental rights protection became essentially equivalent."}, {"case": "Maastricht (FCC, 1993)", "holding": "Confirmed the ultra vires doctrine — the FCC's power to check whether the EU has exceeded its conferred powers."}, {"case": "Lisbon (FCC, 2009)", "holding": "Defined the EU as a Staatenverbund; certain core state functions can never be transferred to the EU."}, {"case": "EU-Warrant (FCC, 2015)", "holding": "First actual use of ‘identity control’ against a matter fully governed by EU law."}, {"case": "PSPP (FCC, 2020)", "holding": "The FCC found the ECJ's review of the ECB's bond-buying programme was ultra vires — a first for any national court."}];
