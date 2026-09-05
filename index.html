@@ -364,7 +364,8 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
 .ep-tap{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);font-size:11px;color:var(--text3);animation:epPulse 2s ease-in-out infinite}
 @keyframes epPulse{0%,100%{opacity:.4}50%{opacity:.9}}
 .ep-answer-lbl{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--eu);margin-bottom:8px}
-.ep-a{font-size:13.5px;line-height:1.65;color:var(--text2);overflow-y:auto;max-height:195px}
+.ep-a{font-size:13.5px;line-height:1.65;color:var(--text2);overflow-y:auto;max-height:195px;outline:none;border-radius:4px;transition:background-color .15s}
+.ep-a:focus{background:rgba(255,255,255,.4)}
 .ep-a::-webkit-scrollbar{width:3px}.ep-a::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
 .ep-nav-row{display:flex;gap:12px;align-items:center;justify-content:center;margin-top:16px}
 .ep-nav-btn{background:var(--surface);border:1px solid var(--border);color:var(--text2);width:44px;height:44px;border-radius:50%;font-size:1.1rem;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow)}
@@ -692,13 +693,16 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
 
 
 /* ── Card Notes ──────────────────────────────────────────── */
-.ep-note-wrap{margin-top:12px;border-top:1px solid var(--eu-m);padding-top:10px}
+.ep-note-wrap{margin-top:4px}
 .ep-note-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px}
 .ep-note-lbl{font-size:9.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--eu);opacity:.7;margin-bottom:0;display:flex;align-items:center;gap:5px}
 .ep-note-lbl::before{content:'✏️';font-size:10px}
 .ep-note-toolbar{display:flex;gap:4px}
 .ep-note-fmt-btn{width:22px;height:22px;border:1px solid var(--eu-m);border-radius:4px;background:rgba(255,255,255,.55);color:var(--text2);font-size:11px;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;font-family:var(--sans);padding:0}
 .ep-note-fmt-btn:hover{background:var(--eu-l);border-color:var(--eu);color:var(--eu)}
+.ep-fmt-toolbar{display:flex;gap:4px;justify-content:flex-end;margin-top:6px;padding-bottom:8px;border-bottom:1px solid var(--eu-m)}
+.ep-fmt-reset{font-size:12px;color:var(--text3)}
+.ep-fmt-reset:hover{color:var(--eu);background:var(--eu-l);border-color:var(--eu)}
 .ep-note-ta{width:100%;min-height:54px;max-height:120px;border:1px solid var(--eu-m);border-radius:6px;background:rgba(255,255,255,.55);padding:7px 9px;font-size:12px;font-family:var(--sans);color:var(--text);outline:none;transition:border-color .15s;box-sizing:border-box;line-height:1.5;white-space:pre-wrap;word-wrap:break-word;overflow-y:auto}
 .ep-note-ta:focus{border-color:var(--eu);background:rgba(255,255,255,.85)}
 .ep-note-ta:empty:before{content:attr(data-placeholder);color:var(--text3);font-style:italic}
@@ -3157,14 +3161,15 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
           <div class="ep-badge" id="ep-badge-b"></div>
           <div class="ep-answer-lbl">Answer</div>
           <div id="ep-ref-box" style="display:none;margin-top:10px;padding:5px 10px;background:var(--eu-l,#e8edf8);border-left:3px solid var(--eu,#2d5a9e);border-radius:4px;font-size:11px;color:var(--eu,#2d5a9e);font-family:'DM Sans',sans-serif;letter-spacing:.01em"></div>
-          <div class="ep-a" id="ep-a"></div>
+          <div class="ep-a" id="ep-a" contenteditable="true" oninput="epSaveAnswerEdit()" onclick="event.stopPropagation()" onmousedown="event.stopPropagation()"></div>
+          <div class="ep-fmt-toolbar">
+            <button type="button" class="ep-note-fmt-btn" onmousedown="event.preventDefault();event.stopPropagation()" onclick="event.stopPropagation();epFormatShared('bold')" title="Bold the selected text"><b>B</b></button>
+            <button type="button" class="ep-note-fmt-btn" onmousedown="event.preventDefault();event.stopPropagation()" onclick="event.stopPropagation();epFormatShared('underline')" title="Underline the selected text"><u>U</u></button>
+            <button type="button" class="ep-note-fmt-btn ep-fmt-reset" onmousedown="event.preventDefault();event.stopPropagation()" onclick="event.stopPropagation();epResetAnswerText()" title="Restore original answer text">↺</button>
+          </div>
           <div class="ep-note-wrap">
             <div class="ep-note-header">
               <div class="ep-note-lbl">My Note</div>
-              <div class="ep-note-toolbar">
-                <button type="button" class="ep-note-fmt-btn" onmousedown="event.preventDefault();event.stopPropagation()" onclick="event.stopPropagation();epNoteFormat('bold')" title="Bold"><b>B</b></button>
-                <button type="button" class="ep-note-fmt-btn" onmousedown="event.preventDefault();event.stopPropagation()" onclick="event.stopPropagation();epNoteFormat('underline')" title="Underline"><u>U</u></button>
-              </div>
             </div>
             <div class="ep-note-ta" id="ep-note-ta" contenteditable="true" data-placeholder="Add your own note for this card…" oninput="epSaveNote()" onclick="event.stopPropagation()" onmousedown="event.stopPropagation()"></div>
           </div>
@@ -5525,7 +5530,11 @@ function epRenderCard(){
   const a = document.getElementById('ep-a');
   if(qnum) qnum.textContent = 'Q ' + card.n;
   if(q) q.textContent = card.q;
-  if(a) a.textContent = card.a;
+  if(a){
+    const edits = epLoadAnswerEdits();
+    if(edits[card.n]) a.innerHTML = edits[card.n];
+    else a.textContent = card.a;
+  }
   const refBox = document.getElementById('ep-ref-box');
   if(refBox){ if(card.r){ refBox.textContent = card.r; refBox.style.display='block'; } else { refBox.style.display='none'; } }
   // Load note for this card (shown only on back face)
@@ -6982,6 +6991,39 @@ function epResetProgress(){
   const dn = document.getElementById('ep-done');
   if(dn) dn.style.display = 'none';
   epBuildHeatmap();
+}
+
+// ════════════════════════════════════════════════════════════
+// ANSWER TEXT EDITS (bold/underline on the printed answer) — persist in localStorage
+// ════════════════════════════════════════════════════════════
+const EP_ANSWER_EDITS_KEY = 'ep_answer_edits_v1';
+
+function epLoadAnswerEdits(){
+  try { return JSON.parse(localStorage.getItem(EP_ANSWER_EDITS_KEY) || '{}'); }
+  catch(e){ return {}; }
+}
+function epSaveAnswerEdit(){
+  const a = document.getElementById('ep-a');
+  const card = epDeck[epIdx];
+  if(!a || !card) return;
+  const edits = epLoadAnswerEdits();
+  edits[card.n] = a.innerHTML;
+  try { localStorage.setItem(EP_ANSWER_EDITS_KEY, JSON.stringify(edits)); } catch(e){}
+}
+function epResetAnswerText(){
+  const a = document.getElementById('ep-a');
+  const card = epDeck[epIdx];
+  if(!a || !card) return;
+  const edits = epLoadAnswerEdits();
+  delete edits[card.n];
+  try { localStorage.setItem(EP_ANSWER_EDITS_KEY, JSON.stringify(edits)); } catch(e){}
+  a.textContent = card.a;
+}
+function epFormatShared(cmd){
+  document.execCommand(cmd, false, null);
+  const active = document.activeElement;
+  if(active && active.id === 'ep-a') epSaveAnswerEdit();
+  else if(active && active.id === 'ep-note-ta') epSaveNote();
 }
 
 // ════════════════════════════════════════════════════════════
