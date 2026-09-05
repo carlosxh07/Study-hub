@@ -355,7 +355,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
 .ep-scene{width:100%;max-width:680px;height:380px;perspective:1200px;cursor:pointer;margin:0 auto;transition:height .2s ease}
 .ep-inner{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform .5s cubic-bezier(.4,0,.2,1)}
 .ep-inner.flipped{transform:rotateY(180deg)}
-.ep-face{position:absolute;inset:0;border-radius:var(--radius);padding:28px 30px;backface-visibility:hidden;-webkit-backface-visibility:hidden;display:flex;flex-direction:column;justify-content:center}
+.ep-face{position:absolute;inset:0;border-radius:var(--radius);padding:28px 30px;backface-visibility:hidden;-webkit-backface-visibility:hidden;display:flex;flex-direction:column;justify-content:center;overflow-y:auto}
 .ep-front{background:var(--surface);border:1px solid var(--border);box-shadow:var(--shadow-md)}
 .ep-back{background:var(--eu-l);border:1px solid var(--eu-m);box-shadow:var(--shadow-md);transform:rotateY(180deg)}
 .ep-badge{position:absolute;top:14px;right:14px;font-size:10px;font-weight:600;padding:2px 8px;border-radius:20px;letter-spacing:.04em}
@@ -364,7 +364,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
 .ep-tap{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);font-size:11px;color:var(--text3);animation:epPulse 2s ease-in-out infinite}
 @keyframes epPulse{0%,100%{opacity:.4}50%{opacity:.9}}
 .ep-answer-lbl{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--eu);margin-bottom:8px}
-.ep-a{font-size:13.5px;line-height:1.65;color:var(--text2);overflow-y:auto;max-height:260px;outline:none;border-radius:4px;transition:background-color .15s}
+.ep-a{font-size:13.5px;line-height:1.65;color:var(--text2);outline:none;border-radius:4px;transition:background-color .15s}
 .ep-a:focus{background:rgba(255,255,255,.4)}
 .ep-a::-webkit-scrollbar{width:3px}.ep-a::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
 .ep-nav-row{display:flex;gap:12px;align-items:center;justify-content:center;margin-top:16px}
@@ -5568,7 +5568,23 @@ function epAdjustCardHeight(){
   const flipped = inner.classList.contains('flipped');
   const face = document.querySelector(flipped ? '.ep-back' : '.ep-front');
   if(!face) return;
+  // .ep-face is position:absolute;inset:0, so its scrollHeight normally just
+  // reflects the box it was assigned, not its natural content height.
+  // Temporarily break out of that to measure the real content height.
+  const prevPosition = face.style.position;
+  const prevTop = face.style.top;
+  const prevBottom = face.style.bottom;
+  const prevHeight = face.style.height;
+  face.style.position = 'relative';
+  face.style.top = 'auto';
+  face.style.bottom = 'auto';
+  face.style.height = 'auto';
   const needed = face.scrollHeight;
+  face.style.position = prevPosition;
+  face.style.top = prevTop;
+  face.style.bottom = prevBottom;
+  face.style.height = prevHeight;
+
   const finalH = Math.max(380, Math.min(needed + 4, 640));
   scene.style.height = finalH + 'px';
 }
