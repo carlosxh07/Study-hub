@@ -6248,6 +6248,14 @@ document.addEventListener('keydown', function(e){
   // Don't fire if user is typing in an input
   const tag = document.activeElement && document.activeElement.tagName;
   const isEditable = document.activeElement && document.activeElement.isContentEditable;
+
+  // Cmd/Ctrl+B and Cmd/Ctrl+U format the answer or note field while it's focused
+  if(isEditable && (e.metaKey || e.ctrlKey) && (e.key === 'b' || e.key === 'B' || e.key === 'u' || e.key === 'U')){
+    e.preventDefault();
+    epFormatShared((e.key.toLowerCase() === 'b') ? 'bold' : 'underline');
+    return;
+  }
+
   if(tag === 'INPUT' || tag === 'TEXTAREA' || isEditable) return;
 
   if(e.key === 'ArrowUp' || e.key === ' '){
