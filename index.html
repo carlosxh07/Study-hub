@@ -597,6 +597,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
 .ep-hm-cell[data-r="medium"]{background:#a855f7}
 .ep-hm-cell[data-r="hard"]{background:#f59e0b}
 .ep-hm-cell[data-r="again"]{background:#ef4444}
+.ep-hm-cell.current{outline:2px solid var(--eu);outline-offset:1px;transform:scale(1.25);z-index:3;position:relative}
 .ep-hm-legend{display:flex;gap:10px;margin-top:7px;align-items:center}
 .ep-hm-leg-item{display:flex;align-items:center;gap:4px;font-size:10px;color:var(--text3)}
 .ep-hm-leg-dot{width:8px;height:8px;border-radius:2px}
@@ -5558,6 +5559,7 @@ function epRenderCard(){
     epRated[card.n] = 'seen';
     epUpdateStats();
   }
+  epHighlightCurrentInHeatmap();
   requestAnimationFrame(epAdjustCardHeight);
 }
 
@@ -6687,6 +6689,7 @@ function epBuildHeatmap(){
 
     const cell = document.createElement('div');
     cell.className = 'ep-hm-cell';
+    cell.dataset.n = card.n;
     const r = epRated[card.n];
     if(r){ cell.dataset.r = r; rated++; }
     cell.title = 'Q'+card.n+' · '+card.q.slice(0,55)+'…';
@@ -6704,6 +6707,18 @@ function epBuildHeatmap(){
   if(wc) wc.textContent = weakN;
   const tb = document.getElementById('tools-weak-badge');
   if(tb) tb.textContent = weakN + ' cards';
+  epHighlightCurrentInHeatmap();
+}
+
+function epHighlightCurrentInHeatmap(){
+  const grid = document.getElementById('ep-heatmap-grid');
+  if(!grid) return;
+  const card = epDeck[epIdx];
+  const prev = grid.querySelector('.ep-hm-cell.current');
+  if(prev) prev.classList.remove('current');
+  if(!card) return;
+  const cell = grid.querySelector('.ep-hm-cell[data-n="'+card.n+'"]');
+  if(cell) cell.classList.add('current');
 }
 
 function epGoToCard(n){
