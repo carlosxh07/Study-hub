@@ -3149,7 +3149,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
   <!-- FLASHCARD VIEW -->
   <div id="ep-flash-view">
     <div class="ep-card-counter"><span id="ep-card-pos">1</span> / <span id="ep-card-total">230</span></div>
-    <div class="ep-scene" onclick="epFlip()">
+    <div class="ep-scene" onclick="epFlipGuarded()">
       <div class="ep-inner" id="ep-inner">
         <div class="ep-face ep-front">
           <div class="ep-badge" id="ep-badge-f"></div>
@@ -5558,6 +5558,12 @@ function epRenderCard(){
     epRated[card.n] = 'seen';
     epUpdateStats();
   }
+}
+
+function epFlipGuarded(){
+  const sel = window.getSelection();
+  if(sel && sel.toString().length > 0) return; // text selected — give time to press B/U instead of flipping
+  epFlip();
 }
 
 function epFlip(){
