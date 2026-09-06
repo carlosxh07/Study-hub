@@ -629,6 +629,17 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
 .weak-item-badge{width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0;color:#fff}
 .weak-item-badge.again{background:#ef4444}
 .weak-item-badge.hard{background:#f59e0b}
+.weak-item-badge.medium{background:#a855f7}
+.weak-item-badge.good{background:#22c55e}
+.weak-filter-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.weak-filter-chip{display:flex;align-items:center;gap:6px;padding:7px 14px;border-radius:20px;border:1px solid var(--border2);background:var(--surface);font-size:12.5px;font-weight:500;cursor:pointer;color:var(--text2);transition:all .15s}
+.weak-filter-chip:hover{background:var(--surface2)}
+.weak-filter-chip.active{border-color:currentColor}
+.weak-filter-chip .wfc-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.weak-filter-chip.active.wfc-again{background:#fef2f2;color:#ef4444}
+.weak-filter-chip.active.wfc-hard{background:#fffbeb;color:#b45309}
+.weak-filter-chip.active.wfc-medium{background:#faf5ff;color:#9333ea}
+.weak-filter-chip.active.wfc-good{background:#f0fdf4;color:#16a34a}
 .weak-item-q{font-size:12px;color:var(--text2);line-height:1.4;flex:1}
 .weak-item-num{font-size:10.5px;color:var(--text3);font-weight:600;padding-top:2px}
 
@@ -3223,8 +3234,14 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
   <!-- WEAK CARDS VIEW -->
   <div id="ep-weak-view" style="display:none">
     <div class="weak-header">
-      <h3>⚡ Weak Cards</h3>
-      <button class="weak-start-all" onclick="epStartWeak()">Study all weak →</button>
+      <h3>⚡ Review by Rating</h3>
+      <button class="weak-start-all" onclick="epStartWeak()">Study selected →</button>
+    </div>
+    <div class="weak-filter-row" id="ep-weak-filter-row">
+      <div class="weak-filter-chip wfc-again" data-rating="again" onclick="epToggleWeakFilter('again')"><span class="wfc-dot" style="background:#ef4444"></span>Again</div>
+      <div class="weak-filter-chip wfc-hard" data-rating="hard" onclick="epToggleWeakFilter('hard')"><span class="wfc-dot" style="background:#f59e0b"></span>Hard</div>
+      <div class="weak-filter-chip wfc-medium" data-rating="medium" onclick="epToggleWeakFilter('medium')"><span class="wfc-dot" style="background:#a855f7"></span>Mostly</div>
+      <div class="weak-filter-chip wfc-good" data-rating="good" onclick="epToggleWeakFilter('good')"><span class="wfc-dot" style="background:#22c55e"></span>Got it</div>
     </div>
     <div id="ep-weak-list"></div>
   </div>
@@ -6810,28 +6827,51 @@ epSetMode = epSwitchToMode;
 // ════════════════════════════════════════════════════════════
 // WEAK CARDS
 // ════════════════════════════════════════════════════════════
+let epWeakFilter = {again:true, hard:true, medium:false, good:false};
+
+function epToggleWeakFilter(rating){
+  epWeakFilter[rating] = !epWeakFilter[rating];
+  const chip = document.querySelector('.weak-filter-chip[data-rating="'+rating+'"]');
+  if(chip) chip.classList.toggle('active', epWeakFilter[rating]);
+  epRenderWeakList();
+}
+
 function epLaunchWeak(){ epSwitchToMode('weak'); }
+
+function epGetWeakSelection(){
+  const order = {again:0, hard:1, medium:2, good:3};
+  const sel = EP_QA.filter(c => epWeakFilter[epRated[c.n]]);
+  sel.sort((a,b) => {
+    const oa = order[epRated[a.n]] ?? 9, ob = order[epRated[b.n]] ?? 9;
+    return oa!==ob ? oa-ob : a.n-b.n;
+  });
+  return sel;
+}
 
 function epRenderWeakList(){
   const list = document.getElementById('ep-weak-list');
   if(!list) return;
-  const weak = EP_QA.filter(c => epRated[c.n]==='again'||epRated[c.n]==='hard');
-  weak.sort((a,b) => {
-    const order = {again:0,hard:1};
-    const oa = order[epRated[a.n]]??2, ob = order[epRated[b.n]]??2;
-    return oa!==ob ? oa-ob : a.n-b.n;
+  document.querySelectorAll('.weak-filter-chip').forEach(chip=>{
+    chip.classList.toggle('active', !!epWeakFilter[chip.dataset.rating]);
   });
-  if(weak.length === 0){
-    list.innerHTML = '<div class="weak-empty">🎉 No weak cards yet — rate some flashcards first.</div>';
+  const selected = epGetWeakSelection();
+  const anyFilterOn = Object.values(epWeakFilter).some(v=>v);
+  if(!anyFilterOn){
+    list.innerHTML = '<div class="weak-empty">Pick at least one rating above to build a review list.</div>';
     return;
   }
+  if(selected.length === 0){
+    list.innerHTML = '<div class="weak-empty">🎉 No cards with the selected rating(s) yet.</div>';
+    return;
+  }
+  const icons = {again:'✗', hard:'~', medium:'•', good:'✓'};
   list.innerHTML = '';
-  weak.forEach(card => {
+  selected.forEach(card => {
     const rating = epRated[card.n];
     const item = document.createElement('div');
     item.className = 'weak-item';
     item.onclick = () => epGoToCard(card.n);
-    item.innerHTML = '<div class="weak-item-badge '+rating+'">'+(rating==='again'?'✗':'~')+'</div>'
+    item.innerHTML = '<div class="weak-item-badge '+rating+'">'+icons[rating]+'</div>'
       +'<div style="flex:1"><div class="weak-item-q">'+card.q+'</div></div>'
       +'<div class="weak-item-num">Q'+card.n+'</div>';
     list.appendChild(item);
@@ -6839,10 +6879,9 @@ function epRenderWeakList(){
 }
 
 function epStartWeak(){
-  const weak = EP_QA.filter(c => epRated[c.n]==='again'||epRated[c.n]==='hard');
-  weak.sort((a,b)=>{const o={again:0,hard:1};return (o[epRated[a.n]]??2)-(o[epRated[b.n]]??2);});
-  if(!weak.length) return;
-  epDeck = weak;
+  const selected = epGetWeakSelection();
+  if(!selected.length) return;
+  epDeck = selected;
   epIdx = 0; epFlipped = false;
   epSwitchToMode('flash');
   epRenderCard();
