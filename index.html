@@ -633,6 +633,8 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
 .weak-header h3{font-size:15px;font-weight:700;color:var(--text);margin:0}
 .weak-start-all{font-size:12px;font-weight:600;padding:6px 14px;border-radius:7px;background:var(--eu);color:#fff;border:none;cursor:pointer;font-family:var(--sans);transition:opacity .15s}
 .weak-start-all:hover{opacity:.85}
+.weak-export-btn{background:var(--surface);color:var(--eu);border:1px solid var(--eu-m)}
+.weak-export-btn:hover{background:var(--eu-l);opacity:1}
 .weak-item{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border:1px solid var(--border);border-radius:8px;margin-bottom:6px;cursor:pointer;transition:background .12s}
 .weak-item:hover{background:var(--surface2)}
 .weak-item-badge{width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0;color:#fff}
@@ -3244,7 +3246,10 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:1
   <div id="ep-weak-view" style="display:none">
     <div class="weak-header">
       <h3>⚡ Review by Rating</h3>
-      <button class="weak-start-all" onclick="epStartWeak()">Study selected →</button>
+      <div style="display:flex;gap:8px;align-items:center">
+        <button class="weak-start-all weak-export-btn" id="ep-weak-export-btn" onclick="epExportSelectedToClipboard()">📋 Copy for Claude</button>
+        <button class="weak-start-all" onclick="epStartWeak()">Study selected →</button>
+      </div>
     </div>
     <div class="weak-filter-row" id="ep-weak-filter-row">
       <div class="weak-filter-chip wfc-again" data-rating="again" onclick="epToggleWeakFilter('again')"><span class="wfc-dot" style="background:#ef4444"></span>Again</div>
@@ -7137,6 +7142,58 @@ function epStartWeak(){
   epRenderCard();
   const tot = document.getElementById('ep-card-total');
   if(tot) tot.textContent = epDeck.length;
+}
+
+const EP_RATING_LABELS = {again:'Again', hard:'Partially', medium:'Mostly', good:'Got it'};
+
+function epBuildExportText(){
+  const selected = epGetWeakSelection();
+  if(!selected.length) return '';
+  const ratingsUsed = [...new Set(selected.map(c => EP_RATING_LABELS[epRated[c.n]] || 'Unrated'))];
+  let text = "I'm studying for an EU Law exam. Please quiz me on these questions one at a time — ask a question, wait for my answer, then tell me honestly if I got it right and fill in what I'm missing before moving to the next one. These are questions I rated \""+ratingsUsed.join('/')+"\" myself, so go easy but be accurate.\n\n";
+  selected.forEach((card, i) => {
+    const rating = EP_RATING_LABELS[epRated[card.n]] || 'Unrated';
+    text += (i+1)+'. ['+rating+'] Q'+card.n+' — '+card.q+'\n';
+    text += 'Reference answer: '+stripHtmlForExport(card.a)+(card.r ? ' ('+card.r+')' : '')+'\n\n';
+  });
+  return text.trim();
+}
+
+function stripHtmlForExport(s){
+  const div = document.createElement('div');
+  div.innerHTML = s;
+  return div.textContent || div.innerText || '';
+}
+
+function epExportSelectedToClipboard(){
+  const btn = document.getElementById('ep-weak-export-btn');
+  const text = epBuildExportText();
+  if(!text){
+    if(btn){ const orig = btn.textContent; btn.textContent = 'Pick a rating first'; setTimeout(()=>{ btn.textContent = orig; }, 1600); }
+    return;
+  }
+  const showCopied = () => {
+    if(!btn) return;
+    const orig = '📋 Copy for Claude';
+    btn.textContent = '✓ Copied ' + epGetWeakSelection().length + ' Q&As';
+    setTimeout(()=>{ btn.textContent = orig; }, 1800);
+  };
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(showCopied).catch(()=>epFallbackCopy(text, showCopied));
+  } else {
+    epFallbackCopy(text, showCopied);
+  }
+}
+
+function epFallbackCopy(text, cb){
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus(); ta.select();
+  try { document.execCommand('copy'); if(cb) cb(); } catch(e){}
+  document.body.removeChild(ta);
 }
 
 // ════════════════════════════════════════════════════════════
